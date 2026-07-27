@@ -1,0 +1,16 @@
+page CryptoAppHeroPage
+  Section id:"crypto-app-hero" bg:"surface" color:"onSurface" boxed:true minH:"vh-16" py:{ xs:8 md:12 }
+    Grid columns:{ xs:1 md:"5fr 4fr" } gap:{ xs:8 md:14 } align:"center" minH:"vh-16"
+      Flex direction:"column" align:"start" gap:5
+        Text size:"xs" weight:"bold" spacing:"widest" color:"primary"
+          "WORK WITHOUT THE CLUTTER"
+        Title size:{ xs:"4xl" md:"6xl" } weight:"black"
+          "Bring every project into focus"
+        Text size:"lg" color:"muted"
+          "Plan, collaborate, and ship from one calm workspace that keeps priorities visible and every handoff clear."
+        Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" iconEnd:"arrow-right"
+          "Explore the workspace"
+      Box bg:"softPrimary" color:"primary" rounded:"xl" minH:{ xs:56 md:80 } p:{ xs:6 md:10 }
+        Flex direction:"column" justify:"center" align:"center" minH:{ xs:44 md:60 }
+          Box bg:"surface" rounded:"lg" p:{ xs:5 md:7 } shadow:"lg" shadowColor:"muted"
+            Icon name:"gallery-wide" style:"bold-duotone" fill:"primary" w:{ xs:14 md:20 } h:{ xs:14 md:20 }

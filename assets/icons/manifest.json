@@ -1,0 +1,92 @@
+{
+  "version": 1,
+  "platforms": {
+    "android": {
+      "source": "assets/icon.svg",
+      "background": "#ffffff",
+      "rounded": "md",
+      "fingerprint": "8197de72d081036baacd08ffe4cf5e5fd6aa273c7a605e6ac886c169427b114b",
+      "files": [
+        "drawable/ic_launcher_background.xml",
+        "drawable-hdpi/ic_launcher_foreground.png",
+        "drawable-mdpi/ic_launcher_foreground.png",
+        "drawable-xhdpi/ic_launcher_foreground.png",
+        "drawable-xxhdpi/ic_launcher_foreground.png",
+        "drawable-xxxhdpi/ic_launcher_foreground.png",
+        "mipmap-anydpi-v26/ic_launcher.xml",
+        "mipmap-anydpi-v26/ic_launcher_round.xml",
+        "mipmap-hdpi/ic_launcher.png",
+        "mipmap-hdpi/ic_launcher_round.png",
+        "mipmap-mdpi/ic_launcher.png",
+        "mipmap-mdpi/ic_launcher_round.png",
+        "mipmap-xhdpi/ic_launcher.png",
+        "mipmap-xhdpi/ic_launcher_round.png",
+        "mipmap-xxhdpi/ic_launcher.png",
+        "mipmap-xxhdpi/ic_launcher_round.png",
+        "mipmap-xxxhdpi/ic_launcher.png",
+        "mipmap-xxxhdpi/ic_launcher_round.png"
+      ]
+    },
+    "desktop": {
+      "source": "assets/icon.svg",
+      "background": "#ffffff",
+      "rounded": "md",
+      "fingerprint": "8197de72d081036baacd08ffe4cf5e5fd6aa273c7a605e6ac886c169427b114b",
+      "files": [
+        "icon.icns",
+        "icon.ico",
+        "icon.png",
+        "png/icon-1024x1024.png",
+        "png/icon-128x128.png",
+        "png/icon-16x16.png",
+        "png/icon-256x256.png",
+        "png/icon-32x32.png",
+        "png/icon-512x512.png",
+        "png/icon-64x64.png"
+      ]
+    },
+    "ios": {
+      "source": "assets/icon.svg",
+      "background": "#ffffff",
+      "rounded": "md",
+      "fingerprint": "8197de72d081036baacd08ffe4cf5e5fd6aa273c7a605e6ac886c169427b114b",
+      "files": [
+        "AppIcon.appiconset/AppIcon-ios-marketing-1024x1024-1x.png",
+        "AppIcon.appiconset/AppIcon-ipad-20x20-1x.png",
+        "AppIcon.appiconset/AppIcon-ipad-20x20-2x.png",
+        "AppIcon.appiconset/AppIcon-ipad-29x29-1x.png",
+        "AppIcon.appiconset/AppIcon-ipad-29x29-2x.png",
+        "AppIcon.appiconset/AppIcon-ipad-40x40-1x.png",
+        "AppIcon.appiconset/AppIcon-ipad-40x40-2x.png",
+        "AppIcon.appiconset/AppIcon-ipad-76x76-1x.png",
+        "AppIcon.appiconset/AppIcon-ipad-76x76-2x.png",
+        "AppIcon.appiconset/AppIcon-ipad-83_5x83_5-2x.png",
+        "AppIcon.appiconset/AppIcon-iphone-20x20-2x.png",
+        "AppIcon.appiconset/AppIcon-iphone-20x20-3x.png",
+        "AppIcon.appiconset/AppIcon-iphone-29x29-2x.png",
+        "AppIcon.appiconset/AppIcon-iphone-29x29-3x.png",
+        "AppIcon.appiconset/AppIcon-iphone-40x40-2x.png",
+        "AppIcon.appiconset/AppIcon-iphone-40x40-3x.png",
+        "AppIcon.appiconset/AppIcon-iphone-60x60-2x.png",
+        "AppIcon.appiconset/AppIcon-iphone-60x60-3x.png",
+        "AppIcon.appiconset/Contents.json",
+        "AppIcon.png"
+      ]
+    },
+    "web": {
+      "source": "assets/icon.svg",
+      "background": "#ffffff",
+      "rounded": "md",
+      "fingerprint": "8197de72d081036baacd08ffe4cf5e5fd6aa273c7a605e6ac886c169427b114b",
+      "files": [
+        "apple-touch-icon.png",
+        "favicon-16x16.png",
+        "favicon-32x32.png",
+        "favicon-48x48.png",
+        "favicon.ico",
+        "icon-192x192.png",
+        "icon-512x512.png"
+      ]
+    }
+  }
+}

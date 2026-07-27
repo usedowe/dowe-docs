@@ -1,0 +1,43 @@
+layout ScaffoldExampleLayout
+  signal openDrawer value:false
+  Scaffold boxed:true
+    appBar
+      AppBar variant:"soft" scheme:"surface" position:"fixed" bordered:true boxed:true
+        start
+          IconButton label:"Open navigation" variant:"ghost" show:{ xs:true md:false } onClick:{ set:openDrawer value:!openDrawer } icon:"menu-dots"
+          Text weight:"bold"
+            "Dowe"
+        center
+          Text size:"sm" color:"muted"
+            "Scaffold shell"
+        end
+          Button href:"/examples/bottombar" variant:"ghost" scheme:"primary" size:"sm"
+            "Bottom bar"
+    start
+      Sidebar show:{ xs:false md:true } variant:"soft" scheme:"surface"
+        header
+          Text weight:"bold" p:3
+            "Workspace"
+        body
+          SideNav variant:"ghost" scheme:"muted" size:"sm" wide:true p:3
+            item label:"Overview" href:"/examples/scaffold" icon:"home"
+            item label:"Tasks" href:"/examples/scaffold" icon:"check-circle"
+            item label:"Settings" href:"/examples/scaffold" icon:"settings"
+    main
+      children
+    bottomBar
+      BottomBar variant:"soft" scheme:"surface" bordered:true boxed:true
+        tab href:"/examples/scaffold" label:"Overview"
+          Icon name:"home"
+        tab href:"/examples/bottombar" label:"Bottom bar"
+          Icon name:"add-circle"
+    overlays
+      Drawer open:openDrawer position:"start" variant:"soft" scheme:"surface" show:{ xs:true md:false }
+        header
+          Text weight:"bold" p:3
+            "Workspace"
+        body
+          SideNav variant:"ghost" scheme:"muted" size:"sm" wide:true p:3
+            item label:"Overview" href:"/examples/scaffold" icon:"home"
+            item label:"Tasks" href:"/examples/scaffold" icon:"check-circle"
+            item label:"Settings" href:"/examples/scaffold" icon:"settings"

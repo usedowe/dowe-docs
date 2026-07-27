@@ -1,0 +1,9 @@
+component DevNavigation
+  SideNav variant:"ghost" scheme:"muted" size:"sm" wide:true p:4
+    item label:"Installation" href:"/docs/dev/install" icon:"document-text"
+    item label:"Dowe Dev" href:"/docs/dev" icon:"code"
+    item label:"Dowe Deploy" href:"/docs/dev/deploy" icon:"settings"
+    item label:"Dowe Agent" href:"/docs/dev/agent" icon:"cpu"
+    item label:"Testing" href:"/docs/dev/tests" icon:"check-circle"
+    item label:"Project Icons" href:"/docs/dev/icons" icon:"gallery"
+    item label:"Extensions" href:"/docs/dev/extensions" icon:"code"

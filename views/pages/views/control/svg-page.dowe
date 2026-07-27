@@ -1,0 +1,152 @@
+page SvgPage
+  signal svgSource value:"<svg width='120px' height='72px' viewBox='0 0 120 72'><g transform='matrix(1,0,0,1,8,8)'><path d='M0 0L48 0L48 48L0 48Z' style='fill:rgb(31,58,95)'/><path d='M56 0L104 24L56 48Z' style='fill:rgb(107,198,112)'/></g></svg>"
+  signal doweSvg value:""
+  const svgProps:
+    value:[
+      {
+        prop:"viewBox"
+        type:"four-number string"
+        defaultValue:"required"
+      },
+      {
+        prop:"color"
+        type:"design color token"
+        defaultValue:"inherited"
+      },
+      {
+        prop:"w"
+        type:"size scale | full"
+        defaultValue:"6"
+      },
+      {
+        prop:"h"
+        type:"size scale | full"
+        defaultValue:"6"
+      },
+      {
+        prop:"show"
+        type:"boolean | responsive | Signal"
+        defaultValue:"true"
+      },
+    ]
+  const pathProps:
+    value:[
+      {
+        prop:"d"
+        type:"portable SVG path data"
+        defaultValue:"required"
+      },
+      {
+        prop:"fill"
+        type:"currentColor | none | color token"
+        defaultValue:"currentColor"
+      },
+      {
+        prop:"transform"
+        type:"matrix(a b c d e f)"
+        defaultValue:"identity"
+      },
+    ]
+  fn convertSvg
+    set doweSvg source:parse.svg value:svgSource fallback:""
+  Section id:"svg-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "CONTROL"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Svg"
+        Text size:"lg" color:"muted"
+          "Svg renders portable inline vector paths from one target-neutral Dowe source tree."
+      Svg viewBox:"0 0 120 72" w:32 h:20
+        Path d:"M0 0L48 0L48 48L0 48Z" fill:"primary" transform:"matrix(1 0 0 1 8 8)"
+        Path d:"M56 0L104 24L56 48Z" fill:"secondary" transform:"matrix(1 0 0 1 8 8)"
+  Section id:"svg-converter" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SVG TO DOWE"
+        Title size:"3xl" weight:"black"
+          "Convert vector source in the view"
+        Text size:"sm" color:"muted"
+          "Paste SVG XML, run the view function, and copy the generated Svg and Path declarations."
+      Grid columns:{ xs:1 md:2 } gap:5
+        Grid columns:1 gap:3
+          Textarea:
+            bind:svgSource
+            label:"SVG source"
+            placeholder:"Paste an <svg> document"
+            rows:16
+            maxLength:60000
+            variant:"outlined"
+            scheme:"primary"
+            w:"full"
+          Button onClick:convertSvg variant:"solid" scheme:"primary" iconStart:"code"
+            "Convert to Dowe"
+        Grid columns:1 gap:3
+          Code:
+            language:"dowe"
+            template:true
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy Dowe"
+            copiedLabel:"Copied"
+            content:"{doweSvg}"
+          Text size:"xs" color:"muted"
+            "The importer maps distinct SVG fills to primary, secondary, tertiary, and the remaining semantic color tokens in encounter order."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy function"
+        copiedLabel:"Copied"
+        content:"""
+          signal svgSource value:"<svg viewBox='0 0 24 24'><path d='M4 4L20 4L12 20Z'/></svg>"
+          signal doweSvg value:""
+
+          fn convertSvg
+            set doweSvg source:parse.svg value:svgSource fallback:""
+
+          Textarea bind:svgSource label:"SVG source" rows:12
+          Button onClick:convertSvg
+            "Convert to Dowe"
+          Code language:"dowe" template:true content:"{doweSvg}"
+        """
+  Section id:"svg-contract" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "AUTHORING CONTRACT"
+        Title size:"3xl" weight:"black"
+          "One surface, direct Path children"
+        Text size:"sm" color:"muted"
+          "Svg requires a viewBox and one or more direct Path children. Path is structural and cannot be used outside Svg."
+      Grid columns:{ xs:1 md:2 } gap:5
+        Table data:svgProps variant:"outlined" scheme:"surface" size:"sm"
+          column field:"prop" label:"Svg prop"
+          column field:"type" label:"Accepted value"
+          column field:"defaultValue" label:"Default"
+        Table data:pathProps variant:"outlined" scheme:"surface" size:"sm"
+          column field:"prop" label:"Path prop"
+          column field:"type" label:"Accepted value"
+          column field:"defaultValue" label:"Default"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Svg viewBox:"0 0 120 72" w:32 h:20
+            Path d:"M0 0L48 0L48 48L0 48Z" fill:"primary" transform:"matrix(1 0 0 1 8 8)"
+            Path d:"M56 0L104 24L56 48Z" fill:"secondary" transform:"matrix(1 0 0 1 8 8)"
+        """
+  Section id:"svg-support" p:{ xs:5 md:7 }
+    Grid columns:1 gap:4
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "PORTABLE SUBSET"
+      Title size:"3xl" weight:"black"
+        "Paths and affine matrices"
+      Alert type:"info" message:"parse.svg imports svg, g, and path elements plus matrix(...) transforms. It ignores unsupported drawing elements and never executes scripts, DTD, external entities, or user JavaScript." variant:"soft" scheme:"info"
+      Text size:"sm" color:"muted"
+        "Web emits inline SVG. Android draws the same path model on Canvas, and iOS renders it as SwiftUI paths while caching parsed geometry across drawing passes. Adjust w and h after conversion for the destination layout."

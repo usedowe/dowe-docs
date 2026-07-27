@@ -1,0 +1,6 @@
+import { listIconCategories, listIcons } from "@/server/handlers/icons"
+
+endpoints ApiRoutes
+  group path:"/api/icons"
+    get path:"/categories" handler:listIconCategories
+    get path:"/:category/:style/:search/:page" handler:listIcons

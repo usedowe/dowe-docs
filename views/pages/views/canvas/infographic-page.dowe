@@ -1,0 +1,260 @@
+page CanvasInfographicPage
+  signal infographic:
+    value:[
+      {
+        type:"rect"
+        x:0
+        y:0
+        width:640
+        height:360
+        fill:"surface"
+      },
+      {
+        type:"text"
+        x:36
+        y:46
+        text:"Portable target coverage"
+        fill:"onSurface"
+        size:24
+      },
+      {
+        type:"line"
+        x1:160
+        y1:78
+        x2:160
+        y2:310
+        stroke:"onSurface"
+        strokeWidth:1
+        opacity:0.18
+      },
+      {
+        type:"line"
+        x1:160
+        y1:310
+        x2:606
+        y2:310
+        stroke:"onSurface"
+        strokeWidth:1
+        opacity:0.18
+      },
+      {
+        type:"text"
+        x:32
+        y:118
+        text:"Web"
+        fill:"onSurface"
+        size:18
+      },
+      {
+        type:"rect"
+        x:160
+        y:92
+        width:410
+        height:36
+        radius:8
+        fill:"primary"
+      },
+      {
+        type:"text"
+        x:584
+        y:117
+        text:"100%"
+        fill:"onSurface"
+        size:16
+        align:"end"
+      },
+      {
+        type:"text"
+        x:32
+        y:190
+        text:"iOS"
+        fill:"onSurface"
+        size:18
+      },
+      {
+        type:"rect"
+        x:160
+        y:164
+        width:410
+        height:36
+        radius:8
+        fill:"secondary"
+      },
+      {
+        type:"text"
+        x:584
+        y:189
+        text:"100%"
+        fill:"onSurface"
+        size:16
+        align:"end"
+      },
+      {
+        type:"text"
+        x:32
+        y:262
+        text:"Android"
+        fill:"onSurface"
+        size:18
+      },
+      {
+        type:"rect"
+        x:160
+        y:236
+        width:410
+        height:36
+        radius:8
+        fill:"tertiary"
+      },
+      {
+        type:"text"
+        x:584
+        y:261
+        text:"100%"
+        fill:"onSurface"
+        size:16
+        align:"end"
+      },
+      {
+        type:"circle"
+        x:52
+        y:326
+        radius:5
+        fill:"success"
+      },
+      {
+        type:"text"
+        x:66
+        y:332
+        text:"Same scene order, geometry, tokens, opacity, and motion"
+        fill:"muted"
+        size:14
+      },
+    ]
+  const coverageSummary:
+    value:[
+      {
+        id:"web"
+        target:"Web and desktop"
+        renderer:"Device-pixel-ratio-aware Canvas"
+        coverage:"100%"
+      },
+      {
+        id:"ios"
+        target:"iOS"
+        renderer:"SwiftUI Canvas"
+        coverage:"100%"
+      },
+      {
+        id:"android"
+        target:"Android"
+        renderer:"Jetpack Compose Canvas"
+        coverage:"100%"
+      },
+    ]
+  Section id:"canvas-infographic-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "CANVAS · INFOGRAPHIC"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Infographics"
+        Text size:"lg" color:"muted"
+          "Turn lines, shapes, labels, and theme tokens into portable data graphics while keeping essential meaning in semantic content."
+      Card variant:"soft" scheme:"info" p:5 rounded:"lg" minW:56
+        Grid columns:1 gap:1
+          Text size:"xs" weight:"bold" spacing:"widest"
+            "ACCESSIBLE BY DESIGN"
+          Title size:"xl" weight:"black"
+            "Pixels plus a summary"
+          Text size:"sm"
+            "The Canvas label names the image; nearby Dowe content preserves the underlying facts."
+  Section id:"canvas-infographic-demo" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "ADVANCED EXAMPLE"
+        Title size:"3xl" weight:"black"
+          "Build a chart from drawing primitives"
+        Text size:"sm" color:"muted"
+          "This scene uses a shared baseline, aligned labels, rounded bars, and a legend marker. Command order keeps labels above the filled bars."
+      Canvas:
+        scene:infographic
+        viewWidth:640
+        viewHeight:360
+        fit:"contain"
+        fps:30
+        autoplay:false
+        background:"surface"
+        label:"Bar infographic showing full Canvas target coverage for web, iOS, and Android"
+        w:"full"
+        h:96
+        rounded:"lg"
+        border:1
+      Table:
+        data:coverageSummary
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"target" label:"Target" width:"1.5fr"
+        column field:"renderer" label:"Renderer" width:"3fr"
+        column field:"coverage" label:"Coverage" width:"1fr"
+  Section id:"canvas-infographic-code" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SOURCE"
+        Title size:"3xl" weight:"black"
+          "Keep chart geometry explicit"
+        Text size:"sm" color:"muted"
+          "Canvas is useful when a semantic chart component cannot express the visual. For standard line, bar, area, pie, or arc charts, prefer the dedicated Dowe component."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          signal infographic value:[
+            { type:"line" x1:160 y1:78 x2:160 y2:310 stroke:"onSurface" opacity:0.18 },
+            { type:"text" x:32 y:118 text:"Web" fill:"onSurface" size:18 },
+            { type:"rect" x:160 y:92 width:410 height:36 radius:8 fill:"primary" },
+            { type:"text" x:584 y:117 text:"100%" fill:"onSurface" size:16 align:"end" },
+          ]
+
+          Canvas scene:infographic viewWidth:640 viewHeight:360 autoplay:false label:"Target coverage infographic" w:"full" h:96
+        """
+  Section id:"canvas-infographic-guidance" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "DATA GRAPHICS"
+        Title size:"3xl" weight:"black"
+          "Choose Canvas when the composition is custom"
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"success" p:5 rounded:"lg"
+          Grid columns:1 gap:2
+            Title size:"xl" weight:"black"
+              "Use Canvas"
+            Text size:"sm"
+              "Custom diagrams, branded infographics, spatial maps, and target-neutral annotations."
+        Card variant:"soft" scheme:"primary" p:5 rounded:"lg"
+          Grid columns:1 gap:2
+            Title size:"xl" weight:"black"
+              "Use a chart"
+            Text size:"sm"
+              "Standard categorical or time-series graphics that benefit from built-in legends and empty states."
+        Card variant:"soft" scheme:"warning" p:5 rounded:"lg"
+          Grid columns:1 gap:2
+            Title size:"xl" weight:"black"
+              "Always summarize"
+            Text size:"sm"
+              "Repeat essential values as Text, Table, or controls outside the pixel surface."
+      Flex justify:"space-between" align:"center" wrap:true gap:3
+        Button href:"/docs/views/canvas/particles" variant:"ghost" scheme:"muted" iconStart:"alt-arrow-left"
+          "Particles"
+        Button href:"/docs/views/canvas/composition" variant:"solid" scheme:"primary" iconEnd:"alt-arrow-right"
+          "Compose images"

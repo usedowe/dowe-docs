@@ -1,0 +1,85 @@
+page CompleteSolutionsFeaturesPage
+  Section id:"complete-solutions-features" bg:"surface" color:"onSurface" boxed:true py:{ xs:8 md:12 }
+    Grid columns:1 gap:{ xs:8 md:12 }
+      Flex direction:"column" align:"center" gap:3
+        Title size:{ xs:"4xl" md:"6xl" } weight:"black"
+          "The Complete Solutions"
+        Text size:"lg" color:"muted"
+          "Everything your team needs to create, organize, and optimize digital experiences."
+      Grid columns:{ xs:1 md:3 } gap:6
+        Flex direction:"column" align:"center" gap:5
+          Box bg:"softMuted" rounded:"lg" p:6 w:"full" minH:52
+            Grid columns:1 gap:4
+              Flex align:"center" justify:"between"
+                Box w:14 h:3 bg:"muted" rounded:"full"
+                Box w:10 h:3 bg:"softPrimary" rounded:"full"
+              Grid columns:"72px 1fr" gap:2
+                Box bg:"surface" rounded:"lg" border:1 borderColor:"muted" p:2
+                  Grid columns:1 gap:2
+                    Box h:4 bg:"softMuted" rounded:"sm"
+                    Box h:4 bg:"softPrimary" rounded:"sm"
+                    Box h:4 bg:"softMuted" rounded:"sm"
+                    Box h:4 bg:"softMuted" rounded:"sm"
+                Box bg:"surface" rounded:"lg" border:1 borderColor:"muted" p:3
+                  Grid columns:4 gap:1
+                    Box h:7 bg:"softMuted"
+                    Box h:7 bg:"softMuted"
+                    Box h:7 bg:"softPrimary"
+                    Box h:7 bg:"softMuted"
+                    Box h:7 bg:"softPrimary"
+                    Box h:7 bg:"softMuted"
+                    Box h:7 bg:"softMuted"
+                    Box h:7 bg:"softPrimary"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"black"
+              "Friendly Interface"
+            Text color:"muted"
+              "Give every teammate a clear workspace that feels familiar from the first click."
+        Flex direction:"column" align:"center" gap:5
+          Box bg:"softMuted" rounded:"lg" p:6 w:"full" minH:52
+            Box bg:"surface" rounded:"lg" p:4 shadow:"sm"
+              Grid columns:1 gap:4
+                Flex align:"center" justify:"between"
+                  Flex align:"center" gap:2
+                    Icon name:"gallery" style:"bold-duotone" fill:"primary" w:6 h:6
+                    Text weight:"bold"
+                      "Images"
+                  Flex gap:2
+                    Icon name:"pen-new-square" fill:"muted" w:5 h:5
+                    Icon name:"add-circle" fill:"muted" w:5 h:5
+                Grid columns:3 gap:2
+                  Box bg:"softMuted" rounded:"md" minH:20
+                  Box bg:"softWarning" rounded:"md" minH:20
+                  Box bg:"softMuted" rounded:"md" minH:20
+                Flex justify:"end"
+                  Icon name:"cursor" style:"bold" fill:"onSurface" w:7 h:7
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"black"
+              "Files Editor & Viewer"
+            Text color:"muted"
+              "Review assets, compare versions, and keep production files in one focused place."
+        Flex direction:"column" align:"center" gap:5
+          Box bg:"softMuted" rounded:"lg" p:6 w:"full" minH:52
+            Box bg:"surface" rounded:"lg" p:4 border:1 borderColor:"muted"
+              Grid columns:"1fr 5fr" gap:3
+                Grid columns:1 gap:2
+                  Box w:4 h:4 rounded:"full" bg:"softMuted"
+                  Box w:4 h:4 rounded:"full" bg:"softMuted"
+                  Box w:4 h:4 rounded:"full" bg:"softMuted"
+                Grid columns:1 gap:3
+                  Box w:32 h:3 bg:"softMuted" rounded:"full"
+                  Box bg:"surface" rounded:"md" p:3 shadow:"md"
+                    Grid columns:"1fr 2fr" gap:3 align:"center"
+                      Box bg:"danger" rounded:"md" minH:16
+                        Flex align:"center" justify:"center" minH:16
+                          Icon name:"stars" style:"bold" fill:"onDanger" w:8 h:8
+                      Grid columns:1 gap:2
+                        Box w:20 h:3 bg:"softMuted" rounded:"full"
+                        Box w:14 h:3 bg:"softPrimary" rounded:"full"
+                  Flex justify:"end"
+                    Icon name:"cursor" style:"bold" fill:"onSurface" w:7 h:7
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"black"
+              "Extremely Flexible"
+            Text color:"muted"
+              "Adapt layouts and workflows as your products, channels, and customer needs evolve."

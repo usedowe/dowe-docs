@@ -1,0 +1,52 @@
+layout AppBarHostingLayout
+  Scaffold
+    appBar
+      AppBar variant:"solid" scheme:"primary" position:"sticky" boxed:true
+        top
+          Box bg:"tertiary" color:"onTertiary" px:4 py:2
+            Grid columns:{ xs:1 md:3 } gap:4 align:"center"
+              Text size:"xs" weight:"bold"
+                "Contact@hostc.com"
+              Flex justify:"center" show:{ xs:false md:true }
+                Text size:"xs" weight:"bold"
+                  "Hosting Flash Sale: Starting at $2.59/mo for a limited time"
+              Flex justify:"end" show:{ xs:false lg:true }
+                Text size:"xs" weight:"bold"
+                  "Live Chat · Login"
+        start
+          Brand href:"/blocks/appbar" label:"Hostc home"
+            Flex align:"center" gap:2
+              Icon name:"global" style:"bold" fill:"warning" w:9 h:9
+              Text size:"xl" weight:"black" color:"onPrimary"
+                "HOSTC"
+        center
+          NavMenu variant:"soft" scheme:"surface" size:"sm" show:{ xs:false md:true }
+            submenu label:"Home"
+              item label:"Classic" href:"/blocks/appbar-preview/classic-saas"
+              item label:"Creative" href:"/blocks/appbar-preview/creative"
+            submenu label:"Pages"
+              item label:"Social" href:"/blocks/appbar-preview/social-pill"
+              item label:"Floating" href:"/blocks/appbar-preview/floating-card"
+            submenu label:"Services"
+              item label:"Centered" href:"/blocks/appbar-preview/centered-pill"
+              item label:"Dashboard" href:"/blocks/appbar-preview/dashboard"
+            item label:"Blogs" href:"/blocks/appbar-preview/admin"
+            item label:"Contact" href:"/blocks/appbar"
+        end
+          Flex align:"center" gap:2
+            Button:
+              href:"/blocks/appbar-preview/dashboard"
+              variant:"solid"
+              scheme:"warning"
+              size:"sm"
+              rounded:"full"
+              show:{ xs:false sm:true }
+              "GET STARTED NOW"
+            IconButton:
+              icon:"hamburger-menu"
+              label:"Open navigation"
+              variant:"soft"
+              scheme:"warning"
+              show:{ xs:true md:false }
+    main
+      children

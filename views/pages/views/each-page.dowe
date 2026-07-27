@@ -1,0 +1,47 @@
+page EachPage
+  const features value:[
+    { id:"signals" title:"Signals" description:"Reactive state for one page or layout." },
+    { id:"stores" title:"Stores" description:"Shared application state imported by consumers." },
+    { id:"functions" title:"Functions" description:"Named reactive behavior for events." },
+  ]
+  Section id:"each-introduction" py:{ xs:6 md:10 }
+    Grid columns:1 gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "LOGIC"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Each"
+      Text size:"lg" color:"muted"
+        "Use each to render one or more view nodes for every item in a Signal or immutable const collection."
+  Section id:"each-example" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "EXAMPLE"
+        Title size:"3xl" weight:"black"
+          "Repeat a catalog"
+        Text size:"sm" color:"muted"
+          "The in collection, as alias, and deterministic key are all required."
+      Grid columns:{ xs:1 md:3 } gap:4
+        each in:features as:feature key:feature.id
+          Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+            Grid columns:1 gap:2
+              Title size:"lg" weight:"bold"
+                "{feature.title}"
+              Text size:"sm" color:"muted"
+                "{feature.description}"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          const features value:[
+            { id:"signals" title:"Signals" },
+            { id:"stores" title:"Stores" },
+          ]
+
+          each in:features as:feature key:feature.id
+            Text
+              "{feature.title}"
+        """

@@ -1,0 +1,138 @@
+page BadgePage
+  const badgeProps:
+    value:[
+      { prop:"text" type:"static string" defaultValue:"required" },
+      { prop:"position" type:"top-left | top-right | bottom-left | bottom-right" defaultValue:"top-right" },
+      { prop:"variant" type:"solid | soft" defaultValue:"solid" },
+      { prop:"scheme" type:"primary | secondary | tertiary | muted | background | surface | success | info | warning | danger" defaultValue:"primary" },
+      { prop:"children" type:"normal view tree" defaultValue:"required" },
+    ]
+  Section id:"badge-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "DISPLAY"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Badge"
+        Text size:"lg" color:"muted"
+          "Badge wraps any view child and positions a compact count, status, or label without taking over the child’s layout."
+      Badge text:"Live" scheme:"success" variant:"soft" position:"top-right"
+        Avatar name:"Dowe" size:"xl" scheme:"primary"
+  Section id:"badge-playground" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PLAYGROUND"
+        Title size:"3xl" weight:"black"
+          "Layer status onto real controls"
+        Text size:"sm" color:"muted"
+          "Use position for spatial meaning and keep the badge text short enough to scan at a glance."
+      Card variant:"outlined" scheme:"surface" rounded:"md" border:1 p:{ xs:5 md:7 }
+        Flex wrap:true justify:"center" align:"center" gap:8
+          Badge text:"3" scheme:"danger" position:"top-right"
+            Avatar name:"Ada" size:"xl" scheme:"secondary" bordered:true
+          Badge text:"New" scheme:"success" variant:"soft" position:"bottom-right"
+            Button variant:"soft" scheme:"primary" size:"md" iconStart:"inbox"
+              "Inbox"
+          Badge text:"Beta" scheme:"info" variant:"soft" position:"top-left"
+            Button variant:"solid" scheme:"muted" size:"lg"
+              "Command"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Badge text:"3" scheme:"danger" position:"top-right"
+            Avatar name:"Ada" size:"xl" scheme:"secondary" bordered:true
+
+          Badge text:"New" scheme:"success" variant:"soft" position:"bottom-right"
+            Button variant:"soft" scheme:"primary" size:"md" iconStart:"inbox"
+              "Inbox"
+
+          Badge text:"Beta" scheme:"info" variant:"soft" position:"top-left"
+            Button variant:"solid" scheme:"muted" size:"lg"
+              "Command"
+        """
+  Section id:"badge-patterns" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "ADVANCED PATTERNS"
+        Title size:"3xl" weight:"black"
+          "Counts, labels, and corners"
+        Text size:"sm" color:"muted"
+          "A badge should add a small piece of context while the child remains the primary interaction or information surface."
+      Grid columns:{ xs:1 md:4 } gap:4
+        Card variant:"soft" scheme:"surface" p:4 rounded:"md"
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold" color:"muted"
+              "COUNT"
+            Badge text:"12" scheme:"danger" position:"top-right"
+              Avatar name:"Notifications" size:"lg" scheme:"muted"
+        Card variant:"soft" scheme:"surface" p:4 rounded:"md"
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold" color:"muted"
+              "STATUS"
+            Badge text:"Live" scheme:"success" variant:"soft" position:"bottom-left"
+              Button variant:"outlined" scheme:"success" size:"sm"
+                "Deployment"
+        Card variant:"soft" scheme:"surface" p:4 rounded:"md"
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold" color:"muted"
+              "LABEL"
+            Badge text:"Beta" scheme:"warning" variant:"soft" position:"top-left"
+              Button variant:"outlined" scheme:"muted" size:"sm"
+                "Preview"
+        Card variant:"soft" scheme:"surface" p:4 rounded:"md"
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold" color:"muted"
+              "ALERT"
+            Badge text:"!" scheme:"danger" position:"bottom-right"
+              Button variant:"solid" scheme:"danger" size:"sm"
+                "Action needed"
+  Section id:"badge-contract" p:{ xs:5 md:7 }
+    Grid columns:{ xs:1 md:2 } gap:4
+      Card variant:"outlined" scheme:"surface" rounded:"md" border:1 p:5
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+            "POSITION"
+          Title size:"xl" weight:"black"
+            "Anchor to the child"
+          Text size:"sm" color:"muted"
+            "The four position values attach the label to a corner of the wrapped child; they do not alter document flow."
+      Card variant:"outlined" scheme:"surface" rounded:"md" border:1 p:5
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+            "SCHEME"
+          Title size:"xl" weight:"black"
+            "Make status semantic"
+          Text size:"sm" color:"muted"
+            "Use danger for attention, success for completion, info for context, and muted for quiet metadata."
+  Section id:"badge-props" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Props"
+        Text size:"sm" color:"muted"
+          "Badge also accepts the applicable common spacing, sizing, border, visibility, and accessibility props."
+      Table:
+        data:badgeProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1fr"
+  Section id:"badge-next" p:{ xs:5 md:7 }
+    Flex wrap:true justify:"between" gap:4
+      Button href:"/docs/views/display/avatar-group" variant:"outlined" scheme:"primary" size:"md" rounded:"full"
+        "Previous AvatarGroup"
+      Button href:"/docs/views/display/collapsible" variant:"solid" scheme:"primary" size:"md" rounded:"full"
+        "Next Collapsible"

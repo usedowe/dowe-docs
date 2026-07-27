@@ -1,0 +1,185 @@
+page DeployPage
+  Section id:"deploy-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "DEVELOPMENT / PRODUCTION DEPLOY"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Dowe Deploy"
+        Text size:"lg" color:"muted"
+          "Build a native Distroless server image or generate the Cloudflare output owned by Dowe."
+      Button:
+        href:"/docs/dev/install"
+        variant:"soft"
+        scheme:"primary"
+        size:"sm"
+        rounded:"full"
+        iconStart:"upload"
+        "Install Dowe"
+  Section id:"deploy-command" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "CAPABILITY-AWARE MENU"
+        Title size:"3xl" weight:"black"
+          "Choose a configured surface"
+        Text size:"sm" color:"muted"
+          "Run deploy from the project root. Server offers Docker and Cloudflare Worker. Web offers Cloudflare Pages."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy commands"
+        copiedLabel:"Copied"
+        content:"""
+          dowe deploy
+          dowe deploy server --target docker --registry ghcr.io/acme --image clinic
+          dowe deploy --target cloudflare --name clinic-api
+          dowe deploy web --name clinic-web --publish
+        """
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"primary"
+              "SERVER"
+            Title size:"lg" weight:"bold"
+              "Docker or Cloudflare Worker"
+            Text size:"sm" color:"muted"
+              "Docker creates a native Linux image. Cloudflare Worker keeps the existing Dowe-owned Wasm lowering."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "WEB"
+            Title size:"lg" weight:"bold"
+              "Cloudflare Pages"
+            Text size:"sm" color:"muted"
+              "Pages packages the generated web distribution and can publish it with Wrangler."
+  Section id:"deploy-docker" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "NATIVE DOCKER RUNTIME"
+        Title size:"3xl" weight:"black"
+          "Tag the image you intend to run"
+        Text size:"sm" color:"muted"
+          "Interactive Docker asks for a registry and image name. docker.io and the project folder provide safe defaults."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"primary"
+              "REGISTRY"
+            Title size:"lg" weight:"bold"
+              "docker.io"
+            Text size:"sm" color:"muted"
+              "Use Docker Hub, ghcr.io, a private host, or a registry with a port."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "IMAGE"
+            Title size:"lg" weight:"bold"
+              "project:latest"
+            Text size:"sm" color:"muted"
+              "Dowe adds latest when the selected image name does not contain a tag."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "PLATFORM"
+            Title size:"lg" weight:"bold"
+              "linux/amd64"
+            Text size:"sm" color:"muted"
+              "The current native runtime and generated build command target Linux amd64."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy structure"
+        copiedLabel:"Copied"
+        content:"""
+          .dowe/dist/docker/
+            Dockerfile
+            deploy.json
+            app/
+              main.dowe
+              theme.dowe
+              .env.example
+              assets/
+        """
+  Section id:"deploy-runtime" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "DISTROLESS / NONROOT"
+        Title size:"3xl" weight:"black"
+          "Ship one Dowe binary, not the toolchain"
+        Text size:"sm" color:"muted"
+          "The final image contains the app and the Linux dowe executable. It does not contain Cargo, rustc, a shell, or Node.js."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "One native executable"
+            Text size:"sm" color:"muted"
+              "The same dowe binary runs development commands and the production-only server subcommand."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Immutable release archive"
+            Text size:"sm" color:"muted"
+              "The Dockerfile downloads the versioned Linux archive and extracts dowe without requiring Dowe on the user machine."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy entrypoint"
+        copiedLabel:"Copied"
+        content:"/usr/local/bin/dowe server --root /app --bind 0.0.0.0:8080"
+  Section id:"deploy-build-result" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SAFE FALLBACK"
+        Title size:"3xl" weight:"black"
+          "Keep the context when Docker is unavailable"
+        Text size:"sm" color:"muted"
+          "Dowe always writes the context first. A working daemon builds and tags the image; a missing client or daemon leaves a usable Dockerfile for later."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Daemon available"
+            Text size:"sm" color:"muted"
+              "Dowe runs docker build for linux/amd64 with the full registry and image tag."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Daemon unavailable"
+            Text size:"sm" color:"muted"
+              "Deploy succeeds and reports that no local image was built."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Dry run"
+            Text size:"sm" color:"muted"
+              "The context and command are produced without executing Docker."
+  Section id:"deploy-boundaries" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "CURRENT BOUNDARIES"
+        Title size:"3xl" weight:"black"
+          "Two Server targets, one shared Dowe authority"
+        Text size:"sm" color:"muted"
+          "SSH, Linux host, and the former dowe build command are retired. Docker and Cloudflare continue through the shared deploy API used by CLI and IPC."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Secrets stay outside"
+            Text size:"sm" color:"muted"
+              ".env is never copied. Declare names in .env.example and provide production values through the platform."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Push stays explicit"
+            Text size:"sm" color:"muted"
+              "Dowe tags the local Docker image but does not log in or push it to the registry."

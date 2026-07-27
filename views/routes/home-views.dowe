@@ -1,0 +1,5 @@
+import HomeLayout from "@/views/layouts/home-layout"
+import HomePage from "@/views/pages/home-page"
+views HomeViews
+  group path:"/" layout:HomeLayout
+    route path:"" page:HomePage

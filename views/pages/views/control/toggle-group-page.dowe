@@ -1,0 +1,163 @@
+page ToggleGroupPage
+  signal mode value:"map"
+  const toggleGroupProps:
+    value:[
+      { prop:"value" type:"string Signal path" defaultValue:"—" },
+      { prop:"selected" type:"static string | number" defaultValue:"first item" },
+      { prop:"variant" type:"solid | soft | outlined | ghost" defaultValue:"solid" },
+      { prop:"scheme" type:"primary | secondary | muted | success | info | warning | danger" defaultValue:"muted" },
+      { prop:"size" type:"xs | sm | md | lg" defaultValue:"md" },
+      { prop:"wide, vertical, disabled" type:"boolean" defaultValue:"false" },
+      { prop:"ariaLabel" type:"string" defaultValue:"—" },
+      { prop:"onChange" type:"Action name" defaultValue:"—" },
+    ]
+  Section id:"toggle-group-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "CONTROL"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "ToggleGroup"
+        Text size:"lg" color:"muted"
+          "ToggleGroup turns structural item entries into one accessible string-valued segmented control for modes, filters, and compact workflow choices."
+      Card variant:"soft" scheme:"info" p:5 rounded:"lg" minW:56
+        Grid columns:1 gap:1
+          Text size:"xs" weight:"bold" spacing:"widest"
+            "ONE VALUE"
+          Title size:"xl" weight:"black"
+            "Signal-backed selection"
+          Text size:"sm"
+            "Bind value to a string Signal when the selected mode drives other content on the page."
+  Section id:"toggle-group-playground" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PLAYGROUND"
+        Title size:"3xl" weight:"black"
+          "Switch a view mode"
+        Text size:"sm" color:"muted"
+          "The selected value is shared with the page Signal, so the control and its downstream preview stay on one source-of-truth path."
+      Card variant:"outlined" scheme:"surface" rounded:"md" border:1 p:{ xs:5 md:7 }
+        Grid columns:1 gap:4
+          ToggleGroup value:mode variant:"soft" scheme:"muted" size:"md" wide:true ariaLabel:"View mode"
+            item id:"map" label:"Map" icon:"file"
+            item id:"list" label:"List" icon:"search"
+            item id:"stats" label:"Stats" icon:"settings"
+          Card variant:"soft" scheme:"primary" p:4 rounded:"md"
+            Text size:"sm" weight:"bold"
+              "Active mode"
+            Text size:"lg" weight:"black"
+              "{mode}"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          signal mode value:"map"
+          ToggleGroup value:mode variant:"soft" scheme:"muted" size:"md" wide:true ariaLabel:"View mode"
+            item id:"map" label:"Map" icon:"file"
+            item id:"list" label:"List" icon:"search"
+            item id:"stats" label:"Stats" icon:"settings"
+        """
+  Section id:"toggle-group-patterns" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "ADVANCED PATTERNS"
+        Title size:"3xl" weight:"black"
+          "Use selection where layout changes"
+        Text size:"sm" color:"muted"
+          "Use horizontal groups for compact filters and vertical groups when the labels need more room."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold" color:"muted"
+              "FILTERS"
+            Title size:"lg" weight:"black"
+              "Content density"
+            ToggleGroup selected:"all" variant:"outlined" scheme:"primary" size:"sm" ariaLabel:"Content density"
+              item id:"all" label:"All"
+              item id:"unread" label:"Unread"
+              item id:"saved" label:"Saved"
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold" color:"muted"
+              "ORIENTATION"
+            Title size:"lg" weight:"black"
+              "Workspace sections"
+            ToggleGroup selected:"overview" variant:"soft" scheme:"success" size:"md" vertical:true ariaLabel:"Workspace section"
+              item id:"overview" label:"Overview" icon:"file"
+              item id:"activity" label:"Activity" icon:"search"
+              item id:"settings" label:"Settings" icon:"settings"
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold" color:"muted"
+              "DISABLED"
+            Title size:"lg" weight:"black"
+              "Preserve the choice"
+            ToggleGroup selected:"monthly" variant:"ghost" scheme:"muted" size:"sm" disabled:true ariaLabel:"Billing cycle"
+              item id:"monthly" label:"Monthly"
+              item id:"annual" label:"Annual"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          ToggleGroup selected:"all" variant:"outlined" scheme:"primary" size:"sm" ariaLabel:"Content density"
+            item id:"all" label:"All"
+            item id:"unread" label:"Unread"
+            item id:"saved" label:"Saved"
+
+          ToggleGroup selected:"overview" variant:"soft" scheme:"success" size:"md" vertical:true ariaLabel:"Workspace section"
+            item id:"overview" label:"Overview" icon:"file"
+            item id:"activity" label:"Activity" icon:"search"
+            item id:"settings" label:"Settings" icon:"settings"
+        """
+  Section id:"toggle-group-contract" p:{ xs:5 md:7 }
+    Grid columns:{ xs:1 md:2 } gap:4
+      Card variant:"outlined" scheme:"surface" rounded:"md" border:1 p:5
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+            "STRUCTURE"
+          Title size:"xl" weight:"black"
+            "Items are explicit"
+          Text size:"sm" color:"muted"
+            "Every item requires a stable id and a visible label. Icons are optional and use validated Solar names."
+      Card variant:"outlined" scheme:"surface" rounded:"md" border:1 p:5
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+            "ACCESSIBILITY"
+          Title size:"xl" weight:"black"
+            "Name the group"
+          Text size:"sm" color:"muted"
+            "Set ariaLabel when the visible labels do not fully explain the choice to assistive technology."
+  Section id:"toggle-group-props" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Props"
+        Text size:"sm" color:"muted"
+          "ToggleGroup also accepts the applicable common spacing, sizing, border, visibility, and accessibility props."
+      Table:
+        data:toggleGroupProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1fr"
+  Section id:"toggle-group-next" p:{ xs:5 md:7 }
+    Flex wrap:true justify:"between" gap:4
+      Button href:"/docs/views/control/record" variant:"outlined" scheme:"primary" size:"md" rounded:"full"
+        "Previous Record"
+      Button href:"/docs/views/display/accordion" variant:"solid" scheme:"primary" size:"md" rounded:"full"
+        "Next Accordion"

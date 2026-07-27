@@ -1,0 +1,159 @@
+type ChartSlice
+  label:string
+  value:number
+
+page PieChartPage
+  signal mix type:ChartSlice[] value:[
+    { label:"Direct" value:46 },
+    { label:"Organic" value:31 },
+    { label:"Referral" value:15 },
+    { label:"Partner" value:8 },
+  ]
+  signal delivery type:ChartSlice[] value:[
+    { label:"On time" value:74 },
+    { label:"At risk" value:18 },
+    { label:"Late" value:8 },
+  ]
+  signal emptySlices type:ChartSlice[] value:[]
+  const pieProps:
+    value:[
+      { prop:"data" type:"Signal array path" defaultValue:"—" },
+      { prop:"variant, scheme" type:"solid | soft | outlined | ghost, Dowe family" defaultValue:"solid, surface" },
+      { prop:"size, palette" type:"chart size, chart palette" defaultValue:"md, default" },
+      { prop:"donut" type:"boolean" defaultValue:"false" },
+      { prop:"donutWidth" type:"positive number" defaultValue:"—" },
+      { prop:"centerLabel, centerValue" type:"string" defaultValue:"—" },
+      { prop:"startAngle, padAngle" type:"degrees, positive number" defaultValue:"0, 0" },
+      { prop:"hideLabels, hideValues, hidePercentages" type:"boolean" defaultValue:"false" },
+      { prop:"showGlow, hideLegend" type:"boolean" defaultValue:"false" },
+      { prop:"legendPosition" type:"top | right | bottom | left | none" defaultValue:"right" },
+      { prop:"emptyLabel, loading" type:"string, boolean" defaultValue:"No data available, false" },
+    ]
+  Section id:"pie-chart-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "CHARTS"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "PieChart"
+        Text size:"lg" color:"muted"
+          "Proportional categorical data with accessible labels, optional donut mode, and a centered summary."
+      Card variant:"soft" scheme:"warning" p:5 rounded:"lg" minW:56
+        Grid columns:1 gap:1
+          Text size:"xs" weight:"bold" spacing:"widest"
+            "PART TO WHOLE"
+          Title size:"xl" weight:"black"
+            "Keep the total nearby"
+          Text size:"sm"
+            "Use centerLabel and centerValue when the chart is a summary, not just a breakdown."
+  Section id:"pie-chart-basic" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PIE DATA"
+        Title size:"3xl" weight:"black"
+          "Show the share of a whole"
+        Text size:"sm" color:"muted"
+          "PieChart reads label and value from one typed Signal. Keep the legend visible when neighboring slices use similar proportions."
+      PieChart:
+        data:mix
+        variant:"soft"
+        scheme:"surface"
+        size:"lg"
+        palette:"ocean"
+        legendPosition:"right"
+        startAngle:-90
+        padAngle:3
+        hideValues:false
+        hidePercentages:false
+        showGlow:true
+        rounded:"lg"
+      Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+        type ChartSlice
+          label:string
+          value:number
+        signal mix type:ChartSlice[] value:[{ label:"Direct" value:46 }]
+
+        PieChart data:mix variant:"soft" scheme:"surface" size:"lg" palette:"ocean" legendPosition:"right" startAngle:-90 padAngle:3 showGlow:true
+      """
+  Section id:"pie-chart-donut" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "DONUT MODE"
+        Title size:"3xl" weight:"black"
+          "Make a centered KPI from distribution data"
+        Text size:"sm" color:"muted"
+          "donut creates an open center. donutWidth controls the ring weight, while hideLabels and hideValues let the center and legend carry the explanation."
+      Grid columns:{ xs:1 md:2 } gap:4
+        PieChart:
+          data:delivery
+          variant:"outlined"
+          scheme:"success"
+          size:"lg"
+          palette:"forest"
+          donut:true
+          donutWidth:72
+          centerLabel:"On time"
+          centerValue:"74%"
+          startAngle:-90
+          padAngle:4
+          hideLabels:true
+          hideValues:true
+          legendPosition:"bottom"
+        PieChart:
+          data:mix
+          variant:"solid"
+          scheme:"surface"
+          size:"lg"
+          palette:"sunset"
+          donut:true
+          donutWidth:54
+          centerLabel:"Traffic"
+          centerValue:"100%"
+          hideLabels:true
+          hidePercentages:true
+          hideLegend:true
+          legendPosition:"none"
+          showGlow:true
+      Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+        PieChart data:delivery variant:"outlined" scheme:"success" size:"lg" palette:"forest" donut:true donutWidth:72 centerLabel:"On time" centerValue:"74%" startAngle:-90 padAngle:4 hideLabels:true hideValues:true legendPosition:"bottom"
+        PieChart data:mix variant:"solid" scheme:"surface" palette:"sunset" donut:true donutWidth:54 centerLabel:"Traffic" centerValue:"100%" hideLabels:true hidePercentages:true hideLegend:true legendPosition:"none"
+      """
+  Section id:"pie-chart-states" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "STATES AND LABELS"
+        Title size:"3xl" weight:"black"
+          "Choose the smallest complete explanation"
+        Text size:"sm" color:"muted"
+          "Hide labels only when the legend or nearby copy names the slices. Empty and loading states remain explicit and portable."
+      Grid columns:{ xs:1 md:3 } gap:4
+        PieChart data:mix variant:"solid" scheme:"surface" size:"md" hideLabels:true hideValues:true hidePercentages:true legendPosition:"bottom"
+        PieChart data:mix variant:"soft" scheme:"info" size:"md" loading:true centerLabel:"Loading" centerValue:"—"
+        PieChart data:emptySlices variant:"outlined" scheme:"warning" size:"md" emptyLabel:"No distribution yet"
+      Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+        PieChart data:mix variant:"solid" scheme:"surface" hideLabels:true hideValues:true hidePercentages:true legendPosition:"bottom"
+        PieChart data:emptySlices variant:"outlined" scheme:"warning" emptyLabel:"No distribution yet"
+      """
+  Section id:"pie-chart-props" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Props"
+        Text size:"sm" color:"muted"
+          "PieChart also accepts applicable common identity, spacing, sizing, visibility, radius, border, and accessibility props."
+      Table:
+        data:pieProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1.2fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1.2fr"

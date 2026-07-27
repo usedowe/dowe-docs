@@ -1,0 +1,4 @@
+layout BlankLayout
+  Scaffold
+    main
+      children

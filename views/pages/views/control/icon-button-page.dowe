@@ -1,0 +1,341 @@
+page IconButtonPage
+  signal schemeChoice value:"primary"
+  signal variantChoice value:"solid"
+  signal sizeChoice value:"md"
+  const schemeOptions:
+    value:[
+      {
+        id:"primary"
+        value:"primary"
+        label:"Primary"
+      },
+      {
+        id:"secondary"
+        value:"secondary"
+        label:"Secondary"
+      },
+      {
+        id:"tertiary"
+        value:"tertiary"
+        label:"Tertiary"
+      },
+      {
+        id:"muted"
+        value:"muted"
+        label:"Muted"
+      },
+      {
+        id:"success"
+        value:"success"
+        label:"Success"
+      },
+      {
+        id:"info"
+        value:"info"
+        label:"Info"
+      },
+      {
+        id:"warning"
+        value:"warning"
+        label:"Warning"
+      },
+      {
+        id:"danger"
+        value:"danger"
+        label:"Danger"
+      },
+    ]
+  const variantOptions:
+    value:[
+      {
+        id:"solid"
+        value:"solid"
+        label:"Solid"
+      },
+      {
+        id:"soft"
+        value:"soft"
+        label:"Soft"
+      },
+      {
+        id:"outlined"
+        value:"outlined"
+        label:"Outlined"
+      },
+      {
+        id:"ghost"
+        value:"ghost"
+        label:"Ghost"
+      },
+    ]
+  const sizeOptions:
+    value:[
+      {
+        id:"xs"
+        value:"xs"
+        label:"xs"
+      },
+      {
+        id:"sm"
+        value:"sm"
+        label:"sm"
+      },
+      {
+        id:"md"
+        value:"md"
+        label:"md"
+      },
+      {
+        id:"lg"
+        value:"lg"
+        label:"lg"
+      },
+      {
+        id:"xl"
+        value:"xl"
+        label:"xl"
+      },
+    ]
+  const iconButtonProps:
+    value:[
+      {
+        prop:"icon"
+        type:"Solar icon name"
+        defaultValue:"required"
+      },
+      {
+        prop:"label"
+        type:"non-empty string"
+        defaultValue:"required"
+      },
+      {
+        prop:"onClick"
+        type:"Action name"
+        defaultValue:"—"
+      },
+      {
+        prop:"href"
+        type:"string"
+        defaultValue:"—"
+      },
+      {
+        prop:"navigate"
+        type:"push | replace"
+        defaultValue:"push"
+      },
+      {
+        prop:"history"
+        type:"back | forward"
+        defaultValue:"—"
+      },
+      {
+        prop:"target"
+        type:"_self | _blank | _parent | _top"
+        defaultValue:"_self"
+      },
+      {
+        prop:"externalMode"
+        type:"browser | system"
+        defaultValue:"browser"
+      },
+      {
+        prop:"variant"
+        type:"solid | soft | outlined | ghost"
+        defaultValue:"solid"
+      },
+      {
+        prop:"scheme"
+        type:"primary | secondary | tertiary | muted | success | info | warning | danger"
+        defaultValue:"primary"
+      },
+      {
+        prop:"size"
+        type:"xs | sm | md | lg | xl"
+        defaultValue:"md"
+      },
+      {
+        prop:"rounded"
+        type:"xs | sm | md | lg | xl | full"
+        defaultValue:"radius"
+      },
+      {
+        prop:"show"
+        type:"boolean"
+        defaultValue:"true"
+      },
+    ]
+  Section id:"icon-button-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "CONTROL"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "IconButton"
+        Text size:"lg" color:"muted"
+          "Icon buttons provide compact square actions with a required accessible label."
+      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
+        "Copy LLM"
+  Section id:"icon-button-playground" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PLAYGROUND"
+        Title size:"3xl" weight:"black"
+          "Configure an icon button"
+        Text size:"sm" color:"muted"
+          "Visual props update the preview. The icon name and accessible label remain static."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Select:
+          bind:schemeChoice
+          label:"Scheme"
+          placeholder:"Choose a scheme"
+          variant:"outlined"
+          scheme:"primary"
+          each in:schemeOptions as:option key:option.id
+            Option value:option.value label:option.label
+        Select:
+          bind:variantChoice
+          label:"Variant"
+          placeholder:"Choose a variant"
+          variant:"outlined"
+          scheme:"primary"
+          each in:variantOptions as:option key:option.id
+            Option value:option.value label:option.label
+        Select:
+          bind:sizeChoice
+          label:"Size"
+          placeholder:"Choose a size"
+          variant:"outlined"
+          scheme:"primary"
+          each in:sizeOptions as:option key:option.id
+            Option value:option.value label:option.label
+      Card variant:"outlined" scheme:"surface" p:{ xs:6 md:10 } rounded:"md" border:1
+        Flex justify:"center" align:"center" gap:3
+          IconButton:
+            icon:"settings"
+            label:"Open settings"
+            variant:variantChoice
+            scheme:schemeChoice
+            size:sizeChoice
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          IconButton:
+            icon:"settings"
+            label:"Open settings"
+            variant:variantChoice
+            scheme:schemeChoice
+            size:sizeChoice
+        """
+  Section id:"icon-button-contract" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "CONTRACT"
+        Title size:"3xl" weight:"black"
+          "Icon-only by design"
+        Text size:"sm" color:"muted"
+          "IconButton has no children. Its hidden label describes the action."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"outlined" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            IconButton icon:"settings" label:"Open settings"
+            Title size:"lg" weight:"bold"
+              "Required icon"
+            Text size:"sm" color:"muted"
+              "Use a quoted Solar name. The linear icon inherits the control foreground."
+        Card variant:"outlined" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            IconButton icon:"info-circle" label:"Read accessibility guidance" variant:"soft"
+            Title size:"lg" weight:"bold"
+              "Accessible label"
+            Text size:"sm" color:"muted"
+              "Use a short, non-empty action label, such as Open settings or Delete item."
+        Card variant:"outlined" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            IconButton icon:"alt-arrow-right" label:"Open next page" variant:"outlined"
+            Title size:"lg" weight:"bold"
+              "Actions and navigation"
+            Text size:"sm" color:"muted"
+              "Use onClick for an action or the shared navigation props for movement."
+  Section id:"icon-button-schemes" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SCHEMES AND VARIANTS"
+        Title size:"3xl" weight:"black"
+          "Every semantic color"
+        Text size:"sm" color:"muted"
+          "Each row keeps one variant fixed so the eight color families are easy to compare."
+      Grid columns:1 gap:5
+        Grid columns:1 gap:3
+          Text size:"sm" weight:"bold"
+            "Solid"
+          Flex wrap:true justify:"center" align:"center" gap:3
+            each in:schemeOptions as:scheme key:scheme.id
+              IconButton icon:"settings" label:"Open settings" variant:"solid" scheme:scheme.value
+        Grid columns:1 gap:3
+          Text size:"sm" weight:"bold"
+            "Soft"
+          Flex wrap:true justify:"center" align:"center" gap:3
+            each in:schemeOptions as:scheme key:scheme.id
+              IconButton icon:"settings" label:"Open settings" variant:"soft" scheme:scheme.value
+        Grid columns:1 gap:3
+          Text size:"sm" weight:"bold"
+            "Outlined"
+          Flex wrap:true justify:"center" align:"center" gap:3
+            each in:schemeOptions as:scheme key:scheme.id
+              IconButton:
+                icon:"settings"
+                label:"Open settings"
+                variant:"outlined"
+                scheme:scheme.value
+        Grid columns:1 gap:3
+          Text size:"sm" weight:"bold"
+            "Ghost"
+          Flex wrap:true justify:"center" align:"center" gap:3
+            each in:schemeOptions as:scheme key:scheme.id
+              IconButton icon:"settings" label:"Open settings" variant:"ghost" scheme:scheme.value
+  Section id:"icon-button-sizes" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SIZES"
+        Title size:"3xl" weight:"black"
+          "Five square densities"
+        Text size:"sm" color:"muted"
+          "Sizes xs through xl create square controls from 24 to 56 target units."
+        Text size:"sm" color:"muted"
+          "Inside Grid, the track may grow while IconButton keeps its fixed square dimensions."
+      Flex wrap:true justify:"center" align:"center" gap:3
+        IconButton icon:"settings" label:"Open settings in extra small size" size:"xs"
+        IconButton icon:"settings" label:"Open settings in small size" size:"sm"
+        IconButton icon:"settings" label:"Open settings in medium size" size:"md"
+        IconButton icon:"settings" label:"Open settings in large size" size:"lg"
+        IconButton icon:"settings" label:"Open settings in extra large size" size:"xl"
+  Section id:"icon-button-props" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Props"
+        Text size:"sm" color:"muted"
+          "IconButton also accepts common spacing, sizing, visibility, and accessibility props."
+        Text size:"sm" color:"muted"
+          "Explicit width and height override the dimensions derived from size."
+      Table:
+        data:iconButtonProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1fr"

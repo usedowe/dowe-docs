@@ -1,0 +1,148 @@
+page RichTextPage
+  const richTextProps:
+    value:[
+      { prop:"size" type:"Text size token" defaultValue:"md" },
+      { prop:"weight" type:"Text weight token" defaultValue:"—" },
+    ]
+  const markProps:
+    value:[
+      { prop:"text" type:"non-empty string" defaultValue:"required" },
+      { prop:"style" type:"mark | grad | pill | slant | glow | under | strike | box | wave | neon | pop | tag" defaultValue:"mark" },
+      { prop:"scheme" type:"primary | secondary | success | info | warning | danger" defaultValue:"info" },
+    ]
+  Section id:"rich-text-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "DISPLAY"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "RichText"
+        Text size:"lg" color:"muted"
+          "RichText composes a paragraph-like inline flow from explicit mark entries with portable emphasis, color, and typography."
+      Card variant:"soft" scheme:"secondary" p:5 rounded:"lg" minW:56
+        Grid columns:1 gap:1
+          Text size:"xs" weight:"bold" spacing:"widest"
+            "INLINE, NOT HTML"
+          Title size:"xl" weight:"black"
+            "Structured marks"
+          Text size:"sm"
+            "Each mark is validated before web, Android, or iOS generation."
+  Section id:"rich-text-playground" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PLAYGROUND"
+        Title size:"3xl" weight:"black"
+          "Build a release message"
+        Text size:"sm" color:"muted"
+          "Use marks to give hierarchy to a single sentence without splitting it into unrelated Text nodes."
+      Card variant:"outlined" scheme:"surface" p:{ xs:6 md:9 } rounded:"md" border:1
+        RichText size:"xl" weight:"bold"
+          mark text:"Dowe" style:"grad" scheme:"primary"
+          mark text:"generates" style:"under" scheme:"info"
+          mark text:"systems" style:"pill" scheme:"success"
+          mark text:"with" style:"mark" scheme:"muted"
+          mark text:"explicit contracts" style:"tag" scheme:"secondary"
+          mark text:"." style:"mark" scheme:"muted"
+      Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+        RichText size:"xl" weight:"bold"
+          mark text:"Dowe" style:"grad" scheme:"primary"
+          mark text:"generates" style:"under" scheme:"info"
+          mark text:"systems" style:"pill" scheme:"success"
+          mark text:"with" style:"mark" scheme:"muted"
+          mark text:"explicit contracts" style:"tag" scheme:"secondary"
+      """
+  Section id:"rich-text-styles" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "MARK STYLES"
+        Title size:"3xl" weight:"black"
+          "Tune emphasis without custom markup"
+        Text size:"sm" color:"muted"
+          "The style belongs to the mark entry. Use schemes for semantic emphasis and keep the surrounding sentence readable without relying on color alone."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"surface" p:{ xs:5 md:7 } rounded:"md"
+          Grid columns:1 gap:4
+            Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+              "EDITORIAL"
+            RichText size:"lg"
+              mark text:"Draft" style:"strike" scheme:"danger"
+              mark text:"Approved" style:"pop" scheme:"success"
+              mark text:" for release" style:"mark" scheme:"muted"
+            RichText size:"lg"
+              mark text:"Read the" style:"mark" scheme:"muted"
+              mark text:" highlighted clause" style:"glow" scheme:"warning"
+              mark text:" before shipping." style:"mark" scheme:"muted"
+        Card variant:"soft" scheme:"surface" p:{ xs:5 md:7 } rounded:"md"
+          Grid columns:1 gap:4
+            Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+              "PRODUCT UI"
+            RichText size:"lg"
+              mark text:"Beta" style:"neon" scheme:"secondary"
+              mark text:" access" style:"box" scheme:"primary"
+              mark text:" is now" style:"mark" scheme:"muted"
+              mark text:" available" style:"wave" scheme:"success"
+            RichText size:"lg"
+              mark text:"A" style:"slant" scheme:"info"
+              mark text:" compact" style:"pill" scheme:"primary"
+              mark text:" callout." style:"mark" scheme:"muted"
+      Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+        RichText size:"lg"
+          mark text:"Draft" style:"strike" scheme:"danger"
+          mark text:"Approved" style:"pop" scheme:"success"
+          mark text:" for release" style:"mark" scheme:"muted"
+        RichText size:"lg"
+          mark text:"Beta" style:"neon" scheme:"secondary"
+          mark text:" access" style:"box" scheme:"primary"
+          mark text:" is now" style:"mark" scheme:"muted"
+          mark text:" available" style:"wave" scheme:"success"
+      """
+  Section id:"rich-text-patterns" p:{ xs:5 md:7 }
+    Grid columns:{ xs:1 md:3 } gap:4
+      Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "HEADLINES"
+          Title size:"lg" weight:"black"
+            "Keep a sentence"
+          Text size:"sm" color:"muted"
+            "Use a larger size and a restrained number of marks for hero or release copy."
+      Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "STATUS"
+          Title size:"lg" weight:"black"
+            "Pair style and scheme"
+          Text size:"sm" color:"muted"
+            "The style controls treatment; scheme controls the semantic color family."
+      Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "ACCESSIBILITY"
+          Title size:"lg" weight:"black"
+            "Do not hide meaning"
+          Text size:"sm" color:"muted"
+            "The sentence must remain understandable when emphasis or color is reduced."
+  Section id:"rich-text-props" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "RichText props"
+        Text size:"sm" color:"muted"
+          "RichText also accepts the applicable common typography, spacing, sizing, visibility, and accessibility props."
+      Table data:richTextProps variant:"soft" scheme:"surface" size:"sm" striped:true dividers:true rounded:"md"
+        column field:"prop" label:"Prop" width:"1.2fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1.2fr"
+      Grid columns:1 gap:2 pt:2
+        Title size:"2xl" weight:"black"
+          "mark entry props"
+        Text size:"sm" color:"muted"
+          "mark is structural: it is valid only inside RichText, has no children, and requires text."
+      Table data:markProps variant:"soft" scheme:"surface" size:"sm" striped:true dividers:true rounded:"md"
+        column field:"prop" label:"Prop" width:"1.2fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1.2fr"

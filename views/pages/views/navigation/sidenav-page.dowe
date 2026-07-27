@@ -1,0 +1,437 @@
+page SideNavPage
+  signal schemeChoice value:"muted"
+  signal variantChoice value:"ghost"
+  signal sizeChoice value:"md"
+  signal wideEnabled value:true
+  const schemeOptions:
+    value:[
+      {
+        id:"primary"
+        value:"primary"
+        label:"Primary"
+      },
+      {
+        id:"secondary"
+        value:"secondary"
+        label:"Secondary"
+      },
+      {
+        id:"tertiary"
+        value:"tertiary"
+        label:"Tertiary"
+      },
+      {
+        id:"muted"
+        value:"muted"
+        label:"Muted"
+      },
+      {
+        id:"success"
+        value:"success"
+        label:"Success"
+      },
+      {
+        id:"info"
+        value:"info"
+        label:"Info"
+      },
+      {
+        id:"warning"
+        value:"warning"
+        label:"Warning"
+      },
+      {
+        id:"danger"
+        value:"danger"
+        label:"Danger"
+      },
+    ]
+  const variantOptions:
+    value:[
+      {
+        id:"solid"
+        value:"solid"
+        label:"Solid"
+      },
+      {
+        id:"soft"
+        value:"soft"
+        label:"Soft"
+      },
+      {
+        id:"outlined"
+        value:"outlined"
+        label:"Outlined"
+      },
+      {
+        id:"ghost"
+        value:"ghost"
+        label:"Ghost"
+      },
+    ]
+  const sizeOptions:
+    value:[
+      {
+        id:"sm"
+        value:"sm"
+        label:"sm"
+      },
+      {
+        id:"md"
+        value:"md"
+        label:"md"
+      },
+      {
+        id:"lg"
+        value:"lg"
+        label:"lg"
+      },
+    ]
+  const sideNavProps:
+    value:[
+      {
+        prop:"variant"
+        type:"solid | soft | outlined | ghost"
+        defaultValue:"ghost"
+      },
+      {
+        prop:"scheme"
+        type:"primary | secondary | tertiary | muted | success | info | warning | danger"
+        defaultValue:"muted"
+      },
+      {
+        prop:"size"
+        type:"sm | md | lg"
+        defaultValue:"md"
+      },
+      {
+        prop:"wide"
+        type:"boolean"
+        defaultValue:"false"
+      },
+    ]
+  const entryProps:
+    value:[
+      {
+        prop:"label"
+        components:"header | item | submenu"
+        type:"string"
+      },
+      {
+        prop:"description"
+        components:"header | item | submenu"
+        type:"string"
+      },
+      {
+        prop:"status"
+        components:"item | submenu"
+        type:"string"
+      },
+      {
+        prop:"icon"
+        components:"header | item | submenu"
+        type:"Solar icon name"
+      },
+      {
+        prop:"href"
+        components:"header | item"
+        type:"internal path | fragment | HTTPS URL"
+      },
+      {
+        prop:"navigate"
+        components:"header | item"
+        type:"push | replace"
+      },
+      {
+        prop:"target"
+        components:"header | item"
+        type:"self | blank"
+      },
+      {
+        prop:"externalMode"
+        components:"header | item"
+        type:"system | webview"
+      },
+      {
+        prop:"onClick"
+        components:"header | item"
+        type:"Action name"
+      },
+      {
+        prop:"open"
+        components:"submenu"
+        type:"boolean"
+      },
+      {
+        prop:"bordered"
+        components:"submenu"
+        type:"boolean"
+      },
+    ]
+  Section id:"sidenav-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "NAVIGATION"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "SideNav"
+        Text size:"lg" color:"muted"
+          "SideNav creates portable lateral navigation with headers, links, dividers, and expandable submenus."
+      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
+        "Copy LLM"
+  Section id:"sidenav-playground" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PLAYGROUND"
+        Title size:"3xl" weight:"black"
+          "Configure lateral navigation"
+        Text size:"sm" color:"muted"
+          "The controls bind directly to the preview and update the same target-neutral navigation tree without resetting submenu state."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Select:
+          bind:schemeChoice
+          label:"Scheme"
+          placeholder:"Choose a scheme"
+          variant:"outlined"
+          scheme:"primary"
+          each in:schemeOptions as:option key:option.id
+            Option value:option.value label:option.label
+        Select:
+          bind:variantChoice
+          label:"Variant"
+          placeholder:"Choose a variant"
+          variant:"outlined"
+          scheme:"primary"
+          each in:variantOptions as:option key:option.id
+            Option value:option.value label:option.label
+        Select:
+          bind:sizeChoice
+          label:"Size"
+          placeholder:"Choose a size"
+          variant:"outlined"
+          scheme:"primary"
+          each in:sizeOptions as:option key:option.id
+            Option value:option.value label:option.label
+      Checkbox bind:wideEnabled label:"Fill the available width" scheme:"primary"
+      Card variant:"outlined" scheme:"surface" p:{ xs:6 md:10 } rounded:"md" border:1
+        SideNav variant:variantChoice scheme:schemeChoice size:sizeChoice wide:wideEnabled
+          header label:"Workspace" description:"Project navigation" icon:"sidebar-minimalistic"
+          item:
+            label:"Overview"
+            description:"Activity and metrics"
+            href:"/docs/views/navigation/sidenav"
+            status:"New"
+            icon:"home"
+          divider
+          submenu:
+            label:"Content"
+            description:"Publishing"
+            status:"2"
+            open:true
+            bordered:true
+            icon:"document-text"
+            item label:"Articles" href:"/docs/views" status:"12" icon:"notes"
+            item label:"Authors" href:"/docs/views" icon:"users-group-rounded"
+          item label:"Settings" description:"Preferences" href:"/docs/views" icon:"settings"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        template:true
+        content:"""
+          SideNav variant:"{variantChoice}" scheme:"{schemeChoice}" size:"{sizeChoice}" wide:{wideEnabled}
+            header label:"Workspace" description:"Project navigation" icon:"sidebar-minimalistic"
+            item label:"Overview" description:"Activity and metrics" href:"/docs/views/navigation/sidenav" status:"New" icon:"home"
+            divider
+            submenu label:"Content" description:"Publishing" status:"2" open:true bordered:true icon:"document-text"
+              item label:"Articles" href:"/docs/views" status:"12" icon:"notes"
+              item label:"Authors" href:"/docs/views" icon:"users-group-rounded"
+            item label:"Settings" description:"Preferences" href:"/docs/views" icon:"settings"
+        """
+  Section id:"sidenav-variations" py:{ xs:7 md:10 }
+    Grid columns:1 gap:8
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "VISUAL OPTIONS"
+        Title size:"3xl" weight:"black"
+          "Variants, schemes, and sizes"
+        Text size:"sm" color:"muted"
+          "Every sample uses the same navigation structure so each visual prop can be compared independently."
+      Grid columns:1 gap:4
+        Title size:"xl" weight:"bold"
+          "Variants"
+        Grid columns:{ xs:1 md:2 } gap:4
+          SideNav variant:"solid" scheme:"primary" size:"md" wide:true
+            item label:"Solid" description:"Filled navigation" href:"/docs/views"
+            item label:"Settings" href:"/docs/views"
+          SideNav variant:"soft" scheme:"primary" size:"md" wide:true
+            item label:"Soft" description:"Subtle navigation" href:"/docs/views"
+            item label:"Settings" href:"/docs/views"
+          SideNav variant:"outlined" scheme:"primary" size:"md" wide:true
+            item label:"Outlined" description:"Bordered navigation" href:"/docs/views"
+            item label:"Settings" href:"/docs/views"
+          SideNav variant:"ghost" scheme:"primary" size:"md" wide:true
+            item label:"Ghost" description:"Minimal navigation" href:"/docs/views"
+            item label:"Settings" href:"/docs/views"
+      Grid columns:1 gap:4
+        Title size:"xl" weight:"bold"
+          "Schemes"
+        Grid columns:{ xs:1 md:2 lg:3 } gap:4
+          SideNav variant:"soft" scheme:"primary" size:"sm" wide:true
+            item label:"Primary" href:"/docs/views"
+          SideNav variant:"soft" scheme:"secondary" size:"sm" wide:true
+            item label:"Secondary" href:"/docs/views"
+          SideNav variant:"soft" scheme:"tertiary" size:"sm" wide:true
+            item label:"Tertiary" href:"/docs/views"
+          SideNav variant:"soft" scheme:"muted" size:"sm" wide:true
+            item label:"Muted" href:"/docs/views"
+          SideNav variant:"soft" scheme:"success" size:"sm" wide:true
+            item label:"Success" href:"/docs/views"
+          SideNav variant:"soft" scheme:"info" size:"sm" wide:true
+            item label:"Info" href:"/docs/views"
+          SideNav variant:"soft" scheme:"warning" size:"sm" wide:true
+            item label:"Warning" href:"/docs/views"
+          SideNav variant:"soft" scheme:"danger" size:"sm" wide:true
+            item label:"Danger" href:"/docs/views"
+      Grid columns:1 gap:4
+        Title size:"xl" weight:"bold"
+          "Sizes"
+        Flex wrap:true align:"start" gap:5
+          SideNav variant:"outlined" scheme:"muted" size:"sm"
+            item label:"Small" description:"Compact density" href:"/docs/views"
+          SideNav variant:"outlined" scheme:"muted" size:"md"
+            item label:"Medium" description:"Default density" href:"/docs/views"
+          SideNav variant:"outlined" scheme:"muted" size:"lg"
+            item label:"Large" description:"Spacious density" href:"/docs/views"
+  Section id:"sidenav-width" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "WIDTH"
+        Title size:"3xl" weight:"black"
+          "Intrinsic or available width"
+        Text size:"sm" color:"muted"
+          "Without wide, SideNav and its interactive rows use their content width. Set wide:true when the navigation and the active or hovered rows should fill the available horizontal space on web, Android, and iOS."
+      Grid columns:{ xs:1 md:2 } gap:5
+        Card variant:"soft" scheme:"surface" p:6 rounded:"md"
+          Grid columns:1 gap:3
+            Title size:"lg" weight:"bold"
+              "Intrinsic by default"
+            Text size:"sm" color:"muted"
+              "The navigation stays as narrow as its entries require."
+            SideNav variant:"soft" scheme:"muted" size:"sm"
+              item label:"Statistics" href:"/docs/views" status:"New" icon:"chart"
+        Card variant:"soft" scheme:"surface" p:6 rounded:"md"
+          Grid columns:1 gap:3
+            Title size:"lg" weight:"bold"
+              "Fill with wide"
+            Text size:"sm" color:"muted"
+              "The navigation and its entry states expand across the available width."
+            SideNav variant:"soft" scheme:"muted" size:"sm" wide:true
+              item label:"Statistics" href:"/docs/views" status:"New" icon:"chart"
+  Section id:"sidenav-structure" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "STRUCTURE"
+        Title size:"3xl" weight:"black"
+          "Entries with clear roles"
+        Text size:"sm" color:"muted"
+          "Use headers to introduce groups, items for navigation or actions, dividers for separation, and submenus for expandable destinations."
+      Grid columns:{ xs:1 md:2 } gap:5
+        Card variant:"soft" scheme:"surface" p:6 rounded:"md"
+          Grid columns:1 gap:3
+            Title size:"lg" weight:"bold"
+              "Navigation entries"
+            Text size:"sm" color:"muted"
+              "An item can navigate with href or invoke an onClick action, but never both. Navigation options require href."
+            Code:
+              language:"dowe"
+              variant:"ghost"
+              scheme:"surface"
+              content:"""
+                SideNav
+                  item label:"Overview" href:"/overview"
+                  item label:"Create project" onClick:createProject
+              """
+        Card variant:"soft" scheme:"surface" p:6 rounded:"md"
+          Grid columns:1 gap:3
+            Title size:"lg" weight:"bold"
+              "Expandable submenus"
+            Text size:"sm" color:"muted"
+              "The open prop defines initial state. Users can then expand or collapse the submenu locally on every target. On iOS, the layout height and content opacity animate without sliding rows through the trigger label or the navigation entries above it. With wide:true, the complete row is tappable, including the space between the label and arrow."
+            Code:
+              language:"dowe"
+              variant:"ghost"
+              scheme:"surface"
+              content:"""
+                SideNav
+                  submenu label:"Content" open:true bordered:false
+                    item label:"Articles" href:"/articles"
+                    item label:"Authors" href:"/authors"
+              """
+  Section id:"sidenav-icons" p:{ xs:5 md:7 }
+    Grid columns:{ xs:1 md:2 } gap:6 align:"center"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PORTABLE ICONS"
+        Title size:"3xl" weight:"black"
+          "Solar icons or custom SVG"
+        Text size:"sm" color:"muted"
+          "Set icon to a Solar icon name on a header, item, or submenu. For a custom symbol, use one icon block containing exactly one Svg. Both forms lower to web, Android, and iOS."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        content:"""
+          SideNav size:"md" wide:true
+            header label:"Workspace" icon:"sidebar-minimalistic"
+            item label:"Home" href:"/" icon:"home"
+            submenu label:"Content" icon:"document-text"
+              item label:"Articles" href:"/articles" icon:"notes"
+            item label:"Custom" href:"/custom"
+              icon
+                Svg viewBox:"0 0 24 24" w:5 h:5
+                  Path d:"M3 11l9-8 9 8v10H3z" fill:"currentColor"
+        """
+  Section id:"sidenav-props" py:{ xs:7 md:10 }
+    Grid columns:1 gap:8
+      Grid columns:1 gap:5
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+            "API"
+          Title size:"3xl" weight:"black"
+            "SideNav props"
+          Text size:"sm" color:"muted"
+            "SideNav also accepts applicable common identity, spacing, sizing, typography, visibility, radius, and border props."
+        Table:
+          data:sideNavProps
+          variant:"soft"
+          scheme:"surface"
+          size:"sm"
+          striped:true
+          dividers:true
+          rounded:"md"
+          column field:"prop" label:"Prop" width:"1fr"
+          column field:"type" label:"Type" width:"3fr"
+          column field:"defaultValue" label:"Default" width:"1fr"
+      Grid columns:1 gap:5
+        Grid columns:1 gap:2
+          Title size:"2xl" weight:"black"
+            "Entry props"
+          Text size:"sm" color:"muted"
+            "Labels are required. Descriptions, status text, navigation, actions, and submenu state refine each structural entry."
+        Table:
+          data:entryProps
+          variant:"soft"
+          scheme:"surface"
+          size:"sm"
+          striped:true
+          dividers:true
+          rounded:"md"
+          column field:"prop" label:"Prop" width:"1fr"
+          column field:"components" label:"Components" width:"2fr"
+          column field:"type" label:"Type" width:"3fr"

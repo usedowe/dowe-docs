@@ -1,0 +1,218 @@
+page CanvasCompositionPage
+  signal composition:
+    value:[
+      {
+        type:"rect"
+        x:0
+        y:0
+        width:640
+        height:360
+        fill:"background"
+      },
+      {
+        type:"circle"
+        x:96
+        y:74
+        radius:120
+        fill:"softPrimary"
+        opacity:0.74
+      },
+      {
+        type:"circle"
+        x:562
+        y:300
+        radius:150
+        fill:"softSecondary"
+        opacity:0.68
+      },
+      {
+        type:"rect"
+        x:40
+        y:34
+        width:560
+        height:292
+        radius:28
+        fill:"surface"
+        stroke:"primary"
+        strokeWidth:2
+        opacity:0.9
+        rotation:-2
+      },
+      {
+        type:"image"
+        src:"/assets/logo.svg"
+        x:235
+        y:66
+        width:170
+        height:104
+        fit:"contain"
+      },
+      {
+        type:"text"
+        x:320
+        y:220
+        text:"PORTABLE COMPOSITION"
+        fill:"onSurface"
+        size:28
+        align:"center"
+      },
+      {
+        type:"text"
+        x:320
+        y:258
+        text:"asset + geometry + typography"
+        fill:"muted"
+        size:17
+        align:"center"
+      },
+      {
+        type:"line"
+        x1:238
+        y1:282
+        x2:402
+        y2:282
+        stroke:"secondary"
+        strokeWidth:5
+      },
+    ]
+  const compositionLayers:
+    value:[
+      {
+        order:"1"
+        layer:"Background"
+        command:"rect"
+        purpose:"Establishes a theme-aware base"
+      },
+      {
+        order:"2–3"
+        layer:"Atmosphere"
+        command:"circle"
+        purpose:"Adds translucent color fields"
+      },
+      {
+        order:"4"
+        layer:"Panel"
+        command:"rect"
+        purpose:"Creates a rotated content surface"
+      },
+      {
+        order:"5"
+        layer:"Brand asset"
+        command:"image"
+        purpose:"Fits a project asset into the scene"
+      },
+      {
+        order:"6–8"
+        layer:"Message"
+        command:"text and line"
+        purpose:"Finishes hierarchy and emphasis"
+      },
+    ]
+  Section id:"canvas-composition-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "CANVAS · COMPOSITION"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Image composition"
+        Text size:"lg" color:"muted"
+          "Place project assets inside a retained scene, then layer portable geometry, opacity, rotation, and typography above or below them."
+      Card variant:"soft" scheme:"success" p:5 rounded:"lg" minW:56
+        Grid columns:1 gap:1
+          Text size:"xs" weight:"bold" spacing:"widest"
+            "PROJECT ASSET"
+          Title size:"xl" weight:"black"
+            "/assets/logo.svg"
+          Text size:"sm"
+            "The example remains local to the project and does not depend on a third-party image service."
+  Section id:"canvas-composition-demo" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "ADVANCED EXAMPLE"
+        Title size:"3xl" weight:"black"
+          "Create a layered artboard"
+        Text size:"sm" color:"muted"
+          "The scene starts with a theme-aware background, adds translucent color, rotates a panel, fits a local asset, and finishes with centered text."
+      Canvas:
+        scene:composition
+        viewWidth:640
+        viewHeight:360
+        fit:"contain"
+        fps:30
+        autoplay:false
+        background:"background"
+        label:"Dowe logo on a layered geometric composition with centered text"
+        w:"full"
+        h:96
+        rounded:"lg"
+        border:1
+        shadow:"md"
+      Table:
+        data:compositionLayers
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"order" label:"Order" width:"1fr"
+        column field:"layer" label:"Layer" width:"1.5fr"
+        column field:"command" label:"Command" width:"1.5fr"
+        column field:"purpose" label:"Purpose" width:"3fr"
+  Section id:"canvas-composition-source" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SOURCE"
+        Title size:"3xl" weight:"black"
+          "Fit assets inside logical coordinates"
+        Text size:"sm" color:"muted"
+          "An image command accepts a project asset path or HTTPS URL. Its own fit controls the source inside the command rectangle; Canvas fit controls the complete logical scene inside the component."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          signal composition value:[
+            { type:"rect" x:0 y:0 width:640 height:360 fill:"background" },
+            { type:"rect" x:40 y:34 width:560 height:292 radius:28 fill:"surface" rotation:-2 },
+            { type:"image" src:"/assets/logo.svg" x:235 y:66 width:170 height:104 fit:"contain" },
+            { type:"text" x:320 y:220 text:"PORTABLE COMPOSITION" fill:"onSurface" size:28 align:"center" },
+          ]
+
+          Canvas scene:composition viewWidth:640 viewHeight:360 autoplay:false label:"Layered brand composition" w:"full" h:96
+        """
+  Section id:"canvas-composition-guidance" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "IMAGE RENDERING"
+        Title size:"3xl" weight:"black"
+          "Keep the portable boundary clear"
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"lg"
+          Grid columns:1 gap:2
+            Title size:"xl" weight:"black"
+              "Image fit"
+            Text size:"sm"
+              "contain shows the complete asset, cover fills and crops, and stretch maps it to the command bounds."
+        Card variant:"soft" scheme:"secondary" p:5 rounded:"lg"
+          Grid columns:1 gap:2
+            Title size:"xl" weight:"black"
+              "Pixel sampling"
+            Text size:"sm"
+              "Set pixelated:true on Canvas when image commands should render without smoothing."
+        Card variant:"soft" scheme:"warning" p:5 rounded:"lg"
+          Grid columns:1 gap:2
+            Title size:"xl" weight:"black"
+              "Current limits"
+            Text size:"sm"
+              "Arbitrary pixel filters, shaders, and video-frame processing are not supported."
+      Flex justify:"space-between" align:"center" wrap:true gap:3
+        Button href:"/docs/views/canvas/infographic" variant:"ghost" scheme:"muted" iconStart:"alt-arrow-left"
+          "Infographic"
+        Button href:"/docs/views/canvas/input" variant:"solid" scheme:"primary" iconEnd:"alt-arrow-right"
+          "Add input"

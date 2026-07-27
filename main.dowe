@@ -1,0 +1,12 @@
+import ViewsViews from "@/views/routes/views-views"
+import ServerViews from "@/views/routes/server-views"
+import HomeViews from "@/views/routes/home-views"
+import ExamplesViews from "@/views/routes/examples-views"
+import DevViews from "@/views/routes/dev-views"
+import BlockViews from "@/views/routes/block-views"
+import ApiRoutes from "@/server/endpoints"
+main
+  views:[HomeViews, ViewsViews, ServerViews, ExamplesViews, DevViews, BlockViews]
+  server port:8081
+    cors target:"server" devOrigins:true methods:["GET"] headers:["Content-Type"] credentials:false maxAge:600
+    endpoints:ApiRoutes

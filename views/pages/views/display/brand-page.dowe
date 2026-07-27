@@ -1,0 +1,129 @@
+page BrandPage
+  const brandProps:
+    value:[
+      { prop:"href" type:"optional safe navigation path or URL" defaultValue:"none" },
+      { prop:"label" type:"optional non-empty accessibility label" defaultValue:"none" },
+      { prop:"w, h" type:"common responsive size values" defaultValue:"intrinsic" },
+      { prop:"children" type:"one or more view children" defaultValue:"required" },
+      { prop:"spacing, border, radius, shadow, show" type:"common layout props" defaultValue:"—" },
+    ]
+  Section id:"brand-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "DISPLAY"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Brand"
+        Text size:"lg" color:"muted"
+          "Brand presents a logo or identity mark with optional home navigation, explicit dimensions, and no Button chrome."
+      Brand href:"/" label:"Dowe home" w:32 h:8
+        Svg viewBox:"0 0 128 32" w:"full" h:"full"
+          Path d:"M2 2H18C27 2 32 7 32 16C32 25 27 30 18 30H2V2ZM10 9V23H17C21 23 24 21 24 16C24 11 21 9 17 9H10Z" fill:"primary"
+          Path d:"M39 9H47L52 22L57 9H65L56 30H48L39 9Z" fill:"secondary"
+          Path d:"M65 9H73L77 21L81 9H88L92 21L96 9H104L96 30H88L84 19L80 30H72L65 9Z" fill:"primary"
+          Path d:"M105 9H126V15H113V17H124V22H113V24H126V30H105V9Z" fill:"secondary"
+  Section id:"brand-playground" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PLAYGROUND"
+        Title size:"3xl" weight:"black"
+          "Give the identity its own interaction surface"
+        Text size:"sm" color:"muted"
+          "Set href when the mark should return home. Brand remains intrinsic unless w or h defines its rendered frame."
+      Card variant:"outlined" scheme:"surface" p:{ xs:6 md:9 } rounded:"md" border:1
+        Flex direction:{ xs:"column" md:"row" } justify:"center" align:"center" gap:10
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "NAVIGATES HOME"
+            Brand href:"/" label:"Dowe home" w:32 h:8
+              Svg viewBox:"0 0 128 32" w:"full" h:"full"
+                Path d:"M2 2H18C27 2 32 7 32 16C32 25 27 30 18 30H2V2ZM10 9V23H17C21 23 24 21 24 16C24 11 21 9 17 9H10Z" fill:"primary"
+                Path d:"M39 9H47L52 22L57 9H65L56 30H48L39 9Z" fill:"secondary"
+                Path d:"M65 9H73L77 21L81 9H88L92 21L96 9H104L96 30H88L84 19L80 30H72L65 9Z" fill:"primary"
+                Path d:"M105 9H126V15H113V17H124V22H113V24H126V30H105V9Z" fill:"secondary"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "STATIC MARK"
+            Brand label:"Dowe symbol" w:8 h:8
+              Svg viewBox:"0 0 32 32" w:"full" h:"full"
+                Path d:"M2 2H18C27 2 32 7 32 16C32 25 27 30 18 30H2V2ZM10 9V23H17C21 23 24 21 24 16C24 11 21 9 17 9H10Z" fill:"primary"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Brand href:"/" label:"Dowe home" w:32 h:8
+            Svg viewBox:"0 0 128 32" w:"full" h:"full"
+              Path d:"M2 2H18C27 2 32 7 32 16C32 25 27 30 18 30H2V2Z" fill:"primary"
+
+          Brand label:"Dowe symbol" w:8 h:8
+            Image src:"/assets/dowe-symbol.png" alt:"Dowe symbol" w:"full" h:"full"
+        """
+  Section id:"brand-contract" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "CONTRACT"
+        Title size:"3xl" weight:"black"
+          "Identity without action styling"
+        Text size:"sm" color:"muted"
+          "Brand owns an optional navigation boundary while its children own every visible pixel."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "NAVIGATION"
+            Title size:"lg" weight:"black"
+              "href is optional"
+            Text size:"sm" color:"muted"
+              "Without href the mark is a static identity group. With href the full authored frame becomes interactive."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "DIMENSIONS"
+            Title size:"lg" weight:"black"
+              "w and h match Box"
+            Text size:"sm" color:"muted"
+              "Use common scalar or responsive size values to control the logo frame on every target."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "VISUALS"
+            Title size:"lg" weight:"black"
+              "Children stay in control"
+            Text size:"sm" color:"muted"
+              "Svg and Image are the usual children, but any valid view child is accepted. Brand adds no variant, scheme, padding, or control background."
+  Section id:"brand-accessibility" p:{ xs:5 md:7 }
+    Grid columns:{ xs:1 md:2 } gap:4
+      Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "ACCESSIBILITY"
+          Title size:"xl" weight:"black"
+            "Label the identity"
+          Text size:"sm" color:"muted"
+            "Use label when an Svg has no independent text alternative or when the whole navigable mark needs one concise name."
+      Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "APP BARS"
+          Title size:"xl" weight:"black"
+            "Place Brand in start"
+          Text size:"sm" color:"muted"
+            "A Brand in an AppBar start region provides the familiar route home without making a logo look like a text button."
+  Section id:"brand-props" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Props"
+        Text size:"sm" color:"muted"
+          "Brand accepts common identity, visibility, font, spacing, sizing, radius, border, and shadow props."
+      Table data:brandProps variant:"soft" scheme:"surface" size:"sm" striped:true dividers:true rounded:"md"
+        column field:"prop" label:"Prop" width:"1.2fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1.2fr"

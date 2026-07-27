@@ -1,0 +1,149 @@
+type ChartPoint
+  x:number
+  y:number
+
+type ChartSeries
+  name:string
+  data:ChartPoint[]
+
+page LineChartPage
+  signal revenue type:ChartPoint[] value:[
+    { x:1 y:38 },
+    { x:2 y:44 },
+    { x:3 y:41 },
+    { x:4 y:57 },
+    { x:5 y:63 },
+    { x:6 y:71 },
+    { x:7 y:68 },
+    { x:8 y:82 },
+  ]
+  signal products type:ChartSeries[] value:[
+    { name:"Core" data:[{ x:1 y:32 }, { x:2 y:38 }, { x:3 y:44 }, { x:4 y:51 }, { x:5 y:59 }] },
+    { name:"Teams" data:[{ x:1 y:18 }, { x:2 y:23 }, { x:3 y:21 }, { x:4 y:29 }, { x:5 y:36 }] },
+  ]
+  signal emptyRevenue type:ChartPoint[] value:[]
+  const lineProps:
+    value:[
+      { prop:"data, series" type:"Signal array paths" defaultValue:"data required unless series is set" },
+      { prop:"variant, scheme" type:"solid | soft | outlined | ghost, Dowe family" defaultValue:"solid, surface" },
+      { prop:"size, palette" type:"chart size, chart palette" defaultValue:"md, default" },
+      { prop:"curve" type:"linear | smooth" defaultValue:"linear" },
+      { prop:"strokeWidth, pointRadius" type:"positive numbers" defaultValue:"2, 3" },
+      { prop:"hidePoints, hideGrid, hideXAxis, hideYAxis" type:"boolean" defaultValue:"false" },
+      { prop:"showGradientFill, showGlow" type:"boolean" defaultValue:"false" },
+      { prop:"legendPosition" type:"top | right | bottom | left | none" defaultValue:"bottom" },
+      { prop:"emptyLabel, loading, hideLegend" type:"string, boolean, boolean" defaultValue:"No data available, false, false" },
+    ]
+  Section id:"line-chart-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "CHARTS"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "LineChart"
+        Text size:"lg" color:"muted"
+          "Portable trend lines for time series, performance signals, and multi-series comparisons."
+      Card variant:"soft" scheme:"info" p:5 rounded:"lg" minW:56
+        Grid columns:1 gap:1
+          Text size:"xs" weight:"bold" spacing:"widest"
+            "POINTS OR SERIES"
+          Title size:"xl" weight:"black"
+            "Make direction obvious"
+          Text size:"sm"
+            "The x/y model stays small, while named series add comparison without custom renderers."
+  Section id:"line-chart-basic" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "POINT DATA"
+        Title size:"3xl" weight:"black"
+          "Show a smooth revenue trend"
+        Text size:"sm" color:"muted"
+          "curve controls interpolation, pointRadius controls markers, and showGradientFill adds a quiet area cue without changing the underlying line data."
+      LineChart:
+        data:revenue
+        variant:"soft"
+        scheme:"surface"
+        size:"lg"
+        palette:"ocean"
+        curve:"smooth"
+        strokeWidth:3
+        pointRadius:4
+        showGradientFill:true
+        showGlow:true
+        legendPosition:"bottom"
+        rounded:"lg"
+      Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+        type ChartPoint
+          x:number
+          y:number
+
+        signal revenue type:ChartPoint[] value:[{ x:1 y:38 }, { x:2 y:44 }, { x:3 y:41 }]
+
+        LineChart data:revenue variant:"soft" scheme:"surface" size:"lg" palette:"ocean" curve:"smooth" strokeWidth:3 pointRadius:4 showGradientFill:true
+      """
+  Section id:"line-chart-series" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SERIES AND GUIDES"
+        Title size:"3xl" weight:"black"
+          "Compare product lines"
+        Text size:"sm" color:"muted"
+          "Use series when the legend is part of the story. hidePoints and hideGrid create a quieter executive view while keeping the trend itself prominent."
+      LineChart:
+        series:products
+        variant:"outlined"
+        scheme:"primary"
+        size:"lg"
+        palette:"forest"
+        curve:"linear"
+        strokeWidth:2
+        hidePoints:true
+        hideGrid:true
+        legendPosition:"top"
+      Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+        type ChartSeries
+          name:string
+          data:ChartPoint[]
+        signal products type:ChartSeries[] value:[{ name:"Core" data:[{ x:1 y:32 }, { x:2 y:38 }] }]
+
+        LineChart series:products variant:"outlined" scheme:"primary" palette:"forest" curve:"linear" strokeWidth:2 hidePoints:true hideGrid:true legendPosition:"top"
+      """
+  Section id:"line-chart-states" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "STATES AND PRESENTATION"
+        Title size:"3xl" weight:"black"
+          "Use the line as the signal"
+        Text size:"sm" color:"muted"
+          "Loading and empty states are part of the chart contract. Set legendPosition to none or hideLegend when nearby copy already names each series."
+      Grid columns:{ xs:1 md:3 } gap:4
+        LineChart data:revenue variant:"solid" scheme:"surface" size:"md" hidePoints:true hideGrid:true showGradientFill:true
+        LineChart data:revenue variant:"soft" scheme:"success" size:"md" curve:"linear" pointRadius:5
+        LineChart data:emptyRevenue variant:"outlined" scheme:"warning" size:"md" emptyLabel:"No revenue yet"
+      Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+        LineChart data:revenue variant:"solid" scheme:"surface" hidePoints:true hideGrid:true showGradientFill:true
+        LineChart data:emptyRevenue variant:"outlined" scheme:"warning" emptyLabel:"No revenue yet"
+      """
+  Section id:"line-chart-props" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Props"
+        Text size:"sm" color:"muted"
+          "LineChart also accepts applicable common identity, spacing, sizing, visibility, radius, border, and accessibility props."
+      Table:
+        data:lineProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1.2fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1.2fr"

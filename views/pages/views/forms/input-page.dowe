@@ -1,0 +1,236 @@
+page InputPage
+  signal fieldValue value:""
+  const valueOptions:
+    value:[
+      {
+        id:"empty"
+        value:""
+        label:"Empty"
+        description:"Show the placeholder and resting label state."
+      },
+      {
+        id:"agent"
+        value:"Dowe Agent"
+        label:"Dowe Agent"
+        description:"Fill the field with a short display name."
+      },
+      {
+        id:"workspace"
+        value:"dowe-workspace"
+        label:"dowe-workspace"
+        description:"Fill the field with a project-friendly value."
+      },
+    ]
+  const inputProps:
+    value:[
+      {
+        prop:"bind"
+        type:"string Signal path"
+        defaultValue:"—"
+      },
+      {
+        prop:"label"
+        type:"string"
+        defaultValue:"—"
+      },
+      {
+        prop:"placeholder"
+        type:"string"
+        defaultValue:"—"
+      },
+      {
+        prop:"labelFloating"
+        type:"boolean"
+        defaultValue:"false"
+      },
+      {
+        prop:"variant"
+        type:"solid | soft | outlined | ghost"
+        defaultValue:"solid"
+      },
+      {
+        prop:"scheme"
+        type:"primary | secondary | tertiary | muted | success | info | warning | danger"
+        defaultValue:"primary"
+      },
+      {
+        prop:"iconStart"
+        type:"Solar icon name"
+        defaultValue:"—"
+      },
+      {
+        prop:"iconEnd"
+        type:"Solar icon name"
+        defaultValue:"—"
+      },
+    ]
+  Section id:"input-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "FORM"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Input"
+        Text size:"lg" color:"muted"
+          "Inputs collect editable text with consistent labels, placeholders, icons, and visual variants on every target."
+      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
+        "Copy LLM"
+  Section id:"input-playground" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PLAYGROUND"
+        Title size:"3xl" weight:"black"
+          "Edit one shared value"
+        Text size:"sm" color:"muted"
+          "The Select and Input bind to the same string Signal. Choose a preset, then continue editing it directly in the field."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Select:
+          bind:fieldValue
+          label:"Preset value"
+          placeholder:"Choose a value"
+          labelFloating:true
+          variant:"outlined"
+          scheme:"primary"
+          each in:valueOptions as:option key:option.id
+            Option value:option.value label:option.label description:option.description
+        Input:
+          bind:fieldValue
+          label:"Workspace name"
+          placeholder:"Enter a workspace name"
+          labelFloating:true
+          variant:"outlined"
+          scheme:"primary"
+          iconStart:"pen"
+          w:"full"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          signal fieldValue value:""
+
+          Input bind:fieldValue label:"Workspace name" placeholder:"Enter a workspace name" labelFloating:true variant:"outlined" scheme:"primary" iconStart:"pen" w:"full"
+        """
+  Section id:"input-labels" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "LABELS"
+        Title size:"3xl" weight:"black"
+          "Fixed or floating"
+        Text size:"sm" color:"muted"
+          "A fixed label stays above the field. A floating label lives in the control surface and activates with focus or a value."
+      Grid columns:{ xs:1 md:2 } gap:5
+        Input label:"Email" placeholder:"name@example.com" variant:"outlined" scheme:"primary" w:"full"
+        Input label:"Email" placeholder:"name@example.com" labelFloating:true variant:"outlined" scheme:"primary" w:"full"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Input label:"Email" placeholder:"name@example.com" variant:"outlined" scheme:"primary"
+          Input label:"Email" placeholder:"name@example.com" labelFloating:true variant:"outlined" scheme:"primary"
+        """
+  Section id:"input-variants" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "VARIANTS"
+        Title size:"3xl" weight:"black"
+          "Four control surfaces"
+        Text size:"sm" color:"muted"
+          "Variant changes the container treatment while keeping the same normalized field geometry."
+      Grid columns:{ xs:1 md:2 } gap:5
+        Input variant:"solid" scheme:"primary" label:"Solid" placeholder:"Solid input" w:"full"
+        Input variant:"soft" scheme:"primary" label:"Soft" placeholder:"Soft input" w:"full"
+        Input variant:"outlined" scheme:"primary" label:"Outlined" placeholder:"Outlined input" w:"full"
+        Input variant:"ghost" scheme:"primary" label:"Ghost" placeholder:"Ghost input" w:"full"
+  Section id:"input-schemes" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SCHEMES"
+        Title size:"3xl" weight:"black"
+          "Every semantic family"
+        Text size:"sm" color:"muted"
+          "Outlined fields use a neutral resting border and preserve the selected scheme for foreground and focus feedback."
+      Grid columns:{ xs:1 md:2 } gap:5
+        Input variant:"outlined" scheme:"primary" label:"Primary" placeholder:"Enter a value" w:"full"
+        Input variant:"outlined" scheme:"secondary" label:"Secondary" placeholder:"Enter a value" w:"full"
+        Input variant:"outlined" scheme:"tertiary" label:"Tertiary" placeholder:"Enter a value" w:"full"
+        Input variant:"outlined" scheme:"muted" label:"Muted" placeholder:"Enter a value" w:"full"
+        Input variant:"outlined" scheme:"success" label:"Success" placeholder:"Enter a value" w:"full"
+        Input variant:"outlined" scheme:"info" label:"Info" placeholder:"Enter a value" w:"full"
+        Input variant:"outlined" scheme:"warning" label:"Warning" placeholder:"Enter a value" w:"full"
+        Input variant:"outlined" scheme:"danger" label:"Danger" placeholder:"Enter a value" w:"full"
+  Section id:"input-icons" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "ICONS"
+        Title size:"3xl" weight:"black"
+          "Context inside the field"
+        Text size:"sm" color:"muted"
+          "Input resolves Solar icons at compile time. Floating-label fields hide them while empty and unfocused, then reveal them after focus or a value moves the label above the editable row."
+      Grid columns:{ xs:1 md:2 } gap:5
+        Input label:"Search" placeholder:"Search documentation" variant:"outlined" scheme:"info" iconStart:"magnifier" w:"full"
+        Input label:"Project" placeholder:"dowe-app" labelFloating:true variant:"soft" scheme:"success" iconStart:"folder" iconEnd:"check-circle" w:"full"
+  Section id:"input-contract" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "BEHAVIOR"
+        Title size:"3xl" weight:"black"
+          "One native contract"
+        Text size:"sm" color:"muted"
+          "Input uses native editable controls on web, iOS, and Android while Dowe keeps height, inset, typography, radius, binding, and focus color aligned."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "BINDING"
+            Title size:"lg" weight:"bold"
+              "Two-way text"
+            Text size:"sm" color:"muted"
+              "bind reads and writes a string Signal path without executing user JavaScript."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "ACCESSIBILITY"
+            Title size:"lg" weight:"bold"
+              "Label first"
+            Text size:"sm" color:"muted"
+              "Placeholder copy never replaces the accessible label contract."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "TARGETS"
+            Title size:"lg" weight:"bold"
+              "Portable metrics"
+            Text size:"sm" color:"muted"
+              "Web, SwiftUI, and Compose consume the same normalized field model."
+  Section id:"input-props" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Props"
+        Text size:"sm" color:"muted"
+          "Input also accepts the applicable common spacing, sizing, font, visibility, accessibility, and shadow props."
+      Table:
+        data:inputProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1fr"

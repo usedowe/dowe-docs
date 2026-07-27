@@ -1,0 +1,53 @@
+page DatabaseTransactionsPage
+  Section id:"database-transactions-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SERVER / DATABASE / TRANSACTIONS"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Transactions"
+        Text size:"lg" color:"muted"
+          "Transactions stage local literal inserts and commit them as one server action. They are supported by the embedded local Database; remote provider handles currently reject db:<handle>.tx."
+      Button href:"/docs/server/db" variant:"ghost" scheme:"muted" size:"sm"
+        "Database overview"
+  Section id:"database-transactions-example" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "LOCAL TRANSACTION"
+        Title size:"3xl" weight:"black"
+          "Stage inserts, then commit one result"
+        Text size:"sm" color:"muted"
+          "query result db:db.tx opens the transaction. Nested query declarations stage inserts against the same handle, keeping every binding explicit."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          handler seedClinicData
+            database db provider:"dowe" host:env.DOWE_HOST port:env.DOWE_PORT account:env.DOWE_USER secret:env.DOWE_PASSWORD name:"clinic"
+            query result db:db.tx
+              query room db:db.insert table:"rooms" value:{ name:"Room 1" status:"available" }
+              query doctor db:db.insert table:"staff" value:{ name:"Ada" role:"doctor" }
+              commit value:room
+            return json:{ ok:true data:result }
+        """
+  Section id:"database-transactions-limits" py:{ xs:7 md:10 }
+    Grid columns:{ xs:1 md:3 } gap:4
+      Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Title size:"lg" weight:"bold"
+          "Local only"
+        Text size:"sm" color:"muted"
+          "Remote Database handles reject query result db:db.tx until a remote transaction protocol exists."
+      Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Title size:"lg" weight:"bold"
+          "Insert stage"
+        Text size:"sm" color:"muted"
+          "The current runtime stages query bindings such as query room db:db.insert with literal values inside the transaction."
+      Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Title size:"lg" weight:"bold"
+          "Rollback safety"
+        Text size:"sm" color:"muted"
+          "A failed staged operation rolls back uncommitted writes. Use normal operations for request-bound values."

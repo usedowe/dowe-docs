@@ -1,0 +1,40 @@
+page RouterEndpointsPage
+  Section id:"router-endpoints" py:{ xs:6 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SERVER ROUTER"
+        Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+          "Endpoint groups are one level"
+        Text size:"lg" color:"muted"
+          "Each group adds a path prefix and optional middleware to direct methods and WebSockets before Dowe compiles the final routes into the Dowe server. Groups never contain groups."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          endpoints apiRoutes
+            group path:"/api/blogs"
+              get path:"" handler:listBlogs
+              get path:"/:id" handler:readBlog
+              post path:"/create" handler:createBlog middleware:[requireBearer]
+              patch path:"/:id/edit" handler:updateBlog middleware:[requireBearer]
+        """
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Path composition"
+          Text size:"sm" color:"muted"
+            "The group /api/blogs plus get path:\"/:id\" registers GET /api/blogs/:id. An empty method path targets the group root."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Ordered protection"
+          Text size:"sm" color:"muted"
+            "Group middleware runs first. Method middleware runs after it and before its handler. Put protection on either surface without nesting groups."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "One normalized router"
+          Text size:"sm" color:"muted"
+            "The compiler resolves groups once; the shared Dowe runtime receives final HTTP routes and does not reparse source."

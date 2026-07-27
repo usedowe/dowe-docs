@@ -1,0 +1,5 @@
+page ScaffoldPreviewPage
+  Section minH:"vh-48" bg:"surface"
+    Flex direction:"column" minH:"vh-48" align:"center" justify:"center"
+      Text weight:"bold" color:"muted"
+        "Main"

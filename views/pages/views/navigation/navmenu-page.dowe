@@ -1,0 +1,297 @@
+page NavMenuPage
+  const navMenuProps:
+    value:[
+      {
+        prop:"variant"
+        type:"solid | soft | outlined | ghost"
+        defaultValue:"ghost"
+      },
+      {
+        prop:"scheme"
+        type:"primary | secondary | tertiary | muted | background | surface | success | info | warning | danger"
+        defaultValue:"muted"
+      },
+      {
+        prop:"size"
+        type:"sm | md | lg"
+        defaultValue:"md"
+      },
+    ]
+  const entryProps:
+    value:[
+      {
+        prop:"label"
+        components:"item | submenu | megamenu"
+        type:"string"
+        behavior:"Required static fallback label"
+      },
+      {
+        prop:"i18n"
+        components:"item | submenu | megamenu"
+        type:"translation key"
+        behavior:"Optional translated label"
+      },
+      {
+        prop:"description"
+        components:"item | submenu | megamenu"
+        type:"string"
+        behavior:"Secondary copy in menu content"
+      },
+      {
+        prop:"href"
+        components:"item | submenu item"
+        type:"path | fragment | HTTPS URL"
+        behavior:"Portable navigation destination"
+      },
+      {
+        prop:"navigate"
+        components:"item | submenu item"
+        type:"push | replace"
+        behavior:"History behavior for href"
+      },
+      {
+        prop:"target"
+        components:"item | submenu item"
+        type:"self | blank"
+        behavior:"Web destination for href"
+      },
+      {
+        prop:"externalMode"
+        components:"item | submenu item"
+        type:"system | webview"
+        behavior:"Native external navigation"
+      },
+      {
+        prop:"onClick"
+        components:"item | submenu item"
+        type:"function name"
+        behavior:"Runs a declared view function"
+      },
+      {
+        prop:"icon"
+        components:"item | submenu | megamenu"
+        type:"one icon block"
+        behavior:"Contains exactly one portable Svg"
+      },
+    ]
+  Section id:"navmenu-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "NAVIGATION"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "NavMenu"
+        Text size:"lg" color:"muted"
+          "NavMenu creates portable horizontal navigation with links, expandable submenus, and rich megamenu content."
+      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
+        "Copy LLM"
+  Section id:"navmenu-default" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "HORIZONTAL NAVIGATION"
+        Title size:"3xl" weight:"black"
+          "Direct links and local menus"
+        Text size:"sm" color:"muted"
+          "Place NavMenu in an AppBar center region or another horizontal shell. Direct items navigate immediately; submenu and megamenu triggers keep their own open state."
+      Card variant:"outlined" scheme:"surface" p:{ xs:5 md:8 } rounded:"md" border:1
+        Flex justify:"center"
+          NavMenu variant:"ghost" scheme:"primary" size:"md"
+            item label:"Overview" href:"/docs/views"
+            submenu label:"Views"
+              item label:"Layout" description:"Shells and regions" href:"/docs/views/layout/appbar"
+              item label:"Navigation" description:"Menus and drawers" href:"/docs/views/navigation/sidenav"
+            item label:"Server" href:"/docs/server"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          NavMenu variant:"ghost" scheme:"primary" size:"md"
+            item label:"Overview" href:"/docs/views"
+            submenu label:"Views"
+              item label:"Layout" description:"Shells and regions" href:"/docs/views/layout/appbar"
+              item label:"Navigation" description:"Menus and drawers" href:"/docs/views/navigation/sidenav"
+            item label:"Server" href:"/docs/server"
+        """
+  Section id:"navmenu-variations" py:{ xs:7 md:10 }
+    Grid columns:1 gap:8
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "VISUAL OPTIONS"
+        Title size:"3xl" weight:"black"
+          "Variants, schemes, and sizes"
+        Text size:"sm" color:"muted"
+          "Visual props apply to links, open triggers, and active destinations without changing the navigation structure."
+      Grid columns:1 gap:4
+        Title size:"xl" weight:"bold"
+          "Variants"
+        Flex wrap:true align:"start" gap:5
+          NavMenu variant:"solid" scheme:"primary" size:"sm"
+            item label:"Solid" href:"/docs/views/navigation/navmenu"
+          NavMenu variant:"soft" scheme:"primary" size:"sm"
+            item label:"Soft" href:"/docs/views/navigation/navmenu"
+          NavMenu variant:"outlined" scheme:"primary" size:"sm"
+            item label:"Outlined" href:"/docs/views/navigation/navmenu"
+          NavMenu variant:"ghost" scheme:"primary" size:"sm"
+            item label:"Ghost" href:"/docs/views/navigation/navmenu"
+      Grid columns:1 gap:4
+        Title size:"xl" weight:"bold"
+          "Schemes"
+        Flex wrap:true align:"start" gap:5
+          NavMenu variant:"soft" scheme:"primary" size:"sm"
+            item label:"Primary" href:"/docs/views/navigation/navmenu"
+          NavMenu variant:"soft" scheme:"secondary" size:"sm"
+            item label:"Secondary" href:"/docs/views/navigation/navmenu"
+          NavMenu variant:"soft" scheme:"tertiary" size:"sm"
+            item label:"Tertiary" href:"/docs/views/navigation/navmenu"
+          NavMenu variant:"soft" scheme:"muted" size:"sm"
+            item label:"Muted" href:"/docs/views/navigation/navmenu"
+          NavMenu variant:"soft" scheme:"success" size:"sm"
+            item label:"Success" href:"/docs/views/navigation/navmenu"
+          NavMenu variant:"soft" scheme:"warning" size:"sm"
+            item label:"Warning" href:"/docs/views/navigation/navmenu"
+          NavMenu variant:"soft" scheme:"danger" size:"sm"
+            item label:"Danger" href:"/docs/views/navigation/navmenu"
+      Grid columns:1 gap:4
+        Title size:"xl" weight:"bold"
+          "Sizes"
+        Flex wrap:true align:"start" gap:5
+          NavMenu variant:"outlined" scheme:"muted" size:"sm"
+            item label:"Small" href:"/docs/views/navigation/navmenu"
+          NavMenu variant:"outlined" scheme:"muted" size:"md"
+            item label:"Medium" href:"/docs/views/navigation/navmenu"
+          NavMenu variant:"outlined" scheme:"muted" size:"lg"
+            item label:"Large" href:"/docs/views/navigation/navmenu"
+  Section id:"navmenu-structure" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "STRUCTURE"
+        Title size:"3xl" weight:"black"
+          "Submenus and megamenus"
+        Text size:"sm" color:"muted"
+          "A submenu contains direct navigation items. A megamenu owns one content region, where normal view components can form a richer destination panel."
+      Grid columns:{ xs:1 md:2 } gap:5
+        Card variant:"soft" scheme:"surface" p:6 rounded:"md"
+          Grid columns:1 gap:3
+            Title size:"lg" weight:"bold"
+              "Submenu destinations"
+            Text size:"sm" color:"muted"
+              "Submenu triggers cannot navigate or call an action. Their arrow opens the local menu and rotates while the menu is visible."
+            Code:
+              language:"dowe"
+              variant:"ghost"
+              scheme:"surface"
+              content:"""
+                NavMenu
+                  submenu label:"Learn"
+                    item label:"Guides" description:"Start here" href:"/guides"
+                    item label:"API" description:"Reference" href:"/api"
+              """
+        Card variant:"soft" scheme:"surface" p:6 rounded:"md"
+          Grid columns:1 gap:3
+            Title size:"lg" weight:"bold"
+              "Megamenu content"
+            Text size:"sm" color:"muted"
+              "Use the required content region to group normal view nodes. The trigger closes on outside interaction, Escape, or a navigation event where the platform supports it."
+            Code:
+              language:"dowe"
+              variant:"ghost"
+              scheme:"surface"
+              content:"""
+                NavMenu
+                  megamenu label:"Resources"
+                    content
+                      Grid columns:{ xs:1 md:2 } gap:4
+                        Card variant:"soft" scheme:"surface" p:4
+                          Title size:"lg"
+                            "Learn"
+                          Text size:"sm" color:"muted"
+                            "Guides and examples."
+              """
+      Card variant:"outlined" scheme:"surface" p:{ xs:5 md:8 } rounded:"md" border:1
+        Flex justify:"center"
+          NavMenu variant:"soft" scheme:"muted" size:"md"
+            item label:"Home" href:"/docs/views"
+            megamenu label:"Resources"
+              content
+                Grid columns:{ xs:1 md:2 } gap:4 p:4
+                  Card variant:"soft" scheme:"surface" p:4
+                    Grid columns:1 gap:2
+                      Title size:"lg" weight:"bold"
+                        "Learn"
+                      Text size:"sm" color:"muted"
+                        "Guides, examples, and component references."
+                  Card variant:"soft" scheme:"surface" p:4
+                    Grid columns:1 gap:2
+                      Title size:"lg" weight:"bold"
+                        "Build"
+                      Text size:"sm" color:"muted"
+                        "Compiler, targets, and deployment resources."
+  Section id:"navmenu-icons" p:{ xs:5 md:7 }
+    Grid columns:{ xs:1 md:2 } gap:6 align:"center"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PORTABLE ICONS"
+        Title size:"3xl" weight:"black"
+          "Use one custom SVG per entry"
+        Text size:"sm" color:"muted"
+          "Each item, submenu, or megamenu can contain one icon block with exactly one Svg. The same vector lowers to web, Android, and iOS."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        content:"""
+          NavMenu size:"md"
+            item label:"Home" href:"/"
+              icon
+                Svg viewBox:"0 0 24 24" w:5 h:5
+                  Path d:"M3 11l9-8 9 8v10H3z" fill:"currentColor"
+            submenu label:"Docs"
+              icon
+                Svg viewBox:"0 0 24 24" w:5 h:5
+                  Path d:"M5 4h14v16H5z" fill:"currentColor"
+              item label:"Guide" href:"/docs"
+        """
+  Section id:"navmenu-props" py:{ xs:7 md:10 }
+    Grid columns:1 gap:8
+      Grid columns:1 gap:5
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+            "API"
+          Title size:"3xl" weight:"black"
+            "NavMenu props"
+          Text size:"sm" color:"muted"
+            "NavMenu also accepts applicable common identity, spacing, sizing, typography, visibility, radius, and border props. Use scheme, not color, for its visual family."
+        Table:
+          data:navMenuProps
+          variant:"soft"
+          scheme:"surface"
+          size:"sm"
+          striped:true
+          dividers:true
+          rounded:"md"
+          column field:"prop" label:"Prop" width:"1fr"
+          column field:"type" label:"Type" width:"4fr"
+          column field:"defaultValue" label:"Default" width:"1fr"
+      Grid columns:1 gap:5
+        Grid columns:1 gap:2
+          Title size:"2xl" weight:"black"
+            "Entry props"
+          Text size:"sm" color:"muted"
+            "Every entry needs a label. Only item entries can navigate or invoke an action; href and onClick are mutually exclusive."
+        Table:
+          data:entryProps
+          variant:"soft"
+          scheme:"surface"
+          size:"sm"
+          striped:true
+          dividers:true
+          rounded:"md"
+          column field:"prop" label:"Prop" width:"1fr"
+          column field:"components" label:"Components" width:"2fr"
+          column field:"type" label:"Type" width:"2fr"
+          column field:"behavior" label:"Behavior" width:"3fr"

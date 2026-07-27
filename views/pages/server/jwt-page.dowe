@@ -1,0 +1,136 @@
+page JwtPage
+  Section id:"jwt-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SERVER / JWT"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "JWT"
+        Text size:"lg" color:"muted"
+          "JWT is Dowe's Dowe-owned server utility for signing, verifying, encrypting, and decrypting tokens without Node.js, npm packages, or client-side secrets."
+      Button href:"/docs/server/kv" variant:"ghost" scheme:"muted" size:"sm"
+        "KV documentation"
+  Section id:"jwt-mental-model" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "MENTAL MODEL"
+        Title size:"3xl" weight:"black"
+          "Bind each JWT result directly"
+        Text size:"sm" color:"muted"
+          "jwt binds a token or verification result directly. Its secret or key stays server-only for the current handler or middleware, and the old let value = jwt form is rejected."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          handler createSession
+            jwt token secret:env.JWT_SECRET algorithm:"HS256" claims:{ sub:"user-1" }
+            return json:{ ok:true token:token }
+        """
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "JWT VARIABLE"
+            Title size:"lg" weight:"bold"
+              "jwt token"
+            Text size:"sm" color:"muted"
+              "Binds the compact token or validation result inside the current action."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "RESULT"
+            Title size:"lg" weight:"bold"
+              "claims or token"
+            Text size:"sm" color:"muted"
+              "claims creates a token; token validates or decrypts an existing token."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "BOUNDARY"
+            Title size:"lg" weight:"bold"
+              "Server only"
+            Text size:"sm" color:"muted"
+              "Views receive only deliberate response data, never JWT secrets, keys, or utility state."
+  Section id:"jwt-verify" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SIGNED TOKENS"
+        Title size:"3xl" weight:"black"
+          "Verify bearer tokens before trusting claims"
+        Text size:"sm" color:"muted"
+          "bearer only extracts the token. jwt verified validates the HS256 signature and standard time claims before middleware explicitly calls next."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          middleware requireBearer params:{}
+            bearer token value:req.header.Authorization
+            jwt verified secret:env.JWT_SECRET algorithm:"HS256" token:token
+            if verified.valid
+              next
+            return status:401 json:{ ok:false error:"Unauthorized" }
+        """
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Sign"
+          Text size:"sm" color:"muted"
+            "Uses secret plus HS256 and returns a compact signed JWS token."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Verify"
+          Text size:"sm" color:"muted"
+            "Returns valid and trusted claims only after signature and configured claim checks pass."
+  Section id:"jwt-encryption" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "ENCRYPTED TOKENS"
+        Title size:"3xl" weight:"black"
+          "Use a separate JWE variable for encrypted claims"
+        Text size:"sm" color:"muted"
+          "JWE uses direct key management with A256GCM. jwt infers encryption from key plus claims, and decryption from key plus token."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          handler createEncryptedSession
+            jwt token key:env.JWT_KEY algorithm:"dir" encryption:"A256GCM" claims:{ sub:"user-1" }
+            return json:{ token:token }
+        """
+  Section id:"jwt-security" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SECURITY"
+        Title size:"3xl" weight:"black"
+          "Fail closed and keep authority on the server"
+        Text size:"sm" color:"muted"
+          "Dowe rejects alg:none, unsupported algorithms, missing server environment values, invalid signatures, expired tokens, and tokens that are not yet valid. Declare secret names in .env.example and supply values through .env or the process environment. Runtime errors do not log tokens, headers, keys, or secrets."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "No Node.js"
+          Text size:"sm" color:"muted"
+            "JWT behavior is executed by shared Dowe crates, not user JavaScript or an external crypto CLI."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "No client secrets"
+          Text size:"sm" color:"muted"
+            "secret and key values must be referenced only from server source and never enter client artifacts."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Explicit migration"
+          Text size:"sm" color:"muted"
+            "Replace let result = jwt operations and const bindings with one jwt result declaration."

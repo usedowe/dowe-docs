@@ -1,0 +1,152 @@
+page SessionPage
+  Section id:"session-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SERVER / SESSIONS"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Opaque sessions"
+        Text size:"lg" color:"muted"
+          "Bearer describes how a credential travels. It does not require JWT. Dowe's CRUD template uses a server-owned ULID session backed by Cache and Database."
+      Button href:"/docs/server/kv" variant:"ghost" scheme:"muted" size:"sm"
+        "Cache documentation"
+  Section id:"session-mental-model" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "MENTAL MODEL"
+        Title size:"3xl" weight:"black"
+          "Use an opaque ULID as the session id"
+        Text size:"sm" color:"muted"
+          "id session source:\"ulid\" generates a canonical 26-character ULID on the server. The client receives only the opaque id and sends it as Authorization: Bearer <ulid>. Claims and database credentials never enter the token."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          fn createSessionRepository params:{ userId:string }
+            id session source:"ulid"
+            query created db:appDb.insert table:"sessions" value:{ id:session userId:args.userId createdAt:now } required:["id", "userId"]
+            str sessionKey source:"join" values:["session", session] delimiter:":"
+            kv cached conn:appCache.set key:sessionKey value:{ id:session userId:args.userId }
+            return value:{ id:session userId:args.userId }
+        """
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "TOKEN"
+            Title size:"lg" weight:"bold"
+              "ULID"
+            Text size:"sm" color:"muted"
+              "Random, opaque, sortable, and without readable claims."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "CACHE"
+            Title size:"lg" weight:"bold"
+              "Fast hit"
+            Text size:"sm" color:"muted"
+              "session:<ulid> stores only the server-owned session projection."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "DATABASE"
+            Title size:"lg" weight:"bold"
+              "Source of persistence"
+            Text size:"sm" color:"muted"
+              "A Cache miss reads sessions and rehydrates the projection."
+  Section id:"session-validation" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "MIDDLEWARE"
+        Title size:"3xl" weight:"black"
+          "Validate Cache first, then Database"
+        Text size:"sm" color:"muted"
+          "session.verify rejects malformed or expired ULIDs, checks Cache, falls back to the sessions table, and returns valid:false when the session is absent. Only verified data should reach next context."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          import { appDb, appCache } from "@/server/config/database"
+
+          middleware requireBearer
+            bearer token value:req.header.Authorization
+            session verified cache:appCache database:appDb token:token maxAge:2592000
+            if verified.valid
+              next context:{ auth:{ subject:verified.userId session:verified.id authorization:req.header.Authorization token:token } }
+            return status:401 json:{ ok:false error:"Unauthorized" }
+        """
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "1. Cache hit"
+          Text size:"sm" color:"muted"
+            "The session projection is validated and the request continues without reading the persistent database."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "2. Cache miss"
+          Text size:"sm" color:"muted"
+            "The database record is checked. A valid record is copied back to Cache for the next request."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "3. Reject"
+          Text size:"sm" color:"muted"
+            "Missing, malformed, expired, or revoked sessions receive HTTP 401 and never populate request context."
+  Section id:"session-lifecycle" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "LIFECYCLE"
+        Title size:"3xl" weight:"black"
+          "Expiration and logout are stateful"
+        Text size:"sm" color:"muted"
+          "The default CRUD maxAge is 30 days. Runtime checks the ULID timestamp on every validation. Logout deletes both session:<ulid> from Cache and the matching sessions record, so revocation is immediate."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          fn logoutUserService params:{ session:string }
+            deleteSessionRepository deleted args:{ id:args.session }
+            return value:{ authenticated:false guest:true authorization:"" token:"" }
+        """
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Cache is acceleration"
+          Text size:"sm" color:"muted"
+            "Cache improves latency but is not the only authority. Database fallback keeps sessions recoverable after Cache restarts."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Revocation is explicit"
+          Text size:"sm" color:"muted"
+            "Delete the Cache key and persistent row when logging out, banning a user, or rotating all sessions."
+  Section id:"session-jwt-choice" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "DESIGN CHOICE"
+        Title size:"3xl" weight:"black"
+          "When should you use JWT?"
+        Text size:"sm" color:"muted"
+          "Use opaque sessions when you already have shared state and need immediate logout, permission changes, or per-device session control. Use JWT when independent services must verify a signed assertion without calling a shared session store, and pair it with short expiry or a revocation strategy."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "CRUD recommendation"
+          Text size:"sm" color:"muted"
+            "Keep the generated Bearer credential opaque. The Dowe runtime owns session validation, expiry, Cache-aside rehydration, and revocation."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "JWT remains available"
+          Text size:"sm" color:"muted"
+            "Dowe still supports JWT as a general server utility for integrations that need signed or encrypted tokens. Bearer is the transport scheme, not the token format."

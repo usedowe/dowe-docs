@@ -1,0 +1,268 @@
+page ScaffoldsPage
+  Section id:"scaffolds" py:{ xs:6 md:10 }
+    Grid columns:1 gap:4
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "COPY-READY BLOCKS"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Scaffolds"
+      Text size:"lg" color:"muted"
+        "Four responsive application shells. Preview each layout and copy its complete Dowe source."
+  Section id:"app-footer" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "01 · APP BAR + FOOTER"
+          Title size:"2xl" weight:"black"
+            "A simple page shell with mobile drawer navigation"
+        Button:
+          href:"/blocks/scaffold-preview/app-footer"
+          variant:"soft"
+          scheme:"primary"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Device device:"laptop" w:"full" rounded:"lg" border:1
+        Iframe:
+          src:"/blocks/scaffold-preview/app-footer"
+          title:"AppBar, main, Footer, and Drawer Scaffold preview"
+          loading:"lazy"
+          sandbox:"scripts same-origin"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Scaffold"
+        copiedLabel:"Copied"
+        content:"""
+          layout AppLayout
+            signal openDrawer value:false
+            Scaffold minH:"vh-0"
+              appBar
+                AppBar variant:"soft" scheme:"primary" bordered:true
+                  start
+                    IconButton:
+                      label:"Open navigation"
+                      variant:"ghost"
+                      show:{ xs:true md:false }
+                      onClick:{ set:openDrawer value:!openDrawer }
+                      icon:"hamburger-menu"
+                  center
+                    Text weight:"bold"
+                      "AppBar"
+              main
+                children
+              bottomBar
+                Footer variant:"soft" scheme:"muted" bordered:true
+                  center
+                    Text weight:"bold"
+                      "Footer"
+              overlays
+                Drawer:
+                  open:openDrawer
+                  position:"start"
+                  variant:"soft"
+                  scheme:"tertiary"
+                  show:{ xs:true md:false }
+                  body
+                    Flex direction:"column" minH:"vh-0" align:"center" justify:"center"
+                      Text weight:"bold"
+                        "Drawer"
+        """
+  Section id:"inset-sidebar" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "02 · INSET SIDEBAR"
+          Title size:"2xl" weight:"black"
+            "A dashboard sidebar between full-width bars"
+        Button:
+          href:"/blocks/scaffold-preview/inset-sidebar"
+          variant:"solid"
+          scheme:"primary"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Device device:"laptop" w:"full" rounded:"lg" border:1
+        Iframe:
+          src:"/blocks/scaffold-preview/inset-sidebar"
+          title:"Inset Sidebar Scaffold preview"
+          loading:"lazy"
+          sandbox:"scripts same-origin"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Scaffold"
+        copiedLabel:"Copied"
+        content:"""
+          layout DashboardLayout
+            signal openDrawer value:false
+            Scaffold minH:"vh-0"
+              appBar
+                AppBar variant:"soft" scheme:"primary" bordered:true
+                  start
+                    IconButton:
+                      label:"Open navigation"
+                      variant:"ghost"
+                      show:{ xs:true md:false }
+                      onClick:{ set:openDrawer value:!openDrawer }
+                      icon:"hamburger-menu"
+                  center
+                    Text weight:"bold"
+                      "AppBar"
+              start
+                Sidebar show:{ xs:false md:true } variant:"soft" scheme:"secondary" w:64 border:1
+                  body
+                    Flex direction:"column" minH:"full" align:"center" justify:"center"
+                      Text weight:"bold"
+                        "Sidebar"
+              main
+                children
+              bottomBar
+                Footer variant:"soft" scheme:"muted" bordered:true
+                  center
+                    Text weight:"bold"
+                      "Footer"
+              overlays
+                Drawer:
+                  open:openDrawer
+                  position:"start"
+                  variant:"soft"
+                  scheme:"tertiary"
+                  show:{ xs:true md:false }
+                  body
+                    Flex direction:"column" minH:"vh-0" align:"center" justify:"center"
+                      Text weight:"bold"
+                        "Drawer"
+        """
+  Section id:"full-height-sidebar" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "03 · FULL-HEIGHT SIDEBAR"
+          Title size:"2xl" weight:"black"
+            "A sidebar beside the complete content column"
+        Button:
+          href:"/blocks/scaffold-preview/full-height-sidebar"
+          variant:"soft"
+          scheme:"secondary"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Device device:"laptop" w:"full" rounded:"lg" border:1
+        Iframe:
+          src:"/blocks/scaffold-preview/full-height-sidebar"
+          title:"Full-height Sidebar Scaffold preview"
+          loading:"lazy"
+          sandbox:"scripts same-origin"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Scaffold"
+        copiedLabel:"Copied"
+        content:"""
+          layout DashboardLayout
+            signal openDrawer value:false
+            Scaffold minH:"vh-0"
+              start
+                Sidebar:
+                  show:{ xs:false md:true }
+                  variant:"soft"
+                  scheme:"secondary"
+                  w:64
+                  h:"vh-0"
+                  border:1
+                  body
+                    Flex direction:"column" minH:"full" align:"center" justify:"center"
+                      Text weight:"bold"
+                        "Sidebar"
+              main
+                Flex direction:"column" minH:"vh-0" justify:"between"
+                  AppBar variant:"soft" scheme:"primary" bordered:true
+                    start
+                      IconButton:
+                        label:"Open navigation"
+                        variant:"ghost"
+                        show:{ xs:true md:false }
+                        onClick:{ set:openDrawer value:!openDrawer }
+                        icon:"hamburger-menu"
+                    center
+                      Text weight:"bold"
+                        "AppBar"
+                  children
+                  Footer variant:"soft" scheme:"muted" bordered:true
+                    center
+                      Text weight:"bold"
+                        "Footer"
+              overlays
+                Drawer:
+                  open:openDrawer
+                  position:"start"
+                  variant:"soft"
+                  scheme:"tertiary"
+                  show:{ xs:true md:false }
+                  body
+                    Flex direction:"column" minH:"vh-0" align:"center" justify:"center"
+                      Text weight:"bold"
+                        "Drawer"
+        """
+  Section id:"rail-bottom-bar" p:{ xs:5 md:7 } bg:"softTertiary" color:"onSoftTertiary"
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "04 · RAIL + BOTTOM BAR"
+          Title size:"2xl" weight:"black"
+            "A desktop rail that yields to mobile bottom navigation"
+        Button:
+          href:"/blocks/scaffold-preview/rail-bottom-bar"
+          variant:"solid"
+          scheme:"tertiary"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Device device:"laptop" w:"full" rounded:"lg" border:1
+        Iframe:
+          src:"/blocks/scaffold-preview/rail-bottom-bar"
+          title:"RailNav and BottomBar Scaffold preview"
+          loading:"lazy"
+          sandbox:"scripts same-origin"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Scaffold"
+        copiedLabel:"Copied"
+        content:"""
+          layout NavigationLayout
+            Scaffold minH:"vh-0"
+              start
+                Box minH:"vh-0" w:16 bg:"softTertiary" show:{ xs:false md:true }
+                  RailNav variant:"soft" scheme:"tertiary" size:"md" showLabels:true minH:"vh-0"
+                    item label:"Rail" href:"/" icon:"widget-4"
+              main
+                Flex direction:"column" minH:{ xs:"vh-16" md:"vh-0" } justify:"between"
+                  AppBar variant:"soft" scheme:"primary" bordered:true
+                    start
+                      IconButton:
+                        label:"Open navigation"
+                        variant:"ghost"
+                        show:{ xs:true md:false }
+                        icon:"hamburger-menu"
+                    center
+                      Text weight:"bold"
+                        "AppBar"
+                  children
+              bottomBar
+                BottomBar show:{ xs:true md:false } variant:"soft" scheme:"primary" bordered:true
+                  tab href:"/" label:"BottomBar"
+                    Icon name:"home"
+        """

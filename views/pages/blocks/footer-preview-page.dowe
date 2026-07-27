@@ -1,0 +1,14 @@
+page FooterPreviewPage
+  Section id:"footer-preview" boxed:true py:{ xs:8 md:12 }
+    Grid columns:1 gap:4
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "REUSABLE BLOCK"
+      Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+        "Finish every page with confidence"
+      Text size:"lg" color:"muted"
+        "Every routed preview reuses this page while its layout owns the Footer variation."
+      Flex wrap:true gap:3
+        Button href:"/blocks/footer" variant:"solid" scheme:"primary" rounded:"full"
+          "Browse all Footers"
+        Button href:"/docs/views/layout/footer" variant:"outlined" scheme:"muted" rounded:"full"
+          "View component reference"

@@ -1,0 +1,38 @@
+page LoginCardAuthPage
+  signal form value:{ email:"" password:"" remember:false }
+  Section id:"login-card-auth" bg:"softMuted" boxed:true p:{ xs:5 md:10 } minH:"vh-0"
+    Grid columns:{ xs:1 md:"1fr 1fr 1fr" } align:"center" minH:"vh-0"
+      Box show:{ xs:false md:true }
+      Card variant:"solid" scheme:"surface" rounded:"xl" shadow:"xl" shadowColor:"muted" p:{ xs:6 md:8 }
+        Grid columns:1 gap:5
+          Flex direction:"column" align:"center" gap:2
+            Icon name:"user-circle" style:"bold-duotone" fill:"primary" w:12 h:12
+            Title size:"3xl" weight:"black"
+              "Welcome back"
+            Text size:"sm" color:"muted"
+              "Please log in to continue."
+          Grid columns:1 gap:4
+            Input bind:form.email label:"Email address" placeholder:"you@example.com" variant:"soft" scheme:"primary" w:"full"
+            PasswordField bind:form.password label:"Password" placeholder:"Enter your password" hideStrength:true variant:"soft" scheme:"primary" w:"full"
+            Flex justify:"between" align:"center" gap:2
+              Checkbox bind:form.remember label:"Remember me" scheme:"primary"
+              Button href:"/blocks/auth-preview/forgot-password" variant:"ghost" scheme:"primary" size:"xs"
+                "Forgot password?"
+            Button variant:"solid" scheme:"primary" size:"md" w:"full"
+              "Log in"
+          Grid columns:"1fr auto 1fr" gap:3 align:"center"
+            Divider
+            Text size:"xs" color:"muted"
+              "OR"
+            Divider
+          Grid columns:{ xs:1 sm:3 } gap:3
+            Button variant:"outlined" scheme:"primary" size:"sm" iconStart:"global" w:"full"
+              "Google"
+            Button variant:"outlined" scheme:"primary" size:"sm" iconStart:"smartphone" w:"full"
+              "Apple"
+            Button variant:"outlined" scheme:"primary" size:"sm" iconStart:"chat-round-line" w:"full"
+              "Twitter"
+          Divider
+          Button href:"/blocks/auth-preview/signup-card" variant:"ghost" scheme:"primary" size:"sm"
+            "No account yet? Sign up"
+      Box show:{ xs:false md:true }

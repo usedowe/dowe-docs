@@ -1,0 +1,45 @@
+page DatabaseDeletePage
+  Section id:"database-delete-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SERVER / DATABASE / WRITE"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Delete"
+        Text size:"lg" color:"muted"
+          "Delete removes records that match a declared equality filter and returns a result binding with the change count. The same operation dispatches to postgres, d1, or dowe through the selected database handle."
+      Button href:"/docs/server/db/transactions" variant:"ghost" scheme:"muted" size:"sm"
+        "Transactions"
+  Section id:"database-delete-example" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "REMOVE"
+        Title size:"3xl" weight:"black"
+          "Delete with an ownership filter"
+        Text size:"sm" color:"muted"
+          "Use a static table and include every server-owned equality field required to authorize the deletion. required:true makes an empty match a controlled 404."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          handler deleteBlog
+            database db provider:"dowe" host:env.DOWE_HOST port:env.DOWE_PORT account:env.DOWE_USER secret:env.DOWE_PASSWORD name:"content"
+            query deleted db:db.delete table:"blogs" where:{ id:req.params.id ownerId:req.context.auth.subject } required:true
+            return json:{ ok:true changed:deleted.changed }
+        """
+  Section id:"database-delete-result" py:{ xs:7 md:10 }
+    Grid columns:{ xs:1 md:2 } gap:4
+      Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Title size:"lg" weight:"bold"
+          "Controlled absence"
+        Text size:"sm" color:"muted"
+          "required:true is appropriate when a missing resource must not look like a successful deletion."
+      Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Title size:"lg" weight:"bold"
+          "Explicit result"
+        Text size:"sm" color:"muted"
+          "The query binding carries the change result; return only the fields your endpoint contract needs."

@@ -1,0 +1,274 @@
+page SelectPage
+  signal selectedRole value:"editor"
+  const roleOptions:
+    value:[
+      {
+        id:"admin"
+        value:"admin"
+        label:"Administrator"
+        description:"Manage workspace members, settings, and billing."
+      },
+      {
+        id:"editor"
+        value:"editor"
+        label:"Editor"
+        description:"Create, update, and publish workspace content."
+      },
+      {
+        id:"viewer"
+        value:"viewer"
+        label:"Viewer"
+        description:"Read workspace content without making changes."
+      },
+    ]
+  const selectProps:
+    value:[
+      {
+        prop:"bind"
+        type:"string Signal path"
+        defaultValue:"—"
+      },
+      {
+        prop:"label"
+        type:"string"
+        defaultValue:"—"
+      },
+      {
+        prop:"placeholder"
+        type:"string"
+        defaultValue:"—"
+      },
+      {
+        prop:"labelFloating"
+        type:"boolean"
+        defaultValue:"false"
+      },
+      {
+        prop:"variant"
+        type:"solid | soft | outlined | ghost"
+        defaultValue:"solid"
+      },
+      {
+        prop:"scheme"
+        type:"primary | secondary | tertiary | muted | success | info | warning | danger"
+        defaultValue:"primary"
+      },
+      {
+        prop:"Option value"
+        type:"static string | number | boolean"
+        defaultValue:"required"
+      },
+      {
+        prop:"Option label"
+        type:"non-empty string"
+        defaultValue:"required"
+      },
+      {
+        prop:"Option description"
+        type:"string"
+        defaultValue:"—"
+      },
+    ]
+  Section id:"select-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "FORM"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Select"
+        Text size:"lg" color:"muted"
+          "Select lets users make one clear choice from a portable list of static options."
+      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
+        "Copy LLM"
+  Section id:"select-playground" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PLAYGROUND"
+        Title size:"3xl" weight:"black"
+          "Choose a workspace role"
+        Text size:"sm" color:"muted"
+          "bind keeps the selected string in a Signal while each renders a validated catalog of Option children."
+      Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+        Grid columns:1 gap:4
+          Select:
+            bind:selectedRole
+            label:"Workspace role"
+            placeholder:"Choose a role"
+            labelFloating:true
+            variant:"outlined"
+            scheme:"primary"
+            w:"full"
+            each in:roleOptions as:option key:option.id
+              Option value:option.value label:option.label description:option.description
+          Text size:"sm" color:"muted"
+            "The current selection remains a string Signal that other view controls can bind to."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          signal selectedRole value:"editor"
+
+          Select:
+            bind:selectedRole
+            label:"Workspace role"
+            placeholder:"Choose a role"
+            labelFloating:true
+            variant:"outlined"
+            scheme:"primary"
+            Option:
+              value:"admin"
+              label:"Administrator"
+              description:"Manage workspace members, settings, and billing."
+            Option:
+              value:"editor"
+              label:"Editor"
+              description:"Create, update, and publish workspace content."
+            Option:
+              value:"viewer"
+              label:"Viewer"
+              description:"Read workspace content without making changes."
+        """
+  Section id:"select-labels" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "LABELS"
+        Title size:"3xl" weight:"black"
+          "Fixed or floating"
+        Text size:"sm" color:"muted"
+          "A fixed label stays above the trigger. A floating label rests inside an empty control, activates when the list opens, and stays active after a choice is made."
+      Grid columns:{ xs:1 md:2 } gap:5
+        Select label:"Role" placeholder:"Choose a role" variant:"outlined" scheme:"primary" w:"full"
+          Option value:"admin" label:"Administrator"
+          Option value:"editor" label:"Editor"
+          Option value:"viewer" label:"Viewer"
+        Select:
+          label:"Role"
+          placeholder:"Choose a role"
+          labelFloating:true
+          variant:"outlined"
+          scheme:"primary"
+          w:"full"
+          Option value:"admin" label:"Administrator"
+          Option value:"editor" label:"Editor"
+          Option value:"viewer" label:"Viewer"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Select label:"Role" placeholder:"Choose a role" variant:"outlined" scheme:"primary"
+            Option value:"admin" label:"Administrator"
+
+          Select:
+            label:"Role"
+            placeholder:"Choose a role"
+            labelFloating:true
+            variant:"outlined"
+            scheme:"primary"
+            Option value:"admin" label:"Administrator"
+        """
+  Section id:"select-variants" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "VARIANTS"
+        Title size:"3xl" weight:"black"
+          "Four control surfaces"
+        Text size:"sm" color:"muted"
+          "Variant changes the trigger treatment while the option list, arrow, labels, and single-choice behavior stay consistent."
+      Grid columns:{ xs:1 md:2 } gap:5
+        Select label:"Solid" placeholder:"Choose a role" variant:"solid" scheme:"primary" w:"full"
+          Option value:"admin" label:"Administrator"
+        Select label:"Soft" placeholder:"Choose a role" variant:"soft" scheme:"primary" w:"full"
+          Option value:"editor" label:"Editor"
+        Select label:"Outlined" placeholder:"Choose a role" variant:"outlined" scheme:"primary" w:"full"
+          Option value:"viewer" label:"Viewer"
+        Select label:"Ghost" placeholder:"Choose a role" variant:"ghost" scheme:"primary" w:"full"
+          Option value:"guest" label:"Guest"
+  Section id:"select-schemes" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SCHEMES"
+        Title size:"3xl" weight:"black"
+          "Every semantic family"
+        Text size:"sm" color:"muted"
+          "Outlined controls keep a neutral resting border while scheme controls their foreground, focus, and selected-option accent."
+      Grid columns:{ xs:1 md:2 } gap:5
+        Select label:"Primary" placeholder:"Choose" variant:"outlined" scheme:"primary" w:"full"
+          Option value:"primary" label:"Primary"
+        Select label:"Secondary" placeholder:"Choose" variant:"outlined" scheme:"secondary" w:"full"
+          Option value:"secondary" label:"Secondary"
+        Select label:"Tertiary" placeholder:"Choose" variant:"outlined" scheme:"tertiary" w:"full"
+          Option value:"tertiary" label:"Tertiary"
+        Select label:"Muted" placeholder:"Choose" variant:"outlined" scheme:"muted" w:"full"
+          Option value:"muted" label:"Muted"
+        Select label:"Success" placeholder:"Choose" variant:"outlined" scheme:"success" w:"full"
+          Option value:"success" label:"Success"
+        Select label:"Info" placeholder:"Choose" variant:"outlined" scheme:"info" w:"full"
+          Option value:"info" label:"Info"
+        Select label:"Warning" placeholder:"Choose" variant:"outlined" scheme:"warning" w:"full"
+          Option value:"warning" label:"Warning"
+        Select label:"Danger" placeholder:"Choose" variant:"outlined" scheme:"danger" w:"full"
+          Option value:"danger" label:"Danger"
+  Section id:"select-contract" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "BEHAVIOR"
+        Title size:"3xl" weight:"black"
+          "One authored list, every target"
+        Text size:"sm" color:"muted"
+          "Dowe owns the trigger and option popover instead of delegating selection to platform-native menus, pickers, or spinners."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "SINGLE CHOICE"
+            Title size:"lg" weight:"bold"
+              "String binding"
+            Text size:"sm" color:"muted"
+              "A selected Option writes its normalized string value to bind. Duplicate values are invalid."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "STRUCTURE"
+            Title size:"lg" weight:"bold"
+              "Direct children"
+            Text size:"sm" color:"muted"
+              "Option is valid only as a direct Select child, with a non-empty label and optional description."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "TARGETS"
+            Title size:"lg" weight:"bold"
+              "Adaptive popover"
+            Text size:"sm" color:"muted"
+              "Web positions the list by available space; iOS and Android keep it content-sized and scroll long catalogs."
+  Section id:"select-props" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Props"
+        Text size:"sm" color:"muted"
+          "Select also accepts the applicable common spacing, sizing, font, visibility, accessibility, and shadow props."
+      Table:
+        data:selectProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1fr"

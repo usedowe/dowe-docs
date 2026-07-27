@@ -1,0 +1,253 @@
+page ShadowPage
+  signal shadowSizeChoice value:"md"
+  signal shadowColorChoice value:"primary"
+  const shadowSizeOptions:
+    value:[
+      {
+        id:"xs"
+        value:"xs"
+        label:"xs"
+      },
+      {
+        id:"sm"
+        value:"sm"
+        label:"sm"
+      },
+      {
+        id:"md"
+        value:"md"
+        label:"md"
+      },
+      {
+        id:"lg"
+        value:"lg"
+        label:"lg"
+      },
+      {
+        id:"xl"
+        value:"xl"
+        label:"xl"
+      },
+    ]
+  const shadowColorOptions:
+    value:[
+      {
+        id:"primary"
+        value:"primary"
+        label:"Primary"
+      },
+      {
+        id:"secondary"
+        value:"secondary"
+        label:"Secondary"
+      },
+      {
+        id:"tertiary"
+        value:"tertiary"
+        label:"Tertiary"
+      },
+      {
+        id:"muted"
+        value:"muted"
+        label:"Muted"
+      },
+      {
+        id:"success"
+        value:"success"
+        label:"Success"
+      },
+      {
+        id:"info"
+        value:"info"
+        label:"Info"
+      },
+      {
+        id:"danger"
+        value:"danger"
+        label:"Danger"
+      },
+      {
+        id:"warning"
+        value:"warning"
+        label:"Warning"
+      },
+    ]
+  const shadowProps:
+    value:[
+      {
+        prop:"shadow"
+        type:"xs | sm | md | lg | xl"
+        defaultValue:"—"
+      },
+      {
+        prop:"shadowColor"
+        type:"primary | secondary | tertiary | muted | success | info | danger | warning"
+        defaultValue:"—"
+      },
+    ]
+  Section id:"shadow-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Flex direction:"column" gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "STYLES"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Shadow"
+        Text size:"lg" color:"muted"
+          "Add the same soft exterior shadow on web, Android, and iOS, then tint it with the semantic colors from your theme."
+      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
+        "Copy LLM"
+  Section id:"shadow-playground" p:{ xs:5 md:7 }
+    Flex direction:"column" gap:6
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PLAYGROUND"
+        Title size:"3xl" weight:"black"
+          "Choose a shadow"
+        Text size:"sm" color:"muted"
+          "Use shadow for a progressive soft blur and shadowColor for a theme-aware tint. The generated snippet follows both selections."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Select:
+          bind:shadowSizeChoice
+          label:"Shadow size"
+          placeholder:"Choose a size"
+          variant:"outlined"
+          scheme:"primary"
+          each in:shadowSizeOptions as:option key:option.id
+            Option value:option.value label:option.label
+        Select:
+          bind:shadowColorChoice
+          label:"Shadow color"
+          placeholder:"Choose a color"
+          variant:"outlined"
+          scheme:"primary"
+          each in:shadowColorOptions as:option key:option.id
+            Option value:option.value label:option.label
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        template:true
+        content:"""
+          Card shadow:"{shadowSizeChoice}" shadowColor:"{shadowColorChoice}" p:6 rounded:"md"
+            Text "Theme-aware shadow"
+        """
+  Section id:"shadow-components" py:{ xs:7 md:10 }
+    Flex direction:"column" gap:6
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "COMPONENT EXAMPLES"
+        Title size:"3xl" weight:"black"
+          "One style contract"
+        Text size:"sm" color:"muted"
+          "Card, Button, Avatar, Chip, and Input use the same portable shadow scale and semantic color families."
+      Grid columns:{ xs:1 md:2 } gap:5
+        Flex direction:"column" gap:3 align:"center" p:6
+          Text size:"xs" weight:"bold" color:"muted"
+            "CARD"
+          Card shadow:"md" shadowColor:"primary" p:6 rounded:"md"
+            Flex direction:"column" gap:2
+              Title size:"lg" weight:"bold"
+                "Release ready"
+              Text size:"sm" color:"muted"
+                "A primary shadow separates related content from the page."
+        Flex direction:"column" gap:3 align:"center" p:6
+          Text size:"xs" weight:"bold" color:"muted"
+            "BUTTON"
+          Button shadow:"sm" shadowColor:"secondary" scheme:"secondary"
+            "Continue"
+        Flex direction:"column" gap:3 align:"center" p:6
+          Text size:"xs" weight:"bold" color:"muted"
+            "AVATAR"
+          Avatar:
+            name:"Dowe Agent"
+            alt:"Dowe Agent"
+            variant:"soft"
+            scheme:"tertiary"
+            size:"xl"
+            shadow:"lg"
+            shadowColor:"tertiary"
+        Flex direction:"column" gap:3 align:"center" p:6
+          Text size:"xs" weight:"bold" color:"muted"
+            "CHIP"
+          Chip variant:"soft" scheme:"success" shadow:"xs" shadowColor:"success"
+            "Validated"
+        Flex direction:"column" gap:3 align:"center" p:6
+          Text size:"xs" weight:"bold" color:"muted"
+            "INPUT"
+          Input:
+            label:"Workspace"
+            placeholder:"dowe-app"
+            variant:"outlined"
+            scheme:"info"
+            shadow:"md"
+            shadowColor:"info"
+            w:"full"
+  Section id:"shadow-scale" p:{ xs:5 md:7 }
+    Flex direction:"column" gap:6
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SIZE SCALE"
+        Title size:"3xl" weight:"black"
+          "Five shadow levels"
+      Grid columns:{ xs:1 sm:2 lg:5 } gap:4
+        Card shadow:"xs" shadowColor:"muted" p:5 rounded:"md"
+          Text weight:"bold"
+            "xs"
+        Card shadow:"sm" shadowColor:"muted" p:5 rounded:"md"
+          Text weight:"bold"
+            "sm"
+        Card shadow:"md" shadowColor:"muted" p:5 rounded:"md"
+          Text weight:"bold"
+            "md"
+        Card shadow:"lg" shadowColor:"muted" p:5 rounded:"md"
+          Text weight:"bold"
+            "lg"
+        Card shadow:"xl" shadowColor:"muted" p:5 rounded:"md"
+          Text weight:"bold"
+            "xl"
+  Section id:"shadow-colors" py:{ xs:7 md:10 }
+    Flex direction:"column" gap:6
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SEMANTIC COLORS"
+        Title size:"3xl" weight:"black"
+          "Eight theme families"
+      Grid columns:{ xs:1 sm:2 lg:4 } gap:5
+        Button shadow:"md" shadowColor:"primary" variant:"soft" scheme:"primary"
+          "Primary"
+        Button shadow:"md" shadowColor:"secondary" variant:"soft" scheme:"secondary"
+          "Secondary"
+        Button shadow:"md" shadowColor:"tertiary" variant:"soft" scheme:"tertiary"
+          "Tertiary"
+        Button shadow:"md" shadowColor:"muted" variant:"soft" scheme:"muted"
+          "Muted"
+        Button shadow:"md" shadowColor:"success" variant:"soft" scheme:"success"
+          "Success"
+        Button shadow:"md" shadowColor:"info" variant:"soft" scheme:"info"
+          "Info"
+        Button shadow:"md" shadowColor:"danger" variant:"soft" scheme:"danger"
+          "Danger"
+        Button shadow:"md" shadowColor:"warning" variant:"soft" scheme:"warning"
+          "Warning"
+  Section id:"shadow-props" py:{ xs:7 md:10 }
+    Flex direction:"column" gap:5
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Props"
+        Text size:"sm" color:"muted"
+          "Declare shadow without shadowColor for the neutral target default, or combine both props for a semantic tint."
+      Table:
+        data:shadowProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"type" label:"Type" width:"4fr"
+        column field:"defaultValue" label:"Default" width:"1fr"

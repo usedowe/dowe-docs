@@ -1,0 +1,34 @@
+layout AppBarCreativeLayout
+  Scaffold
+    appBar
+      AppBar variant:"soft" scheme:"danger" position:"sticky" boxed:true py:2 blurred:true
+        start
+          Brand href:"/blocks/appbar" label:"Pekoo home"
+            Flex align:"center" gap:2
+              Icon name:"bolt-circle" style:"bold" fill:"danger" w:8 h:8
+              Text size:"xl" weight:"black"
+                "PEKOO."
+        center
+          NavMenu variant:"ghost" scheme:"danger" size:"sm" show:{ xs:false md:true }
+            item label:"Home" href:"/blocks/appbar-preview/creative"
+            item label:"About Us" href:"/blocks/appbar-preview/social-pill"
+            item label:"Services" href:"/blocks/appbar-preview/floating-card"
+            item label:"Contact" href:"/blocks/appbar-preview/centered-pill"
+        end
+          Flex align:"center" gap:3
+            Button:
+              href:"/blocks/appbar-preview/floating-card"
+              variant:"solid"
+              scheme:"danger"
+              size:"sm"
+              rounded:"md"
+              show:{ xs:false sm:true }
+              "Get In Touch"
+            IconButton:
+              icon:"hamburger-menu"
+              label:"Open navigation"
+              variant:"outlined"
+              scheme:"muted"
+              rounded:"md"
+    main
+      children

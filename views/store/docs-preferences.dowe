@@ -1,0 +1,1 @@
+store docsPreferences persistent:true value:{ compactExamples:false }

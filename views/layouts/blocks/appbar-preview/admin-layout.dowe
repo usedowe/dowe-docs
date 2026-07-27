@@ -1,0 +1,66 @@
+layout AppBarAdminLayout
+  Scaffold
+    appBar
+      AppBar variant:"solid" scheme:"surface" position:"sticky" bordered:true px:4
+        start
+          Brand href:"/blocks/appbar" label:"Vuexy home"
+            Flex align:"center" gap:3
+              Icon name:"widget-5" style:"bold" fill:"primary" w:8 h:8
+              Text size:"xl" weight:"black"
+                "Vuexy"
+        end
+          Flex align:"center" gap:2
+            IconButton icon:"magnifier" label:"Search" variant:"ghost" scheme:"muted" size:"sm"
+            IconButton:
+              icon:"translation"
+              label:"Change language"
+              variant:"ghost"
+              scheme:"muted"
+              size:"sm"
+              show:{ xs:false md:true }
+            IconButton:
+              icon:"sun"
+              label:"Change theme"
+              variant:"ghost"
+              scheme:"muted"
+              size:"sm"
+              show:{ xs:false md:true }
+            IconButton:
+              icon:"widget-2"
+              label:"Open shortcuts"
+              variant:"ghost"
+              scheme:"muted"
+              size:"sm"
+              show:{ xs:false md:true }
+            IconButton:
+              icon:"bell"
+              label:"Open notifications"
+              variant:"ghost"
+              scheme:"muted"
+              size:"sm"
+            Avatar:
+              name:"Jordan Lee"
+              alt:"Jordan Lee"
+              variant:"soft"
+              scheme:"primary"
+              size:"md"
+              status:"online"
+            IconButton:
+              icon:"hamburger-menu"
+              label:"Open navigation"
+              variant:"ghost"
+              scheme:"muted"
+              size:"sm"
+              show:{ xs:true md:false }
+        bottom
+          NavMenu variant:"ghost" scheme:"primary" size:"sm" show:{ xs:false md:true }
+            item label:"Dashboards" href:"/blocks/appbar-preview/dashboard"
+            item label:"Apps" href:"/blocks/appbar-preview/admin"
+            item label:"Pages" href:"/blocks/appbar-preview/classic-saas"
+            item label:"User Interface" href:"/blocks/appbar-preview/social-pill"
+            item label:"Forms" href:"/blocks/appbar-preview/floating-card"
+            item label:"Tables" href:"/blocks/appbar-preview/centered-pill"
+            item label:"Charts" href:"/blocks/appbar-preview/hosting"
+            item label:"Misc" href:"/blocks/appbar-preview/creative"
+    main
+      children

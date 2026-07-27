@@ -1,0 +1,190 @@
+page PaginationPage
+  signal page value:"1"
+  signal outlinedPage value:"1"
+  signal softPage value:"1"
+  signal ghostPage value:"1"
+  signal pageChange value:"Choose a page to run the declared change function."
+  const paginationProps:
+    value:[
+      {
+        prop:"bind"
+        type:"integer Signal path"
+        defaultValue:"—"
+      },
+      {
+        prop:"total"
+        type:"non-negative integer"
+        defaultValue:"—"
+      },
+      {
+        prop:"pageSize"
+        type:"positive integer"
+        defaultValue:"—"
+      },
+      {
+        prop:"onChange"
+        type:"function name"
+        defaultValue:"—"
+      },
+      {
+        prop:"variant"
+        type:"solid | soft | outlined | ghost"
+        defaultValue:"outlined"
+      },
+      {
+        prop:"scheme"
+        type:"semantic scheme"
+        defaultValue:"primary"
+      },
+      {
+        prop:"size"
+        type:"sm | md | lg"
+        defaultValue:"md"
+      },
+      {
+        prop:"disabled"
+        type:"boolean"
+        defaultValue:"false"
+      },
+    ]
+  fn describePageChange
+    set pageChange value:"The selected page was written to the bound Signal before this function ran."
+  Section id:"pagination-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "NAVIGATION"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Pagination"
+        Text size:"lg" color:"muted"
+          "Pagination selects a page from a known result set and then calls a declared function to load its contents."
+      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
+        "Copy LLM"
+  Section id:"pagination-default" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PAGE SELECTION"
+        Title size:"3xl" weight:"black"
+          "Bind a one-based page"
+        Text size:"sm" color:"muted"
+          "The bound Signal receives the selected page. Pagination never requests, sorts, or slices records itself; keep that work in the declared function and its server endpoint."
+      Grid columns:{ xs:1 md:2 } gap:6 align:"start"
+        Card variant:"outlined" scheme:"surface" p:{ xs:5 md:8 } rounded:"md" border:1
+          Grid columns:1 gap:4
+            Title size:"lg" weight:"bold"
+              "Five pages of results"
+            Text size:"sm" color:"muted"
+              "Previous and next stop at the first and final page. Selecting a page updates bind before onChange runs."
+            Text size:"sm" color:"muted"
+              "Directional controls reuse Dowe Solar Icon geometry. The current page and arrows share the selected variant and scheme, while the remaining numbers stay quiet."
+            Pagination:
+              bind:page
+              total:50
+              pageSize:10
+              onChange:describePageChange
+              variant:"outlined"
+              scheme:"primary"
+              size:"md"
+              ariaLabel:"Documentation result pages"
+            Text size:"sm" color:"muted"
+              "{pageChange}"
+        Code:
+          language:"dowe"
+          variant:"soft"
+          scheme:"surface"
+          copyLabel:"Copy Dowe"
+          copiedLabel:"Copied"
+          content:"""
+            signal page value:"1"
+            fn loadResults
+              request results method:"GET" route:"/api/results/page/:page"
+            Pagination bind:page total:50 pageSize:10 onChange:loadResults
+          """
+  Section id:"pagination-variants" py:{ xs:7 md:10 }
+    Grid columns:1 gap:8
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "VISUAL OPTIONS"
+        Title size:"3xl" weight:"black"
+          "Choose a control treatment"
+        Text size:"sm" color:"muted"
+          "Variants change the treatment only. Every variant keeps the same selected-page binding and function dispatch contract."
+      Grid columns:{ xs:1 md:2 } gap:5
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Title size:"lg" weight:"bold"
+              "Solid"
+            Pagination bind:page total:50 pageSize:10 onChange:describePageChange variant:"solid" scheme:"primary" size:"sm"
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Title size:"lg" weight:"bold"
+              "Outlined"
+            Pagination bind:outlinedPage total:50 pageSize:10 onChange:describePageChange variant:"outlined" scheme:"primary" size:"sm"
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Title size:"lg" weight:"bold"
+              "Soft"
+            Pagination bind:softPage total:50 pageSize:10 onChange:describePageChange variant:"soft" scheme:"primary" size:"sm"
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Title size:"lg" weight:"bold"
+              "Ghost"
+            Pagination bind:ghostPage total:50 pageSize:10 onChange:describePageChange variant:"ghost" scheme:"primary" size:"sm"
+  Section id:"pagination-behavior" p:{ xs:5 md:7 }
+    Grid columns:{ xs:1 md:2 } gap:6 align:"start"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "BEHAVIOR"
+        Title size:"3xl" weight:"black"
+          "Keep data loading separate"
+        Text size:"sm" color:"muted"
+          "Use Pagination beside a Table or any result view, but let the function invoked by onChange own the request and update the current result Signal."
+        Text size:"sm" color:"muted"
+          "The current portable subset renders at most 25 pages. Use a positive static pageSize and a total that stays within that range."
+        Text size:"sm" color:"muted"
+          "When the range exceeds seven pages, Pagination keeps the first, final, current, and nearby pages visible and condenses the gaps with ellipses."
+      Card variant:"soft" scheme:"surface" p:6 rounded:"md"
+        Grid columns:1 gap:3
+          Title size:"lg" weight:"bold"
+            "Authoring rules"
+          Text size:"sm" color:"muted"
+            "Pagination requires bind, total, pageSize, and onChange. It has no visual children. Page numbers begin at 1, and generated targets clamp selections to the available range."
+  Section id:"pagination-accessibility" py:{ xs:7 md:10 }
+    Grid columns:{ xs:1 md:2 } gap:6 align:"start"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "ACCESSIBILITY"
+        Title size:"3xl" weight:"black"
+          "Clear page controls"
+        Text size:"sm" color:"muted"
+          "Web output generates semantic navigation controls with labels for previous, next, and the current page. Boundary controls are unavailable when there is no earlier or later page."
+        Text size:"sm" color:"muted"
+          "Android and iOS generate equivalent native controls with the same clamping and dispatch behavior."
+      Card variant:"outlined" scheme:"surface" p:6 rounded:"md" border:1
+        Grid columns:1 gap:3
+          Title size:"lg" weight:"bold"
+            "Name the navigation"
+          Text size:"sm" color:"muted"
+            "Set ariaLabel when nearby pagination controls need a more specific description, such as invoice pages or search result pages."
+          Pagination bind:page total:30 pageSize:10 onChange:describePageChange variant:"ghost" scheme:"primary" size:"md" ariaLabel:"Invoice pages"
+  Section id:"pagination-props" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Pagination props"
+        Text size:"sm" color:"muted"
+          "Pagination also accepts applicable common layout, spacing, sizing, visibility, and accessibility props."
+      Table:
+        data:paginationProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1fr"

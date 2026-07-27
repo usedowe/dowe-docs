@@ -1,0 +1,62 @@
+page MarketingServicesFeaturesPage
+  Section id:"marketing-services-features" bg:"surface" color:"onSurface" boxed:true py:{ xs:8 md:12 }
+    Grid columns:1 gap:{ xs:8 md:12 }
+      Flex direction:"column" align:"center" gap:3
+        Flex direction:"column" align:"center" gap:0 show:{ xs:false md:true }
+          Title size:"5xl" weight:"black"
+            "Digital marketing that drives"
+          Title size:"5xl" weight:"black"
+            "results for your business"
+        Title size:"4xl" weight:"black" show:{ xs:true md:false }
+          "Digital marketing that drives results for your business"
+        Text size:"lg" color:"muted"
+          "Focused capabilities for building demand, learning faster, and growing with confidence."
+      Grid columns:{ xs:1 md:2 } gap:{ xs:7 md:10 }
+        Flex align:"start" gap:4
+          Box bg:"softPrimary" rounded:"full" p:3
+            Icon name:"graph-new-up" style:"line-duotone" fill:"primary" w:10 h:10
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"black"
+              "Branding Services"
+            Text color:"muted"
+              "Create a clear brand system that keeps every campaign recognizable, useful, and consistent."
+        Flex align:"start" gap:4
+          Box bg:"softPrimary" rounded:"full" p:3
+            Icon name:"round-graph" style:"line-duotone" fill:"primary" w:10 h:10
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"black"
+              "Market Research"
+            Text color:"muted"
+              "Turn customer signals and competitive context into practical decisions your team can act on."
+        Flex align:"start" gap:4
+          Box bg:"softPrimary" rounded:"full" p:3
+            Icon name:"dialog" style:"line-duotone" fill:"primary" w:10 h:10
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"black"
+              "Content Creation"
+            Text color:"muted"
+              "Produce useful content that earns attention, answers real questions, and supports conversion."
+        Flex align:"start" gap:4
+          Box bg:"softPrimary" rounded:"full" p:3
+            Icon name:"card" style:"line-duotone" fill:"primary" w:10 h:10
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"black"
+              "e-Commerce Solutions"
+            Text color:"muted"
+              "Build flexible shopping journeys that connect product discovery, checkout, and retention."
+        Flex align:"start" gap:4
+          Box bg:"softPrimary" rounded:"full" p:3
+            Icon name:"presentation-graph" style:"line-duotone" fill:"primary" w:10 h:10
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"black"
+              "Competitor Analysis"
+            Text color:"muted"
+              "Compare positioning, channels, and customer experience to uncover your strongest next move."
+        Flex align:"start" gap:4
+          Box bg:"softPrimary" rounded:"full" p:3
+            Icon name:"magnifier" style:"line-duotone" fill:"primary" w:10 h:10
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"black"
+              "SEO & SMM Services"
+            Text color:"muted"
+              "Improve discovery across search and social with one coordinated, measurable growth plan."

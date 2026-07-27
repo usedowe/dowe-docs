@@ -1,0 +1,201 @@
+page DragDropPage
+  const dragDropProps:
+    value:[
+      {
+        prop:"dragItem"
+        type:"id, optional label/description/disabled"
+        defaultValue:"—"
+      },
+      {
+        prop:"dragGroup"
+        type:"id, optional title, dragItem children"
+        defaultValue:"—"
+      },
+      {
+        prop:"emptyText"
+        type:"string"
+        defaultValue:"Drop items here"
+      },
+      {
+        prop:"direction"
+        type:"horizontal | vertical"
+        defaultValue:"vertical"
+      },
+      {
+        prop:"allowGroupTransfer / disabled"
+        type:"boolean"
+        defaultValue:"true / false"
+      },
+      {
+        prop:"variant"
+        type:"solid | soft | outlined | ghost"
+        defaultValue:"solid"
+      },
+      {
+        prop:"scheme"
+        type:"primary | secondary | tertiary | muted | success | info | warning | danger"
+        defaultValue:"muted"
+      },
+      {
+        prop:"size"
+        type:"sm | md | lg"
+        defaultValue:"md"
+      },
+    ]
+  Section id:"drag-drop-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "FORM"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "DragDrop"
+        Text size:"lg" color:"muted"
+          "DragDrop models reorderable items and grouped lanes with explicit IDs, empty states, transfer rules, and target-native interaction."
+      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
+        "Copy LLM"
+  Section id:"drag-drop-playground" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PLAYGROUND"
+        Title size:"3xl" weight:"black"
+          "Organize a delivery board"
+        Text size:"sm" color:"muted"
+          "Grouped lanes keep ownership visible. allowGroupTransfer lets an item move between lanes while each dragItem keeps a stable ID."
+      DragDrop:
+        emptyText:"Drop a task into this lane"
+        direction:"horizontal"
+        allowGroupTransfer:true
+        variant:"outlined"
+        scheme:"primary"
+        size:"lg"
+        dragGroup id:"backlog" title:"Backlog"
+          dragItem id:"research" label:"Research API" description:"Confirm the response contract."
+          dragItem id:"wireframe" label:"Review wireframes" description:"Resolve the empty states."
+        dragGroup id:"in-progress" title:"In progress"
+          dragItem id:"compiler" label:"Update compiler" description:"Keep the generated model aligned."
+          dragItem id:"fixtures" label:"Add fixtures" description:"Exercise web and native targets."
+        dragGroup id:"done" title:"Done"
+          dragItem id:"release" label:"Publish notes" description:"Summarize the shipped behavior."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          DragDrop emptyText:"Drop a task into this lane" direction:"horizontal" allowGroupTransfer:true variant:"outlined" scheme:"primary" size:"lg"
+            dragGroup id:"backlog" title:"Backlog"
+              dragItem id:"research" label:"Research API" description:"Confirm the response contract."
+              dragItem id:"wireframe" label:"Review wireframes" description:"Resolve the empty states."
+            dragGroup id:"in-progress" title:"In progress"
+              dragItem id:"compiler" label:"Update compiler" description:"Keep the generated model aligned."
+            dragGroup id:"done" title:"Done"
+              dragItem id:"release" label:"Publish notes" description:"Summarize the shipped behavior."
+        """
+  Section id:"drag-drop-layouts" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "LAYOUTS"
+        Title size:"3xl" weight:"black"
+          "Use one list or several lanes"
+        Text size:"sm" color:"muted"
+          "Direct dragItem children create one list. dragGroup children create independent lanes. Do not mix both child shapes in one DragDrop."
+      Grid columns:{ xs:1 md:2 } gap:5
+        DragDrop emptyText:"Drop unassigned work here" direction:"vertical" variant:"soft" scheme:"success" size:"md"
+          dragItem id:"draft" label:"Draft brief" description:"Needs a first review."
+          dragItem id:"feedback" label:"Collect feedback" description:"Waiting on product input."
+          dragItem id:"qa" label:"Run QA" description:"Ready for a final pass."
+        DragDrop emptyText:"This board is read-only" direction:"vertical" disabled:true variant:"ghost" scheme:"muted" size:"sm"
+          dragGroup id:"ready" title:"Ready"
+            dragItem id:"approved" label:"Approved request" description:"No further changes."
+          dragGroup id:"blocked" title:"Blocked"
+            dragItem id:"dependency" label:"External dependency" description:"Waiting on another team." disabled:true
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          DragDrop emptyText:"Drop unassigned work here" direction:"vertical" variant:"soft" scheme:"success" size:"md"
+            dragItem id:"draft" label:"Draft brief" description:"Needs a first review."
+            dragItem id:"feedback" label:"Collect feedback" description:"Waiting on product input."
+
+          DragDrop emptyText:"This board is read-only" direction:"vertical" disabled:true variant:"ghost" scheme:"muted" size:"sm"
+            dragGroup id:"ready" title:"Ready"
+              dragItem id:"approved" label:"Approved request" description:"No further changes."
+            dragGroup id:"blocked" title:"Blocked"
+              dragItem id:"dependency" label:"External dependency" description:"Waiting on another team." disabled:true
+        """
+  Section id:"drag-drop-states" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "STATES AND DENSITY"
+        Title size:"3xl" weight:"black"
+          "Make movement and constraints visible"
+        Text size:"sm" color:"muted"
+          "Empty text, disabled items, and size communicate whether a board is ready for movement or only showing a static plan."
+      Grid columns:{ xs:1 md:2 } gap:5
+        DragDrop emptyText:"Nothing is queued yet" direction:"vertical" variant:"outlined" scheme:"info" size:"sm"
+        DragDrop emptyText:"No transfers allowed" direction:"horizontal" allowGroupTransfer:false variant:"solid" scheme:"warning" size:"lg"
+          dragGroup id:"today" title:"Today"
+            dragItem id:"sync" label:"Sync records"
+          dragGroup id:"later" title:"Later"
+            dragItem id:"archive" label:"Archive exports"
+  Section id:"drag-drop-contract" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "BEHAVIOR"
+        Title size:"3xl" weight:"black"
+          "A deterministic movement model"
+        Text size:"sm" color:"muted"
+          "Dowe lowers authored item IDs, lane structure, drag direction, and disabled state to shared target-neutral data."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "STRUCTURE"
+            Title size:"lg" weight:"bold"
+              "Stable IDs"
+            Text size:"sm" color:"muted"
+              "Every dragItem and dragGroup needs a unique ID within the DragDrop tree."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "TRANSFER"
+            Title size:"lg" weight:"bold"
+              "Explicit movement"
+            Text size:"sm" color:"muted"
+              "allowGroupTransfer controls cross-lane movement; direction controls the main arrangement."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "TARGETS"
+            Title size:"lg" weight:"bold"
+              "Native drag affordances"
+            Text size:"sm" color:"muted"
+              "Web, SwiftUI, and Compose preserve handles, insertion feedback, empty lanes, and disabled states."
+  Section id:"drag-drop-props" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Props"
+        Text size:"sm" color:"muted"
+          "DragDrop also accepts the applicable common spacing, sizing, typography, visibility, accessibility, and shadow props."
+      Table:
+        data:dragDropProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1fr"

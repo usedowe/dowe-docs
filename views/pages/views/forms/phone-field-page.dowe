@@ -1,0 +1,245 @@
+page PhoneFieldPage
+  signal contactPhone value:""
+  const phoneFieldProps:
+    value:[
+      {
+        prop:"bind / value"
+        type:"string Signal path / string"
+        defaultValue:"—"
+      },
+      {
+        prop:"country"
+        type:"ISO 3166 alpha-2 code"
+        defaultValue:"—"
+      },
+      {
+        prop:"dialCodeName"
+        type:"string"
+        defaultValue:"dialCode"
+      },
+      {
+        prop:"priorityCountries"
+        type:"comma-separated country codes"
+        defaultValue:"—"
+      },
+      {
+        prop:"searchPlaceholder / emptyText / loadingText"
+        type:"string"
+        defaultValue:"Reference defaults"
+      },
+      {
+        prop:"label / placeholder / labelFloating"
+        type:"string / string / boolean"
+        defaultValue:"— / Enter phone number / false"
+      },
+      {
+        prop:"disabled"
+        type:"boolean"
+        defaultValue:"false"
+      },
+      {
+        prop:"variant"
+        type:"solid | soft | outlined | line"
+        defaultValue:"outlined"
+      },
+      {
+        prop:"scheme"
+        type:"primary | secondary | tertiary | muted | success | info | warning | danger"
+        defaultValue:"primary"
+      },
+      {
+        prop:"size"
+        type:"sm | md | lg"
+        defaultValue:"md"
+      },
+      {
+        prop:"name / helpText / errorText"
+        type:"string"
+        defaultValue:"—"
+      },
+    ]
+  Section id:"phone-field-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "FORM"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "PhoneField"
+        Text size:"lg" color:"muted"
+          "PhoneField pairs a searchable Dowe-owned country catalog with digit-only local-number binding and explicit dial-code form storage."
+      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
+        "Copy LLM"
+  Section id:"phone-field-playground" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PLAYGROUND"
+        Title size:"3xl" weight:"black"
+          "Collect an international contact number"
+        Text size:"sm" color:"muted"
+          "Search the Dowe country popover, keep Colombia and nearby markets at the top, and store the selected dial code separately from the digit-only bound local number."
+      Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+        Grid columns:1 gap:5
+          PhoneField:
+            bind:contactPhone
+            country:"CO"
+            dialCodeName:"contactDialCode"
+            priorityCountries:"CO,US,MX,BR,ES"
+            label:"Mobile phone"
+            placeholder:"300 123 4567"
+            searchPlaceholder:"Search country or dial code"
+            emptyText:"No country matches this search"
+            loadingText:"Loading countries"
+            helpText:"Choose the country first, then enter digits for the local number."
+            variant:"outlined"
+            scheme:"primary"
+            size:"lg"
+            name:"mobile-phone"
+          Grid columns:{ xs:1 md:2 } gap:4
+            Text size:"sm" color:"muted"
+              "bind stores only local-number digits so applications can validate and format them independently."
+            Text size:"sm" color:"muted"
+              "dialCodeName gives the generated form a stable companion field for the selected calling code."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          signal contactPhone value:""
+
+          PhoneField bind:contactPhone country:"CO" dialCodeName:"contactDialCode" priorityCountries:"CO,US,MX,BR,ES" label:"Mobile phone" placeholder:"300 123 4567" searchPlaceholder:"Search country or dial code" emptyText:"No country matches this search" loadingText:"Loading countries" helpText:"Choose the country first, then enter digits for the local number." variant:"outlined" scheme:"primary" size:"lg" name:"mobile-phone"
+        """
+  Section id:"phone-field-regions" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "REGIONAL WORKFLOWS"
+        Title size:"3xl" weight:"black"
+          "Prioritize the countries that matter"
+        Text size:"sm" color:"muted"
+          "The selected country appears first, followed by priorityCountries and then the rest of the built-in catalog."
+      Grid columns:{ xs:1 md:2 } gap:5
+        PhoneField:
+          value:"4155550136"
+          country:"US"
+          dialCodeName:"billingDialCode"
+          priorityCountries:"US,CA,MX"
+          label:"Billing contact"
+          placeholder:"415 555 0136"
+          helpText:"North American markets stay at the top of the selector."
+          variant:"soft"
+          scheme:"secondary"
+          size:"md"
+          name:"billing-phone"
+        PhoneField:
+          country:"ES"
+          dialCodeName:"supportDialCode"
+          priorityCountries:"ES,GB,DE"
+          label:"Support callback"
+          placeholder:"612 34 56 78"
+          searchPlaceholder:"Find a support region"
+          helpText:"Regional support teams can start from a focused catalog."
+          variant:"line"
+          scheme:"success"
+          size:"md"
+          name:"support-phone"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          PhoneField value:"4155550136" country:"US" dialCodeName:"billingDialCode" priorityCountries:"US,CA,MX" label:"Billing contact" variant:"soft" scheme:"secondary" size:"md"
+
+          PhoneField country:"ES" dialCodeName:"supportDialCode" priorityCountries:"ES,GB,DE" label:"Support callback" variant:"line" scheme:"success" size:"md"
+        """
+  Section id:"phone-field-states" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "STATES AND DENSITY"
+        Title size:"3xl" weight:"black"
+          "Keep validation attached to the whole number"
+        Text size:"sm" color:"muted"
+          "Error feedback belongs to the combined country and number control, while disabled preserves both values visibly."
+      Grid columns:{ xs:1 md:2 } gap:5
+        PhoneField:
+          value:"123"
+          country:"MX"
+          label:"Emergency contact"
+          errorText:"Enter a complete local number for Mexico."
+          variant:"outlined"
+          scheme:"danger"
+          size:"md"
+          name:"emergency-phone"
+        PhoneField:
+          value:"2079460128"
+          country:"GB"
+          label:"Verified phone"
+          disabled:true
+          helpText:"Remove phone verification before changing this number."
+          variant:"solid"
+          scheme:"muted"
+          size:"md"
+          name:"verified-phone"
+      Flex wrap:true justify:"center" align:"center" gap:4
+        PhoneField country:"CO" label:"Small" variant:"soft" scheme:"primary" size:"sm"
+        PhoneField country:"CO" label:"Medium" variant:"soft" scheme:"primary" size:"md"
+        PhoneField country:"CO" label:"Large" variant:"soft" scheme:"primary" size:"lg"
+  Section id:"phone-field-contract" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "BEHAVIOR"
+        Title size:"3xl" weight:"black"
+          "One country catalog, portable selection"
+        Text size:"sm" color:"muted"
+          "Dowe owns country metadata, ordering, search, dial-code storage, selected state, and the shared circle-flags SVGs across generated targets."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "CATALOG"
+            Title size:"lg" weight:"bold"
+              "Searchable countries"
+            Text size:"sm" color:"muted"
+              "Country names, flags, and dial codes come from the deterministic Dowe-owned catalog."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "VALUE"
+            Title size:"lg" weight:"bold"
+              "Digit-only local value"
+            Text size:"sm" color:"muted"
+              "bind owns local-number digits and dialCodeName identifies the generated companion form value."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "TARGETS"
+            Title size:"lg" weight:"bold"
+              "Dowe popovers"
+            Text size:"sm" color:"muted"
+              "Web, SwiftUI, Compose, and the Android launcher use the Dowe dropdown surface with matching ordering, search, empty feedback, selection, and vector country flags."
+  Section id:"phone-field-props" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Props"
+        Text size:"sm" color:"muted"
+          "PhoneField also accepts the applicable common spacing, sizing, visibility, accessibility, and shadow props."
+      Table:
+        data:phoneFieldProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1fr"

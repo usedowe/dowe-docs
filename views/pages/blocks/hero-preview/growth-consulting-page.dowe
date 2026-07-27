@@ -1,0 +1,33 @@
+page GrowthConsultingHeroPage
+  Section id:"growth-consulting-hero" bg:"surface" color:"onSurface" boxed:true minH:"vh-16" py:{ xs:10 md:14 }
+    Grid columns:{ xs:1 md:"1fr 2fr 1fr" } align:"center" minH:"vh-16"
+      Box show:{ xs:false md:true }
+      Flex direction:"column" align:"center" justify:"center" gap:5
+        Text size:"xs" weight:"bold" spacing:"widest" color:"success"
+          "A CLEARER WAY TO GROW"
+        Title size:{ xs:"4xl" md:"6xl" } weight:"black"
+          "One workspace for your clearest work"
+        Text size:"lg" color:"muted"
+          "Bring goals, decisions, and delivery together so your team can spend less time searching and more time moving forward."
+        Grid columns:{ xs:1 sm:2 } gap:3 w:"full"
+          Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" w:"full"
+            "Order now"
+          Button variant:"outlined" scheme:"primary" size:"lg" rounded:"full" w:"full"
+            "Explore"
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "TRUSTED BY"
+          Flex wrap:true align:"center" justify:"center" gap:5
+            Flex align:"center" gap:2
+              Icon name:"global" style:"linear" fill:"primary" w:5 h:5
+              Text size:"sm" weight:"bold"
+                "Google"
+            Flex align:"center" gap:2
+              Icon name:"play-circle" style:"linear" fill:"primary" w:5 h:5
+              Text size:"sm" weight:"bold"
+                "YouTube"
+            Flex align:"center" gap:2
+              Icon name:"users-group-rounded" style:"linear" fill:"primary" w:5 h:5
+              Text size:"sm" weight:"bold"
+                "Facebook"
+      Box show:{ xs:false md:true }

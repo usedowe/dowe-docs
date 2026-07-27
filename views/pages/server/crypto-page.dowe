@@ -1,0 +1,79 @@
+page CryptoPage
+  Section id:"crypto-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SERVER / CRYPTO"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Transform protected byte streams"
+        Text size:"lg" color:"muted"
+          "crypto is a Dowe-owned server declaration for byte transforms. It names the transformed binding first, then makes the encryption mode and key material explicit."
+      Button href:"/docs/server" variant:"ghost" scheme:"muted" size:"sm" iconStart:"server"
+        "Server documentation"
+  Section id:"crypto-mental-model" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "MENTAL MODEL"
+        Title size:"3xl" weight:"black"
+          "Declare the output and encryption mode"
+        Text size:"sm" color:"muted"
+          "The binding after crypto is available to later server statements. encryption selects the byte transform, while data, key, and iv preserve a clear data flow without exposing server secrets to views."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          handler decryptSegment
+            http upstream method:"get" base:env.MEDIA_BASE_URL path:"/segment.m4s" mode:"bytes"
+            crypto encrypted encryption:"cencAesCtr" data:upstream key:env.MEDIA_KEY iv:env.MEDIA_IV
+            return bytes:encrypted contentType:"video/mp4"
+        """
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "BINDING"
+          Text size:"sm" color:"muted"
+            "encrypted is the byte binding for a response or the next server-side transform."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "AES-CTR"
+          Text size:"sm" color:"muted"
+            "Use encryption:\"aesCtr\" for a complete AES-128-CTR byte buffer with a 16-byte key and IV."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "SERVER ONLY"
+          Text size:"sm" color:"muted"
+            "Keys and IVs resolve only inside the server runtime and never enter client artifacts or views."
+  Section id:"crypto-cenc" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "CENC"
+        Title size:"3xl" weight:"black"
+          "Preserve clear ranges in encrypted samples"
+        Text size:"sm" color:"muted"
+          "cencAesCtr supports an 8-byte or 16-byte IV and optional clear and encrypted subsamples. Clear bytes remain unchanged while encrypted ranges advance the AES-CTR stream."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          crypto encrypted encryption:"cencAesCtr" data:upstream key:env.MEDIA_KEY iv:sampleIv subsamples:[{ clear:5 encrypted:1024 }, { clear:0 encrypted:2048 }]
+          return bytes:encrypted contentType:"video/mp4"
+        """
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Subsamples"
+          Text size:"sm" color:"muted"
+            "Each entry declares a clear byte count and an encrypted byte count for the current sample."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Migration"
+          Text size:"sm" color:"muted"
+            "Replace let encrypted = crypto.cencAesCtr with crypto encrypted encryption:\"cencAesCtr\". Legacy expression forms are rejected."

@@ -1,0 +1,205 @@
+page MarqueePage
+  const marqueeProps:
+    value:[
+      {
+        prop:"speed"
+        type:"slow | normal | fast"
+        defaultValue:"normal"
+      },
+      {
+        prop:"pauseOnHover"
+        type:"boolean"
+        defaultValue:"false"
+      },
+      {
+        prop:"reverse"
+        type:"boolean"
+        defaultValue:"false"
+      },
+      {
+        prop:"orientation"
+        type:"horizontal | vertical"
+        defaultValue:"horizontal"
+      },
+      {
+        prop:"fade"
+        type:"boolean"
+        defaultValue:"false"
+      },
+      {
+        prop:"fadeColor"
+        type:"Dowe color token"
+        defaultValue:"background"
+      },
+      {
+        prop:"gap"
+        type:"Dowe scale value"
+        defaultValue:"0"
+      },
+    ]
+  Section id:"marquee-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "DISPLAY"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Marquee"
+        Text size:"lg" color:"muted"
+          "Marquee duplicates normal view children into a continuous motion track with explicit speed, direction, pause, fade, and orientation props."
+      Card variant:"soft" scheme:"secondary" p:5 rounded:"lg" minW:56
+        Grid columns:1 gap:1
+          Text size:"xs" weight:"bold" spacing:"widest"
+            "MOTION AS CONTENT"
+          Title size:"xl" weight:"black"
+            "Keep the child semantic"
+          Text size:"sm"
+            "Badges, text, and cards remain ordinary Dowe views inside the moving strip."
+  Section id:"marquee-playground" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PLAYGROUND"
+        Title size:"3xl" weight:"black"
+          "Move a release rail"
+        Text size:"sm" color:"muted"
+          "Use a slow strip for editorial content and pauseOnHover when people may need to inspect a moving item."
+      Card variant:"outlined" scheme:"surface" p:{ xs:5 md:8 } rounded:"md" border:1
+        Grid columns:1 gap:5
+          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+            "HORIZONTAL"
+          Marquee speed:"slow" pauseOnHover:true fade:true fadeColor:"background" gap:4
+            Flex align:"center" gap:4
+              Chip variant:"soft" scheme:"success" size:"sm"
+                "NEW"
+              Text weight:"bold"
+                "Portable motion"
+              Text color:"muted"
+                "Dowe-owned generation"
+              Chip variant:"outlined" scheme:"primary" size:"sm"
+                "v1.0"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Marquee speed:"slow" pauseOnHover:true fade:true fadeColor:"background" gap:4
+            Flex align:"center" gap:4
+              Chip variant:"soft" scheme:"success" size:"sm"
+                "NEW"
+              Text weight:"bold"
+                "Portable motion"
+              Text color:"muted"
+                "Dowe-owned generation"
+        """
+  Section id:"marquee-directions" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "DIRECTION AND DENSITY"
+        Title size:"3xl" weight:"black"
+          "Use the same child tree in different rails"
+        Text size:"sm" color:"muted"
+          "reverse changes travel direction. orientation changes the track axis. The child layout still owns its own alignment and gap."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"surface" p:{ xs:5 md:7 } rounded:"md"
+          Grid columns:1 gap:4
+            Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+              "REVERSE"
+            Marquee speed:"fast" reverse:true pauseOnHover:true fade:true fadeColor:"surface" gap:3
+              Flex align:"center" gap:3
+                Chip variant:"soft" scheme:"primary" size:"sm"
+                  "Web"
+                Chip variant:"soft" scheme:"secondary" size:"sm"
+                  "Desktop"
+                Chip variant:"soft" scheme:"success" size:"sm"
+                  "Android"
+                Chip variant:"soft" scheme:"warning" size:"sm"
+                  "iOS"
+            Text size:"sm" color:"muted"
+              "A fast reverse rail works for compact platform or status labels."
+        Card variant:"soft" scheme:"surface" p:{ xs:5 md:7 } rounded:"md"
+          Grid columns:1 gap:4
+            Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+              "VERTICAL"
+            Marquee speed:"normal" orientation:"vertical" fade:true fadeColor:"surface" gap:3 h:32
+              Flex direction:"column" align:"center" gap:3
+                Text weight:"bold"
+                  "Design"
+                Divider orientation:"horizontal" scheme:"primary"
+                Text weight:"bold"
+                  "Compile"
+                Divider orientation:"horizontal" scheme:"secondary"
+                Text weight:"bold"
+                  "Ship"
+            Text size:"sm" color:"muted"
+              "Vertical orientation is useful for short rotating labels inside a constrained panel."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Marquee speed:"fast" reverse:true pauseOnHover:true fade:true fadeColor:"surface" gap:3
+            Flex align:"center" gap:3
+              Chip variant:"soft" scheme:"primary" size:"sm"
+                "Web"
+              Chip variant:"soft" scheme:"secondary" size:"sm"
+                "Desktop"
+
+          Marquee speed:"normal" orientation:"vertical" fade:true fadeColor:"surface" gap:3 h:32
+            Flex direction:"column" align:"center" gap:3
+              Text weight:"bold"
+                "Design"
+              Divider orientation:"horizontal" scheme:"primary"
+              Text weight:"bold"
+                "Compile"
+        """
+  Section id:"marquee-guidance" p:{ xs:5 md:7 }
+    Grid columns:{ xs:1 md:3 } gap:4
+      Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "PAUSE"
+          Title size:"lg" weight:"black"
+            "Let people inspect"
+          Text size:"sm" color:"muted"
+            "pauseOnHover is a useful default when the moving children carry labels or controls."
+      Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "FADE"
+          Title size:"lg" weight:"black"
+            "Signal the viewport"
+          Text size:"sm" color:"muted"
+            "fade and fadeColor soften the edges without changing the child content or track length."
+      Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "CHILDREN"
+          Title size:"lg" weight:"black"
+            "Keep one semantic group"
+          Text size:"sm" color:"muted"
+            "Marquee requires at least one normal child view and does not accept structural placeholder entries."
+  Section id:"marquee-props" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Props"
+        Text size:"sm" color:"muted"
+          "Marquee also accepts common spacing, sizing, typography, visibility, radius, border, and accessibility props."
+      Table:
+        data:marqueeProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1.2fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1.2fr"

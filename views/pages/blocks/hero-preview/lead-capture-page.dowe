@@ -1,0 +1,44 @@
+page LeadCaptureHeroPage
+  Section:
+    id:"lead-capture-hero"
+    cover:"/assets/blocks/hero/digital-globe.jpg"
+    overlay:"rgba(24,27,64,0.82)"
+    color:"onPrimary"
+    boxed:true
+    py:20
+    Grid columns:{ xs:1 md:"2fr 1fr" } gap:{ xs:8 md:16 } align:"center"
+      Flex direction:"column" gap:6
+        Title size:"4xl" weight:"black" show:{ xs:true md:false }
+          "Turn your next growth idea into a clear plan"
+        Title size:"5xl" weight:"black" show:{ xs:false md:true }
+          "Turn your next growth idea into a clear plan"
+        Text size:"lg"
+          "Bring strategy and execution together with practical tools designed for ambitious teams."
+        Flex align:"center" gap:4 pt:2
+          AvatarGroup size:"lg" max:4 bordered:true variant:"soft" scheme:"primary"
+            item name:"Maya" alt:"Maya Chen"
+            item name:"Leo" alt:"Leo Martin"
+            item name:"Amara" alt:"Amara Okafor"
+            item name:"Lin" alt:"Lin Park"
+            item name:"Dowe" alt:"Dowe Agent"
+          Grid columns:1 gap:1
+            Text size:"sm"
+              "Trusted by 12K+ worldwide"
+            Text size:"sm"
+              "brands & customers"
+      Card variant:"solid" scheme:"surface" rounded:"xl" shadow:"xl" shadowColor:"muted" p:8
+        Grid columns:1 gap:6
+          Grid columns:1 gap:2
+            Title size:"2xl" weight:"black"
+              "Get started for free"
+            Text color:"muted"
+              "Share a few details and discover the clearest next step for your team."
+          Input placeholder:"Enter your name*" variant:"soft" scheme:"muted" w:"full"
+          Input placeholder:"Enter your email*" variant:"soft" scheme:"muted" w:"full"
+          Button variant:"solid" scheme:"primary" size:"lg" w:"full"
+            "Get Started Now"
+          Flex direction:"column" align:"center" gap:0
+            Text size:"sm" color:"muted"
+              "By submitting this form, you accept our"
+            Text size:"sm" color:"muted"
+              "Terms of Service and Privacy Policy."

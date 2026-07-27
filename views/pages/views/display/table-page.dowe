@@ -1,0 +1,338 @@
+type TeamMember
+  name:string
+  role:string
+  location:string
+  status:string
+
+page TablePage
+  signal teamMembers type:TeamMember[] value:[
+    {
+      name:"Avery Morgan"
+      role:"Product designer"
+      location:"Bogota"
+      status:"Active"
+    },
+    {
+      name:"Kai Bennett"
+      role:"Runtime engineer"
+      location:"Berlin"
+      status:"Review"
+    },
+    {
+      name:"Maya Ortiz"
+      role:"Developer advocate"
+      location:"Mexico City"
+      status:"Active"
+    },
+  ]
+  signal emptyMembers type:TeamMember[] value:[]
+  signal tableProps value:[
+    {
+      prop:"data"
+      type:"Signal array path"
+      defaultValue:"—"
+    },
+    {
+      prop:"variant"
+      type:"solid | soft | outlined | ghost"
+      defaultValue:"solid"
+    },
+    {
+      prop:"scheme"
+      type:"Dowe color family, including background | surface"
+      defaultValue:"surface"
+    },
+    {
+      prop:"size"
+      type:"sm | md | lg"
+      defaultValue:"md"
+    },
+    {
+      prop:"striped"
+      type:"boolean"
+      defaultValue:"false"
+    },
+    {
+      prop:"bordered"
+      type:"boolean"
+      defaultValue:"false"
+    },
+    {
+      prop:"dividers"
+      type:"boolean"
+      defaultValue:"true"
+    },
+    {
+      prop:"emptyTitle"
+      type:"string"
+      defaultValue:"No data"
+    },
+    {
+      prop:"emptyDescription"
+      type:"string"
+      defaultValue:"There are no records to display"
+    },
+  ]
+  signal columnProps value:[
+    {
+      prop:"field"
+      type:"relative field path"
+      defaultValue:"—"
+    },
+    {
+      prop:"label"
+      type:"string"
+      defaultValue:"—"
+    },
+    {
+      prop:"align"
+      type:"start | center | end"
+      defaultValue:"start"
+    },
+    {
+      prop:"width"
+      type:"%, px, rem, fr, auto, min-content | max-content"
+      defaultValue:"—"
+    },
+  ]
+  Section id:"table-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "DISPLAY"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Table"
+        Text size:"lg" color:"muted"
+          "Tables turn a Signal array into an accessible, portable data grid with explicit columns."
+      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
+        "Copy LLM"
+  Section id:"table-data" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "DATA AND COLUMNS"
+        Title size:"3xl" weight:"black"
+          "One Signal, explicit fields"
+        Text size:"sm" color:"muted"
+          "data names the row Signal. Each column reads one quoted relative field path from every item, so the compiler can validate the row shape before generating a target."
+      Table:
+        data:teamMembers
+        variant:"soft"
+        scheme:"surface"
+        size:"md"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"name" label:"Name" width:"1.2fr"
+        column field:"role" label:"Role" width:"1.5fr"
+        column field:"location" label:"Location" width:"1fr"
+        column field:"status" label:"Status" align:"end" width:"0.7fr"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          type TeamMember
+            name:string
+            role:string
+            location:string
+            status:string
+
+          signal teamMembers type:TeamMember[] value:[{ name:"Avery Morgan" role:"Product designer" location:"Bogota" status:"Active" }]
+
+          Table data:teamMembers variant:"soft" scheme:"surface" striped:true dividers:true
+            column field:"name" label:"Name"
+            column field:"role" label:"Role"
+            column field:"location" label:"Location"
+            column field:"status" label:"Status" align:"end"
+        """
+  Section id:"table-columns" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "COLUMN LAYOUT"
+        Title size:"3xl" weight:"black"
+          "Width and alignment stay intentional"
+        Text size:"sm" color:"muted"
+          "Use width only when a column needs a stable proportion or minimum. Column padding is included in that width on every target, and narrow viewports scroll horizontally instead of clipping rows."
+      Table:
+        data:teamMembers
+        variant:"outlined"
+        scheme:"primary"
+        size:"sm"
+        bordered:true
+        dividers:true
+        rounded:"md"
+        column field:"name" label:"Member" width:"12rem"
+        column field:"role" label:"Discipline" width:"2fr"
+        column field:"location" label:"Location" align:"center" width:"10rem"
+        column field:"status" label:"Status" align:"end" width:"8rem"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Table data:teamMembers variant:"outlined" scheme:"primary" bordered:true
+            column field:"name" label:"Member" width:"12rem"
+            column field:"role" label:"Discipline" width:"2fr"
+            column field:"location" label:"Location" align:"center" width:"10rem"
+            column field:"status" label:"Status" align:"end" width:"8rem"
+        """
+  Section id:"table-presentation" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PRESENTATION"
+        Title size:"3xl" weight:"black"
+          "Choose density and emphasis"
+        Text size:"sm" color:"muted"
+          "variant and scheme style the table surface, header, borders, stripes, and empty state. size adjusts header and cell typography together."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Table:
+          data:teamMembers
+          variant:"solid"
+          scheme:"surface"
+          size:"sm"
+          striped:true
+          dividers:true
+          rounded:"md"
+          column field:"name" label:"Compact"
+          column field:"status" label:"Status" align:"end"
+        Table:
+          data:teamMembers
+          variant:"soft"
+          scheme:"info"
+          size:"md"
+          striped:true
+          dividers:true
+          rounded:"md"
+          column field:"name" label:"Comfortable"
+          column field:"status" label:"Status" align:"end"
+        Table:
+          data:teamMembers
+          variant:"outlined"
+          scheme:"success"
+          size:"lg"
+          bordered:true
+          dividers:true
+          rounded:"md"
+          column field:"name" label:"Spacious"
+          column field:"status" label:"Status" align:"end"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Table data:teamMembers variant:"soft" scheme:"info" size:"md" striped:true dividers:true
+            column field:"name" label:"Member"
+            column field:"status" label:"Status" align:"end"
+        """
+  Section id:"table-empty-state" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "EMPTY STATE"
+        Title size:"3xl" weight:"black"
+          "Keep the next step visible"
+        Text size:"sm" color:"muted"
+          "An empty array is still a valid table. Define direct, static copy so the same accessible state appears on web, desktop, Android, and iOS."
+      Table:
+        data:emptyMembers
+        variant:"soft"
+        scheme:"warning"
+        size:"md"
+        bordered:true
+        emptyTitle:"No team members yet"
+        emptyDescription:"Invite collaborators to populate this workspace table."
+        rounded:"md"
+        column field:"name" label:"Name" width:"1fr"
+        column field:"role" label:"Role" width:"1fr"
+        column field:"status" label:"Status" align:"end" width:"0.75fr"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          signal emptyMembers type:TeamMember[] value:[]
+
+          Table data:emptyMembers variant:"soft" scheme:"warning" bordered:true emptyTitle:"No team members yet" emptyDescription:"Invite collaborators to populate this workspace table."
+            column field:"name" label:"Name"
+            column field:"role" label:"Role"
+            column field:"status" label:"Status" align:"end"
+        """
+  Section id:"table-contract" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PORTABLE CONTRACT"
+        Title size:"3xl" weight:"black"
+          "Semantic rows, native output"
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "WEB AND DESKTOP"
+            Title size:"lg" weight:"bold"
+              "A real table"
+            Text size:"sm" color:"muted"
+              "Dowe emits semantic table markup inside a horizontal overflow container."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "NATIVE"
+            Title size:"lg" weight:"bold"
+              "Readable rows"
+            Text size:"sm" color:"muted"
+              "SwiftUI and Compose render native headers, cells, and the same empty-state copy."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "CURRENT SCOPE"
+            Title size:"lg" weight:"bold"
+              "Data display only"
+            Text size:"sm" color:"muted"
+              "Sorting, pagination, selection, search, and custom cells are not part of the current Table contract."
+  Section id:"table-props" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Table props"
+        Text size:"sm" color:"muted"
+          "Table also accepts applicable common id, visibility, spacing, sizing, rounded, border, and font props. It requires one or more direct column entries."
+      Table:
+        data:tableProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1fr"
+      Grid columns:1 gap:2 pt:2
+        Title size:"2xl" weight:"black"
+          "Column entry props"
+        Text size:"sm" color:"muted"
+          "column is structural: it is valid only inside Table, has no children, and requires both field and label."
+      Table:
+        data:columnProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1fr"

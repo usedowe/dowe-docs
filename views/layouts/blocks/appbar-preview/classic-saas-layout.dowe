@@ -1,0 +1,38 @@
+layout AppBarClassicSaasLayout
+  Scaffold
+    appBar
+      AppBar variant:"soft" scheme:"surface" position:"sticky" boxed:true py:2
+        start
+          Brand href:"/blocks/appbar" label:"Olmo home"
+            Flex align:"center" gap:2
+              Icon name:"layers-minimalistic" style:"bold" fill:"primary" w:8 h:8
+              Text size:"xl" weight:"black"
+                "OLMO."
+        center
+          NavMenu variant:"ghost" scheme:"primary" size:"sm" show:{ xs:false md:true }
+            item label:"Home" href:"/blocks/appbar-preview/classic-saas"
+            submenu label:"About"
+              item label:"Creative" href:"/blocks/appbar-preview/creative"
+              item label:"Social" href:"/blocks/appbar-preview/social-pill"
+            submenu label:"Auth Pages"
+              item label:"Floating" href:"/blocks/appbar-preview/floating-card"
+              item label:"Centered" href:"/blocks/appbar-preview/centered-pill"
+            item label:"Pricing" href:"/blocks/appbar-preview/hosting"
+            item label:"Blog" href:"/blocks/appbar-preview/admin"
+        end
+          Flex align:"center" gap:2
+            Button:
+              href:"/blocks/appbar-preview/creative"
+              variant:"solid"
+              scheme:"primary"
+              size:"sm"
+              show:{ xs:false sm:true }
+              "Let's Started"
+            IconButton:
+              icon:"hamburger-menu"
+              label:"Open navigation"
+              variant:"ghost"
+              scheme:"primary"
+              show:{ xs:true md:false }
+    main
+      children

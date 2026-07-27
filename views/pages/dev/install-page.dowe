@@ -1,0 +1,237 @@
+page InstallPage
+  Section id:"install-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "DEVELOPMENT / CLI DISTRIBUTION"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Install Dowe"
+        Text size:"lg" color:"muted"
+          "Install the versioned Dowe CLI from the official release channel, then use the same binary for development, testing, builds, and deployment."
+      Button:
+        href:"/docs/dev"
+        variant:"soft"
+        scheme:"primary"
+        size:"sm"
+        rounded:"full"
+        iconStart:"code"
+        "Open Dowe Dev"
+  Section id:"install-command" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "OFFICIAL INSTALLERS"
+        Title size:"3xl" weight:"black"
+          "Install from get.dowe.dev"
+        Text size:"sm" color:"muted"
+          "The platform installer downloads the matching archive from the latest channel and places the binary in the user install directory."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy installer"
+        copiedLabel:"Copied"
+        content:"""
+          curl -fsSL https://get.dowe.dev/install | bash
+          irm https://get.dowe.dev/install.ps1 | iex
+        """
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"primary"
+              "MACOS + LINUX"
+            Title size:"xl" weight:"black"
+              "One shell installer"
+            Text size:"sm" color:"muted"
+              "The Bash installer selects the matching macOS or Linux archive and updates the user PATH when the install directory is not already present."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "WINDOWS"
+            Title size:"xl" weight:"black"
+              "PowerShell native flow"
+            Text size:"sm" color:"muted"
+              "The PowerShell installer downloads the Windows archive, places the binary and Dowe font catalog under the user directory, and updates the user PATH when needed."
+  Section id:"install-location" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "USER-OWNED INSTALLATION"
+        Title size:"3xl" weight:"black"
+          "Choose the version and location"
+        Text size:"sm" color:"muted"
+          "Use installer environment variables when a project, workstation image, or CI runner needs a different release channel or destination."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy configuration"
+        copiedLabel:"Copied"
+        content:"""
+          DOWE_VERSION=1.2.3 curl -fsSL https://get.dowe.dev/install | bash
+          DOWE_INSTALL_DIR=/opt/dowe/bin curl -fsSL https://get.dowe.dev/install | bash
+          DOWE_BASE_URL=https://releases.example.test curl -fsSL https://releases.example.test/install | bash
+        """
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "DOWE_VERSION"
+            Title size:"lg" weight:"bold"
+              "Pin a release"
+            Text size:"sm" color:"muted"
+              "Use latest by default or provide a version such as 1.2.3."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "DOWE_INSTALL_DIR"
+            Title size:"lg" weight:"bold"
+              "Choose a directory"
+            Text size:"sm" color:"muted"
+              "macOS and Linux default to $HOME/.dowe/bin; Windows defaults to the user .dowe/bin directory."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "DOWE_BASE_URL"
+            Title size:"lg" weight:"bold"
+              "Use another channel"
+            Text size:"sm" color:"muted"
+              "Point the installer at a compatible release CDN or private mirror."
+  Section id:"install-troubleshooting" p:{ xs:5 md:7 }
+    Grid columns:1 gap:4
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "WINDOWS TROUBLESHOOTING"
+        Title size:"3xl" weight:"black"
+          "Expose the installer error"
+        Text size:"sm" color:"muted"
+          "Empty installer variables are treated as unset. If PowerShell reports a null method error, download the script first to expose whether the response or the installer failed."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy diagnostic"
+        copiedLabel:"Copied"
+        content:"""
+          $installer = irm https://get.dowe.dev/install.ps1
+          if ([string]::IsNullOrWhiteSpace($installer)) { throw "The installer response is empty" }
+          iex $installer
+        """
+  Section id:"install-verify" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "VERIFY AND UPGRADE"
+        Title size:"3xl" weight:"black"
+          "Keep the CLI current"
+        Text size:"sm" color:"muted"
+          "After installation, verify the binary and let Dowe delegate future upgrades to the same platform installer instead of duplicating installation logic."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy commands"
+        copiedLabel:"Copied"
+        content:"""
+          dowe version
+          dowe upgrade
+        """
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"primary"
+              "VERSION"
+            Title size:"lg" weight:"bold"
+              "Confirm the binary"
+            Text size:"sm" color:"muted"
+              "dowe version prints the installed CLI version so scripts and support reports can identify the toolchain."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "UPGRADE CHECK"
+            Title size:"lg" weight:"bold"
+              "Compare latest metadata"
+            Text size:"sm" color:"muted"
+              "dowe upgrade checks latest/version and only installs when the published version is newer."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "FAILURE SAFETY"
+            Title size:"lg" weight:"bold"
+              "Stop on invalid releases"
+            Text size:"sm" color:"muted"
+              "Invalid metadata and unsupported platforms produce a clear error instead of a partial upgrade."
+  Section id:"install-uninstall" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "REMOVE THE CLI"
+        Title size:"3xl" weight:"black"
+          "Uninstall without touching projects"
+        Text size:"sm" color:"muted"
+          "Dowe removes the installed binary, its packaged font catalog, the managed PATH entry, and only empty installation directories. Project source, project .dowe data, and unrelated files remain untouched."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy uninstall commands"
+        copiedLabel:"Copied"
+        content:"""
+          dowe uninstall
+          dowe uninstall --yes
+        """
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"primary"
+              "CONFIRMATION"
+            Title size:"lg" weight:"bold"
+              "Review before removal"
+            Text size:"sm" color:"muted"
+              "dowe uninstall asks for confirmation in a terminal. Use --yes when a script already owns the decision."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "THREE PLATFORMS"
+            Title size:"lg" weight:"bold"
+              "macOS, Linux, and Windows"
+            Text size:"sm" color:"muted"
+              "Unix removes the executable before exit. Windows schedules removal after the current process closes."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "SAFE BOUNDARY"
+            Title size:"lg" weight:"bold"
+              "Keep application data"
+            Text size:"sm" color:"muted"
+              "Dowe does not delete project files, project .dowe directories, application data, credentials, or unrelated install-directory files."
+  Section id:"install-next" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "READY TO BUILD"
+        Title size:"3xl" weight:"black"
+          "Move from installation to a project"
+        Text size:"sm" color:"muted"
+          "Once the CLI is available, initialize a project or enter an existing Dowe root and start the shared development workflow."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "New project"
+            Text size:"sm" color:"muted"
+              "Use dowe init --template blank, or choose CRUD from the interactive menu and continue to the optional i18n step. A root main.dowe marks an existing project."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Existing project"
+            Text size:"sm" color:"muted"
+              "Run dowe dev --target server --target web to start it. If you invoke interactive dowe init here, Dowe asks before replacing managed template files and defaults to keeping the project unchanged."
+      Button:
+        href:"/docs/dev/deploy"
+        variant:"soft"
+        scheme:"primary"
+        size:"sm"
+        rounded:"full"
+        iconStart:"settings"
+        "Read Deploy docs"

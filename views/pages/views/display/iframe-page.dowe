@@ -1,0 +1,118 @@
+page IframePage
+  const iframeProps:
+    value:[
+      { prop:"src" type:"HTTPS URL or root-relative route" defaultValue:"required" },
+      { prop:"title" type:"non-empty accessibility label" defaultValue:"required" },
+      { prop:"loading" type:"lazy | eager" defaultValue:"lazy" },
+      { prop:"allow" type:"camera, microphone, fullscreen, autoplay, ..." defaultValue:"empty" },
+      { prop:"sandbox" type:"portable sandbox tokens" defaultValue:"not applied" },
+      { prop:"allowFullscreen" type:"boolean" defaultValue:"false" },
+      { prop:"w, h, rounded, border, show" type:"common layout props" defaultValue:"—" },
+    ]
+  Section id:"iframe-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "DISPLAY"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Iframe"
+        Text size:"lg" color:"muted"
+          "Iframe embeds one HTTPS document or same-origin internal route through the platform web engine with an explicit accessibility and security contract."
+      Card variant:"soft" scheme:"warning" p:5 rounded:"lg" minW:56
+        Grid columns:1 gap:1
+          Text size:"xs" weight:"bold" spacing:"widest"
+            "SECURITY FIRST"
+          Title size:"xl" weight:"black"
+            "Own the boundary"
+          Text size:"sm"
+            "The embedded page never receives a Dowe JavaScript bridge."
+  Section id:"iframe-playground" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PLAYGROUND"
+        Title size:"3xl" weight:"black"
+          "Preview a same-origin route"
+        Text size:"sm" color:"muted"
+          "Internal routes are useful in documentation and local development because the iframe follows the current Views origin and port."
+      Iframe:
+        src:"/examples/appbar-one"
+        title:"Local AppBar example"
+        loading:"lazy"
+        sandbox:"scripts same-origin forms"
+        allow:"fullscreen; autoplay"
+        allowFullscreen:true
+        w:"full"
+        h:96
+        rounded:"lg"
+        border:1
+      Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+        Iframe src:"/examples/appbar-one" title:"Local AppBar example" loading:"lazy" sandbox:"scripts same-origin forms" allow:"fullscreen; autoplay" allowFullscreen:true w:"full" h:96 rounded:"lg" border:1
+      """
+  Section id:"iframe-policies" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "POLICY COMBINATIONS"
+        Title size:"3xl" weight:"black"
+          "Choose the smallest capability set"
+        Text size:"sm" color:"muted"
+          "Loading, allow, and sandbox are static source props. Their values are checked before generation and mapped to HTML, WKWebView, and Android WebView behavior."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+          Grid columns:1 gap:4
+            Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+              "INTERACTIVE MEDIA"
+            Iframe src:"/examples/scaffold" title:"Scaffold application preview" loading:"eager" allow:"fullscreen; autoplay; picture-in-picture" sandbox:"scripts same-origin forms" allowFullscreen:true h:80 rounded:"md" border:1
+            Text size:"sm" color:"muted"
+              "Use allow and allowFullscreen only when the embedded document needs them."
+        Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+          Grid columns:1 gap:4
+            Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+              "STRICT EMBED"
+            Iframe src:"/examples/appbar-two" title:"Sticky AppBar application preview" loading:"lazy" sandbox:"" h:80 rounded:"md" border:1
+            Text size:"sm" color:"muted"
+              "An empty sandbox value is the strictest sandbox. Add tokens only when the page contract requires them."
+      Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+        Iframe src:"https://example.com/embed" title:"Interactive media" loading:"eager" allow:"fullscreen; autoplay; picture-in-picture" sandbox:"scripts same-origin forms" allowFullscreen:true
+        Iframe src:"/examples/appbar-two" title:"Strict internal preview" loading:"lazy" sandbox:""
+      """
+  Section id:"iframe-boundary" p:{ xs:5 md:7 }
+    Grid columns:{ xs:1 md:3 } gap:4
+      Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "SOURCE"
+          Title size:"lg" weight:"black"
+            "HTTPS or internal"
+          Text size:"sm" color:"muted"
+            "Remote sources must be HTTPS. Local routes must begin with exactly one slash."
+      Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "ACCESSIBILITY"
+          Title size:"lg" weight:"black"
+            "Title is required"
+          Text size:"sm" color:"muted"
+            "The quoted title labels the embedded document on web and native targets."
+      Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "LIMITS"
+          Title size:"lg" weight:"black"
+            "No hidden bridge"
+          Text size:"sm" color:"muted"
+            "Dowe does not inject headers, cookies, downloads, popups, or JavaScript-to-native bridges."
+  Section id:"iframe-props" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Props"
+        Text size:"sm" color:"muted"
+          "Iframe also accepts common identity, spacing, sizing, radius, border, visibility, and accessibility props."
+      Table data:iframeProps variant:"soft" scheme:"surface" size:"sm" striped:true dividers:true rounded:"md"
+        column field:"prop" label:"Prop" width:"1.2fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1.2fr"

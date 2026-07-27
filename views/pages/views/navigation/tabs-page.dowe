@@ -1,0 +1,313 @@
+page TabsPage
+  const tabsProps:
+    value:[
+      {
+        prop:"variant"
+        type:"solid | outlined | line | ghost | pills"
+        defaultValue:"solid"
+      },
+      {
+        prop:"scheme"
+        type:"primary | secondary | tertiary | muted | background | surface | success | info | warning | danger"
+        defaultValue:"muted"
+      },
+      {
+        prop:"position"
+        type:"top | bottom | start | end"
+        defaultValue:"top"
+      },
+    ]
+  const tabProps:
+    value:[
+      {
+        prop:"id"
+        type:"string"
+        behavior:"Required unique panel identifier within the parent Tabs"
+      },
+      {
+        prop:"label"
+        type:"string"
+        behavior:"Required static fallback label for the tab control"
+      },
+      {
+        prop:"i18n"
+        type:"translation key"
+        behavior:"Optional translated label that keeps label as its deterministic fallback"
+      },
+    ]
+  Section id:"tabs-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "NAVIGATION"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Tabs"
+        Text size:"lg" color:"muted"
+          "Tabs keep related content in one place while letting people move between focused panels."
+      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
+        "Copy LLM"
+  Section id:"tabs-default" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PANEL NAVIGATION"
+        Title size:"3xl" weight:"black"
+          "Direct tab entries"
+        Text size:"sm" color:"muted"
+          "Tabs accepts only direct tab entries. Each entry has a unique id, a visible label, and one or more view nodes for its panel. The first entry starts active."
+        Text size:"sm" color:"muted"
+          "The tab list wraps its controls instead of stretching across the panel. If a horizontal list becomes wider than its container, it stays bounded and scrolls."
+      Grid columns:{ xs:1 md:2 } gap:6 align:"start"
+        Card variant:"outlined" scheme:"surface" p:{ xs:5 md:8 } rounded:"md" border:1
+          Tabs variant:"pills" scheme:"primary" position:"top"
+            tab id:"overview" label:"Overview"
+              Grid columns:1 gap:2 p:4
+                Title size:"lg" weight:"bold"
+                  "Project overview"
+                Text size:"sm" color:"muted"
+                  "Keep the essential summary in the first, immediately available panel."
+            tab id:"activity" label:"Activity"
+              Grid columns:1 gap:2 p:4
+                Title size:"lg" weight:"bold"
+                  "Recent activity"
+                Text size:"sm" color:"muted"
+                  "Related updates remain nearby without making the page longer."
+            tab id:"settings" label:"Settings"
+              Grid columns:1 gap:2 p:4
+                Title size:"lg" weight:"bold"
+                  "Settings"
+                Text size:"sm" color:"muted"
+                  "Configuration belongs in its own focused panel."
+        Code:
+          language:"dowe"
+          variant:"soft"
+          scheme:"surface"
+          copyLabel:"Copy Dowe"
+          copiedLabel:"Copied"
+          content:"""
+            Tabs variant:"pills" scheme:"primary" position:"top"
+              tab id:"overview" label:"Overview"
+                Text size:"sm"
+                  "Project summary"
+              tab id:"activity" label:"Activity"
+                Text size:"sm"
+                  "Recent changes"
+              tab id:"settings" label:"Settings"
+                Text size:"sm"
+                  "Account controls"
+          """
+  Section id:"tabs-variants" py:{ xs:7 md:10 }
+    Grid columns:1 gap:8
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "VISUAL OPTIONS"
+        Title size:"3xl" weight:"black"
+          "Five tab treatments"
+        Text size:"sm" color:"muted"
+          "Variant changes the tab list treatment without changing panel behavior or keyboard navigation."
+      Grid columns:{ xs:1 md:2 } gap:5
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Title size:"lg" weight:"bold"
+              "Solid"
+            Tabs variant:"solid" scheme:"primary"
+              tab id:"solid-first" label:"First"
+                Text size:"sm" p:3
+                  "The active tab uses a filled treatment."
+              tab id:"solid-second" label:"Second"
+                Text size:"sm" p:3
+                  "Panels keep their own view content."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Title size:"lg" weight:"bold"
+              "Outlined"
+            Tabs variant:"outlined" scheme:"primary"
+              tab id:"outlined-first" label:"First"
+                Text size:"sm" p:3
+                  "A border keeps the tab list distinct."
+              tab id:"outlined-second" label:"Second"
+                Text size:"sm" p:3
+                  "The same panel contract applies."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Title size:"lg" weight:"bold"
+              "Line"
+            Tabs variant:"line" scheme:"primary"
+              tab id:"line-first" label:"First"
+                Text size:"sm" p:3
+                  "A bottom line emphasizes the active destination without outlining the control."
+              tab id:"line-second" label:"Second"
+                Text size:"sm" p:3
+                  "Use it for denser interfaces."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Title size:"lg" weight:"bold"
+              "Ghost"
+            Tabs variant:"ghost" scheme:"primary"
+              tab id:"ghost-first" label:"First"
+                Text size:"sm" p:3
+                  "A quiet option for low-emphasis navigation."
+              tab id:"ghost-second" label:"Second"
+                Text size:"sm" p:3
+                  "The active state remains clear."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Title size:"lg" weight:"bold"
+              "Pills"
+            Tabs variant:"pills" scheme:"primary"
+              tab id:"pills-first" label:"First"
+                Text size:"sm" p:3
+                  "Rounded controls separate each destination."
+              tab id:"pills-second" label:"Second"
+                Text size:"sm" p:3
+                  "This is useful for compact categories."
+  Section id:"tabs-position" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "ORIENTATION"
+        Title size:"3xl" weight:"black"
+          "Place controls around the panel"
+        Text size:"sm" color:"muted"
+          "top and bottom use a horizontal tab list. start and end place a vertical list beside the panel on every generated target."
+      Grid columns:{ xs:1 md:2 } gap:5
+        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+          Grid columns:1 gap:3
+            Title size:"lg" weight:"bold"
+              "Bottom"
+            Tabs variant:"line" scheme:"muted" position:"bottom"
+              tab id:"bottom-summary" label:"Summary"
+                Text size:"sm" p:3
+                  "The controls follow the active panel."
+              tab id:"bottom-details" label:"Details"
+                Text size:"sm" p:3
+                  "Use this when the panel should lead visually."
+        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+          Grid columns:1 gap:3
+            Title size:"lg" weight:"bold"
+              "Start"
+            Tabs variant:"outlined" scheme:"muted" position:"start"
+              tab id:"start-profile" label:"Profile"
+                Text size:"sm" p:3
+                  "A vertical list appears before the panel."
+              tab id:"start-security" label:"Security"
+                Text size:"sm" p:3
+                  "Keep related settings together."
+        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+          Grid columns:1 gap:3
+            Title size:"lg" weight:"bold"
+              "End"
+            Tabs variant:"outlined" scheme:"muted" position:"end"
+              tab id:"end-notes" label:"Notes"
+                Text size:"sm" p:3
+                  "A vertical list appears after the panel."
+              tab id:"end-history" label:"History"
+                Text size:"sm" p:3
+                  "Use end when the content should lead."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        content:"""
+          Tabs variant:"outlined" scheme:"muted" position:"start"
+            tab id:"profile" label:"Profile"
+              Text size:"sm"
+                "Personal information"
+            tab id:"security" label:"Security"
+              Text size:"sm"
+                "Password and access controls"
+        """
+  Section id:"tabs-schemes" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SCHEMES"
+        Title size:"3xl" weight:"black"
+          "Use scheme for the visual family"
+        Text size:"sm" color:"muted"
+          "Tabs uses scheme, not color. Action and structural scheme families work consistently across web, desktop, Android, and iOS."
+      Flex wrap:true align:"start" gap:5
+        Tabs variant:"pills" scheme:"primary"
+          tab id:"primary-panel" label:"Primary"
+            Text size:"sm" p:3
+              "Primary panel"
+          tab id:"primary-next" label:"Next"
+            Text size:"sm" p:3
+              "Next panel"
+        Tabs variant:"pills" scheme:"success"
+          tab id:"success-panel" label:"Success"
+            Text size:"sm" p:3
+              "Success panel"
+          tab id:"success-next" label:"Next"
+            Text size:"sm" p:3
+              "Next panel"
+        Tabs variant:"pills" scheme:"warning"
+          tab id:"warning-panel" label:"Warning"
+            Text size:"sm" p:3
+              "Warning panel"
+          tab id:"warning-next" label:"Next"
+            Text size:"sm" p:3
+              "Next panel"
+        Tabs variant:"pills" scheme:"surface"
+          tab id:"surface-panel" label:"Surface"
+            Text size:"sm" p:3
+              "Surface panel"
+          tab id:"surface-next" label:"Next"
+            Text size:"sm" p:3
+              "Next panel"
+      Alert type:"info" variant:"soft" scheme:"info" message:"Tabs rejects color as a visual-family prop. Use scheme to select the semantic or structural family."
+  Section id:"tabs-accessibility" p:{ xs:5 md:7 }
+    Grid columns:{ xs:1 md:2 } gap:6 align:"start"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "ACCESSIBILITY"
+        Title size:"3xl" weight:"black"
+          "Keyboard-ready panels"
+        Text size:"sm" color:"muted"
+          "Web and desktop output uses tablist, tab, and tabpanel roles. Arrow keys move through the tab controls, while Home and End move to the first and last control."
+        Text size:"sm" color:"muted"
+          "Android and iOS generate native stateful controls with the same initial active tab, orientation, variant, and scheme."
+      Card variant:"soft" scheme:"surface" p:6 rounded:"md"
+        Grid columns:1 gap:3
+          Title size:"lg" weight:"bold"
+            "Authoring rules"
+          Text size:"sm" color:"muted"
+            "Do not place ordinary view nodes directly inside Tabs. Put each panel node under a tab, keep ids unique within that Tabs instance, and give every tab a label and content."
+  Section id:"tabs-props" py:{ xs:7 md:10 }
+    Grid columns:1 gap:8
+      Grid columns:1 gap:5
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+            "API"
+          Title size:"3xl" weight:"black"
+            "Tabs props"
+          Text size:"sm" color:"muted"
+            "Tabs also accepts applicable common identity, spacing, sizing, visibility, radius, and border props."
+        Table:
+          data:tabsProps
+          variant:"soft"
+          scheme:"surface"
+          size:"sm"
+          striped:true
+          dividers:true
+          rounded:"md"
+          column field:"prop" label:"Prop" width:"1fr"
+          column field:"type" label:"Type" width:"3fr"
+          column field:"defaultValue" label:"Default" width:"1fr"
+      Grid columns:1 gap:5
+        Grid columns:1 gap:2
+          Title size:"2xl" weight:"black"
+            "tab entry props"
+          Text size:"sm" color:"muted"
+            "tab is structural and is valid only as a direct child of Tabs."
+        Table:
+          data:tabProps
+          variant:"soft"
+          scheme:"surface"
+          size:"sm"
+          striped:true
+          dividers:true
+          rounded:"md"
+          column field:"prop" label:"Prop" width:"1fr"
+          column field:"type" label:"Type" width:"2fr"
+          column field:"behavior" label:"Behavior" width:"3fr"

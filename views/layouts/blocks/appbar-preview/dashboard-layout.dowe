@@ -1,0 +1,60 @@
+layout AppBarDashboardLayout
+  Scaffold
+    appBar
+      AppBar:
+        variant:"solid"
+        scheme:"surface"
+        position:"sticky"
+        boxed:true
+        bordered:true
+        py:1
+        start
+          Flex align:"center" gap:6
+            Text size:"lg" weight:"black"
+              "Dashboard"
+            Input:
+              label:"Search dashboard"
+              placeholder:"Type to search ..."
+              labelFloating:true
+              variant:"outlined"
+              scheme:"muted"
+              iconStart:"magnifier"
+              w:72
+              show:{ xs:false md:true }
+        end
+          Flex align:"center" gap:3
+            IconButton:
+              icon:"letter"
+              label:"Open messages"
+              variant:"ghost"
+              scheme:"muted"
+              size:"sm"
+              show:{ xs:false md:true }
+            IconButton:
+              icon:"bell"
+              label:"Open notifications"
+              variant:"ghost"
+              scheme:"muted"
+              size:"sm"
+            Divider orientation:"vertical" h:8 show:{ xs:false md:true }
+            Avatar:
+              name:"Jonathan Stone"
+              alt:"Jonathan Stone"
+              variant:"soft"
+              scheme:"primary"
+              size:"md"
+              status:"online"
+            Grid columns:1 gap:1 show:{ xs:false md:true }
+              Text size:"sm" weight:"bold"
+                "Jonathan"
+              Text size:"xs" color:"muted"
+                "Admin"
+            IconButton:
+              icon:"settings"
+              label:"Open settings"
+              variant:"ghost"
+              scheme:"muted"
+              size:"sm"
+              show:{ xs:false md:true }
+    main
+      children

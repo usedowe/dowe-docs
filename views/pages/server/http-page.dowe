@@ -1,0 +1,80 @@
+page HttpPage
+  Section id:"http-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SERVER / HTTP"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Make a controlled outbound request"
+        Text size:"lg" color:"muted"
+          "http is a server-only declaration for outbound Dowe runtime requests. It gives the response a named binding while keeping URLs, credentials, and response handling inside the server boundary."
+      Button href:"/docs/server" variant:"ghost" scheme:"muted" size:"sm" iconStart:"server"
+        "Server documentation"
+  Section id:"http-mental-model" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "MENTAL MODEL"
+        Title size:"3xl" weight:"black"
+          "Declare the response binding first"
+        Text size:"sm" color:"muted"
+          "The name after http is the response variable for later statements. Use one lowercase method value and keep base, path, headers, timeout, and response mode explicit."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          handler fetchStatus
+            http upstream method:"get" base:env.MEDIA_BASE_URL path:"/api/status" mode:"bytes" headers:[{ name:"Accept" value:"application/json" }]
+            return json:{ ok:upstream.ok status:upstream.status }
+        """
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "BINDING"
+          Text size:"sm" color:"muted"
+            "upstream is the inspected response result for a JSON response, proxy, byte response, or following server statement."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "METHOD"
+          Text size:"sm" color:"muted"
+            "method accepts get, post, put, patch, or delete. The lowercase value becomes the direct Dowe HTTP request method."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "BOUNDARY"
+          Text size:"sm" color:"muted"
+            "http is server-only. Views and client targets do not receive outbound network authority or server environment values."
+  Section id:"http-proxy" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PROXY AND SAFETY"
+        Title size:"3xl" weight:"black"
+          "Keep authority explicit"
+        Text size:"sm" color:"muted"
+          "Declare base and bearer names in .env.example, supply values through .env or the process environment, and reference them only from server source. Headers are validated, Authorization belongs in bearer, and redirect plus timeout policy remain visible in source."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          handler chatCompletions
+            const body value:req.json
+            http upstream method:"post" base:env.OPENROUTER_BASE_URL path:"/api/v1/chat/completions" bearer:env.OPENROUTER_API_KEY json:body mode:"proxy" timeoutMs:10000
+            return proxy:upstream
+        """
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Response modes"
+          Text size:"sm" color:"muted"
+            "json is the default for inspectable status and data. bytes preserves an upstream byte binding, and proxy forwards a controlled upstream response."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Migration"
+          Text size:"sm" color:"muted"
+            "Replace let upstream = http.get, http.post, or http.request with http upstream method:\"...\". Legacy expression forms are rejected."

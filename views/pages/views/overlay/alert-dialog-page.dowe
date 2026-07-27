@@ -1,0 +1,261 @@
+page AlertDialogPage
+  signal deleteDialogOpen value:false
+  signal publishDialogOpen value:false
+  signal archiveDialogOpen value:false
+  signal dialogStatus value:"No decision has been submitted yet."
+  const alertDialogProps:
+    value:[
+      {
+        prop:"open"
+        type:"bool Signal path"
+        defaultValue:"required"
+      },
+      {
+        prop:"title"
+        type:"static string"
+        defaultValue:"Are you sure?"
+      },
+      {
+        prop:"description"
+        type:"static string"
+        defaultValue:"This action cannot be undone."
+      },
+      {
+        prop:"confirmText | cancelText"
+        type:"static string"
+        defaultValue:"Confirm | Cancel"
+      },
+      {
+        prop:"onConfirm | onCancel"
+        type:"View function reference"
+        defaultValue:"—"
+      },
+      {
+        prop:"variant"
+        type:"solid | soft | outlined | ghost"
+        defaultValue:"solid"
+      },
+      {
+        prop:"scheme"
+        type:"design scheme for the confirm action"
+        defaultValue:"danger"
+      },
+      {
+        prop:"loading"
+        type:"boolean"
+        defaultValue:"false"
+      },
+    ]
+  fn openDeleteDialog
+    set deleteDialogOpen value:true
+  fn closeDeleteDialog
+    set deleteDialogOpen value:false
+  fn confirmDeleteDialog
+    set deleteDialogOpen value:false
+    set dialogStatus value:"The project was deleted after confirmation."
+  fn openPublishDialog
+    set publishDialogOpen value:true
+  fn closePublishDialog
+    set publishDialogOpen value:false
+  fn openArchiveDialog
+    set archiveDialogOpen value:true
+  fn closeArchiveDialog
+    set archiveDialogOpen value:false
+  fn confirmArchiveDialog
+    set archiveDialogOpen value:false
+    set dialogStatus value:"The project was archived and can be restored later."
+  Section id:"alert-dialog-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "OVERLAY"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "AlertDialog"
+        Text size:"lg" color:"muted"
+          "AlertDialog gives irreversible or consequential actions an explicit confirmation step owned by a bool Signal."
+      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
+        "Copy LLM"
+  Section id:"alert-dialog-playground" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PLAYGROUND"
+        Title size:"3xl" weight:"black"
+          "Confirm a destructive action"
+        Text size:"sm" color:"muted"
+          "The dialog panel stays neutral while scheme colors the generated confirm action. onConfirm and onCancel point to ordinary sequential view functions."
+      Card variant:"outlined" scheme:"surface" p:{ xs:6 md:10 } rounded:"md" border:1
+        Grid columns:1 gap:4
+          Flex wrap:true justify:"center" gap:3
+            Button onClick:openDeleteDialog variant:"solid" scheme:"danger" iconStart:"trash-bin-trash"
+              "Delete project"
+            Button onClick:openArchiveDialog variant:"soft" scheme:"warning" iconStart:"archive"
+              "Archive project"
+          Card variant:"soft" scheme:"info" p:4 rounded:"md"
+            Text size:"sm" color:"muted"
+              "{dialogStatus}"
+      AlertDialog open:deleteDialogOpen title:"Delete Northstar project?" description:"All generated previews, settings, and project history will be removed. This cannot be undone." confirmText:"Delete project" cancelText:"Keep project" onConfirm:confirmDeleteDialog onCancel:closeDeleteDialog scheme:"danger"
+      AlertDialog open:archiveDialogOpen title:"Archive Northstar project?" description:"The project will leave the active workspace but its history can be restored later." confirmText:"Archive project" cancelText:"Keep active" onConfirm:confirmArchiveDialog onCancel:closeArchiveDialog variant:"soft" scheme:"warning"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          signal deleteDialogOpen value:false
+
+          fn openDeleteDialog
+            set deleteDialogOpen value:true
+
+          fn closeDeleteDialog
+            set deleteDialogOpen value:false
+
+          fn confirmDeleteDialog
+            set deleteDialogOpen value:false
+
+          Button onClick:openDeleteDialog variant:"solid" scheme:"danger"
+            "Delete project"
+
+          AlertDialog open:deleteDialogOpen title:"Delete Northstar project?" description:"This cannot be undone." confirmText:"Delete project" cancelText:"Keep project" onConfirm:confirmDeleteDialog onCancel:closeDeleteDialog scheme:"danger"
+        """
+  Section id:"alert-dialog-decisions" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "DECISION FLOWS"
+        Title size:"3xl" weight:"black"
+          "Make the decision visible"
+        Text size:"sm" color:"muted"
+          "Use the same primitive for destructive removal, an in-progress publish, or a reversible archive. The copy and scheme should match the consequence, not the component name."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold" color:"muted"
+              "DESTRUCTIVE"
+            Title size:"lg" weight:"bold"
+              "Delete"
+            Text size:"sm" color:"muted"
+              "Name the scope of the deletion and keep the confirm action danger-colored."
+            Button onClick:openDeleteDialog variant:"outlined" scheme:"danger" size:"sm"
+              "Review deletion"
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold" color:"muted"
+              "IN PROGRESS"
+            Title size:"lg" weight:"bold"
+              "Publish"
+            Text size:"sm" color:"muted"
+              "A static loading state keeps the confirmation surface visible while work is completing."
+            Button onClick:openPublishDialog variant:"outlined" scheme:"success" size:"sm"
+              "Open publish state"
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold" color:"muted"
+              "REVERSIBLE"
+            Title size:"lg" weight:"bold"
+              "Archive"
+            Text size:"sm" color:"muted"
+              "Use a softer warning scheme when the action removes content from the active view but keeps history."
+            Button onClick:openArchiveDialog variant:"outlined" scheme:"warning" size:"sm"
+              "Review archive"
+      AlertDialog open:publishDialogOpen title:"Publish current workspace?" description:"The generated site will become the active preview for everyone with access to this project." confirmText:"Publishing..." cancelText:"Cancel" onConfirm:closePublishDialog onCancel:closePublishDialog variant:"soft" scheme:"success" loading:true
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          AlertDialog open:publishDialogOpen title:"Publish current workspace?" description:"The generated site will become the active preview." confirmText:"Publishing..." cancelText:"Cancel" onConfirm:closePublishDialog onCancel:closePublishDialog variant:"soft" scheme:"success" loading:true
+        """
+  Section id:"alert-dialog-behavior" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "BEHAVIOR"
+        Title size:"3xl" weight:"black"
+          "A small contract with strong defaults"
+        Text size:"sm" color:"muted"
+          "AlertDialog requires an open bool Signal. Its generated actions use the declared labels and invoke the corresponding functions after the user makes a choice."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "1 · OPEN"
+            Title size:"lg" weight:"bold"
+              "Own visibility"
+            Text size:"sm" color:"muted"
+              "Bind open to a bool Signal path and set it from a named view function."
+        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "2 · DECIDE"
+            Title size:"lg" weight:"bold"
+              "Describe consequence"
+            Text size:"sm" color:"muted"
+              "title and description explain the decision before the generated actions appear."
+        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "3 · RESOLVE"
+            Title size:"lg" weight:"bold"
+              "Handle both exits"
+            Text size:"sm" color:"muted"
+              "Use onConfirm and onCancel to update state, close the dialog, or continue a workflow."
+      Alert type:"warning" variant:"soft" scheme:"warning" message:"AlertDialog has no arbitrary children. Put task-specific content in the surrounding page or use Modal when the dialog needs a custom body."
+  Section id:"alert-dialog-schemes" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "VISUAL EMPHASIS"
+        Title size:"3xl" weight:"black"
+          "The panel remains neutral"
+        Text size:"sm" color:"muted"
+          "scheme is intentionally applied to the generated confirm action. Choose a semantic family that explains the result without recoloring the entire dialog."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Text size:"sm" weight:"bold"
+              "Danger confirmation"
+            Flex justify:"center"
+              Button onClick:openDeleteDialog variant:"solid" scheme:"danger" size:"sm" iconStart:"trash-bin-trash"
+                "Open danger dialog"
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Text size:"sm" weight:"bold"
+              "Success confirmation"
+            Flex justify:"center"
+              Button onClick:openPublishDialog variant:"solid" scheme:"success" size:"sm" iconStart:"check-circle"
+                "Open success dialog"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          AlertDialog open:deleteOpen scheme:"danger" title:"Delete project?" description:"This cannot be undone." confirmText:"Delete" cancelText:"Cancel" onConfirm:deleteProject onCancel:closeDelete
+
+          AlertDialog open:publishOpen variant:"soft" scheme:"success" title:"Publish changes?" description:"The preview will become active." confirmText:"Publish" cancelText:"Cancel" onConfirm:publish onCancel:closePublish
+        """
+  Section id:"alert-dialog-props" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Props"
+        Text size:"sm" color:"muted"
+          "AlertDialog also accepts applicable common spacing, sizing, visibility, border, radius, typography, and accessibility props."
+      Table:
+        data:alertDialogProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1fr"

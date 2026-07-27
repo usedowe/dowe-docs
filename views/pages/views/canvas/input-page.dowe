@@ -1,0 +1,271 @@
+page CanvasInputPage
+  signal pointer:
+    value:{
+      source:"pointer"
+      kind:"idle"
+      x:320
+      y:180
+      dx:0
+      dy:0
+      inside:true
+      buttons:0
+      pressure:0
+      primary:true
+      timestamp:0
+    }
+  signal key:
+    value:{
+      source:"key"
+      kind:"idle"
+      key:"Touch, click, or press a key"
+      code:""
+      repeat:false
+      alt:false
+      ctrl:false
+      meta:false
+      shift:false
+      timestamp:0
+    }
+  signal motion:
+    value:{
+      source:"motion"
+      acceleration:{ x:0 y:0 z:0 }
+      rotation:{ alpha:0 beta:0 gamma:0 }
+      interval:0
+      timestamp:0
+    }
+  signal interactiveScene:
+    value:[
+      {
+        type:"rect"
+        x:0
+        y:0
+        width:640
+        height:360
+        fill:"surface"
+      },
+      {
+        type:"line"
+        x1:0
+        y1:180
+        x2:640
+        y2:180
+        stroke:"muted"
+        strokeWidth:1
+        opacity:0.3
+      },
+      {
+        type:"line"
+        x1:320
+        y1:0
+        x2:320
+        y2:360
+        stroke:"muted"
+        strokeWidth:1
+        opacity:0.3
+      },
+      {
+        type:"rect"
+        x:270
+        y:130
+        width:100
+        height:100
+        radius:18
+        fill:"softSecondary"
+        stroke:"secondary"
+        strokeWidth:4
+        rotation:0
+        bind:{ rotation:"motion.rotation.gamma" }
+      },
+      {
+        type:"circle"
+        x:320
+        y:180
+        radius:24
+        fill:"primary"
+        stroke:"onPrimary"
+        strokeWidth:4
+        bind:{ x:"pointer.x" y:"pointer.y" }
+      },
+      {
+        type:"circle"
+        x:320
+        y:180
+        radius:7
+        fill:"onPrimary"
+        bind:{ x:"pointer.x" y:"pointer.y" }
+      },
+      {
+        type:"text"
+        x:320
+        y:42
+        text:"Touch, click, or press a key"
+        fill:"onSurface"
+        size:20
+        align:"center"
+        bind:{ text:"key.key" }
+      },
+      {
+        type:"text"
+        x:320
+        y:334
+        text:"Pointer · keyboard · device motion"
+        fill:"muted"
+        size:14
+        align:"center"
+      },
+    ]
+  const inputContracts:
+    value:[
+      {
+        source:"Pointer"
+        event:"down, move, up, cancel"
+        fields:"x, y, dx, dy, pressure, buttons, inside, id"
+      },
+      {
+        source:"Keyboard"
+        event:"down, up"
+        fields:"key, code, repeat, alt, ctrl, meta, shift"
+      },
+      {
+        source:"Motion"
+        event:"rate-limited samples"
+        fields:"acceleration, rotation, interval, timestamp"
+      },
+    ]
+  fn capturePointer
+    set pointer source:item
+  fn captureKey
+    set key source:item
+  fn captureMotion
+    set motion source:item
+  Section id:"canvas-input-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "CANVAS · INPUT"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Interactive input"
+        Text size:"lg" color:"muted"
+          "Normalize pointer, multitouch, physical keyboard, and device motion into target-neutral event objects that drive retained command bindings."
+      Card variant:"soft" scheme:"tertiary" p:5 rounded:"lg" minW:56
+        Grid columns:1 gap:1
+          Text size:"xs" weight:"bold" spacing:"widest"
+            "ONE EVENT MODEL"
+          Title size:"xl" weight:"black"
+            "Logical coordinates"
+          Text size:"sm"
+            "Pointer positions are mapped back through contain, cover, or stretch before reaching your function."
+  Section id:"canvas-input-demo" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "ADVANCED PLAYGROUND"
+        Title size:"3xl" weight:"black"
+          "Bind three input sources into one scene"
+        Text size:"sm" color:"muted"
+          "Move or touch the marker, focus the Canvas and press a physical key, or tilt a supported mobile device to rotate the center tile."
+      Canvas:
+        scene:interactiveScene
+        viewWidth:640
+        viewHeight:360
+        fit:"contain"
+        fps:60
+        autoplay:true
+        background:"surface"
+        label:"Interactive Canvas playground for pointer, keyboard, and device motion"
+        onPointer:capturePointer
+        onKey:captureKey
+        onMotion:captureMotion
+        motionRate:30
+        w:"full"
+        h:96
+        rounded:"lg"
+        border:1
+        shadow:"md"
+      Grid columns:{ xs:1 md:3 } gap:3
+        Card variant:"soft" scheme:"primary" p:4 rounded:"lg"
+          Grid columns:1 gap:1
+            Text size:"sm" weight:"bold"
+              "Pointer"
+            Text size:"sm"
+              "The blue marker follows logical x and y coordinates."
+        Card variant:"soft" scheme:"secondary" p:4 rounded:"lg"
+          Grid columns:1 gap:1
+            Text size:"sm" weight:"bold"
+              "Physical keyboard"
+            Text size:"sm"
+              "The most recent key value replaces the scene heading."
+        Card variant:"soft" scheme:"tertiary" p:4 rounded:"lg"
+          Grid columns:1 gap:1
+            Text size:"sm" weight:"bold"
+              "Device motion"
+            Text size:"sm"
+              "Screen-oriented gamma rotation turns the center tile."
+  Section id:"canvas-input-bindings" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "COMMAND BINDINGS"
+        Title size:"3xl" weight:"black"
+          "Store events, then resolve shallow paths"
+        Text size:"sm" color:"muted"
+          "Each function receives the event as item. A command bind object replaces selected fields immediately before drawing and preserves the static fallback when a path is missing."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          signal pointer value:{ x:320 y:180 }
+          signal scene value:[
+            { type:"circle" x:320 y:180 radius:24 fill:"primary" bind:{ x:"pointer.x" y:"pointer.y" } },
+          ]
+          fn capturePointer
+            set pointer source:item
+
+          Canvas scene:scene onPointer:capturePointer label:"Pointer playground" w:"full" h:96
+        """
+      Table:
+        data:inputContracts
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"source" label:"Source" width:"1.2fr"
+        column field:"event" label:"Delivery" width:"1.5fr"
+        column field:"fields" label:"Selected fields" width:"3fr"
+  Section id:"canvas-input-lifecycle" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "LIFECYCLE AND PERMISSIONS"
+        Title size:"3xl" weight:"black"
+          "Input stays scoped to the active Canvas"
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"lg"
+          Grid columns:1 gap:2
+            Title size:"xl" weight:"black"
+              "Pointer capture"
+            Text size:"sm"
+              "Active pointers remain captured through up or cancel, including simultaneous touch identifiers."
+        Card variant:"soft" scheme:"secondary" p:5 rounded:"lg"
+          Grid columns:1 gap:2
+            Title size:"xl" weight:"black"
+              "Keyboard focus"
+            Text size:"sm"
+              "A Canvas with onKey becomes focusable; pointer down gives it focus without opening a software keyboard."
+        Card variant:"soft" scheme:"warning" p:5 rounded:"lg"
+          Grid columns:1 gap:2
+            Title size:"xl" weight:"black"
+              "Motion sensors"
+            Text size:"sm"
+              "Sensors start only when onMotion exists. Missing or denied sensor access produces no callback."
+      Flex justify:"space-between" align:"center" wrap:true gap:3
+        Button href:"/docs/views/canvas/composition" variant:"ghost" scheme:"muted" iconStart:"alt-arrow-left"
+          "Composition"
+        Button href:"/docs/views/canvas/overview" variant:"solid" scheme:"primary" iconEnd:"home"
+          "Back to overview"

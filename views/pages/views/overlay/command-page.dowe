@@ -1,0 +1,286 @@
+page CommandPage
+  signal commandOpen value:false
+  signal compactCommandOpen value:false
+  signal commandStatus value:"Choose an action to see its result here."
+  const commandProps:
+    value:[
+      {
+        prop:"open"
+        type:"optional bool Signal path"
+        defaultValue:"always available"
+      },
+      {
+        prop:"placeholder"
+        type:"static string"
+        defaultValue:"Search..."
+      },
+      {
+        prop:"emptyText"
+        type:"static string"
+        defaultValue:"No results found"
+      },
+      {
+        prop:"closeText | navigateText | selectText | toggleText"
+        type:"static string"
+        defaultValue:"built-in labels"
+      },
+      {
+        prop:"shortcut"
+        type:"single ASCII letter or digit"
+        defaultValue:"k"
+      },
+      {
+        prop:"disableGlobalShortcut"
+        type:"boolean"
+        defaultValue:"false"
+      },
+      {
+        prop:"showFooter"
+        type:"boolean"
+        defaultValue:"true"
+      },
+      {
+        prop:"variant | scheme"
+        type:"visual surface props"
+        defaultValue:"solid | muted"
+      },
+    ]
+  fn openCommand
+    set commandOpen value:true
+  fn createPage
+    set commandStatus value:"Create page selected."
+  fn switchTheme
+    set commandStatus value:"Theme switcher selected."
+  fn saveDraft
+    set commandStatus value:"Draft saved from the command palette."
+  fn openCompactCommand
+    set compactCommandOpen value:true
+  fn openSettings
+    set commandStatus value:"Settings selected."
+  Section id:"command-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "OVERLAY"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Command"
+        Text size:"lg" color:"muted"
+          "Command turns navigation and frequent actions into a searchable, keyboard-friendly palette."
+      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
+        "Copy LLM"
+  Section id:"command-playground" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PLAYGROUND"
+        Title size:"3xl" weight:"black"
+          "Search a real workspace palette"
+        Text size:"sm" color:"muted"
+          "Open the palette and filter across navigation, workspace actions, and account commands. Every item can navigate or invoke a named view function."
+      Card variant:"outlined" scheme:"surface" p:{ xs:6 md:10 } rounded:"md" border:1
+        Grid columns:1 gap:4
+          Flex wrap:true justify:"center" gap:3
+            Button onClick:openCommand variant:"solid" scheme:"primary" iconStart:"command"
+              "Open command menu"
+            Text size:"sm" color:"muted"
+              "Shortcut: ⌘ / Ctrl + K"
+          Card variant:"soft" scheme:"info" p:4 rounded:"md"
+            Text size:"sm" color:"muted"
+              "{commandStatus}"
+      Command open:commandOpen placeholder:"Search the workspace" emptyText:"No matching workspace actions" closeText:"to close" navigateText:"Move" selectText:"Run" toggleText:"Change section" shortcut:"k" scheme:"surface" showFooter:true
+        item label:"Save current draft" description:"Persist the page you are editing" onClick:saveDraft
+        group label:"Navigate"
+          item label:"Views overview" description:"Browse the Dowe Views catalog" href:"/docs/views"
+          item label:"Button" description:"Open the Button component page" href:"/docs/views/control/button"
+          item label:"Footer" description:"Learn the layout footer contract" href:"/docs/views/layout/footer"
+          item label:"Back" description:"Return to the previous route" history:"back"
+        group label:"Workspace"
+          item label:"Create page" description:"Start from a new page surface" onClick:createPage
+          item label:"Switch theme" description:"Open the theme preference flow" onClick:switchTheme
+          item label:"Settings" description:"Review project settings" onClick:openSettings
+          item label:"Locked action" description:"Available after workspace setup" disabled:true
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          signal commandOpen value:false
+
+          fn openCommand
+            set commandOpen value:true
+
+          Command open:commandOpen placeholder:"Search the workspace" shortcut:"k" scheme:"surface"
+            item label:"Save current draft" onClick:saveDraft
+            group label:"Navigate"
+              item label:"Views overview" href:"/docs/views"
+              item label:"Back" history:"back"
+            group label:"Workspace"
+              item label:"Create page" onClick:createPage
+              item label:"Locked action" disabled:true
+        """
+  Section id:"command-entries" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "ENTRY MODEL"
+        Title size:"3xl" weight:"black"
+          "Compose actions from simple entries"
+        Text size:"sm" color:"muted"
+          "Command owns the searchable surface. item entries provide actions, while group entries add visual sections without changing the selection model."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "ITEM"
+            Title size:"lg" weight:"bold"
+              "One direct action"
+            Text size:"sm" color:"muted"
+              "Use href for portable navigation, history for back or forward, or onClick for a declared view function."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "GROUP"
+            Title size:"lg" weight:"bold"
+              "A labeled collection"
+            Text size:"sm" color:"muted"
+              "Group entries keep related actions together and are filtered with the same query as direct items."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "ITEM STATE"
+            Title size:"lg" weight:"bold"
+              "Disabled when unavailable"
+            Text size:"sm" color:"muted"
+              "disabled:true keeps an action visible for discoverability without allowing selection."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Command open:paletteOpen
+            item label:"Save draft" onClick:saveDraft
+            group label:"Navigate"
+              item label:"Views" href:"/docs/views" description:"Browse the catalog"
+              item label:"Back" history:"back"
+            group label:"Workspace"
+              item label:"Create page" onClick:createPage
+              item label:"Locked action" disabled:true
+        """
+  Section id:"command-keyboard" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "KEYBOARD CONTRACT"
+        Title size:"3xl" weight:"black"
+          "Make the palette easy to learn"
+        Text size:"sm" color:"muted"
+          "Command renders the authored labels for closing, navigating, selecting, and toggling. shortcut is a single ASCII key used by the global launcher unless it is disabled."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold" color:"muted"
+              "VISIBLE FOOTER"
+            Title size:"lg" weight:"bold"
+              "Teach the controls"
+            Text size:"sm" color:"muted"
+              "showFooter:true keeps the localized command hints visible at the bottom of the palette."
+            Button onClick:openCommand variant:"soft" scheme:"primary" size:"sm"
+              "Open with hints"
+        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold" color:"muted"
+              "COMPACT MODE"
+            Title size:"lg" weight:"bold"
+              "Let the product own the shortcut"
+            Text size:"sm" color:"muted"
+              "disableGlobalShortcut:true prevents the global key listener when another shell owns keyboard focus."
+            Button onClick:openCompactCommand variant:"outlined" scheme:"muted" size:"sm"
+              "Open compact palette"
+      Command open:compactCommandOpen placeholder:"Jump to..." emptyText:"Nothing matches" closeText:"close" navigateText:"move" selectText:"open" toggleText:"switch" shortcut:"j" disableGlobalShortcut:true showFooter:false variant:"outlined" scheme:"muted"
+        group label:"Quick access"
+          item label:"Views overview" href:"/docs/views"
+          item label:"Server overview" href:"/docs/server"
+          item label:"Agent workflow" href:"/docs/dev/agent"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Command open:compactOpen placeholder:"Jump to..." shortcut:"j" disableGlobalShortcut:true showFooter:false variant:"outlined" scheme:"muted"
+            group label:"Quick access"
+              item label:"Views overview" href:"/docs/views"
+              item label:"Server overview" href:"/docs/server"
+        """
+  Section id:"command-visuals" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "VISUAL SURFACES"
+        Title size:"3xl" weight:"black"
+          "Tune the palette to its shell"
+        Text size:"sm" color:"muted"
+          "variant changes the palette surface while scheme controls its design family. The entries and keyboard contract remain the same."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"sm" weight:"bold"
+              "Solid muted"
+            Text size:"sm" color:"muted"
+              "Good for an application-wide launcher."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"sm" weight:"bold"
+              "Soft surface"
+            Text size:"sm" color:"muted"
+              "Useful when the palette belongs to a calm workspace shell."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"sm" weight:"bold"
+              "Outlined info"
+            Text size:"sm" color:"muted"
+              "A visible boundary for an embedded or tool-focused launcher."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Command open:paletteOpen variant:"solid" scheme:"muted"
+            group label:"Navigation"
+              item label:"Views" href:"/docs/views"
+
+          Command open:paletteOpen variant:"soft" scheme:"surface"
+            group label:"Navigation"
+              item label:"Views" href:"/docs/views"
+
+          Command open:paletteOpen variant:"outlined" scheme:"info"
+            group label:"Navigation"
+              item label:"Views" href:"/docs/views"
+        """
+  Section id:"command-props" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Props"
+        Text size:"sm" color:"muted"
+          "Command also accepts applicable common spacing, sizing, visibility, border, radius, typography, and accessibility props."
+      Table:
+        data:commandProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1fr"

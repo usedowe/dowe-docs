@@ -1,0 +1,15 @@
+layout ExamplesLayout
+  Scaffold
+    appBar
+      AppBar variant:"solid" scheme:"surface" position:"fixed" boxed:true bordered:true
+        start
+          Text weight:"bold"
+            "Dowe"
+        center
+          Text size:"sm" color:"muted"
+            "Fixed AppBar"
+        end
+          Button href:"/examples/appbar-two" variant:"soft" scheme:"primary" size:"sm"
+            "Floating example"
+    main
+      children

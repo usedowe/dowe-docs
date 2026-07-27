@@ -1,0 +1,217 @@
+page ColorPage
+  signal brandColor value:"#3b82f6"
+  signal accentColor value:"#f97316"
+  const colorProps:
+    value:[
+      {
+        prop:"bind"
+        type:"string Signal path"
+        defaultValue:"—"
+      },
+      {
+        prop:"value"
+        type:"Hex color string"
+        defaultValue:"#3b82f6"
+      },
+      {
+        prop:"label"
+        type:"string"
+        defaultValue:"—"
+      },
+      {
+        prop:"labelFloating"
+        type:"boolean"
+        defaultValue:"false"
+      },
+      {
+        prop:"showHex / showRgb"
+        type:"boolean"
+        defaultValue:"false"
+      },
+      {
+        prop:"showCmyk / showOklch"
+        type:"boolean"
+        defaultValue:"false"
+      },
+      {
+        prop:"variant"
+        type:"solid | soft | outlined | line"
+        defaultValue:"outlined"
+      },
+      {
+        prop:"scheme"
+        type:"primary | secondary | tertiary | muted | success | info | warning | danger"
+        defaultValue:"primary"
+      },
+      {
+        prop:"size"
+        type:"sm | md | lg"
+        defaultValue:"md"
+      },
+      {
+        prop:"helpText / errorText"
+        type:"string"
+        defaultValue:"—"
+      },
+    ]
+  Section id:"color-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "FORM"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Color"
+        Text size:"lg" color:"muted"
+          "Color gives people a typed picker with live format details, semantic schemes, and a string Signal contract."
+      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
+        "Copy LLM"
+  Section id:"color-playground" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PLAYGROUND"
+        Title size:"3xl" weight:"black"
+          "Build a color token"
+        Text size:"sm" color:"muted"
+          "bind keeps the selected hex value available to the rest of the view. The format rows are opt-in so a compact field can stay focused."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Color:
+          bind:brandColor
+          label:"Brand color"
+          labelFloating:true
+          showHex:true
+          showRgb:true
+          showOklch:true
+          variant:"outlined"
+          scheme:"primary"
+          size:"lg"
+          name:"brand-color"
+        Card variant:"soft" scheme:"surface" p:{ xs:5 md:7 } rounded:"md"
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+              "CURRENT VALUE"
+            Title size:"2xl" weight:"black"
+              "One source of truth"
+            Text size:"sm" color:"muted"
+              "The same typed value can drive a theme token, an API payload, or a preview swatch without client-side string parsing."
+            Text size:"sm" weight:"bold" color:"primary"
+              "Hex input + normalized Signal"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          signal brandColor value:"#3b82f6"
+
+          Color bind:brandColor label:"Brand color" labelFloating:true showHex:true showRgb:true showOklch:true variant:"outlined" scheme:"primary" size:"lg" name:"brand-color"
+        """
+  Section id:"color-formats" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "FORMATS"
+        Title size:"3xl" weight:"black"
+          "Expose the formats your workflow needs"
+        Text size:"sm" color:"muted"
+          "Hex is the source value. RGB, CMYK, and OKLCH summaries can be shown together for design tools and color handoff."
+      Grid columns:{ xs:1 md:2 } gap:5
+        Color value:"#14b8a6" label:"Product accent" showHex:true showRgb:true showCmyk:true showOklch:true variant:"soft" scheme:"success" size:"md" name:"product-accent"
+        Color value:"#a855f7" label:"Campaign highlight" showHex:true showOklch:true variant:"line" scheme:"secondary" size:"sm" name:"campaign-highlight"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Color value:"#14b8a6" label:"Product accent" showHex:true showRgb:true showCmyk:true showOklch:true variant:"soft" scheme:"success" size:"md" name:"product-accent"
+          Color value:"#a855f7" label:"Campaign highlight" showHex:true showOklch:true variant:"line" scheme:"secondary" size:"sm" name:"campaign-highlight"
+        """
+  Section id:"color-states" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "STATES AND SURFACES"
+        Title size:"3xl" weight:"black"
+          "Make feedback part of the field"
+        Text size:"sm" color:"muted"
+          "Use the same color picker contract for resting, validated, and corrective states."
+      Grid columns:{ xs:1 md:2 } gap:5
+        Color:
+          bind:accentColor
+          label:"Validated accent"
+          helpText:"Used for the active campaign palette."
+          showHex:true
+          variant:"solid"
+          scheme:"success"
+          size:"md"
+          name:"validated-accent"
+        Color:
+          value:"#ef4444"
+          label:"Needs review"
+          errorText:"Choose a color with enough contrast for body text."
+          showHex:true
+          variant:"outlined"
+          scheme:"danger"
+          size:"md"
+          name:"review-color"
+      Flex wrap:true justify:"center" align:"center" gap:3
+        Color value:"#0ea5e9" label:"Small" variant:"outlined" scheme:"info" size:"sm"
+        Color value:"#f59e0b" label:"Medium" variant:"outlined" scheme:"warning" size:"md"
+        Color value:"#22c55e" label:"Large" variant:"outlined" scheme:"success" size:"lg"
+  Section id:"color-contract" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "BEHAVIOR"
+        Title size:"3xl" weight:"black"
+          "One portable color model"
+        Text size:"sm" color:"muted"
+          "Dowe lowers the same hex value, format summaries, labels, and feedback text to web, SwiftUI, and Compose targets."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "BINDING"
+            Title size:"lg" weight:"bold"
+              "String Signal"
+            Text size:"sm" color:"muted"
+              "bind reads and writes a validated hex string without executing user JavaScript."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "FORMATS"
+            Title size:"lg" weight:"bold"
+              "Opt-in details"
+            Text size:"sm" color:"muted"
+              "showHex, showRgb, showCmyk, and showOklch add deterministic summaries below the picker."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "VALIDATION"
+            Title size:"lg" weight:"bold"
+              "Hex only"
+            Text size:"sm" color:"muted"
+              "value and Signal values use the #RRGGBB contract so every target starts from the same color."
+  Section id:"color-props" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Props"
+        Text size:"sm" color:"muted"
+          "Color also accepts the applicable common spacing, sizing, typography, visibility, accessibility, and shadow props."
+      Table:
+        data:colorProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1fr"

@@ -1,0 +1,245 @@
+page PinFieldPage
+  signal verificationCode value:""
+  const pinFieldProps:
+    value:[
+      {
+        prop:"bind / value"
+        type:"string Signal path / string"
+        defaultValue:"—"
+      },
+      {
+        prop:"length"
+        type:"integer 1–12"
+        defaultValue:"6"
+      },
+      {
+        prop:"type"
+        type:"text | password | number"
+        defaultValue:"text"
+      },
+      {
+        prop:"label"
+        type:"string"
+        defaultValue:"—"
+      },
+      {
+        prop:"variant"
+        type:"solid | soft | outlined | line"
+        defaultValue:"outlined"
+      },
+      {
+        prop:"scheme"
+        type:"primary | secondary | tertiary | muted | success | info | warning | danger"
+        defaultValue:"primary"
+      },
+      {
+        prop:"size"
+        type:"sm | md | lg"
+        defaultValue:"md"
+      },
+      {
+        prop:"name"
+        type:"string"
+        defaultValue:"—"
+      },
+      {
+        prop:"helpText / errorText"
+        type:"string"
+        defaultValue:"—"
+      },
+    ]
+  Section id:"pin-field-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "FORM"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "PinField"
+        Text size:"lg" color:"muted"
+          "PinField coordinates segmented entry, focus movement, paste distribution, masking, and one joined string value."
+      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
+        "Copy LLM"
+  Section id:"pin-field-playground" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PLAYGROUND"
+        Title size:"3xl" weight:"black"
+          "Verify a high-value action"
+        Text size:"sm" color:"muted"
+          "Enter or paste a six-digit code. Focus advances per character, Backspace returns to the previous empty field, and bind receives the joined value."
+      Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+        Grid columns:1 gap:5
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+              "TRANSFER VERIFICATION"
+            Title size:"2xl" weight:"black"
+              "Confirm the security code"
+            Text size:"sm" color:"muted"
+              "A six-digit code was sent to the verified contact method."
+          PinField:
+            bind:verificationCode
+            length:6
+            type:"number"
+            label:"Verification code"
+            helpText:"The code expires in ten minutes. You can paste all six digits at once."
+            variant:"outlined"
+            scheme:"primary"
+            size:"lg"
+            name:"transfer-code"
+          Flex wrap:true justify:"end" align:"center" gap:3
+            Button variant:"ghost" scheme:"muted" size:"sm"
+              "Send another code"
+            Button variant:"solid" scheme:"primary" size:"sm" iconEnd:"alt-arrow-right"
+              "Verify transfer"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          signal verificationCode value:""
+
+          PinField bind:verificationCode length:6 type:"number" label:"Verification code" helpText:"The code expires in ten minutes. You can paste all six digits at once." variant:"outlined" scheme:"primary" size:"lg" name:"transfer-code"
+        """
+  Section id:"pin-field-modes" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "ENTRY MODES"
+        Title size:"3xl" weight:"black"
+          "Choose the right code contract"
+        Text size:"sm" color:"muted"
+          "Numeric codes suit one-time verification, password mode masks sensitive access keys, and text mode accepts alphanumeric recovery codes."
+      Grid columns:{ xs:1 md:3 } gap:5
+        PinField:
+          value:"5821"
+          length:4
+          type:"number"
+          label:"Device code"
+          helpText:"Short numeric pairing code."
+          variant:"soft"
+          scheme:"info"
+          size:"sm"
+          name:"device-code"
+        PinField:
+          value:"749205"
+          length:6
+          type:"password"
+          label:"Vault PIN"
+          helpText:"Masked while preserving the joined value."
+          variant:"solid"
+          scheme:"secondary"
+          size:"md"
+          name:"vault-pin"
+        PinField:
+          value:"A7K9Q2M4"
+          length:8
+          type:"text"
+          label:"Recovery key"
+          helpText:"Text mode accepts an alphanumeric key."
+          variant:"line"
+          scheme:"success"
+          size:"md"
+          name:"recovery-key"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          PinField value:"5821" length:4 type:"number" label:"Device code" variant:"soft" scheme:"info" size:"sm"
+
+          PinField value:"749205" length:6 type:"password" label:"Vault PIN" variant:"solid" scheme:"secondary" size:"md"
+
+          PinField value:"A7K9Q2M4" length:8 type:"text" label:"Recovery key" variant:"line" scheme:"success" size:"md"
+        """
+  Section id:"pin-field-states" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "VALIDATION AND SCALE"
+        Title size:"3xl" weight:"black"
+          "Respond to the complete code"
+        Text size:"sm" color:"muted"
+          "Validation applies to the joined value, so feedback stays attached to the complete segmented control."
+      Grid columns:{ xs:1 md:2 } gap:5
+        PinField:
+          value:"1840"
+          length:6
+          type:"number"
+          label:"Expired verification code"
+          errorText:"This code is incomplete or has expired. Request a new one."
+          variant:"outlined"
+          scheme:"danger"
+          size:"md"
+          name:"expired-code"
+        PinField:
+          length:8
+          type:"text"
+          label:"Enrollment key"
+          helpText:"Paste the complete eight-character key from the enrollment screen."
+          variant:"soft"
+          scheme:"warning"
+          size:"md"
+          name:"enrollment-key"
+      Flex wrap:true justify:"center" align:"center" gap:4
+        PinField length:4 type:"number" label:"Small" variant:"soft" scheme:"primary" size:"sm"
+        PinField length:4 type:"number" label:"Medium" variant:"soft" scheme:"primary" size:"md"
+        PinField length:4 type:"number" label:"Large" variant:"soft" scheme:"primary" size:"lg"
+  Section id:"pin-field-contract" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "BEHAVIOR"
+        Title size:"3xl" weight:"black"
+          "Segmented input, one value"
+        Text size:"sm" color:"muted"
+          "Dowe coordinates entry across individual cells and exposes a single predictable value to the surrounding form."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "KEYBOARD"
+            Title size:"lg" weight:"bold"
+              "Managed focus"
+            Text size:"sm" color:"muted"
+              "Character entry advances focus and Backspace returns to the previous empty cell."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "PASTE"
+            Title size:"lg" weight:"bold"
+              "Distributed input"
+            Text size:"sm" color:"muted"
+              "Pasting fills consecutive cells up to length and updates the joined value once."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "TARGETS"
+            Title size:"lg" weight:"bold"
+              "Portable code entry"
+            Text size:"sm" color:"muted"
+              "Web, SwiftUI, and Compose preserve cell count, Input-sized styling, type, focus, paste, feedback, and sizing. Numeric entry uses a numeric keyboard without browser number spinners."
+  Section id:"pin-field-props" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Props"
+        Text size:"sm" color:"muted"
+          "PinField also accepts the applicable common spacing, sizing, visibility, accessibility, and shadow props."
+      Table:
+        data:pinFieldProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1fr"

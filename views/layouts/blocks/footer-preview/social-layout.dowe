@@ -1,0 +1,46 @@
+layout FooterSocialLayout
+  Scaffold minH:"vh-0"
+    main
+      children
+    bottomBar
+      Footer variant:"solid" scheme:"muted" boxed:true py:{ xs:6 md:3 }
+        center
+          Flex:
+            direction:{ xs:"column" md:"row" }
+            align:"center"
+            justify:"between"
+            gap:{ xs:4 md:8 }
+            w:"full"
+            Text size:"xs" color:"onMuted"
+              "CompanyName @ 202X. All rights reserved."
+            Flex align:"center" justify:"center" gap:1
+              IconButton:
+                icon:"play-circle"
+                label:"YouTube"
+                href:"https://youtube.com"
+                variant:"solid"
+                scheme:"muted"
+              IconButton:
+                icon:"users-group-rounded"
+                label:"Facebook"
+                href:"https://facebook.com"
+                variant:"solid"
+                scheme:"muted"
+              IconButton:
+                icon:"chat-square"
+                label:"Twitter"
+                href:"https://twitter.com"
+                variant:"solid"
+                scheme:"muted"
+              IconButton:
+                icon:"camera"
+                label:"Instagram"
+                href:"https://instagram.com"
+                variant:"solid"
+                scheme:"muted"
+              IconButton:
+                icon:"link-circle"
+                label:"LinkedIn"
+                href:"https://linkedin.com"
+                variant:"solid"
+                scheme:"muted"

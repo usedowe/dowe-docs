@@ -1,0 +1,40 @@
+import DevNavigation from "@/views/components/dev-navigation"
+import Logo from "@/views/components/logo"
+import Github from "@/views/components/github"
+layout DevLayout
+  signal openDrawer value:false
+  Scaffold boxed:true
+    appBar
+      AppBar variant:"soft" scheme:"surface" boxed:true bordered:true position:"fixed"
+        start
+          IconButton:
+            show:{ xs:true md:false }
+            label:"menu"
+            variant:"ghost"
+            onClick:{ set:openDrawer value:!openDrawer }
+            icon:"menu-dots"
+          Logo
+        center
+          NavMenu show:{ xs:false md:true }
+            item label:"Views" href:"/docs/views"
+            item label:"Server" href:"/docs/server"
+            item label:"Dev" href:"/docs/dev"
+            item label:"Blocks" href:"/blocks/hero"
+        end
+          Github
+    start
+      Sidebar show:{ xs:false md:true } variant:"ghost" scheme:"muted" w:72
+        body
+          DevNavigation
+    main
+      children
+    overlays
+      Drawer open:openDrawer
+        header
+          NavMenu
+            item label:"Views" href:"/docs/views"
+            item label:"Server" href:"/docs/server"
+            item label:"Dev" href:"/docs/dev"
+            item label:"Blocks" href:"/blocks/hero"
+        body
+          DevNavigation

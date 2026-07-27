@@ -1,0 +1,152 @@
+page ToggleThemePage
+  const toggleThemeProps:
+    value:[
+      {
+        prop:"variant"
+        type:"solid | soft | outlined | ghost"
+        defaultValue:"solid"
+      },
+      {
+        prop:"scheme"
+        type:"design family"
+        defaultValue:"primary"
+      },
+      {
+        prop:"size"
+        type:"xs | sm | md | lg | xl"
+        defaultValue:"md"
+      },
+      {
+        prop:"lightLabel"
+        type:"static string"
+        defaultValue:"Switch to light mode"
+      },
+      {
+        prop:"darkLabel"
+        type:"static string"
+        defaultValue:"Switch to dark mode"
+      },
+    ]
+  Section id:"toggle-theme-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "MULTI THEME"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "ToggleTheme"
+        Text size:"lg" color:"muted"
+          "ToggleTheme is an icon-only control for switching directly between the light and dark themes."
+      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
+        "Copy LLM"
+  Section id:"toggle-theme-playground" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PLAYGROUND"
+        Title size:"3xl" weight:"black"
+          "Switch the current appearance"
+        Text size:"sm" color:"muted"
+          "The sun and moon icon describe the next action. Every ToggleTheme control reflects the same persisted preference."
+      Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+        Flex gap:4 align:"center" justify:"between"
+          Grid columns:1 gap:1
+            Title size:"lg" weight:"bold"
+              "Light and dark, in one action"
+            Text size:"sm" color:"muted"
+              "Use ToggleTheme when the interface only needs the two canonical appearance modes."
+          ToggleTheme variant:"soft" scheme:"secondary" size:"lg" lightLabel:"Switch to light mode" darkLabel:"Switch to dark mode"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          ToggleTheme variant:"soft" scheme:"secondary" size:"lg"
+            lightLabel:"Switch to light mode"
+            darkLabel:"Switch to dark mode"
+        """
+  Section id:"toggle-theme-appearance" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "APPEARANCE"
+        Title size:"3xl" weight:"black"
+          "The same button language"
+        Text size:"sm" color:"muted"
+          "variant, scheme, and size follow the portable Button visual contract while keeping the control icon-only."
+      Grid columns:{ xs:2 md:4 } gap:5
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3 align:"center"
+            ToggleTheme variant:"solid" scheme:"primary" size:"md"
+            Text size:"sm" color:"muted"
+              "Solid"
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3 align:"center"
+            ToggleTheme variant:"soft" scheme:"secondary" size:"md"
+            Text size:"sm" color:"muted"
+              "Soft"
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3 align:"center"
+            ToggleTheme variant:"outlined" scheme:"tertiary" size:"md"
+            Text size:"sm" color:"muted"
+              "Outlined"
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3 align:"center"
+            ToggleTheme variant:"ghost" scheme:"muted" size:"md"
+            Text size:"sm" color:"muted"
+              "Ghost"
+  Section id:"toggle-theme-behavior" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "BEHAVIOR"
+        Title size:"3xl" weight:"black"
+          "A focused two-theme choice"
+        Text size:"sm" color:"muted"
+          "ToggleTheme is deliberately limited to light and dark. Use SelectTheme when your theme catalog has additional named palettes."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "PERSISTENCE"
+            Title size:"lg" weight:"bold"
+              "One shared preference"
+            Text size:"sm" color:"muted"
+              "The selected theme is stored as theme-preference and restored before the next view mounts."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "ACCESSIBILITY"
+            Title size:"lg" weight:"bold"
+              "Next-action labels"
+            Text size:"sm" color:"muted"
+              "The accessible label names the next mode, rather than repeating the active one."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "TARGETS"
+            Title size:"lg" weight:"bold"
+              "Immediate tokens"
+            Text size:"sm" color:"muted"
+              "Web, Android, and iOS apply the new design tokens immediately from the same source model."
+  Section id:"toggle-theme-props" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "ToggleTheme props"
+        Text size:"sm" color:"muted"
+          "ToggleTheme also accepts applicable common identity, spacing, sizing, visibility, radius, border, and shadow props. It does not accept children."
+      Table:
+        data:toggleThemeProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"2fr"

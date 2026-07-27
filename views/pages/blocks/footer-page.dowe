@@ -1,0 +1,375 @@
+page FootersPage
+  Section id:"footers" py:{ xs:6 md:10 }
+    Grid columns:1 gap:4
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "COPY-READY BLOCKS"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Footers"
+      Text size:"lg" color:"muted"
+        "Six responsive closing patterns. Preview desktop and mobile sizes, then copy the Footer source."
+  Section id:"navigation" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "01 · NAVIGATION"
+          Title size:"2xl" weight:"black"
+            "Copyright, links, and social destinations"
+        Button:
+          href:"/blocks/footer-preview/navigation"
+          variant:"soft"
+          scheme:"primary"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Device device:"laptop" w:"full" rounded:"lg" border:1
+        Iframe:
+          src:"/blocks/footer-preview/navigation"
+          title:"Navigation Footer preview"
+          loading:"lazy"
+          sandbox:"scripts same-origin"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Footer"
+        copiedLabel:"Copied"
+        content:"""
+          Footer variant:"solid" scheme:"muted" boxed:true py:{ xs:7 md:5 }
+            center
+              Flex direction:{ xs:"column" md:"row" } align:"center" justify:"between" gap:{ xs:5 md:8 } w:"full"
+                Text size:"xs" color:"onMuted"
+                  "CompanyName @ 202X. All rights reserved."
+                Flex wrap:true justify:"center" gap:1
+                  Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                    "Eleven"
+                  Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                    "Twelve"
+                  Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                    "Thirteen"
+                  Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                    "Fourteen"
+                  Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                    "Fifteen"
+                Flex align:"center" justify:"center" gap:1
+                  IconButton icon:"play-circle" label:"YouTube" href:"https://youtube.com" variant:"solid" scheme:"muted"
+                  IconButton icon:"users-group-rounded" label:"Facebook" href:"https://facebook.com" variant:"solid" scheme:"muted"
+                  IconButton icon:"chat-square" label:"Twitter" href:"https://twitter.com" variant:"solid" scheme:"muted"
+                  IconButton icon:"camera" label:"Instagram" href:"https://instagram.com" variant:"solid" scheme:"muted"
+                  IconButton icon:"link-circle" label:"LinkedIn" href:"https://linkedin.com" variant:"solid" scheme:"muted"
+        """
+  Section id:"social" p:{ xs:5 md:7 } bg:"softMuted" color:"onSoftMuted"
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "02 · SOCIAL"
+          Title size:"2xl" weight:"black"
+            "A compact legal and social split"
+        Button:
+          href:"/blocks/footer-preview/social"
+          variant:"solid"
+          scheme:"muted"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Device device:"laptop" w:"full" rounded:"lg" border:1
+        Iframe:
+          src:"/blocks/footer-preview/social"
+          title:"Social Footer preview"
+          loading:"lazy"
+          sandbox:"scripts same-origin"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Footer"
+        copiedLabel:"Copied"
+        content:"""
+          Footer variant:"solid" scheme:"muted" boxed:true py:{ xs:6 md:3 }
+            center
+              Flex direction:{ xs:"column" md:"row" } align:"center" justify:"between" gap:{ xs:4 md:8 } w:"full"
+                Text size:"xs" color:"onMuted"
+                  "CompanyName @ 202X. All rights reserved."
+                Flex align:"center" justify:"center" gap:1
+                  IconButton icon:"play-circle" label:"YouTube" href:"https://youtube.com" variant:"solid" scheme:"muted"
+                  IconButton icon:"users-group-rounded" label:"Facebook" href:"https://facebook.com" variant:"solid" scheme:"muted"
+                  IconButton icon:"chat-square" label:"Twitter" href:"https://twitter.com" variant:"solid" scheme:"muted"
+                  IconButton icon:"camera" label:"Instagram" href:"https://instagram.com" variant:"solid" scheme:"muted"
+                  IconButton icon:"link-circle" label:"LinkedIn" href:"https://linkedin.com" variant:"solid" scheme:"muted"
+        """
+  Section id:"legal" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "03 · LEGAL"
+          Title size:"2xl" weight:"black"
+            "One centered closing line"
+        Button:
+          href:"/blocks/footer-preview/legal"
+          variant:"soft"
+          scheme:"primary"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Device device:"laptop" w:"full" rounded:"lg" border:1
+        Iframe:
+          src:"/blocks/footer-preview/legal"
+          title:"Legal Footer preview"
+          loading:"lazy"
+          sandbox:"scripts same-origin"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Footer"
+        copiedLabel:"Copied"
+        content:"""
+          Footer variant:"solid" scheme:"muted" boxed:true py:4
+            center
+              Text size:"xs" color:"onMuted"
+                "CompanyName @ 202X. All rights reserved."
+        """
+  Section id:"brand" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "04 · BRAND"
+          Title size:"2xl" weight:"black"
+            "Centered identity with balanced navigation"
+        Button:
+          href:"/blocks/footer-preview/brand"
+          variant:"solid"
+          scheme:"primary"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Device device:"laptop" w:"full" rounded:"lg" border:1
+        Iframe:
+          src:"/blocks/footer-preview/brand"
+          title:"Brand Footer preview"
+          loading:"lazy"
+          sandbox:"scripts same-origin"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Footer"
+        copiedLabel:"Copied"
+        content:"""
+          Footer variant:"solid" scheme:"muted" boxed:true py:{ xs:8 md:6 }
+            center
+              Grid columns:1 gap:5 w:"full"
+                Grid columns:3 align:"center" show:{ xs:false md:true }
+                  Flex justify:"start" wrap:true gap:1
+                    Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                      "Eleven"
+                    Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                      "Twelve"
+                    Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                      "Thirteen"
+                  Flex justify:"center"
+                    Brand href:"/" label:"WebbyFrames home"
+                      Flex align:"center" gap:2
+                        Icon name:"widget-5" style:"linear" fill:"onMuted" w:7 h:7
+                        Flex direction:"column" align:"center"
+                          Text size:"lg" weight:"black" color:"onMuted"
+                            "WebbyFrames"
+                          Text size:"xs" color:"onMuted"
+                            "for Figma"
+                  Flex justify:"end" gap:1
+                    IconButton icon:"play-circle" label:"YouTube" href:"https://youtube.com" variant:"solid" scheme:"muted"
+                    IconButton icon:"camera" label:"Instagram" href:"https://instagram.com" variant:"solid" scheme:"muted"
+                    IconButton icon:"link-circle" label:"LinkedIn" href:"https://linkedin.com" variant:"solid" scheme:"muted"
+                Flex justify:"center" show:{ xs:false md:true }
+                  Text size:"xs" color:"onMuted"
+                    "CompanyName @ 202X. All rights reserved."
+                Flex direction:"column" align:"center" gap:4 show:{ xs:true md:false }
+                  Brand href:"/" label:"WebbyFrames home"
+                    Flex align:"center" gap:2
+                      Icon name:"widget-5" style:"linear" fill:"onMuted" w:7 h:7
+                      Text size:"lg" weight:"black" color:"onMuted"
+                        "WebbyFrames"
+                  Text size:"xs" color:"onMuted"
+                    "CompanyName @ 202X. All rights reserved."
+                  Flex justify:"center" wrap:true gap:1
+                    Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                      "Eleven"
+                    Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                      "Twelve"
+                    Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                      "Thirteen"
+        """
+  Section id:"two-row" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "05 · TWO ROW"
+          Title size:"2xl" weight:"black"
+            "Brand and navigation above the legal row"
+        Button:
+          href:"/blocks/footer-preview/two-row"
+          variant:"soft"
+          scheme:"primary"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Device device:"laptop" w:"full" rounded:"lg" border:1
+        Iframe:
+          src:"/blocks/footer-preview/two-row"
+          title:"Two-row Footer preview"
+          loading:"lazy"
+          sandbox:"scripts same-origin"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Footer"
+        copiedLabel:"Copied"
+        content:"""
+          Footer variant:"solid" scheme:"muted" boxed:true py:{ xs:8 md:7 }
+            center
+              Grid columns:1 gap:5 w:"full"
+                Flex direction:{ xs:"column" md:"row" } align:"center" justify:"between" gap:5
+                  Brand href:"/" label:"WebbyFrames home"
+                    Flex align:"center" gap:2
+                      Icon name:"widget-5" style:"linear" fill:"onMuted" w:7 h:7
+                      Text size:"lg" weight:"black" color:"onMuted"
+                        "WebbyFrames"
+                  Flex wrap:true justify:"center" gap:1
+                    Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                      "Eleven"
+                    Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                      "Twelve"
+                    Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                      "Thirteen"
+                    Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                      "Fourteen"
+                    Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                      "Fifteen"
+                    Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                      "Sixteen"
+                Divider
+                Flex direction:{ xs:"column" md:"row" } align:"center" justify:"between" gap:4
+                  Text size:"xs" color:"onMuted"
+                    "CompanyName @ 202X. All rights reserved."
+                  Flex align:"center" gap:1
+                    IconButton icon:"play-circle" label:"YouTube" href:"https://youtube.com" variant:"solid" scheme:"muted"
+                    IconButton icon:"users-group-rounded" label:"Facebook" href:"https://facebook.com" variant:"solid" scheme:"muted"
+                    IconButton icon:"chat-square" label:"Twitter" href:"https://twitter.com" variant:"solid" scheme:"muted"
+                    IconButton icon:"camera" label:"Instagram" href:"https://instagram.com" variant:"solid" scheme:"muted"
+                    IconButton icon:"link-circle" label:"LinkedIn" href:"https://linkedin.com" variant:"solid" scheme:"muted"
+        """
+  Section id:"newsletter" p:{ xs:5 md:7 } bg:"softMuted" color:"onSoftMuted"
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "06 · NEWSLETTER"
+          Title size:"2xl" weight:"black"
+            "A complete product directory and signup"
+        Button:
+          href:"/blocks/footer-preview/newsletter"
+          variant:"solid"
+          scheme:"muted"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Device device:"laptop" w:"full" rounded:"lg" border:1
+        Iframe:
+          src:"/blocks/footer-preview/newsletter"
+          title:"Newsletter Footer preview"
+          loading:"lazy"
+          sandbox:"scripts same-origin"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Footer"
+        copiedLabel:"Copied"
+        content:"""
+          Footer variant:"solid" scheme:"muted" boxed:true py:{ xs:7 md:6 }
+            center
+              Grid columns:1 gap:6 w:"full"
+                Flex direction:{ xs:"column" md:"row" } align:"center" justify:"between" gap:5
+                  Brand href:"/" label:"WebbyFrames home"
+                    Flex align:"center" gap:2
+                      Icon name:"widget-5" style:"linear" fill:"onMuted" w:7 h:7
+                      Text size:"lg" weight:"black" color:"onMuted"
+                        "WebbyFrames"
+                  Grid columns:"1fr auto" w:"full" gap:2
+                    Input placeholder:"Enter your email to get the latest news..." iconStart:"letter"
+                    Button variant:"solid" scheme:"primary"
+                      "Subscribe"
+                Divider
+                Flex direction:{ xs:"column" md:"row" } justify:"between" gap:{ xs:7 md:8 } w:"full"
+                  Flex direction:"column" align:"start" gap:2
+                    Text weight:"bold" color:"onMuted"
+                      "Column One"
+                    Text size:"sm" color:"onMuted"
+                      "Twenty One"
+                    Text size:"sm" color:"onMuted"
+                      "Thirty Two"
+                    Text size:"sm" color:"onMuted"
+                      "Fourty Three"
+                    Text size:"sm" color:"onMuted"
+                      "Fifty Four"
+                  Flex direction:"column" align:"start" gap:2
+                    Text weight:"bold" color:"onMuted"
+                      "Column Two"
+                    Text size:"sm" color:"onMuted"
+                      "Sixty Five"
+                    Text size:"sm" color:"onMuted"
+                      "Seventy Six"
+                    Text size:"sm" color:"onMuted"
+                      "Eighty Seven"
+                    Text size:"sm" color:"onMuted"
+                      "Ninety Eight"
+                  Flex direction:"column" align:"start" gap:2
+                    Text weight:"bold" color:"onMuted"
+                      "Column Three"
+                    Text size:"sm" color:"onMuted"
+                      "One Two"
+                    Text size:"sm" color:"onMuted"
+                      "Three Four"
+                    Text size:"sm" color:"onMuted"
+                      "Five Six"
+                    Text size:"sm" color:"onMuted"
+                      "Seven Eight"
+                  Flex direction:"column" align:"start" gap:4
+                    Text weight:"bold" color:"onMuted"
+                      "Column Four"
+                    Flex wrap:true gap:2
+                      Button variant:"solid" scheme:"primary" size:"sm" iconStart:"smartphone"
+                        "App Store"
+                      Button variant:"solid" scheme:"primary" size:"sm" iconStart:"play"
+                        "Google Play"
+                    Text weight:"bold" color:"onMuted"
+                      "Join Us"
+                    Flex align:"center" gap:1
+                      IconButton icon:"play-circle" label:"YouTube" href:"https://youtube.com" variant:"solid" scheme:"muted"
+                      IconButton icon:"users-group-rounded" label:"Facebook" href:"https://facebook.com" variant:"solid" scheme:"muted"
+                      IconButton icon:"chat-square" label:"Twitter" href:"https://twitter.com" variant:"solid" scheme:"muted"
+                      IconButton icon:"camera" label:"Instagram" href:"https://instagram.com" variant:"solid" scheme:"muted"
+                      IconButton icon:"link-circle" label:"LinkedIn" href:"https://linkedin.com" variant:"solid" scheme:"muted"
+                Divider
+                Flex direction:{ xs:"column" md:"row" } align:{ xs:"start" md:"center" } justify:"between" gap:4
+                  Text size:"xs" color:"onMuted"
+                    "CompanyName @ 202X. All rights reserved."
+                  Flex wrap:true gap:1
+                    Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                      "Eleven"
+                    Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                      "Twelve"
+                    Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                      "Thirteen"
+        """

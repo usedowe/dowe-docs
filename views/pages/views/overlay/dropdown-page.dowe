@@ -1,0 +1,320 @@
+page DropdownPage
+  const dropdownProps:
+    value:[
+      {
+        prop:"scheme"
+        type:"primary | secondary | tertiary | muted | background | surface | success | info | warning | danger"
+        defaultValue:"primary"
+      },
+      {
+        prop:"trigger"
+        type:"required region with view children"
+        defaultValue:"—"
+      },
+      {
+        prop:"item label"
+        type:"non-empty string"
+        defaultValue:"required"
+      },
+      {
+        prop:"item description"
+        type:"string"
+        defaultValue:"—"
+      },
+      {
+        prop:"item href"
+        type:"string"
+        defaultValue:"—"
+      },
+      {
+        prop:"item navigate"
+        type:"push | replace"
+        defaultValue:"push"
+      },
+      {
+        prop:"item history"
+        type:"back | forward"
+        defaultValue:"—"
+      },
+      {
+        prop:"item target"
+        type:"_self | _blank | _parent | _top"
+        defaultValue:"_self"
+      },
+      {
+        prop:"item externalMode"
+        type:"browser | system"
+        defaultValue:"browser"
+      },
+      {
+        prop:"item onClick"
+        type:"Action name"
+        defaultValue:"—"
+      },
+      {
+        prop:"item disabled"
+        type:"boolean"
+        defaultValue:"false"
+      },
+      {
+        prop:"item icon"
+        type:"optional region with one Svg"
+        defaultValue:"—"
+      },
+      {
+        prop:"header | footer"
+        type:"optional region with view children"
+        defaultValue:"—"
+      },
+      {
+        prop:"divider"
+        type:"separator entry without props or children"
+        defaultValue:"—"
+      },
+    ]
+  Section id:"dropdown-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "OVERLAY"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Dropdown"
+        Text size:"lg" color:"muted"
+          "Dropdowns keep contextual actions close to their trigger in one portable floating menu."
+      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
+        "Copy LLM"
+  Section id:"dropdown-playground" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PLAYGROUND"
+        Title size:"3xl" weight:"black"
+          "A contextual workspace menu"
+        Text size:"sm" color:"muted"
+          "The trigger owns the interaction while scheme styles only the floating option list. Open the menu to inspect its header, entries, divider, and footer."
+      Card variant:"outlined" scheme:"surface" p:{ xs:6 md:10 } rounded:"md" border:1
+        Flex justify:"center" align:"center"
+          Dropdown scheme:"primary"
+            trigger
+              Button variant:"soft" scheme:"primary" iconEnd:"alt-arrow-down"
+                "Workspace"
+            header
+              Grid columns:1 gap:1 p:2
+                Text size:"sm" weight:"bold"
+                  "Acme workspace"
+                Text size:"xs" color:"muted"
+                  "Manage your project"
+            item label:"Component catalog" description:"Browse every Dowe view" href:"/docs/views"
+              icon
+                Svg viewBox:"0 0 24 24" w:5 h:5
+                  Path d:"M3 11l9-8 9 8v10H3z" fill:"currentColor"
+            item label:"Alert component" description:"Open the display documentation" href:"/docs/views/display/alert"
+            divider
+            item label:"Billing" description:"Available to workspace owners" disabled:true
+            footer
+              Button href:"/docs/views" variant:"ghost" scheme:"primary" size:"sm" w:"full"
+                "View all views"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Dropdown scheme:"primary"
+            trigger
+              Button variant:"soft" scheme:"primary" iconEnd:"alt-arrow-down"
+                "Workspace"
+            header
+              Text weight:"bold"
+                "Acme workspace"
+            item label:"Component catalog" href:"/docs/views"
+            item label:"Alert component" description:"Open the display documentation" href:"/docs/views/display/alert"
+            divider
+            item label:"Billing" disabled:true
+            footer
+              Button href:"/docs/views" variant:"ghost" scheme:"primary" size:"sm"
+                "View all views"
+        """
+  Section id:"dropdown-structure" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "STRUCTURE"
+        Title size:"3xl" weight:"black"
+          "A small, explicit menu tree"
+        Text size:"sm" color:"muted"
+          "Each dropdown has one trigger and one or more item entries. Header and footer are optional view regions; divider is a prop-free separator."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "TRIGGER"
+            Title size:"lg" weight:"bold"
+              "Required region"
+            Text size:"sm" color:"muted"
+              "Put any supported view tree in trigger. Its own Button or custom content controls the popover."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "ENTRIES"
+            Title size:"lg" weight:"bold"
+              "Actionable items"
+            Text size:"sm" color:"muted"
+              "Every item needs a label and can add a description, navigation, action, disabled state, or one SVG icon."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "SELECTION"
+            Title size:"lg" weight:"bold"
+              "Closes after selection"
+            Text size:"sm" color:"muted"
+              "Enabled items close the popover after navigation or their declared action. Disabled items remain visible but inert."
+  Section id:"dropdown-navigation" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "ITEMS"
+        Title size:"3xl" weight:"black"
+          "Navigation, actions, and descriptions"
+        Text size:"sm" color:"muted"
+          "Use href for navigation or onClick for a declared view action. Item descriptions help people distinguish related destinations without making the menu hard to scan."
+      Grid columns:{ xs:1 md:2 } gap:5
+        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+          Grid columns:1 gap:3
+            Text size:"sm" weight:"bold"
+              "Document navigation"
+            Dropdown scheme:"info"
+              trigger
+                Button variant:"outlined" scheme:"info" iconEnd:"alt-arrow-down"
+                  "Open documentation"
+              item label:"View catalog" description:"Start with every available component" href:"/docs/views"
+              item label:"Buttons" description:"Explore the action control" href:"/docs/views/control/button"
+              item label:"Inputs" description:"Review form input patterns" href:"/docs/views/form/input"
+        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+          Grid columns:1 gap:3
+            Text size:"sm" weight:"bold"
+              "Optional SVG icon"
+            Dropdown scheme:"success"
+              trigger
+                Button variant:"outlined" scheme:"success" iconEnd:"alt-arrow-down"
+                  "Explore views"
+              item label:"Alerts" description:"Status and feedback surfaces" href:"/docs/views/display/alert"
+                icon
+                  Svg viewBox:"0 0 24 24" w:5 h:5
+                    Path d:"M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Z" fill:"currentColor"
+              item label:"Avatar" description:"Identity display component" href:"/docs/views/display/avatar"
+  Section id:"dropdown-schemes" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SCHEMES"
+        Title size:"3xl" weight:"black"
+          "A scheme for every menu context"
+        Text size:"sm" color:"muted"
+          "Scheme belongs to the popover surface. The trigger stays independent, so it can match the action that opens the menu."
+      Flex wrap:true justify:"center" align:"center" gap:3
+        Dropdown scheme:"primary"
+          trigger
+            Button variant:"outlined" scheme:"primary" size:"sm" iconEnd:"alt-arrow-down"
+              "Primary"
+          item label:"Primary menu" href:"/docs/views"
+        Dropdown scheme:"secondary"
+          trigger
+            Button variant:"outlined" scheme:"secondary" size:"sm" iconEnd:"alt-arrow-down"
+              "Secondary"
+          item label:"Secondary menu" href:"/docs/views"
+        Dropdown scheme:"tertiary"
+          trigger
+            Button variant:"outlined" scheme:"tertiary" size:"sm" iconEnd:"alt-arrow-down"
+              "Tertiary"
+          item label:"Tertiary menu" href:"/docs/views"
+        Dropdown scheme:"muted"
+          trigger
+            Button variant:"outlined" scheme:"muted" size:"sm" iconEnd:"alt-arrow-down"
+              "Muted"
+          item label:"Muted menu" href:"/docs/views"
+        Dropdown scheme:"success"
+          trigger
+            Button variant:"outlined" scheme:"success" size:"sm" iconEnd:"alt-arrow-down"
+              "Success"
+          item label:"Success menu" href:"/docs/views"
+        Dropdown scheme:"info"
+          trigger
+            Button variant:"outlined" scheme:"info" size:"sm" iconEnd:"alt-arrow-down"
+              "Info"
+          item label:"Info menu" href:"/docs/views"
+        Dropdown scheme:"warning"
+          trigger
+            Button variant:"outlined" scheme:"warning" size:"sm" iconEnd:"alt-arrow-down"
+              "Warning"
+          item label:"Warning menu" href:"/docs/views"
+        Dropdown scheme:"danger"
+          trigger
+            Button variant:"outlined" scheme:"danger" size:"sm" iconEnd:"alt-arrow-down"
+              "Danger"
+          item label:"Danger menu" href:"/docs/views"
+        Dropdown scheme:"surface"
+          trigger
+            Button variant:"outlined" scheme:"primary" size:"sm" iconEnd:"alt-arrow-down"
+              "Surface"
+          item label:"Surface menu" href:"/docs/views"
+        Dropdown scheme:"background"
+          trigger
+            Button variant:"outlined" scheme:"primary" size:"sm" iconEnd:"alt-arrow-down"
+              "Background"
+          item label:"Background menu" href:"/docs/views"
+  Section id:"dropdown-targets" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "TARGET BEHAVIOR"
+        Title size:"3xl" weight:"black"
+          "One authored menu, native-owned placement"
+        Text size:"sm" color:"muted"
+          "Dowe preserves the same trigger and item model across targets while each generated application owns the floating surface."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "WEB"
+            Title size:"lg" weight:"bold"
+              "Anchored popover"
+            Text size:"sm" color:"muted"
+              "The generated runtime positions the menu against its trigger and keeps it above nearby page content."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "ANDROID"
+            Title size:"lg" weight:"bold"
+              "Dowe popup list"
+            Text size:"sm" color:"muted"
+              "Generated Compose uses a Dowe-owned popup list rather than a platform picker or inline layout."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "IOS"
+            Title size:"lg" weight:"bold"
+              "Compact popover"
+            Text size:"sm" color:"muted"
+              "Generated SwiftUI keeps Dropdown compact as an anchored popover instead of adapting it to a sheet."
+  Section id:"dropdown-props" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Props and structural entries"
+        Text size:"sm" color:"muted"
+          "Dropdown also accepts the applicable common font, spacing, sizing, border, radius, and visibility props. Use scheme, not color or variant, to style the floating menu."
+      Table:
+        data:dropdownProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop or entry" width:"1fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1fr"

@@ -1,0 +1,29 @@
+page ScaffoldExample
+  Section pt:{ xs:20 md:24 } pb:{ xs:8 md:12 }
+    Grid columns:1 gap:5
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "APPLICATION SHELL"
+      Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+        "One composition for the whole workspace"
+      Text size:"lg" color:"muted"
+        "Scaffold keeps global navigation outside the page while the central main region stays focused on its route content."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text weight:"bold"
+              "Measured top inset"
+            Text size:"sm"
+              "The fixed AppBar reserves space for the body automatically."
+        Card variant:"soft" scheme:"secondary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text weight:"bold"
+              "Structural regions"
+            Text size:"sm"
+              "The sidebar, main content, and lower bar keep a predictable order."
+  Section py:{ xs:8 md:12 }
+    Grid columns:1 gap:4
+      Title size:"2xl" weight:"bold"
+        "Route content remains independent"
+      Text color:"muted"
+        "This page only owns the central content. The surrounding navigation is declared once in the layout."
+      Box bg:"surface" h:64 rounded:"md"

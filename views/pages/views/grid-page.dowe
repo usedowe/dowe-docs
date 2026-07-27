@@ -1,0 +1,211 @@
+page GridPage
+  const gridProps:
+    value:[
+      {
+        prop:"columns"
+        type:"positive integer | track template | responsive object"
+        defaultValue:"1"
+      },
+      {
+        prop:"rows"
+        type:"auto | positive integer | track template | responsive object"
+        defaultValue:"auto"
+      },
+      {
+        prop:"gap"
+        type:"spacing value | responsive object"
+        defaultValue:"0"
+      },
+      {
+        prop:"justify"
+        type:"start | center | end | stretch"
+        defaultValue:"stretch"
+      },
+      {
+        prop:"align"
+        type:"start | center | end | stretch"
+        defaultValue:"stretch"
+      },
+    ]
+  const gridItemProps:
+    value:[
+      {
+        prop:"colSpan"
+        type:"positive integer | responsive object"
+        defaultValue:"1"
+      },
+      {
+        prop:"rowSpan"
+        type:"positive integer | responsive object"
+        defaultValue:"1"
+      },
+    ]
+  Section id:"grid-introduction" py:{ xs:6 md:10 }
+    Grid columns:1 gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "LAYOUT"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Grid"
+      Text size:"lg" color:"muted"
+        "Grid creates explicit rows and columns for catalogs, dashboards, galleries, and page structure."
+  Section id:"grid-columns" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "COLUMNS"
+        Title size:"3xl" weight:"black"
+          "Create equal tracks"
+        Text size:"sm" color:"muted"
+          "A positive integer creates that many equal columns. Gap separates rows and columns."
+      Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+        Grid columns:3 gap:4
+          Box bg:"success" color:"surface" p:4 rounded:"sm"
+            Text
+              "Item 1"
+          Box bg:"primary" color:"surface" p:4 rounded:"sm"
+            Text
+              "Item 2"
+          Box bg:"muted" p:4 rounded:"sm"
+            Text
+              "Item 3"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Grid columns:3 gap:4
+            Box bg:"success" color:"surface" p:4 rounded:"sm"
+              Text
+                "Item 1"
+            Box bg:"primary" color:"surface" p:4 rounded:"sm"
+              Text
+                "Item 2"
+            Box bg:"muted" p:4 rounded:"sm"
+              Text
+                "Item 3"
+        """
+  Section id:"grid-responsive" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "RESPONSIVE COLUMNS"
+        Title size:"3xl" weight:"black"
+          "Adapt the structure by width"
+        Text size:"sm" color:"muted"
+          "Responsive columns keep one track on small screens and add tracks as space becomes available."
+      Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+        Grid columns:{ xs:1 sm:2 md:3 } gap:4
+          Box bg:"success" color:"surface" p:4 rounded:"sm"
+            Text
+              "Item 1"
+          Box bg:"primary" color:"surface" p:4 rounded:"sm"
+            Text
+              "Item 2"
+          Box bg:"muted" p:4 rounded:"sm"
+            Text
+              "Item 3"
+          Box bg:"warning" p:4 rounded:"sm"
+            Text
+              "Item 4"
+          Box bg:"info" color:"surface" p:4 rounded:"sm"
+            Text
+              "Item 5"
+          Box bg:"danger" color:"surface" p:4 rounded:"sm"
+            Text
+              "Item 6"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Grid columns:{ xs:1 sm:2 md:3 } gap:4
+            Card variant:"outlined" scheme:"surface"
+              Text
+                "First card"
+            Card variant:"outlined" scheme:"surface"
+              Text
+                "Second card"
+            Card variant:"outlined" scheme:"surface"
+              Text
+                "Third card"
+        """
+  Section id:"grid-spans" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "GRID ITEMS"
+        Title size:"3xl" weight:"black"
+          "Span multiple tracks"
+        Text size:"sm" color:"muted"
+          "Direct Box and Card children can span columns or rows while the parent Grid keeps ownership of the structure."
+      Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+        Grid columns:3 gap:4
+          Box colSpan:2 bg:"primary" color:"surface" p:4 rounded:"sm"
+            Text
+              "Two columns"
+          Box bg:"muted" p:4 rounded:"sm"
+            Text
+              "One column"
+          Box bg:"success" color:"surface" p:4 rounded:"sm"
+            Text
+              "One column"
+          Box colSpan:2 bg:"info" color:"surface" p:4 rounded:"sm"
+            Text
+              "Two columns"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Grid columns:3 gap:4
+            Box colSpan:2 p:4
+              Text
+                "Two columns"
+            Box p:4
+              Text
+                "One column"
+        """
+  Section id:"grid-props" py:{ xs:7 md:10 }
+    Grid columns:1 gap:7
+      Grid columns:1 gap:5
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+            "API"
+          Title size:"3xl" weight:"black"
+            "Grid props"
+          Text size:"sm" color:"muted"
+            "Grid also accepts the applicable common spacing, sizing, visibility, and accessibility props."
+        Table:
+          data:gridProps
+          variant:"soft"
+          scheme:"surface"
+          size:"sm"
+          striped:true
+          dividers:true
+          rounded:"md"
+          column field:"prop" label:"Prop" width:"1fr"
+          column field:"type" label:"Type" width:"3fr"
+          column field:"defaultValue" label:"Default" width:"1fr"
+      Grid columns:1 gap:5
+        Grid columns:1 gap:2
+          Title size:"2xl" weight:"black"
+            "Grid item props"
+          Text size:"sm" color:"muted"
+            "colSpan and rowSpan are valid only on a direct Box or Card child of Grid."
+        Table:
+          data:gridItemProps
+          variant:"soft"
+          scheme:"surface"
+          size:"sm"
+          striped:true
+          dividers:true
+          rounded:"md"
+          column field:"prop" label:"Prop" width:"1fr"
+          column field:"type" label:"Type" width:"3fr"
+          column field:"defaultValue" label:"Default" width:"1fr"

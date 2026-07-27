@@ -1,0 +1,542 @@
+page ButtonPage
+  signal schemeChoice value:"primary"
+  signal variantChoice value:"solid"
+  signal sizeChoice value:"md"
+  signal startIconEnabled value:false
+  signal endIconEnabled value:false
+  signal loadingChoice value:false
+  const schemeOptions:
+    value:[
+      {
+        id:"primary"
+        value:"primary"
+        label:"Primary"
+      },
+      {
+        id:"secondary"
+        value:"secondary"
+        label:"Secondary"
+      },
+      {
+        id:"tertiary"
+        value:"tertiary"
+        label:"Tertiary"
+      },
+      {
+        id:"muted"
+        value:"muted"
+        label:"Muted"
+      },
+      {
+        id:"success"
+        value:"success"
+        label:"Success"
+      },
+      {
+        id:"info"
+        value:"info"
+        label:"Info"
+      },
+      {
+        id:"warning"
+        value:"warning"
+        label:"Warning"
+      },
+      {
+        id:"danger"
+        value:"danger"
+        label:"Danger"
+      },
+    ]
+  const variantOptions:
+    value:[
+      {
+        id:"solid"
+        value:"solid"
+        label:"Solid"
+      },
+      {
+        id:"soft"
+        value:"soft"
+        label:"Soft"
+      },
+      {
+        id:"outlined"
+        value:"outlined"
+        label:"Outlined"
+      },
+      {
+        id:"ghost"
+        value:"ghost"
+        label:"Ghost"
+      },
+    ]
+  const sizeOptions:
+    value:[
+      {
+        id:"xs"
+        value:"xs"
+        label:"xs"
+      },
+      {
+        id:"sm"
+        value:"sm"
+        label:"sm"
+      },
+      {
+        id:"md"
+        value:"md"
+        label:"md"
+      },
+      {
+        id:"lg"
+        value:"lg"
+        label:"lg"
+      },
+      {
+        id:"xl"
+        value:"xl"
+        label:"xl"
+      },
+    ]
+  const solidButtons:
+    value:[
+      {
+        id:"solid-primary"
+        variant:"solid"
+        scheme:"primary"
+        label:"Solid Primary"
+      },
+      {
+        id:"solid-secondary"
+        variant:"solid"
+        scheme:"secondary"
+        label:"Solid Secondary"
+      },
+      {
+        id:"solid-muted"
+        variant:"solid"
+        scheme:"muted"
+        label:"Solid Muted"
+      },
+      {
+        id:"solid-success"
+        variant:"solid"
+        scheme:"success"
+        label:"Solid Success"
+      },
+      {
+        id:"solid-info"
+        variant:"solid"
+        scheme:"info"
+        label:"Solid Info"
+      },
+      {
+        id:"solid-danger"
+        variant:"solid"
+        scheme:"danger"
+        label:"Solid Danger"
+      },
+      {
+        id:"solid-warning"
+        variant:"solid"
+        scheme:"warning"
+        label:"Solid Warning"
+      },
+      {
+        id:"solid-tertiary"
+        variant:"solid"
+        scheme:"tertiary"
+        label:"Solid Tertiary"
+      },
+    ]
+  const softButtons:
+    value:[
+      {
+        id:"soft-primary"
+        variant:"soft"
+        scheme:"primary"
+        label:"Soft Primary"
+      },
+      {
+        id:"soft-secondary"
+        variant:"soft"
+        scheme:"secondary"
+        label:"Soft Secondary"
+      },
+      {
+        id:"soft-muted"
+        variant:"soft"
+        scheme:"muted"
+        label:"Soft Muted"
+      },
+      {
+        id:"soft-success"
+        variant:"soft"
+        scheme:"success"
+        label:"Soft Success"
+      },
+      {
+        id:"soft-info"
+        variant:"soft"
+        scheme:"info"
+        label:"Soft Info"
+      },
+      {
+        id:"soft-danger"
+        variant:"soft"
+        scheme:"danger"
+        label:"Soft Danger"
+      },
+      {
+        id:"soft-warning"
+        variant:"soft"
+        scheme:"warning"
+        label:"Soft Warning"
+      },
+      {
+        id:"soft-tertiary"
+        variant:"soft"
+        scheme:"tertiary"
+        label:"Soft Tertiary"
+      },
+    ]
+  const outlinedButtons:
+    value:[
+      {
+        id:"outlined-primary"
+        variant:"outlined"
+        scheme:"primary"
+        label:"Outlined Primary"
+      },
+      {
+        id:"outlined-secondary"
+        variant:"outlined"
+        scheme:"secondary"
+        label:"Outlined Secondary"
+      },
+      {
+        id:"outlined-muted"
+        variant:"outlined"
+        scheme:"muted"
+        label:"Outlined Muted"
+      },
+      {
+        id:"outlined-success"
+        variant:"outlined"
+        scheme:"success"
+        label:"Outlined Success"
+      },
+      {
+        id:"outlined-info"
+        variant:"outlined"
+        scheme:"info"
+        label:"Outlined Info"
+      },
+      {
+        id:"outlined-danger"
+        variant:"outlined"
+        scheme:"danger"
+        label:"Outlined Danger"
+      },
+      {
+        id:"outlined-warning"
+        variant:"outlined"
+        scheme:"warning"
+        label:"Outlined Warning"
+      },
+      {
+        id:"outlined-tertiary"
+        variant:"outlined"
+        scheme:"tertiary"
+        label:"Outlined Tertiary"
+      },
+    ]
+  const ghostButtons:
+    value:[
+      {
+        id:"ghost-primary"
+        variant:"ghost"
+        scheme:"primary"
+        label:"Ghost Primary"
+      },
+      {
+        id:"ghost-secondary"
+        variant:"ghost"
+        scheme:"secondary"
+        label:"Ghost Secondary"
+      },
+      {
+        id:"ghost-muted"
+        variant:"ghost"
+        scheme:"muted"
+        label:"Ghost Muted"
+      },
+      {
+        id:"ghost-success"
+        variant:"ghost"
+        scheme:"success"
+        label:"Ghost Success"
+      },
+      {
+        id:"ghost-info"
+        variant:"ghost"
+        scheme:"info"
+        label:"Ghost Info"
+      },
+      {
+        id:"ghost-danger"
+        variant:"ghost"
+        scheme:"danger"
+        label:"Ghost Danger"
+      },
+      {
+        id:"ghost-warning"
+        variant:"ghost"
+        scheme:"warning"
+        label:"Ghost Warning"
+      },
+      {
+        id:"ghost-tertiary"
+        variant:"ghost"
+        scheme:"tertiary"
+        label:"Ghost Tertiary"
+      },
+    ]
+  const sizeButtons:
+    value:[
+      {
+        id:"solid-xs"
+        variant:"solid"
+        size:"xs"
+        label:"Solid xs"
+      },
+      {
+        id:"solid-sm"
+        variant:"solid"
+        size:"sm"
+        label:"Solid sm"
+      },
+      {
+        id:"solid-md"
+        variant:"solid"
+        size:"md"
+        label:"Solid md"
+      },
+      {
+        id:"solid-lg"
+        variant:"solid"
+        size:"lg"
+        label:"Solid lg"
+      },
+      {
+        id:"solid-xl"
+        variant:"solid"
+        size:"xl"
+        label:"Solid xl"
+      },
+    ]
+  const buttonProps:
+    value:[
+      {
+        prop:"onClick"
+        type:"Action name"
+        defaultValue:"—"
+      },
+      {
+        prop:"href"
+        type:"string"
+        defaultValue:"—"
+      },
+      {
+        prop:"navigate"
+        type:"push | replace"
+        defaultValue:"push"
+      },
+      {
+        prop:"history"
+        type:"back | forward"
+        defaultValue:"—"
+      },
+      {
+        prop:"target"
+        type:"_self | _blank | _parent | _top"
+        defaultValue:"_self"
+      },
+      {
+        prop:"externalMode"
+        type:"browser | system"
+        defaultValue:"browser"
+      },
+      {
+        prop:"variant"
+        type:"solid | soft | outlined | ghost"
+        defaultValue:"solid"
+      },
+      {
+        prop:"scheme"
+        type:"primary | secondary | tertiary | muted | success | info | warning | danger"
+        defaultValue:"primary"
+      },
+      {
+        prop:"size"
+        type:"xs | sm | md | lg | xl"
+        defaultValue:"md"
+      },
+      {
+        prop:"loading"
+        type:"boolean Signal or View Store path"
+        defaultValue:"false"
+      },
+      {
+        prop:"rounded"
+        type:"xs | sm | md | lg | xl | full"
+        defaultValue:"radius"
+      },
+      {
+        prop:"iconStart"
+        type:"Solar icon name"
+        defaultValue:"—"
+      },
+      {
+        prop:"iconEnd"
+        type:"Solar icon name"
+        defaultValue:"—"
+      },
+      {
+        prop:"i18n"
+        type:"translation key"
+        defaultValue:"—"
+      },
+    ]
+  Section id:"button-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "CONTROL"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Button"
+        Text size:"lg" color:"muted"
+          "Buttons let users trigger actions and navigation with one clear tap."
+  Section id:"button-playground" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PLAYGROUND"
+        Title size:"3xl" weight:"black"
+          "Configure a button"
+        Text size:"sm" color:"muted"
+          "The controls bind directly to the preview. Conditional icon values resolve to a validated Solar name or an empty string without reserving icon space."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Select:
+          bind:schemeChoice
+          label:"Scheme"
+          placeholder:"Choose a scheme"
+          variant:"outlined"
+          scheme:"primary"
+          each in:schemeOptions as:option key:option.id
+            Option value:option.value label:option.label
+        Select:
+          bind:variantChoice
+          label:"Variant"
+          placeholder:"Choose a variant"
+          variant:"outlined"
+          scheme:"primary"
+          each in:variantOptions as:option key:option.id
+            Option value:option.value label:option.label
+        Select:
+          bind:sizeChoice
+          label:"Size"
+          placeholder:"Choose a size"
+          variant:"outlined"
+          scheme:"primary"
+          each in:sizeOptions as:option key:option.id
+            Option value:option.value label:option.label
+      Grid columns:{ xs:1 md:2 } gap:4
+        Checkbox bind:startIconEnabled label:"Start icon" scheme:"primary"
+        Checkbox bind:endIconEnabled label:"End icon" scheme:"primary"
+        Checkbox bind:loadingChoice label:"Loading" scheme:"primary"
+      Card variant:"outlined" scheme:"surface" p:{ xs:6 md:10 } rounded:"md" border:1
+        Flex justify:"center" align:"center" gap:3
+          Button:
+            variant:variantChoice
+            scheme:schemeChoice
+            size:sizeChoice
+            loading:loadingChoice
+            iconStart:{ when:startIconEnabled value:"add-circle" }
+            iconEnd:{ when:endIconEnabled value:"alt-arrow-right" }
+            "Button label"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Button variant:variantChoice scheme:schemeChoice size:sizeChoice loading:loadingChoice iconStart:{ when:startIconEnabled value:"add-circle" } iconEnd:{ when:endIconEnabled value:"alt-arrow-right" }
+            "Button label"
+        """
+      Grid columns:1 gap:2
+        Title size:"xl" weight:"bold"
+          "Reactive loading"
+        Text size:"sm" color:"muted"
+          "Bind loading to a boolean Signal or View Store path. When it is true, Button shows the bundled svg-spinners:3-dots-move Icon, keeps the content footprint, marks the control busy, and prevents another action."
+  Section id:"button-schemes" py:{ xs:7 md:10 }
+    Flex direction:"column" gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SCHEMES AND VARIANTS"
+        Title size:"3xl" weight:"black"
+          "Every semantic color"
+        Text size:"sm" color:"muted"
+          "Each row keeps one variant fixed so color families are easy to compare."
+        Text size:"sm" color:"muted"
+          "Each generated label uses the explicit braced text-binding form for its current item."
+      Flex direction:"column" gap:3
+        Flex wrap:true justify:"center" align:"center" gap:3
+          each in:solidButtons as:button key:button.id
+            Button variant:button.variant scheme:button.scheme
+              "{button.label}"
+        Flex wrap:true justify:"center" align:"center" gap:3
+          each in:softButtons as:button key:button.id
+            Button variant:button.variant scheme:button.scheme
+              "{button.label}"
+        Flex wrap:true justify:"center" align:"center" gap:3
+          each in:outlinedButtons as:button key:button.id
+            Button variant:button.variant scheme:button.scheme
+              "{button.label}"
+        Flex wrap:true justify:"center" align:"center" gap:3
+          each in:ghostButtons as:button key:button.id
+            Button variant:button.variant scheme:button.scheme
+              "{button.label}"
+  Section id:"button-sizes" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "VARIANTS AND SIZES"
+        Title size:"3xl" weight:"black"
+          "Five control densities"
+      Flex wrap:true justify:"center" align:"center" gap:3
+        each in:sizeButtons as:button key:button.id
+          Button variant:button.variant scheme:"primary" size:button.size
+            "{button.label}"
+  Section id:"button-props" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Props"
+        Text size:"sm" color:"muted"
+          "Button also accepts the applicable common spacing, sizing, typography, visibility, and accessibility props."
+      Table:
+        data:buttonProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1fr"

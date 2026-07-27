@@ -1,0 +1,136 @@
+page BottomBarPage
+  const bottomBarProps:
+    value:[
+      {
+        prop:"variant"
+        type:"solid | soft | outlined | ghost"
+        defaultValue:"solid"
+      },
+      {
+        prop:"scheme"
+        type:"primary | secondary | tertiary | muted | background | surface | success | info | warning | danger"
+        defaultValue:"surface"
+      },
+      {
+        prop:"bordered"
+        type:"boolean"
+        defaultValue:"false"
+      },
+      {
+        prop:"blurred"
+        type:"boolean"
+        defaultValue:"false"
+      },
+      {
+        prop:"boxed"
+        type:"boolean"
+        defaultValue:"false"
+      },
+      {
+        prop:"floating"
+        type:"boolean"
+        defaultValue:"false"
+      },
+      {
+        prop:"tab.href"
+        type:"quoted internal route"
+        defaultValue:"required"
+      },
+      {
+        prop:"tab.label"
+        type:"quoted string"
+        defaultValue:"required"
+      },
+      {
+        prop:"tab.i18n"
+        type:"quoted translation key"
+        defaultValue:"none"
+      },
+      {
+        prop:"tab.featured"
+        type:"boolean"
+        defaultValue:"false"
+      },
+      {
+        prop:"tab child"
+        type:"exactly one Icon"
+        defaultValue:"required"
+      },
+    ]
+  Section id:"bottombar-introduction" py:{ xs:6 md:10 }
+    Flex direction:"column" gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "LAYOUT"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "BottomBar"
+      Text size:"lg" color:"muted"
+        "BottomBar provides persistent route-aware tabs with portable Icon children and an optional featured destination."
+  Section id:"bottombar-mental-model" p:{ xs:5 md:7 }
+    Flex direction:"column" gap:5
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "MENTAL MODEL"
+        Title size:"3xl" weight:"black"
+          "Anchor lower navigation in a Scaffold"
+        Text color:"muted"
+          "Scaffold owns the application height and places BottomBar after the scrolling body, where it remains visible at the lower edge. boxed:true keeps the bar surface full width while centering its tabs at 96rem on web or 1536 logical units on Android and iOS."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Scaffold
+            main
+              children
+            bottomBar
+              BottomBar variant:"soft" scheme:"surface" bordered:true boxed:true
+                tab href:"/" label:"Home"
+                  Icon name:"home"
+                tab href:"/create" label:"Create" featured:true
+                  Icon name:"add-circle"
+                tab href:"/docs" label:"Docs"
+                  Icon name:"document"
+        """
+  Section id:"bottombar-examples" py:{ xs:7 md:10 }
+    Flex direction:"column" gap:6
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "LIVE EXAMPLE"
+        Title size:"3xl" weight:"black"
+          "BottomBar inside its real shell"
+        Text size:"sm" color:"muted"
+          "The complete routed page makes the persistent lower edge and the scrolling main region visible together."
+      Device device:"mobile" w:"full" rounded:"md" border:1
+        Iframe src:"/examples/bottombar" title:"Persistent BottomBar example" loading:"lazy" sandbox:"scripts same-origin"
+  Section id:"bottombar-tabs" p:{ xs:5 md:7 }
+    Flex direction:"column" gap:5
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "TABS"
+        Title size:"3xl" weight:"black"
+          "Route-aware navigation tabs"
+        Text color:"muted"
+          "Each tab requires href, label, and exactly one Icon child. The current page activates the matching href, while featured raises one primary destination."
+      Alert type:"info" variant:"soft" scheme:"info" message:"Use BottomBar from a Scaffold bottomBar region so the shell reserves its full-height layout and the lower navigation remains observable across targets."
+  Section id:"bottombar-props" py:{ xs:7 md:10 }
+    Flex direction:"column" gap:5
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Props"
+        Text size:"sm" color:"muted"
+          "BottomBar also accepts applicable common spacing, sizing, typography, visibility, and accessibility props."
+      Table:
+        data:bottomBarProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1fr"

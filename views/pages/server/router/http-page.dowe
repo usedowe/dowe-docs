@@ -1,0 +1,35 @@
+page RouterHttpPage
+  Section id:"router-http" py:{ xs:6 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "HTTP ROUTES"
+        Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+          "Use a verb as the route declaration"
+        Text size:"lg" color:"muted"
+          "Imported endpoint modules use lowercase get, post, put, patch, and delete declarations. Each route declares its path and handler directly."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          endpoints apiRoutes
+            group path:"/api/auth"
+              post path:"/register" handler:registerUser
+              post:
+                path:"/login"
+                handler:loginUser
+        """
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Inline or multiline"
+          Text size:"sm" color:"muted"
+            "A property-suite header such as post: accepts path and handler one per line. It lowers exactly like the compact form."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Dynamic segments"
+          Text size:"sm" color:"muted"
+            "Use :id in a path and read req.params.id inside the server handler. Route matching stays owned by the Dowe runtime."

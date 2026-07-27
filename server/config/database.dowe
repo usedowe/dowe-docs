@@ -1,0 +1,7 @@
+database IconDb:
+  provider:"d1"
+  account:env.ACCOUNT_ID
+  secret:env.CLOUDFLARE_API_TOKEN
+  name:env.DATABASE_ID
+  entities:[]
+  seeders:[]

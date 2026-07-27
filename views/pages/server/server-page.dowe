@@ -1,0 +1,132 @@
+page ServerPage
+  Section id:"server-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SERVER"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Server documentation"
+        Text size:"lg" color:"muted"
+          "Dowe compiles handlers, data access, and runtime boundaries into shared Dowe behavior. Server capabilities never cross into views or client targets."
+      Button:
+        href:"/docs/server/db"
+        variant:"soft"
+        scheme:"primary"
+        size:"sm"
+        rounded:"full"
+        iconStart:"database"
+        "Open Database"
+  Section id:"server-statement-shape" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SOURCE SHAPE"
+        Title size:"3xl" weight:"black"
+          "Read every server statement from left to right"
+        Text size:"sm" color:"muted"
+          "A statement starts with its capability. If that capability produces a value, the next identifier binds the result. Named props configure the operation after the binding."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy shape"
+        copiedLabel:"Copied"
+        content:"""
+          <capability> <binding> <props>
+          <capability> <props>
+        """
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Title size:"lg" weight:"bold"
+              "Produces a value"
+            Text size:"sm" color:"muted"
+              "Database, Cache, HTTP, crypto, spawn, and imported functions put their result binding immediately after the capability."
+            Code:
+              language:"dowe"
+              variant:"outline"
+              scheme:"surface"
+              content:"""
+                query blogs db:appDb.list table:"blogs"
+                createBlogService result args:{ title:body.title }
+              """
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Title size:"lg" weight:"bold"
+              "Performs an action"
+            Text size:"sm" color:"muted"
+              "Control capabilities that do not produce a value receive their named props directly and create no binding."
+            Code:
+              language:"dowe"
+              variant:"outline"
+              scheme:"surface"
+              content:"""
+                next context:{ auth:verified }
+                commit value:result
+                return status:201 json:result
+              """
+            Alert:
+              variant:"soft"
+              type:"info"
+              message:"Control statements may select a target instead of binding a result. go refreshIndex targets a function, while return receives the HTTP response props directly. Neither statement creates a result binding."
+  Section id:"server-database" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "DATABASE"
+        Title size:"3xl" weight:"black"
+          "A Dowe-owned server capability"
+        Text size:"sm" color:"muted"
+          "Database owns local files, records, migrations, seeders, and provider operations. A handler uses a server-only connection and binds each result with query."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          handler listBlogs
+            database db provider:"dowe" host:env.DOWE_HOST port:env.DOWE_PORT account:env.DOWE_USER secret:env.DOWE_PASSWORD name:"app"
+            query blogs db:db.list table:"blogs"
+            return json:{ ok:true data:blogs }
+        """
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Server-only"
+            Text size:"sm" color:"muted"
+              "Database handles and remote credentials are never serialized to web, desktop, Android, or iOS clients."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Controlled data flow"
+            Text size:"sm" color:"muted"
+              "Keep database and table names static. Pass validated request values only into supported fields and filters."
+  Section id:"server-functions" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "FUNCTIONS"
+        Title size:"3xl" weight:"black"
+          "Call the capability, then bind its result"
+        Text size:"sm" color:"muted"
+          "An imported server function starts the statement. Its result binding follows the function name, and typed parameters travel through args."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          import createBlogService from "@/server/services/blogs-service"
+
+          handler createBlog
+            const body:BlogInput value:req.json
+            createBlogService result args:{ title:body.title content:body.content }
+            return status:201 json:{ ok:true data:result }
+        """
+      Alert:
+        variant:"soft"
+        type:"warning"
+        message:"Handlers are asynchronous by default, so do not add async or await. Server source never uses assignment syntax. Write str title source:\"trim\" or id session source:\"ulid\"; imported fn calls and host capabilities bind their result directly."

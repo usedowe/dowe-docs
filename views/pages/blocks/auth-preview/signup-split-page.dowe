@@ -1,0 +1,42 @@
+page SignupSplitAuthPage
+  signal form value:{ firstName:"" lastName:"" email:"" password:"" accepted:false }
+  Section id:"signup-split-auth" p:0 minH:"vh-0"
+    Grid columns:{ xs:1 md:2 } gap:0 minH:"vh-0"
+      Box:
+        bg:"softSecondary"
+        color:"success"
+        minH:{ xs:40 md:"vh-0" }
+        p:{ xs:6 md:12 }
+        Flex direction:"column" justify:"center" align:"center" minH:{ xs:40 md:"vh-0" }
+          Box bg:"surface" rounded:"full" p:{ xs:5 md:9 } shadow:"xl" shadowColor:"muted"
+            Icon name:"user-plus-rounded" style:"bold-duotone" fill:"success" w:{ xs:16 md:24 } h:{ xs:16 md:24 }
+      Flex:
+        direction:"column"
+        justify:"center"
+        p:{ xs:6 md:12 }
+        minH:{ xs:"vh-40" md:"vh-0" }
+        Grid columns:{ xs:1 md:"1fr 6fr 1fr" } align:"center"
+          Box show:{ xs:false md:true }
+          Grid columns:1 gap:5
+            Grid columns:1 gap:2
+              Title size:"3xl" weight:"black"
+                "Sign up"
+              Text size:"sm" color:"muted"
+                "Create an account and start building."
+            Grid columns:2 gap:3
+              Input bind:form.firstName label:"First name" placeholder:"First name" variant:"soft" scheme:"success" w:"full"
+              Input bind:form.lastName label:"Last name" placeholder:"Last name" variant:"soft" scheme:"success" w:"full"
+            Input bind:form.email label:"Email address" placeholder:"you@example.com" variant:"soft" scheme:"success" w:"full"
+            PasswordField bind:form.password label:"Password" placeholder:"Create a password" hideStrength:false variant:"soft" scheme:"success" w:"full"
+            Checkbox bind:form.accepted label:"I agree to the terms and privacy policy." scheme:"success"
+            Button variant:"solid" scheme:"success" size:"md" w:"full"
+              "Create account"
+            Grid columns:{ xs:1 sm:2 } gap:3
+              Button variant:"outlined" scheme:"success" size:"sm" iconStart:"global" w:"full"
+                "Continue with Google"
+              Button variant:"outlined" scheme:"success" size:"sm" iconStart:"smartphone" w:"full"
+                "Continue with Apple"
+            Divider
+            Button href:"/blocks/auth-preview/login-split" variant:"ghost" scheme:"success" size:"sm"
+              "Already have an account? Log in"
+          Box show:{ xs:false md:true }

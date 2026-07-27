@@ -1,0 +1,120 @@
+page TestsPage
+  Section id:"tests-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "DEVELOPMENT / TESTING"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Native project tests"
+        Text size:"lg" color:"muted"
+          "Place literal Dowe tests wherever they best describe the contract. Dowe discovers them without requiring a test folder or a filename convention."
+      Button href:"/docs/dev/agent" variant:"soft" scheme:"primary" size:"sm" rounded:"full" iconStart:"cpu"
+        "Open Agent docs"
+  Section id:"tests-placement" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "UNRESTRICTED PLACEMENT"
+        Title size:"3xl" weight:"black"
+          "Use the folder that fits the project"
+        Text size:"sm" color:"muted"
+          "A test-only .dowe file can be below verification, checks, test, or any other project directory. The runner scans eligible Dowe files and executes only files that declare tests."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy layout"
+        copiedLabel:"Copied"
+        content:"""
+          verification/release/metadata.dowe
+          checks/theme-contract.dowe
+          test/navigation.dowe
+        """
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "NO RESERVED DIRECTORY"
+            Title size:"lg" weight:"bold"
+              "Keep intent close"
+            Text size:"sm" color:"muted"
+              "Choose a folder that makes the tested contract easy to find. Dowe does not reserve test or tests."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "SAFE DISCOVERY"
+            Title size:"lg" weight:"bold"
+              "Ignore managed output"
+            Text size:"sm" color:"muted"
+              "Discovery skips .agents, .dowe, .git, target, and node_modules."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "DETERMINISTIC"
+            Title size:"lg" weight:"bold"
+              "Sort before running"
+            Text size:"sm" color:"muted"
+              "Cases run by relative path and then source order for stable reports."
+  Section id:"tests-syntax" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "LITERAL ASSERTIONS"
+        Title size:"3xl" weight:"black"
+          "Start with deterministic contracts"
+        Text size:"sm" color:"muted"
+          "Tests use a quoted name and direct assert declarations. Equal compares Dowe literals structurally without evaluating application code."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy test"
+        copiedLabel:"Copied"
+        content:"""
+          test "release metadata"
+            assert true value:true
+            assert false value:false
+            assert equal actual:{ name:"dowe" channels:["stable", "canary"] } expected:{ name:"dowe" channels:["stable", "canary"] }
+        """
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "assert true"
+            Text size:"sm" color:"muted"
+              "Passes only when value is exactly true."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "assert false"
+            Text size:"sm" color:"muted"
+              "Passes only when value is exactly false."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "assert equal"
+            Text size:"sm" color:"muted"
+              "Compares strings, numbers, booleans, null, arrays, and objects exactly."
+  Section id:"tests-runner" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "RUNNER"
+        Title size:"3xl" weight:"black"
+          "Run all tests or select a path"
+        Text size:"sm" color:"muted"
+          "Use JSON for agents and CI. A failed assertion returns a non-zero status with its source location."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy commands"
+        copiedLabel:"Copied"
+        content:"""
+          dowe test
+          dowe test verification
+          dowe test checks/theme-contract.dowe
+          dowe test --json
+        """
+      Text size:"sm" color:"muted"
+        "This first native runner does not execute views, handlers, HTTP, databases, or target runtime code. Use target-specific validation alongside literal tests when a contract needs runtime behavior."

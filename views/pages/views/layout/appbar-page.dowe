@@ -1,0 +1,186 @@
+page AppBarPage
+  const appBarProps:
+    value:[
+      {
+        prop:"variant"
+        type:"solid | soft | outlined | ghost"
+        defaultValue:"solid"
+      },
+      {
+        prop:"scheme"
+        type:"primary | secondary | tertiary | muted | background | surface | success | info | warning | danger"
+        defaultValue:"surface"
+      },
+      {
+        prop:"position"
+        type:"static | sticky | fixed"
+        defaultValue:"static"
+      },
+      {
+        prop:"hideOnScroll"
+        type:"boolean"
+        defaultValue:"false"
+      },
+      {
+        prop:"bordered"
+        type:"boolean"
+        defaultValue:"false"
+      },
+      {
+        prop:"blurred"
+        type:"boolean"
+        defaultValue:"false"
+      },
+      {
+        prop:"boxed"
+        type:"boolean"
+        defaultValue:"false"
+      },
+      {
+        prop:"floating"
+        type:"boolean"
+        defaultValue:"false"
+      },
+    ]
+  const appBarRegions:
+    value:[
+      {
+        region:"top"
+        requirement:"Optional"
+        purpose:"Full-width content above the main AppBar row."
+      },
+      {
+        region:"start"
+        requirement:"Optional"
+        purpose:"Leading content in the horizontal main row."
+      },
+      {
+        region:"center"
+        requirement:"Optional"
+        purpose:"Flexible centered content in the horizontal main row."
+      },
+      {
+        region:"end"
+        requirement:"Optional"
+        purpose:"Trailing content in the horizontal main row."
+      },
+      {
+        region:"bottom"
+        requirement:"Optional"
+        purpose:"Full-width content below the main AppBar row."
+      },
+    ]
+  Section id:"appbar-introduction" py:{ xs:6 md:10 }
+    Flex direction:"column" gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "LAYOUT"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "AppBar"
+      Text size:"lg" color:"muted"
+        "AppBar provides top-level navigation through explicit top, start, center, end, and bottom regions."
+  Section id:"appbar-mental-model" p:{ xs:5 md:7 }
+    Flex direction:"column" gap:5
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "MENTAL MODEL"
+        Title size:"3xl" weight:"black"
+          "Place the bar in a Scaffold"
+        Text color:"muted"
+          "Scaffold owns shell placement. AppBar owns the horizontal content regions and their visual surface. boxed:true keeps that surface full width while centering its inner content at 96rem on web or 1536 logical units on Android and iOS."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          layout MainLayout
+            Scaffold
+              appBar
+                AppBar variant:"soft" scheme:"surface" position:"sticky" boxed:true bordered:true hideOnScroll:true
+                  top
+                    Marquee speed:"slow"
+                      Text size:"xs"
+                        "Product announcement"
+                  start
+                    Text weight:"bold"
+                      "Dowe"
+                  center
+                    Text size:"sm"
+                      "Documentation"
+                  end
+                    Button href:"/" variant:"ghost" scheme:"primary" size:"sm"
+                      "Home"
+                  bottom
+                    Text size:"xs" color:"muted"
+                      "Scroll down to hide · scroll up to reveal"
+              main
+                children
+        """
+  Section id:"appbar-examples" py:{ xs:7 md:10 }
+    Flex direction:"column" gap:6
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "LIVE EXAMPLES"
+        Title size:"3xl" weight:"black"
+          "AppBar inside its real shell"
+        Text size:"sm" color:"muted"
+          "Each preview is a complete routed page with one Scaffold, so scrolling and shell spacing remain observable."
+      Flex direction:"column" gap:3
+        Title size:"xl" weight:"bold"
+          "Fixed and boxed"
+        Device device:"mobile" w:"full" rounded:"md" border:1
+          Iframe src:"/examples/appbar-one" title:"Fixed boxed AppBar example" loading:"lazy" sandbox:"scripts same-origin"
+      Flex direction:"column" gap:3
+        Title size:"xl" weight:"bold"
+          "Sticky, floating, and blurred"
+        Device device:"mobile" w:"full" rounded:"md" border:1
+          Iframe src:"/examples/appbar-two" title:"Sticky floating AppBar example" loading:"lazy" sandbox:"scripts same-origin"
+      Flex direction:"column" gap:3
+        Title size:"xl" weight:"bold"
+          "Full-width regions and scroll reveal"
+        Text size:"sm" color:"muted"
+          "Scroll down to hide the AppBar, then scroll upward to reveal it again."
+        Device device:"mobile" w:"full" rounded:"md" border:1
+          Iframe src:"/examples/appbar-slots-scroll" title:"AppBar top bottom and scroll reveal example" loading:"lazy" sandbox:"scripts same-origin"
+  Section id:"appbar-regions" p:{ xs:5 md:7 }
+    Flex direction:"column" gap:5
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "REGIONS"
+        Title size:"3xl" weight:"black"
+          "A full-width frame around the main row"
+        Text color:"muted"
+          "top and bottom span the AppBar. start and end size to their content, while center takes the flexible space between them. Each region can contain ordinary view nodes."
+      Alert type:"info" variant:"soft" scheme:"info" message:"Use sticky or fixed AppBars inside Scaffold appBar. Scaffold measures fixed bars automatically; outside Scaffold, a fixed AppBar overlays normal web content."
+      Table:
+        data:appBarRegions
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"region" label:"Child" width:"1fr"
+        column field:"requirement" label:"Requirement" width:"1fr"
+        column field:"purpose" label:"Purpose" width:"3fr"
+  Section id:"appbar-props" py:{ xs:7 md:10 }
+    Flex direction:"column" gap:5
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Props"
+        Text size:"sm" color:"muted"
+          "AppBar also accepts applicable common spacing, sizing, typography, visibility, and accessibility props."
+      Table:
+        data:appBarProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1fr"

@@ -1,0 +1,176 @@
+page ExtensionsPage
+  Section id:"extensions-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "DEVELOPMENT / EXTENSIONS"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Dowe editor extensions"
+        Text size:"lg" color:"muted"
+          "Official editor integrations for Dowe Source Format, backed by one Dowe language service contract."
+      Button:
+        href:"/docs/dev/install"
+        variant:"soft"
+        scheme:"primary"
+        size:"sm"
+        rounded:"full"
+        iconStart:"document-text"
+        "Install Dowe"
+  Section id:"extensions-vscode" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PUBLISHED / VISUAL STUDIO CODE"
+        Title size:"3xl" weight:"black"
+          "Dowe Source Format Language Support"
+        Text size:"sm" color:"muted"
+          "Install the VS Code extension from the Marketplace. It downloads and verifies the compatible Dowe language server automatically."
+      Button:
+        href:"https://marketplace.visualstudio.com/items?itemName=dowe.dowe-language-support"
+        target:"blank"
+        variant:"soft"
+        scheme:"primary"
+        size:"sm"
+        rounded:"full"
+        iconStart:"link"
+        "Open VS Code Marketplace"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy commands"
+        copiedLabel:"Copied"
+        content:"code --install-extension dowe.dowe-language-support"
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"primary"
+              "MARKETPLACE"
+            Title size:"lg" weight:"bold"
+              "Published"
+            Text size:"sm" color:"muted"
+              "Find Dowe Source Format Language Support by the publisher identifier dowe.dowe-language-support."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "SERVER"
+            Title size:"lg" weight:"bold"
+              "Installed automatically"
+            Text size:"sm" color:"muted"
+              "The first Dowe file downloads a pinned release, verifies its SHA-256, and caches it in VS Code's global extension storage."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "LOCAL"
+            Title size:"lg" weight:"bold"
+              "No Dowe setup"
+            Text size:"sm" color:"muted"
+              "Users do not need the dowe-lsp repository, Dowe, Cargo, Node.js, or npm in their Dowe project."
+  Section id:"extensions-zed" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "OPEN / ZED REGISTRY"
+        Title size:"3xl" weight:"black"
+          "Dowe for Zed"
+        Text size:"sm" color:"muted"
+          "The Zed extension also installs a managed language-server release automatically. Its official registry PR remains open for review."
+      Button:
+        href:"https://github.com/zed-industries/extensions/pull/6940"
+        target:"blank"
+        variant:"soft"
+        scheme:"primary"
+        size:"sm"
+        rounded:"full"
+        iconStart:"link"
+        "View Zed registry PR #6940"
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"primary"
+              "REGISTRY"
+            Title size:"xl" weight:"black"
+              "Publication pending"
+            Text size:"sm" color:"muted"
+              "The PR adds Dowe and the separate Dowe icon extension to Zed's official registry."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "REPOSITORY"
+            Title size:"xl" weight:"black"
+              "usedowe/dowe-zed"
+            Text size:"sm" color:"muted"
+              "Use the repository for the extension adapter, Tree-sitter grammar, Zed queries, icon theme, and local validation workflow."
+  Section id:"extensions-language-server" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SHARED LANGUAGE CONTRACT"
+        Title size:"3xl" weight:"black"
+          "One service, multiple editors"
+        Text size:"sm" color:"muted"
+          "Diagnostics, completion, hover, definition, symbols, formatting, and code actions come from the Dowe language service instead of separate JavaScript validators."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"xl" weight:"black"
+              "Compiler-backed assistance"
+            Text size:"sm" color:"muted"
+              "Component props, imports, env references, server constructs, and auto-import fixes stay aligned with the compiler APIs."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"xl" weight:"black"
+              "Editor-specific adapters"
+            Text size:"sm" color:"muted"
+              "VS Code uses TextMate highlighting and LSP providers; Zed uses its grammar and queries with the same language-server semantics."
+  Section id:"extensions-source-formatting" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SOURCE FORMAT"
+        Title size:"3xl" weight:"black"
+          "Nested property suites"
+        Text size:"sm" color:"muted"
+          "Props stay at the start of their declaration suite. A following child can open its own suite at the next indentation level."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy source"
+        copiedLabel:"Copied"
+        content:"""
+          Grid:
+            columns:{ xs:1 md:2 }
+            gap:4
+            Card:
+              variant:"soft"
+              scheme:"surface"
+        """
+  Section id:"extensions-settings" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "TROUBLESHOOTING"
+        Title size:"3xl" weight:"black"
+          "Override only when developing the server"
+        Text size:"sm" color:"muted"
+          "The default installation is automatic. Contributors can set an absolute executable path and restart the service after rebuilding it."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy settings"
+        copiedLabel:"Copied"
+        content:"""
+          dowe.languageServer.path
+          dowe.languageServer.args
+          dowe.languageServer.trace.server
+        """
+      Button:
+        href:"/docs/dev"
+        variant:"soft"
+        scheme:"primary"
+        size:"sm"
+        rounded:"full"
+        iconStart:"code"
+        "Back to Dowe Dev"

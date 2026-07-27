@@ -1,0 +1,27 @@
+layout BottomBarLayout
+  Scaffold
+    appBar
+      AppBar variant:"soft" scheme:"surface" position:"fixed" boxed:true bordered:true
+        start
+          Text weight:"bold"
+            "Dowe"
+        center
+          Text size:"sm" color:"muted"
+            "BottomBar shell"
+        end
+          Button href:"/examples/scaffold" variant:"ghost" scheme:"primary" size:"sm"
+            "Shell"
+    main
+      children
+    bottomBar
+      BottomBar variant:"soft" scheme:"surface" bordered:true blurred:true boxed:true floating:true
+        tab href:"/" label:"Home"
+          Icon name:"home"
+        tab href:"/docs/views" label:"Search"
+          Icon name:"magnifier"
+        tab href:"/examples/bottombar" label:"Create" featured:true
+          Icon name:"add-circle"
+        tab href:"/examples/appbar-two" label:"History"
+          Icon name:"history"
+        tab href:"/examples/scaffold" label:"Profile"
+          Icon name:"user"

@@ -1,0 +1,21 @@
+component ServerNavigation
+  SideNav variant:"ghost" scheme:"muted" size:"sm" wide:true p:4
+    item label:"Overview" href:"/docs/server" icon:"home"
+    item label:"TLS and ACME" href:"/docs/server/tls" icon:"lock"
+    item label:"Cache" href:"/docs/server/kv" icon:"key"
+    item label:"Vector" href:"/docs/server/vector" icon:"chart-2"
+    item label:"JWT" href:"/docs/server/jwt" icon:"settings"
+    item label:"Opaque sessions" href:"/docs/server/session" icon:"user"
+    item label:"Spawn" href:"/docs/server/spawn" icon:"code"
+    item label:"Outbound HTTP" href:"/docs/server/http" icon:"link"
+    item label:"Crypto" href:"/docs/server/crypto" icon:"lock"
+    item label:"Router endpoints" href:"/docs/server/router/endpoints" icon:"route"
+    item label:"HTTP routes" href:"/docs/server/router/http" icon:"route"
+    item label:"WebSockets" href:"/docs/server/router/websockets" icon:"link"
+    submenu label:"database" icon:"database" open:true
+      item label:"Database" href:"/docs/server/db" icon:"database"
+      item label:"Select and read" href:"/docs/server/db/select" icon:"notes"
+      item label:"Insert" href:"/docs/server/db/insert" icon:"document-text"
+      item label:"Update" href:"/docs/server/db/update" icon:"code"
+      item label:"Delete" href:"/docs/server/db/delete" icon:"menu-dots"
+      item label:"Transactions" href:"/docs/server/db/transactions" icon:"chart-2"

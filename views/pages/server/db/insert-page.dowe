@@ -1,0 +1,50 @@
+page DatabaseInsertPage
+  Section id:"database-insert-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SERVER / DATABASE / WRITE"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Insert"
+        Text size:"lg" color:"muted"
+          "Insert creates one record in a declared table and returns the created value. Database creates a ULID id when the value does not provide one."
+      Button href:"/docs/server/db/update" variant:"ghost" scheme:"muted" size:"sm"
+        "Update records"
+  Section id:"database-insert-example" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "CREATE"
+        Title size:"3xl" weight:"black"
+          "Validate input before the write"
+        Text size:"sm" color:"muted"
+          "The handler already has the request context as req, keeps the table name static, and asks Database to require non-empty title and content values. The same insert query works with postgres, d1, or dowe; this example declares dowe."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          handler createBlog
+            database db provider:"dowe" host:env.DOWE_HOST port:env.DOWE_PORT account:env.DOWE_USER secret:env.DOWE_PASSWORD name:"content"
+            query created db:db.insert table:"blogs" value:{ title:req.body.title content:req.body.content createdAt:now } required:["title", "content"]
+            return status:201 json:{ ok:true data:created }
+        """
+  Section id:"database-insert-contract" py:{ xs:7 md:10 }
+    Grid columns:{ xs:1 md:3 } gap:4
+      Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Title size:"lg" weight:"bold"
+          "Static authority"
+        Text size:"sm" color:"muted"
+          "The request cannot select a database name, table, or filesystem path."
+      Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Title size:"lg" weight:"bold"
+          "Created binding"
+        Text size:"sm" color:"muted"
+          "query created exposes the inserted record, including its generated id, to the response."
+      Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Title size:"lg" weight:"bold"
+          "No client runtime"
+        Text size:"sm" color:"muted"
+          "The write compiles to Dowe server behavior; it does not execute user source through Node.js."

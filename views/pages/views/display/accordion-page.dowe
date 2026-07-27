@@ -1,0 +1,142 @@
+page AccordionPage
+  const accordionProps:
+    value:[
+      { prop:"item" type:"id, label, optional disabled/defaultOpen" defaultValue:"required" },
+      { prop:"multiple" type:"boolean" defaultValue:"false" },
+      { prop:"variant" type:"solid | soft | outlined | ghost" defaultValue:"solid" },
+      { prop:"scheme" type:"primary | secondary | tertiary | muted | background | surface | success | info | warning | danger" defaultValue:"background" },
+      { prop:"item children" type:"normal view tree" defaultValue:"required" },
+    ]
+  Section id:"accordion-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "DISPLAY"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Accordion"
+        Text size:"lg" color:"muted"
+          "Accordion organizes related content into explicit item entries with target-owned disclosure state, optional multi-open behavior, and portable child views."
+      Card variant:"soft" scheme:"primary" p:5 rounded:"lg" minW:56
+        Grid columns:1 gap:1
+          Text size:"xs" weight:"bold" spacing:"widest"
+            "STRUCTURAL CONTENT"
+          Title size:"xl" weight:"black"
+            "Items stay inspectable"
+          Text size:"sm"
+            "Each panel has a stable id, a label, and a normal Dowe view tree as its body."
+  Section id:"accordion-playground" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PLAYGROUND"
+        Title size:"3xl" weight:"black"
+          "Build a release FAQ"
+        Text size:"sm" color:"muted"
+          "multiple:true lets readers compare answers without closing the panel they are already reading."
+      Card variant:"outlined" scheme:"surface" rounded:"md" border:1 p:{ xs:5 md:7 }
+        Accordion multiple:true variant:"outlined" scheme:"surface" rounded:"md"
+          item id:"source" label:"Where does the source run?" defaultOpen:true
+            Grid columns:1 gap:2 p:2
+              Text size:"sm" color:"muted"
+                "Dowe lowers the page to a shared view model and lets each target render its own native disclosure behavior."
+              Text size:"sm" weight:"bold"
+                "The source remains target-neutral."
+          item id:"runtime" label:"Does it require a JavaScript package?"
+            Text size:"sm" color:"muted"
+              "No. Web runtime behavior is Dowe-owned, while Android and iOS use their native state primitives."
+          item id:"migration" label:"Can this item be disabled?" disabled:true
+            Text size:"sm" color:"muted"
+              "Disabled entries remain visible and explain why a section is not currently available."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Accordion multiple:true variant:"outlined" scheme:"surface" rounded:"md"
+            item id:"source" label:"Where does the source run?" defaultOpen:true
+              Text size:"sm" color:"muted"
+                "Dowe lowers the page to a shared view model."
+            item id:"runtime" label:"Does it require a JavaScript package?"
+              Text size:"sm" color:"muted"
+                "No. Web, Android, and iOS use Dowe-owned output."
+            item id:"migration" label:"Can this item be disabled?" disabled:true
+              Text size:"sm" color:"muted"
+                "Disabled entries remain visible."
+        """
+  Section id:"accordion-patterns" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "ADVANCED PATTERNS"
+        Title size:"3xl" weight:"black"
+          "Use the body as a real view tree"
+        Text size:"sm" color:"muted"
+          "Accordion items are not string-only slots. Use Grid, Flex, Text, Title, and actions to make each answer useful on its own."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold" color:"muted"
+              "OPERATIONS"
+            Title size:"lg" weight:"black"
+              "Deployment checks"
+            Accordion variant:"soft" scheme:"primary" rounded:"md"
+              item id:"build" label:"Build artifact" defaultOpen:true
+                Text size:"sm" color:"muted"
+                  "Compile once, inspect the generated artifact, and ship the selected target."
+              item id:"verify" label:"Validation"
+                Text size:"sm" color:"muted"
+                  "Keep compiler diagnostics and target checks in the same workflow."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold" color:"muted"
+              "SCHEME"
+            Title size:"lg" weight:"black"
+              "Surface documentation"
+            Accordion variant:"solid" scheme:"background" rounded:"md"
+              item id:"contract" label:"Use scheme for families" defaultOpen:true
+                Text size:"sm" color:"muted"
+                  "background and surface are structural families intended for documentation panels."
+              item id:"variant" label:"Keep variant orthogonal"
+                Text size:"sm" color:"muted"
+                  "solid, soft, outlined, and ghost describe treatment, not semantic color."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold" color:"muted"
+              "SINGLE OPEN"
+            Title size:"lg" weight:"black"
+              "Progressive disclosure"
+            Accordion multiple:false variant:"ghost" scheme:"muted" rounded:"md"
+              item id:"one" label:"First decision" defaultOpen:true
+                Text size:"sm" color:"muted"
+                  "Use the default-open item to establish the first step."
+              item id:"two" label:"Second decision"
+                Text size:"sm" color:"muted"
+                  "The next choice replaces the previous panel when multiple is false."
+  Section id:"accordion-props" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Props"
+        Text size:"sm" color:"muted"
+          "Accordion also accepts the applicable common spacing, sizing, border, visibility, and accessibility props."
+      Table:
+        data:accordionProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1fr"
+  Section id:"accordion-next" p:{ xs:5 md:7 }
+    Flex wrap:true justify:"between" gap:4
+      Button href:"/docs/views/control/toggle-group" variant:"outlined" scheme:"primary" size:"md" rounded:"full"
+        "Previous ToggleGroup"
+      Button href:"/docs/views/display/avatar" variant:"solid" scheme:"primary" size:"md" rounded:"full"
+        "Next Avatar"

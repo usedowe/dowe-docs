@@ -1,0 +1,211 @@
+page AgentPage
+  Section id:"agent-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "DEVELOPMENT / EXTERNAL AGENTS"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Dowe Agent"
+        Text size:"lg" color:"muted"
+          "Dowe prepares a project for Codex, Claude Code, OpenCode, or another coding agent without choosing, hosting, or charging for the model."
+      Button:
+        href:"/docs/server"
+        variant:"soft"
+        scheme:"primary"
+        size:"sm"
+        rounded:"full"
+        iconStart:"server"
+        "Open Server docs"
+  Section id:"agent-installation" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "ONE PROJECT SETUP"
+        Title size:"3xl" weight:"black"
+          "Install the complete agent"
+        Text size:"sm" color:"muted"
+          "Initialization writes provider-neutral instructions, the TDD harness, plans, and the public Dowe authoring skills included in the installed Dowe version."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy commands"
+        copiedLabel:"Copied"
+        content:"""
+          dowe agent init
+          dowe agent update
+        """
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "INIT"
+            Title size:"lg" weight:"bold"
+              "Preserve project work"
+            Text size:"sm" color:"muted"
+              "init creates missing agent files and preserves existing files byte for byte. It does not write generated .dowe artifacts."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "UPDATE"
+            Title size:"lg" weight:"bold"
+              "Refresh managed knowledge"
+            Text size:"sm" color:"muted"
+              "update rebuilds Dowe-managed instructions and skills, removes obsolete managed resources, and preserves project-owned skills."
+  Section id:"agent-skills" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "VERSIONED AUTHORING KNOWLEDGE"
+        Title size:"3xl" weight:"black"
+          "Skills are installed automatically"
+        Text size:"sm" color:"muted"
+          "Dowe installs authoring skills locally so an external agent can use the syntax and target boundaries that match the current compiler version."
+        Text size:"sm" color:"muted"
+          "The skills keep frontend modules in views, backend modules and migrations in server, and only project wiring at the root."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy structure"
+        copiedLabel:"Copied"
+        content:"""
+          AGENTS.md
+          CLAUDE.md
+          .agents/
+            manifest.json
+            harnesses/tdd.md
+            plans/
+            skills/
+              dowe-core/
+              dowe-views/
+              dowe-server/
+              dowe-theme/
+        """
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "DISCOVERY"
+            Title size:"lg" weight:"bold"
+              "Read frontmatter first"
+            Text size:"sm" color:"muted"
+              "The agent discovers skill metadata before loading a focused SKILL.md."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "DETAIL"
+            Title size:"lg" weight:"bold"
+              "Use focused references"
+            Text size:"sm" color:"muted"
+              "dowe-views separates routes, composition, components, styles, and Canvas into focused references. Every named reference is embedded, installed, and available through the full MCP resource."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "OWNERSHIP"
+            Title size:"lg" weight:"bold"
+              "Keep authority separate"
+            Text size:"sm" color:"muted"
+              "Dowe-managed dowe-* skills are separate from private compiler-development skills and project-owned guidance."
+  Section id:"agent-visual-fidelity" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "REFERENCE-DRIVEN UI"
+        Title size:"3xl" weight:"black"
+          "Treat the image as a visual contract"
+        Text size:"sm" color:"muted"
+          "When a user asks for an exact reconstruction, dowe-views inventories the complete shell and every visible page band before authoring source."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold" color:"primary"
+              "STRUCTURE"
+            Title size:"xl" weight:"black"
+              "Keep chrome in the layout"
+            Text size:"sm" color:"muted"
+              "A shared AppBar or Footer belongs to one Scaffold layout even when the route graph currently has one page. Ordered page bands remain sibling Sections."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold" color:"muted"
+              "FIDELITY"
+            Title size:"xl" weight:"black"
+              "Compare every band"
+            Text size:"sm" color:"muted"
+              "The reference and its crops remain validation evidence, never project assets. The agent rebuilds navigation, text, cards, charts, dashboards, logos, and decorative geometry with Dowe components, using Image only for independently obtained original media."
+  Section id:"project-starters" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "AGENT-READY FROM INIT"
+        Title size:"3xl" weight:"black"
+          "Start with a designed system"
+        Text size:"sm" color:"muted"
+          "Choose CRUD or blank first. CRUD continues directly to optional English and Spanish i18n, while the Database provider stays in server configuration and both starters include the same project Agent Harness and four public authoring skills."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold" color:"primary"
+              "CRUD STARTERS"
+            Title size:"xl" weight:"black"
+              "A modern editorial dashboard"
+            Text size:"sm" color:"muted"
+              "DB and D1 share the same responsive journal, contained story list, session-aware actions, and separate modals for registration, login, publishing, and editing."
+            Text size:"sm" color:"muted"
+              "The layout validates the persisted opaque ULID session and current user through Cache with Database fallback before its Scaffold appears. The page then requests blogs from its own init, with portable SVG Spinner Splash boundaries for both startup phases."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold" color:"muted"
+              "BLANK STARTERS"
+            Title size:"xl" weight:"black"
+              "A minimal portable baseline"
+            Text size:"sm" color:"muted"
+              "The blank starter includes one Hello Dowe page and one Dowe-owned GET endpoint without unused folders or backend modules. Enable i18n to generate English and Spanish catalogs."
+  Section id:"agent-workflow" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "AUTOMATIC WORKFLOW"
+        Title size:"3xl" weight:"black"
+          "The agent owns the workflow"
+        Text size:"sm" color:"muted"
+          "AGENTS.md gives every external agent one short authoring contract. CLAUDE.md points Claude-compatible tools to the same rules instead of creating a second workflow."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Harness and CodeGraph"
+            Text size:"sm" color:"muted"
+              "Behavior changes use the Agent Harness. CodeGraph remains available for ownership, modularity, dependencies, and duplication checks."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "MCP integration"
+            Text size:"sm" color:"muted"
+              "Providers can start the local read-only MCP bridge with dowe agent mcp instead of exposing credentials or opening a network port."
+  Section id:"agent-tdd" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SPEC-DRIVEN DEVELOPMENT"
+        Title size:"3xl" weight:"black"
+          "Harnesses enforce process, not a test language"
+        Text size:"sm" color:"muted"
+          "The TDD harness requires a spec, contracts, a test plan, validation, and documentation before a behavior change closes. Native literal tests can live in any project folder and run through dowe test."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy flow"
+        copiedLabel:"Copied"
+        content:"Spec -> Contract -> Tests -> Implementation -> Validation -> Documentation"
+      Text size:"sm" color:"muted"
+        "The coding agent writes and runs the concrete project tests appropriate to the selected spec. For literal contracts it can use test and assert declarations anywhere in the project, then records validation evidence under .dowe only when the harness requires it."
+      Button:
+        href:"/docs/dev/tests"
+        variant:"soft"
+        scheme:"primary"
+        size:"sm"
+        rounded:"full"
+        iconStart:"check-circle"
+        "Read native test docs"

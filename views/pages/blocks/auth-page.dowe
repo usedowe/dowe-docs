@@ -1,0 +1,390 @@
+page AuthPage
+  Section id:"auth" py:{ xs:6 md:10 }
+    Grid columns:1 gap:4
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "COPY-READY BLOCKS"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Authentication"
+      Text size:"lg" color:"muted"
+        "Seven responsive authentication pages for login, recovery, and account creation."
+  Section id:"login-split" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "01 · LOGIN SPLIT"
+          Title size:"2xl" weight:"black"
+            "Product identity beside a focused login form"
+        Button:
+          href:"/blocks/auth-preview/login-split"
+          variant:"soft"
+          scheme:"primary"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Device device:"laptop" w:"full" rounded:"lg" border:1
+        Iframe:
+          src:"/blocks/auth-preview/login-split"
+          title:"Split login page preview"
+          loading:"lazy"
+          sandbox:"scripts same-origin forms"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy auth page"
+        copiedLabel:"Copied"
+        content:"""
+          signal form value:{ email:"" password:"" remember:false }
+
+          Section id:"login-split-auth" p:0 minH:"vh-0"
+            Grid columns:{ xs:1 md:2 } gap:0 minH:"vh-0"
+              Box bg:"softPrimary" color:"primary" minH:{ xs:40 md:"vh-0" } p:{ xs:6 md:12 }
+                Flex direction:"column" justify:"center" align:"center" minH:{ xs:40 md:"vh-0" }
+                  Box bg:"surface" rounded:"full" p:{ xs:5 md:9 } shadow:"xl" shadowColor:"muted"
+                    Icon name:"shield-user" style:"bold-duotone" fill:"primary" w:{ xs:16 md:24 } h:{ xs:16 md:24 }
+              Flex direction:"column" justify:"center" p:{ xs:6 md:12 } minH:{ xs:"vh-40" md:"vh-0" }
+                Grid columns:1 gap:5
+                  Grid columns:1 gap:2
+                    Title size:"3xl" weight:"black"
+                      "Log in"
+                    Text size:"sm" color:"muted"
+                      "Welcome back. Enter your details to continue."
+                  Input bind:form.email label:"Email address" placeholder:"you@example.com" variant:"soft" scheme:"primary" w:"full"
+                  PasswordField bind:form.password label:"Password" placeholder:"Enter your password" hideStrength:true variant:"soft" scheme:"primary" w:"full"
+                  Flex justify:"between" align:"center" gap:2
+                    Checkbox bind:form.remember label:"Remember me" scheme:"primary"
+                    Button href:"/blocks/auth-preview/forgot-password" variant:"ghost" scheme:"primary" size:"xs"
+                      "Forgot password?"
+                  Button variant:"solid" scheme:"primary" size:"md" w:"full"
+                    "Log in"
+                  Grid columns:{ xs:1 sm:2 } gap:3
+                    Button variant:"outlined" scheme:"primary" size:"sm" iconStart:"global" w:"full"
+                      "Continue with Google"
+                    Button variant:"outlined" scheme:"primary" size:"sm" iconStart:"smartphone" w:"full"
+                      "Continue with Apple"
+        """
+  Section id:"login-reverse" p:{ xs:5 md:7 } bg:"softTertiary" color:"onSoftTertiary"
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "02 · LOGIN REVERSED"
+          Title size:"2xl" weight:"black"
+            "A mirrored split that keeps media first on mobile"
+        Button:
+          href:"/blocks/auth-preview/login-reverse"
+          variant:"solid"
+          scheme:"tertiary"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Device device:"laptop" w:"full" rounded:"lg" border:1
+        Iframe:
+          src:"/blocks/auth-preview/login-reverse"
+          title:"Reversed split login page preview"
+          loading:"lazy"
+          sandbox:"scripts same-origin forms"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy auth page"
+        copiedLabel:"Copied"
+        content:"""
+          signal form value:{ email:"" password:"" remember:false }
+
+          Section id:"login-reverse-auth" p:0 minH:"vh-0"
+            Grid columns:{ xs:1 md:2 } gap:0 minH:"vh-0"
+              Box show:{ xs:true md:false } bg:"softTertiary" color:"tertiary" minH:40 p:6
+                Flex direction:"column" justify:"center" align:"center" minH:40
+                  Icon name:"lock-password" style:"bold-duotone" fill:"tertiary" w:16 h:16
+              Flex direction:"column" justify:"center" p:{ xs:6 md:12 } minH:{ xs:"vh-40" md:"vh-0" }
+                Grid columns:1 gap:5
+                  Title size:"3xl" weight:"black"
+                    "Log in"
+                  Input bind:form.email label:"Email address" placeholder:"you@example.com" variant:"soft" scheme:"tertiary" w:"full"
+                  PasswordField bind:form.password label:"Password" placeholder:"Enter your password" hideStrength:true variant:"soft" scheme:"tertiary" w:"full"
+                  Flex justify:"between" align:"center" gap:2
+                    Checkbox bind:form.remember label:"Remember me" scheme:"tertiary"
+                    Button href:"/blocks/auth-preview/forgot-password" variant:"ghost" scheme:"tertiary" size:"xs"
+                      "Forgot password?"
+                  Button variant:"solid" scheme:"tertiary" size:"md" w:"full"
+                    "Log in"
+              Box show:{ xs:false md:true } bg:"softTertiary" color:"tertiary" minH:"vh-0" p:12
+                Flex direction:"column" justify:"center" align:"center" minH:"vh-0"
+                  Icon name:"lock-password" style:"bold-duotone" fill:"tertiary" w:24 h:24
+        """
+  Section id:"login-card" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "03 · LOGIN CARD"
+          Title size:"2xl" weight:"black"
+            "A centered welcome surface with three identity options"
+        Button:
+          href:"/blocks/auth-preview/login-card"
+          variant:"soft"
+          scheme:"primary"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Device device:"laptop" w:"full" rounded:"lg" border:1
+        Iframe:
+          src:"/blocks/auth-preview/login-card"
+          title:"Centered login card preview"
+          loading:"lazy"
+          sandbox:"scripts same-origin forms"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy auth page"
+        copiedLabel:"Copied"
+        content:"""
+          signal form value:{ email:"" password:"" remember:false }
+
+          Section id:"login-card-auth" bg:"softMuted" boxed:true p:{ xs:5 md:10 } minH:"vh-0"
+            Grid columns:{ xs:1 md:"1fr 1fr 1fr" } align:"center" minH:"vh-0"
+              Box show:{ xs:false md:true }
+              Card variant:"solid" scheme:"surface" rounded:"xl" shadow:"xl" shadowColor:"muted" p:{ xs:6 md:8 }
+                Grid columns:1 gap:5
+                  Flex direction:"column" align:"center" gap:2
+                    Icon name:"user-circle" style:"bold-duotone" fill:"primary" w:12 h:12
+                    Title size:"3xl" weight:"black"
+                      "Welcome back"
+                    Text size:"sm" color:"muted"
+                      "Please log in to continue."
+                  Input bind:form.email label:"Email address" placeholder:"you@example.com" variant:"soft" scheme:"primary" w:"full"
+                  PasswordField bind:form.password label:"Password" placeholder:"Enter your password" hideStrength:true variant:"soft" scheme:"primary" w:"full"
+                  Checkbox bind:form.remember label:"Remember me" scheme:"primary"
+                  Button variant:"solid" scheme:"primary" size:"md" w:"full"
+                    "Log in"
+                  Grid columns:{ xs:1 sm:3 } gap:3
+                    Button variant:"outlined" scheme:"primary" size:"sm" iconStart:"global" w:"full"
+                      "Google"
+                    Button variant:"outlined" scheme:"primary" size:"sm" iconStart:"smartphone" w:"full"
+                      "Apple"
+                    Button variant:"outlined" scheme:"primary" size:"sm" iconStart:"chat-round-line" w:"full"
+                      "Twitter"
+              Box show:{ xs:false md:true }
+        """
+  Section id:"forgot-password" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "04 · PASSWORD RECOVERY"
+          Title size:"2xl" weight:"black"
+            "A minimal reset flow with one clear action"
+        Button:
+          href:"/blocks/auth-preview/forgot-password"
+          variant:"solid"
+          scheme:"primary"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Device device:"laptop" w:"full" rounded:"lg" border:1
+        Iframe:
+          src:"/blocks/auth-preview/forgot-password"
+          title:"Forgot password page preview"
+          loading:"lazy"
+          sandbox:"scripts same-origin forms"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy auth page"
+        copiedLabel:"Copied"
+        content:"""
+          signal email value:""
+
+          Section id:"forgot-password-auth" bg:"softMuted" boxed:true p:{ xs:5 md:10 } minH:"vh-0"
+            Grid columns:{ xs:1 md:"1fr 1fr 1fr" } align:"center" minH:"vh-0"
+              Box show:{ xs:false md:true }
+              Card variant:"solid" scheme:"surface" rounded:"xl" shadow:"xl" shadowColor:"muted" p:{ xs:6 md:8 }
+                Grid columns:1 gap:5
+                  Flex direction:"column" align:"center" gap:2
+                    Box bg:"softPrimary" color:"primary" rounded:"full" p:4
+                      Icon name:"letter-unread" style:"bold-duotone" fill:"primary" w:10 h:10
+                    Title size:"3xl" weight:"black"
+                      "Forgot your password?"
+                    Text size:"sm" color:"muted"
+                      "Enter your email and we will send you a secure reset link."
+                  Input bind:email label:"Email address" placeholder:"you@example.com" variant:"soft" scheme:"primary" w:"full"
+                  Button variant:"solid" scheme:"primary" size:"md" w:"full"
+                    "Send reset link"
+                  Button href:"/blocks/auth-preview/login-card" variant:"ghost" scheme:"primary" size:"sm" iconStart:"arrow-left"
+                    "Back to log in"
+              Box show:{ xs:false md:true }
+        """
+  Section id:"signup-split" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "05 · SIGNUP SPLIT"
+          Title size:"2xl" weight:"black"
+            "Account creation with product identity and guidance"
+        Button:
+          href:"/blocks/auth-preview/signup-split"
+          variant:"soft"
+          scheme:"success"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Device device:"laptop" w:"full" rounded:"lg" border:1
+        Iframe:
+          src:"/blocks/auth-preview/signup-split"
+          title:"Split signup page preview"
+          loading:"lazy"
+          sandbox:"scripts same-origin forms"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy auth page"
+        copiedLabel:"Copied"
+        content:"""
+          signal form value:{ firstName:"" lastName:"" email:"" password:"" accepted:false }
+
+          Section id:"signup-split-auth" p:0 minH:"vh-0"
+            Grid columns:{ xs:1 md:2 } gap:0 minH:"vh-0"
+              Box bg:"softSecondary" color:"success" minH:{ xs:40 md:"vh-0" } p:{ xs:6 md:12 }
+                Flex direction:"column" justify:"center" align:"center" minH:{ xs:40 md:"vh-0" }
+                  Icon name:"user-plus-rounded" style:"bold-duotone" fill:"success" w:{ xs:16 md:24 } h:{ xs:16 md:24 }
+              Flex direction:"column" justify:"center" p:{ xs:6 md:12 } minH:{ xs:"vh-40" md:"vh-0" }
+                Grid columns:1 gap:5
+                  Title size:"3xl" weight:"black"
+                    "Sign up"
+                  Grid columns:2 gap:3
+                    Input bind:form.firstName label:"First name" placeholder:"First name" variant:"soft" scheme:"success" w:"full"
+                    Input bind:form.lastName label:"Last name" placeholder:"Last name" variant:"soft" scheme:"success" w:"full"
+                  Input bind:form.email label:"Email address" placeholder:"you@example.com" variant:"soft" scheme:"success" w:"full"
+                  PasswordField bind:form.password label:"Password" placeholder:"Create a password" hideStrength:false variant:"soft" scheme:"success" w:"full"
+                  Checkbox bind:form.accepted label:"I agree to the terms and privacy policy." scheme:"success"
+                  Button variant:"solid" scheme:"success" size:"md" w:"full"
+                    "Create account"
+                  Grid columns:{ xs:1 sm:2 } gap:3
+                    Button variant:"outlined" scheme:"success" size:"sm" iconStart:"global" w:"full"
+                      "Continue with Google"
+                    Button variant:"outlined" scheme:"success" size:"sm" iconStart:"smartphone" w:"full"
+                      "Continue with Apple"
+        """
+  Section id:"signup-reverse" p:{ xs:5 md:7 } bg:"softInfo" color:"onSoftInfo"
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "06 · SIGNUP REVERSED"
+          Title size:"2xl" weight:"black"
+            "A mirrored registration page with mobile-first media"
+        Button:
+          href:"/blocks/auth-preview/signup-reverse"
+          variant:"solid"
+          scheme:"info"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Device device:"laptop" w:"full" rounded:"lg" border:1
+        Iframe:
+          src:"/blocks/auth-preview/signup-reverse"
+          title:"Reversed split signup page preview"
+          loading:"lazy"
+          sandbox:"scripts same-origin forms"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy auth page"
+        copiedLabel:"Copied"
+        content:"""
+          signal form value:{ firstName:"" lastName:"" email:"" password:"" accepted:false }
+
+          Section id:"signup-reverse-auth" p:0 minH:"vh-0"
+            Grid columns:{ xs:1 md:2 } gap:0 minH:"vh-0"
+              Box show:{ xs:true md:false } bg:"softInfo" color:"info" minH:40 p:6
+                Flex direction:"column" justify:"center" align:"center" minH:40
+                  Icon name:"user-check-rounded" style:"bold-duotone" fill:"info" w:16 h:16
+              Flex direction:"column" justify:"center" p:{ xs:6 md:12 } minH:{ xs:"vh-40" md:"vh-0" }
+                Grid columns:1 gap:5
+                  Title size:"3xl" weight:"black"
+                    "Sign up"
+                  Grid columns:2 gap:3
+                    Input bind:form.firstName label:"First name" placeholder:"First name" variant:"soft" scheme:"info" w:"full"
+                    Input bind:form.lastName label:"Last name" placeholder:"Last name" variant:"soft" scheme:"info" w:"full"
+                  Input bind:form.email label:"Email address" placeholder:"you@example.com" variant:"soft" scheme:"info" w:"full"
+                  PasswordField bind:form.password label:"Password" placeholder:"Create a password" hideStrength:false variant:"soft" scheme:"info" w:"full"
+                  Checkbox bind:form.accepted label:"I agree to the terms and privacy policy." scheme:"info"
+                  Button variant:"solid" scheme:"info" size:"md" w:"full"
+                    "Create account"
+              Box show:{ xs:false md:true } bg:"softInfo" color:"info" minH:"vh-0" p:12
+                Flex direction:"column" justify:"center" align:"center" minH:"vh-0"
+                  Icon name:"user-check-rounded" style:"bold-duotone" fill:"info" w:24 h:24
+        """
+  Section id:"signup-card" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "07 · SIGNUP CARD"
+          Title size:"2xl" weight:"black"
+            "A compact free-trial card with flexible identity choices"
+        Button:
+          href:"/blocks/auth-preview/signup-card"
+          variant:"soft"
+          scheme:"primary"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Device device:"laptop" w:"full" rounded:"lg" border:1
+        Iframe:
+          src:"/blocks/auth-preview/signup-card"
+          title:"Centered signup card preview"
+          loading:"lazy"
+          sandbox:"scripts same-origin forms"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy auth page"
+        copiedLabel:"Copied"
+        content:"""
+          signal form value:{ firstName:"" lastName:"" email:"" password:"" accepted:false }
+
+          Section id:"signup-card-auth" bg:"softMuted" boxed:true p:{ xs:5 md:10 } minH:"vh-0"
+            Grid columns:{ xs:1 md:"1fr 1fr 1fr" } align:"center" minH:"vh-0"
+              Box show:{ xs:false md:true }
+              Card variant:"solid" scheme:"surface" rounded:"xl" shadow:"xl" shadowColor:"primary" p:{ xs:6 md:8 } border:1
+                Grid columns:1 gap:5
+                  Flex direction:"column" align:"center" gap:2
+                    Icon name:"shield-check" style:"bold-duotone" fill:"primary" w:12 h:12
+                    Title size:"3xl" weight:"black"
+                      "Sign up free"
+                    Text size:"sm" color:"muted"
+                      "14-day free access to unlimited resources."
+                  Grid columns:2 gap:3
+                    Input bind:form.firstName label:"First name" placeholder:"First name" variant:"soft" scheme:"primary" w:"full"
+                    Input bind:form.lastName label:"Last name" placeholder:"Last name" variant:"soft" scheme:"primary" w:"full"
+                  Input bind:form.email label:"Email address" placeholder:"you@example.com" variant:"soft" scheme:"primary" w:"full"
+                  PasswordField bind:form.password label:"Password" placeholder:"Create a password" hideStrength:false variant:"soft" scheme:"primary" w:"full"
+                  Checkbox bind:form.accepted label:"I agree to the terms and privacy policy." scheme:"primary"
+                  Button variant:"solid" scheme:"primary" size:"md" w:"full"
+                    "Create free account"
+                  Grid columns:{ xs:1 sm:3 } gap:3
+                    Button variant:"outlined" scheme:"primary" size:"sm" iconStart:"global" w:"full"
+                      "Google"
+                    Button variant:"outlined" scheme:"primary" size:"sm" iconStart:"smartphone" w:"full"
+                      "Apple"
+                    Button variant:"outlined" scheme:"primary" size:"sm" iconStart:"chat-round-line" w:"full"
+                      "Twitter"
+              Box show:{ xs:false md:true }
+        """

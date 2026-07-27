@@ -1,0 +1,120 @@
+page AudioPage
+  const audioProps:
+    value:[
+      { prop:"src" type:"asset path | https URL" defaultValue:"required" },
+      { prop:"subtitle" type:"string" defaultValue:"—" },
+      { prop:"avatarSrc" type:"asset path | https URL" defaultValue:"—" },
+      { prop:"variant" type:"solid | soft" defaultValue:"solid" },
+      { prop:"scheme" type:"primary | secondary | tertiary | muted | success | info | warning | danger" defaultValue:"primary" },
+      { prop:"rounded" type:"xs | sm | md | lg | xl | full" defaultValue:"radius" },
+    ]
+  Section id:"audio-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "CONTROL"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Audio"
+        Text size:"lg" color:"muted"
+          "Audio creates a portable player surface with an explicit source, optional identity, and the same visual contract on web, Android, and iOS."
+      Card variant:"soft" scheme:"success" p:5 rounded:"lg" minW:56
+        Grid columns:1 gap:1
+          Text size:"xs" weight:"bold" spacing:"widest"
+            "MEDIA CONTRACT"
+          Title size:"xl" weight:"black"
+            "One source, three targets"
+          Text size:"sm"
+            "Use an asset path for packaged media or an HTTPS URL for a remote preview."
+  Section id:"audio-playground" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PLAYGROUND"
+        Title size:"3xl" weight:"black"
+          "Compare player treatments"
+        Text size:"sm" color:"muted"
+          "Keep the source stable while changing the subtitle, avatar, variant, and scheme to match the surrounding product surface."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"outlined" scheme:"surface" rounded:"md" border:1 p:{ xs:5 md:7 }
+          Grid columns:1 gap:4
+            Audio src:"https://cdn.pixabay.com/audio/2022/04/25/audio_5d61b5204f.mp3" subtitle:"Product walkthrough · 02:18" avatarSrc:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=96&q=80" variant:"soft" scheme:"primary" rounded:"lg"
+            Text size:"xs" color:"muted"
+              "Soft player with an author avatar and a descriptive subtitle."
+        Card variant:"solid" scheme:"muted" rounded:"md" p:{ xs:5 md:7 }
+          Grid columns:1 gap:4
+            Audio src:"https://cdn.pixabay.com/audio/2022/04/25/audio_5d61b5204f.mp3" subtitle:"Release notes · 04:42" variant:"solid" scheme:"info" rounded:"lg"
+            Text size:"xs" color:"onMuted"
+              "Solid player when media should anchor a dark or high-contrast panel."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Audio src:"https://cdn.pixabay.com/audio/2022/04/25/audio_5d61b5204f.mp3" subtitle:"Product walkthrough · 02:18" avatarSrc:"/assets/team/maya.webp" variant:"soft" scheme:"primary" rounded:"lg"
+          Audio src:"https://cdn.pixabay.com/audio/2022/04/25/audio_5d61b5204f.mp3" subtitle:"Release notes · 04:42" variant:"solid" scheme:"info" rounded:"lg"
+        """
+  Section id:"audio-patterns" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "COMPOSITION PATTERNS"
+        Title size:"3xl" weight:"black"
+          "Use Audio inside a content workflow"
+        Text size:"sm" color:"muted"
+          "Pair the player with metadata and a clear next action. The component owns playback controls; the surrounding Dowe source owns the page composition."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "EPISODE"
+            Title size:"lg" weight:"black"
+              "Design review"
+            Text size:"sm" color:"muted"
+              "Subtitle gives users context before they press play."
+            Audio src:"https://cdn.pixabay.com/audio/2022/04/25/audio_5d61b5204f.mp3" subtitle:"12 min · Design team" variant:"soft" scheme:"secondary"
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "AUTHOR"
+            Title size:"lg" weight:"black"
+              "Agent briefing"
+            Text size:"sm" color:"muted"
+              "avatarSrc makes the source owner visible without adding a second avatar tree."
+            Audio src:"https://cdn.pixabay.com/audio/2022/04/25/audio_5d61b5204f.mp3" subtitle:"Maya Chen · 06 min" avatarSrc:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=96&q=80" variant:"soft" scheme:"success"
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "STATUS"
+            Title size:"lg" weight:"black"
+              "Ambient update"
+            Text size:"sm" color:"muted"
+              "A solid scheme helps a player read as an active media surface."
+            Audio src:"https://cdn.pixabay.com/audio/2022/04/25/audio_5d61b5204f.mp3" subtitle:"System update · 01:30" variant:"solid" scheme:"warning"
+  Section id:"audio-props" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Props"
+        Text size:"sm" color:"muted"
+          "Audio also accepts the applicable common spacing, sizing, border, visibility, and accessibility props."
+      Table:
+        data:audioProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1fr"
+  Section id:"audio-next" p:{ xs:5 md:7 }
+    Flex wrap:true justify:"between" gap:4
+      Button href:"/docs/views/control/video" variant:"outlined" scheme:"primary" size:"md" rounded:"full"
+        "Previous Video"
+      Button href:"/docs/views/control/record" variant:"solid" scheme:"primary" size:"md" rounded:"full"
+        "Next Record"

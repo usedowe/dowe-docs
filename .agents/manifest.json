@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "1",
+  "harnessVersion": "1",
+  "doweVersion": "1.0.0",
+  "mode": "project",
+  "projectRoot": ".",
+  "agentRoot": ".agents",
+  "generatedEvidenceRoot": ".dowe/agent-harnesses",
+  "specRoots": [
+    "specs"
+  ],
+  "docRoots": [
+    "docs"
+  ],
+  "sourceRoots": [
+    "main.dowe",
+    "theme.dowe",
+    ".env.example",
+    "server",
+    "types",
+    "views"
+  ],
+  "managedSkills": [
+    "dowe-core",
+    "dowe-server",
+    "dowe-theme",
+    "dowe-views"
+  ],
+  "allowedAgentWriteRoots": [
+    ".agents"
+  ],
+  "disallowedRuntimeRoots": [
+    ".agents"
+  ],
+  "validationCommands": [
+    {
+      "id": "harness-check",
+      "kind": "harness_check",
+      "required": true
+    },
+    {
+      "id": "codegraph-check",
+      "kind": "codegraph_check",
+      "required": true
+    }
+  ],
+  "tddRequired": true
+}

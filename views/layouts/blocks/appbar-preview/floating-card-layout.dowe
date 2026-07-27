@@ -1,0 +1,55 @@
+layout AppBarFloatingCardLayout
+  Scaffold p:{ xs:2 md:4 }
+    appBar
+      AppBar:
+        variant:"solid"
+        scheme:"surface"
+        position:"sticky"
+        boxed:true
+        floating:true
+        bordered:true
+        py:2
+        start
+          Flex align:"center" gap:5
+            Brand href:"/blocks/appbar" label:"Pekoo home"
+              Flex align:"center" gap:2
+                Icon name:"bolt-circle" style:"bold" fill:"primary" w:8 h:8
+                Text size:"xl" weight:"black"
+                  "PEKOO."
+            Flex align:"center" gap:2 show:{ xs:false lg:true }
+              IconButton:
+                icon:"global"
+                label:"Community"
+                variant:"solid"
+                scheme:"danger"
+                rounded:"full"
+              IconButton:
+                icon:"figma"
+                label:"Design profile"
+                variant:"solid"
+                scheme:"info"
+                rounded:"full"
+        center
+          NavMenu variant:"ghost" scheme:"muted" size:"sm" show:{ xs:false md:true }
+            item label:"Home" href:"/blocks/appbar-preview/floating-card"
+            item label:"About Us" href:"/blocks/appbar-preview/creative"
+            item label:"Services" href:"/blocks/appbar-preview/social-pill"
+            item label:"Contact" href:"/blocks/appbar-preview/centered-pill"
+        end
+          Flex align:"center" gap:2
+            Button:
+              href:"/blocks/appbar-preview/centered-pill"
+              variant:"solid"
+              scheme:"secondary"
+              size:"sm"
+              rounded:"full"
+              show:{ xs:false sm:true }
+              "Get In Touch"
+            IconButton:
+              icon:"hamburger-menu"
+              label:"Open navigation"
+              variant:"ghost"
+              scheme:"primary"
+              show:{ xs:true md:false }
+    main
+      children

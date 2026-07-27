@@ -1,0 +1,46 @@
+page DatabaseUpdatePage
+  Section id:"database-update-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SERVER / DATABASE / WRITE"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Update"
+        Text size:"lg" color:"muted"
+          "Update applies a patch to records selected by a static table and equality filter, then returns a change result through its query binding."
+      Button href:"/docs/server/db/delete" variant:"ghost" scheme:"muted" size:"sm"
+        "Delete records"
+  Section id:"database-update-example" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PATCH"
+        Title size:"3xl" weight:"black"
+          "Filter by authority, then return fresh data"
+        Text size:"sm" color:"muted"
+          "Use where to select the record. required:true produces a controlled 404 when no matching record exists. Read request props directly from req.body; a subsequent read can return the refreshed record. The query shape is shared by postgres, d1, and dowe."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          handler updateBlog
+            database db provider:"dowe" host:env.DOWE_HOST port:env.DOWE_PORT account:env.DOWE_USER secret:env.DOWE_PASSWORD name:"content"
+            query updated db:db.update table:"blogs" where:{ id:req.params.id } value:{ title:req.body.title content:req.body.content updatedAt:now } required:true
+            query blog db:db.read table:"blogs" where:{ id:req.params.id } required:true
+            return json:{ ok:true changed:updated data:blog }
+        """
+  Section id:"database-update-safety" py:{ xs:7 md:10 }
+    Grid columns:{ xs:1 md:2 } gap:4
+      Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Title size:"lg" weight:"bold"
+          "Equality filters"
+        Text size:"sm" color:"muted"
+          "where identifies records by declared equality fields. Keep ownership fields such as id on the server side."
+      Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Title size:"lg" weight:"bold"
+          "Patch only"
+        Text size:"sm" color:"muted"
+          "value contains the permitted fields to change. Request values do not choose Database configuration."

@@ -1,0 +1,110 @@
+page AlertPage
+  const alertProps:
+    value:[
+      { prop:"type" type:"success | error | info | warning" defaultValue:"required" },
+      { prop:"message" type:"string | Signal string path" defaultValue:"required" },
+      { prop:"visible" type:"boolean | Signal boolean path" defaultValue:"true" },
+      { prop:"onClose" type:"Action name" defaultValue:"—" },
+      { prop:"variant" type:"solid | soft | outlined | ghost" defaultValue:"soft" },
+      { prop:"scheme" type:"design scheme" defaultValue:"derived from type" },
+      { prop:"show" type:"boolean | responsive | Signal" defaultValue:"true" },
+    ]
+  Section id:"alert-introduction" py:{ xs:6 md:10 }
+    Grid columns:1 gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "DISPLAY"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Alert"
+      Text size:"lg" color:"muted"
+        "Alerts communicate success, errors, information, and warnings with accessible target-native semantics."
+  Section id:"alert-types" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SEMANTIC TYPES"
+        Title size:"3xl" weight:"black"
+          "Feedback users can scan"
+        Text size:"sm" color:"muted"
+          "Type defines meaning and derives the default scheme. Override scheme only when the product language requires it."
+      Grid columns:1 gap:3
+        Alert type:"success" message:"Your changes were saved successfully."
+        Alert type:"error" message:"We could not save your changes. Review the fields and try again."
+        Alert type:"info" message:"A newer version is available for this project."
+        Alert type:"warning" message:"This operation will replace the current generated output."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Alert type:"success" message:"Your changes were saved successfully."
+          Alert type:"error" message:"We could not save your changes."
+          Alert type:"info" message:"A newer version is available."
+          Alert type:"warning" message:"This operation replaces generated output."
+        """
+  Section id:"alert-variants" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "VARIANTS"
+        Title size:"3xl" weight:"black"
+          "Match the visual emphasis"
+      Grid columns:1 gap:3
+        Alert type:"info" message:"Solid feedback for high emphasis." variant:"solid"
+        Alert type:"success" message:"Soft feedback for routine confirmation." variant:"soft"
+        Alert type:"warning" message:"Outlined feedback preserves surrounding contrast." variant:"outlined"
+        Alert type:"error" message:"Ghost feedback keeps the lightest visual footprint." variant:"ghost"
+  Section id:"alert-reactive" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "REACTIVE FEEDBACK"
+        Title size:"3xl" weight:"black"
+          "Connect request state"
+        Text size:"sm" color:"muted"
+          "Message and visible can read compatible Signal paths. onClose invokes a declared view action that clears or hides the alert."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          signal feedback value:{ message:"" visible:false }
+
+          action dismissFeedback
+            set feedback.visible value:false
+
+          Alert type:"success" message:feedback.message visible:feedback.visible onClose:dismissFeedback
+        """
+  Section id:"alert-visibility" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "VISIBILITY"
+        Title size:"3xl" weight:"black"
+          "visible and show compose"
+        Text size:"sm" color:"muted"
+          "When both props are present, the Alert renders only when visible and show resolve to true."
+      Alert type:"info" message:"This alert is visible on medium and larger viewports." show:{ xs:false md:true }
+  Section id:"alert-props" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Props"
+        Text size:"sm" color:"muted"
+          "Alert also accepts applicable common spacing, sizing, visibility, grid placement, and style props."
+      Table:
+        data:alertProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1fr"

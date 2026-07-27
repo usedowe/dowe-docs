@@ -1,0 +1,155 @@
+page FlexPage
+  const flexProps:
+    value:[
+      {
+        prop:"direction"
+        type:"row | column | responsive object"
+        defaultValue:"row"
+      },
+      {
+        prop:"justify"
+        type:"start | center | end | between | around | evenly"
+        defaultValue:"start"
+      },
+      {
+        prop:"align"
+        type:"stretch | start | center | end | baseline"
+        defaultValue:"stretch"
+      },
+      {
+        prop:"gap"
+        type:"spacing scale | responsive object"
+        defaultValue:"0"
+      },
+      {
+        prop:"wrap"
+        type:"boolean"
+        defaultValue:"false"
+      },
+    ]
+  Section id:"flex-introduction" py:{ xs:6 md:10 }
+    Grid columns:1 gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "LAYOUT"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Flex"
+      Text size:"lg" color:"muted"
+        "Flex arranges children along one axis with predictable direction, alignment, and spacing."
+  Section id:"flex-row" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "DIRECTION: ROW"
+        Title size:"3xl" weight:"black"
+          "Place items side by side"
+        Text size:"sm" color:"muted"
+          "Row is the default direction. Gap separates each child along the horizontal axis."
+      Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+        Flex direction:"row" justify:"center" align:"center" gap:4
+          Box bg:"success" color:"surface" p:4 rounded:"sm"
+            Text
+              "Item 1"
+          Box bg:"primary" color:"surface" p:4 rounded:"sm"
+            Text
+              "Item 2"
+          Box bg:"muted" p:4 rounded:"sm"
+            Text
+              "Item 3"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Flex direction:"row" justify:"center" align:"center" gap:4
+            Box bg:"success" color:"surface" p:4 rounded:"sm"
+              Text
+                "Item 1"
+            Box bg:"primary" color:"surface" p:4 rounded:"sm"
+              Text
+                "Item 2"
+            Box bg:"muted" p:4 rounded:"sm"
+              Text
+                "Item 3"
+        """
+  Section id:"flex-column" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "DIRECTION: COLUMN"
+        Title size:"3xl" weight:"black"
+          "Stack items vertically"
+        Text size:"sm" color:"muted"
+          "Column changes the main axis while justify, align, and gap keep the same target-neutral meaning."
+      Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+        Flex direction:"column" align:"center" gap:4
+          Box bg:"success" color:"surface" p:4 rounded:"sm"
+            Text
+              "Item 1"
+          Box bg:"primary" color:"surface" p:4 rounded:"sm"
+            Text
+              "Item 2"
+          Box bg:"muted" p:4 rounded:"sm"
+            Text
+              "Item 3"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Flex direction:"column" align:"center" gap:4
+            Box bg:"success" color:"surface" p:4 rounded:"sm"
+              Text
+                "Item 1"
+            Box bg:"primary" color:"surface" p:4 rounded:"sm"
+              Text
+                "Item 2"
+            Box bg:"muted" p:4 rounded:"sm"
+              Text
+                "Item 3"
+        """
+  Section id:"flex-responsive" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "RESPONSIVE"
+        Title size:"3xl" weight:"black"
+          "Change direction by width"
+        Text size:"sm" color:"muted"
+          "Use a responsive direction object to stack content on small screens and switch to a row from md."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Flex direction:{ xs:"column" md:"row" } gap:4
+            Text
+              "First item"
+            Text
+              "Second item"
+        """
+  Section id:"flex-props" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Props"
+        Text size:"sm" color:"muted"
+          "Flex also accepts the applicable common spacing, sizing, visibility, and accessibility props."
+      Table:
+        data:flexProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1fr"

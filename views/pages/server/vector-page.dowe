@@ -1,0 +1,142 @@
+page VectorPage
+  Section id:"vector-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SERVER / VECTOR"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Vector"
+        Text size:"lg" color:"muted"
+          "Store embeddings, attach JSON metadata, and find related records with the same server-only contract in local and remote environments."
+      Button href:"/docs/server/kv" variant:"ghost" scheme:"muted" size:"sm"
+        "Cache documentation"
+  Section id:"vector-connection" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "CONNECTION"
+        Title size:"3xl" weight:"black"
+          "Declare Vector, operate with emb"
+        Text size:"sm" color:"muted"
+          "The initial provider is dowe. Connection values stay server-only and may come from the server environment."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"vector appVector provider:\"dowe\" host:env.VECTOR_HOST port:env.VECTOR_PORT account:env.VECTOR_USER secret:env.VECTOR_PASSWORD name:env.VECTOR_DATABASE"
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "provider"
+          Text size:"sm" color:"muted"
+            "Only dowe is supported initially."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "name"
+          Text size:"sm" color:"muted"
+            "Selects the persistent Vector database."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "credentials"
+          Text size:"sm" color:"muted"
+            "Account and secret authenticate only remote production connections."
+  Section id:"vector-operations" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "OPERATIONS"
+        Title size:"3xl" weight:"black"
+          "Upsert, search, read, delete, and list"
+        Text size:"sm" color:"muted"
+          "The first upsert fixes the dimension. Search uses cosine similarity and returns the highest scores first."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          emb saved conn:appVector.upsert id:"article-1" vector:[0.12, 0.48, -0.2] metadata:{ kind:"article" }
+          emb matches conn:appVector.search vector:req.body.vector limit:10 minScore:0.7 where:{ kind:"article" }
+          emb article conn:appVector.read id:req.params.id required:true
+          emb removed conn:appVector.delete id:req.params.id
+          emb articles conn:appVector.list limit:100 where:{ kind:"article" }
+        """
+      Grid columns:{ xs:1 md:2 lg:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "upsert"
+          Text size:"sm" color:"muted"
+            "Stores id, vector, and optional metadata."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "search"
+          Text size:"sm" color:"muted"
+            "Supports limit, minScore, and exact metadata filters."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "read"
+          Text size:"sm" color:"muted"
+            "Returns an embedding or a controlled NotFound."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "delete"
+          Text size:"sm" color:"muted"
+            "Returns whether the embedding existed."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "list"
+          Text size:"sm" color:"muted"
+            "Returns embeddings ordered by ID."
+  Section id:"vector-modes" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "LOCAL AND REMOTE"
+        Title size:"3xl" weight:"black"
+          "One contract, explicit production mode"
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "dowe dev"
+          Text size:"sm" color:"muted"
+            "Resolves only name and persists under .dowe/vector without opening another port."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Production local"
+          Text size:"sm" color:"muted"
+            "Set host to local to keep the embedded Dowe engine."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Production remote"
+          Text size:"sm" color:"muted"
+            "Any other host uses one authenticated persistent WebSocket."
+  Section id:"vector-service" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "DOWE VECTOR"
+        Title size:"3xl" weight:"black"
+          "Run the remote provider"
+        Text size:"sm" color:"muted"
+          "The maintained dowe-vector project authenticates an account and bearer secret before the WebSocket upgrade."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          main
+            server port:4149
+              vector service
+        """
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy command"
+        copiedLabel:"Copied"
+        content:"dowe vector create-account semantic-search search-api"

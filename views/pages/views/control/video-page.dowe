@@ -1,0 +1,186 @@
+page VideoPage
+  const videoProps:
+    value:[
+      {
+        prop:"src"
+        type:"quoted https URL"
+        defaultValue:"required"
+      },
+      {
+        prop:"poster"
+        type:"quoted https URL | portable asset path"
+        defaultValue:"—"
+      },
+      {
+        prop:"autoplay"
+        type:"boolean"
+        defaultValue:"false"
+      },
+      {
+        prop:"aspect"
+        type:"horizontal | vertical | square"
+        defaultValue:"horizontal"
+      },
+      {
+        prop:"variant"
+        type:"solid | soft | outlined | ghost"
+        defaultValue:"solid"
+      },
+      {
+        prop:"scheme"
+        type:"primary | secondary | tertiary | muted | background | surface | success | info | warning | danger"
+        defaultValue:"surface"
+      },
+      {
+        prop:"rounded"
+        type:"xs | sm | md | lg | xl | full"
+        defaultValue:"radius"
+      },
+      {
+        prop:"show"
+        type:"boolean | responsive | Signal"
+        defaultValue:"true"
+      },
+    ]
+  Section id:"video-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "CONTROL"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Video"
+        Text size:"lg" color:"muted"
+          "Video plays one portable HTTPS media source with the same Dowe-drawn controls on web, Android, and iOS."
+      Video:
+        src:"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+        poster:"https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1200&q=80"
+        variant:"soft"
+        scheme:"success"
+        rounded:"lg"
+        minW:56
+  Section id:"video-source" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SOURCE AND PLAYBACK"
+        Title size:"3xl" weight:"black"
+          "Use one static HTTPS source"
+        Text size:"sm" color:"muted"
+          "Video accepts a regular media URL or an HLS .m3u8 manifest. Dowe disables platform chrome and draws accessible play, seek, time, mute, picture-in-picture, and fullscreen controls with bundled Solar icons."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Grid columns:1 gap:3
+          Video:
+            src:"https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"
+            poster:"https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1200&q=80"
+            variant:"outlined"
+            scheme:"surface"
+            rounded:"lg"
+          Grid columns:1 gap:1
+            Title size:"xl" weight:"black"
+              "HTTP Live Streaming"
+            Text size:"sm" color:"muted"
+              "Use an HTTPS .m3u8 manifest for HLS playback. Web prefers native HLS and loads its fallback only when required."
+        Grid columns:1 gap:3
+          Video:
+            src:"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+            poster:"https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1200&q=80"
+            autoplay:false
+            variant:"soft"
+            scheme:"primary"
+            rounded:"lg"
+          Grid columns:1 gap:1
+            Title size:"xl" weight:"black"
+              "Ordinary media"
+            Text size:"sm" color:"muted"
+              "Use an HTTPS media URL for a single video. poster supplies artwork while the player is waiting to start."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Video src:"https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8" poster:"/images/trailer.jpg" autoplay:false aspect:"horizontal" scheme:"surface"
+        """
+  Section id:"video-aspect" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "ASPECT RATIO"
+        Title size:"3xl" weight:"black"
+          "Frame the same source for its context"
+        Text size:"sm" color:"muted"
+          "horizontal is 16 / 9, vertical is 9 / 16, and square is 1 / 1. Video content stays aspect-fit and centered on both axes while poster artwork covers the authored frame."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Grid columns:1 gap:2
+          Video src:"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" aspect:"horizontal" variant:"solid" scheme:"surface" rounded:"md"
+          Text size:"sm" weight:"bold"
+            "horizontal · 16 / 9"
+        Grid columns:1 gap:2
+          Video src:"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" aspect:"vertical" variant:"solid" scheme:"surface" rounded:"md"
+          Text size:"sm" weight:"bold"
+            "vertical · 9 / 16"
+        Grid columns:1 gap:2
+          Video src:"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" aspect:"square" variant:"solid" scheme:"surface" rounded:"md"
+          Text size:"sm" weight:"bold"
+            "square · 1 / 1"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Video src:"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" aspect:"vertical" rounded:"lg"
+        """
+  Section id:"video-surface" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SURFACE"
+        Title size:"3xl" weight:"black"
+          "Style the player and keep controls portable"
+        Text size:"sm" color:"muted"
+          "variant and scheme style the player surface and poster container. Android isolates only the active video in the system picture-in-picture window and restores it inline on exit. iOS keeps its action visible while AVKit becomes ready; the native window still requires picture-in-picture support from the current device."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Video:
+          src:"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+          poster:"https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1200&q=80"
+          variant:"outlined"
+          scheme:"warning"
+          rounded:"md"
+        Video:
+          src:"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+          poster:"https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1200&q=80"
+          variant:"soft"
+          scheme:"info"
+          rounded:"full"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Video src:"https://example.com/trailer.mp4" variant:"outlined" scheme:"warning" rounded:"md"
+        """
+  Section id:"video-props" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Props"
+        Text size:"sm" color:"muted"
+          "Video also accepts applicable common spacing, sizing, border, visibility, and accessibility props."
+      Table:
+        data:videoProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1fr"

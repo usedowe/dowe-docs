@@ -1,0 +1,159 @@
+page ChipPage
+  const chipProps:
+    value:[
+      { prop:"variant" type:"solid | soft | outlined | ghost" defaultValue:"soft" },
+      { prop:"scheme" type:"primary | secondary | tertiary | muted | background | surface | success | info | warning | danger" defaultValue:"muted" },
+      { prop:"size" type:"xs | sm | md | lg | xl" defaultValue:"md" },
+      { prop:"onClose" type:"Action name" defaultValue:"—" },
+      { prop:"start" type:"optional Svg region" defaultValue:"—" },
+      { prop:"end" type:"optional Svg region" defaultValue:"—" },
+    ]
+  Section id:"chip-introduction" py:{ xs:6 md:10 }
+    Grid columns:1 gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "DISPLAY"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Chip"
+      Text size:"lg" color:"muted"
+        "Chips present compact labels for filters, states, categories, and removable selections."
+  Section id:"chip-variants" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "VARIANTS"
+        Title size:"3xl" weight:"black"
+          "Four levels of emphasis"
+      Card variant:"outlined" scheme:"surface" p:{ xs:6 md:8 } rounded:"md" border:1
+        Flex wrap:true justify:"center" align:"center" gap:3
+          Chip variant:"solid" scheme:"primary"
+            "Solid"
+          Chip variant:"soft" scheme:"success"
+            "Soft"
+          Chip variant:"outlined" scheme:"warning"
+            "Outlined"
+          Chip variant:"ghost" scheme:"danger"
+            "Ghost"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Chip variant:"soft" scheme:"success" size:"md"
+            "Active"
+        """
+  Section id:"chip-schemes" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SCHEMES"
+        Title size:"3xl" weight:"black"
+          "Semantic color families"
+      Flex wrap:true justify:"center" align:"center" gap:3
+        Chip variant:"soft" scheme:"primary"
+          "Primary"
+        Chip variant:"soft" scheme:"secondary"
+          "Secondary"
+        Chip variant:"soft" scheme:"tertiary"
+          "Tertiary"
+        Chip variant:"soft" scheme:"muted"
+          "Muted"
+        Chip variant:"soft" scheme:"success"
+          "Success"
+        Chip variant:"soft" scheme:"info"
+          "Info"
+        Chip variant:"soft" scheme:"warning"
+          "Warning"
+        Chip variant:"soft" scheme:"danger"
+          "Danger"
+  Section id:"chip-sizes" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SIZES"
+        Title size:"3xl" weight:"black"
+          "Five compact densities"
+      Flex wrap:true justify:"center" align:"center" gap:3
+        Chip size:"xs" scheme:"primary"
+          "Extra small"
+        Chip size:"sm" scheme:"primary"
+          "Small"
+        Chip size:"md" scheme:"primary"
+          "Medium"
+        Chip size:"lg" scheme:"primary"
+          "Large"
+        Chip size:"xl" scheme:"primary"
+          "Extra large"
+  Section id:"chip-icons" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "ICON REGIONS"
+        Title size:"3xl" weight:"black"
+          "Portable SVG at either edge"
+        Text size:"sm" color:"muted"
+          "start and end each accept one Svg, keeping the same authored geometry across targets."
+      Flex wrap:true justify:"center" align:"center" gap:3
+        Chip variant:"soft" scheme:"info"
+          start
+            Svg viewBox:"0 0 24 24" w:4 h:4
+              Path d:"M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm1 15h-2v-6h2v6Zm0-8h-2V7h2v2Z" fill:"currentColor"
+          "Information"
+        Chip variant:"outlined" scheme:"success"
+          "Verified"
+          end
+            Svg viewBox:"0 0 24 24" w:4 h:4
+              Path d:"m9 16.2-4.2-4.2-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2Z" fill:"currentColor"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Chip variant:"soft" scheme:"info"
+            start
+              Svg viewBox:"0 0 24 24" w:4 h:4
+                Path d:"M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Z" fill:"currentColor"
+            "Information"
+        """
+  Section id:"chip-close" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "REMOVABLE SELECTIONS"
+        Title size:"3xl" weight:"black"
+          "Close through a declared action"
+        Text size:"sm" color:"muted"
+          "When onClose is present, Dowe generates the target-native close control and invokes the named view action."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Chip onClose:removeFilter variant:"soft" scheme:"primary"
+            "Design systems"
+        """
+  Section id:"chip-props" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Props and regions"
+        Text size:"sm" color:"muted"
+          "Chip also accepts applicable common spacing, sizing, visibility, grid placement, and style props."
+      Table:
+        data:chipProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1fr"

@@ -1,0 +1,43 @@
+page FunctionsPage
+  signal panelOpen value:false
+  fn togglePanel
+    set panelOpen value:!panelOpen
+  Section id:"functions-introduction" py:{ xs:6 md:10 }
+    Grid columns:1 gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "LOGIC"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Functions"
+      Text size:"lg" color:"muted"
+        "Use fn to name target-neutral reactive behavior and dispatch it from a component event."
+  Section id:"functions-example" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "INTERACTIVE EXAMPLE"
+        Title size:"3xl" weight:"black"
+          "Name a state transition"
+        Text size:"sm" color:"muted"
+          "A function contains one declarative request, set, or reset operation."
+      Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+        Grid columns:1 gap:4
+          Button onClick:togglePanel scheme:"primary"
+            "Toggle panel"
+          Card show:panelOpen variant:"soft" scheme:"info" p:4 rounded:"md"
+            Text
+              "The Button dispatches togglePanel, which updates this page Signal."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          signal panelOpen value:false
+
+          fn togglePanel
+            set panelOpen value:!panelOpen
+
+          Button onClick:togglePanel
+            "Toggle panel"
+        """

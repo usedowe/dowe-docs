@@ -1,0 +1,123 @@
+page ViewsPage
+  Section p:{ xs:5 md:8 }
+    Flex direction:"column" gap:5
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "VIEWS"
+      Title size:"xl"
+        "One route model across every target"
+      Text color:"muted"
+        "Dowe lowers pages and shared layouts once, then generates web, desktop, Android, and iOS navigation from the same route graph."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"surface" p:5
+          Flex direction:"column" gap:3
+            Title size:"md"
+              "Page scroll starts at the top"
+            Text color:"muted"
+              "Changing to another page without a fragment resets the page viewport after rendering. A fragment moves directly to its validated section instead."
+        Card variant:"soft" scheme:"surface" p:5
+          Flex direction:"column" gap:3
+            Title size:"md"
+              "Shared layouts stay in place"
+            Text color:"muted"
+              "The router preserves shared layout state and independent layout scrollers, including long Sidebar navigation, while only the page viewport resets."
+  Section id:"page-init-splash" p:{ xs:5 md:8 }
+    Flex direction:"column" gap:5
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PAGE STARTUP"
+        Title size:{ xs:"2xl" md:"4xl" } weight:"black"
+          "Load data before revealing the page"
+        Text color:"muted"
+          "A page init runs once when that page mounts. Bind a direct Splash to a boolean Signal to replace every normal page root until the workflow explicitly changes the Signal to false."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          page UsersPage
+            signal isLoading value:true
+            signal users value:[]
+            init
+              request result method:"GET" route:"/api/users"
+              if result.ok
+                set users value:result.data
+                set isLoading value:false
+              else
+                set isLoading value:false
+            Section
+              Table data:users
+                column field:"name" label:"Name"
+            Splash bind:isLoading
+              Section minH:"vh-0"
+                Flex direction:"column" align:"center" justify:"center" gap:3 h:"full"
+                  Icon name:"svg-spinners:3-dots-bounce" fill:"primary" w:10 h:10
+                  Text color:"muted"
+                    "Loading users"
+        """
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5
+          Flex direction:"column" gap:2
+            Title size:"md" weight:"bold"
+              "Ordered startup"
+            Text size:"sm" color:"muted"
+              "Layout init hooks run outside-in, then the page init runs before legacy autoload requests."
+        Card variant:"soft" scheme:"surface" p:5
+          Flex direction:"column" gap:2
+            Title size:"md" weight:"bold"
+              "Reactive replacement"
+            Text size:"sm" color:"muted"
+              "Changing the binding swaps the complete Splash branch and all normal page roots on web, Android, and iOS."
+        Card variant:"soft" scheme:"surface" p:5
+          Flex direction:"column" gap:2
+            Title size:"md" weight:"bold"
+              "Explicit completion"
+            Text size:"sm" color:"muted"
+              "Dowe never clears the loading Signal automatically; success and error paths own that decision."
+  Section id:"platform-routes" p:{ xs:5 md:8 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PLATFORM ROUTES"
+        Title size:{ xs:"2xl" md:"4xl" } weight:"black"
+          "Choose the root experience for each target"
+        Text color:"muted"
+          "Add platform to a group when the same path needs a different layout and page on web, desktop, Android, or iOS. Dowe filters the route graph during compilation, so target-specific screens do not ship as runtime branches."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          import LandingLayout from "@/views/layouts/landing-layout"
+          import AuthLayout from "@/views/layouts/auth-layout"
+          import LandingPage from "@/views/pages/landing-page"
+          import LoginPage from "@/views/pages/login-page"
+
+          views RouteViews
+            group path:"/" layout:LandingLayout platform:"web"
+              route path:"" page:LandingPage
+            group path:"/" layout:AuthLayout platform:["desktop","ios","android"]
+              route path:"" page:LoginPage
+        """
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "One or many targets"
+            Text size:"sm" color:"muted"
+              "Use one quoted value or an array containing web, desktop, android, and ios. Omitting platform keeps the entry available everywhere."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Groups filter descendants"
+            Text size:"sm" color:"muted"
+              "A group applies its platform set to its layout and direct routes. A route may use platform again to narrow that set."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Paths stay deterministic"
+            Text size:"sm" color:"muted"
+              "The same canonical path is valid for disjoint platform sets. Compilation fails if two entries claim that path for the same target."

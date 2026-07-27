@@ -1,0 +1,199 @@
+page DateRangePage
+  signal startDate value:"2026-08-01"
+  signal endDate value:"2026-08-31"
+  const dateRangeProps:
+    value:[
+      {
+        prop:"start / end"
+        type:"string Signal paths"
+        defaultValue:"—"
+      },
+      {
+        prop:"startValue / endValue"
+        type:"YYYY-MM-DD"
+        defaultValue:"—"
+      },
+      {
+        prop:"min / max"
+        type:"YYYY-MM-DD"
+        defaultValue:"—"
+      },
+      {
+        prop:"label / placeholder"
+        type:"string"
+        defaultValue:"— / Select date range"
+      },
+      {
+        prop:"labelFloating"
+        type:"boolean"
+        defaultValue:"false"
+      },
+      {
+        prop:"variant"
+        type:"solid | soft | outlined | line"
+        defaultValue:"outlined"
+      },
+      {
+        prop:"scheme"
+        type:"primary | secondary | tertiary | muted | success | info | warning | danger"
+        defaultValue:"primary"
+      },
+      {
+        prop:"size"
+        type:"sm | md | lg"
+        defaultValue:"md"
+      },
+      {
+        prop:"helpText / errorText"
+        type:"string"
+        defaultValue:"—"
+      },
+    ]
+  Section id:"date-range-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "FORM"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "DateRange"
+        Text size:"lg" color:"muted"
+          "DateRange is an Input-like trigger with a custom calendar dropdown for one bounded interval and independently typed start and end Signals."
+      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
+        "Copy LLM"
+  Section id:"date-range-playground" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PLAYGROUND"
+        Title size:"3xl" weight:"black"
+          "Plan a release window"
+        Text size:"sm" color:"muted"
+          "Choose the start and end in the custom calendar dropdown; separate YYYY-MM-DD values are written while min and max constrain both sides to the planning quarter."
+      Grid columns:{ xs:1 md:2 } gap:4
+        DateRange:
+          start:startDate
+          end:endDate
+          label:"Release window"
+          labelFloating:true
+          startValue:"2026-08-01"
+          endValue:"2026-08-31"
+          min:"2026-07-01"
+          max:"2026-12-31"
+          helpText:"Choose the interval used by the release calendar."
+          variant:"outlined"
+          scheme:"primary"
+          size:"lg"
+          name:"release-window"
+        Card variant:"soft" scheme:"surface" p:{ xs:5 md:7 } rounded:"md"
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+              "TWO VALUES"
+            Title size:"2xl" weight:"black"
+              "Start and end stay explicit"
+            Text size:"sm" color:"muted"
+              "Use the two Signals independently when a summary, query, or request needs each boundary as a separate field."
+            Text size:"sm" weight:"bold" color:"primary"
+              "Calendar interval + typed bounds"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          signal startDate value:"2026-08-01"
+          signal endDate value:"2026-08-31"
+
+          DateRange start:startDate end:endDate label:"Release window" labelFloating:true startValue:"2026-08-01" endValue:"2026-08-31" min:"2026-07-01" max:"2026-12-31" helpText:"Choose the interval used by the release calendar." variant:"outlined" scheme:"primary" size:"lg" name:"release-window"
+        """
+  Section id:"date-range-scenarios" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SCENARIOS"
+        Title size:"3xl" weight:"black"
+          "One interval, different workflows"
+        Text size:"sm" color:"muted"
+          "The same range contract supports travel, reporting, and availability flows without changing the component semantics."
+      Grid columns:{ xs:1 md:2 } gap:5
+        DateRange startValue:"2026-09-10" endValue:"2026-09-17" label:"Trip dates" placeholder:"Select a trip" helpText:"Seven nights, including the departure day." variant:"soft" scheme:"info" size:"md" name:"trip-dates"
+        DateRange startValue:"2026-10-01" endValue:"2026-10-31" label:"Report period" placeholder:"Select a month" variant:"line" scheme:"secondary" size:"sm" name:"report-period"
+        DateRange startValue:"2026-11-05" endValue:"2026-11-08" label:"Availability" placeholder:"Select open dates" min:"2026-11-01" max:"2026-12-31" variant:"solid" scheme:"success" size:"md" name:"availability"
+        DateRange startValue:"2026-12-01" endValue:"2026-12-20" label:"Needs review" errorText:"The end date must leave time for the handoff." variant:"outlined" scheme:"danger" size:"lg" name:"handoff-window"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          DateRange startValue:"2026-09-10" endValue:"2026-09-17" label:"Trip dates" placeholder:"Select a trip" helpText:"Seven nights, including the departure day." variant:"soft" scheme:"info" size:"md"
+          DateRange startValue:"2026-10-01" endValue:"2026-10-31" label:"Report period" placeholder:"Select a month" variant:"line" scheme:"secondary" size:"sm"
+          DateRange startValue:"2026-11-05" endValue:"2026-11-08" label:"Availability" placeholder:"Select open dates" min:"2026-11-01" max:"2026-12-31" variant:"solid" scheme:"success" size:"md"
+        """
+  Section id:"date-range-feedback" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "FEEDBACK AND SCALE"
+        Title size:"3xl" weight:"black"
+          "Keep both boundaries understandable"
+        Text size:"sm" color:"muted"
+          "helpText and errorText apply to the interval, while size keeps both controls aligned as one field."
+      Grid columns:{ xs:1 md:2 } gap:5
+        DateRange startValue:"2026-08-05" endValue:"2026-08-12" label:"Small range" helpText:"Compact range for a filter bar." variant:"outlined" scheme:"primary" size:"sm" name:"small-range"
+        DateRange startValue:"2026-08-05" endValue:"2026-08-12" label:"Large range" errorText:"Choose an end date after the start date." variant:"outlined" scheme:"danger" size:"lg" name:"large-range"
+  Section id:"date-range-contract" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "BEHAVIOR"
+        Title size:"3xl" weight:"black"
+          "A coordinated date pair"
+        Text size:"sm" color:"muted"
+          "Dowe keeps the start and end values separate in source while rendering a coordinated range surface on every target."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "BINDING"
+            Title size:"lg" weight:"bold"
+              "Two string Signals"
+            Text size:"sm" color:"muted"
+              "start and end accept string Signal paths and preserve their own YYYY-MM-DD values."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "VALIDATION"
+            Title size:"lg" weight:"bold"
+              "One bounded interval"
+            Text size:"sm" color:"muted"
+              "min and max constrain the selectable calendar window; invalid date literals are rejected by the compiler."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "TARGETS"
+            Title size:"lg" weight:"bold"
+              "Aligned calendar"
+            Text size:"sm" color:"muted"
+              "Web, iOS, and Android keep the month navigation, selected range, bounds, and start/end behavior paired."
+  Section id:"date-range-props" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Props"
+        Text size:"sm" color:"muted"
+          "DateRange also accepts the applicable common spacing, sizing, typography, visibility, accessibility, and shadow props."
+      Table:
+        data:dateRangeProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1fr"

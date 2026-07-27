@@ -1,0 +1,221 @@
+page CanvasParticlesPage
+  signal particles:
+    value:[
+      {
+        type:"rect"
+        x:0
+        y:0
+        width:640
+        height:360
+        fill:"surface"
+      },
+      {
+        type:"circle"
+        x:30
+        y:40
+        radius:9
+        fill:"primary"
+        opacity:0.7
+        motion:{ vx:22 vy:14 pulse:0.7 wrap:true }
+      },
+      {
+        type:"circle"
+        x:120
+        y:260
+        radius:14
+        fill:"secondary"
+        opacity:0.6
+        motion:{ vx:34 vy:-18 pulse:0.5 wrap:true }
+      },
+      {
+        type:"circle"
+        x:220
+        y:90
+        radius:7
+        fill:"tertiary"
+        opacity:0.8
+        motion:{ vx:-28 vy:20 pulse:1.2 wrap:true }
+      },
+      {
+        type:"circle"
+        x:310
+        y:210
+        radius:18
+        fill:"info"
+        opacity:0.5
+        motion:{ vx:18 vy:25 pulse:0.4 wrap:true }
+      },
+      {
+        type:"circle"
+        x:410
+        y:65
+        radius:11
+        fill:"success"
+        opacity:0.7
+        motion:{ vx:-36 vy:16 pulse:0.9 wrap:true }
+      },
+      {
+        type:"circle"
+        x:510
+        y:290
+        radius:15
+        fill:"warning"
+        opacity:0.65
+        motion:{ vx:27 vy:-24 pulse:0.6 wrap:true }
+      },
+      {
+        type:"circle"
+        x:600
+        y:150
+        radius:8
+        fill:"danger"
+        opacity:0.75
+        motion:{ vx:-20 vy:-15 pulse:1.1 wrap:true }
+      },
+      {
+        type:"circle"
+        x:90
+        y:180
+        radius:24
+        fill:"softPrimary"
+        opacity:0.44
+        motion:{ vx:15 vy:-12 pulse:0.3 wrap:true }
+      },
+      {
+        type:"circle"
+        x:455
+        y:205
+        radius:27
+        fill:"softSecondary"
+        opacity:0.38
+        motion:{ vx:-13 vy:18 pulse:0.25 wrap:true }
+      },
+      {
+        type:"line"
+        x1:0
+        y1:180
+        x2:640
+        y2:180
+        stroke:"onSurface"
+        strokeWidth:1
+        opacity:0.12
+      },
+      {
+        type:"text"
+        x:320
+        y:188
+        text:"MOTION FIELD"
+        fill:"onSurface"
+        size:26
+        align:"center"
+        opacity:0.9
+      },
+    ]
+  Section id:"canvas-particles-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "CANVAS · PARTICLES"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Particle fields"
+        Text size:"lg" color:"muted"
+          "Build animated atmospheres from independent retained commands whose position and opacity derive from one monotonic clock."
+      Card variant:"soft" scheme:"secondary" p:5 rounded:"lg" minW:56
+        Grid columns:1 gap:1
+          Text size:"xs" weight:"bold" spacing:"widest"
+            "DETERMINISTIC MOTION"
+          Title size:"xl" weight:"black"
+            "No per-frame mutation"
+          Text size:"sm"
+            "The renderer computes transforms without writing coordinates back into your Signal."
+  Section id:"canvas-particles-demo" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "ADVANCED EXAMPLE"
+        Title size:"3xl" weight:"black"
+          "Mix velocity, pulse, opacity, and z-order"
+        Text size:"sm" color:"muted"
+          "Each particle has its own speed and pulse frequency. The central rule and title draw last, so moving circles always travel underneath the label."
+      Canvas:
+        scene:particles
+        viewWidth:640
+        viewHeight:360
+        fit:"contain"
+        fps:60
+        autoplay:true
+        background:"surface"
+        label:"Colored particles moving and pulsing across a labeled field"
+        w:"full"
+        h:96
+        rounded:"lg"
+        border:1
+        shadow:"md"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          signal particles value:[
+            { type:"circle" x:30 y:40 radius:9 fill:"primary" opacity:0.7 motion:{ vx:22 vy:14 pulse:0.7 wrap:true } },
+            { type:"circle" x:220 y:90 radius:7 fill:"tertiary" opacity:0.8 motion:{ vx:-28 vy:20 pulse:1.2 wrap:true } },
+            { type:"text" x:320 y:188 text:"MOTION FIELD" fill:"onSurface" size:26 align:"center" },
+          ]
+
+          Canvas scene:particles viewWidth:640 viewHeight:360 fps:60 label:"Animated particle field" w:"full" h:96
+        """
+  Section id:"canvas-particles-timing" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "TIMING"
+        Title size:"3xl" weight:"black"
+          "Animation honors user and app state"
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"lg"
+          Grid columns:1 gap:2
+            Title size:"xl" weight:"black"
+              "Monotonic time"
+            Text size:"sm"
+              "Velocity uses elapsed seconds, so dropped frames do not slow the scene."
+        Card variant:"soft" scheme:"success" p:5 rounded:"lg"
+          Grid columns:1 gap:2
+            Title size:"xl" weight:"black"
+              "Reduced motion"
+            Text size:"sm"
+              "A reduced-motion preference freezes every command at elapsed time zero."
+        Card variant:"soft" scheme:"warning" p:5 rounded:"lg"
+          Grid columns:1 gap:2
+            Title size:"xl" weight:"black"
+              "Route lifecycle"
+            Text size:"sm"
+              "Frame callbacks stop when the Canvas route leaves the active view."
+  Section id:"canvas-particles-still" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "STATIC PREVIEW"
+        Title size:"3xl" weight:"black"
+          "Freeze the same scene at time zero"
+        Text size:"sm" color:"muted"
+          "Set autoplay:false for deterministic posters, snapshots, or compositions that reuse motion-ready scene data without starting a frame timeline."
+      Canvas:
+        scene:particles
+        viewWidth:640
+        viewHeight:360
+        fit:"contain"
+        fps:30
+        autoplay:false
+        background:"surface"
+        label:"Static first frame of the colored particle field"
+        w:"full"
+        h:80
+        rounded:"lg"
+        border:1
+      Flex justify:"space-between" align:"center" wrap:true gap:3
+        Button href:"/docs/views/canvas/arcade" variant:"ghost" scheme:"muted" iconStart:"alt-arrow-left"
+          "Arcade"
+        Button href:"/docs/views/canvas/infographic" variant:"solid" scheme:"primary" iconEnd:"alt-arrow-right"
+          "Build an infographic"

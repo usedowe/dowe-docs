@@ -1,0 +1,263 @@
+page ImageCropperPage
+  signal profileImage value:""
+  const imageCropperProps:
+    value:[
+      {
+        prop:"bind / src"
+        type:"string Signal path / string"
+        defaultValue:"—"
+      },
+      {
+        prop:"label / placeholder / alt"
+        type:"string"
+        defaultValue:"— / Upload / Avatar"
+      },
+      {
+        prop:"accept"
+        type:"file type list"
+        defaultValue:"image/*"
+      },
+      {
+        prop:"shape / aspectRatio"
+        type:"circle | square / positive number"
+        defaultValue:"circle / —"
+      },
+      {
+        prop:"minWidth / minHeight"
+        type:"positive pixels"
+        defaultValue:"50 / 50"
+      },
+      {
+        prop:"maxWidth / maxHeight"
+        type:"positive pixels"
+        defaultValue:"—"
+      },
+      {
+        prop:"disabled"
+        type:"boolean"
+        defaultValue:"false"
+      },
+      {
+        prop:"variant"
+        type:"solid | soft | outlined | ghost"
+        defaultValue:"solid"
+      },
+      {
+        prop:"scheme"
+        type:"primary | secondary | tertiary | muted | success | info | warning | danger"
+        defaultValue:"primary"
+      },
+      {
+        prop:"size"
+        type:"xs | sm | md | lg | xl"
+        defaultValue:"md"
+      },
+      {
+        prop:"name / helpText / errorText"
+        type:"string"
+        defaultValue:"—"
+      },
+    ]
+  Section id:"image-cropper-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "FORM"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "ImageCropper"
+        Text size:"lg" color:"muted"
+          "ImageCropper turns image selection, framing, preview, replacement, and removal into one portable form workflow."
+      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
+        "Copy LLM"
+  Section id:"image-cropper-playground" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PLAYGROUND"
+        Title size:"3xl" weight:"black"
+          "Prepare a profile portrait"
+        Text size:"sm" color:"muted"
+          "Select a JPEG or PNG, refine the crop inside a circular frame, and bind the applied data URL to the profile form."
+      Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+        Grid columns:{ xs:1 md:"auto 1fr" } gap:6 align:"center"
+          ImageCropper:
+            bind:profileImage
+            label:"Profile portrait"
+            placeholder:"Add portrait"
+            alt:"Profile portrait preview"
+            accept:"image/jpeg,image/png"
+            aspectRatio:1
+            minWidth:256
+            minHeight:256
+            maxWidth:2048
+            maxHeight:2048
+            shape:"circle"
+            helpText:"Use a centered image at least 256 × 256 pixels."
+            variant:"outlined"
+            scheme:"primary"
+            size:"xl"
+            name:"profile-image"
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+              "PROFILE READY"
+            Title size:"2xl" weight:"black"
+              "A consistent identity crop"
+            Text size:"sm" color:"muted"
+              "The generated picker exposes edit, replace, remove, reset, cancel, and apply actions around the same bound value."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          signal profileImage value:""
+
+          ImageCropper bind:profileImage label:"Profile portrait" placeholder:"Add portrait" alt:"Profile portrait preview" accept:"image/jpeg,image/png" aspectRatio:1 minWidth:256 minHeight:256 maxWidth:2048 maxHeight:2048 shape:"circle" helpText:"Use a centered image at least 256 × 256 pixels." variant:"outlined" scheme:"primary" size:"xl" name:"profile-image"
+        """
+  Section id:"image-cropper-formats" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "CROP CONTRACTS"
+        Title size:"3xl" weight:"black"
+          "Frame images for their destination"
+        Text size:"sm" color:"muted"
+          "Shape defines the visible crop treatment while dimensions and aspect ratio constrain the generated image result."
+      Grid columns:{ xs:1 md:2 } gap:5
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:4
+            Title size:"lg" weight:"bold"
+              "Team avatar"
+            ImageCropper:
+              label:"Avatar"
+              placeholder:"Choose avatar"
+              accept:"image/jpeg,image/png,image/webp"
+              aspectRatio:1
+              minWidth:160
+              minHeight:160
+              shape:"circle"
+              variant:"soft"
+              scheme:"secondary"
+              size:"lg"
+              name:"team-avatar"
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:4
+            Title size:"lg" weight:"bold"
+              "Product thumbnail"
+            ImageCropper:
+              label:"Catalog image"
+              placeholder:"Choose product image"
+              accept:"image/jpeg,image/png"
+              aspectRatio:1
+              minWidth:600
+              minHeight:600
+              maxWidth:3000
+              maxHeight:3000
+              shape:"square"
+              variant:"ghost"
+              scheme:"tertiary"
+              size:"lg"
+              name:"product-thumbnail"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          ImageCropper label:"Avatar" accept:"image/jpeg,image/png,image/webp" aspectRatio:1 minWidth:160 minHeight:160 shape:"circle" variant:"soft" scheme:"secondary" size:"lg"
+
+          ImageCropper label:"Catalog image" accept:"image/jpeg,image/png" aspectRatio:1 minWidth:600 minHeight:600 maxWidth:3000 maxHeight:3000 shape:"square" variant:"ghost" scheme:"tertiary" size:"lg"
+        """
+  Section id:"image-cropper-states" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "STATES AND SCALE"
+        Title size:"3xl" weight:"black"
+          "Make image requirements visible"
+        Text size:"sm" color:"muted"
+          "Error feedback explains rejected assets, while disabled preserves a preview when replacement is unavailable."
+      Grid columns:{ xs:1 md:2 } gap:5
+        ImageCropper:
+          label:"Organization logo"
+          placeholder:"Replace logo"
+          shape:"square"
+          errorText:"The selected image is smaller than 512 × 512 pixels."
+          minWidth:512
+          minHeight:512
+          variant:"outlined"
+          scheme:"danger"
+          size:"md"
+          name:"organization-logo"
+        ImageCropper:
+          label:"Verified portrait"
+          placeholder:"Portrait locked"
+          shape:"circle"
+          disabled:true
+          helpText:"Contact an administrator to replace a verified portrait."
+          variant:"solid"
+          scheme:"muted"
+          size:"md"
+          name:"verified-portrait"
+      Flex wrap:true justify:"center" align:"center" gap:4
+        ImageCropper placeholder:"XS" shape:"circle" variant:"soft" scheme:"primary" size:"xs"
+        ImageCropper placeholder:"SM" shape:"circle" variant:"soft" scheme:"primary" size:"sm"
+        ImageCropper placeholder:"MD" shape:"circle" variant:"soft" scheme:"primary" size:"md"
+        ImageCropper placeholder:"LG" shape:"circle" variant:"soft" scheme:"primary" size:"lg"
+        ImageCropper placeholder:"XL" shape:"circle" variant:"soft" scheme:"primary" size:"xl"
+  Section id:"image-cropper-contract" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "BEHAVIOR"
+        Title size:"3xl" weight:"black"
+          "A reviewable local image flow"
+        Text size:"sm" color:"muted"
+          "The picker and crop operation stay target-owned. Web produces the bound data URL through generated canvas behavior."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "INPUT"
+            Title size:"lg" weight:"bold"
+              "Explicit file types"
+            Text size:"sm" color:"muted"
+              "accept limits the picker while min and max dimensions define the image contract."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "CROP"
+            Title size:"lg" weight:"bold"
+              "Visible framing"
+            Text size:"sm" color:"muted"
+              "The modal preserves the overlay, grid, resize handles, reset, cancel, and apply actions."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "OUTPUT"
+            Title size:"lg" weight:"bold"
+              "Bound image value"
+            Text size:"sm" color:"muted"
+              "bind receives the applied cropped value so the surrounding form owns one portable string."
+  Section id:"image-cropper-props" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Props"
+        Text size:"sm" color:"muted"
+          "ImageCropper also accepts the applicable common spacing, sizing, visibility, accessibility, and shadow props."
+      Table:
+        data:imageCropperProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1fr"

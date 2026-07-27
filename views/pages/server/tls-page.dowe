@@ -1,0 +1,103 @@
+page TlsPage
+  Section id:"tls-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SERVER / TLS"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Own HTTPS in the Dowe runtime"
+        Text size:"lg" color:"muted"
+          "Dowe issues, caches, and renews multi-domain Let's Encrypt certificates without Certbot, Node.js, or an external reverse proxy."
+      Button href:"/docs/server" variant:"ghost" scheme:"muted" size:"sm" iconStart:"server"
+        "Server documentation"
+  Section id:"tls-acme" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "ACME"
+        Title size:"3xl" weight:"black"
+          "Declare every public hostname"
+        Text size:"sm" color:"muted"
+          "TLS-ALPN-01 runs on the HTTPS listener. The cache lives below .dowe, staging is safe by default, and the certificate state remains polled for automatic renewal."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          main
+            server port:443
+              tls:
+                mode:"acme"
+                domains:["example.com", "www.example.com"]
+                email:"admin@example.com"
+                staging:false
+        """
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Multiple domains"
+          Text size:"sm" color:"muted"
+            "One declared set becomes the certificate SAN set. Duplicate names are removed before issuance."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Automatic renewal"
+          Text size:"sm" color:"muted"
+            "The ACME state loads cached material and renews the certificate while the server stays active."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Server only"
+          Text size:"sm" color:"muted"
+            "Views never receive account state, cache contents, private keys, or managed domain sources."
+  Section id:"tls-managed-domains" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "MANAGED DOMAINS"
+        Title size:"3xl" weight:"black"
+          "Feed domains from Dowe data"
+        Text size:"sm" color:"muted"
+          "A reverse proxy or application platform can let an administrator update local KV or Database state. Dowe merges that state with static names and reloads TLS when the effective set changes."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          tls:
+            mode:"acme"
+            domains:["platform.example.com"]
+            email:"ops@example.com"
+            staging:false
+            domainsFrom:{ kv:"domains" key:"tls" }
+            refreshSeconds:60
+        """
+      Card variant:"outline" scheme:"info" p:5 rounded:"md"
+        Title size:"lg" weight:"bold"
+          "Product foundation, not product policy"
+        Text size:"sm" color:"muted"
+          "Dowe owns certificate lifecycle. Your authored server still owns administrator authorization, upstream routing, DNS integration, application deployment, and tenant policy."
+  Section id:"tls-local" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "LOCAL DEVELOPMENT"
+        Title size:"3xl" weight:"black"
+          "Use a self-signed localhost certificate"
+        Text size:"sm" color:"muted"
+          "Let's Encrypt does not issue localhost certificates. Local mode creates an ephemeral self-signed certificate without modifying the system trust store."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          main
+            server port:8443
+              tls:
+                mode:"local"
+                domains:["localhost", "app.localhost"]
+        """

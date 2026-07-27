@@ -1,0 +1,9 @@
+layout FooterLegalLayout
+  Scaffold minH:"vh-0"
+    main
+      children
+    bottomBar
+      Footer variant:"solid" scheme:"muted" boxed:true py:4
+        center
+          Text size:"xs" color:"onMuted"
+            "CompanyName @ 202X. All rights reserved."

@@ -1,0 +1,19 @@
+page DigitalPotentialHeroPage
+  Section id:"digital-potential-hero" bg:"background" color:"onBackground" boxed:true minH:"vh-16" py:{ xs:8 md:12 }
+    Grid columns:{ xs:1 md:"4fr 5fr" } gap:{ xs:8 md:14 } align:"center" minH:"vh-16"
+      Box bg:"softTertiary" color:"tertiary" rounded:"xl" minH:{ xs:56 md:80 } p:{ xs:6 md:10 }
+        Flex direction:"column" justify:"center" align:"center" minH:{ xs:44 md:60 }
+          Box bg:"surface" rounded:"lg" p:{ xs:5 md:7 } shadow:"lg" shadowColor:"muted"
+            Icon name:"gallery-wide" style:"bold-duotone" fill:"tertiary" w:{ xs:14 md:20 } h:{ xs:14 md:20 }
+      Flex direction:"column" align:"start" gap:5
+        Text size:"xs" weight:"bold" spacing:"widest" color:"tertiary"
+          "A SYSTEM YOUR TEAM CAN TRUST"
+        Title size:{ xs:"4xl" md:"6xl" } weight:"black"
+          "Build momentum without losing clarity"
+        Text size:"lg" color:"muted"
+          "Connect plans, progress, and customer context in one flexible system that stays useful as your team grows."
+        Grid columns:{ xs:1 sm:2 } gap:3 w:"full"
+          Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" w:"full"
+            "Order now"
+          Button variant:"outlined" scheme:"primary" size:"lg" rounded:"full" w:"full"
+            "Explore"

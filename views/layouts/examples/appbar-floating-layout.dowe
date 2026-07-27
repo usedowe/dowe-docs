@@ -1,0 +1,15 @@
+layout AppBarFloatingLayout
+  Scaffold p:{ xs:2 md:4 }
+    appBar
+      AppBar variant:"soft" scheme:"surface" position:"sticky" boxed:true bordered:true blurred:true floating:true
+        start
+          Text weight:"bold"
+            "Dowe"
+        center
+          Text size:"sm" color:"muted"
+            "Sticky AppBar"
+        end
+          Button href:"/examples/appbar-one" variant:"ghost" scheme:"primary" size:"sm"
+            "Standard example"
+    main
+      children

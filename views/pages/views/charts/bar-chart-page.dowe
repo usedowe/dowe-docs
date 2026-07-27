@@ -1,0 +1,158 @@
+type ChartSlice
+  label:string
+  value:number
+
+type BarSeries
+  name:string
+  data:ChartSlice[]
+
+page BarChartPage
+  signal channels type:ChartSlice[] value:[
+    { label:"Direct" value:46 },
+    { label:"Organic" value:34 },
+    { label:"Referral" value:22 },
+    { label:"Partner" value:18 },
+    { label:"Events" value:12 },
+  ]
+  signal quarterly type:BarSeries[] value:[
+    { name:"New business" data:[{ label:"Q1" value:24 }, { label:"Q2" value:31 }, { label:"Q3" value:38 }, { label:"Q4" value:44 }] },
+    { name:"Expansion" data:[{ label:"Q1" value:14 }, { label:"Q2" value:19 }, { label:"Q3" value:24 }, { label:"Q4" value:29 }] },
+  ]
+  signal emptyBars type:ChartSlice[] value:[]
+  const barProps:
+    value:[
+      { prop:"data, series" type:"Signal array paths" defaultValue:"data required unless series is set" },
+      { prop:"variant, scheme" type:"solid | soft | outlined | ghost, Dowe family" defaultValue:"solid, surface" },
+      { prop:"size, palette" type:"chart size, chart palette" defaultValue:"md, default" },
+      { prop:"legendPosition" type:"top | right | bottom | left | none" defaultValue:"bottom" },
+      { prop:"grouped, stacked" type:"boolean" defaultValue:"false" },
+      { prop:"showValues, showGlow" type:"boolean" defaultValue:"false" },
+      { prop:"barRadius" type:"positive number" defaultValue:"—" },
+      { prop:"hideGrid" type:"boolean" defaultValue:"false" },
+      { prop:"emptyLabel, loading, hideLegend" type:"string, boolean, boolean" defaultValue:"No data available, false, false" },
+    ]
+  Section id:"bar-chart-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "CHARTS"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "BarChart"
+        Text size:"lg" color:"muted"
+          "Categorical comparisons with explicit values, grouped series, and readable labels."
+      Card variant:"soft" scheme:"tertiary" p:5 rounded:"lg" minW:56
+        Grid columns:1 gap:1
+          Text size:"xs" weight:"bold" spacing:"widest"
+            "CATEGORY FIRST"
+          Title size:"xl" weight:"black"
+            "Compare what matters"
+          Text size:"sm"
+            "Use one Signal for a simple ranking or series when each category has multiple measures."
+  Section id:"bar-chart-basic" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "CATEGORY DATA"
+        Title size:"3xl" weight:"black"
+          "Make a ranking scannable"
+        Text size:"sm" color:"muted"
+          "Each category supplies label and value. showValues keeps the number visible while grouped bars preserve the categorical axis."
+      BarChart:
+        data:channels
+        variant:"soft"
+        scheme:"surface"
+        size:"lg"
+        palette:"ocean"
+        grouped:true
+        showValues:true
+        barRadius:8
+        showGlow:true
+        legendPosition:"bottom"
+        rounded:"lg"
+      Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+        type ChartSlice
+          label:string
+          value:number
+          color:string
+
+        signal channels type:ChartSlice[] value:[{ label:"Direct" value:46 color:"primary" }]
+
+        BarChart data:channels variant:"soft" scheme:"surface" size:"lg" palette:"ocean" grouped:true showValues:true barRadius:8
+      """
+  Section id:"bar-chart-series" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "GROUPED SERIES"
+        Title size:"3xl" weight:"black"
+          "Layer a quarterly comparison"
+        Text size:"sm" color:"muted"
+          "Bar series contain a name and nested categorical data. Choose grouped for side-by-side comparison or stacked when the total matters more than each bar height."
+      Grid columns:{ xs:1 md:2 } gap:4
+        BarChart:
+          series:quarterly
+          variant:"outlined"
+          scheme:"primary"
+          size:"lg"
+          palette:"forest"
+          grouped:true
+          showValues:true
+          barRadius:5
+          legendPosition:"top"
+        BarChart:
+          series:quarterly
+          variant:"soft"
+          scheme:"surface"
+          size:"lg"
+          palette:"sunset"
+          stacked:true
+          showValues:true
+          barRadius:8
+          showGlow:true
+          legendPosition:"top"
+      Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+        type BarSeries
+          name:string
+          data:ChartSlice[]
+        signal quarterly type:BarSeries[] value:[{ name:"New business" data:[{ label:"Q1" value:24 }] }]
+
+        BarChart series:quarterly variant:"outlined" scheme:"primary" palette:"forest" grouped:true showValues:true legendPosition:"top"
+        BarChart series:quarterly variant:"soft" scheme:"surface" palette:"sunset" stacked:true showValues:true legendPosition:"top"
+      """
+  Section id:"bar-chart-states" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "STATES AND GRID"
+        Title size:"3xl" weight:"black"
+          "Tune emphasis without losing context"
+        Text size:"sm" color:"muted"
+          "hideGrid is useful for compact KPI panels. Keep axes and labels when the chart is the primary evidence for a decision."
+      Grid columns:{ xs:1 md:3 } gap:4
+        BarChart data:channels variant:"solid" scheme:"surface" size:"md" hideGrid:true showValues:true
+        BarChart data:channels variant:"soft" scheme:"info" size:"md" palette:"neon" showValues:true
+        BarChart data:emptyBars variant:"outlined" scheme:"warning" size:"md" emptyLabel:"No channel data"
+      Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+        BarChart data:channels variant:"solid" scheme:"surface" hideGrid:true showValues:true
+        BarChart data:emptyBars variant:"outlined" scheme:"warning" emptyLabel:"No channel data"
+      """
+  Section id:"bar-chart-props" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Props"
+        Text size:"sm" color:"muted"
+          "BarChart also accepts applicable common identity, spacing, sizing, visibility, radius, border, and accessibility props."
+      Table:
+        data:barProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1.2fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1.2fr"

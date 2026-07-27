@@ -1,0 +1,15 @@
+import Logo from "@/views/components/logo"
+import Github from "@/views/components/github"
+layout HomeLayout
+  Scaffold
+    appBar
+      AppBar variant:"soft" scheme:"surface" boxed:true bordered:true
+        start
+          Logo
+        end
+          NavMenu
+            item label:"Docs" href:"/docs/views"
+            item label:"Blocks" href:"/blocks/hero"
+          Github
+    main
+      children

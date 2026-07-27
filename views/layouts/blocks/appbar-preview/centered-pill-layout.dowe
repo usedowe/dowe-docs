@@ -1,0 +1,39 @@
+layout AppBarCenteredPillLayout
+  Scaffold
+    appBar
+      AppBar variant:"soft" scheme:"info" position:"sticky" boxed:true py:2
+        start
+          Brand href:"/blocks/appbar" label:"Pekoo home"
+            Flex align:"center" gap:2
+              Icon name:"bolt-circle" style:"bold" fill:"primary" w:8 h:8
+              Text size:"xl" weight:"black"
+                "PEKOO."
+        center
+          NavMenu:
+            variant:"solid"
+            scheme:"surface"
+            size:"sm"
+            rounded:"full"
+            show:{ xs:false md:true }
+            item label:"Home" href:"/blocks/appbar-preview/centered-pill"
+            item label:"About Us" href:"/blocks/appbar-preview/creative"
+            item label:"Services" href:"/blocks/appbar-preview/social-pill"
+            item label:"Contact" href:"/blocks/appbar-preview/floating-card"
+        end
+          Flex align:"center" gap:2
+            Button:
+              href:"/blocks/appbar-preview/dashboard"
+              variant:"solid"
+              scheme:"primary"
+              size:"sm"
+              rounded:"full"
+              show:{ xs:false sm:true }
+              "Hire Me"
+            IconButton:
+              icon:"hamburger-menu"
+              label:"Open navigation"
+              variant:"ghost"
+              scheme:"primary"
+              show:{ xs:true md:false }
+    main
+      children

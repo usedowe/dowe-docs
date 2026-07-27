@@ -1,0 +1,44 @@
+layout ScaffoldInsetSidebarLayout
+  signal openDrawer value:false
+  Scaffold minH:"vh-0"
+    appBar
+      AppBar variant:"soft" scheme:"primary" bordered:true
+        start
+          IconButton:
+            show:{ xs:true md:false }
+            label:"Open navigation"
+            variant:"ghost"
+            onClick:{ set:openDrawer value:!openDrawer }
+            icon:"hamburger-menu"
+        center
+          Text weight:"bold"
+            "AppBar"
+    start
+      Sidebar:
+        show:{ xs:false md:true }
+        variant:"soft"
+        scheme:"secondary"
+        w:64
+        border:1
+        body
+          Flex direction:"column" minH:"full" align:"center" justify:"center"
+            Text weight:"bold"
+              "Sidebar"
+    main
+      children
+    bottomBar
+      Footer variant:"soft" scheme:"muted" bordered:true
+        center
+          Text weight:"bold"
+            "Footer"
+    overlays
+      Drawer:
+        open:openDrawer
+        position:"start"
+        variant:"soft"
+        scheme:"tertiary"
+        show:{ xs:true md:false }
+        body
+          Flex direction:"column" minH:"vh-0" align:"center" justify:"center"
+            Text weight:"bold"
+              "Drawer"

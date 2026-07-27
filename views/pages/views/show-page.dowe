@@ -1,0 +1,66 @@
+page ShowPage
+  signal detailsVisible value:false
+  signal itemCount value:0
+  Section id:"show-introduction" py:{ xs:6 md:10 }
+    Grid columns:1 gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "LOGIC"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Show"
+      Text size:"lg" color:"muted"
+        "The common show prop controls whether a visible component renders and participates in layout."
+  Section id:"show-example" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "INTERACTIVE EXAMPLE"
+        Title size:"3xl" weight:"black"
+          "Boolean and numeric conditions"
+        Text size:"sm" color:"muted"
+          "When a condition is false, the associated component takes no space in the layout."
+      Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+        Grid columns:1 gap:4
+          Flex wrap:true gap:3
+            Button onClick:{ set:detailsVisible value:!detailsVisible } scheme:"primary"
+              "Toggle details"
+            Button onClick:{ set:itemCount add:1 } variant:"outlined" scheme:"primary"
+              "Add item"
+          Text show:detailsVisible size:"sm" color:"muted"
+            "This message follows a boolean Signal."
+          Card show:{ when:itemCount gte:3 } variant:"soft" scheme:"success" p:4 rounded:"md"
+            Text
+              "You added at least three items."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          signal detailsVisible value:false
+          signal itemCount value:0
+
+          Text show:detailsVisible
+            "Optional details"
+
+          Card show:{ when:itemCount gte:3 }
+            Text
+              "Three items reached"
+        """
+  Section id:"show-forms" py:{ xs:7 md:10 }
+    Grid columns:{ xs:1 md:3 } gap:4
+      Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Title size:"lg" weight:"bold"
+          "Static"
+        Text size:"sm" color:"muted"
+          "Use show:false to omit a component on every target."
+      Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Title size:"lg" weight:"bold"
+          "Responsive"
+        Text size:"sm" color:"muted"
+          "Use show:{ xs:false md:true } for breakpoint visibility."
+      Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Title size:"lg" weight:"bold"
+          "Reactive"
+        Text size:"sm" color:"muted"
+          "Use a boolean Signal path or a typed numeric comparison."

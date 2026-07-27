@@ -1,0 +1,116 @@
+layout FooterNewsletterLayout
+  Scaffold minH:"vh-0"
+    main
+      children
+    bottomBar
+      Footer variant:"solid" scheme:"muted" boxed:true py:{ xs:7 md:6 }
+        center
+          Grid columns:1 gap:6 w:"full"
+            Flex direction:{ xs:"column" md:"row" } align:"center" justify:"between" gap:5
+              Brand href:"/blocks/footer" label:"WebbyFrames home"
+                Flex align:"center" gap:2
+                  Icon name:"widget-5" style:"linear" fill:"onMuted" w:7 h:7
+                  Flex direction:"column" align:"center"
+                    Text size:"lg" weight:"black" color:"onMuted"
+                      "WebbyFrames"
+                    Text size:"xs" color:"onMuted"
+                      "for Figma"
+              Grid columns:"1fr auto" w:"full" gap:2
+                Input placeholder:"Enter your email to get the latest news..." iconStart:"letter"
+                Button variant:"solid" scheme:"primary"
+                  "Subscribe"
+            Divider
+            Flex direction:{ xs:"column" md:"row" } justify:"between" gap:{ xs:7 md:8 } w:"full"
+              Flex direction:"column" align:"start" gap:2
+                Text weight:"bold" color:"onMuted"
+                  "Column One"
+                Text size:"sm" color:"onMuted"
+                  "Twenty One"
+                Text size:"sm" color:"onMuted"
+                  "Thirty Two"
+                Text size:"sm" color:"onMuted"
+                  "Fourty Three"
+                Text size:"sm" color:"onMuted"
+                  "Fifty Four"
+              Flex direction:"column" align:"start" gap:2
+                Text weight:"bold" color:"onMuted"
+                  "Column Two"
+                Text size:"sm" color:"onMuted"
+                  "Sixty Five"
+                Text size:"sm" color:"onMuted"
+                  "Seventy Six"
+                Text size:"sm" color:"onMuted"
+                  "Eighty Seven"
+                Text size:"sm" color:"onMuted"
+                  "Ninety Eight"
+              Flex direction:"column" align:"start" gap:2
+                Text weight:"bold" color:"onMuted"
+                  "Column Three"
+                Text size:"sm" color:"onMuted"
+                  "One Two"
+                Text size:"sm" color:"onMuted"
+                  "Three Four"
+                Text size:"sm" color:"onMuted"
+                  "Five Six"
+                Text size:"sm" color:"onMuted"
+                  "Seven Eight"
+              Flex direction:"column" align:"start" gap:4
+                Text weight:"bold" color:"onMuted"
+                  "Column Four"
+                Flex wrap:true gap:2
+                  Button variant:"solid" scheme:"primary" size:"sm" iconStart:"smartphone"
+                    "App Store"
+                  Button variant:"solid" scheme:"primary" size:"sm" iconStart:"play"
+                    "Google Play"
+                Text weight:"bold" color:"onMuted"
+                  "Join Us"
+                Flex align:"center" gap:1
+                  IconButton:
+                    icon:"play-circle"
+                    label:"YouTube"
+                    href:"https://youtube.com"
+                    variant:"solid"
+                    scheme:"muted"
+                  IconButton:
+                    icon:"users-group-rounded"
+                    label:"Facebook"
+                    href:"https://facebook.com"
+                    variant:"solid"
+                    scheme:"muted"
+                  IconButton:
+                    icon:"chat-square"
+                    label:"Twitter"
+                    href:"https://twitter.com"
+                    variant:"solid"
+                    scheme:"muted"
+                  IconButton:
+                    icon:"camera"
+                    label:"Instagram"
+                    href:"https://instagram.com"
+                    variant:"solid"
+                    scheme:"muted"
+                  IconButton:
+                    icon:"link-circle"
+                    label:"LinkedIn"
+                    href:"https://linkedin.com"
+                    variant:"solid"
+                    scheme:"muted"
+            Divider
+            Flex:
+              direction:{ xs:"column" md:"row" }
+              align:{ xs:"start" md:"center" }
+              justify:"between"
+              gap:4
+              Text size:"xs" color:"onMuted"
+                "CompanyName @ 202X. All rights reserved."
+              Flex wrap:true gap:1
+                Button:
+                  href:"/blocks/footer-preview/navigation"
+                  variant:"solid"
+                  scheme:"muted"
+                  size:"sm"
+                  "Eleven"
+                Button href:"/blocks/footer-preview/social" variant:"solid" scheme:"muted" size:"sm"
+                  "Twelve"
+                Button href:"/blocks/footer-preview/legal" variant:"solid" scheme:"muted" size:"sm"
+                  "Thirteen"

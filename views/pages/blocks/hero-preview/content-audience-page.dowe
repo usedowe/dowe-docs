@@ -1,0 +1,75 @@
+page ContentAudienceHeroPage
+  Section id:"content-audience-hero" background:"aurora" boxed:true minH:"vh-0" py:{ xs:8 md:12 }
+    Grid columns:{ xs:1 md:"5fr 6fr" } gap:{ xs:8 md:16 } align:"center" minH:"vh-24"
+      Flex direction:"column" align:"start" gap:6
+        Title size:"7xl" weight:"black" show:{ xs:false md:true }
+          "Content is the key to building an audience"
+        Title size:"4xl" weight:"black" show:{ xs:true md:false }
+          "Content is the key to building an audience"
+        Text size:"lg" color:"muted"
+          "Publish with confidence and turn useful ideas into durable audience growth."
+        Flex direction:{ xs:"column" sm:"row" } align:"center" gap:3 pt:2
+          Button variant:"solid" scheme:"primary" size:"lg"
+            "Get Started Now"
+          Button variant:"outlined" scheme:"muted" size:"lg"
+            "Find Out More"
+        Flex align:"center" gap:4 pt:2
+          AvatarGroup size:"md" max:4 bordered:true variant:"soft" scheme:"primary"
+            item name:"Maya" alt:"Maya Chen"
+            item name:"Leo" alt:"Leo Martin"
+            item name:"Amara" alt:"Amara Okafor"
+            item name:"Lin" alt:"Lin Park"
+            item name:"Dowe" alt:"Dowe Agent"
+          Grid columns:1 gap:1
+            Text size:"sm" color:"muted"
+              "Trusted by 12K+ worldwide"
+            Text size:"sm" color:"muted"
+              "brands & customers"
+      Box:
+        cover:"/assets/blocks/hero/content-creator.jpg"
+        rounded:"xl"
+        minH:"vh-48"
+        p:{ xs:4 md:6 }
+        shadow:"xl"
+        shadowColor:"muted"
+        Flex direction:"column" justify:"end" gap:5 minH:"vh-64"
+          Flex justify:"end"
+            Card variant:"solid" scheme:"surface" rounded:"lg" shadow:"lg" shadowColor:"muted" p:4
+              Flex align:"center" gap:3
+                Box w:14 h:14 rounded:"md" cover:"/assets/blocks/hero/content-creator.jpg"
+                Grid columns:1 gap:1
+                  Title size:"2xl" weight:"black"
+                    "36k+"
+                  Text size:"xs" color:"muted"
+                    "Satisfied Customers"
+          Flex justify:"between" align:"center" gap:6
+            Card variant:"solid" scheme:"surface" rounded:"lg" shadow:"lg" shadowColor:"muted" p:4
+              Flex align:"center" gap:3
+                Icon name:"stars" style:"bold" fill:"primary" w:8 h:8
+                Text size:"lg" weight:"bold"
+                  "Personalized Strategy"
+            Card variant:"solid" scheme:"surface" rounded:"lg" shadow:"xl" shadowColor:"success" p:5
+              Grid columns:1 gap:1
+                Flex align:"center" gap:2
+                  Icon name:"chart" style:"bold" fill:"warning" w:6 h:6
+                  Text weight:"bold"
+                    "Reach"
+                Title size:"4xl" weight:"black"
+                  "264,506"
+                Text size:"xs" color:"success"
+                  "+32.88% from last 7 days"
+          Flex direction:"column" align:"center" gap:3 pt:4
+            Chip variant:"soft" scheme:"info"
+              start
+                Svg viewBox:"0 0 24 24" w:4 h:4
+                  Path:
+                    d:"M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm-1 14-4-4 1.4-1.4L11 13.2l5.6-5.6L18 9l-7 7Z"
+                    fill:"currentColor"
+              "Real-Time Analytics"
+            Chip variant:"soft" scheme:"warning"
+              start
+                Svg viewBox:"0 0 24 24" w:4 h:4
+                  Path:
+                    d:"M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20ZM8.5 9a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm7 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 18a5.5 5.5 0 0 1-5-3.2h10a5.5 5.5 0 0 1-5 3.2Z"
+                    fill:"currentColor"
+              "Social Media Marketing"

@@ -1,0 +1,499 @@
+page CarouselPage
+  const carouselProps:
+    value:[
+      {
+        prop:"variant"
+        type:"simple | snapping | masonry | rtl | sticky | controls | dots | thumbnails | coverFlow | slideshow | stories | smartStack | cardStack | flipbook"
+        defaultValue:"simple"
+      },
+      {
+        prop:"scheme"
+        type:"primary | secondary | tertiary | muted | success | info | warning | danger"
+        defaultValue:"primary"
+      },
+      {
+        prop:"orientation"
+        type:"horizontal | vertical"
+        defaultValue:"horizontal"
+      },
+      {
+        prop:"autoplay, autoplayInterval"
+        type:"boolean, milliseconds"
+        defaultValue:"false, 3000"
+      },
+      {
+        prop:"disableLoop"
+        type:"boolean"
+        defaultValue:"false"
+      },
+      {
+        prop:"hideControls, hideIndicators"
+        type:"boolean"
+        defaultValue:"false"
+      },
+      {
+        prop:"showNavigation, showCounter"
+        type:"boolean"
+        defaultValue:"false"
+      },
+      {
+        prop:"indicatorType"
+        type:"bar | dot"
+        defaultValue:"bar"
+      },
+      {
+        prop:"slideWidth, slideHeight, slidesPerView, gap"
+        type:"positive numbers"
+        defaultValue:"—, —, 1, 0"
+      },
+    ]
+  Section id:"carousel-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "DISPLAY"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Carousel"
+        Text size:"lg" color:"muted"
+          "Native-first carousels for web, Android, and iOS with touch, drag, snapping, navigation, and portable 3D presets."
+      Card variant:"soft" scheme:"success" p:5 rounded:"lg" minW:56
+        Grid columns:1 gap:1
+          Text size:"xs" weight:"bold" spacing:"widest"
+            "THREE NATIVE TARGETS"
+          Title size:"xl" weight:"black"
+            "One Carousel contract"
+          Text size:"sm"
+            "Web scrolls natively, Android uses Compose gestures, and iOS uses SwiftUI scrolling."
+  Section id:"carousel-basic" p:{ xs:5 md:7 }
+    Grid columns:1 gap:8
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "BASIC VARIANTS"
+        Title size:"3xl" weight:"black"
+          "Scroll, snap, compose, and change direction"
+        Text size:"sm" color:"muted"
+          "Touch works on every target. Web also adds fine-pointer dragging while preserving native scrolling and accessibility."
+      Grid columns:1 gap:4
+        Title size:"xl" weight:"black"
+          "1. Simple scrollable and draggable"
+        Carousel variant:"simple" scheme:"primary" slideWidth:320 gap:16 hideControls:true hideIndicators:true
+          slide id:"simple-one"
+            Card variant:"soft" scheme:"primary" minH:44 rounded:"lg"
+              Flex direction:"column" justify:"between" gap:3 minH:36
+                Text size:"xs" weight:"bold" spacing:"widest"
+                  "01"
+                Title size:"2xl" weight:"black"
+                  "Native scroll"
+          slide id:"simple-two"
+            Card variant:"soft" scheme:"secondary" minH:44 rounded:"lg"
+              Flex direction:"column" justify:"between" gap:3 minH:36
+                Text size:"xs" weight:"bold" spacing:"widest"
+                  "02"
+                Title size:"2xl" weight:"black"
+                  "Touch and drag"
+          slide id:"simple-three"
+            Card variant:"soft" scheme:"tertiary" minH:44 rounded:"lg"
+              Flex direction:"column" justify:"between" gap:3 minH:36
+                Text size:"xs" weight:"bold" spacing:"widest"
+                  "03"
+                Title size:"2xl" weight:"black"
+                  "No forced snap"
+          slide id:"simple-four"
+            Card variant:"soft" scheme:"success" minH:44 rounded:"lg"
+              Flex direction:"column" justify:"between" gap:3 minH:36
+                Text size:"xs" weight:"bold" spacing:"widest"
+                  "04"
+                Title size:"2xl" weight:"black"
+                  "Momentum preserved"
+        Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+          Carousel variant:"simple" scheme:"primary" slideWidth:220 gap:16 hideControls:true hideIndicators:true
+            slide id:"one"
+              Card variant:"soft" scheme:"primary"
+                Text
+                  "Native scrolling"
+        """
+      Grid columns:1 gap:4
+        Title size:"xl" weight:"black"
+          "2. Snapping"
+        Carousel variant:"snapping" scheme:"secondary" gap:16 hideControls:true indicatorType:"dot"
+          slide id:"snap-one"
+            Card variant:"soft" scheme:"secondary" minH:48 rounded:"lg"
+              Title size:"2xl" weight:"black"
+                "Centered snap"
+          slide id:"snap-two"
+            Card variant:"soft" scheme:"info" minH:48 rounded:"lg"
+              Title size:"2xl" weight:"black"
+                "One gesture"
+          slide id:"snap-three"
+            Card variant:"soft" scheme:"success" minH:48 rounded:"lg"
+              Title size:"2xl" weight:"black"
+                "Stable landing"
+        Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+          Carousel variant:"snapping" scheme:"secondary" gap:16 indicatorType:"dot"
+            slide id:"one"
+              Card
+                Text
+                  "Centered snap"
+        """
+      Grid columns:1 gap:4
+        Title size:"xl" weight:"black"
+          "3. Masonry grid"
+        Carousel variant:"masonry" scheme:"tertiary" gap:12 hideControls:true hideIndicators:true
+          slide id:"grid-one"
+            Card variant:"soft" scheme:"primary" minH:20
+              Text weight:"bold"
+                "01"
+          slide id:"grid-two"
+            Card variant:"soft" scheme:"secondary" minH:20
+              Text weight:"bold"
+                "02"
+          slide id:"grid-three"
+            Card variant:"soft" scheme:"tertiary" minH:20
+              Text weight:"bold"
+                "03"
+          slide id:"grid-four"
+            Card variant:"soft" scheme:"info" minH:20
+              Text weight:"bold"
+                "04"
+          slide id:"grid-five"
+            Card variant:"soft" scheme:"success" minH:20
+              Text weight:"bold"
+                "05"
+          slide id:"grid-six"
+            Card variant:"soft" scheme:"warning" minH:20
+              Text weight:"bold"
+                "06"
+        Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+          Carousel variant:"masonry" scheme:"tertiary" gap:12
+            slide id:"cell-one"
+              Card
+                Text
+                  "Grid cell"
+        """
+      Grid columns:1 gap:4
+        Title size:"xl" weight:"black"
+          "4. Right to left"
+        Carousel variant:"rtl" scheme:"info" slideWidth:320 gap:16 hideControls:true indicatorType:"dot"
+          slide id:"rtl-one"
+            Card variant:"soft" scheme:"info" minH:40
+              Title size:"2xl" weight:"black"
+                "First from right"
+          slide id:"rtl-two"
+            Card variant:"soft" scheme:"primary" minH:40
+              Title size:"2xl" weight:"black"
+                "RTL flow"
+          slide id:"rtl-three"
+            Card variant:"soft" scheme:"secondary" minH:40
+              Title size:"2xl" weight:"black"
+                "Native direction"
+        Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+          Carousel variant:"rtl" scheme:"info" slideWidth:240 gap:16
+            slide id:"one"
+              Card
+                Text
+                  "Right-to-left flow"
+        """
+      Grid columns:1 gap:4
+        Title size:"xl" weight:"black"
+          "5. Sticky slides"
+        Carousel variant:"sticky" scheme:"warning" gap:16 hideControls:true hideIndicators:true
+          slide id:"sticky-one"
+            Card variant:"soft" scheme:"warning" minH:44 rounded:"lg"
+              Title size:"2xl" weight:"black"
+                "Sticky label 01"
+          slide id:"sticky-two"
+            Card variant:"soft" scheme:"danger" minH:44 rounded:"lg"
+              Title size:"2xl" weight:"black"
+                "Sticky label 02"
+          slide id:"sticky-three"
+            Card variant:"soft" scheme:"primary" minH:44 rounded:"lg"
+              Title size:"2xl" weight:"black"
+                "Sticky label 03"
+        Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+          Carousel variant:"sticky" scheme:"warning" gap:16
+            slide id:"one"
+              Card
+                Text
+                  "Sticky slide"
+        """
+  Section id:"carousel-navigation" py:{ xs:7 md:10 }
+    Grid columns:1 gap:8
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "NAVIGATION VARIANTS"
+        Title size:"3xl" weight:"black"
+          "Buttons, dots, and thumbnails"
+        Text size:"sm" color:"muted"
+          "Every navigation surface follows native scroll position and remains interactive with touch, mouse, keyboard, and assistive technology."
+      Grid columns:1 gap:4
+        Title size:"xl" weight:"black"
+          "6. Previous and next controls"
+        Carousel variant:"controls" scheme:"success" gap:16 hideIndicators:true showCounter:true
+          slide id:"controls-one"
+            Card variant:"soft" scheme:"success" minH:44
+              Title size:"2xl" weight:"black"
+                "Previous"
+          slide id:"controls-two"
+            Card variant:"soft" scheme:"info" minH:44
+              Title size:"2xl" weight:"black"
+                "Current slide"
+          slide id:"controls-three"
+            Card variant:"soft" scheme:"primary" minH:44
+              Title size:"2xl" weight:"black"
+                "Next"
+        Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+          Carousel variant:"controls" scheme:"success" hideIndicators:true showCounter:true
+            slide id:"one"
+              Card
+                Text
+                  "Controlled slide"
+        """
+      Grid columns:1 gap:4
+        Title size:"xl" weight:"black"
+          "7. Interactive dots"
+        Carousel variant:"dots" scheme:"danger" gap:16 hideControls:true indicatorType:"dot"
+          slide id:"dots-one"
+            Card variant:"soft" scheme:"danger" minH:44
+              Title size:"2xl" weight:"black"
+                "Dot one"
+          slide id:"dots-two"
+            Card variant:"soft" scheme:"warning" minH:44
+              Title size:"2xl" weight:"black"
+                "Dot two"
+          slide id:"dots-three"
+            Card variant:"soft" scheme:"success" minH:44
+              Title size:"2xl" weight:"black"
+                "Dot three"
+        Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+          Carousel variant:"dots" scheme:"danger" hideControls:true indicatorType:"dot"
+            slide id:"one"
+              Card
+                Text
+                  "Dot navigation"
+        """
+      Grid columns:1 gap:4
+        Title size:"xl" weight:"black"
+          "8. Thumbnail navigation"
+        Carousel variant:"thumbnails" scheme:"primary" gap:16 hideControls:true hideIndicators:true
+          slide id:"forest"
+            Card variant:"soft" scheme:"success" minH:52 rounded:"lg"
+              Title size:"3xl" weight:"black"
+                "Forest"
+          slide id:"ocean"
+            Card variant:"soft" scheme:"info" minH:52 rounded:"lg"
+              Title size:"3xl" weight:"black"
+                "Ocean"
+          slide id:"sunset"
+            Card variant:"soft" scheme:"warning" minH:52 rounded:"lg"
+              Title size:"3xl" weight:"black"
+                "Sunset"
+        Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+          Carousel variant:"thumbnails" scheme:"primary" hideControls:true hideIndicators:true
+            slide id:"forest"
+              Card
+                Text
+                  "The slide id labels its generated preview."
+        """
+  Section id:"carousel-effects" p:{ xs:5 md:7 }
+    Grid columns:1 gap:8
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "ADVANCED VARIANTS"
+        Title size:"3xl" weight:"black"
+          "Portable depth and motion"
+        Text size:"sm" color:"muted"
+          "Web uses scroll-driven animations when available; Android and iOS map the same variants to native transforms. Reduced-motion preferences remove decorative transforms."
+      Grid columns:1 gap:4
+        Title size:"xl" weight:"black"
+          "9. Cover flow"
+        Carousel variant:"coverFlow" scheme:"secondary" slideWidth:320 gap:24 hideControls:true indicatorType:"dot"
+          slide id:"cover-one"
+            Card variant:"soft" scheme:"secondary" minH:52 rounded:"lg"
+              Title size:"3xl" weight:"black"
+                "Cover 01"
+          slide id:"cover-two"
+            Card variant:"soft" scheme:"primary" minH:52 rounded:"lg"
+              Title size:"3xl" weight:"black"
+                "Cover 02"
+          slide id:"cover-three"
+            Card variant:"soft" scheme:"tertiary" minH:52 rounded:"lg"
+              Title size:"3xl" weight:"black"
+                "Cover 03"
+        Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+          Carousel variant:"coverFlow" scheme:"secondary" slideWidth:260 gap:24
+            slide id:"one"
+              Card
+                Text
+                  "Cover flow"
+        """
+      Grid columns:1 gap:4
+        Title size:"xl" weight:"black"
+          "10. Parallax slideshow"
+        Carousel variant:"slideshow" scheme:"info" hideControls:true showCounter:true
+          slide id:"scene-one"
+            Card variant:"soft" scheme:"info" minH:60 rounded:"lg"
+              Flex direction:"column" justify:"end" gap:2 minH:52
+                Text size:"xs" weight:"bold" spacing:"widest"
+                  "SCENE ONE"
+                Title size:"3xl" weight:"black"
+                  "Parallax motion"
+          slide id:"scene-two"
+            Card variant:"soft" scheme:"success" minH:60 rounded:"lg"
+              Flex direction:"column" justify:"end" gap:2 minH:52
+                Text size:"xs" weight:"bold" spacing:"widest"
+                  "SCENE TWO"
+                Title size:"3xl" weight:"black"
+                  "Automatic timing"
+        Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+          Carousel variant:"slideshow" scheme:"info" autoplay:true autoplayInterval:4500 showCounter:true
+            slide id:"scene-one"
+              Card
+                Text
+                  "Parallax scene"
+        """
+      Grid columns:1 gap:4
+        Title size:"xl" weight:"black"
+          "11. Stories"
+        Carousel variant:"stories" scheme:"danger" slideWidth:320 gap:20 hideControls:true indicatorType:"dot"
+          slide id:"story-one"
+            Card variant:"soft" scheme:"danger" minH:72 rounded:"lg"
+              Flex direction:"column" justify:"between" gap:3 minH:64
+                Text size:"xs" weight:"bold" spacing:"widest"
+                  "STORY 01"
+                Title size:"3xl" weight:"black"
+                  "A 3D story"
+          slide id:"story-two"
+            Card variant:"soft" scheme:"warning" minH:72 rounded:"lg"
+              Flex direction:"column" justify:"between" gap:3 minH:64
+                Text size:"xs" weight:"bold" spacing:"widest"
+                  "STORY 02"
+                Title size:"3xl" weight:"black"
+                  "Swipe onward"
+          slide id:"story-three"
+            Card variant:"soft" scheme:"secondary" minH:72 rounded:"lg"
+              Flex direction:"column" justify:"between" gap:3 minH:64
+                Text size:"xs" weight:"bold" spacing:"widest"
+                  "STORY 03"
+                Title size:"3xl" weight:"black"
+                  "Native momentum"
+          slide id:"story-four"
+            Card variant:"soft" scheme:"info" minH:72 rounded:"lg"
+              Flex direction:"column" justify:"between" gap:3 minH:64
+                Text size:"xs" weight:"bold" spacing:"widest"
+                  "STORY 04"
+                Title size:"3xl" weight:"black"
+                  "A clean finish"
+        Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+          Carousel variant:"stories" scheme:"danger" slideWidth:280 gap:20 indicatorType:"dot"
+            slide id:"story-one"
+              Card
+                Text
+                  "Story content"
+        """
+      Grid columns:1 gap:4
+        Title size:"xl" weight:"black"
+          "12. Smart stack"
+        Carousel variant:"smartStack" scheme:"muted" slideWidth:320 gap:20 hideControls:true indicatorType:"dot"
+          slide id:"stack-one"
+            Card variant:"soft" scheme:"primary" minH:52 rounded:"xl"
+              Title size:"2xl" weight:"black"
+                "Morning brief"
+          slide id:"stack-two"
+            Card variant:"soft" scheme:"success" minH:52 rounded:"xl"
+              Title size:"2xl" weight:"black"
+                "Activity"
+          slide id:"stack-three"
+            Card variant:"soft" scheme:"info" minH:52 rounded:"xl"
+              Title size:"2xl" weight:"black"
+                "Weather"
+        Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+          Carousel variant:"smartStack" scheme:"muted" slideWidth:280 gap:20
+            slide id:"one"
+              Card rounded:"xl"
+                Text
+                  "Smart stack card"
+        """
+      Grid columns:1 gap:4
+        Title size:"xl" weight:"black"
+          "13. Card stack"
+        Carousel variant:"cardStack" scheme:"primary" slideWidth:360 gap:16 hideControls:true hideIndicators:true
+          slide id:"message-one"
+            Card variant:"soft" scheme:"primary" minH:44 rounded:"xl"
+              Grid columns:1 gap:2
+                Text size:"xs" weight:"bold" spacing:"widest"
+                  "MESSAGE 01"
+                Text size:"lg"
+                  "The first card stays close while the next one arrives."
+          slide id:"message-two"
+            Card variant:"soft" scheme:"secondary" minH:44 rounded:"xl"
+              Grid columns:1 gap:2
+                Text size:"xs" weight:"bold" spacing:"widest"
+                  "MESSAGE 02"
+                Text size:"lg"
+                  "Native scrolling drives the stack."
+          slide id:"message-three"
+            Card variant:"soft" scheme:"tertiary" minH:44 rounded:"xl"
+              Grid columns:1 gap:2
+                Text size:"xs" weight:"bold" spacing:"widest"
+                  "MESSAGE 03"
+                Text size:"lg"
+                  "Touch remains the primary gesture."
+        Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+          Carousel variant:"cardStack" scheme:"primary" slideWidth:320 gap:16
+            slide id:"message-one"
+              Card rounded:"xl"
+                Text
+                  "Stacked message"
+        """
+      Grid columns:1 gap:4
+        Title size:"xl" weight:"black"
+          "14. Flipbook"
+        Carousel variant:"flipbook" scheme:"warning" slideWidth:380 gap:12 hideControls:true showCounter:true
+          slide id:"page-one"
+            Card variant:"soft" scheme:"warning" minH:64 rounded:"sm"
+              Flex direction:"column" justify:"between" gap:3 minH:56
+                Text size:"xs" weight:"bold" spacing:"widest"
+                  "PAGE 01"
+                Title size:"3xl" weight:"black"
+                  "The opening"
+          slide id:"page-two"
+            Card variant:"soft" scheme:"danger" minH:64 rounded:"sm"
+              Flex direction:"column" justify:"between" gap:3 minH:56
+                Text size:"xs" weight:"bold" spacing:"widest"
+                  "PAGE 02"
+                Title size:"3xl" weight:"black"
+                  "The turning point"
+          slide id:"page-three"
+            Card variant:"soft" scheme:"success" minH:64 rounded:"sm"
+              Flex direction:"column" justify:"between" gap:3 minH:56
+                Text size:"xs" weight:"bold" spacing:"widest"
+                  "PAGE 03"
+                Title size:"3xl" weight:"black"
+                  "The ending"
+        Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+          Carousel variant:"flipbook" scheme:"warning" slideWidth:340 gap:8 showCounter:true
+            slide id:"page-one"
+              Card rounded:"sm"
+                Text
+                  "Flipbook page"
+        """
+  Section id:"carousel-api" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Props"
+        Text size:"sm" color:"muted"
+          "Carousel also accepts common spacing, sizing, visibility, radius, border, and accessibility props. Every slide requires a stable id and normal view children."
+      Table:
+        data:carouselProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1fr"

@@ -1,0 +1,317 @@
+page ModalPage
+  signal profileModalOpen value:false
+  signal policyModalOpen value:false
+  signal protectedModalOpen value:false
+  const modalProps:
+    value:[
+      {
+        prop:"open"
+        type:"bool Signal path"
+        defaultValue:"required"
+      },
+      {
+        prop:"onClose"
+        type:"View function reference"
+        defaultValue:"—"
+      },
+      {
+        prop:"variant"
+        type:"solid | soft | outlined | ghost"
+        defaultValue:"solid"
+      },
+      {
+        prop:"scheme"
+        type:"primary | secondary | tertiary | muted | background | surface | success | info | warning | danger"
+        defaultValue:"surface"
+      },
+      {
+        prop:"header | footer"
+        type:"optional region with view children"
+        defaultValue:"—"
+      },
+      {
+        prop:"disableOverlayClose"
+        type:"boolean"
+        defaultValue:"false"
+      },
+      {
+        prop:"hideCloseButton"
+        type:"boolean"
+        defaultValue:"false"
+      },
+    ]
+  fn openProfileModal
+    set profileModalOpen value:true
+  fn closeProfileModal
+    set profileModalOpen value:false
+  fn openPolicyModal
+    set policyModalOpen value:true
+  fn closePolicyModal
+    set policyModalOpen value:false
+  fn openProtectedModal
+    set protectedModalOpen value:true
+  fn closeProtectedModal
+    set protectedModalOpen value:false
+  Section id:"modal-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "OVERLAY"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Modal"
+        Text size:"lg" color:"muted"
+          "Modals keep a focused task above the current screen while one bool Signal owns whether the dialog is open."
+      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
+        "Copy LLM"
+  Section id:"modal-playground" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PLAYGROUND"
+        Title size:"3xl" weight:"black"
+          "A focused profile review"
+        Text size:"sm" color:"muted"
+          "Open the dialog to inspect its optional header and footer, generated close control, overlay, and explicit close action."
+      Card variant:"outlined" scheme:"surface" p:{ xs:6 md:10 } rounded:"md" border:1
+        Flex justify:"center" align:"center"
+          Button onClick:openProfileModal variant:"solid" scheme:"primary" iconStart:"user"
+            "Review profile"
+      Modal open:profileModalOpen onClose:closeProfileModal scheme:"surface"
+        header
+          Title size:"xl" weight:"black"
+            "Review profile"
+        Grid columns:1 gap:3
+          Text color:"muted"
+            "Confirm that this profile is ready to appear in the workspace directory."
+          Card variant:"soft" scheme:"background" p:4 rounded:"md"
+            Grid columns:1 gap:1
+              Text weight:"bold"
+                "Maya Chen"
+              Text size:"sm" color:"muted"
+                "Product designer · maya@acme.test"
+        footer
+          Flex justify:"end" gap:3
+            Button onClick:closeProfileModal variant:"ghost" scheme:"muted"
+              "Cancel"
+            Button onClick:closeProfileModal variant:"solid" scheme:"primary"
+              "Confirm"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          signal profileModalOpen value:false
+
+          fn openProfileModal
+            set profileModalOpen value:true
+
+          fn closeProfileModal
+            set profileModalOpen value:false
+
+          Button onClick:openProfileModal
+            "Review profile"
+
+          Modal open:profileModalOpen onClose:closeProfileModal scheme:"surface"
+            header
+              Title size:"xl"
+                "Review profile"
+            Text
+              "Confirm that this profile is ready to appear in the directory."
+            footer
+              Button onClick:closeProfileModal variant:"solid" scheme:"primary"
+                "Confirm"
+        """
+  Section id:"modal-regions" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "STRUCTURE"
+        Title size:"3xl" weight:"black"
+          "Body content with optional edges"
+        Text size:"sm" color:"muted"
+          "The body is required. Add header for a title or context, and footer for persistent actions that stay grouped at the bottom of the dialog."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "HEADER"
+            Title size:"lg" weight:"bold"
+              "Optional context"
+            Text size:"sm" color:"muted"
+              "Use header for the dialog title, status, or compact context that people need before reading the body."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "BODY"
+            Title size:"lg" weight:"bold"
+              "Required content"
+            Text size:"sm" color:"muted"
+              "Place the task, explanation, form controls, or supporting information directly inside Modal."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "FOOTER"
+            Title size:"lg" weight:"bold"
+              "Optional actions"
+            Text size:"sm" color:"muted"
+              "Use footer for close, cancel, confirm, or other declared actions that complete the focused task."
+  Section id:"modal-close-behavior" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "CLOSE BEHAVIOR"
+        Title size:"3xl" weight:"black"
+          "Choose the available exit paths"
+        Text size:"sm" color:"muted"
+          "By default, the generated close control and a click on the overlay close the dialog. Keep a visible action in the footer when the task must make its exit explicit."
+      Grid columns:{ xs:1 md:2 } gap:5
+        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+          Grid columns:1 gap:3
+            Text size:"sm" weight:"bold"
+              "Standard close behavior"
+            Text size:"sm" color:"muted"
+              "The overlay and generated close control dismiss this dialog, and onClose invokes the declared function after the open Signal changes."
+            Button onClick:openPolicyModal variant:"outlined" scheme:"info"
+              "Open policy"
+        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+          Grid columns:1 gap:3
+            Text size:"sm" weight:"bold"
+              "Explicit decision"
+            Text size:"sm" color:"muted"
+              "Disable overlay close and hide the generated close control when the footer must be the visible route out of the dialog."
+            Button onClick:openProtectedModal variant:"outlined" scheme:"warning"
+              "Open protected action"
+      Modal open:policyModalOpen onClose:closePolicyModal variant:"soft" scheme:"info"
+        header
+          Title size:"xl" weight:"black"
+            "Workspace policy"
+        Text color:"muted"
+          "This dialog can close from its overlay, generated close control, or the footer action."
+        footer
+          Flex justify:"end"
+            Button onClick:closePolicyModal variant:"solid" scheme:"info"
+              "Understood"
+      Modal:
+        open:protectedModalOpen
+        onClose:closeProtectedModal
+        scheme:"surface"
+        disableOverlayClose:true
+        hideCloseButton:true
+        header
+          Title size:"xl" weight:"black"
+            "Publish changes?"
+        Text color:"muted"
+          "The footer provides the visible actions for this decision."
+        footer
+          Flex justify:"end" gap:3
+            Button onClick:closeProtectedModal variant:"ghost" scheme:"muted"
+              "Cancel"
+            Button onClick:closeProtectedModal variant:"solid" scheme:"warning"
+              "Publish"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Modal open:publishOpen disableOverlayClose:true hideCloseButton:true
+            header
+              Title
+                "Publish changes?"
+            Text
+              "The footer provides the visible actions for this decision."
+            footer
+              Button onClick:closePublish variant:"ghost" scheme:"muted"
+                "Cancel"
+              Button onClick:publish variant:"solid" scheme:"warning"
+                "Publish"
+        """
+  Section id:"modal-variants" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "VARIANTS AND SCHEMES"
+        Title size:"3xl" weight:"black"
+          "Keep the dialog aligned with its context"
+        Text size:"sm" color:"muted"
+          "Modal uses the same solid, soft, outlined, and ghost variants as other design-family surfaces. Its default scheme is surface, but every Dowe design family is available when the context needs stronger emphasis."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Modal open:detailsOpen variant:"solid" scheme:"surface"
+            Text
+              "Default dialog surface"
+
+          Modal open:noticeOpen variant:"soft" scheme:"info"
+            Text
+              "Informational dialog"
+
+          Modal open:reviewOpen variant:"outlined" scheme:"warning"
+            Text
+              "Review before continuing"
+
+          Modal open:removeOpen variant:"ghost" scheme:"danger"
+            Text
+              "Destructive context"
+        """
+  Section id:"modal-targets" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "TARGET BEHAVIOR"
+        Title size:"3xl" weight:"black"
+          "One dialog contract, target-owned presentation"
+        Text size:"sm" color:"muted"
+          "The same source stays signal-driven on every target while Dowe generates the appropriate overlay surface and close behavior."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "WEB"
+            Title size:"lg" weight:"bold"
+              "Fixed dialog overlay"
+            Text size:"sm" color:"muted"
+              "Generated web output includes the overlay, close control, Escape handling, and reactive Signal updates."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "ANDROID"
+            Title size:"lg" weight:"bold"
+              "Dowe popup dialog"
+            Text size:"sm" color:"muted"
+              "Generated Compose presents a Dowe-owned dialog surface rather than inline page content."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "IOS"
+            Title size:"lg" weight:"bold"
+              "Window presenter"
+            Text size:"sm" color:"muted"
+              "Generated SwiftUI mounts the same dialog contract through a Dowe-owned window presenter."
+  Section id:"modal-props" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Props and regions"
+        Text size:"sm" color:"muted"
+          "Modal also accepts the applicable common spacing, sizing, border, radius, visibility, and style props. Use scheme, not color, to select its design family."
+      Table:
+        data:modalProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop or region" width:"1fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1fr"

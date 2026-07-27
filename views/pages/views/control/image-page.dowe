@@ -1,0 +1,251 @@
+page ImagePage
+  const imageProps:
+    value:[
+      {
+        prop:"src"
+        type:"quoted asset path | https URL"
+        defaultValue:"required"
+      },
+      {
+        prop:"alt"
+        type:"string"
+        defaultValue:"\"\""
+      },
+      {
+        prop:"aspect"
+        type:"horizontal | vertical | square | auto"
+        defaultValue:"auto"
+      },
+      {
+        prop:"objectFit"
+        type:"cover | contain | fill | none"
+        defaultValue:"cover"
+      },
+      {
+        prop:"loading"
+        type:"lazy | eager"
+        defaultValue:"lazy"
+      },
+      {
+        prop:"hideControls"
+        type:"boolean"
+        defaultValue:"false"
+      },
+      {
+        prop:"variant"
+        type:"solid | soft | outlined | ghost"
+        defaultValue:"solid"
+      },
+      {
+        prop:"scheme"
+        type:"primary | secondary | tertiary | muted | success | info | warning | danger"
+        defaultValue:"primary"
+      },
+      {
+        prop:"rounded"
+        type:"xs | sm | md | lg | xl | full"
+        defaultValue:"radius"
+      },
+      {
+        prop:"show"
+        type:"boolean | responsive | Signal"
+        defaultValue:"true"
+      },
+    ]
+  Section id:"image-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "CONTROL"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Image"
+        Text size:"lg" color:"muted"
+          "Image renders a responsive asset or HTTPS source with native loading, portable sizing, fitting, and accessibility text."
+      Image:
+        src:"https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=960&q=80"
+        alt:"Bright collaborative workspace"
+        aspect:"square"
+        objectFit:"cover"
+        loading:"eager"
+        scheme:"primary"
+        rounded:"lg"
+        minW:56
+  Section id:"image-source" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SOURCE AND ALT TEXT"
+        Title size:"3xl" weight:"black"
+          "Describe what the image contributes"
+        Text size:"sm" color:"muted"
+          "src accepts a project asset path or an HTTPS URL. On Android and iOS, alt is used only by native accessibility and is never shown over the image. Leave it empty only when the image is decorative."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Grid columns:1 gap:3
+          Image:
+            src:"https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80"
+            alt:"Team reviewing work at a shared table"
+            aspect:"horizontal"
+            objectFit:"cover"
+            scheme:"secondary"
+            rounded:"lg"
+          Grid columns:1 gap:1
+            Title size:"xl" weight:"black"
+              "Meaningful content"
+            Text size:"sm" color:"muted"
+              "Use alt text to preserve the information for people who cannot see the image."
+        Grid columns:1 gap:3
+          Image:
+            src:"https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80"
+            alt:""
+            aspect:"horizontal"
+            objectFit:"cover"
+            scheme:"muted"
+            rounded:"lg"
+          Grid columns:1 gap:1
+            Title size:"xl" weight:"black"
+              "Decorative image"
+            Text size:"sm" color:"muted"
+              "An empty alt value keeps decorative artwork out of the accessibility description."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Image src:"/assets/dashboard.png" alt:"Dashboard overview" aspect:"horizontal" objectFit:"cover"
+        """
+  Section id:"image-aspect" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "ASPECT RATIO"
+        Title size:"3xl" weight:"black"
+          "Frame each image for its place"
+        Text size:"sm" color:"muted"
+          "horizontal uses 16 / 9, vertical uses 9 / 16, square uses 1 / 1, and auto preserves the source dimensions. Native targets resolve the available width first and derive the frame height from that ratio, keeping the image inside its Box, Grid, or section."
+      Grid columns:{ xs:1 md:4 } gap:4
+        Grid columns:1 gap:2
+          Image src:"https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=80" alt:"People collaborating in an office" aspect:"horizontal" objectFit:"cover" scheme:"primary" rounded:"md"
+          Text size:"sm" weight:"bold"
+            "horizontal · 16 / 9"
+        Grid columns:1 gap:2
+          Image src:"https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt:"Laptop beside a notebook" aspect:"vertical" objectFit:"cover" scheme:"info" rounded:"md"
+          Text size:"sm" weight:"bold"
+            "vertical · 9 / 16"
+        Grid columns:1 gap:2
+          Image src:"https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=80" alt:"Modern office interior" aspect:"square" objectFit:"cover" scheme:"success" rounded:"md"
+          Text size:"sm" weight:"bold"
+            "square · 1 / 1"
+        Grid columns:1 gap:2
+          Image src:"https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1200&q=80" alt:"Open office workspace" aspect:"auto" objectFit:"cover" scheme:"warning" rounded:"md"
+          Text size:"sm" weight:"bold"
+            "auto · source ratio"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Image src:"/assets/profile.jpg" alt:"Profile portrait" aspect:"vertical" rounded:"lg"
+        """
+  Section id:"image-fitting" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "OBJECT FIT"
+        Title size:"3xl" weight:"black"
+          "Choose how the source fills its frame"
+        Text size:"sm" color:"muted"
+          "cover crops to fill the frame, contain shows the whole image, fill stretches it, and none keeps the source at its natural size."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Grid columns:1 gap:2
+          Image src:"https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1200&q=80" alt:"Open office workspace" aspect:"square" objectFit:"cover" scheme:"primary" rounded:"md"
+          Text size:"sm" weight:"bold"
+            "cover"
+        Grid columns:1 gap:2
+          Image src:"https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1200&q=80" alt:"Open office workspace" aspect:"square" objectFit:"contain" scheme:"secondary" rounded:"md"
+          Text size:"sm" weight:"bold"
+            "contain"
+        Grid columns:1 gap:2
+          Image src:"https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1200&q=80" alt:"Open office workspace" aspect:"square" objectFit:"fill" scheme:"info" rounded:"md"
+          Text size:"sm" weight:"bold"
+            "fill"
+        Grid columns:1 gap:2
+          Image src:"https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1200&q=80" alt:"Open office workspace" aspect:"square" objectFit:"none" scheme:"muted" rounded:"md"
+          Text size:"sm" weight:"bold"
+            "none"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Image src:"/assets/logo.png" alt:"Dowe logo" aspect:"square" objectFit:"contain"
+        """
+  Section id:"image-controls" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "WEB CONTROLS AND LOADING"
+        Title size:"3xl" weight:"black"
+          "Keep image actions intentional"
+        Text size:"sm" color:"muted"
+          "Web images expose download and fullscreen actions by default. Set hideControls when the image should remain a passive visual, and use eager loading only for imagery needed immediately."
+        Text size:"sm" color:"muted"
+          "Android reuses bounded native memory and HTTPS disk caches. During a cold load it shows the theme's neutral surface and fades in the bitmap, avoiding a flash of the authored scheme color."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Grid columns:1 gap:2
+          Image:
+            src:"https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80"
+            alt:"Team reviewing work at a shared table"
+            aspect:"horizontal"
+            objectFit:"cover"
+            loading:"eager"
+            scheme:"primary"
+            rounded:"lg"
+          Text size:"sm" weight:"bold"
+            "Default actions · eager"
+        Grid columns:1 gap:2
+          Image:
+            src:"https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80"
+            alt:"People presenting beside a display"
+            aspect:"horizontal"
+            objectFit:"cover"
+            loading:"lazy"
+            hideControls:true
+            scheme:"tertiary"
+            rounded:"lg"
+          Text size:"sm" weight:"bold"
+            "Passive image · lazy"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Image src:"/assets/hero.jpg" alt:"Team at a workshop" loading:"eager" hideControls:true
+        """
+  Section id:"image-props" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Props"
+        Text size:"sm" color:"muted"
+          "Image also accepts applicable common spacing, sizing, border, visibility, and accessibility props."
+      Table:
+        data:imageProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1fr"

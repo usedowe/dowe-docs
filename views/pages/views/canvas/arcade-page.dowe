@@ -1,0 +1,220 @@
+page CanvasArcadePage
+  signal gameScene:
+    value:[
+      {
+        type:"rect"
+        x:0
+        y:0
+        width:640
+        height:360
+        fill:"background"
+      },
+      {
+        type:"circle"
+        x:40
+        y:50
+        radius:2
+        fill:"onBackground"
+        opacity:0.5
+        motion:{ vx:-18 wrap:true }
+      },
+      {
+        type:"circle"
+        x:180
+        y:120
+        radius:3
+        fill:"onBackground"
+        opacity:0.7
+        motion:{ vx:-28 wrap:true }
+      },
+      {
+        type:"circle"
+        x:350
+        y:44
+        radius:2
+        fill:"onBackground"
+        opacity:0.4
+        motion:{ vx:-12 wrap:true }
+      },
+      {
+        type:"circle"
+        x:520
+        y:240
+        radius:3
+        fill:"onBackground"
+        opacity:0.8
+        motion:{ vx:-35 wrap:true }
+      },
+      {
+        type:"circle"
+        x:610
+        y:90
+        radius:2
+        fill:"onBackground"
+        opacity:0.6
+        motion:{ vx:-22 wrap:true }
+      },
+      {
+        type:"circle"
+        x:540
+        y:80
+        radius:28
+        fill:"danger"
+        stroke:"onDanger"
+        strokeWidth:3
+        opacity:0.85
+        motion:{ vx:-54 rotation:24 wrap:true }
+      },
+      {
+        type:"circle"
+        x:300
+        y:270
+        radius:18
+        fill:"warning"
+        stroke:"onWarning"
+        strokeWidth:3
+        opacity:0.8
+        motion:{ vx:-34 rotation:-18 wrap:true }
+      },
+      {
+        type:"polyline"
+        points:[
+          { x:90 y:180 },
+          { x:38 y:210 },
+          { x:54 y:180 },
+          { x:38 y:150 },
+        ]
+        closed:true
+        fill:"primary"
+        stroke:"onPrimary"
+        strokeWidth:3
+        motion:{ pulse:0.7 }
+      },
+      {
+        type:"circle"
+        x:68
+        y:180
+        radius:7
+        fill:"onPrimary"
+        motion:{ pulse:1.4 }
+      },
+      {
+        type:"text"
+        x:320
+        y:38
+        text:"DOWE ORBIT"
+        fill:"onBackground"
+        size:24
+        align:"center"
+      },
+      {
+        type:"text"
+        x:320
+        y:334
+        text:"Retained commands · deterministic motion"
+        fill:"muted"
+        size:14
+        align:"center"
+      },
+    ]
+  Section id:"canvas-arcade-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "CANVAS · ARCADE"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Arcade scenes"
+        Text size:"lg" color:"muted"
+          "Combine ordered primitives and elapsed-time motion to build a portable game-like scene without a JavaScript engine."
+      Card variant:"soft" scheme:"danger" p:5 rounded:"lg" minW:56
+        Grid columns:1 gap:1
+          Text size:"xs" weight:"bold" spacing:"widest"
+            "60 FPS CAP"
+          Title size:"xl" weight:"black"
+            "Time drives velocity"
+          Text size:"sm"
+            "Frame rate changes redraw cadence, never the logical speed of a command."
+  Section id:"canvas-arcade-demo" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "ADVANCED EXAMPLE"
+        Title size:"3xl" weight:"black"
+          "Layer a starfield, hazards, and a player ship"
+        Text size:"sm" color:"muted"
+          "Small stars and large hazards wrap at the logical scene boundary. The ship stays anchored while pulse motion animates its body and engine."
+      Canvas:
+        scene:gameScene
+        viewWidth:640
+        viewHeight:360
+        fit:"contain"
+        fps:60
+        autoplay:true
+        background:"background"
+        label:"Animated space game scene with a ship, starfield, and moving hazards"
+        w:"full"
+        h:96
+        rounded:"lg"
+        border:1
+        shadow:"md"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          signal gameScene value:[
+            { type:"circle" x:520 y:240 radius:3 fill:"onBackground" motion:{ vx:-35 wrap:true } },
+            { type:"circle" x:540 y:80 radius:28 fill:"danger" motion:{ vx:-54 rotation:24 wrap:true } },
+            { type:"polyline" points:[{ x:90 y:180 }, { x:38 y:210 }, { x:54 y:180 }, { x:38 y:150 }] closed:true fill:"primary" motion:{ pulse:0.7 } },
+          ]
+
+          Canvas scene:gameScene viewWidth:640 viewHeight:360 fps:60 autoplay:true label:"Animated orbit scene" w:"full" h:96
+        """
+  Section id:"canvas-arcade-motion" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "MOTION MODEL"
+        Title size:"3xl" weight:"black"
+          "Compose motion fields deliberately"
+      Grid columns:{ xs:1 md:4 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"lg"
+          Grid columns:1 gap:2
+            Title size:"xl" weight:"black"
+              "vx and vy"
+            Text size:"sm"
+              "Translate the command origin in logical units per second."
+        Card variant:"soft" scheme:"secondary" p:5 rounded:"lg"
+          Grid columns:1 gap:2
+            Title size:"xl" weight:"black"
+              "rotation"
+            Text size:"sm"
+              "Rotate a command by degrees per second around its origin."
+        Card variant:"soft" scheme:"tertiary" p:5 rounded:"lg"
+          Grid columns:1 gap:2
+            Title size:"xl" weight:"black"
+              "pulse"
+            Text size:"sm"
+              "Oscillate opacity without mutating the retained scene Signal."
+        Card variant:"soft" scheme:"info" p:5 rounded:"lg"
+          Grid columns:1 gap:2
+            Title size:"xl" weight:"black"
+              "wrap"
+            Text size:"sm"
+              "Return translated origins through the opposite scene boundary."
+  Section id:"canvas-arcade-limits" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "BOUNDARIES"
+        Title size:"3xl" weight:"black"
+          "Keep game systems outside the renderer"
+        Text size:"sm" color:"muted"
+          "Canvas renders retained commands and normalized input. Physics, collision detection, gamepads, audio, WebGL, shaders, and 3D engines are outside the current contract."
+      Flex justify:"space-between" align:"center" wrap:true gap:3
+        Button href:"/docs/views/canvas/overview" variant:"ghost" scheme:"muted" iconStart:"alt-arrow-left"
+          "Canvas overview"
+        Button href:"/docs/views/canvas/particles" variant:"solid" scheme:"primary" iconEnd:"alt-arrow-right"
+          "Explore particles"

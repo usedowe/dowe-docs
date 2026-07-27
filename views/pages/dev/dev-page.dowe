@@ -1,0 +1,147 @@
+page DevPage
+  Section id:"dev-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "DEVELOPMENT / CLI"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Dowe Dev"
+        Text size:"lg" color:"muted"
+          "Compile the current project, start the targets you choose, and keep development artifacts inside the disposable .dowe directory."
+      Button:
+        href:"/docs/dev/deploy"
+        variant:"soft"
+        scheme:"primary"
+        size:"sm"
+        rounded:"full"
+        iconStart:"settings"
+        "Open Deploy docs"
+  Section id:"dev-command" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "ONE DEVELOPMENT ENTRYPOINT"
+        Title size:"3xl" weight:"black"
+          "Start the project from its root"
+        Text size:"sm" color:"muted"
+          "Run Dowe from the directory that contains main.dowe. In a terminal, dowe dev opens the target selector; explicit flags make the same workflow deterministic for scripts and CI."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy commands"
+        copiedLabel:"Copied"
+        content:"""
+          dowe dev
+          dowe dev --target server --target web
+          dowe dev --target desktop
+          dowe dev --target android
+          dowe dev --target ios
+        """
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"primary"
+              "INTERACTIVE"
+            Title size:"lg" weight:"bold"
+              "Choose targets once"
+            Text size:"sm" color:"muted"
+              "The checkbox menu filters targets from main.dowe and the current host, then remembers the confirmed selection in .dowe/dev/target-selection.json."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "AUTOMATION"
+            Title size:"lg" weight:"bold"
+              "Use explicit flags"
+            Text size:"sm" color:"muted"
+              "Each --target is validated before compilation. Explicit runs do not read or write the interactive preference file."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "HOST FILTERING"
+            Title size:"lg" weight:"bold"
+              "Keep unavailable targets out"
+            Text size:"sm" color:"muted"
+              "Server and web run on supported desktop hosts. iOS is available only on macOS, while mobile and desktop launchers require their native toolchains."
+  Section id:"dev-targets" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "TARGET PIPELINE"
+        Title size:"3xl" weight:"black"
+          "One source model, several targets"
+        Text size:"sm" color:"muted"
+          "The shared Dowe compiler reads the project model once and prepares the selected target pipelines. A fullstack project commonly starts the server and web targets together."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "SERVER + WEB"
+            Title size:"xl" weight:"black"
+              "Fast fullstack feedback"
+            Text size:"sm" color:"muted"
+              "The server target starts the Dowe-owned backend. The web target serves generated HTML, CSS, JavaScript, route chunks, fonts, and development reload support."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "DESKTOP + MOBILE"
+            Title size:"xl" weight:"black"
+              "Native previews from the same views"
+            Text size:"sm" color:"muted"
+              "Desktop reuses the generated web/static output and the platform window system. Android and iOS use their native hosts while preserving the shared Dowe view model."
+  Section id:"dev-artifacts" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "DISPOSABLE DEVELOPMENT OUTPUT"
+        Title size:"3xl" weight:"black"
+          "Inspect generated support without owning it"
+        Text size:"sm" color:"muted"
+          "Dowe writes generated development output below .dowe, including target manifests, route data, fonts, icon copies, and type-checking support. Keep project source in main.dowe, theme.dowe, views, and server; do not edit generated files."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy structure"
+        copiedLabel:"Copied"
+        content:"""
+          .dowe/
+            dev/
+            apps/
+            fonts/
+            icons/
+            types/
+            tsconfig.json
+        """
+      Text size:"sm" color:"muted"
+        "Dowe does not require Node.js, node_modules, Tailwind, or a JavaScript application runtime to compile source or run the Dowe-owned development server."
+  Section id:"dev-watch" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "WATCH AND RELOAD"
+        Title size:"3xl" weight:"black"
+          "Keep the session open while source changes"
+        Text size:"sm" color:"muted"
+          "The development session watches project inputs, runs the shared rebuild pipeline, and reports successful or failed rebuilds. Web changes reload the browser; server changes restart the backend when the new build succeeds."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Source of truth"
+            Text size:"sm" color:"muted"
+              "Edit Dowe Source Format and configuration at the project root. Generated artifacts remain disposable and reproducible."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Recoverable rebuilds"
+            Text size:"sm" color:"muted"
+              "A failed rebuild reports diagnostics and keeps the development session available for the next correction."
+      Button:
+        href:"/docs/dev/agent"
+        variant:"soft"
+        scheme:"primary"
+        size:"sm"
+        rounded:"full"
+        iconStart:"cpu"
+        "Read Agent docs"

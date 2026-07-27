@@ -1,0 +1,102 @@
+page CustomerCentricFeaturesPage
+  Section id:"customer-centric-features" bg:"surface" color:"onSurface" boxed:true py:{ xs:8 md:12 }
+    Flex direction:"column" align:"center" gap:0
+      Flex direction:"column" align:"center" gap:0 show:{ xs:false md:true }
+        Title size:"5xl" weight:"black"
+          "Build a customer-centric"
+        Title size:"5xl" weight:"black"
+          "marketing strategy"
+      Title size:"4xl" weight:"black" show:{ xs:true md:false }
+        "Build a customer-centric marketing strategy"
+      Box h:4
+      Text size:"lg" color:"muted"
+        "Connect every customer touchpoint with a clear, measurable workflow."
+      Box h:{ xs:8 md:14 }
+      Grid columns:{ xs:1 md:3 } gap:5 w:"full"
+        Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:5 md:6 } minH:80
+          Flex direction:"column" gap:4 minH:64
+            Icon name:"route" style:"line-duotone" fill:"primary" w:7 h:7
+            Grid columns:1 gap:2
+              Title size:"lg" weight:"black"
+                "Easy to Connect"
+              Text color:"muted"
+                "Bring every onboarding step together so new customers always know what comes next."
+            Box h:2
+            Grid columns:1 gap:2
+              Box bg:"surface" rounded:"md" px:4 py:3 shadow:"sm"
+                Flex align:"center" gap:3
+                  Icon name:"check-circle" style:"bold" fill:"success" w:6 h:6
+                  Text weight:"bold"
+                    "Create Free Account"
+              Box bg:"surface" rounded:"md" px:4 py:3 shadow:"sm"
+                Flex align:"center" gap:3
+                  Icon name:"check-circle" style:"bold-duotone" fill:"muted" w:6 h:6
+                  Text weight:"bold"
+                    "Setup Your Profile"
+                  Box w:4
+                  Icon name:"cursor" style:"bold" fill:"onSurface" w:7 h:7
+              Box bg:"surface" rounded:"md" px:4 py:3
+                Flex align:"center" gap:3
+                  Icon name:"check-circle" style:"line-duotone" fill:"muted" w:6 h:6
+                  Text color:"muted"
+                    "Finish Registration"
+        Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:5 md:6 } minH:80
+          Flex direction:"column" gap:4 minH:64
+            Icon name:"monitor-smartphone" style:"line-duotone" fill:"primary" w:7 h:7
+            Grid columns:1 gap:2
+              Title size:"lg" weight:"black"
+                "Realtime Dashboard"
+              Text color:"muted"
+                "See campaign activity, schedules, and customer progress in one responsive dashboard."
+            Box h:2
+            Box bg:"surface" rounded:"lg" p:4 shadow:"sm"
+              Grid columns:1 gap:3
+                Flex align:"center" justify:"between"
+                  Flex align:"center" gap:2
+                    Box w:3 h:3 rounded:"full" bg:"primary"
+                    Box w:16 h:2 rounded:"full" bg:"softMuted"
+                  Box w:12 h:5 rounded:"sm" bg:"softMuted"
+                Grid columns:5 gap:1
+                  Box h:8 bg:"softMuted" rounded:"sm"
+                  Box h:8 bg:"softMuted" rounded:"sm"
+                  Box h:8 bg:"softPrimary" rounded:"sm"
+                  Box h:8 bg:"softMuted" rounded:"sm"
+                  Box h:8 bg:"softMuted" rounded:"sm"
+                  Box h:8 bg:"softMuted" rounded:"sm"
+                  Box h:8 bg:"softPrimary" rounded:"sm"
+                  Box h:8 bg:"softMuted" rounded:"sm"
+                  Box h:8 bg:"softMuted" rounded:"sm"
+                  Box h:8 bg:"softPrimary" rounded:"sm"
+                  Box h:8 bg:"softPrimary" rounded:"sm"
+                  Box h:8 bg:"softMuted" rounded:"sm"
+                  Box h:8 bg:"softMuted" rounded:"sm"
+                  Box h:8 bg:"softMuted" rounded:"sm"
+                  Box h:8 bg:"softMuted" rounded:"sm"
+        Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:5 md:6 } minH:80
+          Flex direction:"column" gap:4 minH:64
+            Icon name:"route" style:"line-duotone" fill:"primary" w:7 h:7
+            Grid columns:1 gap:2
+              Title size:"lg" weight:"black"
+                "Easy Automations"
+              Text color:"muted"
+                "Connect the tools your team already trusts and automate repetitive customer work."
+            Box h:2
+            Grid columns:3 gap:4
+              Box bg:"warning" color:"onWarning" rounded:"lg" p:4 shadow:"sm"
+                Flex justify:"center"
+                  Icon name:"letter" style:"bold" fill:"onWarning" w:9 h:9
+              Box bg:"surface" rounded:"lg" p:4 shadow:"sm"
+                Flex justify:"center"
+                  Icon name:"gallery" style:"bold-duotone" fill:"success" w:9 h:9
+              Box bg:"surface" rounded:"lg" p:4 shadow:"sm"
+                Flex justify:"center"
+                  Icon name:"document-text" style:"bold" fill:"onSurface" w:9 h:9
+              Box bg:"surface" rounded:"lg" p:4 shadow:"sm"
+                Flex justify:"center"
+                  Icon name:"widget-4" style:"bold-duotone" fill:"info" w:9 h:9
+              Box bg:"danger" color:"onDanger" rounded:"lg" p:4 shadow:"sm"
+                Flex justify:"center"
+                  Icon name:"stars" style:"bold" fill:"onDanger" w:9 h:9
+              Box bg:"surface" rounded:"lg" p:4 shadow:"sm"
+                Flex justify:"center"
+                  Icon name:"bolt" style:"bold" fill:"warning" w:9 h:9

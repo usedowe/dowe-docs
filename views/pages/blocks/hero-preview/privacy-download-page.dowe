@@ -1,0 +1,60 @@
+page PrivacyDownloadHeroPage
+  Section id:"privacy-download-hero" background:"soft" boxed:true minH:"vh-0" py:{ xs:8 md:12 }
+    Grid:
+      columns:{ xs:1 md:"21fr 44fr 11fr 58fr 10fr" }
+      gap:{ xs:8 md:8 }
+      align:"center"
+      minH:"vh-24"
+      Box show:{ xs:false md:true }
+      Box:
+        show:{ xs:false md:true }
+        cover:"/assets/blocks/hero/privacy-portrait-wide.jpg"
+        rounded:"xl"
+        minH:"vh-56"
+        shadow:"xl"
+        shadowColor:"muted"
+      Box:
+        show:{ xs:true md:false }
+        cover:"/assets/blocks/hero/privacy-portrait-wide.jpg"
+        rounded:"xl"
+        minH:96
+        shadow:"xl"
+        shadowColor:"muted"
+      Box show:{ xs:false md:true }
+      Flex direction:"column" gap:0
+        Flex direction:"column" gap:0 show:{ xs:false md:true }
+          Title size:"5xl" weight:"black"
+            "Keep Your Data"
+          Title size:"5xl" weight:"black"
+            "Private and Safe"
+        Flex direction:"column" gap:0 show:{ xs:true md:false }
+          Title size:"4xl" weight:"black"
+            "Keep Your Data"
+          Title size:"4xl" weight:"black"
+            "Private and Safe"
+        Box h:5 show:{ xs:true md:false }
+        Box h:8 show:{ xs:false md:true }
+        Text size:"lg" color:"muted"
+          "Protect your work with privacy-first controls and a secure experience on every device."
+        Box h:5 show:{ xs:true md:false }
+        Box h:8 show:{ xs:false md:true }
+        Grid columns:{ xs:1 md:"13fr 7fr" } gap:0
+          Grid columns:1 gap:6
+            Card variant:"solid" scheme:"surface" rounded:"lg" shadow:"md" p:5
+              Flex align:"center" gap:4
+                Icon name:"monitor-smartphone" style:"bold" fill:"info" w:12 h:12
+                Grid columns:1 gap:1
+                  Title size:"md" weight:"black"
+                    "Download for Windows"
+                  Text color:"muted"
+                    "Try 30 days free"
+            Card variant:"solid" scheme:"surface" rounded:"lg" shadow:"md" p:5
+              Flex align:"center" gap:4
+                Icon name:"laptop" style:"bold" fill:"primary" w:12 h:12
+                Grid columns:1 gap:1
+                  Title size:"md" weight:"black"
+                    "Download for Mac"
+                  Text color:"muted"
+                    "Try 30 days free"
+          Box show:{ xs:false md:true }
+      Box show:{ xs:false md:true }
