@@ -67,8 +67,6 @@ page ImageCropperPage
           "ImageCropper"
         Text size:"lg" color:"muted"
           "ImageCropper turns image selection, framing, preview, replacement, and removal into one portable form workflow."
-      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
-        "Copy LLM"
   Section id:"image-cropper-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2

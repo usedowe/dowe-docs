@@ -57,8 +57,6 @@ page EditorPage
           "Editor"
         Text size:"lg" color:"muted"
           "Editor combines rich text entry, formatting commands, validation feedback, and portable string binding in one authored control."
-      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
-        "Copy LLM"
   Section id:"editor-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2

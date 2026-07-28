@@ -66,8 +66,6 @@ page CommandPage
           "Command"
         Text size:"lg" color:"muted"
           "Command turns navigation and frequent actions into a searchable, keyboard-friendly palette."
-      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
-        "Copy LLM"
   Section id:"command-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2

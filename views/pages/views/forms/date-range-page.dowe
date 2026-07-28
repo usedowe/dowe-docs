@@ -58,8 +58,6 @@ page DateRangePage
           "DateRange"
         Text size:"lg" color:"muted"
           "DateRange is an Input-like trigger with a custom calendar dropdown for one bounded interval and independently typed start and end Signals."
-      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
-        "Copy LLM"
   Section id:"date-range-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2

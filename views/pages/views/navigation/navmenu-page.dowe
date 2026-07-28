@@ -83,8 +83,6 @@ page NavMenuPage
           "NavMenu"
         Text size:"lg" color:"muted"
           "NavMenu creates portable horizontal navigation with links, expandable submenus, and rich megamenu content."
-      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
-        "Copy LLM"
   Section id:"navmenu-default" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2

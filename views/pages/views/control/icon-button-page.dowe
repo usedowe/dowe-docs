@@ -173,8 +173,6 @@ page IconButtonPage
           "IconButton"
         Text size:"lg" color:"muted"
           "Icon buttons provide compact square actions with a required accessible label."
-      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
-        "Copy LLM"
   Section id:"icon-button-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2

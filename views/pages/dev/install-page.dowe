@@ -25,16 +25,23 @@ page InstallPage
           "Install from get.dowe.dev"
         Text size:"sm" color:"muted"
           "The platform installer downloads the matching archive from the latest channel and places the binary in the user install directory."
-      Code:
-        language:"dowe"
-        variant:"soft"
-        scheme:"surface"
-        copyLabel:"Copy installer"
-        copiedLabel:"Copied"
-        content:"""
-          curl -fsSL https://get.dowe.dev/install | bash
-          irm https://get.dowe.dev/install.ps1 | iex
-        """
+      Tabs variant:"line" scheme:"primary"
+        tab id:"hero-unix" label:"macOS / Linux"
+          Code:
+            language:"dowe"
+            variant:"solid"
+            scheme:"surface"
+            copyLabel:"Copy install command"
+            copiedLabel:"Copied"
+            content:"curl -fsSL https://get.dowe.dev/install | bash"
+        tab id:"hero-windows" label:"Windows"
+          Code:
+            language:"dowe"
+            variant:"solid"
+            scheme:"surface"
+            copyLabel:"Copy PowerShell command"
+            copiedLabel:"Copied"
+            content:"powershell -c \"irm https://get.dowe.dev/install.ps1 | iex\""
       Grid columns:{ xs:1 md:2 } gap:4
         Card variant:"soft" scheme:"primary" p:5 rounded:"md"
           Grid columns:1 gap:2

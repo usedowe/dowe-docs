@@ -31,8 +31,6 @@ page SelectThemePage
           "SelectTheme"
         Text size:"lg" color:"muted"
           "SelectTheme turns the named themes from theme.dowe into one portable, persisted picker."
-      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
-        "Copy LLM"
   Section id:"select-theme-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2

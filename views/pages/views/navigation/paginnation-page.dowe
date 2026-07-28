@@ -58,8 +58,6 @@ page PaginationPage
           "Pagination"
         Text size:"lg" color:"muted"
           "Pagination selects a page from a known result set and then calls a declared function to load its contents."
-      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
-        "Copy LLM"
   Section id:"pagination-default" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2

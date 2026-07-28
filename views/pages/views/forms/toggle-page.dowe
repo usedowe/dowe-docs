@@ -52,8 +52,6 @@ page TogglePage
           "Toggle"
         Text size:"lg" color:"muted"
           "Toggles let people turn one independent setting on or off with a compact, familiar switch."
-      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
-        "Copy LLM"
   Section id:"toggle-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2

@@ -1,258 +1,357 @@
 page HomePage
-  Section boxed:true px:{ xs:5 md:12 } py:{ xs:8 md:10 }
-    Grid columns:1 gap:8
-      Grid columns:{ xs:1 md:"3fr 1fr" } gap:8 align:"end"
-        Grid columns:1 gap:4
+  Section boxed:true px:{ xs:5 md:12 } py:{ xs:10 md:16 }
+    Grid columns:{ xs:1 md:2 } gap:{ xs:10 md:14 } align:"center"
+      Grid columns:1 gap:6
+        Flex gap:3 align:"center" wrap:true
+          Chip variant:"soft" scheme:"secondary" size:"sm"
+            "EARLY ACCESS"
           Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-            "// FULLSTACK FOR THE AI ERA"
-          Title size:{ xs:"4xl" md:"6xl" } weight:"black"
-            "AI GENERATES CODE. DOWE GENERATES THE SYSTEM."
+            "STANDALONE COMPILER + RUNTIME"
+        Title size:{ xs:"4xl" md:"7xl" } weight:"black"
+          "Dowe compiles fullstack products from .dowe source."
+        Text size:{ xs:"md" md:"lg" } color:"muted"
+          "Write routes, views, state, and server behavior in one checked source graph. Dowe generates the platform artifacts without a Node.js application runtime."
+        Grid columns:1 gap:3
+          Flex justify:"between" align:"center" gap:3
+            Title size:"md" weight:"black"
+              "Install Dowe"
+            Button href:"/docs/dev/install" variant:"ghost" scheme:"primary" size:"sm"
+              "Install guide"
+          Tabs variant:"line" scheme:"primary"
+            tab id:"hero-unix" label:"macOS / Linux"
+              Code:
+                language:"dowe"
+                variant:"solid"
+                scheme:"surface"
+                copyLabel:"Copy install command"
+                copiedLabel:"Copied"
+                content:"curl -fsSL https://get.dowe.dev/install | bash"
+            tab id:"hero-windows" label:"Windows"
+              Code:
+                language:"dowe"
+                variant:"solid"
+                scheme:"surface"
+                copyLabel:"Copy PowerShell command"
+                copiedLabel:"Copied"
+                content:"powershell -c \"irm https://get.dowe.dev/install.ps1 | iex\""
+        Button href:"/docs/views" variant:"outlined" scheme:"primary" size:"lg"
+          "Read how it works"
+        Text size:"xs" color:"muted"
+          "Outputs: server binary · SSR web · desktop · Jetpack Compose · SwiftUI"
+      Box bg:"softPrimary" p:{ xs:4 md:7 } rounded:"xl"
         Grid columns:1 gap:4
-          Text size:"sm" color:"muted"
-            "One declarative source becomes checked software for server, web, desktop, Android, and iOS."
-          Button href:"/docs/views" variant:"solid" scheme:"muted"
-            "Explore Dowe"
-      Card variant:"solid" scheme:"surface" p:0 rounded:"md" shadow:"xl" shadowColor:"muted"
-        Grid columns:{ xs:1 md:"2fr 1fr" } gap:0
-          Box p:{ xs:5 md:7 }
-            Grid columns:1 gap:5
-              Flex justify:"between" align:"center" gap:3
-                Text size:"xs" weight:"bold" spacing:"widest"
-                  "DOWE / INSTALL"
-                Chip variant:"outlined" scheme:"primary" size:"sm"
-                  "DOWE-NATIVE"
-              Title size:{ xs:"2xl" md:"4xl" } weight:"black"
-                "Install Dowe in seconds."
-              Tabs variant:"line" scheme:"primary" position:"top"
-                tab id:"unix" label:"macOS / Linux"
-                  Code:
-                    language:"dowe"
-                    variant:"soft"
-                    scheme:"surface"
-                    copyLabel:"Copy install command"
-                    copiedLabel:"Copied"
-                    content:"curl -fsSL https://get.dowe.dev/install | bash"
-                tab id:"windows" label:"Windows"
-                  Code:
-                    language:"dowe"
-                    variant:"soft"
-                    scheme:"surface"
-                    copyLabel:"Copy install command"
-                    copiedLabel:"Copied"
-                    content:"powershell -c \"irm https://get.dowe.dev/install.ps1 | iex\""
-          Box bg:"primary" color:"onPrimary" p:{ xs:5 md:7 }
-            Grid columns:1 gap:4
-              Text size:"xs" weight:"bold" spacing:"widest"
-                "THE DOWE LOOP"
-              Title size:"2xl" weight:"black"
-                "SOURCE IN. SYSTEM OUT."
-              Grid columns:"auto 1fr" gap:3 align:"center"
-                Text size:"xs" weight:"bold"
+          Flex justify:"between" align:"center" gap:3
+            Text size:"xs" weight:"bold" spacing:"widest" color:"primary"
+              "MAIN.DOWE"
+            Chip variant:"soft" scheme:"success" size:"sm"
+              "CHECKED"
+          Code:
+            language:"dowe"
+            variant:"solid"
+            scheme:"surface"
+            copyLabel:"Copy source"
+            copiedLabel:"Copied"
+            content:"""
+              import ProductRoutes from "@/views/routes/product"
+              import ApiRoutes from "@/server/endpoints"
+
+              main
+                views:ProductRoutes
+                server port:8080
+                  endpoints:ApiRoutes
+            """
+          Grid columns:3 gap:3
+            Card variant:"solid" scheme:"surface" p:4 rounded:"md"
+              Grid columns:1 gap:1
+                Title size:"xl" weight:"black"
                   "01"
-                Grid columns:1 gap:1
-                  Title size:"md" weight:"black"
-                    "Describe"
-                  Text size:"xs"
-                    "Views, data, and server intent."
-              Divider scheme:"background"
-              Grid columns:"auto 1fr" gap:3 align:"center"
-                Text size:"xs" weight:"bold"
-                  "02"
-                Grid columns:1 gap:1
-                  Title size:"md" weight:"black"
-                    "Check"
-                  Text size:"xs"
-                    "Contracts and boundaries."
-              Divider scheme:"background"
-              Grid columns:"auto 1fr" gap:3 align:"center"
-                Text size:"xs" weight:"bold"
-                  "03"
-                Grid columns:1 gap:1
-                  Title size:"md" weight:"black"
-                    "Generate"
-                  Text size:"xs"
-                    "Native outputs for every target."
+                Text size:"xs" color:"muted"
+                  "source graph"
+            Card variant:"solid" scheme:"surface" p:4 rounded:"md"
+              Grid columns:1 gap:1
+                Title size:"xl" weight:"black"
+                  "05"
+                Text size:"xs" color:"muted"
+                  "target families"
+            Card variant:"solid" scheme:"surface" p:4 rounded:"md"
+              Grid columns:1 gap:1
+                Title size:"xl" weight:"black"
+                  "00"
+                Text size:"xs" color:"muted"
+                  "Node runtime"
   Section boxed:true px:{ xs:5 md:12 } py:{ xs:10 md:14 }
-    Grid columns:{ xs:1 md:2 } gap:10 align:"center"
+    Grid columns:1 gap:8
+      Grid columns:1 gap:3 justify:"center"
+        Text size:"xs" weight:"bold" spacing:"widest" color:"primary"
+          "ONE PRODUCT MODEL"
+        Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+          "Different targets. Different artifacts."
+        Text size:"sm" color:"muted"
+          "The same product graph is lowered into the output each selected platform needs."
+      Grid columns:{ xs:2 md:5 } gap:3
+        Card variant:"soft" scheme:"primary" p:5 rounded:"lg"
+          Grid columns:1 gap:4
+            Icon name:"route" style:"bold-duotone" fill:"primary" w:8 h:8
+            Title size:"md" weight:"black"
+              "Server"
+            Text size:"xs"
+              "Native routing and host capabilities."
+        Card variant:"soft" scheme:"secondary" p:5 rounded:"lg"
+          Grid columns:1 gap:4
+            Icon name:"global" style:"bold-duotone" fill:"secondary" w:8 h:8
+            Title size:"md" weight:"black"
+              "Web"
+            Text size:"xs"
+              "Initial SSR plus route assets."
+        Card variant:"soft" scheme:"tertiary" p:5 rounded:"lg"
+          Grid columns:1 gap:4
+            Icon name:"laptop" style:"bold-duotone" fill:"tertiary" w:8 h:8
+            Title size:"md" weight:"black"
+              "Desktop"
+            Text size:"xs"
+              "Local web output in native windows."
+        Card variant:"soft" scheme:"info" p:5 rounded:"lg"
+          Grid columns:1 gap:4
+            Icon name:"monitor-smartphone" style:"bold-duotone" fill:"info" w:8 h:8
+            Title size:"md" weight:"black"
+              "Android"
+            Text size:"xs"
+              "Generated Jetpack Compose."
+        Card variant:"soft" scheme:"success" p:5 rounded:"lg" colSpan:{ xs:2 md:1 }
+          Grid columns:1 gap:4
+            Icon name:"layers-minimalistic" style:"bold-duotone" fill:"success" w:8 h:8
+            Title size:"md" weight:"black"
+              "iOS"
+            Text size:"xs"
+              "Generated SwiftUI."
+  Section boxed:true bg:"softMuted" color:"onSoftMuted" px:{ xs:5 md:12 } py:{ xs:10 md:16 }
+    Grid columns:{ xs:1 md:2 } gap:{ xs:8 md:14 } align:"center"
       Grid columns:1 gap:5
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "// ABOUT DOWE"
+        Text size:"xs" weight:"bold" spacing:"widest"
+          "HOW DOWE WORKS"
         Title size:{ xs:"3xl" md:"5xl" } weight:"black"
-          "ONE SOURCE. EVERY SURFACE. PURPOSEFULLY UNIFIED."
-        Text size:"sm" color:"muted"
-          "Architecture lives in the source and generation lives in the Dowe compiler. Agents edit intent; Dowe keeps the system coherent."
-        Button href:"/docs/dev/agent" variant:"outlined" scheme:"muted"
-          "Meet Dowe Agent"
-      Card variant:"soft" scheme:"primary" p:{ xs:5 md:7 } rounded:"md"
-        Grid columns:1 gap:6
-          Text size:"xs" weight:"bold" spacing:"widest"
-            "SYSTEM METRICS"
-          Grid columns:3 gap:4
+          "You define the product. Dowe handles the platform work."
+        Text size:"md"
+          "Compose your own routes, layouts, pages, state, requests, and server handlers from explicit Dowe contracts."
+        Text size:"md"
+          "Before generation, Dowe checks imports, props, bindings, types, routes, and server boundaries. Unsupported behavior becomes a diagnostic instead of target-specific guesswork."
+        Flex direction:{ xs:"column" sm:"row" } gap:3
+          Button href:"/docs/views" variant:"solid" scheme:"muted"
+            "Explore Views"
+          Button href:"/docs/server" variant:"outlined" scheme:"muted"
+            "Explore Server"
+      Card variant:"solid" scheme:"surface" p:{ xs:5 md:7 } rounded:"xl"
+        Grid columns:1 gap:5
+          Flex justify:"between" align:"center" gap:3
+            Text size:"xs" weight:"bold" spacing:"widest" color:"primary"
+              "PRODUCT-PAGE.DOWE"
+            Chip variant:"soft" scheme:"primary" size:"sm"
+              "SOURCE"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy page"
+            copiedLabel:"Copied"
+            content:"""
+              page ProductPage
+                Section boxed:true
+                  Grid columns:{ xs:1 md:2 } gap:8
+                    Title size:"5xl"
+                      "A product page"
+                    Button href:"/docs"
+                      "Read the docs"
+            """
+          Divider scheme:"muted"
+          Grid columns:3 gap:3
             Grid columns:1 gap:1
-              Title size:{ xs:"2xl" md:"4xl" } weight:"black"
+              Text size:"xs" weight:"bold" color:"primary"
                 "01"
-              Text size:"xs" weight:"bold"
-                "SOURCE MODEL"
+              Title size:"md" weight:"black"
+                "Check"
             Grid columns:1 gap:1
-              Title size:{ xs:"2xl" md:"4xl" } weight:"black"
-                "05"
-              Text size:"xs" weight:"bold"
-                "TARGET FAMILIES"
+              Text size:"xs" weight:"bold" color:"primary"
+                "02"
+              Title size:"md" weight:"black"
+                "Generate"
             Grid columns:1 gap:1
-              Title size:{ xs:"2xl" md:"4xl" } weight:"black"
-                "00"
-              Text size:"xs" weight:"bold"
-                "NODE.JS RUNTIME"
-          Divider scheme:"primary"
-          Text size:"sm"
-            "One compiler authority owns parsing, analysis, lowering, routing, runtime behavior, and target generation."
-  Section boxed:true bg:"softMuted" color:"onSoftMuted" px:{ xs:5 md:12 } py:{ xs:10 md:14 }
+              Text size:"xs" weight:"bold" color:"primary"
+                "03"
+              Title size:"md" weight:"black"
+                "Inspect"
+  Section boxed:true bg:"primary" color:"onPrimary" px:{ xs:5 md:12 } py:{ xs:10 md:16 }
     Grid columns:1 gap:8
-      Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest"
-          "// THE SYSTEM"
-        Title size:{ xs:"3xl" md:"5xl" } weight:"black"
-          "FULLSTACK CAPABILITIES, ONE COMPILER"
-      Grid columns:1 gap:0
-        Grid columns:{ xs:1 md:"auto 1fr 2fr auto" } gap:5 align:"center" py:5
-          Text size:"xs" weight:"bold"
-            "01"
-          Title size:"xl" weight:"black"
-            "VIEWS & UI"
-          Text size:"sm"
-            "Declarative pages, layouts, components, design tokens, and portable interaction contracts."
-          Text size:"xl" weight:"black"
-            "↗"
-        Divider scheme:"muted"
-        Grid columns:{ xs:1 md:"auto 1fr 2fr auto" } gap:5 align:"center" py:5
-          Text size:"xs" weight:"bold"
-            "02"
-          Title size:"xl" weight:"black"
-            "SERVER & RUNTIME"
-          Text size:"sm"
-            "Server binaries, routing, SSR, data access, and explicit runtime boundaries."
-          Text size:"xl" weight:"black"
-            "↗"
-        Divider scheme:"muted"
-        Grid columns:{ xs:1 md:"auto 1fr 2fr auto" } gap:5 align:"center" py:5
-          Text size:"xs" weight:"bold"
-            "03"
-          Title size:"xl" weight:"black"
-            "NATIVE TARGETS"
-          Text size:"sm"
-            "Web, desktop windows, Jetpack Compose, and SwiftUI generated from one product model."
-          Text size:"xl" weight:"black"
-            "↗"
-        Divider scheme:"muted"
-        Grid columns:{ xs:1 md:"auto 1fr 2fr auto" } gap:5 align:"center" py:5
-          Text size:"xs" weight:"bold"
-            "04"
-          Title size:"xl" weight:"black"
-            "AGENT WORKFLOWS"
-          Text size:"sm"
-            "Machine-readable constraints, early diagnostics, and deterministic artifacts agents can repair."
-          Text size:"xl" weight:"black"
-            "↗"
-  Section boxed:true bg:"muted" color:"onMuted" px:{ xs:5 md:12 } py:{ xs:10 md:14 }
-    Grid columns:1 gap:8
-      Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
-        Grid columns:1 gap:2
+      Grid columns:{ xs:1 md:"1fr auto" } gap:6 align:"end"
+        Grid columns:1 gap:3
           Text size:"xs" weight:"bold" spacing:"widest"
-            "// GENERATED TARGETS"
+            "TARGET OUTPUT"
           Title size:{ xs:"3xl" md:"5xl" } weight:"black"
-            "ONE PRODUCT. NATIVE OUTPUTS."
-        Button href:"/docs/views" variant:"soft" scheme:"primary"
-          "View the contracts"
-      Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"solid" scheme:"background" p:{ xs:5 md:7 } rounded:"md"
+            "One model does not mean one renderer."
+        Button href:"/docs/views" variant:"soft" scheme:"secondary"
+          "Inspect the target model"
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"solid" scheme:"surface" p:{ xs:5 md:7 } rounded:"lg"
           Grid columns:1 gap:4
-            Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-              "01 / WEB"
-            Title size:"3xl" weight:"black"
-              "SSR, routing, JavaScript, and CSS."
+            Text size:"xs" weight:"bold" spacing:"widest" color:"primary"
+              "WEB"
+            Title size:"2xl" weight:"black"
+              "HTML before client JavaScript."
             Text size:"sm" color:"muted"
-              "The browser gets only the assets it needs; the server router keeps server authority."
-        Card variant:"solid" scheme:"background" p:{ xs:5 md:7 } rounded:"md"
+              "Direct route requests return composed HTML. Navigation then loads deterministic page and layout assets."
+        Card variant:"solid" scheme:"surface" p:{ xs:5 md:7 } rounded:"lg"
           Grid columns:1 gap:4
-            Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-              "02 / SERVER"
-            Title size:"3xl" weight:"black"
-              "Server binaries without ambient Node.js."
+            Text size:"xs" weight:"bold" spacing:"widest" color:"primary"
+              "SERVER"
+            Title size:"2xl" weight:"black"
+              "A native server binary."
             Text size:"sm" color:"muted"
-              "Dependencies, execution, and deployment stay explicit from source to runtime."
-        Card variant:"solid" scheme:"background" p:{ xs:5 md:7 } rounded:"md" colSpan:{ xs:1 md:2 }
-          Grid columns:{ xs:1 md:"1fr 2fr" } gap:6 align:"center"
-            Grid columns:1 gap:3
-              Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-                "03 / NATIVE"
-              Title size:"3xl" weight:"black"
-                "Desktop and mobile stay in the same system."
-              Text size:"sm" color:"muted"
-                "Native windows, SwiftUI, and Jetpack Compose share the same source architecture."
-            Code:
-              language:"dowe"
-              variant:"soft"
-              scheme:"surface"
-              copyLabel:"Copy Dowe"
-              copiedLabel:"Copied"
-              content:"""
-                dowe dev --target web
-                dowe dev --target desktop
-                dowe dev --target android
-                dowe dev --target ios
-              """
+              "Routing, data access, security, and host capabilities remain outside the client application."
+        Card variant:"solid" scheme:"surface" p:{ xs:5 md:7 } rounded:"lg"
+          Grid columns:1 gap:4
+            Text size:"xs" weight:"bold" spacing:"widest" color:"primary"
+              "APPS"
+            Title size:"2xl" weight:"black"
+              "Platform-owned UI output."
+            Text size:"sm" color:"muted"
+              "Desktop reuses web assets, while Android and iOS receive Compose and SwiftUI projects."
   Section boxed:true px:{ xs:5 md:12 } py:{ xs:10 md:14 }
-    Grid columns:1 gap:8
-      Grid columns:{ xs:1 md:2 } gap:10 align:"end"
-        Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-            "// THE COMPILER LOOP"
-          Title size:{ xs:"3xl" md:"5xl" } weight:"black"
-            "INTENT IN. CHECKED OUTPUTS OUT."
-        Text size:"sm" color:"muted"
-          "Dowe makes the path from an agent edit to a platform artifact visible, deterministic, and reviewable."
-      Grid columns:{ xs:1 md:4 } gap:3
-        Card variant:"soft" scheme:"muted" p:5 rounded:"sm"
-          Grid columns:1 gap:4
-            Text size:"xs" weight:"bold"
-              "01"
-            Title size:"lg" weight:"black"
-              "DESCRIBE"
+    Grid columns:{ xs:1 md:"2fr 3fr" } gap:{ xs:8 md:14 } align:"start"
+      Grid columns:1 gap:5
+        Text size:"xs" weight:"bold" spacing:"widest" color:"primary"
+          "STRAIGHT ANSWERS"
+        Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+          "The tradeoffs are explicit."
+        Box bg:"softSecondary" p:5 rounded:"lg"
+          Grid columns:1 gap:2
+            Title size:"md" weight:"black"
+              "Early access"
             Text size:"sm"
-              "Write the complete product intent."
-        Card variant:"soft" scheme:"muted" p:5 rounded:"sm"
-          Grid columns:1 gap:4
-            Text size:"xs" weight:"bold"
-              "02"
-            Title size:"lg" weight:"black"
-              "CHECK"
-            Text size:"sm"
-              "Validate contracts and boundaries."
-        Card variant:"soft" scheme:"muted" p:5 rounded:"sm"
-          Grid columns:1 gap:4
-            Text size:"xs" weight:"bold"
-              "03"
-            Title size:"lg" weight:"black"
-              "GENERATE"
-            Text size:"sm"
-              "Produce every selected target."
-        Card variant:"soft" scheme:"muted" p:5 rounded:"sm"
-          Grid columns:1 gap:4
-            Text size:"xs" weight:"bold"
-              "04"
-            Title size:"lg" weight:"black"
-              "REVIEW"
-            Text size:"sm"
-              "Inspect artifacts and diagnostics."
-  Section boxed:true bg:"muted" color:"onMuted" px:{ xs:5 md:12 } py:{ xs:10 md:14 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:8 align:"center"
-      Grid columns:1 gap:3
+              "Start small, inspect the generated output, and judge the contracts against your product."
+      Grid columns:1 gap:0
+        Grid columns:1 gap:3 py:5
+          Title size:"xl" weight:"black"
+            "Do I need Rust installed?"
+          Text size:"sm" color:"muted"
+            "No. Dowe is distributed and run as a standalone binary. Your project is Dowe source, not a Rust workspace."
+        Divider scheme:"muted"
+        Grid columns:1 gap:3 py:5
+          Title size:"xl" weight:"black"
+            "Is the web renderer custom?"
+          Text size:"sm" color:"muted"
+            "Yes. Dowe generates initial SSR HTML, CSS and JavaScript route assets, plus the HTTP serving layer."
+        Divider scheme:"muted"
+        Grid columns:1 gap:3 py:5
+          Title size:"xl" weight:"black"
+            "Am I limited to predefined layouts?"
+          Text size:"sm" color:"muted"
+            "You compose your own routes, layouts, pages, sections, grids, state, and handlers within Dowe's checked component contracts."
+  Section boxed:true bg:"softSecondary" color:"onSoftSecondary" px:{ xs:5 md:12 } py:{ xs:10 md:14 }
+    Grid columns:{ xs:1 md:"2fr 1fr" } gap:8 align:"center"
+      Grid columns:1 gap:4
         Text size:"xs" weight:"bold" spacing:"widest"
-          "// BUILD WITH DOWE"
-        Title font:"syne" size:{ xs:"3xl" md:"6xl" } weight:"black"
-          "BUILD THE SYSTEM, NOT THE STACK."
-      Flex direction:{ xs:"column" sm:"row" } gap:3
-        Button href:"/docs/views" variant:"soft" scheme:"primary" size:"lg"
-          "Start with Views"
-        Button href:"/docs/dev/agent" variant:"soft" scheme:"secondary" size:"lg"
-          "Use Dowe Agent"
+          "TRY THE SMALLEST USEFUL THING"
+        Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+          "Start with a project you can read end to end."
+        Text size:"md"
+          "Create the blank starter, run web and server, then compare its source with the artifacts under .dowe."
+      Flex direction:{ xs:"column" sm:"row" md:"column" } gap:3
+        Button href:"/docs/dev/install" variant:"solid" scheme:"primary" size:"lg"
+          "Install the CLI"
+        Button:
+          href:"https://github.com/usedowe/dowe-lang"
+          target:"blank"
+          variant:"outlined"
+          scheme:"primary"
+          size:"lg"
+          "Read the compiler source"
+  Section id:"documentation" boxed:true px:{ xs:5 md:12 } py:{ xs:10 md:16 }
+    Grid columns:1 gap:8
+      Grid columns:{ xs:1 md:"2fr 1fr" } gap:8 align:"end"
+        Grid columns:1 gap:3
+          Text size:"xs" weight:"bold" spacing:"widest" color:"primary"
+            "DOCUMENTATION"
+          Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+            "Build from the layer you own."
+          Text size:"md" color:"muted"
+            "Each path starts with the mental model, then moves into contracts, source examples, and generated behavior."
+        Button:
+          href:"https://github.com/usedowe/dowe-lang"
+          target:"blank"
+          variant:"ghost"
+          scheme:"primary"
+          "View source on GitHub"
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"primary" p:{ xs:6 md:8 } rounded:"xl"
+          Grid columns:1 gap:5
+            Flex justify:"between" align:"start" gap:4
+              Grid columns:1 gap:2
+                Text size:"xs" weight:"bold" spacing:"widest" color:"primary"
+                  "01 / PRODUCT UI"
+                Title size:"3xl" weight:"black"
+                  "Views"
+              Icon name:"widget-5" style:"bold-duotone" fill:"primary" w:12 h:12
+            Text size:"sm"
+              "Compose routes, layouts, state, interactions, forms, and portable visual components."
+            Divider scheme:"primary"
+            Text size:"xs" weight:"bold"
+              "ROUTES · UI · STATE · INTERACTIONS"
+            Button href:"/docs/views" variant:"solid" scheme:"primary"
+              "Explore Views"
+        Card variant:"soft" scheme:"secondary" p:{ xs:6 md:8 } rounded:"xl"
+          Grid columns:1 gap:5
+            Flex justify:"between" align:"start" gap:4
+              Grid columns:1 gap:2
+                Text size:"xs" weight:"bold" spacing:"widest" color:"secondary"
+                  "02 / BACKEND"
+                Title size:"3xl" weight:"black"
+                  "Server"
+              Icon name:"route" style:"bold-duotone" fill:"secondary" w:12 h:12
+            Text size:"sm"
+              "Define routing, data access, sessions, security, jobs, and explicit host capabilities."
+            Divider scheme:"secondary"
+            Text size:"xs" weight:"bold"
+              "ROUTES · DATA · SECURITY · RUNTIME"
+            Button href:"/docs/server" variant:"solid" scheme:"secondary"
+              "Explore Server"
+        Card variant:"soft" scheme:"tertiary" p:{ xs:6 md:8 } rounded:"xl"
+          Grid columns:1 gap:5
+            Flex justify:"between" align:"start" gap:4
+              Grid columns:1 gap:2
+                Text size:"xs" weight:"bold" spacing:"widest" color:"tertiary"
+                  "03 / TOOLING"
+                Title size:"3xl" weight:"black"
+                  "Development"
+              Icon name:"bolt" style:"bold-duotone" fill:"tertiary" w:12 h:12
+            Text size:"sm"
+              "Install Dowe, run targets, test source, inspect artifacts, package, and deploy."
+            Divider scheme:"tertiary"
+            Text size:"xs" weight:"bold"
+              "INSTALL · DEV · TEST · DEPLOY"
+            Button href:"/docs/dev" variant:"solid" scheme:"tertiary"
+              "Explore Development"
+        Card variant:"soft" scheme:"info" p:{ xs:6 md:8 } rounded:"xl"
+          Grid columns:1 gap:5
+            Flex justify:"between" align:"start" gap:4
+              Grid columns:1 gap:2
+                Text size:"xs" weight:"bold" spacing:"widest" color:"info"
+                  "04 / AUTOMATION"
+                Title size:"3xl" weight:"black"
+                  "Agent workflow"
+              Icon name:"stars" style:"bold-duotone" fill:"info" w:12 h:12
+            Text size:"sm"
+              "Give coding agents focused guidance, validation Harnesses, diagnostics, and CodeGraph."
+            Divider scheme:"info"
+            Text size:"xs" weight:"bold"
+              "SKILLS · HARNESSES · DIAGNOSTICS · CODEGRAPH"
+            Button href:"/docs/dev/agent" variant:"solid" scheme:"info"
+              "Explore Agent workflow"
+  Footer variant:"solid" scheme:"primary" boxed:true p:{ xs:6 md:8 }
+    start
+      Grid columns:1 gap:1
+        Title size:"xl" weight:"black"
+          "Dowe"
+        Text size:"xs"
+          "A standalone compiler and runtime toolchain."
+    end
+      Text size:"xs"
+        "Dowe Source Format · No Node.js application runtime"

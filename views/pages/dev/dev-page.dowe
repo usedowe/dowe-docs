@@ -89,6 +89,23 @@ page DevPage
               "Native previews from the same views"
             Text size:"sm" color:"muted"
               "Desktop reuses the generated web/static output and the platform window system. Android and iOS use their native hosts while preserving the shared Dowe view model."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"primary"
+              "NATIVE STARTUP"
+            Title size:"lg" weight:"black"
+              "Fail fast across targets"
+            Text size:"sm" color:"muted"
+              "Android and iOS start in parallel. If one target fails, Dowe cancels pending native compiler commands, cleans up the session, and reports the first actionable error immediately."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "COLD NATIVE BUILDS"
+            Title size:"lg" weight:"black"
+              "Build once, reuse native units"
+            Text size:"sm" color:"muted"
+              "Large Android pages are partitioned before javac. A first iOS run may remain Loading while swiftc creates every object; later runs reuse the incremental native caches."
   Section id:"dev-artifacts" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2

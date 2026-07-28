@@ -31,8 +31,6 @@ page TooltipPage
           "Tooltip"
         Text size:"lg" color:"muted"
           "Tooltips reveal a short label near their child without taking space in the page layout."
-      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
-        "Copy LLM"
   Section id:"tooltip-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2

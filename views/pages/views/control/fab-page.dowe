@@ -99,8 +99,6 @@ page FabPage
           "Fab"
         Text size:"lg" color:"muted"
           "Fab keeps a primary action within reach while optional secondary actions stay out of the way."
-      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
-        "Copy LLM"
   Section id:"fab-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2

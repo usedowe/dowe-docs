@@ -104,8 +104,6 @@ page TablePage
           "Table"
         Text size:"lg" color:"muted"
           "Tables turn a Signal array into an accessible, portable data grid with explicit columns."
-      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
-        "Copy LLM"
   Section id:"table-data" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2

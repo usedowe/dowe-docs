@@ -177,8 +177,6 @@ page SideNavPage
           "SideNav"
         Text size:"lg" color:"muted"
           "SideNav creates portable lateral navigation with headers, links, dividers, and expandable submenus."
-      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
-        "Copy LLM"
   Section id:"sidenav-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2

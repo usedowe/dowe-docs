@@ -78,8 +78,6 @@ page SelectPage
           "Select"
         Text size:"lg" color:"muted"
           "Select lets users make one clear choice from a portable list of static options."
-      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
-        "Copy LLM"
   Section id:"select-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2

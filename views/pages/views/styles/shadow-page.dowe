@@ -94,8 +94,6 @@ page ShadowPage
           "Shadow"
         Text size:"lg" color:"muted"
           "Add the same soft exterior shadow on web, Android, and iOS, then tint it with the semantic colors from your theme."
-      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
-        "Copy LLM"
   Section id:"shadow-playground" p:{ xs:5 md:7 }
     Flex direction:"column" gap:6
       Flex direction:"column" gap:2

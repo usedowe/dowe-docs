@@ -61,8 +61,6 @@ page CsvFieldPage
           "CsvField"
         Text size:"lg" color:"muted"
           "CsvField turns a local CSV selection into a guided column-mapping and preview workflow with deterministic copy."
-      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
-        "Copy LLM"
   Section id:"csv-field-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2

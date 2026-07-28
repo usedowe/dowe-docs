@@ -52,8 +52,6 @@ page DatePage
           "Date"
         Text size:"lg" color:"muted"
           "Date provides an Input-like trigger with a custom calendar dropdown, typed string values, explicit bounds, and consistent feedback."
-      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
-        "Copy LLM"
   Section id:"date-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2

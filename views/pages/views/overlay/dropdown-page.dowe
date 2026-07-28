@@ -81,8 +81,6 @@ page DropdownPage
           "Dropdown"
         Text size:"lg" color:"muted"
           "Dropdowns keep contextual actions close to their trigger in one portable floating menu."
-      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
-        "Copy LLM"
   Section id:"dropdown-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2

@@ -73,8 +73,6 @@ page AlertDialogPage
           "AlertDialog"
         Text size:"lg" color:"muted"
           "AlertDialog gives irreversible or consequential actions an explicit confirmation step owned by a bool Signal."
-      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
-        "Copy LLM"
   Section id:"alert-dialog-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2

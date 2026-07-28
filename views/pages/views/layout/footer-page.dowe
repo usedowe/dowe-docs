@@ -41,8 +41,6 @@ page FooterPage
           "Footer"
         Text size:"lg" color:"muted"
           "Footers close a page with balanced regions for identity, navigation, and supporting actions."
-      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
-        "Copy LLM"
   Section id:"footer-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2

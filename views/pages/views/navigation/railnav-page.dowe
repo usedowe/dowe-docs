@@ -74,8 +74,6 @@ page RailNavPage
           "RailNav"
         Text size:"lg" color:"muted"
           "RailNav creates a narrow vertical menu with portable icons, accessible tooltips, and optional labels below each icon."
-      Button variant:"soft" scheme:"success" size:"sm" rounded:"full" iconStart:"copy"
-        "Copy LLM"
   Section id:"railnav-default" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
