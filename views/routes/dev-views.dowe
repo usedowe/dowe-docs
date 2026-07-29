@@ -1,5 +1,6 @@
 import DevLayout from "@/views/layouts/dev-layout"
 import DevPage from "@/views/pages/dev/dev-page"
+import BuildPage from "@/views/pages/dev/build-page"
 import DeployPage from "@/views/pages/dev/deploy-page"
 import InstallPage from "@/views/pages/dev/install-page"
 import AgentPage from "@/views/pages/dev/agent-page"
@@ -9,6 +10,7 @@ import ExtensionsPage from "@/views/pages/dev/editor-page"
 views DevViews
   group path:"/docs/dev" layout:DevLayout
     route path:"" page:DevPage
+    route path:"build" page:BuildPage
     route path:"deploy" page:DeployPage
     route path:"install" page:InstallPage
     route path:"agent" page:AgentPage

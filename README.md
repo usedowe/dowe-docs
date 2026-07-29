@@ -167,7 +167,10 @@ dowe-docs/
 | `dowe dev --target web` | Work on documentation views without starting the server target. |
 | `dowe test` | Run native `.dowe` tests discovered in the project. |
 | `dowe codegraph check` | Validate ownership, modularity, dependencies, and duplication. |
+| `dowe build --target android` | Produce a signed release APK without publishing it. |
 | `dowe deploy --target static` | Generate portable web output under `.dowe/dist/static`. |
+| `dowe deploy --target android --track internal --publish` | Upload a signed Android App Bundle to Google Play. |
+| `dowe deploy --target ios --publish` | Upload a signed IPA to App Store Connect from macOS. |
 | `dowe agent update` | Refresh Dowe-managed public authoring skills in `.agents/skills`. |
 
 ## Contributing

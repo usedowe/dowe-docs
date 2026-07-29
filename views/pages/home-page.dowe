@@ -1,5 +1,56 @@
 page HomePage
-  Section boxed:true px:{ xs:5 md:12 } py:{ xs:10 md:16 }
+  Section id:"workflow-platform-hero" boxed:true minH:"vh-0" py:{ xs:10 md:14 }
+    Flex direction:"column" align:"center" justify:"center" gap:0 minH:"vh-32"
+      Flex direction:"column" align:"center" gap:0 show:{ xs:false md:true }
+        Title size:"7xl" weight:"black"
+          "Full-stack development,"
+        Title size:"7xl" weight:"black"
+          "from one codebase"
+      Flex direction:"column" align:"center" gap:0 show:{ xs:true md:false }
+        Title size:"4xl" weight:"black"
+          "Full-stack development, from one codebase"
+      Box h:12
+      Grid columns:{ xs:1 md:"720px" } gap:3
+        Tabs variant:"line" scheme:"primary"
+          tab id:"hero-unix" label:"macOS / Linux"
+            Code:
+              language:"dowe"
+              variant:"solid"
+              scheme:"surface"
+              copyLabel:"Copy install command"
+              copiedLabel:"Copied"
+              content:"curl -fsSL https://get.dowe.dev/install | bash"
+          tab id:"hero-windows" label:"Windows"
+            Code:
+              language:"dowe"
+              variant:"solid"
+              scheme:"surface"
+              copyLabel:"Copy PowerShell command"
+              copiedLabel:"Copied"
+              content:"powershell -c \"irm https://get.dowe.dev/install.ps1 | iex\""
+      Box h:20
+      Flex wrap:true justify:"center" align:"center" gap:{ xs:8 md:24 }
+        Flex align:"center" gap:3
+          Icon name:"layers-minimalistic" style:"bold" fill:"muted" w:10 h:10
+          Text size:"3xl" weight:"black" color:"muted"
+            "Server"
+        Flex align:"center" gap:3
+          Icon name:"graph-new-up" style:"bold" fill:"muted" w:10 h:10
+          Text size:"3xl" weight:"black" color:"muted"
+            "Web"
+        Flex align:"center" gap:3
+          Icon name:"chart" style:"bold" fill:"muted" w:10 h:10
+          Text size:"3xl" weight:"black" color:"muted"
+            "Desktop"
+        Flex align:"center" gap:3
+          Icon name:"shield-check" style:"bold" fill:"muted" w:10 h:10
+          Text size:"3xl" weight:"black" color:"muted"
+            "Ios"
+        Flex align:"center" gap:3
+          Icon name:"layers" style:"bold" fill:"muted" w:10 h:10
+          Text size:"3xl" weight:"black" color:"muted"
+            "Android"
+  Section boxed:true px:{ xs:5 md:12 }
     Grid columns:{ xs:1 md:2 } gap:{ xs:10 md:14 } align:"center"
       Grid columns:1 gap:6
         Flex gap:3 align:"center" wrap:true
@@ -124,7 +175,7 @@ page HomePage
               "iOS"
             Text size:"xs"
               "Generated SwiftUI."
-  Section boxed:true bg:"softMuted" color:"onSoftMuted" px:{ xs:5 md:12 } py:{ xs:10 md:16 }
+  Section boxed:true bg:"softMuted" color:"onSoftMuted" px:{ xs:5 md:12 }
     Grid columns:{ xs:1 md:2 } gap:{ xs:8 md:14 } align:"center"
       Grid columns:1 gap:5
         Text size:"xs" weight:"bold" spacing:"widest"

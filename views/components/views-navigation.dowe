@@ -48,6 +48,7 @@ component ViewsNavigation
       item label:"Avatar" href:"/docs/views/display/avatar" icon:"user-circle"
       item label:"AvatarGroup" href:"/docs/views/display/avatar-group" icon:"users-group-rounded"
       item label:"Badge" href:"/docs/views/display/badge" icon:"tag"
+      item label:"Box" href:"/docs/views/display/box" icon:"layers-minimalistic"
       item label:"Brand" href:"/docs/views/display/brand" icon:"home"
       item label:"Accordion" href:"/docs/views/display/accordion" icon:"list-vertical"
       item label:"Card" href:"/docs/views/display/card" icon:"card"

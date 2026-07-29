@@ -88,7 +88,7 @@ page DevPage
             Title size:"xl" weight:"black"
               "Native previews from the same views"
             Text size:"sm" color:"muted"
-              "Desktop reuses the generated web/static output and the platform window system. Android and iOS use their native hosts while preserving the shared Dowe view model."
+              "Desktop starts or reuses the same Views server origin as web before opening the platform window. An authored desktop server listens separately on its declared local port for endpoints and initialization; without that declaration, Dowe does not allocate a replacement desktop server listener. Android and iOS use their native hosts while preserving the shared Dowe view model."
       Grid columns:{ xs:1 md:2 } gap:4
         Card variant:"soft" scheme:"primary" p:5 rounded:"md"
           Grid columns:1 gap:2
@@ -105,7 +105,7 @@ page DevPage
             Title size:"lg" weight:"black"
               "Build once, reuse native units"
             Text size:"sm" color:"muted"
-              "Large Android pages are partitioned before javac. A first iOS run may remain Loading while swiftc creates every object; later runs reuse the incremental native caches."
+              "Large Android pages are partitioned before javac. iOS opens its simulator host before the first Swift module finishes, then later runs reuse the incremental native caches."
   Section id:"dev-artifacts" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2

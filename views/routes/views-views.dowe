@@ -36,6 +36,7 @@ import AlertPage from "@/views/pages/views/display/alert-page"
 import AvatarPage from "@/views/pages/views/display/avatar-page"
 import AvatarGroupPage from "@/views/pages/views/display/avatar-group-page"
 import BadgePage from "@/views/pages/views/display/badge-page"
+import BoxPage from "@/views/pages/views/display/box-page"
 import BrandPage from "@/views/pages/views/display/brand-page"
 import AccordionPage from "@/views/pages/views/display/accordion-page"
 import CarouselPage from "@/views/pages/views/display/carousel-page"
@@ -145,6 +146,7 @@ views ViewsViews
     route path:"display/avatar" page:AvatarPage
     route path:"display/avatar-group" page:AvatarGroupPage
     route path:"display/badge" page:BadgePage
+    route path:"display/box" page:BoxPage
     route path:"display/brand" page:BrandPage
     route path:"display/accordion" page:AccordionPage
     route path:"display/carousel" page:CarouselPage

@@ -1,7 +1,13 @@
 page SmartSolutionsHeroPage
-  Section id:"smart-solutions-hero" bg:"background" color:"onBackground" boxed:true minH:"vh-16" py:{ xs:8 md:12 }
-    Grid columns:{ xs:1 md:"5fr 4fr" } gap:{ xs:8 md:14 } align:"center" minH:"vh-16"
-      Flex direction:"column" align:"start" gap:5
+  Section:
+    id:"smart-solutions-hero"
+    bg:"background"
+    color:"onBackground"
+    boxed:true
+    minH:"vh-16"
+    py:{ xs:8 md:12 }
+    Grid columns:{ xs:1 md:"5fr 4fr" } gap:{ xs:8 md:14 } align:"stretch" minH:"vh-16"
+      Flex direction:"column" align:"start" justify:"center" gap:5
         Text size:"xs" weight:"bold" spacing:"widest" color:"info"
           "BUILT FOR AMBITIOUS TEAMS"
         Title size:{ xs:"4xl" md:"6xl" } weight:"black"
@@ -29,7 +35,9 @@ page SmartSolutionsHeroPage
               Icon name:"users-group-rounded" style:"linear" fill:"primary" w:5 h:5
               Text size:"sm" weight:"bold"
                 "Facebook"
-      Box bg:"softInfo" color:"info" rounded:"xl" minH:{ xs:56 md:80 } p:{ xs:6 md:10 }
-        Flex direction:"column" justify:"center" align:"center" minH:{ xs:44 md:60 }
-          Box bg:"surface" rounded:"lg" p:{ xs:5 md:7 } shadow:"lg" shadowColor:"muted"
-            Icon name:"gallery-wide" style:"bold-duotone" fill:"info" w:{ xs:14 md:20 } h:{ xs:14 md:20 }
+      Box:
+        cover:"/assets/blocks/hero/consulting-team-wide.jpg"
+        rounded:"xl"
+        minH:{ xs:64 md:"vh-16" }
+        shadow:"xl"
+        shadowColor:"muted"

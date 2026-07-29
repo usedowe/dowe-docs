@@ -26,7 +26,13 @@ page LeadCaptureHeroPage
               "Trusted by 12K+ worldwide"
             Text size:"sm"
               "brands & customers"
-      Card variant:"solid" scheme:"surface" rounded:"xl" shadow:"xl" shadowColor:"muted" p:8
+      Card:
+        variant:"solid"
+        scheme:"surface"
+        rounded:"xl"
+        shadow:"xl"
+        shadowColor:"muted"
+        p:8
         Grid columns:1 gap:6
           Grid columns:1 gap:2
             Title size:"2xl" weight:"black"
@@ -35,7 +41,11 @@ page LeadCaptureHeroPage
               "Share a few details and discover the clearest next step for your team."
           Input placeholder:"Enter your name*" variant:"soft" scheme:"muted" w:"full"
           Input placeholder:"Enter your email*" variant:"soft" scheme:"muted" w:"full"
-          Button variant:"solid" scheme:"primary" size:"lg" w:"full"
+          Button:
+            variant:"solid"
+            scheme:"primary"
+            size:"lg"
+            w:"full"
             "Get Started Now"
           Flex direction:"column" align:"center" gap:0
             Text size:"sm" color:"muted"

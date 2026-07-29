@@ -6,7 +6,7 @@ page HerosPage
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Hero"
       Text size:"lg" color:"muted"
-        "Nine polished hero pages with clearer hierarchy, responsive composition, and copy-ready Dowe source."
+        "Ten polished hero pages with clearer hierarchy, responsive composition, and copy-ready Dowe source."
   Section id:"crypto-app" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
@@ -23,35 +23,46 @@ page HerosPage
           rounded:"full"
           iconEnd:"arrow-right"
           "Open full page"
-      Device device:"laptop" w:"full" rounded:"lg" border:1
-        Iframe:
-          src:"/blocks/hero-preview/crypto-app"
-          title:"Essential split hero preview"
-          loading:"lazy"
-          sandbox:"scripts same-origin"
-      Code:
-        language:"dowe"
-        variant:"soft"
-        scheme:"surface"
-        copyLabel:"Copy hero"
-        copiedLabel:"Copied"
-        content:"""
-          Section id:"crypto-app-hero" bg:"surface" color:"onSurface" boxed:true minH:"vh-16" py:{ xs:8 md:12 }
-            Grid columns:{ xs:1 md:"5fr 4fr" } gap:{ xs:8 md:14 } align:"center" minH:"vh-16"
-              Flex direction:"column" align:"start" gap:5
-                Text size:"xs" weight:"bold" spacing:"widest" color:"primary"
-                  "WORK WITHOUT THE CLUTTER"
-                Title size:{ xs:"4xl" md:"6xl" } weight:"black"
-                  "Bring every project into focus"
-                Text size:"lg" color:"muted"
-                  "Plan, collaborate, and ship from one calm workspace that keeps priorities visible and every handoff clear."
-                Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" iconEnd:"arrow-right"
-                  "Explore the workspace"
-              Box bg:"softPrimary" color:"primary" rounded:"xl" minH:{ xs:56 md:80 } p:{ xs:6 md:10 }
-                Flex direction:"column" justify:"center" align:"center" minH:{ xs:44 md:60 }
-                  Box bg:"surface" rounded:"lg" p:{ xs:5 md:7 } shadow:"lg" shadowColor:"muted"
-                    Icon name:"gallery-wide" style:"bold-duotone" fill:"primary" w:{ xs:14 md:20 } h:{ xs:14 md:20 }
-        """
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"crypto-app-preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe:
+              src:"/blocks/hero-preview/crypto-app"
+              title:"Essential split hero preview"
+              loading:"lazy"
+              sandbox:"scripts same-origin"
+        tab id:"crypto-app-code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy hero"
+            copiedLabel:"Copied"
+            content:"""
+              Section:
+                id:"crypto-app-hero"
+                bg:"surface"
+                color:"onSurface"
+                boxed:true
+                minH:"vh-16"
+                py:{ xs:8 md:12 }
+                Grid columns:{ xs:1 md:"5fr 4fr" } gap:{ xs:8 md:14 } align:"stretch" minH:"vh-16"
+                  Flex direction:"column" align:"start" justify:"center" gap:5
+                    Text size:"xs" weight:"bold" spacing:"widest" color:"primary"
+                      "WORK WITHOUT THE CLUTTER"
+                    Title size:{ xs:"4xl" md:"6xl" } weight:"black"
+                      "Bring every project into focus"
+                    Text size:"lg" color:"muted"
+                      "Plan, collaborate, and ship from one calm workspace that keeps priorities visible and every handoff clear."
+                    Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" iconEnd:"arrow-right"
+                      "Explore the workspace"
+                  Box:
+                    cover:"/assets/blocks/hero/crypto-wallet.jpg"
+                    rounded:"xl"
+                    minH:{ xs:64 md:"vh-16" }
+                    shadow:"xl"
+                    shadowColor:"muted"
+            """
   Section id:"smart-solutions" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
@@ -68,54 +79,65 @@ page HerosPage
           rounded:"full"
           iconEnd:"arrow-right"
           "Open full page"
-      Device device:"laptop" w:"full" rounded:"lg" border:1
-        Iframe:
-          src:"/blocks/hero-preview/smart-solutions"
-          title:"Split hero with trust signals preview"
-          loading:"lazy"
-          sandbox:"scripts same-origin"
-      Code:
-        language:"dowe"
-        variant:"soft"
-        scheme:"surface"
-        copyLabel:"Copy hero"
-        copiedLabel:"Copied"
-        content:"""
-          Section id:"smart-solutions-hero" bg:"background" color:"onBackground" boxed:true minH:"vh-16" py:{ xs:8 md:12 }
-            Grid columns:{ xs:1 md:"5fr 4fr" } gap:{ xs:8 md:14 } align:"center" minH:"vh-16"
-              Flex direction:"column" align:"start" gap:5
-                Text size:"xs" weight:"bold" spacing:"widest" color:"info"
-                  "BUILT FOR AMBITIOUS TEAMS"
-                Title size:{ xs:"4xl" md:"6xl" } weight:"black"
-                  "Turn ambitious ideas into steady growth"
-                Text size:"lg" color:"muted"
-                  "Give your team a clear path from first insight to launch, with the context and tools to make every decision count."
-                Grid columns:{ xs:1 sm:2 } gap:3 w:"full"
-                  Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" w:"full"
-                    "Order now"
-                  Button variant:"outlined" scheme:"primary" size:"lg" rounded:"full" w:"full"
-                    "Explore"
-                Grid columns:1 gap:2
-                  Text size:"xs" weight:"bold" color:"muted"
-                    "TRUSTED BY"
-                  Flex wrap:true align:"center" gap:5
-                    Flex align:"center" gap:2
-                      Icon name:"global" style:"linear" fill:"primary" w:5 h:5
-                      Text size:"sm" weight:"bold"
-                        "Google"
-                    Flex align:"center" gap:2
-                      Icon name:"play-circle" style:"linear" fill:"primary" w:5 h:5
-                      Text size:"sm" weight:"bold"
-                        "YouTube"
-                    Flex align:"center" gap:2
-                      Icon name:"users-group-rounded" style:"linear" fill:"primary" w:5 h:5
-                      Text size:"sm" weight:"bold"
-                        "Facebook"
-              Box bg:"softInfo" color:"info" rounded:"xl" minH:{ xs:56 md:80 } p:{ xs:6 md:10 }
-                Flex direction:"column" justify:"center" align:"center" minH:{ xs:44 md:60 }
-                  Box bg:"surface" rounded:"lg" p:{ xs:5 md:7 } shadow:"lg" shadowColor:"muted"
-                    Icon name:"gallery-wide" style:"bold-duotone" fill:"info" w:{ xs:14 md:20 } h:{ xs:14 md:20 }
-        """
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"smart-solutions-preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe:
+              src:"/blocks/hero-preview/smart-solutions"
+              title:"Split hero with trust signals preview"
+              loading:"lazy"
+              sandbox:"scripts same-origin"
+        tab id:"smart-solutions-code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy hero"
+            copiedLabel:"Copied"
+            content:"""
+              Section:
+                id:"smart-solutions-hero"
+                bg:"background"
+                color:"onBackground"
+                boxed:true
+                minH:"vh-16"
+                py:{ xs:8 md:12 }
+                Grid columns:{ xs:1 md:"5fr 4fr" } gap:{ xs:8 md:14 } align:"stretch" minH:"vh-16"
+                  Flex direction:"column" align:"start" justify:"center" gap:5
+                    Text size:"xs" weight:"bold" spacing:"widest" color:"info"
+                      "BUILT FOR AMBITIOUS TEAMS"
+                    Title size:{ xs:"4xl" md:"6xl" } weight:"black"
+                      "Turn ambitious ideas into steady growth"
+                    Text size:"lg" color:"muted"
+                      "Give your team a clear path from first insight to launch, with the context and tools to make every decision count."
+                    Grid columns:{ xs:1 sm:2 } gap:3 w:"full"
+                      Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" w:"full"
+                        "Order now"
+                      Button variant:"outlined" scheme:"primary" size:"lg" rounded:"full" w:"full"
+                        "Explore"
+                    Grid columns:1 gap:2
+                      Text size:"xs" weight:"bold" color:"muted"
+                        "TRUSTED BY"
+                      Flex wrap:true align:"center" gap:5
+                        Flex align:"center" gap:2
+                          Icon name:"global" style:"linear" fill:"primary" w:5 h:5
+                          Text size:"sm" weight:"bold"
+                            "Google"
+                        Flex align:"center" gap:2
+                          Icon name:"play-circle" style:"linear" fill:"primary" w:5 h:5
+                          Text size:"sm" weight:"bold"
+                            "YouTube"
+                        Flex align:"center" gap:2
+                          Icon name:"users-group-rounded" style:"linear" fill:"primary" w:5 h:5
+                          Text size:"sm" weight:"bold"
+                            "Facebook"
+                  Box:
+                    cover:"/assets/blocks/hero/consulting-team-wide.jpg"
+                    rounded:"xl"
+                    minH:{ xs:64 md:"vh-16" }
+                    shadow:"xl"
+                    shadowColor:"muted"
+            """
   Section id:"growth-consulting" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
@@ -132,52 +154,55 @@ page HerosPage
           rounded:"full"
           iconEnd:"arrow-right"
           "Open full page"
-      Device device:"laptop" w:"full" rounded:"lg" border:1
-        Iframe:
-          src:"/blocks/hero-preview/growth-consulting"
-          title:"Centered conversion hero preview"
-          loading:"lazy"
-          sandbox:"scripts same-origin"
-      Code:
-        language:"dowe"
-        variant:"soft"
-        scheme:"surface"
-        copyLabel:"Copy hero"
-        copiedLabel:"Copied"
-        content:"""
-          Section id:"growth-consulting-hero" bg:"surface" color:"onSurface" boxed:true minH:"vh-16" py:{ xs:10 md:14 }
-            Grid columns:{ xs:1 md:"1fr 2fr 1fr" } align:"center" minH:"vh-16"
-              Box show:{ xs:false md:true }
-              Flex direction:"column" align:"center" justify:"center" gap:5
-                Text size:"xs" weight:"bold" spacing:"widest" color:"success"
-                  "A CLEARER WAY TO GROW"
-                Title size:{ xs:"4xl" md:"6xl" } weight:"black"
-                  "One workspace for your clearest work"
-                Text size:"lg" color:"muted"
-                  "Bring goals, decisions, and delivery together so your team can spend less time searching and more time moving forward."
-                Grid columns:{ xs:1 sm:2 } gap:3 w:"full"
-                  Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" w:"full"
-                    "Order now"
-                  Button variant:"outlined" scheme:"primary" size:"lg" rounded:"full" w:"full"
-                    "Explore"
-                Grid columns:1 gap:2
-                  Text size:"xs" weight:"bold" color:"muted"
-                    "TRUSTED BY"
-                  Flex wrap:true align:"center" justify:"center" gap:5
-                    Flex align:"center" gap:2
-                      Icon name:"global" style:"linear" fill:"primary" w:5 h:5
-                      Text size:"sm" weight:"bold"
-                        "Google"
-                    Flex align:"center" gap:2
-                      Icon name:"play-circle" style:"linear" fill:"primary" w:5 h:5
-                      Text size:"sm" weight:"bold"
-                        "YouTube"
-                    Flex align:"center" gap:2
-                      Icon name:"users-group-rounded" style:"linear" fill:"primary" w:5 h:5
-                      Text size:"sm" weight:"bold"
-                        "Facebook"
-              Box show:{ xs:false md:true }
-        """
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"growth-consulting-preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe:
+              src:"/blocks/hero-preview/growth-consulting"
+              title:"Centered conversion hero preview"
+              loading:"lazy"
+              sandbox:"scripts same-origin"
+        tab id:"growth-consulting-code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy hero"
+            copiedLabel:"Copied"
+            content:"""
+              Section id:"growth-consulting-hero" bg:"surface" color:"onSurface" boxed:true minH:"vh-16" py:{ xs:10 md:14 }
+                Grid columns:{ xs:1 md:"1fr 2fr 1fr" } align:"center" minH:"vh-16"
+                  Box show:{ xs:false md:true }
+                  Flex direction:"column" align:"center" justify:"center" gap:5
+                    Text size:"xs" weight:"bold" spacing:"widest" color:"success"
+                      "A CLEARER WAY TO GROW"
+                    Title size:{ xs:"4xl" md:"6xl" } weight:"black"
+                      "One workspace for your clearest work"
+                    Text size:"lg" color:"muted"
+                      "Bring goals, decisions, and delivery together so your team can spend less time searching and more time moving forward."
+                    Grid columns:{ xs:1 sm:2 } gap:3 w:"full"
+                      Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" w:"full"
+                        "Order now"
+                      Button variant:"outlined" scheme:"primary" size:"lg" rounded:"full" w:"full"
+                        "Explore"
+                    Grid columns:1 gap:2
+                      Text size:"xs" weight:"bold" color:"muted"
+                        "TRUSTED BY"
+                      Flex wrap:true align:"center" justify:"center" gap:5
+                        Flex align:"center" gap:2
+                          Icon name:"global" style:"linear" fill:"primary" w:5 h:5
+                          Text size:"sm" weight:"bold"
+                            "Google"
+                        Flex align:"center" gap:2
+                          Icon name:"play-circle" style:"linear" fill:"primary" w:5 h:5
+                          Text size:"sm" weight:"bold"
+                            "YouTube"
+                        Flex align:"center" gap:2
+                          Icon name:"users-group-rounded" style:"linear" fill:"primary" w:5 h:5
+                          Text size:"sm" weight:"bold"
+                            "Facebook"
+                  Box show:{ xs:false md:true }
+            """
   Section id:"digital-potential" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
@@ -194,38 +219,49 @@ page HerosPage
           rounded:"full"
           iconEnd:"arrow-right"
           "Open full page"
-      Device device:"laptop" w:"full" rounded:"lg" border:1
-        Iframe:
-          src:"/blocks/hero-preview/digital-potential"
-          title:"Media-first split hero preview"
-          loading:"lazy"
-          sandbox:"scripts same-origin"
-      Code:
-        language:"dowe"
-        variant:"soft"
-        scheme:"surface"
-        copyLabel:"Copy hero"
-        copiedLabel:"Copied"
-        content:"""
-          Section id:"digital-potential-hero" bg:"background" color:"onBackground" boxed:true minH:"vh-16" py:{ xs:8 md:12 }
-            Grid columns:{ xs:1 md:"4fr 5fr" } gap:{ xs:8 md:14 } align:"center" minH:"vh-16"
-              Box bg:"softTertiary" color:"tertiary" rounded:"xl" minH:{ xs:56 md:80 } p:{ xs:6 md:10 }
-                Flex direction:"column" justify:"center" align:"center" minH:{ xs:44 md:60 }
-                  Box bg:"surface" rounded:"lg" p:{ xs:5 md:7 } shadow:"lg" shadowColor:"muted"
-                    Icon name:"gallery-wide" style:"bold-duotone" fill:"tertiary" w:{ xs:14 md:20 } h:{ xs:14 md:20 }
-              Flex direction:"column" align:"start" gap:5
-                Text size:"xs" weight:"bold" spacing:"widest" color:"tertiary"
-                  "A SYSTEM YOUR TEAM CAN TRUST"
-                Title size:{ xs:"4xl" md:"6xl" } weight:"black"
-                  "Build momentum without losing clarity"
-                Text size:"lg" color:"muted"
-                  "Connect plans, progress, and customer context in one flexible system that stays useful as your team grows."
-                Grid columns:{ xs:1 sm:2 } gap:3 w:"full"
-                  Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" w:"full"
-                    "Order now"
-                  Button variant:"outlined" scheme:"primary" size:"lg" rounded:"full" w:"full"
-                    "Explore"
-        """
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"digital-potential-preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe:
+              src:"/blocks/hero-preview/digital-potential"
+              title:"Media-first split hero preview"
+              loading:"lazy"
+              sandbox:"scripts same-origin"
+        tab id:"digital-potential-code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy hero"
+            copiedLabel:"Copied"
+            content:"""
+              Section:
+                id:"digital-potential-hero"
+                bg:"background"
+                color:"onBackground"
+                boxed:true
+                minH:"vh-16"
+                py:{ xs:8 md:12 }
+                Grid columns:{ xs:1 md:"4fr 5fr" } gap:{ xs:8 md:14 } align:"stretch" minH:"vh-16"
+                  Box:
+                    cover:"/assets/blocks/hero/digital-strategist.jpg"
+                    rounded:"xl"
+                    minH:{ xs:64 md:"vh-16" }
+                    shadow:"xl"
+                    shadowColor:"muted"
+                  Flex direction:"column" align:"start" justify:"center" gap:5
+                    Text size:"xs" weight:"bold" spacing:"widest" color:"tertiary"
+                      "A SYSTEM YOUR TEAM CAN TRUST"
+                    Title size:{ xs:"4xl" md:"6xl" } weight:"black"
+                      "Build momentum without losing clarity"
+                    Text size:"lg" color:"muted"
+                      "Connect plans, progress, and customer context in one flexible system that stays useful as your team grows."
+                    Grid columns:{ xs:1 sm:2 } gap:3 w:"full"
+                      Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" w:"full"
+                        "Order now"
+                      Button variant:"outlined" scheme:"primary" size:"lg" rounded:"full" w:"full"
+                        "Explore"
+            """
   Section id:"workflow-platform" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
@@ -242,79 +278,78 @@ page HerosPage
           rounded:"full"
           iconEnd:"arrow-right"
           "Open full page"
-      Device device:"laptop" w:"full" rounded:"lg" border:1
-        Iframe:
-          src:"/blocks/hero-preview/workflow-platform"
-          title:"Workflow platform hero preview"
-          loading:"lazy"
-          sandbox:"scripts same-origin"
-      Code:
-        language:"dowe"
-        variant:"soft"
-        scheme:"surface"
-        copyLabel:"Copy hero"
-        copiedLabel:"Copied"
-        content:"""
-          Section:
-            id:"workflow-platform-hero"
-            cover:"/assets/blocks/hero/geometric-grid.jpg"
-            boxed:true
-            minH:"vh-0"
-            py:{ xs:10 md:14 }
-            Flex direction:"column" align:"center" justify:"center" gap:0 minH:"vh-32"
-              Flex direction:"column" align:"center" gap:0 show:{ xs:false md:true }
-                Title size:"7xl" weight:"black"
-                  "Streamline your workflow,"
-                Title size:"7xl" weight:"black"
-                  "achieve excellence"
-              Flex direction:"column" align:"center" gap:0 show:{ xs:true md:false }
-                Title size:"4xl" weight:"black"
-                  "Streamline your workflow, achieve excellence"
-              Box h:8
-              Flex direction:"column" align:"center" gap:1
-                Text size:"lg" color:"muted"
-                  "Connect planning, collaboration, and delivery"
-                Text size:"lg" color:"muted"
-                  "in one focused workspace."
-              Box h:12
-              Grid columns:{ xs:1 sm:"1fr 600px auto 1fr" } gap:3 align:"center" w:"full"
-                Box show:{ xs:false sm:true }
-                Input:
-                  placeholder:"Your email address"
-                  variant:"outlined"
-                  scheme:"muted"
-                  w:"full"
-                Button variant:"solid" scheme:"primary" size:"lg" px:10
-                  "Get Started"
-                Box show:{ xs:false sm:true }
-              Box h:8
-              Flex align:"center" gap:2
-                Icon name:"check-circle" style:"bold" fill:"success"
-                Text size:"sm" color:"muted"
-                  "14-day free trial. No credit card needed."
-              Box h:20
-              Flex wrap:true justify:"center" align:"center" gap:{ xs:8 md:24 }
-                Flex align:"center" gap:3
-                  Icon name:"layers-minimalistic" style:"bold" fill:"muted" w:10 h:10
-                  Text size:"3xl" weight:"black" color:"muted"
-                    "Next"
-                Flex align:"center" gap:3
-                  Icon name:"graph-new-up" style:"bold" fill:"muted" w:10 h:10
-                  Text size:"3xl" weight:"black" color:"muted"
-                    "Upgrade"
-                Flex align:"center" gap:3
-                  Icon name:"chart" style:"bold" fill:"muted" w:10 h:10
-                  Text size:"3xl" weight:"black" color:"muted"
-                    "Intdeco"
-                Flex align:"center" gap:3
-                  Icon name:"shield-check" style:"bold" fill:"muted" w:10 h:10
-                  Text size:"3xl" weight:"black" color:"muted"
-                    "Thanos"
-                Flex align:"center" gap:3
-                  Icon name:"layers" style:"bold" fill:"muted" w:10 h:10
-                  Text size:"3xl" weight:"black" color:"muted"
-                    "Stackd"
-        """
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"workflow-platform-preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe:
+              src:"/blocks/hero-preview/workflow-platform"
+              title:"Workflow platform hero preview"
+              loading:"lazy"
+              sandbox:"scripts same-origin"
+        tab id:"workflow-platform-code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy hero"
+            copiedLabel:"Copied"
+            content:"""
+              Section:
+                id:"workflow-platform-hero"
+                cover:"/assets/blocks/hero/geometric-grid.jpg"
+                boxed:true
+                minH:"vh-0"
+                py:{ xs:10 md:14 }
+                Flex direction:"column" align:"center" justify:"center" gap:0 minH:"vh-32"
+                  Flex direction:"column" align:"center" gap:0 show:{ xs:false md:true }
+                    Title size:"7xl" weight:"black"
+                      "Streamline your workflow,"
+                    Title size:"7xl" weight:"black"
+                      "achieve excellence"
+                  Flex direction:"column" align:"center" gap:0 show:{ xs:true md:false }
+                    Title size:"4xl" weight:"black"
+                      "Streamline your workflow, achieve excellence"
+                  Box h:8
+                  Flex direction:"column" align:"center" gap:1
+                    Text size:"lg" color:"muted"
+                      "Connect planning, collaboration, and delivery"
+                    Text size:"lg" color:"muted"
+                      "in one focused workspace."
+                  Box h:12
+                  Grid columns:{ xs:1 sm:"1fr 600px auto 1fr" } gap:3 align:"center" w:"full"
+                    Box show:{ xs:false sm:true }
+                    Input placeholder:"Your email address" variant:"outlined" scheme:"muted" w:"full"
+                    Button variant:"solid" scheme:"primary" size:"lg" px:10
+                      "Get Started"
+                    Box show:{ xs:false sm:true }
+                  Box h:8
+                  Flex align:"center" gap:2
+                    Icon name:"check-circle" style:"bold" fill:"success"
+                    Text size:"sm" color:"muted"
+                      "14-day free trial. No credit card needed."
+                  Box h:20
+                  Flex wrap:true justify:"center" align:"center" gap:{ xs:8 md:24 }
+                    Flex align:"center" gap:3
+                      Icon name:"layers-minimalistic" style:"bold" fill:"muted" w:10 h:10
+                      Text size:"3xl" weight:"black" color:"muted"
+                        "Next"
+                    Flex align:"center" gap:3
+                      Icon name:"graph-new-up" style:"bold" fill:"muted" w:10 h:10
+                      Text size:"3xl" weight:"black" color:"muted"
+                        "Upgrade"
+                    Flex align:"center" gap:3
+                      Icon name:"chart" style:"bold" fill:"muted" w:10 h:10
+                      Text size:"3xl" weight:"black" color:"muted"
+                        "Intdeco"
+                    Flex align:"center" gap:3
+                      Icon name:"shield-check" style:"bold" fill:"muted" w:10 h:10
+                      Text size:"3xl" weight:"black" color:"muted"
+                        "Thanos"
+                    Flex align:"center" gap:3
+                      Icon name:"layers" style:"bold" fill:"muted" w:10 h:10
+                      Text size:"3xl" weight:"black" color:"muted"
+                        "Stackd"
+            """
   Section id:"software-solutions" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
@@ -331,47 +366,49 @@ page HerosPage
           rounded:"full"
           iconEnd:"arrow-right"
           "Open full page"
-      Device device:"laptop" w:"full" rounded:"lg" border:1
-        Iframe:
-          src:"/blocks/hero-preview/software-solutions"
-          title:"Software solutions hero preview"
-          loading:"lazy"
-          sandbox:"scripts same-origin"
-      Code:
-        language:"dowe"
-        variant:"soft"
-        scheme:"surface"
-        copyLabel:"Copy hero"
-        copiedLabel:"Copied"
-        content:"""
-          Section id:"software-solutions-hero" boxed:true minH:"vh-0" py:{ xs:6 md:10 }
-            Flex align:"center" justify:"center" minH:"vh-20"
-              Card:
-                cover:"/assets/blocks/hero/technology-analytics.jpg"
-                overlay:"rgba(8,16,40,0.76)"
-                rounded:"xl"
-                minH:96
-                w:"full"
-                p:{ xs:8 md:14 }
-                Flex direction:"column" align:"center" justify:"center" gap:0 minH:96
-                  Flex direction:"column" align:"center" gap:0 show:{ xs:false md:true }
-                    Title size:"7xl" weight:"black" color:"onPrimary"
-                      "Software solutions for"
-                    Title size:"7xl" weight:"black" color:"onPrimary"
-                      "the digital age"
-                  Flex direction:"column" align:"center" gap:0 show:{ xs:true md:false }
-                    Title size:"4xl" weight:"black" color:"onPrimary"
-                      "Software solutions for the digital age"
-                  Box h:10
-                  Flex direction:"column" align:"center" gap:1
-                    Text size:"lg" color:"onPrimary"
-                      "Unite every team around"
-                    Text size:"lg" color:"onPrimary"
-                      "one secure source of truth."
-                  Box h:10
-                  Button variant:"solid" scheme:"primary" size:"lg" rounded:"md" px:8
-                    "Our Core Services"
-        """
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"software-solutions-preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe:
+              src:"/blocks/hero-preview/software-solutions"
+              title:"Software solutions hero preview"
+              loading:"lazy"
+              sandbox:"scripts same-origin"
+        tab id:"software-solutions-code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy hero"
+            copiedLabel:"Copied"
+            content:"""
+              Section id:"software-solutions-hero" boxed:true minH:"vh-16" py:{ xs:6 md:10 }
+                Card:
+                  cover:"/assets/blocks/hero/technology-analytics.jpg"
+                  overlay:"rgba(8,16,40,0.76)"
+                  rounded:"xl"
+                  minH:"vh-16"
+                  w:"full"
+                  p:{ xs:8 md:14 }
+                  Flex direction:"column" align:"center" justify:"center" gap:0 minH:{ xs:"vh-32" md:"vh-44" }
+                    Flex direction:"column" align:"center" gap:0 show:{ xs:false md:true }
+                      Title size:"7xl" weight:"black" color:"onPrimary"
+                        "Software solutions for"
+                      Title size:"7xl" weight:"black" color:"onPrimary"
+                        "the digital age"
+                    Flex direction:"column" align:"center" gap:0 show:{ xs:true md:false }
+                      Title size:"4xl" weight:"black" color:"onPrimary"
+                        "Software solutions for the digital age"
+                    Box h:10
+                    Flex direction:"column" align:"center" gap:1
+                      Text size:"lg" color:"onPrimary"
+                        "Unite every team around"
+                      Text size:"lg" color:"onPrimary"
+                        "one secure source of truth."
+                    Box h:10
+                    Button variant:"solid" scheme:"primary" size:"lg" rounded:"md" px:8
+                      "Our Core Services"
+            """
   Section id:"lead-capture" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
@@ -388,73 +425,76 @@ page HerosPage
           rounded:"full"
           iconEnd:"arrow-right"
           "Open full page"
-      Device device:"laptop" w:"full" rounded:"lg" border:1
-        Iframe:
-          src:"/blocks/hero-preview/lead-capture"
-          title:"Lead capture hero preview"
-          loading:"lazy"
-          sandbox:"scripts same-origin"
-      Code:
-        language:"dowe"
-        variant:"soft"
-        scheme:"surface"
-        copyLabel:"Copy hero"
-        copiedLabel:"Copied"
-        content:"""
-          Section:
-            id:"lead-capture-hero"
-            cover:"/assets/blocks/hero/digital-globe.jpg"
-            overlay:"rgba(24,27,64,0.82)"
-            color:"onPrimary"
-            boxed:true
-            py:20
-            Grid columns:{ xs:1 md:"2fr 1fr" } gap:{ xs:8 md:16 } align:"center"
-              Flex direction:"column" gap:6
-                Title size:"4xl" weight:"black" show:{ xs:true md:false }
-                  "Turn your next growth idea into a clear plan"
-                Title size:"5xl" weight:"black" show:{ xs:false md:true }
-                  "Turn your next growth idea into a clear plan"
-                Text size:"lg"
-                  "Bring strategy and execution together with practical tools designed for ambitious teams."
-                Flex align:"center" gap:4 pt:2
-                  AvatarGroup size:"lg" max:4 bordered:true variant:"soft" scheme:"primary"
-                    item name:"Maya" alt:"Maya Chen"
-                    item name:"Leo" alt:"Leo Martin"
-                    item name:"Amara" alt:"Amara Okafor"
-                    item name:"Lin" alt:"Lin Park"
-                    item name:"Dowe" alt:"Dowe Agent"
-                  Grid columns:1 gap:1
-                    Text size:"sm"
-                      "Trusted by 12K+ worldwide"
-                    Text size:"sm"
-                      "brands & customers"
-              Card:
-                variant:"solid"
-                scheme:"surface"
-                rounded:"xl"
-                shadow:"xl"
-                shadowColor:"muted"
-                p:8
-                Grid columns:1 gap:6
-                  Grid columns:1 gap:2
-                    Title size:"2xl" weight:"black"
-                      "Get started for free"
-                    Text color:"muted"
-                      "Share a few details and discover the clearest next step for your team."
-                  Input placeholder:"Enter your name*" variant:"soft" scheme:"muted" w:"full"
-                  Input placeholder:"Enter your email*" variant:"soft" scheme:"muted" w:"full"
-                  Button:
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"lead-capture-preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe:
+              src:"/blocks/hero-preview/lead-capture"
+              title:"Lead capture hero preview"
+              loading:"lazy"
+              sandbox:"scripts same-origin"
+        tab id:"lead-capture-code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy hero"
+            copiedLabel:"Copied"
+            content:"""
+              Section:
+                id:"lead-capture-hero"
+                cover:"/assets/blocks/hero/digital-globe.jpg"
+                overlay:"rgba(24,27,64,0.82)"
+                color:"onPrimary"
+                boxed:true
+                py:20
+                Grid columns:{ xs:1 md:"2fr 1fr" } gap:{ xs:8 md:16 } align:"center"
+                  Flex direction:"column" gap:6
+                    Title size:"4xl" weight:"black" show:{ xs:true md:false }
+                      "Turn your next growth idea into a clear plan"
+                    Title size:"5xl" weight:"black" show:{ xs:false md:true }
+                      "Turn your next growth idea into a clear plan"
+                    Text size:"lg"
+                      "Bring strategy and execution together with practical tools designed for ambitious teams."
+                    Flex align:"center" gap:4 pt:2
+                      AvatarGroup size:"lg" max:4 bordered:true variant:"soft" scheme:"primary"
+                        item name:"Maya" alt:"Maya Chen"
+                        item name:"Leo" alt:"Leo Martin"
+                        item name:"Amara" alt:"Amara Okafor"
+                        item name:"Lin" alt:"Lin Park"
+                        item name:"Dowe" alt:"Dowe Agent"
+                      Grid columns:1 gap:1
+                        Text size:"sm"
+                          "Trusted by 12K+ worldwide"
+                        Text size:"sm"
+                          "brands & customers"
+                  Card:
                     variant:"solid"
-                    scheme:"primary"
-                    size:"lg"
-                    w:"full"
-                    "Get Started Now"
-                  Flex direction:"column" align:"center" gap:0
-                    Text size:"sm" color:"muted"
-                      "By submitting this form, you accept our"
-                    Text size:"sm" color:"muted"
-                      "Terms of Service and Privacy Policy."
-        """
+                    scheme:"surface"
+                    rounded:"xl"
+                    shadow:"xl"
+                    shadowColor:"muted"
+                    p:8
+                    Grid columns:1 gap:6
+                      Grid columns:1 gap:2
+                        Title size:"2xl" weight:"black"
+                          "Get started for free"
+                        Text color:"muted"
+                          "Share a few details and discover the clearest next step for your team."
+                      Input placeholder:"Enter your name*" variant:"soft" scheme:"muted" w:"full"
+                      Input placeholder:"Enter your email*" variant:"soft" scheme:"muted" w:"full"
+                      Button:
+                        variant:"solid"
+                        scheme:"primary"
+                        size:"lg"
+                        w:"full"
+                        "Get Started Now"
+                      Flex direction:"column" align:"center" gap:0
+                        Text size:"sm" color:"muted"
+                          "By submitting this form, you accept our"
+                        Text size:"sm" color:"muted"
+                          "Terms of Service and Privacy Policy."
+            """
   Section id:"content-audience" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
@@ -471,113 +511,121 @@ page HerosPage
           rounded:"full"
           iconEnd:"arrow-right"
           "Open full page"
-      Device device:"laptop" w:"full" rounded:"lg" border:1
-        Iframe:
-          src:"/blocks/hero-preview/content-audience"
-          title:"Content audience hero preview"
-          loading:"lazy"
-          sandbox:"scripts same-origin"
-      Code:
-        language:"dowe"
-        variant:"soft"
-        scheme:"surface"
-        copyLabel:"Copy hero"
-        copiedLabel:"Copied"
-        content:"""
-          Section:
-            id:"content-audience-hero"
-            background:"aurora"
-            boxed:true
-            minH:"vh-0"
-            py:{ xs:8 md:12 }
-            Grid columns:{ xs:1 md:"5fr 6fr" } gap:{ xs:8 md:16 } align:"center" minH:"vh-24"
-              Flex direction:"column" align:"start" gap:6
-                Title size:"7xl" weight:"black" show:{ xs:false md:true }
-                  "Content is the key to building an audience"
-                Title size:"4xl" weight:"black" show:{ xs:true md:false }
-                  "Content is the key to building an audience"
-                Text size:"lg" color:"muted"
-                  "Publish with confidence and turn useful ideas into durable audience growth."
-                Flex direction:{ xs:"column" sm:"row" } align:"center" gap:3 pt:2
-                  Button variant:"solid" scheme:"primary" size:"lg"
-                    "Get Started Now"
-                  Button variant:"outlined" scheme:"muted" size:"lg"
-                    "Find Out More"
-                Flex align:"center" gap:4 pt:2
-                  AvatarGroup size:"md" max:4 bordered:true variant:"soft" scheme:"primary"
-                    item name:"Maya" alt:"Maya Chen"
-                    item name:"Leo" alt:"Leo Martin"
-                    item name:"Amara" alt:"Amara Okafor"
-                    item name:"Lin" alt:"Lin Park"
-                    item name:"Dowe" alt:"Dowe Agent"
-                  Grid columns:1 gap:1
-                    Text size:"sm" color:"muted"
-                      "Trusted by 12K+ worldwide"
-                    Text size:"sm" color:"muted"
-                      "brands & customers"
-              Box:
-                cover:"/assets/blocks/hero/content-creator.jpg"
-                rounded:"xl"
-                minH:"vh-48"
-                p:{ xs:4 md:6 }
-                shadow:"xl"
-                shadowColor:"muted"
-                Flex direction:"column" justify:"end" gap:5 minH:"vh-64"
-                  Flex justify:"end"
-                    Card:
-                      variant:"solid"
-                      scheme:"surface"
-                      rounded:"lg"
-                      shadow:"lg"
-                      shadowColor:"muted"
-                      p:4
-                      Flex align:"center" gap:3
-                        Box w:14 h:14 rounded:"md" cover:"/assets/blocks/hero/content-creator.jpg"
-                        Grid columns:1 gap:1
-                          Title size:"2xl" weight:"black"
-                            "36k+"
-                          Text size:"xs" color:"muted"
-                            "Satisfied Customers"
-                  Flex justify:"between" align:"center" gap:6
-                    Card:
-                      variant:"solid"
-                      scheme:"surface"
-                      rounded:"lg"
-                      shadow:"lg"
-                      shadowColor:"muted"
-                      p:4
-                      Flex align:"center" gap:3
-                        Icon name:"stars" style:"bold" fill:"primary" w:8 h:8
-                        Text size:"lg" weight:"bold"
-                          "Personalized Strategy"
-                    Card:
-                      variant:"solid"
-                      scheme:"surface"
-                      rounded:"lg"
-                      shadow:"xl"
-                      shadowColor:"success"
-                      p:5
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"content-audience-preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe:
+              src:"/blocks/hero-preview/content-audience"
+              title:"Content audience hero preview"
+              loading:"lazy"
+              sandbox:"scripts same-origin"
+        tab id:"content-audience-code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy hero"
+            copiedLabel:"Copied"
+            content:"""
+              Section:
+                id:"content-audience-hero"
+                background:"aurora"
+                boxed:true
+                minH:"vh-16"
+                py:{ xs:8 md:12 }
+                Grid columns:{ xs:1 md:"5fr 6fr" } gap:{ xs:8 md:16 } align:"stretch" minH:"vh-16"
+                  Flex direction:"column" align:"start" justify:"center" gap:6
+                    Title size:"7xl" weight:"black" show:{ xs:false md:true }
+                      "Content is the key to building an audience"
+                    Title size:"4xl" weight:"black" show:{ xs:true md:false }
+                      "Content is the key to building an audience"
+                    Text size:"lg" color:"muted"
+                      "Publish with confidence and turn useful ideas into durable audience growth."
+                    Flex direction:{ xs:"column" sm:"row" } align:"center" gap:3 pt:2
+                      Button variant:"solid" scheme:"primary" size:"lg"
+                        "Get Started Now"
+                      Button variant:"outlined" scheme:"muted" size:"lg"
+                        "Find Out More"
+                    Flex align:"center" gap:4 pt:2
+                      AvatarGroup size:"md" max:4 bordered:true variant:"soft" scheme:"primary"
+                        item name:"Maya" alt:"Maya Chen"
+                        item name:"Leo" alt:"Leo Martin"
+                        item name:"Amara" alt:"Amara Okafor"
+                        item name:"Lin" alt:"Lin Park"
+                        item name:"Dowe" alt:"Dowe Agent"
                       Grid columns:1 gap:1
-                        Flex align:"center" gap:2
-                          Icon name:"chart" style:"bold" fill:"warning" w:6 h:6
-                          Text weight:"bold"
-                            "Reach"
-                        Title size:"4xl" weight:"black"
-                          "264,506"
-                        Text size:"xs" color:"success"
-                          "+32.88% from last 7 days"
-                  Flex direction:"column" align:"center" gap:3 pt:4
-                    Chip variant:"soft" scheme:"info"
-                      start
-                        Svg viewBox:"0 0 24 24" w:4 h:4
-                          Path d:"M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm-1 14-4-4 1.4-1.4L11 13.2l5.6-5.6L18 9l-7 7Z" fill:"currentColor"
-                      "Real-Time Analytics"
-                    Chip variant:"soft" scheme:"warning"
-                      start
-                        Svg viewBox:"0 0 24 24" w:4 h:4
-                          Path d:"M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20ZM8.5 9a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm7 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 18a5.5 5.5 0 0 1-5-3.2h10a5.5 5.5 0 0 1-5 3.2Z" fill:"currentColor"
-                      "Social Media Marketing"
-        """
+                        Text size:"sm" color:"muted"
+                          "Trusted by 12K+ worldwide"
+                        Text size:"sm" color:"muted"
+                          "brands & customers"
+                  Box:
+                    position:"relative"
+                    cover:"/assets/blocks/hero/content-creator.jpg"
+                    rounded:"xl"
+                    minH:{ xs:"vh-56" md:"vh-16" }
+                    shadow:"xl"
+                    shadowColor:"muted"
+                    Box position:"absolute" top:{ xs:4 md:6 } right:{ xs:4 md:6 }
+                      Card:
+                        variant:"solid"
+                        scheme:"surface"
+                        rounded:"lg"
+                        shadow:"lg"
+                        shadowColor:"muted"
+                        p:4
+                        Flex align:"center" gap:3
+                          Box w:14 h:14 rounded:"md" cover:"/assets/blocks/hero/content-creator.jpg"
+                          Grid columns:1 gap:1
+                            Title size:"2xl" weight:"black"
+                              "36k+"
+                            Text size:"xs" color:"muted"
+                              "Satisfied Customers"
+                    Box position:"absolute" top:{ xs:28 md:32 } left:{ xs:4 md:6 }
+                      Card:
+                        variant:"solid"
+                        scheme:"surface"
+                        rounded:"lg"
+                        shadow:"lg"
+                        shadowColor:"muted"
+                        p:4
+                        Flex align:"center" gap:3
+                          Icon name:"stars" style:"bold" fill:"primary" w:8 h:8
+                          Text size:"lg" weight:"bold"
+                            "Personalized Strategy"
+                    Box position:"absolute" right:{ xs:4 md:6 } bottom:{ xs:24 md:20 }
+                      Card:
+                        variant:"solid"
+                        scheme:"surface"
+                        rounded:"lg"
+                        shadow:"xl"
+                        shadowColor:"success"
+                        p:5
+                        Grid columns:1 gap:1
+                          Flex align:"center" gap:2
+                            Icon name:"chart" style:"bold" fill:"warning" w:6 h:6
+                            Text weight:"bold"
+                              "Reach"
+                          Title size:"4xl" weight:"black"
+                            "264,506"
+                          Text size:"xs" color:"success"
+                            "+32.88% from last 7 days"
+                    Box position:"absolute" left:{ xs:4 md:6 } bottom:{ xs:4 md:6 }
+                      Flex direction:"column" align:"start" gap:3
+                        Chip variant:"soft" scheme:"info"
+                          start
+                            Svg viewBox:"0 0 24 24" w:4 h:4
+                              Path:
+                                d:"M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm-1 14-4-4 1.4-1.4L11 13.2l5.6-5.6L18 9l-7 7Z"
+                                fill:"currentColor"
+                          "Real-Time Analytics"
+                        Chip variant:"soft" scheme:"warning"
+                          start
+                            Svg viewBox:"0 0 24 24" w:4 h:4
+                              Path:
+                                d:"M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20ZM8.5 9a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm7 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 18a5.5 5.5 0 0 1-5-3.2h10a5.5 5.5 0 0 1-5 3.2Z"
+                                fill:"currentColor"
+                          "Social Media Marketing"
+            """
   Section id:"privacy-download" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
@@ -594,72 +642,196 @@ page HerosPage
           rounded:"full"
           iconEnd:"arrow-right"
           "Open full page"
-      Device device:"laptop" w:"full" rounded:"lg" border:1
-        Iframe:
-          src:"/blocks/hero-preview/privacy-download"
-          title:"Privacy download hero preview"
-          loading:"lazy"
-          sandbox:"scripts same-origin"
-      Code:
-        language:"dowe"
-        variant:"soft"
-        scheme:"surface"
-        copyLabel:"Copy hero"
-        copiedLabel:"Copied"
-        content:"""
-          Section id:"privacy-download-hero" background:"soft" boxed:true minH:"vh-0" py:{ xs:8 md:12 }
-            Grid columns:{ xs:1 md:"21fr 44fr 11fr 58fr 10fr" } gap:{ xs:8 md:8 } align:"center" minH:"vh-24"
-              Box show:{ xs:false md:true }
-              Box:
-                show:{ xs:false md:true }
-                cover:"/assets/blocks/hero/privacy-portrait-wide.jpg"
-                rounded:"xl"
-                minH:"vh-56"
-                shadow:"xl"
-                shadowColor:"muted"
-              Box:
-                show:{ xs:true md:false }
-                cover:"/assets/blocks/hero/privacy-portrait-wide.jpg"
-                rounded:"xl"
-                minH:96
-                shadow:"xl"
-                shadowColor:"muted"
-              Box show:{ xs:false md:true }
-              Flex direction:"column" gap:0
-                Flex direction:"column" gap:0 show:{ xs:false md:true }
-                  Title size:"5xl" weight:"black"
-                    "Keep Your Data"
-                  Title size:"5xl" weight:"black"
-                    "Private and Safe"
-                Flex direction:"column" gap:0 show:{ xs:true md:false }
-                  Title size:"4xl" weight:"black"
-                    "Keep Your Data"
-                  Title size:"4xl" weight:"black"
-                    "Private and Safe"
-                Box h:5 show:{ xs:true md:false }
-                Box h:8 show:{ xs:false md:true }
-                Text size:"lg" color:"muted"
-                  "Protect your work with privacy-first controls and a secure experience on every device."
-                Box h:5 show:{ xs:true md:false }
-                Box h:8 show:{ xs:false md:true }
-                Grid columns:{ xs:1 md:"13fr 7fr" } gap:0
-                  Grid columns:1 gap:6
-                    Card variant:"solid" scheme:"surface" rounded:"lg" shadow:"md" p:5
-                      Flex align:"center" gap:4
-                        Icon name:"monitor-smartphone" style:"bold" fill:"info" w:12 h:12
-                        Grid columns:1 gap:1
-                          Title size:"md" weight:"black"
-                            "Download for Windows"
-                          Text color:"muted"
-                            "Try 30 days free"
-                    Card variant:"solid" scheme:"surface" rounded:"lg" shadow:"md" p:5
-                      Flex align:"center" gap:4
-                        Icon name:"laptop" style:"bold" fill:"primary" w:12 h:12
-                        Grid columns:1 gap:1
-                          Title size:"md" weight:"black"
-                            "Download for Mac"
-                          Text color:"muted"
-                            "Try 30 days free"
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"privacy-download-preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe:
+              src:"/blocks/hero-preview/privacy-download"
+              title:"Privacy download hero preview"
+              loading:"lazy"
+              sandbox:"scripts same-origin"
+        tab id:"privacy-download-code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy hero"
+            copiedLabel:"Copied"
+            content:"""
+              Section id:"privacy-download-hero" background:"soft" boxed:true minH:"vh-16" py:{ xs:8 md:12 }
+                Grid:
+                  columns:{ xs:1 md:"21fr 44fr 11fr 58fr 10fr" }
+                  gap:{ xs:8 md:8 }
+                  align:"stretch"
+                  minH:"vh-16"
                   Box show:{ xs:false md:true }
-              Box show:{ xs:false md:true }
-        """
+                  Box:
+                    show:{ xs:false md:true }
+                    cover:"/assets/blocks/hero/privacy-portrait-wide.jpg"
+                    rounded:"xl"
+                    minH:"vh-16"
+                    shadow:"xl"
+                    shadowColor:"muted"
+                  Box:
+                    show:{ xs:true md:false }
+                    cover:"/assets/blocks/hero/privacy-portrait-wide.jpg"
+                    rounded:"xl"
+                    minH:96
+                    shadow:"xl"
+                    shadowColor:"muted"
+                  Box show:{ xs:false md:true }
+                  Flex direction:"column" justify:"center" gap:0
+                    Flex direction:"column" gap:0 show:{ xs:false md:true }
+                      Title size:"5xl" weight:"black"
+                        "Keep Your Data"
+                      Title size:"5xl" weight:"black"
+                        "Private and Safe"
+                    Flex direction:"column" gap:0 show:{ xs:true md:false }
+                      Title size:"4xl" weight:"black"
+                        "Keep Your Data"
+                      Title size:"4xl" weight:"black"
+                        "Private and Safe"
+                    Box h:5 show:{ xs:true md:false }
+                    Box h:8 show:{ xs:false md:true }
+                    Text size:"lg" color:"muted"
+                      "Protect your work with privacy-first controls and a secure experience on every device."
+                    Box h:5 show:{ xs:true md:false }
+                    Box h:8 show:{ xs:false md:true }
+                    Grid columns:{ xs:1 md:"13fr 7fr" } gap:0
+                      Grid columns:1 gap:6
+                        Card variant:"solid" scheme:"surface" rounded:"lg" shadow:"md" p:5
+                          Flex align:"center" gap:4
+                            Icon name:"monitor-smartphone" style:"bold" fill:"info" w:12 h:12
+                            Grid columns:1 gap:1
+                              Title size:"md" weight:"black"
+                                "Download for Windows"
+                              Text color:"muted"
+                                "Try 30 days free"
+                        Card variant:"solid" scheme:"surface" rounded:"lg" shadow:"md" p:5
+                          Flex align:"center" gap:4
+                            Icon name:"laptop" style:"bold" fill:"primary" w:12 h:12
+                            Grid columns:1 gap:1
+                              Title size:"md" weight:"black"
+                                "Download for Mac"
+                              Text color:"muted"
+                                "Try 30 days free"
+                      Box show:{ xs:false md:true }
+                  Box show:{ xs:false md:true }
+            """
+  Section id:"property-search" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "10 · PROPERTY SEARCH"
+          Title size:"2xl" weight:"black"
+            "A destination-led split hero with an elevated booking search"
+        Button:
+          href:"/blocks/hero-preview/property-search"
+          variant:"solid"
+          scheme:"primary"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"property-search-preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe:
+              src:"/blocks/hero-preview/property-search"
+              title:"Property and travel search hero preview"
+              loading:"lazy"
+              sandbox:"scripts same-origin"
+        tab id:"property-search-code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy hero"
+            copiedLabel:"Copied"
+            content:"""
+              Section:
+                id:"property-search-hero"
+                bg:"background"
+                color:"onBackground"
+                p:0
+                minH:"vh-16"
+                Box position:"relative" minH:"vh-16"
+                  Grid columns:{ xs:1 md:2 } gap:0 align:"stretch" minH:"vh-16"
+                    Box bg:"softPrimary" p:{ xs:6 md:14 } minH:{ xs:96 md:"vh-16" }
+                      Flex direction:"column" align:"start" justify:"center" gap:6
+                        Text size:"xs" weight:"bold" spacing:"widest" color:"primary"
+                          "STAYS WORTH TRAVELING FOR"
+                        Title size:{ xs:"4xl" md:"6xl" } weight:"black"
+                          "Find a place that feels like yours"
+                        Text size:"lg" color:"muted"
+                          "Search handpicked homes, coastal escapes, and memorable stays for your next journey."
+                        Flex direction:{ xs:"column" sm:"row" } align:"center" gap:3 pt:2
+                          Button variant:"solid" scheme:"primary" size:"lg" rounded:"md"
+                            "Explore stays"
+                          Button variant:"ghost" scheme:"primary" size:"lg" rounded:"md"
+                            "Host your home"
+                    Box:
+                      cover:"/assets/blocks/hero/coastal-villa.jpg"
+                      rounded:"xl"
+                      minH:{ xs:72 md:"vh-16" }
+                  Box p:4 show:{ xs:true md:false }
+                    Card:
+                      variant:"solid"
+                      scheme:"surface"
+                      rounded:"xl"
+                      shadow:"xl"
+                      shadowColor:"muted"
+                      p:5
+                      Grid columns:1 gap:4
+                        Input:
+                          label:"Destination"
+                          placeholder:"City, coast, or landmark"
+                          variant:"outlined"
+                          scheme:"primary"
+                          iconStart:"map"
+                          w:"full"
+                        Date value:"2026-09-12" label:"Check in" variant:"outlined" scheme:"primary" w:"full"
+                        Date value:"2026-09-18" label:"Check out" variant:"outlined" scheme:"primary" w:"full"
+                        Select:
+                          label:"Guests"
+                          placeholder:"2 guests"
+                          variant:"outlined"
+                          scheme:"primary"
+                          w:"full"
+                          Option value:"one" label:"1 guest"
+                          Option value:"two" label:"2 guests"
+                          Option value:"family" label:"Family or group"
+                        Button variant:"solid" scheme:"primary" size:"lg" iconStart:"magnifier" w:"full"
+                          "Search"
+                  Box position:"absolute" bottom:6 w:"full" show:{ xs:false md:true }
+                    Box px:12
+                      Card:
+                        variant:"solid"
+                        scheme:"surface"
+                        rounded:"xl"
+                        shadow:"xl"
+                        shadowColor:"muted"
+                        p:4
+                        Grid columns:"2fr 1fr 1fr 1fr auto" gap:3 align:"end"
+                          Input:
+                            label:"Destination"
+                            placeholder:"City, coast, or landmark"
+                            variant:"outlined"
+                            scheme:"primary"
+                            iconStart:"map"
+                            w:"full"
+                          Date value:"2026-09-12" label:"Check in" variant:"outlined" scheme:"primary" w:"full"
+                          Date value:"2026-09-18" label:"Check out" variant:"outlined" scheme:"primary" w:"full"
+                          Select:
+                            label:"Guests"
+                            placeholder:"2 guests"
+                            variant:"outlined"
+                            scheme:"primary"
+                            w:"full"
+                            Option value:"one" label:"1 guest"
+                            Option value:"two" label:"2 guests"
+                            Option value:"family" label:"Family or group"
+                          Button variant:"solid" scheme:"primary" size:"lg" iconStart:"magnifier" px:8
+                            "Search"
+            """

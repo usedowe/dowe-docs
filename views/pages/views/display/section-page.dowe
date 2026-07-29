@@ -6,7 +6,7 @@ page SectionPage
       { prop:"boxed" type:"boolean" defaultValue:"false" },
       { prop:"cover" type:"asset path | https URL | responsive source" defaultValue:"—" },
       { prop:"overlay" type:"boolean | opacity | color | gradient" defaultValue:"—" },
-      { prop:"p, px, py, pl, pr, pt, pb" type:"spacing scale | responsive scale" defaultValue:"p:{ xs:4 md:6 }" },
+      { prop:"p, px, py, pl, pr, pt, pb" type:"spacing scale | responsive scale" defaultValue:"px:{ xs:4 md:6 } · py:{ xs:10 md:16 }" },
       { prop:"show" type:"boolean | responsive | Signal" defaultValue:"true" },
       { prop:"animation" type:"animation preset" defaultValue:"—" },
       { prop:"colSpan, rowSpan" type:"grid span | responsive span" defaultValue:"—" },
@@ -148,7 +148,7 @@ page SectionPage
         Title size:"3xl" weight:"black"
           "Comfortable by default, explicit when needed"
         Text size:"sm" color:"muted"
-          "Without spacing props, content uses p:{ xs:4 md:6 }. Explicit props replace only their declared scope while unspecified sides retain the implicit default."
+          "Without spacing props, content keeps a compact horizontal inset and a more pronounced vertical inset: px:{ xs:4 md:6 } and py:{ xs:10 md:16 }. Explicit props replace only their declared scope while unspecified sides retain the implicit default for their axis."
       Code:
         language:"dowe"
         variant:"soft"

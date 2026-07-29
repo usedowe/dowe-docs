@@ -1,16 +1,16 @@
 page PrivacyDownloadHeroPage
-  Section id:"privacy-download-hero" background:"soft" boxed:true minH:"vh-0" py:{ xs:8 md:12 }
+  Section id:"privacy-download-hero" background:"soft" boxed:true minH:"vh-16" py:{ xs:8 md:12 }
     Grid:
       columns:{ xs:1 md:"21fr 44fr 11fr 58fr 10fr" }
       gap:{ xs:8 md:8 }
-      align:"center"
-      minH:"vh-24"
+      align:"stretch"
+      minH:"vh-16"
       Box show:{ xs:false md:true }
       Box:
         show:{ xs:false md:true }
         cover:"/assets/blocks/hero/privacy-portrait-wide.jpg"
         rounded:"xl"
-        minH:"vh-56"
+        minH:"vh-16"
         shadow:"xl"
         shadowColor:"muted"
       Box:
@@ -21,7 +21,7 @@ page PrivacyDownloadHeroPage
         shadow:"xl"
         shadowColor:"muted"
       Box show:{ xs:false md:true }
-      Flex direction:"column" gap:0
+      Flex direction:"column" justify:"center" gap:0
         Flex direction:"column" gap:0 show:{ xs:false md:true }
           Title size:"5xl" weight:"black"
             "Keep Your Data"

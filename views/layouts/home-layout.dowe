@@ -3,11 +3,11 @@ import Github from "@/views/components/github"
 layout HomeLayout
   Scaffold
     appBar
-      AppBar variant:"soft" scheme:"surface" boxed:true bordered:true
+      AppBar variant:"soft" scheme:"background" boxed:true bordered:true position:"fixed"
         start
           Logo
         end
-          NavMenu
+          NavMenu size:"lg"
             item label:"Docs" href:"/docs/views"
             item label:"Blocks" href:"/blocks/hero"
           Github

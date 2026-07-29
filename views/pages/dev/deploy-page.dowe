@@ -7,7 +7,7 @@ page DeployPage
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Dowe Deploy"
         Text size:"lg" color:"muted"
-          "Build a native Distroless server image or generate the Cloudflare output owned by Dowe."
+          "Build native release artifacts, publish mobile apps, or generate server and Cloudflare output owned by Dowe."
       Button:
         href:"/docs/dev/install"
         variant:"soft"
@@ -24,7 +24,7 @@ page DeployPage
         Title size:"3xl" weight:"black"
           "Choose a configured surface"
         Text size:"sm" color:"muted"
-          "Run deploy from the project root. Server offers Docker and Cloudflare Worker. Web offers Cloudflare Pages."
+          "Run deploy from the project root. Server and Web keep their providers; Android adds Google Play and iOS adds App Store Connect on macOS."
       Code:
         language:"dowe"
         variant:"soft"
@@ -36,6 +36,8 @@ page DeployPage
           dowe deploy server --target docker --registry ghcr.io/acme --image clinic
           dowe deploy --target cloudflare --name clinic-api
           dowe deploy web --name clinic-web --publish
+          dowe deploy --target android --track internal --publish
+          dowe deploy --target ios --publish
         """
       Grid columns:{ xs:1 md:2 } gap:4
         Card variant:"soft" scheme:"primary" p:5 rounded:"md"
@@ -54,6 +56,77 @@ page DeployPage
               "Cloudflare Pages"
             Text size:"sm" color:"muted"
               "Pages packages the generated web distribution and can publish it with Wrangler."
+  Section id:"native-builds" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "NATIVE RELEASE ARTIFACTS"
+        Title size:"3xl" weight:"black"
+          "Build without publishing"
+        Text size:"sm" color:"muted"
+          "dowe build writes release artifacts under .dowe/dist/build. iOS and macOS are available only when Dowe runs on macOS."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy build commands"
+        copiedLabel:"Copied"
+        content:"""
+          dowe build --target android
+          dowe build --target ios
+          dowe build --target macos
+          dowe build --target windows
+          dowe build --target linux
+        """
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"primary"
+              "MOBILE"
+            Title size:"lg" weight:"bold"
+              "APK and IPA"
+            Text size:"sm" color:"muted"
+              "Android downloads and verifies its pinned Gradle Wrapper, creates and reuses a private project keystore automatically, streams Gradle progress, then produces a signed release APK. A global Gradle installation is not required. iOS embeds its distribution profile and produces a signed IPA."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "DESKTOP"
+            Title size:"lg" weight:"bold"
+              "DMG, EXE, and Linux"
+            Text size:"sm" color:"muted"
+              "Windows builds run on Windows and Linux builds run on Linux. Each appends a verified Dowe app bundle to the installed Dowe executable without Tauri, .NET, C, Cargo, Docker, or project target SDKs."
+            Text
+              "iOS builds automatically match an Apple signing identity from the Keychain with a compatible provisioning profile managed by Xcode. Environment overrides remain available for CI."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "SAFE PLANS"
+            Title size:"lg" weight:"bold"
+              "Dry run"
+            Text size:"sm" color:"muted"
+              "Add --dry-run to materialize manifests and inspect commands without running toolchains or contacting a store."
+  Section id:"mobile-stores" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "MOBILE STORES"
+        Title size:"3xl" weight:"black"
+          "Upload an already signed release"
+        Text size:"sm" color:"muted"
+          "Google Play receives an Android App Bundle through an edit. App Store Connect receives the signed IPA through Xcode's upload adapter. Non-interactive publication requires --publish."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Google Play"
+            Text size:"sm" color:"muted"
+              "Set Android signing variables and DOWE_GOOGLE_PLAY_ACCESS_TOKEN. Increment DOWE_APP_BUILD_NUMBER for each upload; the default track is internal."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "App Store Connect"
+            Text size:"sm" color:"muted"
+              "On macOS, set the iOS signing profile and identity plus the App Store API key and issuer."
   Section id:"deploy-docker" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2

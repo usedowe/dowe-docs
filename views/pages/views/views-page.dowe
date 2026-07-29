@@ -7,7 +7,7 @@ page ViewsPage
         "One route model across every target"
       Text color:"muted"
         "Dowe lowers pages and shared layouts once, then generates web, desktop, Android, and iOS navigation from the same route graph."
-      Grid columns:{ xs:1 md:2 } gap:4
+      Grid columns:{ xs:1 md:4 } gap:4
         Card variant:"soft" scheme:"surface" p:5
           Flex direction:"column" gap:3
             Title size:"md"
@@ -20,6 +20,18 @@ page ViewsPage
               "Shared layouts stay in place"
             Text color:"muted"
               "The router preserves shared layout state and independent layout scrollers, including long Sidebar navigation, while only the page viewport resets."
+        Card variant:"soft" scheme:"surface" p:5
+          Flex direction:"column" gap:3
+            Title size:"md"
+              "Responsive CSS stays deterministic"
+            Text color:"muted"
+              "The router refreshes development route hashes, waits for route styles, restores active chunks to manifest order, and reloads the destination if an asset still becomes stale."
+        Card variant:"soft" scheme:"surface" p:5
+          Flex direction:"column" gap:3
+            Title size:"md"
+              "iOS relaunch starts clean"
+            Text color:"muted"
+              "A normal iOS launch opens the initial route. Hot reload keeps the active route only while the process remains open, and a valid deep link can choose another launch route."
   Section id:"page-init-splash" p:{ xs:5 md:8 }
     Flex direction:"column" gap:5
       Flex direction:"column" gap:2

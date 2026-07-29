@@ -37,6 +37,7 @@ import SoftwareSolutionsHeroPage from "@/views/pages/blocks/hero-preview/softwar
 import LeadCaptureHeroPage from "@/views/pages/blocks/hero-preview/lead-capture-page"
 import ContentAudienceHeroPage from "@/views/pages/blocks/hero-preview/content-audience-page"
 import PrivacyDownloadHeroPage from "@/views/pages/blocks/hero-preview/privacy-download-page"
+import PropertySearchHeroPage from "@/views/pages/blocks/hero-preview/property-search-page"
 import LoginSplitAuthPage from "@/views/pages/blocks/auth-preview/login-split-page"
 import LoginReverseAuthPage from "@/views/pages/blocks/auth-preview/login-reverse-page"
 import LoginCardAuthPage from "@/views/pages/blocks/auth-preview/login-card-page"
@@ -103,6 +104,7 @@ views BlockViews
     route path:"lead-capture" page:LeadCaptureHeroPage
     route path:"content-audience" page:ContentAudienceHeroPage
     route path:"privacy-download" page:PrivacyDownloadHeroPage
+    route path:"property-search" page:PropertySearchHeroPage
   group path:"/blocks/auth-preview" layout:BlankLayout
     route path:"login-split" page:LoginSplitAuthPage
     route path:"login-reverse" page:LoginReverseAuthPage

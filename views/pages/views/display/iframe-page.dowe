@@ -34,7 +34,7 @@ page IframePage
         Title size:"3xl" weight:"black"
           "Preview a same-origin route"
         Text size:"sm" color:"muted"
-          "Internal routes are useful in documentation and local development because the iframe follows the current Views origin and port."
+          "Internal routes follow the current Views origin and port during local development, including native previews when BACKEND_URL points to a separate API server."
       Iframe:
         src:"/examples/appbar-one"
         title:"Local AppBar example"
