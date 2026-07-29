@@ -1,0 +1,75 @@
+page PropertySearchHeroPage
+  Section:
+    id:"property-search-hero"
+    bg:"background"
+    color:"onBackground"
+    p:0
+    minH:"vh-16"
+    Box position:"relative" minH:"vh-16"
+      Grid columns:{ xs:1 md:2 } gap:0 align:"stretch" minH:"vh-16"
+        Box bg:"softPrimary" p:{ xs:6 md:14 } minH:{ xs:96 md:"vh-16" }
+          Flex direction:"column" align:"start" justify:"center" gap:6
+            Text size:"xs" weight:"bold" spacing:"widest" color:"primary"
+              "STAYS WORTH TRAVELING FOR"
+            Title size:{ xs:"4xl" md:"6xl" } weight:"black"
+              "Find a place that feels like yours"
+            Text size:"lg" color:"muted"
+              "Search handpicked homes, coastal escapes, and memorable stays for your next journey."
+            Flex direction:{ xs:"column" sm:"row" } align:"center" gap:3 pt:2
+              Button variant:"solid" scheme:"primary" size:"lg" rounded:"md"
+                "Explore stays"
+              Button variant:"ghost" scheme:"primary" size:"lg" rounded:"md"
+                "Host your home"
+        Box:
+          cover:"/assets/blocks/hero/coastal-villa.jpg"
+          rounded:"xl"
+          minH:{ xs:72 md:"vh-16" }
+      Box p:4 show:{ xs:true md:false }
+        Card:
+          variant:"solid"
+          scheme:"surface"
+          rounded:"xl"
+          shadow:"xl"
+          shadowColor:"muted"
+          p:5
+          Grid columns:1 gap:4
+            Input:
+              label:"Destination"
+              placeholder:"City, coast, or landmark"
+              variant:"outlined"
+              scheme:"primary"
+              iconStart:"map"
+              w:"full"
+            Date value:"2026-09-12" label:"Check in" variant:"outlined" scheme:"primary" w:"full"
+            Date value:"2026-09-18" label:"Check out" variant:"outlined" scheme:"primary" w:"full"
+            Select label:"Guests" placeholder:"2 guests" variant:"outlined" scheme:"primary" w:"full"
+              Option value:"one" label:"1 guest"
+              Option value:"two" label:"2 guests"
+              Option value:"family" label:"Family or group"
+            Button variant:"solid" scheme:"primary" size:"lg" iconStart:"magnifier" w:"full"
+              "Search"
+      Box position:"absolute" bottom:6 w:"full" show:{ xs:false md:true }
+        Box px:12
+          Card:
+            variant:"solid"
+            scheme:"surface"
+            rounded:"xl"
+            shadow:"xl"
+            shadowColor:"muted"
+            p:4
+            Grid columns:"2fr 1fr 1fr 1fr auto" gap:3 align:"end"
+              Input:
+                label:"Destination"
+                placeholder:"City, coast, or landmark"
+                variant:"outlined"
+                scheme:"primary"
+                iconStart:"map"
+                w:"full"
+              Date value:"2026-09-12" label:"Check in" variant:"outlined" scheme:"primary" w:"full"
+              Date value:"2026-09-18" label:"Check out" variant:"outlined" scheme:"primary" w:"full"
+              Select label:"Guests" placeholder:"2 guests" variant:"outlined" scheme:"primary" w:"full"
+                Option value:"one" label:"1 guest"
+                Option value:"two" label:"2 guests"
+                Option value:"family" label:"Family or group"
+              Button variant:"solid" scheme:"primary" size:"lg" iconStart:"magnifier" px:8
+                "Search"

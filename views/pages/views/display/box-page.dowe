@@ -1,0 +1,135 @@
+page BoxPage
+  const positionProps:
+    value:[
+      {
+        prop:"position"
+        type:"static | relative | absolute | fixed"
+        defaultValue:"static"
+      },
+      {
+        prop:"top"
+        type:"spacing scale | responsive object"
+        defaultValue:"0 when positioned"
+      },
+      {
+        prop:"right"
+        type:"spacing scale | responsive object"
+        defaultValue:"none"
+      },
+      {
+        prop:"bottom"
+        type:"spacing scale | responsive object"
+        defaultValue:"none"
+      },
+      {
+        prop:"left"
+        type:"spacing scale | responsive object"
+        defaultValue:"0 when positioned"
+      },
+    ]
+  Section id:"box-introduction" py:{ xs:6 md:10 }
+    Grid columns:1 gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "LAYOUT"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Box"
+      Text size:"lg" color:"muted"
+        "Box is a neutral visual wrapper for local styling, media stages, and portable positioned overlays."
+  Section id:"box-positioning" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "RELATIVE + ABSOLUTE"
+        Title size:"3xl" weight:"black"
+          "Layer real components over a visual stage"
+        Text size:"sm" color:"muted"
+          "A relative Box stays in normal flow and becomes the reference plane for direct absolute Box children."
+      Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+        Box position:"relative" bg:"softInfo" rounded:"lg" minH:64
+          Box position:"absolute" top:{ xs:4 md:6 } right:{ xs:4 md:6 }
+            Card variant:"solid" scheme:"surface" p:4 rounded:"lg" shadow:"lg"
+              Grid columns:1 gap:1
+                Title size:"2xl" weight:"black"
+                  "36k+"
+                Text size:"xs" color:"muted"
+                  "Satisfied customers"
+          Box position:"absolute" bottom:{ xs:4 md:6 } left:{ xs:4 md:6 }
+            Chip variant:"soft" scheme:"info"
+              "Real-time analytics"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Box position:"relative" cover:"/assets/hero.jpg" minH:"vh-32" rounded:"xl"
+            Box position:"absolute" top:{ xs:4 md:6 } right:{ xs:4 md:6 }
+              Card variant:"solid" scheme:"surface" p:4
+                Text weight:"bold"
+                  "Audience proof"
+            Box position:"absolute" bottom:{ xs:4 md:6 } left:{ xs:4 md:6 }
+              Chip variant:"soft" scheme:"info"
+                "Real-time analytics"
+        """
+  Section id:"box-fixed" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "FIXED"
+        Title size:"3xl" weight:"black"
+          "Anchor content to the safe viewport"
+        Text size:"sm" color:"muted"
+          "Fixed Boxes leave document flow and remain outside the route scroll area. Use them for persistent actions, not ordinary section content."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Box position:"fixed" right:4 bottom:4
+            Card variant:"solid" scheme:"surface" p:4 shadow:"lg"
+              Text weight:"bold"
+                "Persistent action"
+        """
+  Section id:"box-contract" p:{ xs:5 md:7 }
+    Grid columns:{ xs:1 md:3 } gap:4
+      Card variant:"soft" scheme:"info" p:5
+        Grid columns:1 gap:2
+          Text weight:"bold"
+            "Direct ownership"
+          Text size:"sm" color:"muted"
+            "An absolute Box must be a direct child of a relative Box."
+      Card variant:"soft" scheme:"warning" p:5
+        Grid columns:1 gap:2
+          Text weight:"bold"
+            "One edge per axis"
+          Text size:"sm" color:"muted"
+            "Choose top or bottom, and left or right. Opposite offsets on one axis are rejected."
+      Card variant:"soft" scheme:"success" p:5
+        Grid columns:1 gap:2
+          Text weight:"bold"
+            "Source-order layers"
+          Text size:"sm" color:"muted"
+            "Later positioned siblings appear above earlier siblings on every target."
+  Section id:"box-props" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Position props"
+        Text size:"sm" color:"muted"
+          "Position is static. Offsets use the Dowe spacing scale and can vary by breakpoint. Box also accepts its documented common style, cover, overlay, visibility, and animation props."
+      Table:
+        data:positionProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1fr"

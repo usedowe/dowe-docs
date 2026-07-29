@@ -1,0 +1,196 @@
+page BuildPage
+  Section id:"build-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "DEVELOPMENT / NATIVE BUILD"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Build without publishing"
+        Text size:"lg" color:"muted"
+          "Compile Dowe Views into mobile and desktop release artifacts while keeping publication as a separate deploy step."
+      Button:
+        href:"/docs/dev/deploy"
+        variant:"soft"
+        scheme:"primary"
+        size:"sm"
+        rounded:"full"
+        iconStart:"upload"
+        "Open Deploy docs"
+  Section id:"build-command" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "COMMAND"
+        Title size:"3xl" weight:"black"
+          "Choose a release target"
+        Text size:"sm" color:"muted"
+          "Run dowe build from the project root. Without --target, the interactive menu shows only targets available on the current host."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy build commands"
+        copiedLabel:"Copied"
+        content:"""
+          dowe build
+          dowe build --target android
+          dowe build --target ios
+          dowe build --target macos
+          dowe build --target windows
+          dowe build --target linux
+          dowe build --target android --dry-run
+        """
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"primary"
+              "PROJECT SOURCE"
+            Title size:"lg" weight:"bold"
+              "Compile once"
+            Text size:"sm" color:"muted"
+              "The Rust compiler owns parsing, analysis, lowering, routes, assets, and target generation. Authored .dowe source is not executed by Node.js."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "LOCAL ARTIFACT"
+            Title size:"lg" weight:"bold"
+              "No publication"
+            Text size:"sm" color:"muted"
+              "Build writes the release output locally. Use dowe deploy only when the artifact should be uploaded to a provider or store."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "SAFE PLAN"
+            Title size:"lg" weight:"bold"
+              "Dry run"
+            Text size:"sm" color:"muted"
+              "Add --dry-run to regenerate target assets and build.json without executing the final toolchain or writing the release executable."
+  Section id:"build-targets" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "HOST AVAILABILITY"
+        Title size:"3xl" weight:"black"
+          "Build on the operating system that owns the target"
+        Text size:"sm" color:"muted"
+          "Android is portable across supported hosts. Apple targets require macOS, Windows requires Windows, and Linux requires Linux."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"primary"
+              "ANDROID"
+            Title size:"lg" weight:"bold"
+              "Signed release APK"
+            Text size:"sm" color:"muted"
+              "Available on macOS, Windows, and Linux with JDK 17 and the Android SDK. Dowe manages the pinned Gradle Wrapper."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "APPLE"
+            Title size:"lg" weight:"bold"
+              "IPA and DMG on macOS"
+            Text size:"sm" color:"muted"
+              "iOS uses the Xcode toolchain and Apple signing credentials. macOS packages the native app and its custom icon into a DMG."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "WINDOWS"
+            Title size:"lg" weight:"bold"
+              "Dowe-owned EXE"
+            Text size:"sm" color:"muted"
+              "Available only on Windows. Dowe appends the compiled application bundle to the installed Dowe runtime without requiring Rust or Tauri."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "LINUX"
+            Title size:"lg" weight:"bold"
+              "Native executable"
+            Text size:"sm" color:"muted"
+              "Available only on Linux. The result uses the installed Dowe runtime and resolves the system GTK and WebKitGTK libraries when it starts."
+  Section id:"build-mobile-signing" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "AUTOMATIC SIGNING"
+        Title size:"3xl" weight:"black"
+          "Keep release credentials out of source"
+        Text size:"sm" color:"muted"
+          "Dowe automates the default local signing flow and keeps optional CI overrides in the process environment. Signing values never enter build.json."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Android keystore"
+            Text size:"sm" color:"muted"
+              "The first release creates a private upload keystore below .dowe/credentials/android. Later builds reuse the same identity so application updates remain valid."
+            Text size:"sm" color:"muted"
+              "For CI, provide all four DOWE_ANDROID_KEYSTORE, DOWE_ANDROID_KEY_ALIAS, DOWE_ANDROID_KEYSTORE_PASSWORD, and DOWE_ANDROID_KEY_PASSWORD values together."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Apple identity and profile"
+            Text size:"sm" color:"muted"
+              "Dowe matches a valid Keychain identity with a compatible Xcode-managed provisioning profile. Local IPA builds prefer development profiles and accept a compatible wildcard bundle."
+            Text size:"sm" color:"muted"
+              "Configure an Apple account once in Xcode when no compatible profile exists. CI can provide DOWE_IOS_SIGNING_IDENTITY and DOWE_IOS_PROVISIONING_PROFILE together."
+  Section id:"build-versioning" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "RELEASE VERSION"
+        Title size:"3xl" weight:"black"
+          "Increment the store build number"
+        Text size:"sm" color:"muted"
+          "The public version defaults to 0.1.0 and the numeric build defaults to 1. Store providers reject a build number that has already been uploaded."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy versioned build"
+        copiedLabel:"Copied"
+        content:"""
+          DOWE_APP_VERSION=1.2.0 DOWE_APP_BUILD_NUMBER=12 dowe build --target android
+          DOWE_APP_VERSION=1.2.0 DOWE_APP_BUILD_NUMBER=12 dowe build --target ios
+        """
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "DOWE_APP_VERSION"
+            Text size:"sm" color:"muted"
+              "Sets Android versionName and the Apple short version presented to users."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "DOWE_APP_BUILD_NUMBER"
+            Text size:"sm" color:"muted"
+              "Sets the positive Android versionCode and Apple bundle build number used by store validation."
+  Section id:"build-output" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "OUTPUT CONTRACT"
+        Title size:"3xl" weight:"black"
+          "Everything stays below .dowe/dist/build"
+        Text size:"sm" color:"muted"
+          "Each target owns one output folder containing build.json and the expected release artifact. Generated target projects remain disposable below .dowe/apps."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy output structure"
+        copiedLabel:"Copied"
+        content:"""
+          .dowe/
+            apps/
+            dist/
+              build/
+                android/AppName.apk
+                ios/AppName.ipa
+                macos/AppName.dmg
+                windows/AppName.exe
+                linux/AppName
+                target/build.json
+        """
+      Text size:"sm" color:"muted"
+        "A successful non-dry build verifies that the expected artifact exists. Reports exclude .env, signing passwords, private keys, and authored Dowe source."
