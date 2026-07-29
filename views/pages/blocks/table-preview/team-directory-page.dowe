@@ -1,0 +1,228 @@
+type DirectoryMember
+  id:string
+  name:string
+  role:string
+  company:string
+  email:string
+  location:string
+  status:string
+
+page DashboardTablePage
+  signal search value:""
+  signal currentPage value:2
+  signal totalMembers value:110
+  signal loadState value:1
+  signal members type:DirectoryMember[] value:[]
+  const seedMembers:
+    value:[
+      {
+        id:"member-1"
+        name:"Jane Doe"
+        role:"Senior Designer"
+        company:"Northstar"
+        email:"jane@northstar.dev"
+        location:"Bogota"
+        status:"Active"
+      },
+      {
+        id:"member-2"
+        name:"Avery Morgan"
+        role:"Product Designer"
+        company:"Meridian"
+        email:"avery@meridian.dev"
+        location:"Lisbon"
+        status:"Active"
+      },
+      {
+        id:"member-3"
+        name:"Maya Ortiz"
+        role:"Design Engineer"
+        company:"Dowe"
+        email:"maya@dowe.dev"
+        location:"Mexico City"
+        status:"Active"
+      },
+      {
+        id:"member-4"
+        name:"Kai Bennett"
+        role:"UX Researcher"
+        company:"Atlas"
+        email:"kai@atlas.dev"
+        location:"Berlin"
+        status:"Active"
+      },
+      {
+        id:"member-5"
+        name:"Nora Kim"
+        role:"Content Designer"
+        company:"Canvas"
+        email:"nora@canvas.dev"
+        location:"Seoul"
+        status:"Active"
+      },
+      {
+        id:"member-6"
+        name:"Leo Martin"
+        role:"Product Manager"
+        company:"Orbit"
+        email:"leo@orbit.dev"
+        location:"Paris"
+        status:"Active"
+      },
+      {
+        id:"member-7"
+        name:"Amara Okafor"
+        role:"Service Designer"
+        company:"Fieldwork"
+        email:"amara@fieldwork.dev"
+        location:"Lagos"
+        status:"Active"
+      },
+      {
+        id:"member-8"
+        name:"Eli Stone"
+        role:"Design Lead"
+        company:"Monument"
+        email:"eli@monument.dev"
+        location:"New York"
+        status:"Active"
+      },
+      {
+        id:"member-9"
+        name:"Sofia Silva"
+        role:"Visual Designer"
+        company:"Signal"
+        email:"sofia@signal.dev"
+        location:"Sao Paulo"
+        status:"Active"
+      },
+      {
+        id:"member-10"
+        name:"Noah Williams"
+        role:"Interaction Designer"
+        company:"Frame"
+        email:"noah@frame.dev"
+        location:"Toronto"
+        status:"Active"
+      },
+    ]
+  init
+    set members value:seedMembers
+    set loadState value:0
+  fn loadMembers
+    set loadState value:1
+    request result method:"GET" route:"/api/team-members/q-:search/:currentPage"
+    if result.ok
+      set members value:result.data.data
+      set totalMembers value:result.data.total
+      set loadState value:0
+    else
+      set loadState value:0
+  Section id:"dashboard-table" bg:"softMuted" minH:"vh-0" p:{ xs:4 md:8 }
+    Grid columns:1 gap:5
+      Title size:{ xs:"2xl" md:"4xl" } weight:"black"
+        "Dashboard"
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"documents" label:"Documents · 2"
+          Grid columns:1 gap:4 py:4
+            Flex justify:"end" w:"full"
+              Flex align:"end" gap:2 w:{ xs:"full" md:80 }
+                Input:
+                  bind:search
+                  label:"Search"
+                  placeholder:"Search people"
+                  iconStart:"magnifier"
+                  variant:"solid"
+                  scheme:"muted"
+                  w:"full"
+                IconButton:
+                  icon:"magnifier"
+                  label:"Load results"
+                  onClick:loadMembers
+                  variant:"solid"
+                  scheme:"primary"
+            Grid show:{ when:loadState gt:0 }
+              Grid columns:1 gap:2
+                Skeleton variant:"rounded" h:12 w:"full"
+                Skeleton variant:"rounded" h:12 w:"full"
+                Skeleton variant:"rounded" h:12 w:"full"
+            Grid show:{ when:loadState lt:1 }
+              Grid columns:1 gap:0
+                Grid:
+                  columns:{ xs:"24px 1fr 32px" md:"24px 2fr 1fr 2fr 1fr auto 32px" }
+                  gap:3
+                  align:"center"
+                  p:3
+                  border:1
+                  borderColor:"muted"
+                  Box w:4 h:4 rounded:"xs" border:1
+                  Flex align:"center" gap:1
+                    Text size:"xs" weight:"bold"
+                      "Author"
+                    Icon name:"arrow-down" w:4 h:4
+                  Text size:"xs" weight:"bold" show:{ xs:false md:true }
+                    "Company"
+                  Text size:"xs" weight:"bold" show:{ xs:false md:true }
+                    "Email"
+                  Text size:"xs" weight:"bold" show:{ xs:false md:true }
+                    "Location"
+                  Text size:"xs" weight:"bold" show:{ xs:false md:true }
+                    "Status"
+                  Box
+                each in:members as:member key:member.id
+                  Grid:
+                    columns:{ xs:"24px 1fr 32px" md:"24px 2fr 1fr 2fr 1fr auto 32px" }
+                    gap:3
+                    align:"center"
+                    p:3
+                    border:1
+                    borderColor:"muted"
+                    Box w:4 h:4 rounded:"xs" border:1
+                    Flex align:"center" gap:3
+                      Avatar:
+                        alt:"Team member avatar"
+                        variant:"soft"
+                        scheme:"muted"
+                        size:"md"
+                        icon
+                          Svg viewBox:"0 0 24 24" w:5 h:5
+                            Path d:"M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5Z" fill:"currentColor"
+                      Grid columns:1 gap:0
+                        Text size:"sm" weight:"bold"
+                          "{member.name}"
+                        Text size:"xs" color:"muted"
+                          "{member.role}"
+                    Text size:"sm" show:{ xs:false md:true }
+                      "{member.company}"
+                    Text size:"sm" show:{ xs:false md:true }
+                      "{member.email}"
+                    Text size:"sm" show:{ xs:false md:true }
+                      "{member.location}"
+                    Box bg:"softMuted" rounded:"full" px:3 py:1 show:{ xs:false md:true }
+                      Text size:"xs"
+                        "{member.status}"
+                    IconButton:
+                      icon:"menu-dots"
+                      label:"Open member actions"
+                      variant:"ghost"
+                      scheme:"muted"
+                      size:"sm"
+                Flex justify:"center" p:4
+                  Pagination:
+                    bind:currentPage
+                    total:totalMembers
+                    pageSize:10
+                    onChange:loadMembers
+                    variant:"ghost"
+                    scheme:"primary"
+                    size:"sm"
+                    ariaLabel:"Team directory pages"
+        tab id:"overview" label:"Overview"
+          Text p:5 color:"muted"
+            "Overview content"
+        tab id:"tasks" label:"Tasks · 7"
+          Text p:5 color:"muted"
+            "Task content"
+        tab id:"team" label:"Team · 99+"
+          Text p:5 color:"muted"
+            "Team content"

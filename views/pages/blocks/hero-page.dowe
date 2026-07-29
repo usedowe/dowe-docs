@@ -46,7 +46,7 @@ page HerosPage
                 boxed:true
                 minH:"vh-16"
                 py:{ xs:8 md:12 }
-                Grid columns:{ xs:1 md:"5fr 4fr" } gap:{ xs:8 md:14 } align:"stretch" minH:"vh-16"
+                Grid columns:{ xs:1 md:"5fr 4fr" } gap:{ xs:8 md:14 } align:"center" minH:"vh-16"
                   Flex direction:"column" align:"start" justify:"center" gap:5
                     Text size:"xs" weight:"bold" spacing:"widest" color:"primary"
                       "WORK WITHOUT THE CLUTTER"
@@ -59,7 +59,7 @@ page HerosPage
                   Box:
                     cover:"/assets/blocks/hero/crypto-wallet.jpg"
                     rounded:"xl"
-                    minH:{ xs:64 md:"vh-16" }
+                    minH:{ xs:56 md:80 }
                     shadow:"xl"
                     shadowColor:"muted"
             """
@@ -95,6 +95,12 @@ page HerosPage
             copyLabel:"Copy hero"
             copiedLabel:"Copied"
             content:"""
+              const trustedBrands value:[
+                { id:"google" label:"Google" },
+                { id:"youtube" label:"YouTube" },
+                { id:"facebook" label:"Facebook" },
+              ]
+
               Section:
                 id:"smart-solutions-hero"
                 bg:"background"
@@ -102,7 +108,7 @@ page HerosPage
                 boxed:true
                 minH:"vh-16"
                 py:{ xs:8 md:12 }
-                Grid columns:{ xs:1 md:"5fr 4fr" } gap:{ xs:8 md:14 } align:"stretch" minH:"vh-16"
+                Grid columns:{ xs:1 md:"5fr 4fr" } gap:{ xs:8 md:14 } align:"center" minH:"vh-16"
                   Flex direction:"column" align:"start" justify:"center" gap:5
                     Text size:"xs" weight:"bold" spacing:"widest" color:"info"
                       "BUILT FOR AMBITIOUS TEAMS"
@@ -119,22 +125,15 @@ page HerosPage
                       Text size:"xs" weight:"bold" color:"muted"
                         "TRUSTED BY"
                       Flex wrap:true align:"center" gap:5
-                        Flex align:"center" gap:2
-                          Icon name:"global" style:"linear" fill:"primary" w:5 h:5
-                          Text size:"sm" weight:"bold"
-                            "Google"
-                        Flex align:"center" gap:2
-                          Icon name:"play-circle" style:"linear" fill:"primary" w:5 h:5
-                          Text size:"sm" weight:"bold"
-                            "YouTube"
-                        Flex align:"center" gap:2
-                          Icon name:"users-group-rounded" style:"linear" fill:"primary" w:5 h:5
-                          Text size:"sm" weight:"bold"
-                            "Facebook"
+                        each in:trustedBrands as:brand key:brand.id
+                          Flex align:"center" gap:2
+                            Icon name:"global" style:"linear" fill:"primary" w:5 h:5
+                            Text size:"sm" weight:"bold"
+                              "{brand.label}"
                   Box:
                     cover:"/assets/blocks/hero/consulting-team-wide.jpg"
                     rounded:"xl"
-                    minH:{ xs:64 md:"vh-16" }
+                    minH:{ xs:56 md:80 }
                     shadow:"xl"
                     shadowColor:"muted"
             """
@@ -170,6 +169,12 @@ page HerosPage
             copyLabel:"Copy hero"
             copiedLabel:"Copied"
             content:"""
+              const trustedBrands value:[
+                { id:"google" label:"Google" },
+                { id:"youtube" label:"YouTube" },
+                { id:"facebook" label:"Facebook" },
+              ]
+
               Section id:"growth-consulting-hero" bg:"surface" color:"onSurface" boxed:true minH:"vh-16" py:{ xs:10 md:14 }
                 Grid columns:{ xs:1 md:"1fr 2fr 1fr" } align:"center" minH:"vh-16"
                   Box show:{ xs:false md:true }
@@ -189,18 +194,11 @@ page HerosPage
                       Text size:"xs" weight:"bold" color:"muted"
                         "TRUSTED BY"
                       Flex wrap:true align:"center" justify:"center" gap:5
-                        Flex align:"center" gap:2
-                          Icon name:"global" style:"linear" fill:"primary" w:5 h:5
-                          Text size:"sm" weight:"bold"
-                            "Google"
-                        Flex align:"center" gap:2
-                          Icon name:"play-circle" style:"linear" fill:"primary" w:5 h:5
-                          Text size:"sm" weight:"bold"
-                            "YouTube"
-                        Flex align:"center" gap:2
-                          Icon name:"users-group-rounded" style:"linear" fill:"primary" w:5 h:5
-                          Text size:"sm" weight:"bold"
-                            "Facebook"
+                        each in:trustedBrands as:brand key:brand.id
+                          Flex align:"center" gap:2
+                            Icon name:"global" style:"linear" fill:"primary" w:5 h:5
+                            Text size:"sm" weight:"bold"
+                              "{brand.label}"
                   Box show:{ xs:false md:true }
             """
   Section id:"digital-potential" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
@@ -242,11 +240,11 @@ page HerosPage
                 boxed:true
                 minH:"vh-16"
                 py:{ xs:8 md:12 }
-                Grid columns:{ xs:1 md:"4fr 5fr" } gap:{ xs:8 md:14 } align:"stretch" minH:"vh-16"
+                Grid columns:{ xs:1 md:"4fr 5fr" } gap:{ xs:8 md:14 } align:"center" minH:"vh-16"
                   Box:
                     cover:"/assets/blocks/hero/digital-strategist.jpg"
                     rounded:"xl"
-                    minH:{ xs:64 md:"vh-16" }
+                    minH:{ xs:56 md:80 }
                     shadow:"xl"
                     shadowColor:"muted"
                   Flex direction:"column" align:"start" justify:"center" gap:5
@@ -294,6 +292,14 @@ page HerosPage
             copyLabel:"Copy hero"
             copiedLabel:"Copied"
             content:"""
+              const trustedBrands value:[
+                { id:"next" label:"Next" },
+                { id:"upgrade" label:"Upgrade" },
+                { id:"intdeco" label:"Intdeco" },
+                { id:"thanos" label:"Thanos" },
+                { id:"stackd" label:"Stackd" },
+              ]
+
               Section:
                 id:"workflow-platform-hero"
                 cover:"/assets/blocks/hero/geometric-grid.jpg"
@@ -329,26 +335,11 @@ page HerosPage
                       "14-day free trial. No credit card needed."
                   Box h:20
                   Flex wrap:true justify:"center" align:"center" gap:{ xs:8 md:24 }
-                    Flex align:"center" gap:3
-                      Icon name:"layers-minimalistic" style:"bold" fill:"muted" w:10 h:10
-                      Text size:"3xl" weight:"black" color:"muted"
-                        "Next"
-                    Flex align:"center" gap:3
-                      Icon name:"graph-new-up" style:"bold" fill:"muted" w:10 h:10
-                      Text size:"3xl" weight:"black" color:"muted"
-                        "Upgrade"
-                    Flex align:"center" gap:3
-                      Icon name:"chart" style:"bold" fill:"muted" w:10 h:10
-                      Text size:"3xl" weight:"black" color:"muted"
-                        "Intdeco"
-                    Flex align:"center" gap:3
-                      Icon name:"shield-check" style:"bold" fill:"muted" w:10 h:10
-                      Text size:"3xl" weight:"black" color:"muted"
-                        "Thanos"
-                    Flex align:"center" gap:3
-                      Icon name:"layers" style:"bold" fill:"muted" w:10 h:10
-                      Text size:"3xl" weight:"black" color:"muted"
-                        "Stackd"
+                    each in:trustedBrands as:brand key:brand.id
+                      Flex align:"center" gap:3
+                        Icon name:"layers-minimalistic" style:"bold" fill:"muted" w:10 h:10
+                        Text size:"3xl" weight:"black" color:"muted"
+                          "{brand.label}"
             """
   Section id:"software-solutions" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
     Grid columns:1 gap:5
@@ -382,15 +373,15 @@ page HerosPage
             copyLabel:"Copy hero"
             copiedLabel:"Copied"
             content:"""
-              Section id:"software-solutions-hero" boxed:true minH:"vh-16" py:{ xs:6 md:10 }
+              Section id:"software-solutions-hero" boxed:true py:{ xs:6 md:10 }
                 Card:
                   cover:"/assets/blocks/hero/technology-analytics.jpg"
                   overlay:"rgba(8,16,40,0.76)"
                   rounded:"xl"
-                  minH:"vh-16"
+                  minH:96
                   w:"full"
                   p:{ xs:8 md:14 }
-                  Flex direction:"column" align:"center" justify:"center" gap:0 minH:{ xs:"vh-32" md:"vh-44" }
+                  Flex direction:"column" align:"center" justify:"center" gap:0 minH:{ xs:72 md:80 }
                     Flex direction:"column" align:"center" gap:0 show:{ xs:false md:true }
                       Title size:"7xl" weight:"black" color:"onPrimary"
                         "Software solutions for"
@@ -441,6 +432,14 @@ page HerosPage
             copyLabel:"Copy hero"
             copiedLabel:"Copied"
             content:"""
+              const audienceMembers value:[
+                { id:"maya" name:"Maya" alt:"Maya Chen" },
+                { id:"leo" name:"Leo" alt:"Leo Martin" },
+                { id:"amara" name:"Amara" alt:"Amara Okafor" },
+                { id:"lin" name:"Lin" alt:"Lin Park" },
+                { id:"dowe" name:"Dowe" alt:"Dowe Agent" },
+              ]
+
               Section:
                 id:"lead-capture-hero"
                 cover:"/assets/blocks/hero/digital-globe.jpg"
@@ -457,12 +456,13 @@ page HerosPage
                     Text size:"lg"
                       "Bring strategy and execution together with practical tools designed for ambitious teams."
                     Flex align:"center" gap:4 pt:2
-                      AvatarGroup size:"lg" max:4 bordered:true variant:"soft" scheme:"primary"
-                        item name:"Maya" alt:"Maya Chen"
-                        item name:"Leo" alt:"Leo Martin"
-                        item name:"Amara" alt:"Amara Okafor"
-                        item name:"Lin" alt:"Lin Park"
-                        item name:"Dowe" alt:"Dowe Agent"
+                      AvatarGroup:
+                        items:audienceMembers
+                        size:"lg"
+                        max:4
+                        bordered:true
+                        variant:"soft"
+                        scheme:"primary"
                       Grid columns:1 gap:1
                         Text size:"sm"
                           "Trusted by 12K+ worldwide"
@@ -527,13 +527,21 @@ page HerosPage
             copyLabel:"Copy hero"
             copiedLabel:"Copied"
             content:"""
+              const audienceMembers value:[
+                { id:"maya" name:"Maya" alt:"Maya Chen" },
+                { id:"leo" name:"Leo" alt:"Leo Martin" },
+                { id:"amara" name:"Amara" alt:"Amara Okafor" },
+                { id:"lin" name:"Lin" alt:"Lin Park" },
+                { id:"dowe" name:"Dowe" alt:"Dowe Agent" },
+              ]
+
               Section:
                 id:"content-audience-hero"
                 background:"aurora"
                 boxed:true
                 minH:"vh-16"
                 py:{ xs:8 md:12 }
-                Grid columns:{ xs:1 md:"5fr 6fr" } gap:{ xs:8 md:16 } align:"stretch" minH:"vh-16"
+                Grid columns:{ xs:1 md:"5fr 6fr" } gap:{ xs:8 md:16 } align:"center" minH:"vh-16"
                   Flex direction:"column" align:"start" justify:"center" gap:6
                     Title size:"7xl" weight:"black" show:{ xs:false md:true }
                       "Content is the key to building an audience"
@@ -547,12 +555,13 @@ page HerosPage
                       Button variant:"outlined" scheme:"muted" size:"lg"
                         "Find Out More"
                     Flex align:"center" gap:4 pt:2
-                      AvatarGroup size:"md" max:4 bordered:true variant:"soft" scheme:"primary"
-                        item name:"Maya" alt:"Maya Chen"
-                        item name:"Leo" alt:"Leo Martin"
-                        item name:"Amara" alt:"Amara Okafor"
-                        item name:"Lin" alt:"Lin Park"
-                        item name:"Dowe" alt:"Dowe Agent"
+                      AvatarGroup:
+                        items:audienceMembers
+                        size:"md"
+                        max:4
+                        bordered:true
+                        variant:"soft"
+                        scheme:"primary"
                       Grid columns:1 gap:1
                         Text size:"sm" color:"muted"
                           "Trusted by 12K+ worldwide"
@@ -562,7 +571,7 @@ page HerosPage
                     position:"relative"
                     cover:"/assets/blocks/hero/content-creator.jpg"
                     rounded:"xl"
-                    minH:{ xs:"vh-56" md:"vh-16" }
+                    minH:96
                     shadow:"xl"
                     shadowColor:"muted"
                     Box position:"absolute" top:{ xs:4 md:6 } right:{ xs:4 md:6 }
@@ -658,18 +667,23 @@ page HerosPage
             copyLabel:"Copy hero"
             copiedLabel:"Copied"
             content:"""
+              const platformDownloads value:[
+                { id:"windows" title:"Download for Windows" },
+                { id:"mac" title:"Download for Mac" },
+              ]
+
               Section id:"privacy-download-hero" background:"soft" boxed:true minH:"vh-16" py:{ xs:8 md:12 }
                 Grid:
                   columns:{ xs:1 md:"21fr 44fr 11fr 58fr 10fr" }
                   gap:{ xs:8 md:8 }
-                  align:"stretch"
+                  align:"center"
                   minH:"vh-16"
                   Box show:{ xs:false md:true }
                   Box:
                     show:{ xs:false md:true }
                     cover:"/assets/blocks/hero/privacy-portrait-wide.jpg"
                     rounded:"xl"
-                    minH:"vh-16"
+                    minH:96
                     shadow:"xl"
                     shadowColor:"muted"
                   Box:
@@ -699,22 +713,15 @@ page HerosPage
                     Box h:8 show:{ xs:false md:true }
                     Grid columns:{ xs:1 md:"13fr 7fr" } gap:0
                       Grid columns:1 gap:6
-                        Card variant:"solid" scheme:"surface" rounded:"lg" shadow:"md" p:5
-                          Flex align:"center" gap:4
-                            Icon name:"monitor-smartphone" style:"bold" fill:"info" w:12 h:12
-                            Grid columns:1 gap:1
-                              Title size:"md" weight:"black"
-                                "Download for Windows"
-                              Text color:"muted"
-                                "Try 30 days free"
-                        Card variant:"solid" scheme:"surface" rounded:"lg" shadow:"md" p:5
-                          Flex align:"center" gap:4
-                            Icon name:"laptop" style:"bold" fill:"primary" w:12 h:12
-                            Grid columns:1 gap:1
-                              Title size:"md" weight:"black"
-                                "Download for Mac"
-                              Text color:"muted"
-                                "Try 30 days free"
+                        each in:platformDownloads as:download key:download.id
+                          Card variant:"solid" scheme:"surface" rounded:"lg" shadow:"md" p:5
+                            Flex align:"center" gap:4
+                              Icon name:"laptop" style:"bold" fill:"primary" w:12 h:12
+                              Grid columns:1 gap:1
+                                Title size:"md" weight:"black"
+                                  "{download.title}"
+                                Text color:"muted"
+                                  "Try 30 days free"
                       Box show:{ xs:false md:true }
                   Box show:{ xs:false md:true }
             """
@@ -750,16 +757,28 @@ page HerosPage
             copyLabel:"Copy hero"
             copiedLabel:"Copied"
             content:"""
+              const guestOptions value:[
+                { id:"one" value:"one" label:"1 guest" },
+                { id:"two" value:"two" label:"2 guests" },
+                { id:"family" value:"family" label:"Family or group" },
+              ]
+
               Section:
                 id:"property-search-hero"
-                bg:"background"
-                color:"onBackground"
-                p:0
-                minH:"vh-16"
-                Box position:"relative" minH:"vh-16"
-                  Grid columns:{ xs:1 md:2 } gap:0 align:"stretch" minH:"vh-16"
-                    Box bg:"softPrimary" p:{ xs:6 md:14 } minH:{ xs:96 md:"vh-16" }
-                      Flex direction:"column" align:"start" justify:"center" gap:6
+                bg:"softPrimary"
+                color:"onSoftPrimary"
+                boxed:true
+                py:{ xs:8 md:12 }
+                Grid columns:1 gap:6
+                  Card:
+                    variant:"solid"
+                    scheme:"surface"
+                    rounded:"xl"
+                    shadow:"xl"
+                    shadowColor:"muted"
+                    p:0
+                    Grid columns:{ xs:1 md:"5fr 6fr" } gap:0 align:"center"
+                      Flex direction:"column" align:"start" justify:"center" gap:6 p:{ xs:6 md:12 }
                         Text size:"xs" weight:"bold" spacing:"widest" color:"primary"
                           "STAYS WORTH TRAVELING FOR"
                         Title size:{ xs:"4xl" md:"6xl" } weight:"black"
@@ -771,67 +790,35 @@ page HerosPage
                             "Explore stays"
                           Button variant:"ghost" scheme:"primary" size:"lg" rounded:"md"
                             "Host your home"
-                    Box:
-                      cover:"/assets/blocks/hero/coastal-villa.jpg"
-                      rounded:"xl"
-                      minH:{ xs:72 md:"vh-16" }
-                  Box p:4 show:{ xs:true md:false }
-                    Card:
-                      variant:"solid"
-                      scheme:"surface"
-                      rounded:"xl"
-                      shadow:"xl"
-                      shadowColor:"muted"
-                      p:5
-                      Grid columns:1 gap:4
-                        Input:
-                          label:"Destination"
-                          placeholder:"City, coast, or landmark"
-                          variant:"outlined"
-                          scheme:"primary"
-                          iconStart:"map"
-                          w:"full"
-                        Date value:"2026-09-12" label:"Check in" variant:"outlined" scheme:"primary" w:"full"
-                        Date value:"2026-09-18" label:"Check out" variant:"outlined" scheme:"primary" w:"full"
-                        Select:
-                          label:"Guests"
-                          placeholder:"2 guests"
-                          variant:"outlined"
-                          scheme:"primary"
-                          w:"full"
-                          Option value:"one" label:"1 guest"
-                          Option value:"two" label:"2 guests"
-                          Option value:"family" label:"Family or group"
-                        Button variant:"solid" scheme:"primary" size:"lg" iconStart:"magnifier" w:"full"
-                          "Search"
-                  Box position:"absolute" bottom:6 w:"full" show:{ xs:false md:true }
-                    Box px:12
-                      Card:
-                        variant:"solid"
-                        scheme:"surface"
+                      Box:
+                        cover:"/assets/blocks/hero/coastal-villa.jpg"
                         rounded:"xl"
-                        shadow:"xl"
-                        shadowColor:"muted"
-                        p:4
-                        Grid columns:"2fr 1fr 1fr 1fr auto" gap:3 align:"end"
-                          Input:
-                            label:"Destination"
-                            placeholder:"City, coast, or landmark"
-                            variant:"outlined"
-                            scheme:"primary"
-                            iconStart:"map"
-                            w:"full"
-                          Date value:"2026-09-12" label:"Check in" variant:"outlined" scheme:"primary" w:"full"
-                          Date value:"2026-09-18" label:"Check out" variant:"outlined" scheme:"primary" w:"full"
-                          Select:
-                            label:"Guests"
-                            placeholder:"2 guests"
-                            variant:"outlined"
-                            scheme:"primary"
-                            w:"full"
-                            Option value:"one" label:"1 guest"
-                            Option value:"two" label:"2 guests"
-                            Option value:"family" label:"Family or group"
-                          Button variant:"solid" scheme:"primary" size:"lg" iconStart:"magnifier" px:8
-                            "Search"
+                        minH:{ xs:64 md:80 }
+                  Card:
+                    variant:"solid"
+                    scheme:"surface"
+                    rounded:"xl"
+                    shadow:"lg"
+                    shadowColor:"muted"
+                    p:{ xs:5 md:4 }
+                    Grid columns:{ xs:1 md:"2fr 1fr 1fr 1fr auto" } gap:3 align:"end"
+                      Input:
+                        label:"Destination"
+                        placeholder:"City, coast, or landmark"
+                        variant:"outlined"
+                        scheme:"primary"
+                        iconStart:"map"
+                        w:"full"
+                      Date value:"2026-09-12" label:"Check in" variant:"outlined" scheme:"primary" w:"full"
+                      Date value:"2026-09-18" label:"Check out" variant:"outlined" scheme:"primary" w:"full"
+                      Select:
+                        label:"Guests"
+                        placeholder:"2 guests"
+                        variant:"outlined"
+                        scheme:"primary"
+                        w:"full"
+                        each in:guestOptions as:option key:option.id
+                          Option value:option.value label:option.label
+                      Button variant:"solid" scheme:"primary" size:"lg" iconStart:"magnifier" w:"full" px:8
+                        "Search"
             """

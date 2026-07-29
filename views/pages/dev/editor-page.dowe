@@ -167,7 +167,7 @@ page ExtensionsPage
           dowe.languageServer.trace.server
         """
       Button:
-        href:"/docs/dev"
+        href:"/docs/dev/dev"
         variant:"soft"
         scheme:"primary"
         size:"sm"

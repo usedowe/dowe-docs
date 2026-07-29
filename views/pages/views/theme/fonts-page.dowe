@@ -1,0 +1,228 @@
+page FontsPage
+  const fontCatalog:
+    value:[
+      {
+        token:"system"
+        family:"Platform system font"
+        assets:"No packaged font assets"
+      },
+      {
+        token:"inter"
+        family:"Inter"
+        assets:"Packaged by Dowe"
+      },
+      {
+        token:"roboto"
+        family:"Roboto"
+        assets:"Packaged by Dowe"
+      },
+      {
+        token:"montserrat"
+        family:"Montserrat"
+        assets:"Packaged by Dowe"
+      },
+      {
+        token:"lato"
+        family:"Lato"
+        assets:"Packaged by Dowe"
+      },
+      {
+        token:"poppins"
+        family:"Poppins"
+        assets:"Packaged by Dowe"
+      },
+      {
+        token:"manrope"
+        family:"Manrope"
+        assets:"Packaged by Dowe"
+      },
+      {
+        token:"quicksand"
+        family:"Quicksand"
+        assets:"Packaged by Dowe"
+      },
+      {
+        token:"lora"
+        family:"Lora"
+        assets:"Packaged by Dowe"
+      },
+      {
+        token:"syne"
+        family:"Syne"
+        assets:"Packaged by Dowe"
+      },
+      {
+        token:"jost"
+        family:"Jost"
+        assets:"Packaged by Dowe"
+      },
+      {
+        token:"puritan"
+        family:"Puritan"
+        assets:"Packaged by Dowe"
+      },
+    ]
+  Section id:"fonts-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "THEME.DOWE"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Fonts"
+        Text size:"lg" color:"muted"
+          "Choose portable font tokens once and let Dowe package the effective families for web, desktop, Android, and iOS."
+      Card variant:"soft" scheme:"primary" p:5 rounded:"lg" minW:56
+        Grid columns:1 gap:1
+          Text size:"xs" weight:"bold" spacing:"widest"
+            "CURRENT DOCS THEME"
+          Title font:"syne" size:"xl" weight:"black"
+            "Syne title"
+          Text font:"manrope" size:"sm"
+            "Manrope body copy"
+  Section id:"fonts-root-config" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "ROOT CONFIGURATION"
+        Title size:"3xl" weight:"black"
+          "Declare fonts in the fixed root file"
+        Text size:"sm" color:"muted"
+          "theme.dowe contains one theme block. fonts.default chooses the project fallback, while fonts.install keeps additional families available even when no current view references them."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy theme.dowe fonts"
+        copiedLabel:"Copied"
+        content:"""
+          theme
+            fonts default:"manrope" install:["manrope", "syne"]
+            design defaultTheme:"light"
+              Text font:"manrope"
+              Title font:"syne"
+              theme name:"light"
+        """
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "DEFAULT"
+            Title size:"lg" weight:"bold"
+              "One project fallback"
+            Text size:"sm" color:"muted"
+              "fonts.default is a single quoted token. When fonts is omitted, Dowe uses inter."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "INSTALL"
+            Title size:"lg" weight:"bold"
+              "An ordered unique list"
+            Text size:"sm" color:"muted"
+              "fonts.install accepts an array of known tokens. Duplicate or unknown entries stop compilation."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "NO REMOTE FONTS"
+            Title size:"lg" weight:"bold"
+              "Target-owned assets"
+            Text size:"sm" color:"muted"
+              "URLs, file paths, family lists, and arbitrary font names are rejected. Dowe owns the portable catalog."
+  Section id:"fonts-catalog" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "CATALOG"
+        Title size:"3xl" weight:"black"
+          "Twelve accepted font tokens"
+        Text size:"sm" color:"muted"
+          "Use the lowercase token in theme.dowe or on a supported font prop. system follows each platform and does not package a font family."
+      Table:
+        data:fontCatalog
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"token" label:"Token" width:"1fr"
+        column field:"family" label:"Family" width:"2fr"
+        column field:"assets" label:"Generated assets" width:"2fr"
+  Section id:"fonts-precedence" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "RESOLUTION"
+        Title size:"3xl" weight:"black"
+          "Local choice, typography slot, project fallback"
+        Text size:"sm" color:"muted"
+          "Text and Title have independent design slots. A local font prop changes one instance without changing the rest of the application."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold"
+              "1 · INSTANCE"
+            Title size:"lg" weight:"bold"
+              "Explicit font prop"
+            Text size:"sm"
+              "Title font:\"lora\" wins for that Title instance."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "2 · DESIGN SLOT"
+            Title size:"lg" weight:"bold"
+              "Text or Title default"
+            Text size:"sm" color:"muted"
+              "Text font and Title font under design apply independently across the project."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "3 · PROJECT"
+            Title size:"lg" weight:"bold"
+              "fonts.default"
+            Text size:"sm" color:"muted"
+              "The project font remains the fallback when no applicable instance or slot value is present."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy font overrides"
+        copiedLabel:"Copied"
+        content:"""
+          theme
+            fonts default:"inter" install:["lora"]
+            design defaultTheme:"light"
+              Text font:"inter"
+              Title font:"lora"
+              theme name:"light"
+
+          Title font:"manrope"
+            "This instance overrides the Title slot."
+        """
+  Section id:"fonts-effective-set" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "GENERATED OUTPUT"
+        Title size:"3xl" weight:"black"
+          "Dowe computes the effective font set"
+        Text size:"sm" color:"muted"
+          "The effective set combines fonts.default, fonts.install, Text and Title design defaults, and font tokens used by reachable views."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Web and desktop"
+            Text size:"sm" color:"muted"
+              "Web font assets and deterministic family stacks ship with generated output. Desktop reuses that output."
+        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Android"
+            Text size:"sm" color:"muted"
+              "Jetpack Compose receives packaged font resources from the same normalized catalog."
+        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "iOS"
+            Text size:"sm" color:"muted"
+              "SwiftUI receives bundled family assets and uses the same selected token semantics."

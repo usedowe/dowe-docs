@@ -39,6 +39,27 @@ page FeaturesPage
             copyLabel:"Copy features"
             copiedLabel:"Copied"
             content:"""
+              const customerBenefits:
+                value:[
+                  {
+                    id:"connect"
+                    title:"Easy to Connect"
+                    description:"Bring every onboarding step together so new customers always know what comes next."
+                    preview:"Create Free Account"
+                  },
+                  {
+                    id:"dashboard"
+                    title:"Realtime Dashboard"
+                    description:"See campaign activity, schedules, and customer progress in one responsive dashboard."
+                    preview:"Review Live Progress"
+                  },
+                  {
+                    id:"automation"
+                    title:"Easy Automations"
+                    description:"Connect the tools your team already trusts and automate repetitive customer work."
+                    preview:"Launch an Automation"
+                  },
+                ]
               Section id:"customer-centric-features" bg:"surface" color:"onSurface" boxed:true py:{ xs:8 md:12 }
                 Flex direction:"column" align:"center" gap:0
                   Flex direction:"column" align:"center" gap:0 show:{ xs:false md:true }
@@ -53,93 +74,29 @@ page FeaturesPage
                     "Connect every customer touchpoint with a clear, measurable workflow."
                   Box h:{ xs:8 md:14 }
                   Grid columns:{ xs:1 md:3 } gap:5 w:"full"
-                    Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:5 md:6 } minH:80
-                      Flex direction:"column" gap:4 minH:64
-                        Icon name:"route" style:"line-duotone" fill:"primary" w:7 h:7
-                        Grid columns:1 gap:2
-                          Title size:"lg" weight:"black"
-                            "Easy to Connect"
-                          Text color:"muted"
-                            "Bring every onboarding step together so new customers always know what comes next."
-                        Box h:2
-                        Grid columns:1 gap:2
-                          Box bg:"surface" rounded:"md" px:4 py:3 shadow:"sm"
-                            Flex align:"center" gap:3
-                              Icon name:"check-circle" style:"bold" fill:"success" w:6 h:6
-                              Text weight:"bold"
-                                "Create Free Account"
-                          Box bg:"surface" rounded:"md" px:4 py:3 shadow:"sm"
-                            Flex align:"center" gap:3
-                              Icon name:"check-circle" style:"bold-duotone" fill:"muted" w:6 h:6
-                              Text weight:"bold"
-                                "Setup Your Profile"
-                              Box w:4
-                              Icon name:"cursor" style:"bold" fill:"onSurface" w:7 h:7
-                          Box bg:"surface" rounded:"md" px:4 py:3
-                            Flex align:"center" gap:3
-                              Icon name:"check-circle" style:"line-duotone" fill:"muted" w:6 h:6
-                              Text color:"muted"
-                                "Finish Registration"
-                    Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:5 md:6 } minH:80
-                      Flex direction:"column" gap:4 minH:64
-                        Icon name:"monitor-smartphone" style:"line-duotone" fill:"primary" w:7 h:7
-                        Grid columns:1 gap:2
-                          Title size:"lg" weight:"black"
-                            "Realtime Dashboard"
-                          Text color:"muted"
-                            "See campaign activity, schedules, and customer progress in one responsive dashboard."
-                        Box h:2
-                        Box bg:"surface" rounded:"lg" p:4 shadow:"sm"
-                          Grid columns:1 gap:3
-                            Flex align:"center" justify:"between"
-                              Flex align:"center" gap:2
-                                Box w:3 h:3 rounded:"full" bg:"primary"
-                                Box w:16 h:2 rounded:"full" bg:"softMuted"
-                              Box w:12 h:5 rounded:"sm" bg:"softMuted"
-                            Grid columns:5 gap:1
-                              Box h:8 bg:"softMuted" rounded:"sm"
-                              Box h:8 bg:"softMuted" rounded:"sm"
-                              Box h:8 bg:"softPrimary" rounded:"sm"
-                              Box h:8 bg:"softMuted" rounded:"sm"
-                              Box h:8 bg:"softMuted" rounded:"sm"
-                              Box h:8 bg:"softMuted" rounded:"sm"
-                              Box h:8 bg:"softPrimary" rounded:"sm"
-                              Box h:8 bg:"softMuted" rounded:"sm"
-                              Box h:8 bg:"softMuted" rounded:"sm"
-                              Box h:8 bg:"softPrimary" rounded:"sm"
-                              Box h:8 bg:"softPrimary" rounded:"sm"
-                              Box h:8 bg:"softMuted" rounded:"sm"
-                              Box h:8 bg:"softMuted" rounded:"sm"
-                              Box h:8 bg:"softMuted" rounded:"sm"
-                              Box h:8 bg:"softMuted" rounded:"sm"
-                    Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:5 md:6 } minH:80
-                      Flex direction:"column" gap:4 minH:64
-                        Icon name:"route" style:"line-duotone" fill:"primary" w:7 h:7
-                        Grid columns:1 gap:2
-                          Title size:"lg" weight:"black"
-                            "Easy Automations"
-                          Text color:"muted"
-                            "Connect the tools your team already trusts and automate repetitive customer work."
-                        Box h:2
-                        Grid columns:3 gap:4
-                          Box bg:"warning" color:"onWarning" rounded:"lg" p:4 shadow:"sm"
-                            Flex justify:"center"
-                              Icon name:"letter" style:"bold" fill:"onWarning" w:9 h:9
-                          Box bg:"surface" rounded:"lg" p:4 shadow:"sm"
-                            Flex justify:"center"
-                              Icon name:"gallery" style:"bold-duotone" fill:"success" w:9 h:9
-                          Box bg:"surface" rounded:"lg" p:4 shadow:"sm"
-                            Flex justify:"center"
-                              Icon name:"document-text" style:"bold" fill:"onSurface" w:9 h:9
-                          Box bg:"surface" rounded:"lg" p:4 shadow:"sm"
-                            Flex justify:"center"
-                              Icon name:"widget-4" style:"bold-duotone" fill:"info" w:9 h:9
-                          Box bg:"danger" color:"onDanger" rounded:"lg" p:4 shadow:"sm"
-                            Flex justify:"center"
-                              Icon name:"stars" style:"bold" fill:"onDanger" w:9 h:9
-                          Box bg:"surface" rounded:"lg" p:4 shadow:"sm"
-                            Flex justify:"center"
-                              Icon name:"bolt" style:"bold" fill:"warning" w:9 h:9
+                    each in:customerBenefits as:benefit key:benefit.id
+                      Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:5 md:6 } minH:80
+                        Flex direction:"column" gap:4 minH:64
+                          Box bg:"softPrimary" rounded:"full" w:14 h:14 p:2
+                            Icon name:"route" style:"line-duotone" fill:"primary" w:10 h:10
+                          Grid columns:1 gap:2 minH:20
+                            Title size:"lg" weight:"black"
+                              "{benefit.title}"
+                            Text color:"muted"
+                              "{benefit.description}"
+                          Box h:2
+                          Box bg:"surface" rounded:"lg" p:4 shadow:"sm" minH:28
+                            Grid columns:1 gap:3
+                              Flex align:"center" gap:3
+                                Icon name:"check-circle" style:"bold" fill:"success" w:6 h:6
+                                Text weight:"bold"
+                                  "{benefit.preview}"
+                              Grid columns:3 gap:2
+                                Box h:8 bg:"softMuted" rounded:"sm"
+                                Box h:8 bg:"softPrimary" rounded:"sm"
+                                Box h:8 bg:"softMuted" rounded:"sm"
+                              Flex justify:"end"
+                                Icon name:"cursor" style:"bold" fill:"onSurface" w:7 h:7
             """
   Section id:"marketing-services" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
     Grid columns:1 gap:5
@@ -173,6 +130,39 @@ page FeaturesPage
             copyLabel:"Copy features"
             copiedLabel:"Copied"
             content:"""
+              const marketingServices:
+                value:[
+                  {
+                    id:"branding"
+                    title:"Branding Services"
+                    description:"Create a clear brand system that keeps every campaign recognizable, useful, and consistent."
+                  },
+                  {
+                    id:"research"
+                    title:"Market Research"
+                    description:"Turn customer signals and competitive context into practical decisions your team can act on."
+                  },
+                  {
+                    id:"content"
+                    title:"Content Creation"
+                    description:"Produce useful content that earns attention, answers real questions, and supports conversion."
+                  },
+                  {
+                    id:"commerce"
+                    title:"e-Commerce Solutions"
+                    description:"Build flexible shopping journeys that connect product discovery, checkout, and retention."
+                  },
+                  {
+                    id:"competition"
+                    title:"Competitor Analysis"
+                    description:"Compare positioning, channels, and customer experience to uncover your strongest next move."
+                  },
+                  {
+                    id:"discovery"
+                    title:"SEO & SMM Services"
+                    description:"Improve discovery across search and social with one coordinated, measurable growth plan."
+                  },
+                ]
               Section id:"marketing-services-features" bg:"surface" color:"onSurface" boxed:true py:{ xs:8 md:12 }
                 Grid columns:1 gap:{ xs:8 md:12 }
                   Flex direction:"column" align:"center" gap:3
@@ -186,54 +176,15 @@ page FeaturesPage
                     Text size:"lg" color:"muted"
                       "Focused capabilities for building demand, learning faster, and growing with confidence."
                   Grid columns:{ xs:1 md:2 } gap:{ xs:7 md:10 }
-                    Flex align:"start" gap:4
-                      Box bg:"softPrimary" rounded:"full" p:3
-                        Icon name:"graph-new-up" style:"line-duotone" fill:"primary" w:10 h:10
-                      Grid columns:1 gap:2
-                        Title size:"lg" weight:"black"
-                          "Branding Services"
-                        Text color:"muted"
-                          "Create a clear brand system that keeps every campaign recognizable, useful, and consistent."
-                    Flex align:"start" gap:4
-                      Box bg:"softPrimary" rounded:"full" p:3
-                        Icon name:"round-graph" style:"line-duotone" fill:"primary" w:10 h:10
-                      Grid columns:1 gap:2
-                        Title size:"lg" weight:"black"
-                          "Market Research"
-                        Text color:"muted"
-                          "Turn customer signals and competitive context into practical decisions your team can act on."
-                    Flex align:"start" gap:4
-                      Box bg:"softPrimary" rounded:"full" p:3
-                        Icon name:"dialog" style:"line-duotone" fill:"primary" w:10 h:10
-                      Grid columns:1 gap:2
-                        Title size:"lg" weight:"black"
-                          "Content Creation"
-                        Text color:"muted"
-                          "Produce useful content that earns attention, answers real questions, and supports conversion."
-                    Flex align:"start" gap:4
-                      Box bg:"softPrimary" rounded:"full" p:3
-                        Icon name:"card" style:"line-duotone" fill:"primary" w:10 h:10
-                      Grid columns:1 gap:2
-                        Title size:"lg" weight:"black"
-                          "e-Commerce Solutions"
-                        Text color:"muted"
-                          "Build flexible shopping journeys that connect product discovery, checkout, and retention."
-                    Flex align:"start" gap:4
-                      Box bg:"softPrimary" rounded:"full" p:3
-                        Icon name:"presentation-graph" style:"line-duotone" fill:"primary" w:10 h:10
-                      Grid columns:1 gap:2
-                        Title size:"lg" weight:"black"
-                          "Competitor Analysis"
-                        Text color:"muted"
-                          "Compare positioning, channels, and customer experience to uncover your strongest next move."
-                    Flex align:"start" gap:4
-                      Box bg:"softPrimary" rounded:"full" p:3
-                        Icon name:"magnifier" style:"line-duotone" fill:"primary" w:10 h:10
-                      Grid columns:1 gap:2
-                        Title size:"lg" weight:"black"
-                          "SEO & SMM Services"
-                        Text color:"muted"
-                          "Improve discovery across search and social with one coordinated, measurable growth plan."
+                    each in:marketingServices as:service key:service.id
+                      Flex align:"start" gap:4 minH:28
+                        Box bg:"softPrimary" rounded:"full" p:3
+                          Icon name:"graph-new-up" style:"line-duotone" fill:"primary" w:10 h:10
+                        Grid columns:1 gap:2
+                          Title size:"lg" weight:"black"
+                            "{service.title}"
+                          Text color:"muted"
+                            "{service.description}"
             """
   Section id:"brand-transformation" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
@@ -267,6 +218,29 @@ page FeaturesPage
             copyLabel:"Copy features"
             copiedLabel:"Copied"
             content:"""
+              const brandCapabilities:
+                value:[
+                  {
+                    id:"marketing"
+                    title:"Digital Marketing"
+                    description:"Plan campaigns around real customer needs and measurable business outcomes."
+                  },
+                  {
+                    id:"design"
+                    title:"Dev and Design"
+                    description:"Turn ideas into polished experiences with one coordinated product workflow."
+                  },
+                  {
+                    id:"analytics"
+                    title:"Data & Analytics"
+                    description:"Make performance visible and turn timely insights into confident decisions."
+                  },
+                  {
+                    id:"content"
+                    title:"Content Strategy"
+                    description:"Create a durable content system across channels, formats, and customer stages."
+                  },
+                ]
               Section id:"brand-transformation-features" bg:"surface" color:"onSurface" boxed:true py:{ xs:8 md:12 }
                 Grid columns:{ xs:1 md:"5fr 7fr" } gap:{ xs:10 md:16 } align:"center"
                   Flex direction:"column" gap:6
@@ -280,38 +254,15 @@ page FeaturesPage
                       "Move from isolated campaigns to a connected system that helps your team learn, adapt, and grow."
                   Box bg:"softMuted" p:{ xs:5 md:8 }
                     Grid columns:{ xs:1 sm:2 } gap:5
-                      Card variant:"solid" scheme:"surface" rounded:"lg" shadow:"md" p:6 minH:56
-                        Flex direction:"column" gap:4
-                          Box bg:"softPrimary" rounded:"full" w:14 h:14 p:2
-                            Icon name:"graph-new-up" style:"line-duotone" fill:"primary" w:10 h:10
-                          Title size:"lg" weight:"black"
-                            "Digital Marketing"
-                          Text color:"muted"
-                            "Plan campaigns around real customer needs and measurable business outcomes."
-                      Card variant:"solid" scheme:"surface" rounded:"lg" shadow:"md" p:6 minH:56
-                        Flex direction:"column" gap:4
-                          Box bg:"softPrimary" rounded:"full" w:14 h:14 p:2
-                            Icon name:"settings-minimalistic" style:"line-duotone" fill:"primary" w:10 h:10
-                          Title size:"lg" weight:"black"
-                            "Dev and Design"
-                          Text color:"muted"
-                            "Turn ideas into polished experiences with one coordinated product workflow."
-                      Card variant:"solid" scheme:"surface" rounded:"lg" shadow:"md" p:6 minH:56
-                        Flex direction:"column" gap:4
-                          Box bg:"softPrimary" rounded:"full" w:14 h:14 p:2
-                            Icon name:"presentation-graph" style:"line-duotone" fill:"primary" w:10 h:10
-                          Title size:"lg" weight:"black"
-                            "Data & Analytics"
-                          Text color:"muted"
-                            "Make performance visible and turn timely insights into confident decisions."
-                      Card variant:"solid" scheme:"surface" rounded:"lg" shadow:"md" p:6 minH:56
-                        Flex direction:"column" gap:4
-                          Box bg:"softPrimary" rounded:"full" w:14 h:14 p:2
-                            Icon name:"route" style:"line-duotone" fill:"primary" w:10 h:10
-                          Title size:"lg" weight:"black"
-                            "Content Strategy"
-                          Text color:"muted"
-                            "Create a durable content system across channels, formats, and customer stages."
+                      each in:brandCapabilities as:capability key:capability.id
+                        Card variant:"solid" scheme:"surface" rounded:"lg" shadow:"md" p:6 minH:56
+                          Flex direction:"column" gap:4
+                            Box bg:"softPrimary" rounded:"full" w:14 h:14 p:2
+                              Icon name:"stars" style:"line-duotone" fill:"primary" w:10 h:10
+                            Title size:"lg" weight:"black"
+                              "{capability.title}"
+                            Text color:"muted"
+                              "{capability.description}"
             """
   Section id:"online-solutions" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
     Grid columns:1 gap:5
@@ -345,42 +296,42 @@ page FeaturesPage
             copyLabel:"Copy features"
             copiedLabel:"Copied"
             content:"""
+              const onlineCapabilities:
+                value:[
+                  {
+                    id:"marketing"
+                    title:"Digital Marketing"
+                    description:"Plan campaigns around real customer needs and measurable business outcomes."
+                  },
+                  {
+                    id:"design"
+                    title:"Dev and Design"
+                    description:"Turn ideas into polished experiences with one coordinated product workflow."
+                  },
+                  {
+                    id:"analytics"
+                    title:"Data & Analytics"
+                    description:"Make performance visible and turn timely insights into confident decisions."
+                  },
+                  {
+                    id:"content"
+                    title:"Content Strategy"
+                    description:"Create a durable content system across channels, formats, and customer stages."
+                  },
+                ]
               Section id:"online-solutions-features" bg:"surface" color:"onSurface" boxed:true py:{ xs:8 md:12 }
                 Grid columns:{ xs:1 md:"7fr 5fr" } gap:{ xs:10 md:16 } align:"center"
                   Box bg:"softMuted" p:{ xs:5 md:8 }
                     Grid columns:{ xs:1 sm:2 } gap:5
-                      Card variant:"solid" scheme:"surface" rounded:"lg" shadow:"md" p:6 minH:56
-                        Flex direction:"column" gap:4
-                          Box bg:"softPrimary" rounded:"full" w:14 h:14 p:2
-                            Icon name:"graph-new-up" style:"line-duotone" fill:"primary" w:10 h:10
-                          Title size:"lg" weight:"black"
-                            "Digital Marketing"
-                          Text color:"muted"
-                            "Plan campaigns around real customer needs and measurable business outcomes."
-                      Card variant:"solid" scheme:"surface" rounded:"lg" shadow:"md" p:6 minH:56
-                        Flex direction:"column" gap:4
-                          Box bg:"softPrimary" rounded:"full" w:14 h:14 p:2
-                            Icon name:"settings-minimalistic" style:"line-duotone" fill:"primary" w:10 h:10
-                          Title size:"lg" weight:"black"
-                            "Dev and Design"
-                          Text color:"muted"
-                            "Turn ideas into polished experiences with one coordinated product workflow."
-                      Card variant:"solid" scheme:"surface" rounded:"lg" shadow:"md" p:6 minH:56
-                        Flex direction:"column" gap:4
-                          Box bg:"softPrimary" rounded:"full" w:14 h:14 p:2
-                            Icon name:"presentation-graph" style:"line-duotone" fill:"primary" w:10 h:10
-                          Title size:"lg" weight:"black"
-                            "Data & Analytics"
-                          Text color:"muted"
-                            "Make performance visible and turn timely insights into confident decisions."
-                      Card variant:"solid" scheme:"surface" rounded:"lg" shadow:"md" p:6 minH:56
-                        Flex direction:"column" gap:4
-                          Box bg:"softPrimary" rounded:"full" w:14 h:14 p:2
-                            Icon name:"route" style:"line-duotone" fill:"primary" w:10 h:10
-                          Title size:"lg" weight:"black"
-                            "Content Strategy"
-                          Text color:"muted"
-                            "Create a durable content system across channels, formats, and customer stages."
+                      each in:onlineCapabilities as:capability key:capability.id
+                        Card variant:"solid" scheme:"surface" rounded:"lg" shadow:"md" p:6 minH:56
+                          Flex direction:"column" gap:4
+                            Box bg:"softPrimary" rounded:"full" w:14 h:14 p:2
+                              Icon name:"stars" style:"line-duotone" fill:"primary" w:10 h:10
+                            Title size:"lg" weight:"black"
+                              "{capability.title}"
+                            Text color:"muted"
+                              "{capability.description}"
                   Flex direction:"column" gap:6
                     Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
                       "ONE-STOP SOLUTIONS"
@@ -423,6 +374,27 @@ page FeaturesPage
             copyLabel:"Copy features"
             copiedLabel:"Copied"
             content:"""
+              const completeSolutions:
+                value:[
+                  {
+                    id:"interface"
+                    title:"Friendly Interface"
+                    description:"Give every teammate a clear workspace that feels familiar from the first click."
+                    preview:"Workspace"
+                  },
+                  {
+                    id:"files"
+                    title:"Files Editor & Viewer"
+                    description:"Review assets, compare versions, and keep production files in one focused place."
+                    preview:"Assets"
+                  },
+                  {
+                    id:"flexible"
+                    title:"Extremely Flexible"
+                    description:"Adapt layouts and workflows as your products, channels, and customer needs evolve."
+                    preview:"Automation"
+                  },
+                ]
               Section id:"complete-solutions-features" bg:"surface" color:"onSurface" boxed:true py:{ xs:8 md:12 }
                 Grid columns:1 gap:{ xs:8 md:12 }
                   Flex direction:"column" align:"center" gap:3
@@ -431,80 +403,28 @@ page FeaturesPage
                     Text size:"lg" color:"muted"
                       "Everything your team needs to create, organize, and optimize digital experiences."
                   Grid columns:{ xs:1 md:3 } gap:6
-                    Flex direction:"column" align:"center" gap:5
-                      Box bg:"softMuted" rounded:"lg" p:6 w:"full" minH:52
-                        Grid columns:1 gap:4
-                          Flex align:"center" justify:"between"
-                            Box w:14 h:3 bg:"muted" rounded:"full"
-                            Box w:10 h:3 bg:"softPrimary" rounded:"full"
-                          Grid columns:"72px 1fr" gap:2
-                            Box bg:"surface" rounded:"lg" border:1 borderColor:"muted" p:2
-                              Grid columns:1 gap:2
-                                Box h:4 bg:"softMuted" rounded:"sm"
-                                Box h:4 bg:"softPrimary" rounded:"sm"
-                                Box h:4 bg:"softMuted" rounded:"sm"
-                                Box h:4 bg:"softMuted" rounded:"sm"
-                            Box bg:"surface" rounded:"lg" border:1 borderColor:"muted" p:3
-                              Grid columns:4 gap:1
-                                Box h:7 bg:"softMuted"
-                                Box h:7 bg:"softMuted"
-                                Box h:7 bg:"softPrimary"
-                                Box h:7 bg:"softMuted"
-                                Box h:7 bg:"softPrimary"
-                                Box h:7 bg:"softMuted"
-                                Box h:7 bg:"softMuted"
-                                Box h:7 bg:"softPrimary"
-                      Grid columns:1 gap:2
-                        Title size:"lg" weight:"black"
-                          "Friendly Interface"
-                        Text color:"muted"
-                          "Give every teammate a clear workspace that feels familiar from the first click."
-                    Flex direction:"column" align:"center" gap:5
-                      Box bg:"softMuted" rounded:"lg" p:6 w:"full" minH:52
-                        Box bg:"surface" rounded:"lg" p:4 shadow:"sm"
-                          Grid columns:1 gap:4
-                            Flex align:"center" justify:"between"
-                              Flex align:"center" gap:2
-                                Icon name:"gallery" style:"bold-duotone" fill:"primary" w:6 h:6
-                                Text weight:"bold"
-                                  "Images"
-                              Flex gap:2
-                                Icon name:"pen-new-square" fill:"muted" w:5 h:5
-                                Icon name:"add-circle" fill:"muted" w:5 h:5
-                            Grid columns:3 gap:2
-                              Box bg:"softMuted" rounded:"md" minH:20
-                              Box bg:"softWarning" rounded:"md" minH:20
-                              Box bg:"softMuted" rounded:"md" minH:20
-                            Flex justify:"end"
-                              Icon name:"cursor" style:"bold" fill:"onSurface" w:7 h:7
-                      Grid columns:1 gap:2
-                        Title size:"lg" weight:"black"
-                          "Files Editor & Viewer"
-                        Text color:"muted"
-                          "Review assets, compare versions, and keep production files in one focused place."
-                    Flex direction:"column" align:"center" gap:5
-                      Box bg:"softMuted" rounded:"lg" p:6 w:"full" minH:52
-                        Box bg:"surface" rounded:"lg" p:4 border:1 borderColor:"muted"
-                          Grid columns:"1fr 5fr" gap:3
-                            Grid columns:1 gap:2
-                              Box w:4 h:4 rounded:"full" bg:"softMuted"
-                              Box w:4 h:4 rounded:"full" bg:"softMuted"
-                              Box w:4 h:4 rounded:"full" bg:"softMuted"
-                            Grid columns:1 gap:3
-                              Box w:32 h:3 bg:"softMuted" rounded:"full"
-                              Box bg:"surface" rounded:"md" p:3 shadow:"md"
-                                Grid columns:"1fr 2fr" gap:3 align:"center"
-                                  Box bg:"danger" rounded:"md" minH:16
-                                    Flex align:"center" justify:"center" minH:16
-                                      Icon name:"stars" style:"bold" fill:"onDanger" w:8 h:8
-                                  Grid columns:1 gap:2
-                                    Box w:20 h:3 bg:"softMuted" rounded:"full"
-                                    Box w:14 h:3 bg:"softPrimary" rounded:"full"
+                    each in:completeSolutions as:solution key:solution.id
+                      Flex direction:"column" align:"center" gap:5
+                        Box bg:"softMuted" rounded:"lg" p:6 w:"full" h:52
+                          Box bg:"surface" rounded:"lg" p:4 shadow:"sm" minH:40
+                            Grid columns:1 gap:4
+                              Flex align:"center" justify:"between"
+                                Flex align:"center" gap:2
+                                  Icon name:"widget-4" style:"bold-duotone" fill:"primary" w:6 h:6
+                                  Text weight:"bold"
+                                    "{solution.preview}"
+                                Flex gap:2
+                                  Icon name:"pen-new-square" fill:"muted" w:5 h:5
+                                  Icon name:"add-circle" fill:"muted" w:5 h:5
+                              Grid columns:3 gap:2
+                                Box bg:"softMuted" rounded:"md" minH:16
+                                Box bg:"softWarning" rounded:"md" minH:16
+                                Box bg:"softMuted" rounded:"md" minH:16
                               Flex justify:"end"
                                 Icon name:"cursor" style:"bold" fill:"onSurface" w:7 h:7
-                      Grid columns:1 gap:2
-                        Title size:"lg" weight:"black"
-                          "Extremely Flexible"
-                        Text color:"muted"
-                          "Adapt layouts and workflows as your products, channels, and customer needs evolve."
+                        Grid columns:1 gap:2 minH:20
+                          Title size:"lg" weight:"black"
+                            "{solution.title}"
+                          Text color:"muted"
+                            "{solution.description}"
             """

@@ -1,0 +1,124 @@
+page RoundedPage
+  const roundedProps:
+    value:[
+      {
+        prop:"rounded"
+        type:"xs | sm | md | lg | xl | full | responsive"
+        defaultValue:"—"
+      },
+    ]
+  Section id:"rounded-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Flex direction:"column" gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "STYLES"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Rounded"
+        Text size:"lg" color:"muted"
+          "Shape corners with one portable radius scale shared by web, Android, and iOS."
+  Section id:"rounded-scale" p:{ xs:5 md:7 }
+    Flex direction:"column" gap:6
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "RADIUS SCALE"
+        Title size:"3xl" weight:"black"
+          "Six corner shapes"
+        Text size:"sm" color:"muted"
+          "Use a larger token for softer corners, or full for pills and circular surfaces."
+      Grid columns:{ xs:2 md:3 lg:6 } gap:4
+        Flex direction:"column" gap:3 align:"center"
+          Box bg:"softPrimary" border:1 borderColor:"primary" rounded:"xs" w:"full" h:24
+          Text size:"sm" weight:"bold"
+            "xs"
+        Flex direction:"column" gap:3 align:"center"
+          Box bg:"softPrimary" border:1 borderColor:"primary" rounded:"sm" w:"full" h:24
+          Text size:"sm" weight:"bold"
+            "sm"
+        Flex direction:"column" gap:3 align:"center"
+          Box bg:"softPrimary" border:1 borderColor:"primary" rounded:"md" w:"full" h:24
+          Text size:"sm" weight:"bold"
+            "md"
+        Flex direction:"column" gap:3 align:"center"
+          Box bg:"softPrimary" border:1 borderColor:"primary" rounded:"lg" w:"full" h:24
+          Text size:"sm" weight:"bold"
+            "lg"
+        Flex direction:"column" gap:3 align:"center"
+          Box bg:"softPrimary" border:1 borderColor:"primary" rounded:"xl" w:"full" h:24
+          Text size:"sm" weight:"bold"
+            "xl"
+        Flex direction:"column" gap:3 align:"center"
+          Box bg:"softPrimary" border:1 borderColor:"primary" rounded:"full" w:24 h:24
+          Text size:"sm" weight:"bold"
+            "full"
+  Section id:"rounded-components" py:{ xs:7 md:10 }
+    Flex direction:"column" gap:6
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "COMPONENT EXAMPLES"
+        Title size:"3xl" weight:"black"
+          "Use the same shape language"
+        Text size:"sm" color:"muted"
+          "Apply rounded directly to containers, controls, media, and other compatible components."
+      Grid columns:{ xs:1 md:3 } gap:5
+        Card variant:"soft" scheme:"primary" rounded:"sm" p:6
+          Flex direction:"column" gap:2
+            Title size:"lg" weight:"bold"
+              "Compact card"
+            Text size:"sm" color:"muted"
+              "Small corners keep dense interfaces precise."
+        Flex direction:"column" gap:3 align:"center" justify:"center" p:6
+          Button variant:"solid" scheme:"secondary" rounded:"full"
+            "Pill action"
+          Text size:"sm" color:"muted"
+            "Full follows the control shape."
+        Flex direction:"column" gap:3 align:"center" justify:"center" p:6
+          Avatar name:"Dowe" alt:"Dowe" size:"xl" scheme:"tertiary" rounded:"full"
+          Text size:"sm" color:"muted"
+            "Equal dimensions form a circle."
+  Section id:"rounded-responsive" p:{ xs:5 md:7 }
+    Grid columns:{ xs:1 md:2 } gap:6 align:"center"
+      Flex direction:"column" gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "RESPONSIVE"
+        Title size:"3xl" weight:"black"
+          "Change shape by breakpoint"
+        Text size:"sm" color:"muted"
+          "Responsive objects use xs as the base and apply later values at their named breakpoints."
+        Code:
+          language:"dowe"
+          variant:"soft"
+          scheme:"surface"
+          copyLabel:"Copy Dowe"
+          copiedLabel:"Copied"
+          content:"""
+            Card rounded:{ xs:"sm" md:"xl" } p:6
+              Text "Responsive corners"
+          """
+      Box:
+        bg:"softSecondary"
+        border:2
+        borderColor:"secondary"
+        rounded:{ xs:"sm" md:"xl" }
+        p:8
+        Text weight:"bold"
+          "Resize the viewport to compare sm and xl."
+  Section id:"rounded-props" py:{ xs:7 md:10 }
+    Flex direction:"column" gap:5
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Props"
+        Text size:"sm" color:"muted"
+          "Rounded is optional. When omitted, a component may use its own theme or built-in default."
+      Table:
+        data:roundedProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"type" label:"Type" width:"4fr"
+        column field:"defaultValue" label:"Default" width:"1fr"

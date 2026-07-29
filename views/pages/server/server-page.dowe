@@ -1,132 +1,336 @@
 page ServerPage
-  Section id:"server-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+  Section id:"server-file-model" py:{ xs:6 md:10 }
+    Grid columns:1 gap:6
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "SERVER"
+          "SERVER / FILE MODEL"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
-          "Server documentation"
+          "Six responsibilities, one request path"
         Text size:"lg" color:"muted"
-          "Dowe compiles handlers, data access, and runtime boundaries into shared Dowe behavior. Server capabilities never cross into views or client targets."
-      Button:
-        href:"/docs/server/db"
-        variant:"soft"
-        scheme:"primary"
-        size:"sm"
-        rounded:"full"
-        iconStart:"database"
-        "Open Database"
-  Section id:"server-statement-shape" p:{ xs:5 md:7 }
+          "main.dowe activates the server. Endpoint modules map HTTP methods and paths, middleware controls access, handlers own the HTTP boundary, functions own reusable logic, and config modules expose server-only resources."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"primary"
+              "main.dowe"
+            Title size:"xl" weight:"black"
+              "Activates the server"
+            Text size:"sm" color:"muted"
+              "The root entrypoint selects the port and connects one endpoint graph or an ordered list. It also owns server-wide CORS, TLS, transports, and startup configuration."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "endpoints"
+            Title size:"xl" weight:"black"
+              "Maps requests to handlers"
+            Text size:"sm" color:"muted"
+              "An endpoints declaration imports handlers and middleware, then connects them with one-level groups and lowercase get, post, put, patch, and delete entries."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "handler"
+            Title size:"xl" weight:"black"
+              "Owns the HTTP boundary"
+            Text size:"sm" color:"muted"
+              "A handler reads req.params, req.query, headers, cookies, context, or typed JSON. It calls server functions and returns an explicit HTTP response. req and asynchronous execution are implicit."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "middleware"
+            Title size:"xl" weight:"black"
+              "Runs before the handler"
+            Text size:"sm" color:"muted"
+              "Middleware authenticates, authorizes, enriches server-only request context, or stops the chain. It continues with next and rejects with a direct return."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "fn"
+            Title size:"xl" weight:"black"
+              "Owns reusable server logic"
+            Text size:"sm" color:"muted"
+              "Every reusable provider, service, repository, task, or utility is declared with fn. Those responsibility names describe folders and architecture; they are not Dowe declaration keywords."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "config and data"
+            Title size:"xl" weight:"black"
+              "Owns resources and schemas"
+            Text size:"sm" color:"muted"
+              "Config modules export Database, Cache, or Vector handles. Types, entities, seeders, and migrations define validated data contracts without moving credentials into handlers or views."
+  Section id:"server-project-shape" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "SOURCE SHAPE"
-        Title size:"3xl" weight:"black"
-          "Read every server statement from left to right"
-        Text size:"sm" color:"muted"
-          "A statement starts with its capability. If that capability produces a value, the next identifier binds the result. Named props configure the operation after the binding."
+          "PROJECT SHAPE"
+        Title size:{ xs:"2xl" md:"4xl" } weight:"black"
+          "Organize the backend by responsibility"
+        Text color:"muted"
+          "This tree is recommended because it makes security and ownership visible. Imported modules are classified by their declarations, not by their folders, but new backend source should stay under server."
       Code:
         language:"dowe"
         variant:"soft"
         scheme:"surface"
-        copyLabel:"Copy shape"
+        copyLabel:"Copy server project structure"
         copiedLabel:"Copied"
         content:"""
-          <capability> <binding> <props>
-          <capability> <props>
+          main.dowe
+          .env.example
+          .env
+          server/
+            endpoints.dowe
+            handlers/
+            middlewares/
+            config/
+            services/
+            repositories/
+            providers/
+            tasks/
+            utils/
+            types/
+            entities/
+            seeders/
+            migrations/
         """
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Root contracts"
+            Text size:"sm" color:"muted"
+              "main.dowe connects the server. .env.example declares shareable environment names, while the ignored .env supplies local values. Neither dotenv file is imported."
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Imported modules"
+            Text size:"sm" color:"muted"
+              "Handlers, middleware, functions, config, entities, seeders, and types join the application through static imports. Moving one is valid when every import is updated."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Server-only boundary"
+            Text size:"sm" color:"muted"
+              "Database handles, credentials, authorization values, process handles, and provider responses remain on the server. Return only the controlled data a client needs."
+  Section id:"server-connected-example" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "CONNECTED EXAMPLE"
+        Title size:{ xs:"2xl" md:"4xl" } weight:"black"
+          "Follow one request through the backend"
+        Text color:"muted"
+          "These six files expose GET /api/blogs. The HTTP boundary stays thin, the service coordinates the use case, and the repository is the only function that reads Database."
       Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
           Grid columns:1 gap:3
-            Title size:"lg" weight:"bold"
-              "Produces a value"
+            Text size:"xs" weight:"bold" color:"primary"
+              "main.dowe"
             Text size:"sm" color:"muted"
-              "Database, Cache, HTTP, crypto, spawn, and imported functions put their result binding immediately after the capability."
+              "Activates the imported endpoint graph."
             Code:
               language:"dowe"
-              variant:"outline"
-              scheme:"surface"
-              content:"""
-                query blogs db:appDb.list table:"blogs"
-                createBlogService result args:{ title:body.title }
-              """
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:3
-            Title size:"lg" weight:"bold"
-              "Performs an action"
-            Text size:"sm" color:"muted"
-              "Control capabilities that do not produce a value receive their named props directly and create no binding."
-            Code:
-              language:"dowe"
-              variant:"outline"
-              scheme:"surface"
-              content:"""
-                next context:{ auth:verified }
-                commit value:result
-                return status:201 json:result
-              """
-            Alert:
               variant:"soft"
-              type:"info"
-              message:"Control statements may select a target instead of binding a result. go refreshIndex targets a function, while return receives the HTTP response props directly. Neither statement creates a result binding."
-  Section id:"server-database" p:{ xs:5 md:7 }
+              scheme:"surface"
+              copyLabel:"Copy main server"
+              copiedLabel:"Copied"
+              content:"""
+                import ApiRoutes from "@/server/endpoints"
+
+                main
+                  server port:8080
+                    endpoints:ApiRoutes
+              """
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold" color:"muted"
+              "server/endpoints.dowe"
+            Text size:"sm" color:"muted"
+              "Maps the method and path to the imported handler."
+            Code:
+              language:"dowe"
+              variant:"soft"
+              scheme:"surface"
+              copyLabel:"Copy endpoints"
+              copiedLabel:"Copied"
+              content:"""
+                import listBlogs from "@/server/handlers/blogs-handler"
+
+                endpoints ApiRoutes
+                  group path:"/api/blogs"
+                    get path:"" handler:listBlogs
+              """
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold" color:"muted"
+              "server/handlers/blogs-handler.dowe"
+            Text size:"sm" color:"muted"
+              "Calls the use case and chooses the HTTP response."
+            Code:
+              language:"dowe"
+              variant:"soft"
+              scheme:"surface"
+              copyLabel:"Copy handler"
+              copiedLabel:"Copied"
+              content:"""
+                import listBlogsService from "@/server/services/blogs-service"
+
+                handler listBlogs
+                  listBlogsService blogs
+                  return json:{ ok:true data:blogs }
+              """
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold" color:"muted"
+              "server/services/blogs-service.dowe"
+            Text size:"sm" color:"muted"
+              "Coordinates the use case without returning HTTP."
+            Code:
+              language:"dowe"
+              variant:"soft"
+              scheme:"surface"
+              copyLabel:"Copy service function"
+              copiedLabel:"Copied"
+              content:"""
+                import listBlogsRepository from "@/server/repositories/blogs-repository"
+
+                fn listBlogsService
+                  listBlogsRepository blogs
+                  return value:blogs
+              """
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold" color:"muted"
+              "server/repositories/blogs-repository.dowe"
+            Text size:"sm" color:"muted"
+              "Owns the Database operation and returns a value."
+            Code:
+              language:"dowe"
+              variant:"soft"
+              scheme:"surface"
+              copyLabel:"Copy repository function"
+              copiedLabel:"Copied"
+              content:"""
+                import AppDb from "@/server/config/database"
+
+                fn listBlogsRepository
+                  query blogs db:AppDb.list table:"blogs"
+                  return value:blogs
+              """
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold" color:"muted"
+              "server/config/database.dowe"
+            Text size:"sm" color:"muted"
+              "Exports the reusable server-only connection."
+            Code:
+              language:"dowe"
+              variant:"soft"
+              scheme:"surface"
+              copyLabel:"Copy Database config"
+              copiedLabel:"Copied"
+              content:"""
+                database AppDb:
+                  provider:"dowe"
+                  host:env.DATABASE_HOST
+                  port:env.DATABASE_PORT
+                  account:env.DATABASE_ACCOUNT
+                  secret:env.DATABASE_SECRET
+                  name:env.DATABASE_NAME
+                  entities:[]
+                  seeders:[]
+              """
+  Section id:"server-middleware-boundary" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "DATABASE"
-        Title size:"3xl" weight:"black"
-          "A Dowe-owned server capability"
-        Text size:"sm" color:"muted"
-          "Database owns local files, records, migrations, seeders, and provider operations. A handler uses a server-only connection and binds each result with query."
-      Code:
-        language:"dowe"
-        variant:"soft"
-        scheme:"surface"
-        copyLabel:"Copy Dowe"
-        copiedLabel:"Copied"
-        content:"""
-          handler listBlogs
-            database db provider:"dowe" host:env.DOWE_HOST port:env.DOWE_PORT account:env.DOWE_USER secret:env.DOWE_PASSWORD name:"app"
-            query blogs db:db.list table:"blogs"
-            return json:{ ok:true data:blogs }
-        """
+          "MIDDLEWARE BOUNDARY"
+        Title size:{ xs:"2xl" md:"4xl" } weight:"black"
+          "Authorize before business logic runs"
+        Text color:"muted"
+          "Middleware belongs on a group, HTTP method, or WebSocket. It either calls next, optionally adding server-only context, or returns a response that prevents the handler from running."
       Grid columns:{ xs:1 md:2 } gap:4
         Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Title size:"lg" weight:"bold"
-              "Server-only"
-            Text size:"sm" color:"muted"
-              "Database handles and remote credentials are never serialized to web, desktop, Android, or iOS clients."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Title size:"lg" weight:"bold"
-              "Controlled data flow"
-            Text size:"sm" color:"muted"
-              "Keep database and table names static. Pass validated request values only into supported fields and filters."
-  Section id:"server-functions" p:{ xs:5 md:7 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "FUNCTIONS"
-        Title size:"3xl" weight:"black"
-          "Call the capability, then bind its result"
-        Text size:"sm" color:"muted"
-          "An imported server function starts the statement. Its result binding follows the function name, and typed parameters travel through args."
-      Code:
-        language:"dowe"
-        variant:"soft"
-        scheme:"surface"
-        copyLabel:"Copy Dowe"
-        copiedLabel:"Copied"
-        content:"""
-          import createBlogService from "@/server/services/blogs-service"
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold" color:"muted"
+              "server/middlewares/require-bearer.dowe"
+            Code:
+              language:"dowe"
+              variant:"soft"
+              scheme:"surface"
+              copyLabel:"Copy middleware"
+              copiedLabel:"Copied"
+              content:"""
+                middleware requireBearer
+                  bearer token value:req.header.Authorization
+                  jwt verified secret:env.JWT_SECRET algorithm:"HS256" token:token
+                  if verified.valid
+                    next context:{ auth:{ subject:verified.claims.sub } }
+                  return status:401 json:{ ok:false error:"Unauthorized" }
+              """
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold" color:"primary"
+              "server/endpoints.dowe"
+            Code:
+              language:"dowe"
+              variant:"soft"
+              scheme:"surface"
+              copyLabel:"Copy protected endpoint"
+              copiedLabel:"Copied"
+              content:"""
+                import requireBearer from "@/server/middlewares/require-bearer"
+                import createBlog from "@/server/handlers/blogs-handler"
 
-          handler createBlog
-            const body:BlogInput value:req.json
-            createBlogService result args:{ title:body.title content:body.content }
-            return status:201 json:{ ok:true data:result }
-        """
+                endpoints ApiRoutes
+                  group path:"/api/blogs"
+                    post path:"" handler:createBlog middleware:[requireBearer]
+              """
       Alert:
         variant:"soft"
         type:"warning"
-        message:"Handlers are asynchronous by default, so do not add async or await. Server source never uses assignment syntax. Write str title source:\"trim\" or id session source:\"ulid\"; imported fn calls and host capabilities bind their result directly."
+        message:"Handlers and middleware return HTTP values with return status:... json:.... Reusable fn declarations return values with return value:.... Do not add async, await, assignment syntax, or return response."
+  Section id:"server-decision-guide" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "DECISION GUIDE"
+        Title size:{ xs:"2xl" md:"4xl" } weight:"black"
+          "Create the file that owns the authority"
+        Text color:"muted"
+          "Keep the HTTP edge, use-case coordination, data access, integrations, and shared resources separate so security decisions remain visible."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "A new HTTP path"
+            Text size:"sm" color:"muted"
+              "Add a method entry to an endpoints graph and connect it to a handler. Keep route composition out of service and repository functions."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Authentication or request policy"
+            Text size:"sm" color:"muted"
+              "Create middleware when the rule must run before one or more handlers. Use next context for trusted server-only values needed downstream."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Business workflow"
+            Text size:"sm" color:"muted"
+              "Create an fn in services when a use case coordinates repositories, providers, tasks, or utilities. The function returns a value, not an HTTP response."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Database, Cache, or Vector access"
+            Text size:"sm" color:"muted"
+              "Create an fn in repositories and import handles from config. Keep table names, keys, filters, and provider authority controlled by server source."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "External provider or background work"
+            Text size:"sm" color:"muted"
+              "Put provider integrations in providers, scheduled or detached workflows in tasks, and small reusable transformations in utils. Every module still exports fn."
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Data shape and persistence setup"
+            Text size:"sm" color:"muted"
+              "Use types for compile-time contracts, entities for schemas, seeders for initial records, migrations for ordered database changes, and config for shared handles."

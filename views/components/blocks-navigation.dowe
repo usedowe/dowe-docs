@@ -1,9 +1,10 @@
 component BlocksNavigation
-  SideNav variant:"ghost" scheme:"muted" size:"sm" wide:true p:4
+  SideNav variant:"solid" scheme:"muted" size:"md" p:4
     header label:"Blocks"
-    item label:"AppBar" href:"/blocks/appbar" icon:"layers-minimalistic"
-    item label:"Footer" href:"/blocks/footer" icon:"square-bottom-up"
-    item label:"Scaffold" href:"/blocks/scaffold" icon:"widget-4"
-    item label:"Hero" href:"/blocks/hero" icon:"stars-minimalistic"
     item label:"Auth" href:"/blocks/auth" icon:"shield-user"
+    item label:"AppBar" href:"/blocks/appbar" icon:"layers-minimalistic"
     item label:"Features" href:"/blocks/features" icon:"widget-4"
+    item label:"Footer" href:"/blocks/footer" icon:"square-bottom-up"
+    item label:"Hero" href:"/blocks/hero" icon:"stars-minimalistic"
+    item label:"Scaffold" href:"/blocks/scaffold" icon:"widget-4"
+    item label:"Tables" href:"/blocks/table" icon:"document-text"

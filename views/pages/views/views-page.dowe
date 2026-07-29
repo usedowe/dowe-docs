@@ -1,135 +1,273 @@
 page ViewsPage
-  Section p:{ xs:5 md:8 }
-    Flex direction:"column" gap:5
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-        "VIEWS"
-      Title size:"xl"
-        "One route model across every target"
-      Text color:"muted"
-        "Dowe lowers pages and shared layouts once, then generates web, desktop, Android, and iOS navigation from the same route graph."
-      Grid columns:{ xs:1 md:4 } gap:4
-        Card variant:"soft" scheme:"surface" p:5
-          Flex direction:"column" gap:3
-            Title size:"md"
-              "Page scroll starts at the top"
-            Text color:"muted"
-              "Changing to another page without a fragment resets the page viewport after rendering. A fragment moves directly to its validated section instead."
-        Card variant:"soft" scheme:"surface" p:5
-          Flex direction:"column" gap:3
-            Title size:"md"
-              "Shared layouts stay in place"
-            Text color:"muted"
-              "The router preserves shared layout state and independent layout scrollers, including long Sidebar navigation, while only the page viewport resets."
-        Card variant:"soft" scheme:"surface" p:5
-          Flex direction:"column" gap:3
-            Title size:"md"
-              "Responsive CSS stays deterministic"
-            Text color:"muted"
-              "The router refreshes development route hashes, waits for route styles, restores active chunks to manifest order, and reloads the destination if an asset still becomes stale."
-        Card variant:"soft" scheme:"surface" p:5
-          Flex direction:"column" gap:3
-            Title size:"md"
-              "iOS relaunch starts clean"
-            Text color:"muted"
-              "A normal iOS launch opens the initial route. Hot reload keeps the active route only while the process remains open, and a valid deep link can choose another launch route."
-  Section id:"page-init-splash" p:{ xs:5 md:8 }
-    Flex direction:"column" gap:5
-      Flex direction:"column" gap:2
+  Section id:"views-file-model" py:{ xs:6 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "PAGE STARTUP"
-        Title size:{ xs:"2xl" md:"4xl" } weight:"black"
-          "Load data before revealing the page"
-        Text color:"muted"
-          "A page init runs once when that page mounts. Bind a direct Splash to a boolean Signal to replace every normal page root until the workflow explicitly changes the Signal to false."
-      Code:
-        language:"dowe"
-        variant:"soft"
-        scheme:"surface"
-        copyLabel:"Copy Dowe"
-        copiedLabel:"Copied"
-        content:"""
-          page UsersPage
-            signal isLoading value:true
-            signal users value:[]
-            init
-              request result method:"GET" route:"/api/users"
-              if result.ok
-                set users value:result.data
-                set isLoading value:false
-              else
-                set isLoading value:false
-            Section
-              Table data:users
-                column field:"name" label:"Name"
-            Splash bind:isLoading
-              Section minH:"vh-0"
-                Flex direction:"column" align:"center" justify:"center" gap:3 h:"full"
-                  Icon name:"svg-spinners:3-dots-bounce" fill:"primary" w:10 h:10
-                  Text color:"muted"
-                    "Loading users"
-        """
-      Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5
-          Flex direction:"column" gap:2
-            Title size:"md" weight:"bold"
-              "Ordered startup"
+          "VIEWS / FILE MODEL"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Four declarations, one routed screen"
+        Text size:"lg" color:"muted"
+          "main.dowe activates a views graph. The graph maps paths to layouts and pages. Layouts provide the shared shell, pages provide route content, and components reuse static view trees."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"primary"
+              "views"
+            Title size:"xl" weight:"black"
+              "Maps paths to screens"
             Text size:"sm" color:"muted"
-              "Layout init hooks run outside-in, then the page init runs before legacy autoload requests."
-        Card variant:"soft" scheme:"surface" p:5
-          Flex direction:"column" gap:2
-            Title size:"md" weight:"bold"
-              "Reactive replacement"
+              "A views declaration imports layouts and pages, then connects them with group and route entries. It describes navigation; it does not contain the screen UI."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "layout"
+            Title size:"xl" weight:"black"
+              "Owns the shared shell"
             Text size:"sm" color:"muted"
-              "Changing the binding swaps the complete Splash branch and all normal page roots on web, Android, and iOS."
-        Card variant:"soft" scheme:"surface" p:5
-          Flex direction:"column" gap:2
-            Title size:"md" weight:"bold"
-              "Explicit completion"
+              "A layout wraps routed pages with persistent UI such as an AppBar, Sidebar, Footer, or navigation. It has one normal visual root and inserts page content through children."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "page"
+            Title size:"xl" weight:"black"
+              "Owns one route's content"
             Text size:"sm" color:"muted"
-              "Dowe never clears the loading Signal automatically; success and error paths own that decision."
-  Section id:"platform-routes" p:{ xs:5 md:8 }
+              "A page is the content selected by a route. It starts with Section, may use ordered sibling Sections, and cannot use the layout children boundary."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "component"
+            Title size:"xl" weight:"black"
+              "Reuses a static view tree"
+            Text size:"sm" color:"muted"
+              "A component extracts UI repeated by layouts, pages, or other components. The current contract does not accept props, slots, child content, Signals, functions, or requests."
+  Section id:"views-project-shape" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "PLATFORM ROUTES"
+          "PROJECT SHAPE"
         Title size:{ xs:"2xl" md:"4xl" } weight:"black"
-          "Choose the root experience for each target"
+          "Organize by responsibility"
         Text color:"muted"
-          "Add platform to a group when the same path needs a different layout and page on web, desktop, Android, or iOS. Dowe filters the route graph during compilation, so target-specific screens do not ship as runtime branches."
+          "This structure is recommended because it makes ownership obvious. Only main.dowe and theme.dowe have fixed locations; imported modules are classified by their declarations, not by their folders."
       Code:
         language:"dowe"
         variant:"soft"
         scheme:"surface"
-        copyLabel:"Copy Dowe"
+        copyLabel:"Copy view project structure"
         copiedLabel:"Copied"
         content:"""
-          import LandingLayout from "@/views/layouts/landing-layout"
-          import AuthLayout from "@/views/layouts/auth-layout"
-          import LandingPage from "@/views/pages/landing-page"
-          import LoginPage from "@/views/pages/login-page"
-
-          views RouteViews
-            group path:"/" layout:LandingLayout platform:"web"
-              route path:"" page:LandingPage
-            group path:"/" layout:AuthLayout platform:["desktop","ios","android"]
-              route path:"" page:LoginPage
+          main.dowe
+          theme.dowe
+          views/
+            routes/
+              app-routes.dowe
+            layouts/
+              app-layout.dowe
+            pages/
+              home-page.dowe
+              about-page.dowe
+            components/
+              app-brand.dowe
+            store/
+            types/
         """
       Grid columns:{ xs:1 md:3 } gap:4
         Card variant:"soft" scheme:"surface" p:5 rounded:"md"
           Grid columns:1 gap:2
             Title size:"lg" weight:"bold"
-              "One or many targets"
+              "Fixed root files"
             Text size:"sm" color:"muted"
-              "Use one quoted value or an array containing web, desktop, android, and ios. Omitting platform keeps the entry available everywhere."
+              "main.dowe connects the application. theme.dowe defines project design defaults. Neither file is imported as an ordinary module."
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Recommended folders"
+            Text size:"sm" color:"muted"
+              "routes, layouts, pages, and components are conventions for humans and agents. Moving a module is valid when its imports are updated."
         Card variant:"soft" scheme:"surface" p:5 rounded:"md"
           Grid columns:1 gap:2
             Title size:"lg" weight:"bold"
-              "Groups filter descendants"
+              "Reachable modules"
             Text size:"sm" color:"muted"
-              "A group applies its platform set to its layout and direct routes. A route may use platform again to narrow that set."
+              "Dowe compiles the static import graph starting at main.dowe. An unimported file does not become part of the application because it sits inside views."
+  Section id:"views-connected-example" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "CONNECTED EXAMPLE"
+        Title size:{ xs:"2xl" md:"4xl" } weight:"black"
+          "Follow the imports from entrypoint to UI"
+        Text color:"muted"
+          "These five files form one complete route. Each file has one clear responsibility, and every reference is resolved before Dowe generates a target."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold" color:"primary"
+              "main.dowe"
+            Text size:"sm" color:"muted"
+              "Activates the imported route graph."
+            Code:
+              language:"dowe"
+              variant:"soft"
+              scheme:"surface"
+              copyLabel:"Copy main.dowe"
+              copiedLabel:"Copied"
+              content:"""
+                import AppRoutes from "@/views/routes/app-routes"
+
+                main
+                  views:AppRoutes
+              """
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold" color:"muted"
+              "views/routes/app-routes.dowe"
+            Text size:"sm" color:"muted"
+              "Maps the root path to AppLayout and HomePage."
+            Code:
+              language:"dowe"
+              variant:"soft"
+              scheme:"surface"
+              copyLabel:"Copy route graph"
+              copiedLabel:"Copied"
+              content:"""
+                import AppLayout from "@/views/layouts/app-layout"
+                import HomePage from "@/views/pages/home-page"
+
+                views AppRoutes
+                  group path:"/" layout:AppLayout
+                    route path:"" page:HomePage
+              """
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold" color:"muted"
+              "views/layouts/app-layout.dowe"
+            Text size:"sm" color:"muted"
+              "Renders shared chrome and places the selected page at children."
+            Code:
+              language:"dowe"
+              variant:"soft"
+              scheme:"surface"
+              copyLabel:"Copy layout"
+              copiedLabel:"Copied"
+              content:"""
+                import AppBrand from "@/views/components/app-brand"
+
+                layout AppLayout
+                  Scaffold
+                    appBar
+                      AppBar
+                        start
+                          AppBrand
+                    main
+                      children
+              """
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold" color:"muted"
+              "views/pages/home-page.dowe"
+            Text size:"sm" color:"muted"
+              "Defines only the content for the root route."
+            Code:
+              language:"dowe"
+              variant:"soft"
+              scheme:"surface"
+              copyLabel:"Copy page"
+              copiedLabel:"Copied"
+              content:"""
+                page HomePage
+                  Section
+                    Grid columns:1 gap:3
+                      Title size:"3xl" weight:"black"
+                        "Build one system"
+                      Text color:"muted"
+                        "Dowe generates every selected target from this source."
+              """
+      Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Grid columns:1 gap:3
+          Text size:"xs" weight:"bold" color:"muted"
+            "views/components/app-brand.dowe"
+          Text size:"sm" color:"muted"
+            "Exports one reusable static tree used by the layout."
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy component"
+            copiedLabel:"Copied"
+            content:"""
+              component AppBrand
+                Flex align:"center" gap:2
+                  Icon name:"stars-minimalistic"
+                  Title size:"md" weight:"bold"
+                    "Dowe"
+            """
+  Section id:"views-route-resolution" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "ROUTE RESOLUTION"
+        Title size:{ xs:"2xl" md:"4xl" } weight:"black"
+          "The graph decides the URL"
+        Text color:"muted"
+          "Page file names do not create routes. Dowe combines each group path with its direct route path and validates the result across every active views graph."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"primary"
+              "ROOT PAGE"
+            Title size:"lg" weight:"bold"
+              "/ + empty = /"
+            Text size:"sm" color:"muted"
+              "group path:\"/\" with route path:\"\" selects the page at the root URL."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "CHILD PAGE"
+            Title size:"lg" weight:"bold"
+              "/docs + api = /docs/api"
+            Text size:"sm" color:"muted"
+              "A relative route path is appended to its group's path. Groups contain direct routes and cannot contain other groups."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "DUPLICATE"
+            Title size:"lg" weight:"bold"
+              "One path per target"
+            Text size:"sm" color:"muted"
+              "Two routes cannot claim the same resolved path for an overlapping platform set. Dowe reports the conflict before generation."
+  Section id:"views-decision-guide" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "DECISION GUIDE"
+        Title size:{ xs:"2xl" md:"4xl" } weight:"black"
+          "Create the file that owns the change"
+        Text color:"muted"
+          "Split by responsibility, not by file size alone. A module should answer one architectural question."
+      Grid columns:{ xs:1 md:2 } gap:4
         Card variant:"soft" scheme:"surface" p:5 rounded:"md"
           Grid columns:1 gap:2
             Title size:"lg" weight:"bold"
-              "Paths stay deterministic"
+              "A new URL"
             Text size:"sm" color:"muted"
-              "The same canonical path is valid for disjoint platform sets. Compilation fails if two entries claim that path for the same target."
+              "Create a page, import it into a views graph, and add one route. The page path and file name do not define the URL."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Shared application chrome"
+            Text size:"sm" color:"muted"
+              "Create or reuse a layout when multiple routes share navigation, bars, side content, overlays, or another persistent shell."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Repeated static UI"
+            Text size:"sm" color:"muted"
+              "Create a component when the same static view tree appears in two or more places. Keep state and workflows in the owning page or layout."
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "A large route catalog"
+            Text size:"sm" color:"muted"
+              "Create another focused views graph and connect both from main.dowe with an ordered views list. Routes may navigate across active graphs."

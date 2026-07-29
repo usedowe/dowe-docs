@@ -1,4 +1,9 @@
 page GrowthConsultingHeroPage
+  const trustedBrands value:[
+    { id:"google" label:"Google" },
+    { id:"youtube" label:"YouTube" },
+    { id:"facebook" label:"Facebook" },
+  ]
   Section id:"growth-consulting-hero" bg:"surface" color:"onSurface" boxed:true minH:"vh-16" py:{ xs:10 md:14 }
     Grid columns:{ xs:1 md:"1fr 2fr 1fr" } align:"center" minH:"vh-16"
       Box show:{ xs:false md:true }
@@ -18,16 +23,9 @@ page GrowthConsultingHeroPage
           Text size:"xs" weight:"bold" color:"muted"
             "TRUSTED BY"
           Flex wrap:true align:"center" justify:"center" gap:5
-            Flex align:"center" gap:2
-              Icon name:"global" style:"linear" fill:"primary" w:5 h:5
-              Text size:"sm" weight:"bold"
-                "Google"
-            Flex align:"center" gap:2
-              Icon name:"play-circle" style:"linear" fill:"primary" w:5 h:5
-              Text size:"sm" weight:"bold"
-                "YouTube"
-            Flex align:"center" gap:2
-              Icon name:"users-group-rounded" style:"linear" fill:"primary" w:5 h:5
-              Text size:"sm" weight:"bold"
-                "Facebook"
+            each in:trustedBrands as:brand key:brand.id
+              Flex align:"center" gap:2
+                Icon name:"global" style:"linear" fill:"primary" w:5 h:5
+                Text size:"sm" weight:"bold"
+                  "{brand.label}"
       Box show:{ xs:false md:true }

@@ -28,6 +28,8 @@ import ScaffoldPreviewPage from "@/views/pages/blocks/scaffold-preview-page"
 import HerosPage from "@/views/pages/blocks/hero-page"
 import AuthPage from "@/views/pages/blocks/auth-page"
 import FeaturesPage from "@/views/pages/blocks/features-page"
+import TablesPage from "@/views/pages/blocks/table-page"
+import DashboardTablePage from "@/views/pages/blocks/table-preview/team-directory-page"
 import CryptoAppHeroPage from "@/views/pages/blocks/hero-preview/crypto-app-page"
 import SmartSolutionsHeroPage from "@/views/pages/blocks/hero-preview/smart-solutions-page"
 import GrowthConsultingHeroPage from "@/views/pages/blocks/hero-preview/growth-consulting-page"
@@ -58,6 +60,7 @@ views BlockViews
     route path:"hero" page:HerosPage
     route path:"auth" page:AuthPage
     route path:"features" page:FeaturesPage
+    route path:"table" page:TablesPage
   group path:"/blocks/appbar-preview/classic-saas" layout:AppBarClassicSaasLayout
     route path:"" page:AppBarPreviewPage
   group path:"/blocks/appbar-preview/creative" layout:AppBarCreativeLayout
@@ -119,3 +122,5 @@ views BlockViews
     route path:"brand-transformation" page:BrandTransformationFeaturesPage
     route path:"online-solutions" page:OnlineSolutionsFeaturesPage
     route path:"complete-solutions" page:CompleteSolutionsFeaturesPage
+  group path:"/blocks/table-preview" layout:BlankLayout
+    route path:"team-directory" page:DashboardTablePage

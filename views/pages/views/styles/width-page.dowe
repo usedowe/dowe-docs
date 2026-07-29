@@ -1,0 +1,121 @@
+page WidthPage
+  const widthProps:
+    value:[
+      {
+        prop:"w"
+        type:"Dowe scale | full | responsive"
+        defaultValue:"—"
+      },
+      {
+        prop:"minW"
+        type:"Dowe scale | full | responsive"
+        defaultValue:"—"
+      },
+    ]
+  Section id:"width-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Flex direction:"column" gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "STYLES"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Width"
+        Text size:"lg" color:"muted"
+          "Set an explicit width or protect a component with a minimum width across every target."
+  Section id:"width-values" p:{ xs:5 md:7 }
+    Flex direction:"column" gap:6
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "WIDTH VALUES"
+        Title size:"3xl" weight:"black"
+          "Scale values and full width"
+        Text size:"sm" color:"muted"
+          "Numeric values use the Dowe scale. The full token occupies the available parent width."
+      Flex direction:"column" gap:4
+        Flex direction:"column" gap:2
+          Box bg:"softPrimary" rounded:"md" w:24 h:12
+          Text size:"sm" color:"muted"
+            "w:24"
+        Flex direction:"column" gap:2
+          Box bg:"softSecondary" rounded:"md" w:48 h:12
+          Text size:"sm" color:"muted"
+            "w:48"
+        Flex direction:"column" gap:2
+          Box bg:"softTertiary" rounded:"md" w:"full" h:12
+          Text size:"sm" color:"muted"
+            "w:\"full\""
+  Section id:"width-minimum" py:{ xs:7 md:10 }
+    Grid columns:{ xs:1 md:2 } gap:6 align:"center"
+      Flex direction:"column" gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "MINIMUM WIDTH"
+        Title size:"3xl" weight:"black"
+          "Keep controls usable"
+        Text size:"sm" color:"muted"
+          "minW establishes a lower bound while the surrounding layout still decides available space."
+        Code:
+          language:"dowe"
+          variant:"soft"
+          scheme:"surface"
+          copyLabel:"Copy Dowe"
+          copiedLabel:"Copied"
+          content:"""
+            Button minW:40 scheme:"primary"
+              "Continue"
+          """
+      Flex direction:"column" gap:4 align:"start"
+        Button minW:40 scheme:"primary"
+          "Continue"
+        Button minW:64 variant:"soft" scheme:"secondary"
+          "Create workspace"
+  Section id:"width-responsive" p:{ xs:5 md:7 }
+    Grid columns:{ xs:1 md:2 } gap:6 align:"center"
+      Flex direction:"column" gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "RESPONSIVE"
+        Title size:"3xl" weight:"black"
+          "Fill small screens, narrow later"
+        Text size:"sm" color:"muted"
+          "Use a responsive object when a surface should fill mobile space and become fixed on wider screens."
+        Code:
+          language:"dowe"
+          variant:"soft"
+          scheme:"surface"
+          copyLabel:"Copy Dowe"
+          copiedLabel:"Copied"
+          content:"""
+            Box w:{ xs:"full" md:64 } p:6 rounded:"lg"
+              Text "Responsive width"
+          """
+      Box bg:"softPrimary" w:{ xs:"full" md:64 } p:6 rounded:"lg"
+        Text weight:"bold"
+          "Full on xs, scale 64 from md."
+  Section id:"width-maximum" py:{ xs:7 md:10 }
+    Flex direction:"column" gap:5
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "MAXIMUM WIDTH"
+        Title size:"3xl" weight:"black"
+          "maxW is not a common prop yet"
+        Text size:"sm" color:"muted"
+          "The current sizing contract does not accept maxW. Use Section boxed:true for the standard content cap, Grid tracks for layout limits, or an explicit responsive w value."
+      Card variant:"soft" scheme:"warning" border:1 borderColor:"warning" rounded:"md" p:5
+        Text size:"sm"
+          "Authoring maxW currently produces an unknown prop diagnostic."
+  Section id:"width-props" py:{ xs:7 md:10 }
+    Flex direction:"column" gap:5
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Supported props"
+      Table:
+        data:widthProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"type" label:"Type" width:"4fr"
+        column field:"defaultValue" label:"Default" width:"1fr"

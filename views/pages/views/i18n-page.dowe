@@ -1,0 +1,235 @@
+page I18nPage
+  Section id:"i18n-introduction" py:{ xs:6 md:10 }
+    Grid columns:1 gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "LOCALIZATION"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "i18n"
+      Text size:"lg" color:"muted"
+        "Translate visible Views copy from Dowe catalogs without branching by platform or locale."
+  Section id:"i18n-model" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "MENTAL MODEL"
+        Title size:"3xl" weight:"black"
+          "One key, one source fallback, every target"
+        Text size:"sm" color:"muted"
+          "Dowe validates catalogs before generation and lowers each localized value through the shared Views model."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Catalogs live at the root"
+            Text size:"sm" color:"muted"
+              "Create one i18n/<locale>.dowe file per supported two- or three-letter lowercase locale."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Fallback copy stays visible"
+            Text size:"sm" color:"muted"
+              "The direct text child or required label remains deterministic source and SSR copy."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Targets own locale lookup"
+            Text size:"sm" color:"muted"
+              "Web, desktop, Android, and iOS resolve the same keys with target-native output."
+  Section id:"i18n-smallest-example" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SMALLEST VALID SETUP"
+        Title size:"3xl" weight:"black"
+          "Declare every key in every locale"
+        Text size:"sm" color:"muted"
+          "Exactly one catalog must declare default:true. Nested node names form dot-separated keys."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Grid columns:1 gap:2
+          Text size:"sm" weight:"bold"
+            "i18n/en.dowe"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy Dowe"
+            copiedLabel:"Copied"
+            content:"""
+              translations default:true
+                home
+                  hero
+                    title "Build systems with Dowe"
+                    summary "One source model for every target."
+                actions
+                  start "Get started"
+            """
+        Grid columns:1 gap:2
+          Text size:"sm" weight:"bold"
+            "i18n/es.dowe"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy Dowe"
+            copiedLabel:"Copied"
+            content:"""
+              translations
+                home
+                  hero
+                    title "Construye sistemas con Dowe"
+                    summary "Un modelo fuente para cada target."
+                actions
+                  start "Comenzar"
+            """
+      Grid columns:1 gap:2
+        Text size:"sm" weight:"bold"
+          "views/pages/home-page.dowe"
+        Code:
+          language:"dowe"
+          variant:"soft"
+          scheme:"surface"
+          copyLabel:"Copy Dowe"
+          copiedLabel:"Copied"
+          content:"""
+            page HomePage
+              Section
+                Title i18n:"home.hero.title"
+                  "Build systems with Dowe"
+                Text i18n:"home.hero.summary"
+                  "One source model for every target."
+                Button i18n:"actions.start" href:"/docs"
+                  "Get started"
+          """
+  Section id:"i18n-surfaces" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SUPPORTED SURFACES"
+        Title size:"3xl" weight:"black"
+          "Localize copy where the component contract allows it"
+        Text size:"sm" color:"muted"
+          "The i18n prop always points to a quoted key and never replaces the required fallback."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Direct visible text"
+            Text size:"sm" color:"muted"
+              "Text, Title, and Button use i18n for their one direct static text child."
+        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Navigation labels"
+            Text size:"sm" color:"muted"
+              "NavMenu, SideNav, RailNav, BottomBar, and Tabs entries localize their required labels."
+        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Descriptions"
+            Text size:"sm" color:"muted"
+              "Use descriptionI18n only when the same NavMenu or SideNav entry declares description."
+        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Status copy"
+            Text size:"sm" color:"muted"
+              "Use statusI18n on a supported SideNav entry only when its status fallback is present."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          SideNav
+            item:
+              label:"Guides"
+              i18n:"navigation.guides"
+              description:"Learn Dowe"
+              descriptionI18n:"navigation.guidesDescription"
+              status:"New"
+              statusI18n:"navigation.new"
+              href:"/guides"
+
+          Tabs
+            tab id:"overview" label:"Overview" i18n:"tabs.overview"
+              Text
+                "Overview content"
+        """
+      Text size:"sm" color:"muted"
+        "Add navigation.guides, navigation.guidesDescription, navigation.new, and tabs.overview to every locale catalog before using this example."
+  Section id:"i18n-validation" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "VALIDATION"
+        Title size:"3xl" weight:"black"
+          "Localization errors stop before generation"
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"danger" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Catalog shape"
+            Text size:"sm"
+              "Dowe rejects invalid locale names, missing or multiple defaults, empty values, and duplicate keys."
+        Card variant:"soft" scheme:"warning" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Complete coverage"
+            Text size:"sm"
+              "Every referenced key must exist in every declared locale, even when source has fallback copy."
+        Card variant:"soft" scheme:"info" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Static fallbacks"
+            Text size:"sm"
+              "Localized direct text cannot use a reactive binding, and secondary keys require their fallback props."
+      Grid columns:1 gap:2
+        Text size:"sm" weight:"bold"
+          "Compatibility entry"
+        Code:
+          language:"dowe"
+          variant:"soft"
+          scheme:"surface"
+          copyLabel:"Copy Dowe"
+          copiedLabel:"Copied"
+          content:"""
+            translations default:true
+              translation key:"actions.save" value:"Save"
+          """
+        Text size:"sm" color:"muted"
+          "The explicit translation entry remains supported, but nested groups are easier to scan and maintain."
+  Section id:"i18n-targets" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "TARGET OUTPUT"
+        Title size:"3xl" weight:"black"
+          "Locale selection stays platform-owned"
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Web and desktop"
+            Text size:"sm" color:"muted"
+              "The browser checks navigator.languages, tries an exact and primary-language match, then uses the default locale."
+            Text size:"sm" color:"muted"
+              "Desktop reuses the same deterministic chunks under .dowe/web/chunks/i18n."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Android"
+            Text size:"sm" color:"muted"
+              "Dowe emits values/strings.xml for the default and values-<locale>/strings.xml for the other locales."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "iOS"
+            Text size:"sm" color:"muted"
+              "Dowe emits one <locale>.lproj/Localizable.strings catalog and uses native localized lookup."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Current limits"
+            Text size:"sm" color:"muted"
+              "Manual locale switching, ICU formatting, interpolation, plural rules, and header-based SSR locale selection are not supported."

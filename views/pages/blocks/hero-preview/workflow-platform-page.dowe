@@ -1,4 +1,11 @@
 page WorkflowPlatformHeroPage
+  const trustedBrands value:[
+    { id:"next" label:"Next" },
+    { id:"upgrade" label:"Upgrade" },
+    { id:"intdeco" label:"Intdeco" },
+    { id:"thanos" label:"Thanos" },
+    { id:"stackd" label:"Stackd" },
+  ]
   Section:
     id:"workflow-platform-hero"
     cover:"/assets/blocks/hero/geometric-grid.jpg"
@@ -34,23 +41,8 @@ page WorkflowPlatformHeroPage
           "14-day free trial. No credit card needed."
       Box h:20
       Flex wrap:true justify:"center" align:"center" gap:{ xs:8 md:24 }
-        Flex align:"center" gap:3
-          Icon name:"layers-minimalistic" style:"bold" fill:"muted" w:10 h:10
-          Text size:"3xl" weight:"black" color:"muted"
-            "Next"
-        Flex align:"center" gap:3
-          Icon name:"graph-new-up" style:"bold" fill:"muted" w:10 h:10
-          Text size:"3xl" weight:"black" color:"muted"
-            "Upgrade"
-        Flex align:"center" gap:3
-          Icon name:"chart" style:"bold" fill:"muted" w:10 h:10
-          Text size:"3xl" weight:"black" color:"muted"
-            "Intdeco"
-        Flex align:"center" gap:3
-          Icon name:"shield-check" style:"bold" fill:"muted" w:10 h:10
-          Text size:"3xl" weight:"black" color:"muted"
-            "Thanos"
-        Flex align:"center" gap:3
-          Icon name:"layers" style:"bold" fill:"muted" w:10 h:10
-          Text size:"3xl" weight:"black" color:"muted"
-            "Stackd"
+        each in:trustedBrands as:brand key:brand.id
+          Flex align:"center" gap:3
+            Icon name:"layers-minimalistic" style:"bold" fill:"muted" w:10 h:10
+            Text size:"3xl" weight:"black" color:"muted"
+              "{brand.label}"

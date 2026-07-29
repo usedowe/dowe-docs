@@ -1,0 +1,133 @@
+page HeightPage
+  const heightProps:
+    value:[
+      {
+        prop:"h"
+        type:"Dowe scale | full | vh-<scale> | responsive"
+        defaultValue:"—"
+      },
+      {
+        prop:"minH"
+        type:"Dowe scale | full | vh-<scale> | responsive"
+        defaultValue:"—"
+      },
+    ]
+  Section id:"height-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Flex direction:"column" gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "STYLES"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Height"
+        Text size:"lg" color:"muted"
+          "Control fixed, minimum, full, and viewport-aware heights with portable Dowe values."
+  Section id:"height-values" p:{ xs:5 md:7 }
+    Flex direction:"column" gap:6
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "HEIGHT VALUES"
+        Title size:"3xl" weight:"black"
+          "Fixed heights from the scale"
+        Text size:"sm" color:"muted"
+          "Numeric values use the same logical scale on web, Android, and iOS."
+      Grid columns:{ xs:1 md:3 } gap:4 align:"end"
+        Flex direction:"column" gap:3
+          Box bg:"softPrimary" rounded:"md" w:"full" h:16
+          Text size:"sm" weight:"bold"
+            "h:16"
+        Flex direction:"column" gap:3
+          Box bg:"softSecondary" rounded:"md" w:"full" h:24
+          Text size:"sm" weight:"bold"
+            "h:24"
+        Flex direction:"column" gap:3
+          Box bg:"softTertiary" rounded:"md" w:"full" h:32
+          Text size:"sm" weight:"bold"
+            "h:32"
+  Section id:"height-full" py:{ xs:7 md:10 }
+    Grid columns:{ xs:1 md:2 } gap:6 align:"center"
+      Flex direction:"column" gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "FULL HEIGHT"
+        Title size:"3xl" weight:"black"
+          "Fill the available parent height"
+        Text size:"sm" color:"muted"
+          "The full token follows the height made available by the containing layout."
+        Code:
+          language:"dowe"
+          variant:"soft"
+          scheme:"surface"
+          copyLabel:"Copy Dowe"
+          copiedLabel:"Copied"
+          content:"""
+            Box h:40
+              Box h:"full" bg:"softPrimary"
+          """
+      Box h:40 border:1 borderColor:"muted" rounded:"lg" p:3
+        Box h:"full" bg:"softPrimary" rounded:"md"
+          Flex h:"full" align:"center" justify:"center"
+            Text weight:"bold"
+              "h:\"full\""
+  Section id:"height-minimum" p:{ xs:5 md:7 }
+    Grid columns:{ xs:1 md:2 } gap:6 align:"center"
+      Flex direction:"column" gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "MINIMUM HEIGHT"
+        Title size:"3xl" weight:"black"
+          "Reserve space without clipping content"
+        Text size:"sm" color:"muted"
+          "minH sets a lower bound and still allows the component to grow with its children."
+      Card minH:32 variant:"soft" scheme:"secondary" rounded:"lg" p:6
+        Flex direction:"column" gap:2 justify:"center" minH:20
+          Title size:"lg" weight:"bold"
+            "Flexible content"
+          Text size:"sm" color:"muted"
+            "This card is at least scale 32 high and can grow when more content is added."
+  Section id:"height-viewport" py:{ xs:7 md:10 }
+    Flex direction:"column" gap:5
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "VIEWPORT HEIGHT"
+        Title size:"3xl" weight:"black"
+          "Subtract a known scale value"
+        Text size:"sm" color:"muted"
+          "h and minH accept vh-<scale> when a manual surface must reserve viewport space. Scaffold already handles its fixed AppBar inset."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Box minH:"vh-16"
+            Text "Viewport height minus scale 16"
+        """
+  Section id:"height-maximum" p:{ xs:5 md:7 }
+    Flex direction:"column" gap:5
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "MAXIMUM HEIGHT"
+        Title size:"3xl" weight:"black"
+          "maxH is not a common prop yet"
+        Text size:"sm" color:"muted"
+          "The current sizing contract does not accept maxH. Use a fixed or responsive h value and a component that owns overflow behavior when content must stay bounded."
+      Card variant:"soft" scheme:"warning" border:1 borderColor:"warning" rounded:"md" p:5
+        Text size:"sm"
+          "Authoring maxH currently produces an unknown prop diagnostic."
+  Section id:"height-props" py:{ xs:7 md:10 }
+    Flex direction:"column" gap:5
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Supported props"
+      Table:
+        data:heightProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"type" label:"Type" width:"4fr"
+        column field:"defaultValue" label:"Default" width:"1fr"

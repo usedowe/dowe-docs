@@ -18,7 +18,7 @@ page IconPage
     ]
   const iconProps:
     value:[
-      { prop:"name" type:"Solar | country-flags:* | svg-spinners:*" defaultValue:"required" },
+      { prop:"name" type:"Solar | country-flags:* | svg-spinners:* | svg-logos:*" defaultValue:"required" },
       { prop:"style" type:"broken | outline | linear | bold | line-duotone | bold-duotone" defaultValue:"linear" },
       { prop:"fill" type:"currentColor | Dowe color token" defaultValue:"currentColor" },
       { prop:"stroke" type:"currentColor | Dowe color token" defaultValue:"currentColor" },
@@ -398,21 +398,22 @@ page IconPage
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Icon"
         Text size:"lg" color:"muted"
-          "Icon resolves bundled Solar, country flag, and animated SVG Spinner vectors before target generation."
+          "Icon resolves bundled Solar, country flag, animated SVG Spinner, and SVG Logos vectors before target generation."
       Flex gap:4 align:"center"
         Icon name:"alt-arrow-right" style:"bold-duotone" fill:"primary" w:10 h:10
         Icon name:"country-flags:CO" w:10 h:10
         Icon name:"svg-spinners:3-dots-bounce" fill:"secondary" w:10 h:10
+        Icon name:"svg-logos:github-icon" w:10 h:10
   Section id:"icon-catalogs" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "THREE CATALOGS"
+          "FOUR CATALOGS"
         Title size:"3xl" weight:"black"
           "One component, namespaced sources"
         Text size:"sm" color:"muted"
-          "Plain names resolve Solar. Country flags and SVG Spinners use explicit namespaces so completions and diagnostics stay deterministic."
-      Grid columns:{ xs:1 md:3 } gap:4
+          "Plain names resolve Solar. Country flags, SVG Spinners, and SVG Logos use explicit namespaces so completions and diagnostics stay deterministic."
+      Grid columns:{ xs:1 md:2 xl:4 } gap:4
         Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
           Grid columns:1 gap:3
             Icon name:"layers" style:"line-duotone" fill:"primary" w:9 h:9
@@ -434,11 +435,102 @@ page IconPage
               "SVG Spinners"
             Text size:"sm" color:"muted"
               "Prefix one of 46 bundled spinner names with svg-spinners: and keep linear style."
+        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+          Grid columns:1 gap:3
+            Icon name:"svg-logos:github-icon" w:9 h:9
+            Title size:"lg" weight:"black"
+              "SVG Logos"
+            Text size:"sm" color:"muted"
+              "Prefix one of 1,863 bundled logo names with svg-logos: and keep its authored brand colors."
       Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
         Icon name:"alt-arrow-right" style:"bold-duotone" fill:"primary"
         Icon name:"country-flags:CO" w:8 h:8
         Icon name:"svg-spinners:3-dots-bounce" fill:"secondary" w:8 h:8
+        Icon name:"svg-logos:github-icon" w:8 h:8
       """
+  Section id:"icon-logos" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SVG LOGOS"
+        Title size:"3xl" weight:"black"
+          "Brand vectors without runtime downloads"
+        Text size:"sm" color:"muted"
+          "Choose a lower-case SVG Logos file stem with the svg-logos: namespace. Only referenced logos enter generated output."
+        Text size:"sm" color:"muted"
+          "Web and desktop preserve the validated original SVG. Native targets draw shared normalized paths with deterministic solid fallbacks for complex paints."
+      Grid columns:{ xs:2 sm:3 md:4 xl:6 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Flex direction:"column" gap:3 align:"center"
+            Icon name:"svg-logos:github-icon" w:10 h:10
+            Text size:"xs" weight:"bold"
+              "github-icon"
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Flex direction:"column" gap:3 align:"center"
+            Icon name:"svg-logos:openai" w:10 h:10
+            Text size:"xs" weight:"bold"
+              "openai"
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Flex direction:"column" gap:3 align:"center"
+            Icon name:"svg-logos:anthropic-icon" w:10 h:10
+            Text size:"xs" weight:"bold"
+              "anthropic-icon"
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Flex direction:"column" gap:3 align:"center"
+            Icon name:"svg-logos:cloudflare-workers" w:10 h:10
+            Text size:"xs" weight:"bold"
+              "cloudflare-workers"
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Flex direction:"column" gap:3 align:"center"
+            Icon name:"svg-logos:rust" w:10 h:10
+            Text size:"xs" weight:"bold"
+              "rust"
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Flex direction:"column" gap:3 align:"center"
+            Icon name:"svg-logos:apple" w:10 h:10
+            Text size:"xs" weight:"bold"
+              "apple"
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Flex direction:"column" gap:3 align:"center"
+            Icon name:"svg-logos:google" w:10 h:10
+            Text size:"xs" weight:"bold"
+              "google"
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Flex direction:"column" gap:3 align:"center"
+            Icon name:"svg-logos:docker" w:10 h:10
+            Text size:"xs" weight:"bold"
+              "docker"
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Flex direction:"column" gap:3 align:"center"
+            Icon name:"svg-logos:figma" w:10 h:10
+            Text size:"xs" weight:"bold"
+              "figma"
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Flex direction:"column" gap:3 align:"center"
+            Icon name:"svg-logos:model-context-protocol-icon" w:10 h:10
+            Text size:"xs" weight:"bold"
+              "model-context-protocol-icon"
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Flex direction:"column" gap:3 align:"center"
+            Icon name:"svg-logos:vercel-icon" w:10 h:10
+            Text size:"xs" weight:"bold"
+              "vercel-icon"
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Flex direction:"column" gap:3 align:"center"
+            Icon name:"svg-logos:vite-icon" w:10 h:10
+            Text size:"xs" weight:"bold"
+              "vite-icon"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Icon name:"svg-logos:github-icon" w:10 h:10
+          Icon name:"svg-logos:cloudflare-workers" w:10 h:10
+        """
+      Alert type:"info" message:"SVG Logos is CC0, but logos and trademarks remain the property of their respective owners. Icon is decorative, so label the containing control or link." variant:"soft" scheme:"info"
   Section id:"icon-browser" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2

@@ -1,5 +1,6 @@
 import ViewsLayout from "@/views/layouts/views-layout"
 import ViewsPage from "@/views/pages/views/views-page"
+import I18nPage from "@/views/pages/views/i18n-page"
 import AudioPage from "@/views/pages/views/control/audio-page"
 import ButtonPage from "@/views/pages/views/control/button-page"
 import CanvasOverviewPage from "@/views/pages/views/canvas/overview-page"
@@ -38,6 +39,7 @@ import AvatarGroupPage from "@/views/pages/views/display/avatar-group-page"
 import BadgePage from "@/views/pages/views/display/badge-page"
 import BoxPage from "@/views/pages/views/display/box-page"
 import BrandPage from "@/views/pages/views/display/brand-page"
+import BannerPage from "@/views/pages/views/display/banner-page"
 import AccordionPage from "@/views/pages/views/display/accordion-page"
 import CarouselPage from "@/views/pages/views/display/carousel-page"
 import CollapsiblePage from "@/views/pages/views/display/collapsible-page"
@@ -71,6 +73,10 @@ import AppBarPage from "@/views/pages/views/layout/appbar-page"
 import FooterPage from "@/views/pages/views/layout/footer-page"
 import BottomBarPage from "@/views/pages/views/layout/bottombar-page"
 import ScaffoldPage from "@/views/pages/views/layout/scaffold-page"
+import RoundedPage from "@/views/pages/views/styles/rounded-page"
+import WidthPage from "@/views/pages/views/styles/width-page"
+import HeightPage from "@/views/pages/views/styles/height-page"
+import BorderPage from "@/views/pages/views/styles/border-page"
 import ShadowPage from "@/views/pages/views/styles/shadow-page"
 import VideoPage from "@/views/pages/views/control/video-page"
 import RecordPage from "@/views/pages/views/control/record-page"
@@ -80,6 +86,9 @@ import TogglePage from "@/views/pages/views/forms/toggle-page"
 import IconButtonPage from "@/views/pages/views/control/icon-button-page"
 import ToggleThemePage from "@/views/pages/views/multi-theme/toggle-theme-page"
 import SelectThemePage from "@/views/pages/views/multi-theme/select-theme-page"
+import FontsPage from "@/views/pages/views/theme/fonts-page"
+import NamedThemesPage from "@/views/pages/views/theme/named-themes-page"
+import ComponentDefaultsPage from "@/views/pages/views/theme/component-defaults-page"
 import SignalsPage from "@/views/pages/views/signals-page"
 import StorePage from "@/views/pages/views/store-page"
 import FunctionsPage from "@/views/pages/views/functions-page"
@@ -89,12 +98,17 @@ import ParsePage from "@/views/pages/views/utilities/parse-page"
 views ViewsViews
   group path:"/docs/views" layout:ViewsLayout
     route path:"" page:ViewsPage
+    route path:"i18n" page:I18nPage
     route path:"layout/flex" page:FlexPage
     route path:"layout/grid" page:GridPage
     route path:"layout/appbar" page:AppBarPage
     route path:"layout/footer" page:FooterPage
     route path:"layout/bottombar" page:BottomBarPage
     route path:"layout/scaffold" page:ScaffoldPage
+    route path:"style/rounded" page:RoundedPage
+    route path:"style/width" page:WidthPage
+    route path:"style/height" page:HeightPage
+    route path:"style/border" page:BorderPage
     route path:"style/shadow" page:ShadowPage
     route path:"state/signals" page:SignalsPage
     route path:"state/store" page:StorePage
@@ -142,12 +156,16 @@ views ViewsViews
     route path:"form/pin-field" page:PinFieldPage
     route path:"multi-theme/toggle-theme" page:ToggleThemePage
     route path:"multi-theme/select-theme" page:SelectThemePage
+    route path:"theme/fonts" page:FontsPage
+    route path:"theme/named-themes" page:NamedThemesPage
+    route path:"theme/component-defaults" page:ComponentDefaultsPage
     route path:"display/alert" page:AlertPage
     route path:"display/avatar" page:AvatarPage
     route path:"display/avatar-group" page:AvatarGroupPage
     route path:"display/badge" page:BadgePage
     route path:"display/box" page:BoxPage
     route path:"display/brand" page:BrandPage
+    route path:"display/banner" page:BannerPage
     route path:"display/accordion" page:AccordionPage
     route path:"display/carousel" page:CarouselPage
     route path:"display/collapsible" page:CollapsiblePage

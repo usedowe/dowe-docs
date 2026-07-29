@@ -5,7 +5,7 @@ layout DevLayout
   signal openDrawer value:false
   Scaffold boxed:true
     appBar
-      AppBar variant:"soft" scheme:"surface" boxed:true bordered:true position:"fixed"
+      AppBar variant:"soft" scheme:"background" boxed:true bordered:true position:"fixed"
         start
           IconButton:
             show:{ xs:true md:false }
@@ -15,10 +15,10 @@ layout DevLayout
             icon:"menu-dots"
           Logo
         center
-          NavMenu show:{ xs:false md:true }
-            item label:"Views" href:"/docs/views"
-            item label:"Server" href:"/docs/server"
+          NavMenu show:{ xs:false md:true } size:"lg"
             item label:"Dev" href:"/docs/dev"
+            item label:"Server" href:"/docs/server"
+            item label:"Views" href:"/docs/views"
             item label:"Blocks" href:"/blocks/hero"
         end
           Github

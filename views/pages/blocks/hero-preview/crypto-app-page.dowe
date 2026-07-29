@@ -6,7 +6,7 @@ page CryptoAppHeroPage
     boxed:true
     minH:"vh-16"
     py:{ xs:8 md:12 }
-    Grid columns:{ xs:1 md:"5fr 4fr" } gap:{ xs:8 md:14 } align:"stretch" minH:"vh-16"
+    Grid columns:{ xs:1 md:"5fr 4fr" } gap:{ xs:8 md:14 } align:"center" minH:"vh-16"
       Flex direction:"column" align:"start" justify:"center" gap:5
         Text size:"xs" weight:"bold" spacing:"widest" color:"primary"
           "WORK WITHOUT THE CLUTTER"
@@ -19,6 +19,6 @@ page CryptoAppHeroPage
       Box:
         cover:"/assets/blocks/hero/crypto-wallet.jpg"
         rounded:"xl"
-        minH:{ xs:64 md:"vh-16" }
+        minH:{ xs:56 md:80 }
         shadow:"xl"
         shadowColor:"muted"

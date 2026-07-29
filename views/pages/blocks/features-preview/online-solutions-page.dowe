@@ -1,40 +1,40 @@
 page OnlineSolutionsFeaturesPage
+  const onlineCapabilities:
+    value:[
+      {
+        id:"marketing"
+        title:"Digital Marketing"
+        description:"Plan campaigns around real customer needs and measurable business outcomes."
+      },
+      {
+        id:"design"
+        title:"Dev and Design"
+        description:"Turn ideas into polished experiences with one coordinated product workflow."
+      },
+      {
+        id:"analytics"
+        title:"Data & Analytics"
+        description:"Make performance visible and turn timely insights into confident decisions."
+      },
+      {
+        id:"content"
+        title:"Content Strategy"
+        description:"Create a durable content system across channels, formats, and customer stages."
+      },
+    ]
   Section id:"online-solutions-features" bg:"surface" color:"onSurface" boxed:true py:{ xs:8 md:12 }
     Grid columns:{ xs:1 md:"7fr 5fr" } gap:{ xs:10 md:16 } align:"center"
       Box bg:"softMuted" p:{ xs:5 md:8 }
         Grid columns:{ xs:1 sm:2 } gap:5
-          Card variant:"solid" scheme:"surface" rounded:"lg" shadow:"md" p:6 minH:56
-            Flex direction:"column" gap:4
-              Box bg:"softPrimary" rounded:"full" w:14 h:14 p:2
-                Icon name:"graph-new-up" style:"line-duotone" fill:"primary" w:10 h:10
-              Title size:"lg" weight:"black"
-                "Digital Marketing"
-              Text color:"muted"
-                "Plan campaigns around real customer needs and measurable business outcomes."
-          Card variant:"solid" scheme:"surface" rounded:"lg" shadow:"md" p:6 minH:56
-            Flex direction:"column" gap:4
-              Box bg:"softPrimary" rounded:"full" w:14 h:14 p:2
-                Icon name:"settings-minimalistic" style:"line-duotone" fill:"primary" w:10 h:10
-              Title size:"lg" weight:"black"
-                "Dev and Design"
-              Text color:"muted"
-                "Turn ideas into polished experiences with one coordinated product workflow."
-          Card variant:"solid" scheme:"surface" rounded:"lg" shadow:"md" p:6 minH:56
-            Flex direction:"column" gap:4
-              Box bg:"softPrimary" rounded:"full" w:14 h:14 p:2
-                Icon name:"presentation-graph" style:"line-duotone" fill:"primary" w:10 h:10
-              Title size:"lg" weight:"black"
-                "Data & Analytics"
-              Text color:"muted"
-                "Make performance visible and turn timely insights into confident decisions."
-          Card variant:"solid" scheme:"surface" rounded:"lg" shadow:"md" p:6 minH:56
-            Flex direction:"column" gap:4
-              Box bg:"softPrimary" rounded:"full" w:14 h:14 p:2
-                Icon name:"route" style:"line-duotone" fill:"primary" w:10 h:10
-              Title size:"lg" weight:"black"
-                "Content Strategy"
-              Text color:"muted"
-                "Create a durable content system across channels, formats, and customer stages."
+          each in:onlineCapabilities as:capability key:capability.id
+            Card variant:"solid" scheme:"surface" rounded:"lg" shadow:"md" p:6 minH:56
+              Flex direction:"column" gap:4
+                Box bg:"softPrimary" rounded:"full" w:14 h:14 p:2
+                  Icon name:"stars" style:"line-duotone" fill:"primary" w:10 h:10
+                Title size:"lg" weight:"black"
+                  "{capability.title}"
+                Text color:"muted"
+                  "{capability.description}"
       Flex direction:"column" gap:6
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "ONE-STOP SOLUTIONS"

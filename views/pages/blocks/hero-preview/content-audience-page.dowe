@@ -1,11 +1,18 @@
 page ContentAudienceHeroPage
+  const audienceMembers value:[
+    { id:"maya" name:"Maya" alt:"Maya Chen" },
+    { id:"leo" name:"Leo" alt:"Leo Martin" },
+    { id:"amara" name:"Amara" alt:"Amara Okafor" },
+    { id:"lin" name:"Lin" alt:"Lin Park" },
+    { id:"dowe" name:"Dowe" alt:"Dowe Agent" },
+  ]
   Section:
     id:"content-audience-hero"
     background:"aurora"
     boxed:true
     minH:"vh-16"
     py:{ xs:8 md:12 }
-    Grid columns:{ xs:1 md:"5fr 6fr" } gap:{ xs:8 md:16 } align:"stretch" minH:"vh-16"
+    Grid columns:{ xs:1 md:"5fr 6fr" } gap:{ xs:8 md:16 } align:"center" minH:"vh-16"
       Flex direction:"column" align:"start" justify:"center" gap:6
         Title size:"7xl" weight:"black" show:{ xs:false md:true }
           "Content is the key to building an audience"
@@ -19,12 +26,13 @@ page ContentAudienceHeroPage
           Button variant:"outlined" scheme:"muted" size:"lg"
             "Find Out More"
         Flex align:"center" gap:4 pt:2
-          AvatarGroup size:"md" max:4 bordered:true variant:"soft" scheme:"primary"
-            item name:"Maya" alt:"Maya Chen"
-            item name:"Leo" alt:"Leo Martin"
-            item name:"Amara" alt:"Amara Okafor"
-            item name:"Lin" alt:"Lin Park"
-            item name:"Dowe" alt:"Dowe Agent"
+          AvatarGroup:
+            items:audienceMembers
+            size:"md"
+            max:4
+            bordered:true
+            variant:"soft"
+            scheme:"primary"
           Grid columns:1 gap:1
             Text size:"sm" color:"muted"
               "Trusted by 12K+ worldwide"
@@ -34,7 +42,7 @@ page ContentAudienceHeroPage
         position:"relative"
         cover:"/assets/blocks/hero/content-creator.jpg"
         rounded:"xl"
-        minH:{ xs:"vh-56" md:"vh-16" }
+        minH:96
         shadow:"xl"
         shadowColor:"muted"
         Box position:"absolute" top:{ xs:4 md:6 } right:{ xs:4 md:6 }

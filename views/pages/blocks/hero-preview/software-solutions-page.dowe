@@ -1,13 +1,13 @@
 page SoftwareSolutionsHeroPage
-  Section id:"software-solutions-hero" boxed:true minH:"vh-16" py:{ xs:6 md:10 }
+  Section id:"software-solutions-hero" boxed:true py:{ xs:6 md:10 }
     Card:
       cover:"/assets/blocks/hero/technology-analytics.jpg"
       overlay:"rgba(8,16,40,0.76)"
       rounded:"xl"
-      minH:"vh-16"
+      minH:96
       w:"full"
       p:{ xs:8 md:14 }
-      Flex direction:"column" align:"center" justify:"center" gap:0 minH:{ xs:"vh-32" md:"vh-44" }
+      Flex direction:"column" align:"center" justify:"center" gap:0 minH:{ xs:72 md:80 }
         Flex direction:"column" align:"center" gap:0 show:{ xs:false md:true }
           Title size:"7xl" weight:"black" color:"onPrimary"
             "Software solutions for"

@@ -1,4 +1,11 @@
 page LeadCaptureHeroPage
+  const audienceMembers value:[
+    { id:"maya" name:"Maya" alt:"Maya Chen" },
+    { id:"leo" name:"Leo" alt:"Leo Martin" },
+    { id:"amara" name:"Amara" alt:"Amara Okafor" },
+    { id:"lin" name:"Lin" alt:"Lin Park" },
+    { id:"dowe" name:"Dowe" alt:"Dowe Agent" },
+  ]
   Section:
     id:"lead-capture-hero"
     cover:"/assets/blocks/hero/digital-globe.jpg"
@@ -15,12 +22,13 @@ page LeadCaptureHeroPage
         Text size:"lg"
           "Bring strategy and execution together with practical tools designed for ambitious teams."
         Flex align:"center" gap:4 pt:2
-          AvatarGroup size:"lg" max:4 bordered:true variant:"soft" scheme:"primary"
-            item name:"Maya" alt:"Maya Chen"
-            item name:"Leo" alt:"Leo Martin"
-            item name:"Amara" alt:"Amara Okafor"
-            item name:"Lin" alt:"Lin Park"
-            item name:"Dowe" alt:"Dowe Agent"
+          AvatarGroup:
+            items:audienceMembers
+            size:"lg"
+            max:4
+            bordered:true
+            variant:"soft"
+            scheme:"primary"
           Grid columns:1 gap:1
             Text size:"sm"
               "Trusted by 12K+ worldwide"

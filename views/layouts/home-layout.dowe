@@ -8,8 +8,12 @@ layout HomeLayout
           Logo
         end
           NavMenu size:"lg"
-            item label:"Docs" href:"/docs/views"
+            item label:"Docs" href:"/docs/dev"
             item label:"Blocks" href:"/blocks/hero"
           Github
     main
       children
+      Footer variant:"solid" scheme:"primary" boxed:true py:4
+        center
+          Text size:"xs" color:"onMuted"
+            "Dowe @ 2026. All rights reserved."

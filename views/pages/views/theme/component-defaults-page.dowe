@@ -1,0 +1,273 @@
+page ComponentDefaultsPage
+  const componentSlots:
+    value:[
+      {
+        slot:"Card"
+        scope:"Card surfaces and card-assigned components"
+        props:"variant, scheme, radius/rounded, size, shadow, shadowColor, border, borderColor"
+      },
+      {
+        slot:"Button"
+        scope:"Button and button-assigned actions"
+        props:"variant, scheme, radius/rounded, size, shadow, shadowColor, border, borderColor"
+      },
+      {
+        slot:"Avatar"
+        scope:"Avatar and AvatarGroup"
+        props:"variant, scheme, radius/rounded, size, shadow, shadowColor, border, borderColor"
+      },
+      {
+        slot:"Chip"
+        scope:"Chip"
+        props:"variant, scheme, radius/rounded, size, shadow, shadowColor, border, borderColor"
+      },
+      {
+        slot:"Ui"
+        scope:"Shared controls, fields, bars, navigation, overlays, and UI surfaces"
+        props:"variant, scheme, radius/rounded, size, shadow, shadowColor, border, borderColor"
+      },
+      {
+        slot:"Text"
+        scope:"Text"
+        props:"font only"
+      },
+      {
+        slot:"Title"
+        scope:"Title"
+        props:"font only"
+      },
+    ]
+  const defaultProps:
+    value:[
+      {
+        prop:"variant"
+        values:"solid | soft | outline | outlined | line | ghost"
+        note:"outline normalizes to outlined"
+      },
+      {
+        prop:"scheme"
+        values:"primary | secondary | tertiary | muted | background | surface | success | info | warning | danger"
+        note:"Semantic color family"
+      },
+      {
+        prop:"radius or rounded"
+        values:"xs | sm | md | lg | xl | full"
+        note:"Two names for the same portable radius default"
+      },
+      {
+        prop:"size"
+        values:"xs | sm | md | lg | xl"
+        note:"Portable component size"
+      },
+      {
+        prop:"shadow"
+        values:"xs | sm | md | lg | xl"
+        note:"Portable shadow scale"
+      },
+      {
+        prop:"shadowColor"
+        values:"Any semantic color family"
+        note:"Color family for the shadow"
+      },
+      {
+        prop:"border"
+        values:"1 | 2 | 3 | 4"
+        note:"Portable integer border width"
+      },
+      {
+        prop:"borderColor"
+        values:"Any semantic color family"
+        note:"Color family for the border"
+      },
+      {
+        prop:"font"
+        values:"Dowe font token"
+        note:"Accepted only by Text and Title slots"
+      },
+    ]
+  Section id:"component-defaults-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "THEME.DOWE"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Component defaults"
+        Text size:"lg" color:"muted"
+          "Move repeated visual decisions into design slots while keeping intentional one-off differences on component instances."
+      Card variant:"soft" scheme:"success" p:5 rounded:"lg" minW:56
+        Grid columns:1 gap:1
+          Text size:"xs" weight:"bold" spacing:"widest"
+            "PRECEDENCE"
+          Title size:"xl" weight:"black"
+            "Explicit props win"
+          Text size:"sm"
+            "Defaults fill omitted values only."
+  Section id:"component-defaults-config" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "CONFIGURATION"
+        Title size:"3xl" weight:"black"
+          "Declare reusable visual policy under design"
+        Text size:"sm" color:"muted"
+          "Component defaults are siblings of named themes. They are project-wide normalized values, not declarations of view nodes."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy component defaults"
+        copiedLabel:"Copied"
+        content:"""
+          theme
+            fonts default:"manrope" install:["manrope", "syne"]
+            design defaultTheme:"light"
+              Card variant:"outlined" scheme:"surface" rounded:"md" shadow:"xs"
+              Button variant:"solid" scheme:"primary" rounded:"md" size:"md"
+              Avatar variant:"soft" scheme:"secondary" rounded:"full" size:"md"
+              Chip variant:"soft" scheme:"secondary" rounded:"full" size:"sm"
+              Ui variant:"outlined" scheme:"surface" rounded:"md" size:"md"
+              Text font:"manrope"
+              Title font:"syne"
+              theme name:"light"
+        """
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "STATIC VALUES"
+            Title size:"lg" weight:"bold"
+              "No Signals or responsive maps"
+            Text size:"sm" color:"muted"
+              "Theme defaults are quoted static values or the supported border integer."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "ONE SLOT"
+            Title size:"lg" weight:"bold"
+              "Declare each slot once"
+            Text size:"sm" color:"muted"
+              "Duplicate defaults for the same slot and prop are rejected instead of silently replacing one another."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "TARGET NEUTRAL"
+            Title size:"lg" weight:"bold"
+              "Normalized before generation"
+            Text size:"sm" color:"muted"
+              "Web, desktop, Android, and iOS consume the same resolved component values."
+  Section id:"component-defaults-slots" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SLOTS"
+        Title size:"3xl" weight:"black"
+          "Seven configurable component families"
+        Text size:"sm" color:"muted"
+          "Ui provides shared policy for controls and surfaces that do not have a more specific slot. Text and Title remain independent typography slots."
+      Table:
+        data:componentSlots
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"slot" label:"Slot" width:"1fr"
+        column field:"scope" label:"Applies to" width:"2fr"
+        column field:"props" label:"Accepted defaults" width:"3fr"
+  Section id:"component-defaults-props" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "VALUES"
+        Title size:"3xl" weight:"black"
+          "Accepted default props"
+        Text size:"sm" color:"muted"
+          "A slot accepts only supported design props. Component-specific content, layout, navigation, data, state, and action props stay in views."
+      Table:
+        data:defaultProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"values" label:"Accepted values" width:"3fr"
+        column field:"note" label:"Behavior" width:"2fr"
+  Section id:"component-defaults-precedence" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PRECEDENCE"
+        Title size:"3xl" weight:"black"
+          "Defaults fill gaps without erasing intent"
+        Text size:"sm" color:"muted"
+          "Resolution happens per prop. One explicit value does not disable the remaining values from the slot."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold"
+              "1 · INSTANCE"
+            Title size:"lg" weight:"bold"
+              "Explicit component prop"
+            Text size:"sm"
+              "Card scheme:\"success\" changes only this Card and has the highest priority."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "2 · THEME.DOWE"
+            Title size:"lg" weight:"bold"
+              "Applicable design slot"
+            Text size:"sm" color:"muted"
+              "The Card slot still supplies its omitted variant, rounded, and shadow values."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "3 · BUILT IN"
+            Title size:"lg" weight:"bold"
+              "Deterministic component fallback"
+            Text size:"sm" color:"muted"
+              "Any value omitted by both the instance and slot follows that component's documented default."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy precedence example"
+        copiedLabel:"Copied"
+        content:"""
+          theme
+            design defaultTheme:"light"
+              Card variant:"outlined" scheme:"surface" rounded:"md" shadow:"xs"
+              theme name:"light"
+
+          Card scheme:"success"
+            Text
+              "Uses success with the Card slot's outlined, md, and xs defaults."
+        """
+  Section id:"component-defaults-boundaries" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "BOUNDARIES"
+        Title size:"3xl" weight:"black"
+          "Keep themes semantic and views structural"
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Named themes own colors"
+            Text size:"sm" color:"muted"
+              "A named theme changes semantic color values. It does not declare radius, size, shadow, border, or component variant."
+        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Defaults do not add props"
+            Text size:"sm" color:"muted"
+              "theme.dowe cannot create components or expand their catalogs. Unsupported slot and prop combinations fail validation."
+        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Local differences stay local"
+            Text size:"sm" color:"muted"
+              "Keep an explicit prop when a single instance intentionally differs from project policy."

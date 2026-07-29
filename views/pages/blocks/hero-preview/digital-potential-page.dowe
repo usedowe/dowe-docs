@@ -6,11 +6,11 @@ page DigitalPotentialHeroPage
     boxed:true
     minH:"vh-16"
     py:{ xs:8 md:12 }
-    Grid columns:{ xs:1 md:"4fr 5fr" } gap:{ xs:8 md:14 } align:"stretch" minH:"vh-16"
+    Grid columns:{ xs:1 md:"4fr 5fr" } gap:{ xs:8 md:14 } align:"center" minH:"vh-16"
       Box:
         cover:"/assets/blocks/hero/digital-strategist.jpg"
         rounded:"xl"
-        minH:{ xs:64 md:"vh-16" }
+        minH:{ xs:56 md:80 }
         shadow:"xl"
         shadowColor:"muted"
       Flex direction:"column" align:"start" justify:"center" gap:5

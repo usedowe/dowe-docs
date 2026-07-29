@@ -1,0 +1,158 @@
+page BorderPage
+  const borderProps:
+    value:[
+      {
+        prop:"border"
+        type:"1 | 2 | 3 | 4 | responsive"
+        defaultValue:"—"
+      },
+      {
+        prop:"borderColor"
+        type:"semantic color family"
+        defaultValue:"—"
+      },
+    ]
+  Section id:"border-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Flex direction:"column" gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "STYLES"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Border"
+        Text size:"lg" color:"muted"
+          "Define portable border thickness and tint it with a semantic family from the active theme."
+  Section id:"border-scale" p:{ xs:5 md:7 }
+    Flex direction:"column" gap:6
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "WIDTH SCALE"
+        Title size:"3xl" weight:"black"
+          "Four border weights"
+        Text size:"sm" color:"muted"
+          "Border accepts integer values from 1 through 4 and preserves their visual progression on every target."
+      Grid columns:{ xs:2 md:4 } gap:5
+        Flex direction:"column" gap:3 align:"center"
+          Box border:1 borderColor:"primary" rounded:"md" w:"full" h:24
+          Text weight:"bold"
+            "1"
+        Flex direction:"column" gap:3 align:"center"
+          Box border:2 borderColor:"primary" rounded:"md" w:"full" h:24
+          Text weight:"bold"
+            "2"
+        Flex direction:"column" gap:3 align:"center"
+          Box border:3 borderColor:"primary" rounded:"md" w:"full" h:24
+          Text weight:"bold"
+            "3"
+        Flex direction:"column" gap:3 align:"center"
+          Box border:4 borderColor:"primary" rounded:"md" w:"full" h:24
+          Text weight:"bold"
+            "4"
+  Section id:"border-colors" py:{ xs:7 md:10 }
+    Flex direction:"column" gap:6
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SEMANTIC COLORS"
+        Title size:"3xl" weight:"black"
+          "Eight theme families"
+        Text size:"sm" color:"muted"
+          "borderColor resolves through the active theme instead of embedding a platform-specific color."
+      Grid columns:{ xs:2 md:4 } gap:4
+        Flex direction:"column" gap:2 align:"center"
+          Box border:3 borderColor:"primary" rounded:"md" w:"full" h:16
+          Text size:"sm"
+            "Primary"
+        Flex direction:"column" gap:2 align:"center"
+          Box border:3 borderColor:"secondary" rounded:"md" w:"full" h:16
+          Text size:"sm"
+            "Secondary"
+        Flex direction:"column" gap:2 align:"center"
+          Box border:3 borderColor:"tertiary" rounded:"md" w:"full" h:16
+          Text size:"sm"
+            "Tertiary"
+        Flex direction:"column" gap:2 align:"center"
+          Box border:3 borderColor:"muted" rounded:"md" w:"full" h:16
+          Text size:"sm"
+            "Muted"
+        Flex direction:"column" gap:2 align:"center"
+          Box border:3 borderColor:"success" rounded:"md" w:"full" h:16
+          Text size:"sm"
+            "Success"
+        Flex direction:"column" gap:2 align:"center"
+          Box border:3 borderColor:"info" rounded:"md" w:"full" h:16
+          Text size:"sm"
+            "Info"
+        Flex direction:"column" gap:2 align:"center"
+          Box border:3 borderColor:"warning" rounded:"md" w:"full" h:16
+          Text size:"sm"
+            "Warning"
+        Flex direction:"column" gap:2 align:"center"
+          Box border:3 borderColor:"danger" rounded:"md" w:"full" h:16
+          Text size:"sm"
+            "Danger"
+  Section id:"border-composition" p:{ xs:5 md:7 }
+    Grid columns:{ xs:1 md:2 } gap:6 align:"center"
+      Flex direction:"column" gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "COMPOSITION"
+        Title size:"3xl" weight:"black"
+          "Combine thickness, color, and radius"
+        Text size:"sm" color:"muted"
+          "Border controls thickness, borderColor chooses the theme family, and rounded shapes the corners."
+        Code:
+          language:"dowe"
+          variant:"soft"
+          scheme:"surface"
+          copyLabel:"Copy Dowe"
+          copiedLabel:"Copied"
+          content:"""
+            Card border:2 borderColor:"success" rounded:"lg" p:6
+              Text "Validated surface"
+          """
+      Card border:2 borderColor:"success" rounded:"lg" p:6
+        Flex direction:"column" gap:2
+          Title size:"lg" weight:"bold"
+            "Validated surface"
+          Text size:"sm" color:"muted"
+            "All three props are normalized before target generation."
+  Section id:"border-responsive" py:{ xs:7 md:10 }
+    Flex direction:"column" gap:5
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "RESPONSIVE"
+        Title size:"3xl" weight:"black"
+          "Increase emphasis on wider screens"
+        Text size:"sm" color:"muted"
+          "Border thickness accepts the same responsive breakpoint object used by other common visual props."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Box border:{ xs:1 md:4 } borderColor:"tertiary" rounded:"md" p:6
+            Text "Responsive border"
+        """
+      Box border:{ xs:1 md:4 } borderColor:"tertiary" rounded:"md" p:6
+        Text weight:"bold"
+          "Resize the viewport to compare border 1 and border 4."
+  Section id:"border-props" py:{ xs:7 md:10 }
+    Flex direction:"column" gap:5
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Props"
+        Text size:"sm" color:"muted"
+          "borderColor alone does not draw a border. Declare border whenever the outline must be visible."
+      Table:
+        data:borderProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"type" label:"Type" width:"4fr"
+        column field:"defaultValue" label:"Default" width:"1fr"

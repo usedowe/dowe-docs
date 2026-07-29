@@ -1,4 +1,9 @@
 page SmartSolutionsHeroPage
+  const trustedBrands value:[
+    { id:"google" label:"Google" },
+    { id:"youtube" label:"YouTube" },
+    { id:"facebook" label:"Facebook" },
+  ]
   Section:
     id:"smart-solutions-hero"
     bg:"background"
@@ -6,7 +11,7 @@ page SmartSolutionsHeroPage
     boxed:true
     minH:"vh-16"
     py:{ xs:8 md:12 }
-    Grid columns:{ xs:1 md:"5fr 4fr" } gap:{ xs:8 md:14 } align:"stretch" minH:"vh-16"
+    Grid columns:{ xs:1 md:"5fr 4fr" } gap:{ xs:8 md:14 } align:"center" minH:"vh-16"
       Flex direction:"column" align:"start" justify:"center" gap:5
         Text size:"xs" weight:"bold" spacing:"widest" color:"info"
           "BUILT FOR AMBITIOUS TEAMS"
@@ -23,21 +28,14 @@ page SmartSolutionsHeroPage
           Text size:"xs" weight:"bold" color:"muted"
             "TRUSTED BY"
           Flex wrap:true align:"center" gap:5
-            Flex align:"center" gap:2
-              Icon name:"global" style:"linear" fill:"primary" w:5 h:5
-              Text size:"sm" weight:"bold"
-                "Google"
-            Flex align:"center" gap:2
-              Icon name:"play-circle" style:"linear" fill:"primary" w:5 h:5
-              Text size:"sm" weight:"bold"
-                "YouTube"
-            Flex align:"center" gap:2
-              Icon name:"users-group-rounded" style:"linear" fill:"primary" w:5 h:5
-              Text size:"sm" weight:"bold"
-                "Facebook"
+            each in:trustedBrands as:brand key:brand.id
+              Flex align:"center" gap:2
+                Icon name:"global" style:"linear" fill:"primary" w:5 h:5
+                Text size:"sm" weight:"bold"
+                  "{brand.label}"
       Box:
         cover:"/assets/blocks/hero/consulting-team-wide.jpg"
         rounded:"xl"
-        minH:{ xs:64 md:"vh-16" }
+        minH:{ xs:56 md:80 }
         shadow:"xl"
         shadowColor:"muted"

@@ -1,5 +1,5 @@
 component ServerNavigation
-  SideNav variant:"ghost" scheme:"muted" size:"sm" wide:true p:4
+  SideNav variant:"solid" scheme:"muted" size:"md" p:4
     item label:"Overview" href:"/docs/server" icon:"home"
     item label:"TLS and ACME" href:"/docs/server/tls" icon:"lock"
     item label:"Cache" href:"/docs/server/kv" icon:"key"

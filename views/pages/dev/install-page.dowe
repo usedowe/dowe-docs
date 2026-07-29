@@ -14,8 +14,8 @@ page InstallPage
         scheme:"primary"
         size:"sm"
         rounded:"full"
-        iconStart:"code"
-        "Open Dowe Dev"
+        iconStart:"add-circle"
+        "Open Dowe Init"
   Section id:"install-command" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
@@ -235,10 +235,10 @@ page InstallPage
             Text size:"sm" color:"muted"
               "Run dowe dev --target server --target web to start it. If you invoke interactive dowe init here, Dowe asks before replacing managed template files and defaults to keeping the project unchanged."
       Button:
-        href:"/docs/dev/deploy"
+        href:"/docs/dev"
         variant:"soft"
         scheme:"primary"
         size:"sm"
         rounded:"full"
-        iconStart:"settings"
-        "Read Deploy docs"
+        iconStart:"add-circle"
+        "Initialize a project"
