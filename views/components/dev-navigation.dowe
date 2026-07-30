@@ -3,6 +3,7 @@ component DevNavigation
     item label:"Installation" href:"/docs/dev/install" icon:"document-text"
     item label:"Dowe Init" href:"/docs/dev" icon:"add-circle"
     item label:"Dowe Dev" href:"/docs/dev/dev" icon:"code"
+    item label:"Hot Reload" href:"/docs/dev/hmr" icon:"restart"
     item label:"Dowe Build" href:"/docs/dev/build" icon:"layers-minimalistic"
     item label:"Dowe Deploy" href:"/docs/dev/deploy" icon:"settings"
     item label:"Dowe Agent" href:"/docs/dev/agent" icon:"cpu"

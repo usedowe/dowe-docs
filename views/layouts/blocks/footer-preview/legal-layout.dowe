@@ -4,6 +4,12 @@ layout FooterLegalLayout
       children
     bottomBar
       Footer variant:"solid" scheme:"muted" boxed:true py:4
+        top
+          Divider show:{ xs:true md:false }
         center
-          Text size:"xs" color:"onMuted"
+          Text size:"xs" color:"onMuted" show:{ xs:false md:true }
             "CompanyName @ 202X. All rights reserved."
+          Text size:"xs" color:"onMuted" show:{ xs:true md:false }
+            "CompanyName @ 202X. All rights reserved."
+        bottom
+          Divider show:{ xs:true md:false }

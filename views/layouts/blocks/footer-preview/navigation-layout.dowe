@@ -4,21 +4,16 @@ layout FooterNavigationLayout
       children
     bottomBar
       Footer variant:"solid" scheme:"muted" boxed:true py:{ xs:7 md:5 }
+        top
+          Flex justify:"center" show:{ xs:true md:false }
+            Text size:"xs" color:"onMuted"
+              "CompanyName @ 202X. All rights reserved."
         center
-          Flex:
-            direction:{ xs:"column" md:"row" }
-            align:"center"
-            justify:"between"
-            gap:{ xs:5 md:8 }
-            w:"full"
+          Flex direction:"row" align:"center" justify:"between" gap:8 w:"full" show:{ xs:false md:true }
             Text size:"xs" color:"onMuted"
               "CompanyName @ 202X. All rights reserved."
             Flex wrap:true justify:"center" gap:1
-              Button:
-                href:"/blocks/footer-preview/navigation"
-                variant:"solid"
-                scheme:"muted"
-                size:"sm"
+              Button href:"/blocks/footer-preview/navigation" variant:"solid" scheme:"muted" size:"sm"
                 "Eleven"
               Button href:"/blocks/footer-preview/social" variant:"solid" scheme:"muted" size:"sm"
                 "Twelve"
@@ -29,33 +24,26 @@ layout FooterNavigationLayout
               Button href:"/blocks/footer-preview/two-row" variant:"solid" scheme:"muted" size:"sm"
                 "Fifteen"
             Flex align:"center" justify:"center" gap:1
-              IconButton:
-                icon:"play-circle"
-                label:"YouTube"
-                href:"https://youtube.com"
-                variant:"solid"
-                scheme:"muted"
-              IconButton:
-                icon:"users-group-rounded"
-                label:"Facebook"
-                href:"https://facebook.com"
-                variant:"solid"
-                scheme:"muted"
-              IconButton:
-                icon:"chat-square"
-                label:"Twitter"
-                href:"https://twitter.com"
-                variant:"solid"
-                scheme:"muted"
-              IconButton:
-                icon:"camera"
-                label:"Instagram"
-                href:"https://instagram.com"
-                variant:"solid"
-                scheme:"muted"
-              IconButton:
-                icon:"link-circle"
-                label:"LinkedIn"
-                href:"https://linkedin.com"
-                variant:"solid"
-                scheme:"muted"
+              IconButton icon:"play-circle" label:"YouTube" href:"https://youtube.com" variant:"solid" scheme:"muted"
+              IconButton icon:"users-group-rounded" label:"Facebook" href:"https://facebook.com" variant:"solid" scheme:"muted"
+              IconButton icon:"chat-square" label:"Twitter" href:"https://twitter.com" variant:"solid" scheme:"muted"
+              IconButton icon:"camera" label:"Instagram" href:"https://instagram.com" variant:"solid" scheme:"muted"
+              IconButton icon:"link-circle" label:"LinkedIn" href:"https://linkedin.com" variant:"solid" scheme:"muted"
+          Flex wrap:true justify:"center" gap:1 show:{ xs:true md:false }
+            Button href:"/blocks/footer-preview/navigation" variant:"solid" scheme:"muted" size:"sm"
+              "Eleven"
+            Button href:"/blocks/footer-preview/social" variant:"solid" scheme:"muted" size:"sm"
+              "Twelve"
+            Button href:"/blocks/footer-preview/legal" variant:"solid" scheme:"muted" size:"sm"
+              "Thirteen"
+            Button href:"/blocks/footer-preview/brand" variant:"solid" scheme:"muted" size:"sm"
+              "Fourteen"
+            Button href:"/blocks/footer-preview/two-row" variant:"solid" scheme:"muted" size:"sm"
+              "Fifteen"
+        bottom
+          Flex align:"center" justify:"center" gap:1 show:{ xs:true md:false }
+            IconButton icon:"play-circle" label:"YouTube" href:"https://youtube.com" variant:"solid" scheme:"muted"
+            IconButton icon:"users-group-rounded" label:"Facebook" href:"https://facebook.com" variant:"solid" scheme:"muted"
+            IconButton icon:"chat-square" label:"Twitter" href:"https://twitter.com" variant:"solid" scheme:"muted"
+            IconButton icon:"camera" label:"Instagram" href:"https://instagram.com" variant:"solid" scheme:"muted"
+            IconButton icon:"link-circle" label:"LinkedIn" href:"https://linkedin.com" variant:"solid" scheme:"muted"

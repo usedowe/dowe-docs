@@ -27,7 +27,12 @@ page FooterPage
         defaultValue:"false"
       },
       {
-        prop:"start | center | end"
+        prop:"px"
+        type:"scale | responsive scale"
+        defaultValue:"{ xs:4 md:6 }"
+      },
+      {
+        prop:"top | start | center | end | bottom"
         type:"optional content regions"
         defaultValue:"—"
       },
@@ -40,7 +45,7 @@ page FooterPage
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Footer"
         Text size:"lg" color:"muted"
-          "Footers close a page with balanced regions for identity, navigation, and supporting actions."
+          "Footers close a page with full-width top and bottom bands around a balanced start, center, and end row."
   Section id:"footer-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
@@ -49,9 +54,12 @@ page FooterPage
         Title size:"3xl" weight:"black"
           "A complete product footer"
         Text size:"sm" color:"muted"
-          "Use start for identity, center for the main link group, and end for a compact action. boxed:true keeps the Footer surface full width while centering those regions at 96rem on web or 1536 logical units on Android and iOS."
+          "Use top and bottom for full-width responsive bands, then keep identity, navigation, and actions in the start, center, and end row. Footer includes a responsive horizontal gutter, while boxed:true constrains the central row and keeps the surface and edge bands full width. Override the gutter with p, px, pl, or pr when the composition needs different spacing."
       Card variant:"outlined" scheme:"surface" p:{ xs:4 md:6 } rounded:"md" border:1
         Footer variant:"soft" scheme:"surface" bordered:true boxed:true
+          top
+            Text size:"xs" color:"muted" show:{ xs:true md:false }
+              "Build once. Ship every target."
           start
             Flex align:"center" gap:2
               Box w:3 h:3 rounded:"full" bg:"primary"
@@ -68,6 +76,9 @@ page FooterPage
           end
             Button href:"/docs/views/control/button" variant:"soft" scheme:"primary" size:"sm"
               "Explore components"
+          bottom
+            Text size:"xs" color:"muted"
+              "© 2026 Dowe Studio"
       Code:
         language:"dowe"
         variant:"soft"
@@ -76,6 +87,9 @@ page FooterPage
         copiedLabel:"Copied"
         content:"""
           Footer variant:"soft" scheme:"surface" bordered:true boxed:true
+            top
+              Text size:"xs" color:"muted" show:{ xs:true md:false }
+                "Build once. Ship every target."
             start
               Text weight:"bold"
                 "Dowe Studio"
@@ -87,6 +101,9 @@ page FooterPage
             end
               Button href:"/docs/views/control/button" variant:"soft" scheme:"primary" size:"sm"
                 "Explore components"
+            bottom
+              Text size:"xs" color:"muted"
+                "© 2026 Dowe Studio"
         """
   Section id:"footer-regions" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
@@ -94,10 +111,18 @@ page FooterPage
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "REGIONS"
         Title size:"3xl" weight:"black"
-          "Three places, one horizontal contract"
+          "Five regions, one responsive contract"
         Text size:"sm" color:"muted"
-          "A region can hold text, buttons, links, or a nested Flex. Missing regions do not reserve artificial space."
-      Grid columns:{ xs:1 md:3 } gap:4
+          "top and bottom span the full bar around the central start, center, and end row. A missing region reserves no artificial space."
+      Grid columns:{ xs:1 md:5 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "TOP"
+            Title size:"lg" weight:"bold"
+              "Opening band"
+            Text size:"sm" color:"muted"
+              "Place a directory, announcement, or mobile-only identity above the row."
         Card variant:"soft" scheme:"surface" p:5 rounded:"md"
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
@@ -122,7 +147,18 @@ page FooterPage
               "Action"
             Text size:"sm" color:"muted"
               "Keep one conversion, support, or account action close to the trailing edge."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "BOTTOM"
+            Title size:"lg" weight:"bold"
+              "Closing band"
+            Text size:"sm" color:"muted"
+              "Place legal copy, social links, or mobile-only actions below the row."
       Footer variant:"outlined" scheme:"primary" bordered:true
+        top
+          Text size:"sm" color:"muted" show:{ xs:true md:false }
+            "Top region"
         start
           Text size:"sm" weight:"bold"
             "Start region"
@@ -132,6 +168,9 @@ page FooterPage
         end
           Button variant:"soft" scheme:"primary" size:"sm"
             "End action"
+        bottom
+          Text size:"sm" color:"muted"
+            "Bottom region"
   Section id:"footer-visuals" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
@@ -202,14 +241,15 @@ page FooterPage
         Text size:"sm" color:"muted"
           "Keep the outer contract small and compose richer groups inside each region. This pattern works for a product shell, documentation portal, or account area."
       Footer variant:"soft" scheme:"background" bordered:true boxed:true p:{ xs:4 md:6 }
+        top
+          Text size:"xs" color:"muted" show:{ xs:true md:false }
+            "Northstar product directory"
         start
           Grid columns:1 gap:2
             Text weight:"bold"
               "Northstar"
             Text size:"sm" color:"muted"
               "Systems for teams that ship."
-            Text size:"xs" color:"muted"
-              "© 2026 Northstar Labs"
         center
           Flex wrap:true gap:5
             Button href:"/docs/views/layout/appbar" variant:"ghost" scheme:"muted" size:"sm"
@@ -224,6 +264,9 @@ page FooterPage
               "Need help?"
             Button href:"/docs/views" variant:"solid" scheme:"primary" size:"sm"
               "Read the docs"
+        bottom
+          Text size:"xs" color:"muted"
+            "© 2026 Northstar Labs"
       Code:
         language:"dowe"
         variant:"soft"
@@ -232,6 +275,9 @@ page FooterPage
         copiedLabel:"Copied"
         content:"""
           Footer variant:"soft" scheme:"background" bordered:true boxed:true
+            top
+              Text size:"xs" color:"muted" show:{ xs:true md:false }
+                "Northstar product directory"
             start
               Grid columns:1 gap:2
                 Text weight:"bold"
@@ -247,6 +293,9 @@ page FooterPage
             end
               Button href:"/docs/views" variant:"solid" scheme:"primary" size:"sm"
                 "Read the docs"
+            bottom
+              Text size:"xs" color:"muted"
+                "© 2026 Northstar Labs"
         """
   Section id:"footer-props" p:{ xs:5 md:7 }
     Grid columns:1 gap:5

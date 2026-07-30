@@ -20,3 +20,17 @@ layout HomeLayout
         end
           Text size:"xs" color:"onMuted"
             "info@dowe.dev"
+          IconButton:
+            icon:"svg-logos:x"
+            label:"X"
+            href:"https://x.com/usedowe"
+            variant:"soft"
+            scheme:"muted"
+            size:"sm"
+          IconButton:
+            icon:"svg-logos:discord-icon"
+            label:"Discord"
+            href:"https://discord.gg/N2cww7sP5s"
+            variant:"soft"
+            scheme:"muted"
+            size:"sm"

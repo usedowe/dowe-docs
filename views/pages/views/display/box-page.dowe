@@ -35,6 +35,38 @@ page BoxPage
         "Box"
       Text size:"lg" color:"muted"
         "Box is a neutral visual wrapper for local styling, media stages, and portable positioned overlays."
+  Section id:"box-foreground" p:{ xs:5 md:7 }
+    Grid columns:{ xs:1 md:2 } gap:5 align:"center"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "FOREGROUND INHERITANCE"
+        Title size:"3xl" weight:"black"
+          "Set the content color once"
+        Text size:"sm" color:"muted"
+          "Box passes color to descendant text and current-color artwork. A child color remains a deliberate local override on web, Android, and iOS."
+        Code:
+          language:"dowe"
+          variant:"soft"
+          scheme:"surface"
+          copyLabel:"Copy Dowe"
+          copiedLabel:"Copied"
+          content:"""
+            Box bg:"softInfo" color:"onSoftInfo" p:5 rounded:"lg"
+              Title size:"xl"
+                "Inherited title"
+              Text size:"sm"
+                "This copy uses onSoftInfo."
+              Text size:"sm" color:"danger"
+                "This child overrides the parent."
+          """
+      Box bg:"softInfo" color:"onSoftInfo" p:5 rounded:"lg"
+        Grid columns:1 gap:2
+          Title size:"xl" weight:"black"
+            "Inherited title"
+          Text size:"sm"
+            "This copy uses onSoftInfo."
+          Text size:"sm" color:"danger"
+            "This child overrides the parent."
   Section id:"box-positioning" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2

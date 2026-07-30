@@ -155,10 +155,10 @@ page DevPage
             Text size:"sm" color:"muted"
               "A failed rebuild reports diagnostics and keeps the development session available for the next correction."
       Button:
-        href:"/docs/dev/agent"
+        href:"/docs/dev/hmr"
         variant:"soft"
         scheme:"primary"
         size:"sm"
         rounded:"full"
-        iconStart:"cpu"
-        "Read Agent docs"
+        iconStart:"restart"
+        "Read Hot Reload docs"

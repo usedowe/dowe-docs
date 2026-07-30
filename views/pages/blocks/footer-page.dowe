@@ -6,7 +6,7 @@ page FootersPage
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Footers"
       Text size:"lg" color:"muted"
-        "Six responsive closing patterns. Preview desktop and mobile sizes, then copy the Footer source."
+        "Six responsive closing patterns built with top, center, and bottom regions plus breakpoint show rules. Preview desktop and mobile sizes, then copy the Footer source."
   Section id:"navigation" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
@@ -40,8 +40,12 @@ page FootersPage
             copiedLabel:"Copied"
             content:"""
               Footer variant:"solid" scheme:"muted" boxed:true py:{ xs:7 md:5 }
+                top
+                  Flex justify:"center" show:{ xs:true md:false }
+                    Text size:"xs" color:"onMuted"
+                      "CompanyName @ 202X. All rights reserved."
                 center
-                  Flex direction:{ xs:"column" md:"row" } align:"center" justify:"between" gap:{ xs:5 md:8 } w:"full"
+                  Flex direction:"row" align:"center" justify:"between" gap:8 w:"full" show:{ xs:false md:true }
                     Text size:"xs" color:"onMuted"
                       "CompanyName @ 202X. All rights reserved."
                     Flex wrap:true justify:"center" gap:1
@@ -61,6 +65,18 @@ page FootersPage
                       IconButton icon:"chat-square" label:"Twitter" href:"https://twitter.com" variant:"solid" scheme:"muted"
                       IconButton icon:"camera" label:"Instagram" href:"https://instagram.com" variant:"solid" scheme:"muted"
                       IconButton icon:"link-circle" label:"LinkedIn" href:"https://linkedin.com" variant:"solid" scheme:"muted"
+                  Flex wrap:true justify:"center" gap:1 show:{ xs:true md:false }
+                    Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                      "Eleven"
+                    Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                      "Twelve"
+                    Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                      "Thirteen"
+                bottom
+                  Flex align:"center" justify:"center" gap:1 show:{ xs:true md:false }
+                    IconButton icon:"play-circle" label:"YouTube" href:"https://youtube.com" variant:"solid" scheme:"muted"
+                    IconButton icon:"camera" label:"Instagram" href:"https://instagram.com" variant:"solid" scheme:"muted"
+                    IconButton icon:"link-circle" label:"LinkedIn" href:"https://linkedin.com" variant:"solid" scheme:"muted"
             """
   Section id:"social" p:{ xs:5 md:7 } bg:"softMuted" color:"onSoftMuted"
     Grid columns:1 gap:5
@@ -95,8 +111,12 @@ page FootersPage
             copiedLabel:"Copied"
             content:"""
               Footer variant:"solid" scheme:"muted" boxed:true py:{ xs:6 md:3 }
+                top
+                  Flex justify:"center" show:{ xs:true md:false }
+                    Text size:"xs" color:"onMuted"
+                      "CompanyName @ 202X. All rights reserved."
                 center
-                  Flex direction:{ xs:"column" md:"row" } align:"center" justify:"between" gap:{ xs:4 md:8 } w:"full"
+                  Flex direction:"row" align:"center" justify:"between" gap:8 w:"full" show:{ xs:false md:true }
                     Text size:"xs" color:"onMuted"
                       "CompanyName @ 202X. All rights reserved."
                     Flex align:"center" justify:"center" gap:1
@@ -105,6 +125,13 @@ page FootersPage
                       IconButton icon:"chat-square" label:"Twitter" href:"https://twitter.com" variant:"solid" scheme:"muted"
                       IconButton icon:"camera" label:"Instagram" href:"https://instagram.com" variant:"solid" scheme:"muted"
                       IconButton icon:"link-circle" label:"LinkedIn" href:"https://linkedin.com" variant:"solid" scheme:"muted"
+                bottom
+                  Flex align:"center" justify:"center" gap:1 show:{ xs:true md:false }
+                    IconButton icon:"play-circle" label:"YouTube" href:"https://youtube.com" variant:"solid" scheme:"muted"
+                    IconButton icon:"users-group-rounded" label:"Facebook" href:"https://facebook.com" variant:"solid" scheme:"muted"
+                    IconButton icon:"chat-square" label:"Twitter" href:"https://twitter.com" variant:"solid" scheme:"muted"
+                    IconButton icon:"camera" label:"Instagram" href:"https://instagram.com" variant:"solid" scheme:"muted"
+                    IconButton icon:"link-circle" label:"LinkedIn" href:"https://linkedin.com" variant:"solid" scheme:"muted"
             """
   Section id:"legal" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
@@ -139,9 +166,15 @@ page FootersPage
             copiedLabel:"Copied"
             content:"""
               Footer variant:"solid" scheme:"muted" boxed:true py:4
+                top
+                  Divider show:{ xs:true md:false }
                 center
-                  Text size:"xs" color:"onMuted"
+                  Text size:"xs" color:"onMuted" show:{ xs:false md:true }
                     "CompanyName @ 202X. All rights reserved."
+                  Text size:"xs" color:"onMuted" show:{ xs:true md:false }
+                    "CompanyName @ 202X. All rights reserved."
+                bottom
+                  Divider show:{ xs:true md:false }
             """
   Section id:"brand" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
     Grid columns:1 gap:5
@@ -176,7 +209,7 @@ page FootersPage
             copiedLabel:"Copied"
             content:"""
               Footer variant:"solid" scheme:"muted" boxed:true py:{ xs:8 md:6 }
-                center
+                top
                   Grid columns:1 gap:5 w:"full"
                     Grid columns:3 align:"center" show:{ xs:false md:true }
                       Flex justify:"start" wrap:true gap:1
@@ -199,17 +232,12 @@ page FootersPage
                         IconButton icon:"play-circle" label:"YouTube" href:"https://youtube.com" variant:"solid" scheme:"muted"
                         IconButton icon:"camera" label:"Instagram" href:"https://instagram.com" variant:"solid" scheme:"muted"
                         IconButton icon:"link-circle" label:"LinkedIn" href:"https://linkedin.com" variant:"solid" scheme:"muted"
-                    Flex justify:"center" show:{ xs:false md:true }
-                      Text size:"xs" color:"onMuted"
-                        "CompanyName @ 202X. All rights reserved."
                     Flex direction:"column" align:"center" gap:4 show:{ xs:true md:false }
                       Brand href:"/" label:"WebbyFrames home"
                         Flex align:"center" gap:2
                           Icon name:"widget-5" style:"linear" fill:"onMuted" w:7 h:7
                           Text size:"lg" weight:"black" color:"onMuted"
                             "WebbyFrames"
-                      Text size:"xs" color:"onMuted"
-                        "CompanyName @ 202X. All rights reserved."
                       Flex justify:"center" wrap:true gap:1
                         Button href:"/" variant:"solid" scheme:"muted" size:"sm"
                           "Eleven"
@@ -217,6 +245,12 @@ page FootersPage
                           "Twelve"
                         Button href:"/" variant:"solid" scheme:"muted" size:"sm"
                           "Thirteen"
+                center
+                  Text size:"xs" color:"onMuted" show:{ xs:false md:true }
+                    "CompanyName @ 202X. All rights reserved."
+                bottom
+                  Text size:"xs" color:"onMuted" show:{ xs:true md:false }
+                    "CompanyName @ 202X. All rights reserved."
             """
   Section id:"two-row" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
@@ -251,8 +285,8 @@ page FootersPage
             copiedLabel:"Copied"
             content:"""
               Footer variant:"solid" scheme:"muted" boxed:true py:{ xs:8 md:7 }
-                center
-                  Grid columns:1 gap:5 w:"full"
+                top
+                  Grid columns:1 gap:5 w:"full" show:{ xs:false md:true }
                     Flex direction:{ xs:"column" md:"row" } align:"center" justify:"between" gap:5
                       Brand href:"/" label:"WebbyFrames home"
                         Flex align:"center" gap:2
@@ -282,6 +316,23 @@ page FootersPage
                         IconButton icon:"chat-square" label:"Twitter" href:"https://twitter.com" variant:"solid" scheme:"muted"
                         IconButton icon:"camera" label:"Instagram" href:"https://instagram.com" variant:"solid" scheme:"muted"
                         IconButton icon:"link-circle" label:"LinkedIn" href:"https://linkedin.com" variant:"solid" scheme:"muted"
+                center
+                  Flex direction:"column" align:"center" gap:4 show:{ xs:true md:false }
+                    Brand href:"/" label:"WebbyFrames home"
+                      Flex align:"center" gap:2
+                        Icon name:"widget-5" style:"linear" fill:"onMuted" w:7 h:7
+                        Text size:"lg" weight:"black" color:"onMuted"
+                          "WebbyFrames"
+                    Flex wrap:true justify:"center" gap:1
+                      Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                        "Eleven"
+                      Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                        "Twelve"
+                      Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                        "Thirteen"
+                bottom
+                  Text size:"xs" color:"onMuted" show:{ xs:true md:false }
+                    "CompanyName @ 202X. All rights reserved."
             """
   Section id:"newsletter" p:{ xs:5 md:7 } bg:"softMuted" color:"onSoftMuted"
     Grid columns:1 gap:5
@@ -316,8 +367,8 @@ page FootersPage
             copiedLabel:"Copied"
             content:"""
               Footer variant:"solid" scheme:"muted" boxed:true py:{ xs:7 md:6 }
-                center
-                  Grid columns:1 gap:6 w:"full"
+                top
+                  Grid columns:1 gap:6 w:"full" show:{ xs:false md:true }
                     Flex direction:{ xs:"column" md:"row" } align:"center" justify:"between" gap:5
                       Brand href:"/" label:"WebbyFrames home"
                         Flex align:"center" gap:2
@@ -390,4 +441,18 @@ page FootersPage
                           "Twelve"
                         Button href:"/" variant:"solid" scheme:"muted" size:"sm"
                           "Thirteen"
+                center
+                  Grid columns:1 gap:4 w:"full" show:{ xs:true md:false }
+                    Brand href:"/" label:"WebbyFrames home"
+                      Flex align:"center" gap:2
+                        Icon name:"widget-5" style:"linear" fill:"onMuted" w:7 h:7
+                        Text size:"lg" weight:"black" color:"onMuted"
+                          "WebbyFrames"
+                    Grid columns:1 gap:2
+                      Input placeholder:"Enter your email to get the latest news..." iconStart:"letter"
+                      Button variant:"solid" scheme:"primary"
+                        "Subscribe"
+                bottom
+                  Text size:"xs" color:"onMuted" show:{ xs:true md:false }
+                    "CompanyName @ 202X. All rights reserved."
             """
