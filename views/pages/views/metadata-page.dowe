@@ -1,0 +1,156 @@
+page MetadataPage
+  meta name:"title" content:"Web Metadata and SEO — Dowe Views"
+  meta name:"description" content:"Define inherited titles, descriptions, canonical URLs, Open Graph images, and Twitter Cards in Dowe layouts and pages."
+  meta name:"canonical" content:"https://dowe.dev/docs/views/web/metadata"
+  meta name:"og:title" content:"Web Metadata and SEO — Dowe Views"
+  meta name:"og:description" content:"Add SEO and social-sharing metadata directly to Dowe layouts and pages."
+  meta name:"og:url" content:"https://dowe.dev/docs/views/web/metadata"
+  meta name:"twitter:title" content:"Web Metadata and SEO — Dowe Views"
+  meta name:"twitter:description" content:"Add SEO and social-sharing metadata directly to Dowe layouts and pages."
+  Section id:"metadata-overview" py:{ xs:6 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "WEB / DOCUMENT HEAD"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Metadata follows the active route"
+        Text size:"lg" color:"muted"
+          "Layouts define shared SEO defaults. Pages override only the names they need. Dowe emits the effective head during SSR and keeps it synchronized during browser navigation."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Layout defaults"
+            Text size:"sm" color:"muted"
+              "Use the layout for site-wide title, description, social image, card type, and site name defaults."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Page overrides"
+            Text size:"sm" color:"muted"
+              "A page declaration replaces matching names and inherits every layout value it does not declare."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Web only"
+            Text size:"sm" color:"muted"
+              "Metadata affects web SSR and browser routing. It does not set desktop window titles or native mobile metadata."
+  Section id:"metadata-syntax" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "AUTHORING"
+        Title size:{ xs:"2xl" md:"4xl" } weight:"black"
+          "Declare static name and content pairs"
+        Text color:"muted"
+          "meta is a direct child of layout or page. It is not a visual component and does not count toward the layout root. Both props are required quoted strings."
+      Grid columns:{ xs:1 lg:2 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold" color:"muted"
+              "views/layouts/site-layout.dowe"
+            Code:
+              language:"dowe"
+              variant:"soft"
+              scheme:"surface"
+              copyLabel:"Copy layout metadata"
+              copiedLabel:"Copied"
+              content:"""
+                layout SiteLayout
+                  meta name:"title" content:"Acme"
+                  meta name:"description" content:"Tools for focused teams."
+                  meta name:"og:image" content:"https://acme.dev/og.png"
+                  meta name:"twitter:card" content:"summary_large_image"
+                  Scaffold
+                    main
+                      children
+              """
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold" color:"primary"
+              "views/pages/pricing-page.dowe"
+            Code:
+              language:"dowe"
+              variant:"soft"
+              scheme:"surface"
+              copyLabel:"Copy page metadata"
+              copiedLabel:"Copied"
+              content:"""
+                page PricingPage
+                  meta name:"title" content:"Pricing — Acme"
+                  meta name:"description" content:"Plans for every team."
+                  meta name:"canonical" content:"https://acme.dev/pricing"
+                  meta name:"og:title" content:"Pricing — Acme"
+                  Section
+                    Title
+                      "Simple pricing"
+              """
+  Section id:"metadata-resolution" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "RESOLUTION"
+        Title size:{ xs:"2xl" md:"4xl" } weight:"black"
+          "Nearest declaration wins by name"
+        Text color:"muted"
+          "Dowe starts with the active layout and applies the page last. Ordering is deterministic, and only a declaration with the same name replaces an inherited value."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "1 / ACTIVE LAYOUT"
+            Text size:"sm" color:"muted"
+              "Establishes defaults shared by the route group."
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"primary"
+              "2 / PAGE"
+            Text size:"sm" color:"muted"
+              "Supplies route-specific values and inherits everything else."
+      Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Grid columns:1 gap:3
+          Title size:"lg" weight:"bold"
+            "What the browser receives"
+          Text size:"sm" color:"muted"
+            "title becomes the document title. canonical becomes a canonical link. og names use property attributes. Description, robots, keywords, and Twitter names use name attributes."
+          Text size:"sm" color:"muted"
+            "The first HTTP response already contains the effective values. Internal links, back and forward navigation, layout changes, and development hot updates replace stale Dowe-authored metadata without reloading the page."
+  Section id:"metadata-names" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SUPPORTED NAMES"
+        Title size:{ xs:"2xl" md:"4xl" } weight:"black"
+          "A bounded SEO contract"
+        Text color:"muted"
+          "Dowe rejects unknown, duplicated, empty, dynamic, nested, or child-bearing metadata before generation."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Document and search"
+            Text size:"sm" color:"muted"
+              "title, description, keywords, robots, canonical"
+            Title size:"lg" weight:"bold"
+              "Open Graph"
+            Text size:"sm" color:"muted"
+              "og:title, og:description, og:image, og:image:alt, og:type, og:url, og:site_name"
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Twitter Card"
+            Text size:"sm" color:"muted"
+              "twitter:card, twitter:title, twitter:description, twitter:image, twitter:image:alt, twitter:site, twitter:creator"
+            Title size:"lg" weight:"bold"
+              "Image ownership"
+            Text size:"sm" color:"muted"
+              "Dowe emits image URLs as authored. It does not fetch, resize, inspect, or generate social images. Use a stable public URL or project asset path."
+  Section id:"metadata-targets" py:{ xs:7 md:10 }
+    Grid columns:1 gap:4
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "TARGET SUPPORT"
+      Title size:{ xs:"2xl" md:"4xl" } weight:"black"
+        "Browser documents only"
+      Text color:"muted"
+        "Web emits metadata in SSR HTML and updates it in the SPA router. Desktop accepts the syntax but emits no document metadata. Android and iOS accept the syntax but generate no native metadata."
+      Alert type:"info" variant:"soft" scheme:"info" message:"Use platform-specific app configuration for future window, activity, view, or store-listing metadata. The meta declaration currently owns only the web document head."

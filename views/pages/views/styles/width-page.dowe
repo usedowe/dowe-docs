@@ -11,6 +11,11 @@ page WidthPage
         type:"Dowe scale | full | responsive"
         defaultValue:"—"
       },
+      {
+        prop:"maxW"
+        type:"Dowe scale | full | responsive"
+        defaultValue:"—"
+      },
     ]
   Section id:"width-introduction" py:{ xs:6 md:10 }
     Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
@@ -20,7 +25,7 @@ page WidthPage
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Width"
         Text size:"lg" color:"muted"
-          "Set an explicit width or protect a component with a minimum width across every target."
+          "Set an explicit width or protect a component with minimum and maximum bounds across every target."
   Section id:"width-values" p:{ xs:5 md:7 }
     Flex direction:"column" gap:6
       Flex direction:"column" gap:2
@@ -73,9 +78,9 @@ page WidthPage
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "RESPONSIVE"
         Title size:"3xl" weight:"black"
-          "Fill small screens, narrow later"
+          "Fill available space up to a cap"
         Text size:"sm" color:"muted"
-          "Use a responsive object when a surface should fill mobile space and become fixed on wider screens."
+          "Combine w:\"full\" with responsive maxW when a surface should use available mobile space without becoming too wide on larger screens."
         Code:
           language:"dowe"
           variant:"soft"
@@ -83,24 +88,39 @@ page WidthPage
           copyLabel:"Copy Dowe"
           copiedLabel:"Copied"
           content:"""
-            Box w:{ xs:"full" md:64 } p:6 rounded:"lg"
-              Text "Responsive width"
+            Box w:"full" maxW:{ xs:"full" md:64 } p:6 rounded:"lg"
+              Text "Responsive maximum width"
           """
-      Box bg:"softPrimary" w:{ xs:"full" md:64 } p:6 rounded:"lg"
-        Text weight:"bold"
-          "Full on xs, scale 64 from md."
+      Flex direction:"column" align:"center" w:"full"
+        Box bg:"softPrimary" w:"full" maxW:{ xs:"full" md:64 } p:6 rounded:"lg"
+          Text weight:"bold"
+            "Full up to scale 64 from md."
   Section id:"width-maximum" py:{ xs:7 md:10 }
     Flex direction:"column" gap:5
       Flex direction:"column" gap:2
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "MAXIMUM WIDTH"
         Title size:"3xl" weight:"black"
-          "maxW is not a common prop yet"
+          "Cap width without forcing it"
         Text size:"sm" color:"muted"
-          "The current sizing contract does not accept maxW. Use Section boxed:true for the standard content cap, Grid tracks for layout limits, or an explicit responsive w value."
-      Card variant:"soft" scheme:"warning" border:1 borderColor:"warning" rounded:"md" p:5
-        Text size:"sm"
-          "Authoring maxW currently produces an unknown prop diagnostic."
+          "maxW sets an upper bound. Content may remain narrower, while w:\"full\" grows only until it reaches the limit."
+      Grid columns:{ xs:1 md:2 } gap:6 align:"center"
+        Code:
+          language:"dowe"
+          variant:"soft"
+          scheme:"surface"
+          copyLabel:"Copy Dowe"
+          copiedLabel:"Copied"
+          content:"""
+            Card w:"full" maxW:64 p:6
+              Title "Bounded card"
+          """
+        Flex direction:"column" align:"center" w:"full"
+          Card w:"full" maxW:64 variant:"soft" scheme:"success" rounded:"lg" p:6
+            Title size:"lg" weight:"bold"
+              "Bounded card"
+            Text size:"sm" color:"muted"
+              "This card fills its parent until scale 64."
   Section id:"width-props" py:{ xs:7 md:10 }
     Flex direction:"column" gap:5
       Flex direction:"column" gap:2

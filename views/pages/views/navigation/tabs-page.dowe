@@ -133,7 +133,7 @@ page TabsPage
             Tabs variant:"line" scheme:"primary"
               tab id:"line-first" label:"First"
                 Text size:"sm" p:3
-                  "A bottom line emphasizes the active destination without outlining the control."
+                  "The accent label and bottom line emphasize the active destination without outlining the control."
               tab id:"line-second" label:"Second"
                 Text size:"sm" p:3
                   "Use it for denser interfaces."

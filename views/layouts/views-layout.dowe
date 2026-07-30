@@ -2,6 +2,15 @@ import ViewsNavigation from "@/views/components/views-navigation"
 import Logo from "@/views/components/logo"
 import Github from "@/views/components/github"
 layout ViewsLayout
+  meta name:"title" content:"Dowe Views Documentation"
+  meta name:"description" content:"Learn Dowe layouts, pages, components, state, routing, and web generation."
+  meta name:"og:image" content:"https://dowe.dev/assets/icons/web/icon-512x512.png"
+  meta name:"og:image:alt" content:"Dowe logo"
+  meta name:"og:type" content:"website"
+  meta name:"og:site_name" content:"Dowe"
+  meta name:"twitter:card" content:"summary_large_image"
+  meta name:"twitter:image" content:"https://dowe.dev/assets/icons/web/icon-512x512.png"
+  meta name:"twitter:image:alt" content:"Dowe logo"
   signal openDrawer value:false
   Scaffold boxed:true
     appBar

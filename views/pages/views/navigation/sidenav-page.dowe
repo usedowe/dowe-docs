@@ -379,7 +379,7 @@ page SideNavPage
         Title size:"3xl" weight:"black"
           "Solar icons or custom SVG"
         Text size:"sm" color:"muted"
-          "Set icon to a Solar icon name on a header, item, or submenu. For a custom symbol, use one icon block containing exactly one Svg. Both forms lower to web, Android, and iOS."
+          "Set icon to a Solar icon name on a header, item, or submenu. For a custom symbol, use one icon block containing exactly one Svg. Both forms lower to web, Android, and iOS, inherit the normal foreground while inactive, and use the resolved scheme foreground when active."
       Code:
         language:"dowe"
         variant:"soft"

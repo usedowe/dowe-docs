@@ -1,5 +1,6 @@
 import ViewsLayout from "@/views/layouts/views-layout"
 import ViewsPage from "@/views/pages/views/views-page"
+import MetadataPage from "@/views/pages/views/metadata-page"
 import I18nPage from "@/views/pages/views/i18n-page"
 import AudioPage from "@/views/pages/views/control/audio-page"
 import ButtonPage from "@/views/pages/views/control/button-page"
@@ -98,6 +99,7 @@ import ParsePage from "@/views/pages/views/utilities/parse-page"
 views ViewsViews
   group path:"/docs/views" layout:ViewsLayout
     route path:"" page:ViewsPage
+    route path:"web/metadata" page:MetadataPage
     route path:"i18n" page:I18nPage
     route path:"layout/flex" page:FlexPage
     route path:"layout/grid" page:GridPage

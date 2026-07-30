@@ -1,4 +1,12 @@
 page ViewsPage
+  meta name:"title" content:"Dowe Views — Layouts, Pages, and Routes"
+  meta name:"description" content:"Learn how Dowe composes route graphs, layouts, pages, and reusable components into target-specific applications."
+  meta name:"canonical" content:"https://dowe.dev/docs/views"
+  meta name:"og:title" content:"Dowe Views — Layouts, Pages, and Routes"
+  meta name:"og:description" content:"Compose one routed Dowe view model and generate target-specific applications."
+  meta name:"og:url" content:"https://dowe.dev/docs/views"
+  meta name:"twitter:title" content:"Dowe Views — Layouts, Pages, and Routes"
+  meta name:"twitter:description" content:"Compose one routed Dowe view model and generate target-specific applications."
   Section id:"views-file-model" py:{ xs:6 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:3

@@ -11,6 +11,11 @@ page HeightPage
         type:"Dowe scale | full | vh-<scale> | responsive"
         defaultValue:"—"
       },
+      {
+        prop:"maxH"
+        type:"Dowe scale | full | vh-<scale> | responsive"
+        defaultValue:"—"
+      },
     ]
   Section id:"height-introduction" py:{ xs:6 md:10 }
     Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
@@ -20,7 +25,7 @@ page HeightPage
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Height"
         Text size:"lg" color:"muted"
-          "Control fixed, minimum, full, and viewport-aware heights with portable Dowe values."
+          "Control fixed, minimum, maximum, full, and viewport-aware heights with portable Dowe values."
   Section id:"height-values" p:{ xs:5 md:7 }
     Flex direction:"column" gap:6
       Flex direction:"column" gap:2
@@ -90,7 +95,7 @@ page HeightPage
         Title size:"3xl" weight:"black"
           "Subtract a known scale value"
         Text size:"sm" color:"muted"
-          "h and minH accept vh-<scale> when a manual surface must reserve viewport space. Scaffold already handles its fixed AppBar inset."
+          "h, minH, and maxH accept vh-<scale> when a manual surface must reserve viewport space. Scaffold already handles its fixed AppBar inset."
       Code:
         language:"dowe"
         variant:"soft"
@@ -107,12 +112,26 @@ page HeightPage
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "MAXIMUM HEIGHT"
         Title size:"3xl" weight:"black"
-          "maxH is not a common prop yet"
+          "Bound a surface without choosing overflow"
         Text size:"sm" color:"muted"
-          "The current sizing contract does not accept maxH. Use a fixed or responsive h value and a component that owns overflow behavior when content must stay bounded."
-      Card variant:"soft" scheme:"warning" border:1 borderColor:"warning" rounded:"md" p:5
-        Text size:"sm"
-          "Authoring maxH currently produces an unknown prop diagnostic."
+          "maxH sets an upper bound on the component. It does not add scrolling or clipping, so use a component that explicitly owns overflow when content may exceed the limit."
+      Grid columns:{ xs:1 md:2 } gap:6 align:"center"
+        Code:
+          language:"dowe"
+          variant:"soft"
+          scheme:"surface"
+          copyLabel:"Copy Dowe"
+          copiedLabel:"Copied"
+          content:"""
+            Card maxH:{ xs:"vh-16" md:48 } p:6
+              Text "Height-limited content"
+          """
+        Card maxH:48 variant:"soft" scheme:"success" rounded:"lg" p:6
+          Flex direction:"column" gap:2
+            Title size:"lg" weight:"bold"
+              "Maximum height"
+            Text size:"sm" color:"muted"
+              "The card can stay shorter, but it cannot grow past scale 48."
   Section id:"height-props" py:{ xs:7 md:10 }
     Flex direction:"column" gap:5
       Flex direction:"column" gap:2
