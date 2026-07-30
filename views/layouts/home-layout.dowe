@@ -13,7 +13,10 @@ layout HomeLayout
           Github
     main
       children
-      Footer variant:"solid" scheme:"primary" boxed:true py:4
-        center
+      Footer variant:"solid" scheme:"muted" boxed:true py:{ xs:6 md:3 }
+        start
           Text size:"xs" color:"onMuted"
             "Dowe @ 2026. All rights reserved."
+        end
+          Text size:"xs" color:"onMuted"
+            "info@dowe.dev"
