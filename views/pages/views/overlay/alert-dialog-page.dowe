@@ -72,7 +72,7 @@ page AlertDialogPage
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "AlertDialog"
         Text size:"lg" color:"muted"
-          "AlertDialog gives irreversible or consequential actions an explicit confirmation step owned by a bool Signal."
+          "AlertDialog gives consequential actions a Card-resolved neutral panel and portable Button actions owned by one bool Signal."
   Section id:"alert-dialog-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
@@ -81,7 +81,7 @@ page AlertDialogPage
         Title size:"3xl" weight:"black"
           "Confirm a destructive action"
         Text size:"sm" color:"muted"
-          "The dialog panel stays neutral while scheme colors the generated confirm action. onConfirm and onCancel point to ordinary sequential view functions."
+          "The panel stays neutral while variant follows Card, scheme colors the solid confirm Button, and cancel uses an outlined muted Button on every target."
       Card variant:"outlined" scheme:"surface" p:{ xs:6 md:10 } rounded:"md" border:1
         Grid columns:1 gap:4
           Flex wrap:true justify:"center" gap:3
@@ -210,7 +210,7 @@ page AlertDialogPage
         Title size:"3xl" weight:"black"
           "The panel remains neutral"
         Text size:"sm" color:"muted"
-          "scheme is intentionally applied to the generated confirm action. Choose a semantic family that explains the result without recoloring the entire dialog."
+          "scheme is applied to the generated solid confirm Button with its matching on-color. The panel remains neutral and the cancel Button remains outlined muted."
       Grid columns:{ xs:1 md:2 } gap:4
         Card variant:"soft" scheme:"surface" p:5 rounded:"md"
           Grid columns:1 gap:3
@@ -237,6 +237,40 @@ page AlertDialogPage
 
           AlertDialog open:publishOpen variant:"soft" scheme:"success" title:"Publish changes?" description:"The preview will become active." confirmText:"Publish" cancelText:"Cancel" onConfirm:publish onCancel:closePublish
         """
+  Section id:"alert-dialog-targets" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "TARGET PARITY"
+        Title size:"3xl" weight:"black"
+          "One decision surface on every target"
+        Text size:"sm" color:"muted"
+          "Web, Android Compose, the Android development launcher, and iOS use the same Card panel rules and medium Button metrics."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "PANEL"
+            Title size:"lg" weight:"bold"
+              "Neutral Card surface"
+            Text size:"sm" color:"muted"
+              "variant controls the neutral surface weight, including the same outlined border behavior as Card."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "CANCEL"
+            Title size:"lg" weight:"bold"
+              "Outlined muted Button"
+            Text size:"sm" color:"muted"
+              "The generated cancel action keeps the same medium height, padding, radius, and muted border."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "CONFIRM"
+            Title size:"lg" weight:"bold"
+              "Solid semantic Button"
+            Text size:"sm" color:"muted"
+              "The generated confirm action uses scheme for its fill and the matching on-color for readable text."
   Section id:"alert-dialog-props" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2

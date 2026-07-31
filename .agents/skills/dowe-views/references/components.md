@@ -140,7 +140,7 @@ incompatible, or invalid negative data where the chart contract requires non-neg
 | `RichText` | Portable styled text composed from one or more direct `mark` runs. |
 | `mark` | Context-only RichText run with quoted text and one supported style. |
 | `Collapsible` | Expandable content with a quoted label and one or more view children. |
-| `Countdown` | Time-based display with an optional named completion function. |
+| `Countdown` | Time-based display with an optional named completion function; large values expand, while narrow containers compact `lg` and `xl` before bounded horizontal scrolling. |
 | `Map` | Portable map with direct `marker` and optional route `waypoint` entries plus named location or route functions. |
 | `marker` | Context-only Map marker with stable id, latitude, longitude, and optional named click function. |
 | `waypoint` | Context-only Map route point with latitude and longitude. |

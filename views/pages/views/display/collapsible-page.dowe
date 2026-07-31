@@ -16,7 +16,7 @@ page CollapsiblePage
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Collapsible"
         Text size:"lg" color:"muted"
-          "Collapsible is a single disclosure section for progressive detail, optional context, or content that should stay out of the way until requested."
+          "Collapsible is a single disclosure section whose scheme colors, metrics, motion, and bundled Solar arrow Icon stay aligned across web, Android, and iOS."
       Card variant:"soft" scheme:"info" p:5 rounded:"lg" minW:56
         Grid columns:1 gap:1
           Text size:"xs" weight:"bold" spacing:"widest"
@@ -33,7 +33,7 @@ page CollapsiblePage
         Title size:"3xl" weight:"black"
           "Reveal implementation notes"
         Text size:"sm" color:"muted"
-          "The header, arrow, content region, and open state are generated from one target-neutral component contract."
+          "The header, Icon arrow, content region, open state, and scheme-derived colors are generated from one target-neutral component contract."
       Card variant:"outlined" scheme:"surface" rounded:"md" border:1 p:{ xs:5 md:7 }
         Grid columns:1 gap:4
           Collapsible label:"Route details" defaultOpen:true variant:"soft" scheme:"surface" rounded:"md"
@@ -135,7 +135,7 @@ page CollapsiblePage
           Title size:"xl" weight:"black"
             "Target-owned behavior"
           Text size:"sm" color:"muted"
-            "defaultOpen and disabled are declarative inputs; the generated target handles disclosure state and content motion."
+            "defaultOpen and disabled are declarative inputs; each generated target handles disclosure state, 160 ms content motion, and Icon rotation."
   Section id:"collapsible-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2

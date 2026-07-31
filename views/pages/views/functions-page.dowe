@@ -2,6 +2,8 @@ page FunctionsPage
   signal panelOpen value:false
   fn togglePanel
     set panelOpen value:!panelOpen
+  fn openViews
+    redirect path:"/docs/views"
   Section id:"functions-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
       Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
@@ -18,11 +20,13 @@ page FunctionsPage
         Title size:"3xl" weight:"black"
           "Name a state transition"
         Text size:"sm" color:"muted"
-          "A function contains one declarative request, set, or reset operation."
+          "A function contains ordered request, branch, state, feedback, and internal redirect statements."
       Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
         Grid columns:1 gap:4
           Button onClick:togglePanel scheme:"primary"
             "Toggle panel"
+          Button onClick:openViews variant:"soft" scheme:"secondary"
+            "Open Views overview"
           Card show:panelOpen variant:"soft" scheme:"info" p:4 rounded:"md"
             Text
               "The Button dispatches togglePanel, which updates this page Signal."
@@ -40,4 +44,7 @@ page FunctionsPage
 
           Button onClick:togglePanel
             "Toggle panel"
+
+          fn finish
+            redirect path:"/docs/views"
         """

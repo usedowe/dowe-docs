@@ -1,0 +1,204 @@
+page ToastPage
+  const toastProps:
+    value:[
+      {
+        prop:"value"
+        type:"{ type, title, message, visible }"
+        defaultValue:"required"
+      },
+      {
+        prop:"duration"
+        type:"milliseconds"
+        defaultValue:"4000"
+      },
+      {
+        prop:"variant"
+        type:"solid | soft | outlined | ghost"
+        defaultValue:"solid"
+      },
+      {
+        prop:"scheme"
+        type:"primary | secondary | tertiary | muted | background | surface | success | info | warning | danger"
+        defaultValue:"value.type"
+      },
+      {
+        prop:"position"
+        type:"top-left | top-right | bottom-left | bottom-right"
+        defaultValue:"top-right"
+      },
+    ]
+  fn showSuccessToast
+    toast value:{ type:"success" title:"Changes saved" message:"Your workspace is up to date." visible:true } duration:6000 position:"top-right" variant:"soft" scheme:"success"
+  fn showInfoToast
+    toast value:{ type:"info" title:"Sync started" message:"New activity will appear here." visible:true } duration:6000 position:"top-right" variant:"outlined" scheme:"info"
+  fn showWarningToast
+    toast value:{ type:"warning" title:"Review required" message:"Check the publishing settings first." visible:true } duration:6000 position:"bottom-left" variant:"solid" scheme:"warning"
+  fn showErrorToast
+    toast value:{ type:"error" title:"Publish failed" message:"Try again after checking the connection." visible:true } duration:6000 position:"bottom-right" variant:"ghost" scheme:"danger"
+  fn showSolidToast
+    toast value:{ type:"success" title:"Solid" message:"Family background with matching on-color." visible:true } duration:6000 position:"top-right" variant:"solid" scheme:"success"
+  fn showSoftToast
+    toast value:{ type:"info" title:"Soft" message:"Soft family surface with matching content." visible:true } duration:6000 position:"top-right" variant:"soft" scheme:"info"
+  fn showOutlinedToast
+    toast value:{ type:"warning" title:"Outlined" message:"Neutral Card surface with a warning border." visible:true } duration:6000 position:"top-right" variant:"outlined" scheme:"warning"
+  fn showGhostToast
+    toast value:{ type:"error" title:"Ghost" message:"Transparent Card surface with danger content." visible:true } duration:6000 position:"top-right" variant:"ghost" scheme:"danger"
+  Section id:"toast-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "OVERLAY"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Toast"
+        Text size:"lg" color:"muted"
+          "Toast presents short feedback through one Dowe-owned surface with the same Card variants, scheme tokens, placement, timing, and Drawer close control on web, Android, and iOS."
+  Section id:"toast-playground" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PLAYGROUND"
+        Title size:"3xl" weight:"black"
+          "Send global feedback"
+        Text size:"sm" color:"muted"
+          "A lowercase toast statement replaces the current message in the generated global presenter. It does not require a Toast node in the page tree."
+      Card variant:"outlined" scheme:"surface" p:{ xs:6 md:10 } rounded:"md" border:1
+        Flex wrap:true justify:"center" gap:3
+          Button onClick:showSuccessToast variant:"soft" scheme:"success"
+            "Show success"
+          Button onClick:showInfoToast variant:"soft" scheme:"info"
+            "Show info"
+          Button onClick:showWarningToast variant:"soft" scheme:"warning"
+            "Show warning"
+          Button onClick:showErrorToast variant:"soft" scheme:"danger"
+            "Show error"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          fn saveChanges
+            toast value:{ type:"success" title:"Changes saved" message:"Your workspace is up to date." visible:true } duration:6000 position:"top-right" variant:"soft" scheme:"success"
+
+          Button onClick:saveChanges variant:"solid" scheme:"primary"
+            "Save changes"
+        """
+  Section id:"toast-variants" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "VARIANTS AND SCHEMES"
+        Title size:"3xl" weight:"black"
+          "The Card surface contract"
+        Text size:"sm" color:"muted"
+          "Variant controls the surface treatment and scheme selects its design family. Outlined keeps a readable neutral Card surface with the selected family on its border."
+      Grid columns:{ xs:1 md:4 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Title size:"lg" weight:"bold"
+              "Solid"
+            Text size:"sm" color:"muted"
+              "Family color and matching on-color."
+            Button onClick:showSolidToast variant:"solid" scheme:"success"
+              "Preview"
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Title size:"lg" weight:"bold"
+              "Soft"
+            Text size:"sm" color:"muted"
+              "Soft family pair for quieter feedback."
+            Button onClick:showSoftToast variant:"soft" scheme:"info"
+              "Preview"
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Title size:"lg" weight:"bold"
+              "Outlined"
+            Text size:"sm" color:"muted"
+              "Neutral surface with a family border."
+            Button onClick:showOutlinedToast variant:"outlined" scheme:"warning"
+              "Preview"
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:3
+            Title size:"lg" weight:"bold"
+              "Ghost"
+            Text size:"sm" color:"muted"
+              "Transparent surface with family content."
+            Button onClick:showGhostToast variant:"ghost" scheme:"danger"
+              "Preview"
+  Section id:"toast-close" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "CLOSE AND TIMING"
+        Title size:"3xl" weight:"black"
+          "Dismiss it immediately or let it expire"
+        Text size:"sm" color:"muted"
+          "Every generated Toast includes the same portable SVG close control as Drawer. The surface is non-modal, so the page remains scrollable while the close control stays interactive. Duration closes the presenter automatically."
+      Grid columns:{ xs:1 md:2 } gap:5
+        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+          Grid columns:1 gap:2
+            Text size:"sm" weight:"bold"
+              "Manual dismissal"
+            Text size:"sm" color:"muted"
+              "The close control removes the current message on web, Compose, the Android development launcher, and SwiftUI. On iOS, unrelated reactive updates cannot restart a dismissal already in progress."
+        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+          Grid columns:1 gap:2
+            Text size:"sm" weight:"bold"
+              "Automatic dismissal"
+            Text size:"sm" color:"muted"
+              "Duration is normalized in milliseconds. A new toast replaces the current one and starts its own timer."
+  Section id:"toast-targets" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "TARGET BEHAVIOR"
+        Title size:"3xl" weight:"black"
+          "One presenter, target-owned output"
+        Text size:"sm" color:"muted"
+          "Dowe keeps the normalized feedback model shared while each generator owns the portable overlay implementation."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "WEB"
+            Title size:"lg" weight:"bold"
+              "Generated overlay"
+            Text size:"sm" color:"muted"
+              "HTML, CSS, and router state use the Card surface rules, corner placement, shared timer, and SVG close control."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "ANDROID"
+            Title size:"lg" weight:"bold"
+              "Dowe popup"
+            Text size:"sm" color:"muted"
+              "Compose and the development launcher use the same Card colors, border, metrics, timer, placement, and close SVG."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" color:"muted"
+              "IOS"
+            Title size:"lg" weight:"bold"
+              "Window presenter"
+            Text size:"sm" color:"muted"
+              "SwiftUI measures the feedback surface before mounting only its compact final container in the window. It creates no full-window host or backdrop, and repeated view updates reuse the active presentation or dismissal state."
+  Section id:"toast-props" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Toast statement props"
+        Text size:"sm" color:"muted"
+          "Use scheme, not color, to select the family. The capital Toast component accepts the same variant, scheme, and position surface props for static or Signal-backed feedback; lowercase toast is the recommended global action statement."
+      Table:
+        data:toastProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1fr"

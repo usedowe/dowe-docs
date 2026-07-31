@@ -15,7 +15,7 @@ page AccordionPage
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Accordion"
         Text size:"lg" color:"muted"
-          "Accordion organizes related content into explicit item entries with target-owned disclosure state, optional multi-open behavior, and portable child views."
+          "Accordion keeps item labels, disclosure state, scheme colors, spacing, motion, and the exact right-to-down submenu arrow shared with SideNav aligned across web, Android Compose, the Android development launcher, and iOS."
       Card variant:"soft" scheme:"primary" p:5 rounded:"lg" minW:56
         Grid columns:1 gap:1
           Text size:"xs" weight:"bold" spacing:"widest"
@@ -32,7 +32,7 @@ page AccordionPage
         Title size:"3xl" weight:"black"
           "Build a release FAQ"
         Text size:"sm" color:"muted"
-          "multiple:true lets readers compare answers without closing the panel they are already reading."
+          "multiple:true lets readers compare answers without closing the panel they are already reading; multiple:false always keeps at most one item open."
       Card variant:"outlined" scheme:"surface" rounded:"md" border:1 p:{ xs:5 md:7 }
         Accordion multiple:true variant:"outlined" scheme:"surface" rounded:"md"
           item id:"source" label:"Where does the source run?" defaultOpen:true
@@ -100,7 +100,7 @@ page AccordionPage
                   "background and surface are structural families intended for documentation panels."
               item id:"variant" label:"Keep variant orthogonal"
                 Text size:"sm" color:"muted"
-                  "solid, soft, outlined, and ghost describe treatment, not semantic color."
+                  "solid, soft, outlined, and ghost describe treatment; scheme supplies the matching container, content, border, and Icon colors."
         Card variant:"soft" scheme:"surface" p:5 rounded:"md"
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" color:"muted"

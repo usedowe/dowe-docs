@@ -63,12 +63,14 @@ import ModalPage from "@/views/pages/views/overlay/modal-page"
 import AlertDialogPage from "@/views/pages/views/overlay/alert-dialog-page"
 import CommandPage from "@/views/pages/views/overlay/command-page"
 import TooltipPage from "@/views/pages/views/overlay/tooltip-page"
+import ToastPage from "@/views/pages/views/overlay/toast-page"
 import FlexPage from "@/views/pages/views/flex-page"
 import GridPage from "@/views/pages/views/grid-page"
 import NavMenuPage from "@/views/pages/views/navigation/navmenu-page"
 import SideNavPage from "@/views/pages/views/navigation/sidenav-page"
 import RailNavPage from "@/views/pages/views/navigation/railnav-page"
 import TabsPage from "@/views/pages/views/navigation/tabs-page"
+import StepperPage from "@/views/pages/views/navigation/stepper-page"
 import PaginationPage from "@/views/pages/views/navigation/paginnation-page"
 import AppBarPage from "@/views/pages/views/layout/appbar-page"
 import FooterPage from "@/views/pages/views/layout/footer-page"
@@ -190,8 +192,10 @@ views ViewsViews
     route path:"overlay/alert-dialog" page:AlertDialogPage
     route path:"overlay/command" page:CommandPage
     route path:"overlay/tooltip" page:TooltipPage
+    route path:"overlay/toast" page:ToastPage
     route path:"navigation/navmenu" page:NavMenuPage
     route path:"navigation/sidenav" page:SideNavPage
     route path:"navigation/railnav" page:RailNavPage
     route path:"navigation/tabs" page:TabsPage
+    route path:"navigation/stepper" page:StepperPage
     route path:"navigation/pagination" page:PaginationPage

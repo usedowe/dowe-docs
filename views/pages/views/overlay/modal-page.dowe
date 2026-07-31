@@ -60,7 +60,9 @@ page ModalPage
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Modal"
         Text size:"lg" color:"muted"
-          "Modals keep a focused task above the current screen while one bool Signal owns whether the dialog is open."
+          "Modal combines Card surface rules with Drawer's close control so one bool Signal produces the same focused task on web, Android, and iOS."
+        Text size:"sm" color:"muted"
+          "On compact viewports, the generated panel stays within 95% of the available overlay width on every target."
   Section id:"modal-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
@@ -69,7 +71,7 @@ page ModalPage
         Title size:"3xl" weight:"black"
           "A focused profile review"
         Text size:"sm" color:"muted"
-          "Open the dialog to inspect its optional header and footer, generated close control, overlay, and explicit close action."
+          "Open the dialog to inspect its optional header and footer, Card-resolved surface, Drawer close control, overlay, and explicit close action."
       Card variant:"outlined" scheme:"surface" p:{ xs:6 md:10 } rounded:"md" border:1
         Flex justify:"center" align:"center"
           Button onClick:openProfileModal variant:"solid" scheme:"primary" iconStart:"user"
@@ -170,7 +172,7 @@ page ModalPage
             Text size:"sm" weight:"bold"
               "Standard close behavior"
             Text size:"sm" color:"muted"
-              "The overlay and generated close control dismiss this dialog, and onClose invokes the declared function after the open Signal changes."
+              "The overlay and generated Drawer-style SVG control dismiss this dialog, and onClose invokes the declared function after the open Signal changes."
             Button onClick:openPolicyModal variant:"outlined" scheme:"info"
               "Open policy"
         Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
@@ -235,7 +237,7 @@ page ModalPage
         Title size:"3xl" weight:"black"
           "Keep the dialog aligned with its context"
         Text size:"sm" color:"muted"
-          "Modal uses the same solid, soft, outlined, and ghost variants as other design-family surfaces. Its default scheme is surface, but every Dowe design family is available when the context needs stronger emphasis."
+          "Modal resolves solid, soft, outlined, and ghost exactly like Card. Outlined keeps a readable neutral surface with the selected scheme on its border; the default scheme remains surface."
       Code:
         language:"dowe"
         variant:"soft"
@@ -276,7 +278,7 @@ page ModalPage
             Title size:"lg" weight:"bold"
               "Fixed dialog overlay"
             Text size:"sm" color:"muted"
-              "Generated web output includes the overlay, close control, Escape handling, and reactive Signal updates."
+              "Generated web output uses the shared Card surface, 560-unit panel metrics, Drawer SVG close control, Escape handling, and reactive Signal updates."
         Card variant:"soft" scheme:"surface" p:5 rounded:"md"
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
@@ -284,7 +286,7 @@ page ModalPage
             Title size:"lg" weight:"bold"
               "Dowe popup dialog"
             Text size:"sm" color:"muted"
-              "Generated Compose presents a Dowe-owned dialog surface rather than inline page content."
+              "Compose and the Android development launcher use the same Card colors and border, panel metrics, and Drawer close geometry."
         Card variant:"soft" scheme:"surface" p:5 rounded:"md"
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
@@ -292,7 +294,7 @@ page ModalPage
             Title size:"lg" weight:"bold"
               "Window presenter"
             Text size:"sm" color:"muted"
-              "Generated SwiftUI mounts the same dialog contract through a Dowe-owned window presenter."
+              "SwiftUI mounts the same Card surface, metrics, and Drawer close SVG through a Dowe-owned window presenter."
   Section id:"modal-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2

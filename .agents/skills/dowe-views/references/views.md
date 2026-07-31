@@ -181,6 +181,7 @@ View functions contain ordered, target-neutral statements.
 | `set target` | none | `value`, or `source:<standard-library function>` with its props |
 | `reset target` | none | Restores a Signal or View Store to its initial value |
 | `toast` | none | `value:{ type title message visible duration? }`; optional `duration`, `scheme`, `variant`, `position` |
+| `redirect` | none | Required static absolute `path` to a declared internal route; replaces history and terminates the function |
 
 ```text
 fn createBlog
@@ -190,12 +191,16 @@ fn createBlog
     reset form
     toast value:{ type:"success" title:"Published" message:"Blog created." visible:true }
   else
-    toast value:{ type:"error" title:"Error" message:"Could not create the blog." visible:true }
+    redirect path:"/login"
 ```
 
 Use `Button onClick:createBlog` to dispatch the named function. Requests can only call client-safe
 routes or client-visible environment bases. Views cannot access Database, KV, server HTTP, crypto,
 spawn, filesystem, or server-only environment values.
+
+Use `redirect path:"/login"` in either `fn` or `init` for route guards and completed workflows.
+The path must exist in the effective route graph. Redirect is terminal, uses replace navigation on
+web, desktop, Android, and iOS, and does not accept external or dynamic destinations.
 
 Portable standard-library calls use `set target source:namespace.function` inside `fn`. Convert SVG
 XML text with `set output source:parse.svg value:input fallback:""`. The result is Dowe `Svg`/`Path`
