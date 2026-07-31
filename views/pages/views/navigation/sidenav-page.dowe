@@ -186,6 +186,8 @@ page SideNavPage
           "Configure lateral navigation"
         Text size:"sm" color:"muted"
           "The controls bind directly to the preview and update the same target-neutral navigation tree without resetting submenu state."
+        Text size:"sm" color:"muted"
+          "SideNav items and submenu items can target a Section id with href:\"#sidenav-structure\". Dowe validates the fragment, animates the scroll, and keeps the section below a fixed or sticky AppBar on web."
       Grid columns:{ xs:1 md:3 } gap:4
         Select:
           bind:schemeChoice
@@ -218,7 +220,7 @@ page SideNavPage
           item:
             label:"Overview"
             description:"Activity and metrics"
-            href:"/docs/views/navigation/sidenav"
+            href:"#sidenav-playground"
             status:"New"
             icon:"home"
           divider
@@ -229,9 +231,9 @@ page SideNavPage
             open:true
             bordered:true
             icon:"document-text"
-            item label:"Articles" href:"/docs/views" status:"12" icon:"notes"
-            item label:"Authors" href:"/docs/views" icon:"users-group-rounded"
-          item label:"Settings" description:"Preferences" href:"/docs/views" icon:"settings"
+            item label:"Structure" href:"#sidenav-structure" status:"12" icon:"notes"
+            item label:"Width" href:"#sidenav-width" icon:"users-group-rounded"
+          item label:"Props" description:"API reference" href:"#sidenav-props" icon:"settings"
       Code:
         language:"dowe"
         variant:"soft"
@@ -242,12 +244,12 @@ page SideNavPage
         content:"""
           SideNav variant:"{variantChoice}" scheme:"{schemeChoice}" size:"{sizeChoice}" wide:{wideEnabled}
             header label:"Workspace" description:"Project navigation" icon:"sidebar-minimalistic"
-            item label:"Overview" description:"Activity and metrics" href:"/docs/views/navigation/sidenav" status:"New" icon:"home"
+            item label:"Overview" description:"Activity and metrics" href:"#sidenav-playground" status:"New" icon:"home"
             divider
             submenu label:"Content" description:"Publishing" status:"2" open:true bordered:true icon:"document-text"
-              item label:"Articles" href:"/docs/views" status:"12" icon:"notes"
-              item label:"Authors" href:"/docs/views" icon:"users-group-rounded"
-            item label:"Settings" description:"Preferences" href:"/docs/views" icon:"settings"
+              item label:"Structure" href:"#sidenav-structure" status:"12" icon:"notes"
+              item label:"Width" href:"#sidenav-width" icon:"users-group-rounded"
+            item label:"Props" description:"API reference" href:"#sidenav-props" icon:"settings"
         """
   Section id:"sidenav-variations" py:{ xs:7 md:10 }
     Grid columns:1 gap:8
