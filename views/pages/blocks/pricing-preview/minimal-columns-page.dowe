@@ -1,0 +1,102 @@
+page MinimalColumnsPricingPage
+  const plans:
+    value:[
+      {
+        id:"personal"
+        name:"Personal"
+        price:"$39"
+        popular:false
+        standard:true
+        featureOne:"All analytics features"
+        featureTwo:"Up to 250,000 tracked visits"
+        featureThree:"Normal support"
+        featureFour:"Mobile app"
+      },
+      {
+        id:"team"
+        name:"Team"
+        price:"$59"
+        popular:true
+        standard:false
+        featureOne:"Everything on Growth plan"
+        featureTwo:"Up to 500,000 tracked visits"
+        featureThree:"Dedicated support"
+        featureFour:"Mobile app"
+      },
+      {
+        id:"unlimited"
+        name:"Unlimited"
+        price:"$139"
+        popular:false
+        standard:true
+        featureOne:"Up to 50 team members"
+        featureTwo:"Unlimited updates"
+        featureThree:"Collaboration tools"
+        featureFour:"All integrations included"
+      },
+    ]
+  Section id:"minimal-columns-pricing" bg:"background" color:"onBackground" boxed:true minH:"vh-0" py:{ xs:8 md:14 }
+    Grid columns:{ xs:1 md:3 } gap:{ xs:5 md:0 } align:"stretch"
+      each in:plans as:plan key:plan.id
+        Card variant:"ghost" scheme:"background" rounded:"xl" p:{ xs:6 md:8 } minH:{ xs:96 md:"vh-24" } show:plan.standard
+          Flex direction:"column" justify:"between" gap:8 minH:{ xs:80 md:"vh-40" }
+            Grid columns:1 gap:5
+              Flex justify:"between" align:"center"
+                Title size:"3xl" weight:"black"
+                  "{plan.name}"
+                Title size:"xl" weight:"bold" color:"muted"
+                  "{plan.price}"
+              Grid columns:1 gap:3
+                Flex align:"center" gap:3
+                  Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                  Text size:"sm" weight:"bold"
+                    "{plan.featureOne}"
+                Flex align:"center" gap:3
+                  Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                  Text size:"sm" weight:"bold"
+                    "{plan.featureTwo}"
+                Flex align:"center" gap:3
+                  Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                  Text size:"sm" weight:"bold"
+                    "{plan.featureThree}"
+                Flex align:"center" gap:3
+                  Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                  Text size:"sm" weight:"bold"
+                    "{plan.featureFour}"
+            Grid columns:1 gap:3
+              Button variant:"solid" scheme:"primary" size:"lg" rounded:"full"
+                "Get started"
+              Text size:"sm" color:"muted"
+                "Includes a free trial with no setup fee."
+        Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:{ xs:96 md:"vh-24" } show:plan.popular
+          Flex direction:"column" justify:"between" gap:8 minH:{ xs:80 md:"vh-40" }
+            Grid columns:1 gap:5
+              Text size:"sm" color:"muted"
+                "Popular"
+              Flex justify:"between" align:"center"
+                Title size:"3xl" weight:"black"
+                  "{plan.name}"
+                Title size:"xl" weight:"bold" color:"muted"
+                  "{plan.price}"
+              Grid columns:1 gap:3
+                Flex align:"center" gap:3
+                  Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                  Text size:"sm" weight:"bold"
+                    "{plan.featureOne}"
+                Flex align:"center" gap:3
+                  Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                  Text size:"sm" weight:"bold"
+                    "{plan.featureTwo}"
+                Flex align:"center" gap:3
+                  Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                  Text size:"sm" weight:"bold"
+                    "{plan.featureThree}"
+                Flex align:"center" gap:3
+                  Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                  Text size:"sm" weight:"bold"
+                    "{plan.featureFour}"
+            Grid columns:1 gap:3
+              Button variant:"solid" scheme:"primary" size:"lg" rounded:"full"
+                "Get started"
+              Text size:"sm" color:"muted"
+                "Includes a free trial with no setup fee."

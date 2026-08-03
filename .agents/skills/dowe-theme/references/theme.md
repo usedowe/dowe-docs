@@ -7,7 +7,7 @@ and bundle metadata belong in `main.dowe`, not in `theme.dowe`.
 theme
   fonts default:"manrope" install:["manrope","inter"]
   design defaultTheme:"light"
-    Card variant:"outline" scheme:"primary" radius:"xs" shadow:"xs"
+    Card variant:"outlined" scheme:"primary" radius:"xs" shadow:"xs"
     Button variant:"solid" scheme:"secondary" size:"md"
     Avatar radius:"full" size:"md"
     Chip variant:"soft" scheme:"secondary" radius:"full" size:"sm"
@@ -36,13 +36,33 @@ theme
 tokens are `system`, `inter`, `roboto`, `montserrat`, `lato`, `poppins`, `manrope`, `quicksand`,
 `lora`, `syne`, `jost`, and `puritan`.
 
+The catalog is closed: there are no custom fonts, font files, Google Fonts imports, or font URLs.
+When a reference design uses a family outside the catalog, select the token whose typographic
+character is closest instead of trying to import the original; never invent a token name.
+
+| Reference character | Closest tokens |
+| --- | --- |
+| Native platform look, OS-consistent UI | `system` |
+| Neutral grotesque for interfaces, dashboards, and data | `inter`, `roboto` |
+| Modern semi-geometric sans for product and marketing pages | `manrope` |
+| Geometric rounded sans with a friendly voice | `poppins`, `quicksand` |
+| Geometric display sans for headlines and branding | `montserrat`, `jost` |
+| Warm humanist sans for readable body copy | `lato`, `puritan` |
+| Editorial serif for longform and literary tone | `lora` |
+| Wide display face with strong personality for hero statements | `syne` |
+
+Pair at most two families per project: one for `Title` and one for `Text`, configured once in
+`design`. A single family for both is a valid, quieter default.
+
 ## Component defaults
 
-The default slots are `Card`, `Button`, `Avatar`, `Chip`, `Ui`, `Text`, and `Title`.
+The default slots are `Card`, `Button`, `Avatar`, `Chip`, `Ui`, `Text`, and `Title`. `Ui` sets
+shared defaults for the interface controls and surfaces that accept the common visual props but
+have no dedicated slot.
 
 | Prop | Accepted values |
 | --- | --- |
-| `variant` | `solid`, `soft`, `outline`, `outlined`, `line`, `ghost` |
+| `variant` | `solid`, `soft`, `outlined`, `ghost`; the normalized model uses `outlined` |
 | `scheme` | Semantic color family |
 | `radius` or `rounded` | `xs`, `sm`, `md`, `lg`, `xl`, `full` |
 | `size` | `xs`, `sm`, `md`, `lg`, `xl` |

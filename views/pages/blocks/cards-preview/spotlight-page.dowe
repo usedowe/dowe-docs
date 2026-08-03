@@ -1,0 +1,24 @@
+page SpotlightCardsPage
+  const supportingProducts:
+    value:[
+      { id:"desktop" title:"Desktop app" },
+      { id:"users" title:"Multiple users" },
+    ]
+  Section id:"spotlight-cards" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:12 } minH:"vh-0"
+    Grid columns:{ xs:1 md:"2fr 1fr 1fr" } gap:5 align:"stretch"
+      Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:7 md:10 } minH:80
+        Flex direction:"column" align:"center" justify:"center" gap:5 minH:64
+          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+            "TAGLINE"
+          Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+            "Mobile app"
+          Text size:"lg" color:"muted"
+            "A focused product message with enough room for supporting copy and one clear action."
+          Button variant:"solid" scheme:"primary" rounded:"full" size:"lg"
+            "See more"
+      each in:supportingProducts as:product key:product.id
+        Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:7 md:8 } minH:80
+          Flex direction:"column" align:"center" justify:"center" gap:6 minH:64
+            Icon name:"gallery" style:"bold-duotone" fill:"muted" w:16 h:16
+            Title size:"xl" weight:"black"
+              "{product.title}"

@@ -1,0 +1,33 @@
+page OutlinedAccordionPage
+  const answerLines value:[
+    { id:"structure" text:"A clear structure keeps the question easy to scan and the answer focused on one useful idea." },
+    { id:"portability" text:"Portable Dowe components preserve the same disclosure behavior across every supported target." },
+  ]
+  Section id:"outlined-accordion" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:14 } minH:"vh-0"
+    Grid columns:1 gap:{ xs:8 md:12 }
+      Flex direction:"column" align:"center" gap:3
+        Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+          "Frequently Asked Questions"
+        Text size:"lg" color:"muted"
+          "A spacious FAQ with bordered disclosure cards and one clear answer at a time."
+      Accordion variant:"outlined" scheme:"primary" rounded:"lg" w:"full"
+        item id:"reusable" label:"What makes a reusable website block effective?" defaultOpen:true
+          Grid columns:1 gap:2
+            each in:answerLines as:line key:line.id
+              Text color:"muted"
+                "{line.text}"
+        item id:"responsive" label:"How should content adapt across screen sizes?"
+          Grid columns:1 gap:2
+            each in:answerLines as:line key:line.id
+              Text color:"muted"
+                "{line.text}"
+        item id:"products" label:"Can the same block support multiple products?"
+          Grid columns:1 gap:2
+            each in:answerLines as:line key:line.id
+              Text color:"muted"
+                "{line.text}"
+        item id:"accessible" label:"What keeps interaction accessible?"
+          Grid columns:1 gap:2
+            each in:answerLines as:line key:line.id
+              Text color:"muted"
+                "{line.text}"

@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1",
   "harnessVersion": "1",
-  "doweVersion": "1.0.0",
+  "doweVersion": "1.0.13",
   "mode": "project",
   "projectRoot": ".",
   "agentRoot": ".agents",

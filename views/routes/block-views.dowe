@@ -18,7 +18,14 @@ import ScaffoldInsetSidebarLayout from "@/views/layouts/blocks/scaffold-preview/
 import ScaffoldFullHeightSidebarLayout from "@/views/layouts/blocks/scaffold-preview/full-height-sidebar-layout"
 import ScaffoldRailBottomBarLayout from "@/views/layouts/blocks/scaffold-preview/rail-bottom-bar-layout"
 import BlankLayout from "@/views/layouts/blocks/blank-layout"
-import HeroPreviewLayout from "@/views/layouts/blocks/hero-preview-layout"
+import DashboardPreviewLayout from "@/views/layouts/blocks/dashboard-preview/dashboard-layout"
+import CenteredMediaHeroLayout from "@/views/layouts/blocks/hero-preview/centered-media-layout"
+import VideoSplitHeroLayout from "@/views/layouts/blocks/hero-preview/video-split-layout"
+import LeadFormHeroLayout from "@/views/layouts/blocks/hero-preview/lead-form-layout"
+import MediaCardHeroLayout from "@/views/layouts/blocks/hero-preview/media-card-layout"
+import SearchHeroLayout from "@/views/layouts/blocks/hero-preview/search-layout"
+import FullBleedHeroLayout from "@/views/layouts/blocks/hero-preview/full-bleed-layout"
+import CarouselHeroLayout from "@/views/layouts/blocks/hero-preview/carousel-layout"
 import AppBarsPage from "@/views/pages/blocks/app-bar-page"
 import AppBarPreviewPage from "@/views/pages/blocks/app-bar-preview-page"
 import FootersPage from "@/views/pages/blocks/footer-page"
@@ -26,20 +33,50 @@ import FooterPreviewPage from "@/views/pages/blocks/footer-preview-page"
 import ScaffoldsPage from "@/views/pages/blocks/scaffold-page"
 import ScaffoldPreviewPage from "@/views/pages/blocks/scaffold-preview-page"
 import HerosPage from "@/views/pages/blocks/hero-page"
+import AccordionsPage from "@/views/pages/blocks/accordion-page"
+import CardsPage from "@/views/pages/blocks/cards-page"
+import ContactsPage from "@/views/pages/blocks/contact-page"
 import AuthPage from "@/views/pages/blocks/auth-page"
+import CtasPage from "@/views/pages/blocks/cta-page"
 import FeaturesPage from "@/views/pages/blocks/features-page"
+import SectionsPage from "@/views/pages/blocks/sections-page"
 import TablesPage from "@/views/pages/blocks/table-page"
+import PricesPage from "@/views/pages/blocks/prices-page"
+import StorePage from "@/views/pages/blocks/store-page"
+import TestimonialsPage from "@/views/pages/blocks/testimonial-page"
+import DashboardPage from "@/views/pages/blocks/dashboard-page"
+import DashboardOverviewPage from "@/views/pages/blocks/dashboard-preview/overview-page"
+import DashboardTaskBoardPage from "@/views/pages/blocks/dashboard-preview/task-board-page"
+import DashboardTeamDirectoryPage from "@/views/pages/blocks/dashboard-preview/team-directory-page"
+import DashboardReportsPage from "@/views/pages/blocks/dashboard-preview/reports-page"
+import DashboardSettingsPage from "@/views/pages/blocks/dashboard-preview/settings-page"
+import DashboardCompleteProfilePage from "@/views/pages/blocks/dashboard-preview/complete-profile-page"
 import DashboardTablePage from "@/views/pages/blocks/table-preview/team-directory-page"
-import CryptoAppHeroPage from "@/views/pages/blocks/hero-preview/crypto-app-page"
-import SmartSolutionsHeroPage from "@/views/pages/blocks/hero-preview/smart-solutions-page"
-import GrowthConsultingHeroPage from "@/views/pages/blocks/hero-preview/growth-consulting-page"
-import DigitalPotentialHeroPage from "@/views/pages/blocks/hero-preview/digital-potential-page"
-import WorkflowPlatformHeroPage from "@/views/pages/blocks/hero-preview/workflow-platform-page"
-import SoftwareSolutionsHeroPage from "@/views/pages/blocks/hero-preview/software-solutions-page"
-import LeadCaptureHeroPage from "@/views/pages/blocks/hero-preview/lead-capture-page"
-import ContentAudienceHeroPage from "@/views/pages/blocks/hero-preview/content-audience-page"
-import PrivacyDownloadHeroPage from "@/views/pages/blocks/hero-preview/privacy-download-page"
-import PropertySearchHeroPage from "@/views/pages/blocks/hero-preview/property-search-page"
+import CenteredMediaHeroPage from "@/views/pages/blocks/hero-preview/centered-media-page"
+import VideoSplitHeroPage from "@/views/pages/blocks/hero-preview/video-split-page"
+import LeadFormHeroPage from "@/views/pages/blocks/hero-preview/lead-form-page"
+import MediaCardHeroPage from "@/views/pages/blocks/hero-preview/media-card-page"
+import SearchHeroPage from "@/views/pages/blocks/hero-preview/search-page"
+import FullBleedHeroPage from "@/views/pages/blocks/hero-preview/full-bleed-page"
+import CarouselHeroPage from "@/views/pages/blocks/hero-preview/carousel-page"
+import OutlinedAccordionPage from "@/views/pages/blocks/accordion-preview/outlined-cards-page"
+import MinimalLinesAccordionPage from "@/views/pages/blocks/accordion-preview/minimal-lines-page"
+import SoftPanelsAccordionPage from "@/views/pages/blocks/accordion-preview/soft-panels-page"
+import SplitGridAccordionPage from "@/views/pages/blocks/accordion-preview/split-grid-page"
+import NumberedListAccordionPage from "@/views/pages/blocks/accordion-preview/numbered-list-page"
+import CenteredFeatureCardsPage from "@/views/pages/blocks/cards-preview/centered-features-page"
+import MediaGridCardsPage from "@/views/pages/blocks/cards-preview/media-grid-page"
+import ProductCarouselCardsPage from "@/views/pages/blocks/cards-preview/product-carousel-page"
+import ActionCardsPage from "@/views/pages/blocks/cards-preview/action-cards-page"
+import BentoCardsPage from "@/views/pages/blocks/cards-preview/bento-page"
+import NumberedCardsPage from "@/views/pages/blocks/cards-preview/numbered-page"
+import SpotlightCardsPage from "@/views/pages/blocks/cards-preview/spotlight-page"
+import ContactDetailsFormPage from "@/views/pages/blocks/contact-preview/details-form-page"
+import ContactInfoMediaPage from "@/views/pages/blocks/contact-preview/info-media-page"
+import ContactFooterFormPage from "@/views/pages/blocks/contact-preview/footer-form-page"
+import ContactSplitPanelPage from "@/views/pages/blocks/contact-preview/split-panel-page"
+import ContactSplitPanelDuplicatePage from "@/views/pages/blocks/contact-preview/split-panel-duplicate-page"
+import ContactSocialMediaPage from "@/views/pages/blocks/contact-preview/social-media-page"
 import LoginSplitAuthPage from "@/views/pages/blocks/auth-preview/login-split-page"
 import LoginReverseAuthPage from "@/views/pages/blocks/auth-preview/login-reverse-page"
 import LoginCardAuthPage from "@/views/pages/blocks/auth-preview/login-card-page"
@@ -52,15 +89,51 @@ import MarketingServicesFeaturesPage from "@/views/pages/blocks/features-preview
 import BrandTransformationFeaturesPage from "@/views/pages/blocks/features-preview/brand-transformation-page"
 import OnlineSolutionsFeaturesPage from "@/views/pages/blocks/features-preview/online-solutions-page"
 import CompleteSolutionsFeaturesPage from "@/views/pages/blocks/features-preview/complete-solutions-page"
+import MediaSplitSectionPage from "@/views/pages/blocks/sections-preview/media-split-page"
+import MediaBenefitsSectionPage from "@/views/pages/blocks/sections-preview/media-benefits-page"
+import DeviceShowcaseSectionPage from "@/views/pages/blocks/sections-preview/device-showcase-page"
+import FeatureMediaSectionPage from "@/views/pages/blocks/sections-preview/feature-media-page"
+import CenteredMediaCtaSectionPage from "@/views/pages/blocks/sections-preview/centered-media-cta-page"
+import VideoFeaturesSectionPage from "@/views/pages/blocks/sections-preview/video-features-page"
+import SplitActionsCtaPage from "@/views/pages/blocks/cta-preview/split-actions-page"
+import CenteredActionsCtaPage from "@/views/pages/blocks/cta-preview/centered-actions-page"
+import MediaPanelCtaPage from "@/views/pages/blocks/cta-preview/media-panel-page"
+import AppDownloadCtaPage from "@/views/pages/blocks/cta-preview/app-download-page"
+import MediaLeftCtaPage from "@/views/pages/blocks/cta-preview/media-left-page"
+import BenefitListCtaPage from "@/views/pages/blocks/cta-preview/benefit-list-page"
+import InsetPanelCtaPage from "@/views/pages/blocks/cta-preview/inset-panel-page"
+import FeatureCardsPricingPage from "@/views/pages/blocks/pricing-preview/feature-cards-page"
+import MediaCardsPricingPage from "@/views/pages/blocks/pricing-preview/media-cards-page"
+import SplitPlansPricingPage from "@/views/pages/blocks/pricing-preview/split-plans-page"
+import MinimalColumnsPricingPage from "@/views/pages/blocks/pricing-preview/minimal-columns-page"
+import BillingTogglePricingPage from "@/views/pages/blocks/pricing-preview/billing-toggle-page"
+import ComparisonTablePricingPage from "@/views/pages/blocks/pricing-preview/comparison-table-page"
+import AvatarCardsTestimonialsPage from "@/views/pages/blocks/testimonial-preview/avatar-cards-page"
+import RatingCarouselTestimonialsPage from "@/views/pages/blocks/testimonial-preview/rating-carousel-page"
+import LogoQuoteTestimonialsPage from "@/views/pages/blocks/testimonial-preview/logo-quote-page"
+import SplitMediaTestimonialsPage from "@/views/pages/blocks/testimonial-preview/split-media-page"
+import SoftCardsTestimonialsPage from "@/views/pages/blocks/testimonial-preview/soft-cards-page"
+import ProductCatalogStorePage from "@/views/pages/blocks/store-preview/product-catalog-page"
+import ProductDetailStorePage from "@/views/pages/blocks/store-preview/product-detail-page"
+import ShoppingCartStorePage from "@/views/pages/blocks/store-preview/shopping-cart-page"
 views BlockViews
   group path:"/blocks/" layout:BlocksLayout
     route path:"appbar" page:AppBarsPage
     route path:"footer" page:FootersPage
     route path:"scaffold" page:ScaffoldsPage
     route path:"hero" page:HerosPage
+    route path:"accordion" page:AccordionsPage
+    route path:"cards" page:CardsPage
+    route path:"contact" page:ContactsPage
     route path:"auth" page:AuthPage
+    route path:"cta" page:CtasPage
     route path:"features" page:FeaturesPage
+    route path:"sections" page:SectionsPage
+    route path:"prices" page:PricesPage
+    route path:"store" page:StorePage
     route path:"table" page:TablesPage
+    route path:"testimonial" page:TestimonialsPage
+    route path:"dashboard" page:DashboardPage
   group path:"/blocks/appbar-preview/classic-saas" layout:AppBarClassicSaasLayout
     route path:"" page:AppBarPreviewPage
   group path:"/blocks/appbar-preview/creative" layout:AppBarCreativeLayout
@@ -97,17 +170,41 @@ views BlockViews
     route path:"" page:ScaffoldPreviewPage
   group path:"/blocks/scaffold-preview/rail-bottom-bar" layout:ScaffoldRailBottomBarLayout
     route path:"" page:ScaffoldPreviewPage
-  group path:"/blocks/hero-preview" layout:HeroPreviewLayout
-    route path:"crypto-app" page:CryptoAppHeroPage
-    route path:"smart-solutions" page:SmartSolutionsHeroPage
-    route path:"growth-consulting" page:GrowthConsultingHeroPage
-    route path:"digital-potential" page:DigitalPotentialHeroPage
-    route path:"workflow-platform" page:WorkflowPlatformHeroPage
-    route path:"software-solutions" page:SoftwareSolutionsHeroPage
-    route path:"lead-capture" page:LeadCaptureHeroPage
-    route path:"content-audience" page:ContentAudienceHeroPage
-    route path:"privacy-download" page:PrivacyDownloadHeroPage
-    route path:"property-search" page:PropertySearchHeroPage
+  group path:"/blocks/hero-preview/centered-media" layout:CenteredMediaHeroLayout
+    route path:"" page:CenteredMediaHeroPage
+  group path:"/blocks/hero-preview/video-split" layout:VideoSplitHeroLayout
+    route path:"" page:VideoSplitHeroPage
+  group path:"/blocks/hero-preview/lead-form" layout:LeadFormHeroLayout
+    route path:"" page:LeadFormHeroPage
+  group path:"/blocks/hero-preview/media-card" layout:MediaCardHeroLayout
+    route path:"" page:MediaCardHeroPage
+  group path:"/blocks/hero-preview/search" layout:SearchHeroLayout
+    route path:"" page:SearchHeroPage
+  group path:"/blocks/hero-preview/full-bleed" layout:FullBleedHeroLayout
+    route path:"" page:FullBleedHeroPage
+  group path:"/blocks/hero-preview/carousel" layout:CarouselHeroLayout
+    route path:"" page:CarouselHeroPage
+  group path:"/blocks/accordion-preview" layout:BlankLayout
+    route path:"outlined-cards" page:OutlinedAccordionPage
+    route path:"minimal-lines" page:MinimalLinesAccordionPage
+    route path:"soft-panels" page:SoftPanelsAccordionPage
+    route path:"split-grid" page:SplitGridAccordionPage
+    route path:"numbered-list" page:NumberedListAccordionPage
+  group path:"/blocks/cards-preview" layout:BlankLayout
+    route path:"centered-features" page:CenteredFeatureCardsPage
+    route path:"media-grid" page:MediaGridCardsPage
+    route path:"product-carousel" page:ProductCarouselCardsPage
+    route path:"action-cards" page:ActionCardsPage
+    route path:"bento" page:BentoCardsPage
+    route path:"numbered" page:NumberedCardsPage
+    route path:"spotlight" page:SpotlightCardsPage
+  group path:"/blocks/contact-preview" layout:BlankLayout
+    route path:"details-form" page:ContactDetailsFormPage
+    route path:"info-media" page:ContactInfoMediaPage
+    route path:"footer-form" page:ContactFooterFormPage
+    route path:"split-panel" page:ContactSplitPanelPage
+    route path:"split-panel-secondary" page:ContactSplitPanelDuplicatePage
+    route path:"social-media" page:ContactSocialMediaPage
   group path:"/blocks/auth-preview" layout:BlankLayout
     route path:"login-split" page:LoginSplitAuthPage
     route path:"login-reverse" page:LoginReverseAuthPage
@@ -122,5 +219,44 @@ views BlockViews
     route path:"brand-transformation" page:BrandTransformationFeaturesPage
     route path:"online-solutions" page:OnlineSolutionsFeaturesPage
     route path:"complete-solutions" page:CompleteSolutionsFeaturesPage
+  group path:"/blocks/cta-preview" layout:BlankLayout
+    route path:"split-actions" page:SplitActionsCtaPage
+    route path:"centered-actions" page:CenteredActionsCtaPage
+    route path:"media-panel" page:MediaPanelCtaPage
+    route path:"app-download" page:AppDownloadCtaPage
+    route path:"media-left" page:MediaLeftCtaPage
+    route path:"benefit-list" page:BenefitListCtaPage
+    route path:"inset-panel" page:InsetPanelCtaPage
+  group path:"/blocks/sections-preview" layout:BlankLayout
+    route path:"media-split" page:MediaSplitSectionPage
+    route path:"media-benefits" page:MediaBenefitsSectionPage
+    route path:"device-showcase" page:DeviceShowcaseSectionPage
+    route path:"feature-media" page:FeatureMediaSectionPage
+    route path:"centered-media-cta" page:CenteredMediaCtaSectionPage
+    route path:"video-features" page:VideoFeaturesSectionPage
   group path:"/blocks/table-preview" layout:BlankLayout
     route path:"team-directory" page:DashboardTablePage
+  group path:"/blocks/pricing-preview" layout:BlankLayout
+    route path:"feature-cards" page:FeatureCardsPricingPage
+    route path:"media-cards" page:MediaCardsPricingPage
+    route path:"split-plans" page:SplitPlansPricingPage
+    route path:"minimal-columns" page:MinimalColumnsPricingPage
+    route path:"billing-toggle" page:BillingTogglePricingPage
+    route path:"comparison-table" page:ComparisonTablePricingPage
+  group path:"/blocks/testimonial-preview" layout:BlankLayout
+    route path:"avatar-cards" page:AvatarCardsTestimonialsPage
+    route path:"rating-carousel" page:RatingCarouselTestimonialsPage
+    route path:"logo-quote" page:LogoQuoteTestimonialsPage
+    route path:"split-media" page:SplitMediaTestimonialsPage
+    route path:"soft-cards" page:SoftCardsTestimonialsPage
+  group path:"/blocks/store-preview" layout:BlankLayout
+    route path:"product-catalog" page:ProductCatalogStorePage
+    route path:"product-detail" page:ProductDetailStorePage
+    route path:"shopping-cart" page:ShoppingCartStorePage
+  group path:"/blocks/dashboard-preview" layout:DashboardPreviewLayout
+    route path:"overview" page:DashboardOverviewPage
+    route path:"task-board" page:DashboardTaskBoardPage
+    route path:"team-directory" page:DashboardTeamDirectoryPage
+    route path:"reports" page:DashboardReportsPage
+    route path:"settings" page:DashboardSettingsPage
+    route path:"complete-profile" page:DashboardCompleteProfilePage

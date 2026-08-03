@@ -1,0 +1,78 @@
+page FeatureCardsPricingPage
+  const plans:
+    value:[
+      {
+        id:"basic"
+        name:"Basic"
+        price:"$99"
+        featureOne:"All analytics features"
+        featureTwo:"Up to 250,000 tracked visits"
+        featureThree:"Normal support"
+        featureFour:"Mobile app"
+        featureFive:"Up to 3 team members"
+      },
+      {
+        id:"growth"
+        name:"Growth"
+        price:"$199"
+        featureOne:"Everything on Basic plan"
+        featureTwo:"Up to 1,000,000 tracked visits"
+        featureThree:"Premium support"
+        featureFour:"Mobile app"
+        featureFive:"Up to 10 team members"
+      },
+      {
+        id:"enterprise"
+        name:"Enterprise"
+        price:"$399"
+        featureOne:"Everything on Growth plan"
+        featureTwo:"Up to 5,000,000 tracked visits"
+        featureThree:"Dedicated support"
+        featureFour:"Mobile app"
+        featureFive:"Up to 50 team members"
+      },
+    ]
+  Section id:"feature-cards-pricing" bg:"background" color:"onBackground" boxed:true minH:"vh-0" py:{ xs:8 md:12 }
+    Grid columns:1 gap:{ xs:8 md:12 }
+      Flex direction:"column" align:"center" gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PRICING"
+        Title size:{ xs:"4xl" md:"6xl" } weight:"black"
+          "Affordable pricing plans"
+        Text size:"lg" color:"muted"
+          "Choose a clear starting point, then scale the plan as your team and traffic grow."
+      Grid columns:{ xs:1 md:3 } gap:5 align:"stretch"
+        each in:plans as:plan key:plan.id
+          Card variant:"outlined" scheme:"muted" rounded:"xl" p:0
+            Grid columns:1 gap:0
+              Box bg:"softMuted" p:{ xs:6 md:7 }
+                Flex direction:"column" align:"center" gap:2
+                  Title size:"xl" weight:"bold"
+                    "{plan.name}"
+                  Title size:"4xl" weight:"black"
+                    "{plan.price}"
+                  Text color:"muted"
+                    "Billed monthly"
+                  Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" w:"full"
+                    "Get started"
+              Grid columns:1 gap:3 p:{ xs:6 md:7 }
+                Flex align:"center" gap:3
+                  Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                  Text size:"sm" weight:"bold"
+                    "{plan.featureOne}"
+                Flex align:"center" gap:3
+                  Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                  Text size:"sm" weight:"bold"
+                    "{plan.featureTwo}"
+                Flex align:"center" gap:3
+                  Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                  Text size:"sm" weight:"bold"
+                    "{plan.featureThree}"
+                Flex align:"center" gap:3
+                  Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                  Text size:"sm" weight:"bold"
+                    "{plan.featureFour}"
+                Flex align:"center" gap:3
+                  Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                  Text size:"sm" weight:"bold"
+                    "{plan.featureFive}"

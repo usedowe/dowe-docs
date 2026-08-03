@@ -1,0 +1,71 @@
+page RequestBytesPage
+  Section id:"request-bytes-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SERVER / REQUEST BYTES"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Receive the exact HTTP body"
+        Text size:"lg" color:"muted"
+          "request source bytes binds the incoming body without JSON decoding or text conversion. The Rust runtime preserves its byte sequence for storage, hashing, functions, and byte responses."
+      Button href:"/docs/server" variant:"ghost" scheme:"muted" size:"sm" iconStart:"server"
+        "Server documentation"
+  Section id:"request-bytes-mental-model" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "MENTAL MODEL"
+        Title size:"3xl" weight:"black"
+          "Bind bytes before using them"
+        Text size:"sm" color:"muted"
+          "The name after request is the byte binding available to following server declarations. It belongs inside an HTTP handler and remains subject to the runtime request-size limit."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          handler uploadArtifact
+            request payload source:"bytes"
+            file stored source:"write" root:env.STORAGE_ROOT path:req.params.hash data:payload sha256:req.params.hash
+            return status:201 json:stored
+        """
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Exact body"
+          Text size:"sm" color:"muted"
+            "payload preserves the bytes received over HTTP instead of producing a parsed JSON value."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Server only"
+          Text size:"sm" color:"muted"
+            "Views and client targets cannot receive a host byte binding or gain filesystem authority."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Bound input"
+          Text size:"sm" color:"muted"
+            "The general request limit still applies, so accepting raw bytes does not create an unbounded upload path."
+  Section id:"request-bytes-response" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "BYTE FLOW"
+        Title size:"3xl" weight:"black"
+          "Return a byte binding directly"
+        Text size:"sm" color:"muted"
+          "A byte binding read from storage can be returned with an explicit content type. Dowe avoids a JSON or UTF-8 round trip across the complete handler."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          handler downloadArtifact
+            file artifact source:"read" root:env.STORAGE_ROOT path:req.params.hash
+            return bytes:artifact contentType:"application/vnd.dowe.application"
+        """
+      Text size:"sm" color:"muted"
+        "Current support covers HTTP handlers in the native Dowe server runtime. Cloudflare edge targets do not receive this server-only host capability."

@@ -1,0 +1,78 @@
+page SplitMediaTestimonialsPage
+  const testimonials value:{
+    john:{
+      title:"An amazing service"
+      quote:"The team made every stage easy to understand and delivered a result that feels both useful and beautifully considered."
+      name:"John Carter"
+      role:"Designer at Northstar Studio"
+    }
+    sophie:{
+      title:"A brilliant collaboration"
+      quote:"They brought clarity to a complicated brief and helped our team move from early ideas to a confident launch."
+      name:"Sophie Moore"
+      role:"Head of Design at Northstar Studio"
+    }
+    andy:{
+      title:"Exactly what we needed"
+      quote:"Strong thinking, steady communication, and a polished outcome made this one of our most effective projects."
+      name:"Andy Smith"
+      role:"Product Lead at Northstar Studio"
+    }
+  }
+  Section id:"split-media-testimonials" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:14 } minH:"vh-0"
+    Grid columns:1 gap:{ xs:8 md:10 }
+      Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+        Grid columns:1 gap:3
+          Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+            "What our clients say"
+          Text size:"lg" color:"muted"
+            "A flexible testimonial story with a prominent media placeholder and clear attribution."
+      Carousel variant:"controls" scheme:"primary" hideIndicators:true gap:4
+        slide id:"john"
+          Card variant:"soft" scheme:"surface" rounded:"xl"
+            Grid columns:{ xs:1 md:"4fr 5fr" } minH:96
+              Box bg:"softMuted" minH:{ xs:64 md:96 } p:8
+                Flex align:"center" justify:"center" minH:{ xs:48 md:80 }
+                  Icon name:"gallery" style:"bold-duotone" fill:"muted" w:20 h:20
+              Flex direction:"column" align:"start" justify:"center" gap:5 p:{ xs:7 md:12 }
+                Title size:{ xs:"2xl" md:"3xl" } weight:"black"
+                  "{testimonials.john.title}"
+                Text size:"lg" color:"muted"
+                  "{testimonials.john.quote}"
+                Grid columns:1 gap:1
+                  Text weight:"bold"
+                    "{testimonials.john.name}"
+                  Text color:"muted"
+                    "{testimonials.john.role}"
+        slide id:"sophie"
+          Card variant:"soft" scheme:"surface" rounded:"xl"
+            Grid columns:{ xs:1 md:"4fr 5fr" } minH:96
+              Box bg:"softMuted" minH:{ xs:64 md:96 } p:8
+                Flex align:"center" justify:"center" minH:{ xs:48 md:80 }
+                  Icon name:"gallery" style:"bold-duotone" fill:"muted" w:20 h:20
+              Flex direction:"column" align:"start" justify:"center" gap:5 p:{ xs:7 md:12 }
+                Title size:{ xs:"2xl" md:"3xl" } weight:"black"
+                  "{testimonials.sophie.title}"
+                Text size:"lg" color:"muted"
+                  "{testimonials.sophie.quote}"
+                Grid columns:1 gap:1
+                  Text weight:"bold"
+                    "{testimonials.sophie.name}"
+                  Text color:"muted"
+                    "{testimonials.sophie.role}"
+        slide id:"andy"
+          Card variant:"soft" scheme:"surface" rounded:"xl"
+            Grid columns:{ xs:1 md:"4fr 5fr" } minH:96
+              Box bg:"softMuted" minH:{ xs:64 md:96 } p:8
+                Flex align:"center" justify:"center" minH:{ xs:48 md:80 }
+                  Icon name:"gallery" style:"bold-duotone" fill:"muted" w:20 h:20
+              Flex direction:"column" align:"start" justify:"center" gap:5 p:{ xs:7 md:12 }
+                Title size:{ xs:"2xl" md:"3xl" } weight:"black"
+                  "{testimonials.andy.title}"
+                Text size:"lg" color:"muted"
+                  "{testimonials.andy.quote}"
+                Grid columns:1 gap:1
+                  Text weight:"bold"
+                    "{testimonials.andy.name}"
+                  Text color:"muted"
+                    "{testimonials.andy.role}"

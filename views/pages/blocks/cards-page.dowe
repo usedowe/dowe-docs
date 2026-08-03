@@ -1,0 +1,427 @@
+page CardsPage
+  Section id:"cards" py:{ xs:6 md:10 }
+    Grid columns:1 gap:4
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "COPY-READY BLOCKS"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Cards"
+      Text size:"lg" color:"muted"
+        "Seven responsive wireframe card sections built from real Dowe components and portable media placeholders."
+  Section id:"centered-features" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "01 · CENTERED FEATURE GRID"
+          Title size:"2xl" weight:"black"
+            "Six balanced feature cards with compact icon placeholders"
+        Button:
+          href:"/blocks/cards-preview/centered-features"
+          variant:"soft"
+          scheme:"primary"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"centered-features-preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe:
+              src:"/blocks/cards-preview/centered-features"
+              title:"Centered feature cards preview"
+              loading:"lazy"
+              sandbox:"scripts same-origin"
+        tab id:"centered-features-code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy cards"
+            copiedLabel:"Copied"
+            content:"""
+              const features value:[
+                { id:"mobile" title:"Mobile app" description:"A focused mobile experience that keeps important work close at hand." },
+                { id:"desktop" title:"Desktop app" description:"A spacious desktop workspace designed for productive daily routines." },
+                { id:"users" title:"Multiple users" description:"Invite teammates and coordinate shared work from one clear place." },
+                { id:"integrations" title:"Integrations" description:"Connect the tools your team already uses without adding extra friction." },
+                { id:"reports" title:"Monthly reports" description:"Turn activity into a concise summary that makes progress easy to review." },
+                { id:"permissions" title:"Granular permissions" description:"Give every collaborator the access they need and nothing they do not." },
+              ]
+              Section id:"centered-feature-cards" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:12 }
+                Grid columns:1 gap:{ xs:8 md:12 }
+                  Flex direction:"column" align:"center" gap:3
+                    Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+                      "Browse our set of features"
+                    Text size:"lg" color:"muted"
+                      "Explore a flexible set of capabilities designed for teams, products, and growing businesses."
+                  Grid columns:{ xs:1 md:3 } gap:5
+                    each in:features as:feature key:feature.id
+                      Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:64
+                        Flex direction:"column" align:"center" justify:"center" gap:4 minH:48
+                          Box bg:"softMuted" rounded:"lg" p:3
+                            Icon name:"gallery" style:"bold-duotone" fill:"muted" w:9 h:9
+                          Title size:"xl" weight:"black"
+                            "{feature.title}"
+                          Text color:"muted"
+                            "{feature.description}"
+            """
+  Section id:"media-grid" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "02 · MEDIA CARD GRID"
+          Title size:"2xl" weight:"black"
+            "Four product cards led by generous media placeholders"
+        Button:
+          href:"/blocks/cards-preview/media-grid"
+          variant:"solid"
+          scheme:"primary"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"media-grid-preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe:
+              src:"/blocks/cards-preview/media-grid"
+              title:"Media grid cards preview"
+              loading:"lazy"
+              sandbox:"scripts same-origin"
+        tab id:"media-grid-code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy cards"
+            copiedLabel:"Copied"
+            content:"""
+              const products value:[
+                { id:"mobile" title:"Mobile app" description:"A focused experience for work on the go." },
+                { id:"desktop" title:"Desktop app" description:"A complete workspace for larger screens." },
+                { id:"users" title:"Multiple users" description:"Shared tools for coordinated teams." },
+                { id:"integrations" title:"Integrations" description:"Useful connections for everyday workflows." },
+              ]
+              Section id:"media-grid-cards" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:12 }
+                Grid columns:1 gap:{ xs:8 md:12 }
+                  Flex direction:"column" align:"center" gap:3
+                    Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+                      "Browse our set of features"
+                    Text size:"lg" color:"muted"
+                      "Choose a starting point and shape it around the way your team prefers to work."
+                  Grid columns:{ xs:1 sm:2 md:4 } gap:5
+                    each in:products as:product key:product.id
+                      Card variant:"outlined" scheme:"muted" rounded:"xl" p:4
+                        Grid columns:1 gap:4
+                          Box bg:"softMuted" rounded:"lg" minH:44 p:6
+                            Flex align:"center" justify:"center" minH:32
+                              Icon name:"gallery" style:"bold-duotone" fill:"muted" w:14 h:14
+                          Grid columns:1 gap:2
+                            Title size:"lg" weight:"black"
+                              "{product.title}"
+                            Text color:"muted"
+                              "{product.description}"
+            """
+  Section id:"product-carousel" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "03 · PRODUCT CAROUSEL"
+          Title size:"2xl" weight:"black"
+            "A compact catalog row framed by navigation and one CTA"
+        Button:
+          href:"/blocks/cards-preview/product-carousel"
+          variant:"soft"
+          scheme:"primary"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"product-carousel-preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe:
+              src:"/blocks/cards-preview/product-carousel"
+              title:"Product carousel cards preview"
+              loading:"lazy"
+              sandbox:"scripts same-origin"
+        tab id:"product-carousel-code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy cards"
+            copiedLabel:"Copied"
+            content:"""
+              const products value:[
+                { id:"mobile" title:"Mobile app" },
+                { id:"desktop" title:"Desktop app" },
+                { id:"users" title:"Multiple users" },
+                { id:"integrations" title:"Integrations" },
+              ]
+              Section id:"product-carousel-cards" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:12 }
+                Grid columns:1 gap:{ xs:8 md:10 }
+                  Flex direction:"column" align:"center" gap:3
+                    Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+                      "Popular products"
+                    Text size:"lg" color:"muted"
+                      "A compact catalog row for highlighting the products people explore most often."
+                  Flex align:"center" gap:4
+                    IconButton icon:"alt-arrow-left" label:"Previous products" variant:"ghost" scheme:"primary" show:{ xs:false md:true }
+                    Grid columns:{ xs:1 sm:2 md:4 } gap:5 w:"full"
+                      each in:products as:product key:product.id
+                        Card variant:"outlined" scheme:"muted" rounded:"lg"
+                          Box bg:"softMuted" minH:44 p:6
+                            Flex align:"center" justify:"center" minH:32
+                              Icon name:"gallery" style:"bold-duotone" fill:"muted" w:14 h:14
+                          Box p:5
+                            Title size:"lg" weight:"black"
+                              "{product.title}"
+                    IconButton icon:"alt-arrow-right" label:"Next products" variant:"ghost" scheme:"primary" show:{ xs:false md:true }
+                  Flex justify:"center"
+                    Button variant:"solid" scheme:"primary" rounded:"full" size:"lg"
+                      "See more"
+            """
+  Section id:"action-cards" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "04 · ACTION CARDS"
+          Title size:"2xl" weight:"black"
+            "Feature summaries with a clear action on every card"
+        Button:
+          href:"/blocks/cards-preview/action-cards"
+          variant:"solid"
+          scheme:"primary"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"action-cards-preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe:
+              src:"/blocks/cards-preview/action-cards"
+              title:"Action cards preview"
+              loading:"lazy"
+              sandbox:"scripts same-origin"
+        tab id:"action-cards-code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy cards"
+            copiedLabel:"Copied"
+            content:"""
+              const features value:[
+                { id:"mobile" title:"Mobile app" description:"Keep projects moving with a clear experience designed for smaller screens." },
+                { id:"desktop" title:"Desktop app" description:"Give focused work more room with a fast and familiar desktop workspace." },
+                { id:"users" title:"Multiple users" description:"Bring teammates together with shared context, ownership, and visibility." },
+                { id:"integrations" title:"Integrations" description:"Connect everyday tools and keep important information moving between them." },
+                { id:"reports" title:"Monthly reports" description:"Summarize activity and highlight the progress that matters to stakeholders." },
+                { id:"permissions" title:"Granular permissions" description:"Control access with clear roles that stay manageable as the team grows." },
+              ]
+              Section id:"action-cards" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:12 }
+                Grid columns:1 gap:{ xs:8 md:12 }
+                  Flex direction:"column" align:"center" gap:3
+                    Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+                      "Browse our set of features"
+                    Text size:"lg" color:"muted"
+                      "A responsive collection of feature summaries with a clear next step on every card."
+                  Grid columns:{ xs:1 md:3 } gap:5
+                    each in:features as:feature key:feature.id
+                      Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:72
+                        Flex direction:"column" align:"start" justify:"between" gap:5 minH:56
+                          Grid columns:1 gap:4
+                            Box bg:"softMuted" rounded:"lg" p:3 w:14
+                              Icon name:"gallery" style:"bold-duotone" fill:"muted" w:8 h:8
+                            Title size:"xl" weight:"black"
+                              "{feature.title}"
+                            Text color:"muted"
+                              "{feature.description}"
+                          Button variant:"ghost" scheme:"primary" size:"sm" iconEnd:"arrow-right"
+                            "Learn more"
+            """
+  Section id:"bento" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "05 · BENTO HIERARCHY"
+          Title size:"2xl" weight:"black"
+            "One lead card supported by two compact horizontal cards"
+        Button:
+          href:"/blocks/cards-preview/bento"
+          variant:"soft"
+          scheme:"primary"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"bento-preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe:
+              src:"/blocks/cards-preview/bento"
+              title:"Bento cards preview"
+              loading:"lazy"
+              sandbox:"scripts same-origin"
+        tab id:"bento-code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy cards"
+            copiedLabel:"Copied"
+            content:"""
+              const supportingFeatures value:[
+                { id:"desktop" title:"Desktop app" description:"A roomy workspace for focused work and complex projects." },
+                { id:"users" title:"Multiple users" description:"Shared context and simple collaboration for every teammate." },
+              ]
+              Section id:"bento-cards" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:12 }
+                Grid columns:1 gap:{ xs:8 md:12 }
+                  Flex direction:"column" align:"center" gap:3
+                    Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+                      "Browse our set of features"
+                    Text size:"lg" color:"muted"
+                      "Use a strong lead card and compact supporting cards to create a clear visual hierarchy."
+                  Grid columns:{ xs:1 md:2 } gap:5
+                    Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:80
+                      Flex direction:"column" align:"center" justify:"end" gap:5 minH:64
+                        Icon name:"gallery" style:"bold-duotone" fill:"muted" w:16 h:16
+                        Title size:"xl" weight:"black"
+                          "Mobile app"
+                        Text color:"muted"
+                          "A focused mobile experience for customers and teams wherever their work happens."
+                        Button variant:"ghost" scheme:"primary" size:"sm" iconEnd:"arrow-right"
+                          "Learn more"
+                    Grid columns:1 gap:5
+                      each in:supportingFeatures as:feature key:feature.id
+                        Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:52
+                          Grid columns:{ xs:1 sm:"3fr 2fr" } gap:5 align:"center"
+                            Flex direction:"column" align:"start" gap:4
+                              Title size:"xl" weight:"black"
+                                "{feature.title}"
+                              Text color:"muted"
+                                "{feature.description}"
+                              Button variant:"ghost" scheme:"primary" size:"sm" iconEnd:"arrow-right"
+                                "Learn more"
+                            Flex align:"center" justify:"center"
+                              Icon name:"gallery" style:"bold-duotone" fill:"muted" w:14 h:14
+            """
+  Section id:"numbered" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "06 · NUMBERED FEATURE CARDS"
+          Title size:"2xl" weight:"black"
+            "A clear six-step sequence with oversized numerals"
+        Button:
+          href:"/blocks/cards-preview/numbered"
+          variant:"solid"
+          scheme:"primary"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"numbered-preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe:
+              src:"/blocks/cards-preview/numbered"
+              title:"Numbered feature cards preview"
+              loading:"lazy"
+              sandbox:"scripts same-origin"
+        tab id:"numbered-code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy cards"
+            copiedLabel:"Copied"
+            content:"""
+              const features value:[
+                { id:"mobile" number:"01" title:"Mobile app" description:"A focused mobile experience for work that needs to move with you." },
+                { id:"desktop" number:"02" title:"Desktop app" description:"A complete desktop workspace with room for productive daily routines." },
+                { id:"users" number:"03" title:"Multiple users" description:"Simple collaboration that keeps ownership and progress visible to everyone." },
+                { id:"integrations" number:"04" title:"Integrations" description:"Useful connections that reduce repetitive work across the tools you trust." },
+                { id:"reports" number:"05" title:"Monthly reports" description:"Clear summaries that turn ongoing activity into understandable progress." },
+                { id:"permissions" number:"06" title:"Granular permissions" description:"Practical access controls that stay manageable while your organization grows." },
+              ]
+              Section id:"numbered-cards" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:12 }
+                Grid columns:1 gap:{ xs:8 md:12 }
+                  Flex direction:"column" align:"center" gap:3
+                    Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+                      "Browse our set of features"
+                    Text size:"lg" color:"muted"
+                      "Guide readers through a sequence with large numbers and concise supporting copy."
+                  Grid columns:{ xs:1 md:3 } gap:5
+                    each in:features as:feature key:feature.id
+                      Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:64
+                        Flex direction:"column" align:"center" justify:"center" gap:3 minH:48
+                          Title size:"5xl" weight:"black" color:"muted"
+                            "{feature.number}"
+                          Title size:"xl" weight:"black"
+                            "{feature.title}"
+                          Text color:"muted"
+                            "{feature.description}"
+            """
+  Section id:"spotlight" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "07 · SPOTLIGHT GRID"
+          Title size:"2xl" weight:"black"
+            "A promotional lead card beside two tall supporting cards"
+        Button:
+          href:"/blocks/cards-preview/spotlight"
+          variant:"soft"
+          scheme:"primary"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"spotlight-preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe:
+              src:"/blocks/cards-preview/spotlight"
+              title:"Spotlight cards preview"
+              loading:"lazy"
+              sandbox:"scripts same-origin"
+        tab id:"spotlight-code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy cards"
+            copiedLabel:"Copied"
+            content:"""
+              const supportingProducts value:[
+                { id:"desktop" title:"Desktop app" },
+                { id:"users" title:"Multiple users" },
+              ]
+              Section id:"spotlight-cards" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:12 }
+                Grid columns:{ xs:1 md:"2fr 1fr 1fr" } gap:5 align:"stretch"
+                  Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:7 md:10 } minH:80
+                    Flex direction:"column" align:"center" justify:"center" gap:5 minH:64
+                      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+                        "TAGLINE"
+                      Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+                        "Mobile app"
+                      Text size:"lg" color:"muted"
+                        "A focused product message with enough room for supporting copy and one clear action."
+                      Button variant:"solid" scheme:"primary" rounded:"full" size:"lg"
+                        "See more"
+                  each in:supportingProducts as:product key:product.id
+                    Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:7 md:8 } minH:80
+                      Flex direction:"column" align:"center" justify:"center" gap:6 minH:64
+                        Icon name:"gallery" style:"bold-duotone" fill:"muted" w:16 h:16
+                        Title size:"xl" weight:"black"
+                          "{product.title}"
+            """

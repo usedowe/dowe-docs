@@ -1,0 +1,37 @@
+layout DashboardPreviewLayout
+  Scaffold minH:"vh-0" boxed:true
+    appBar
+      AppBar variant:"solid" scheme:"surface" position:"sticky" bordered:true boxed:true py:2
+        start
+          Flex align:"center" gap:3
+            Icon name:"widget-5" style:"bold-duotone" fill:"primary" w:7 h:7
+            Text size:"lg" weight:"black"
+              "Dashboard"
+        end
+          Flex align:"center" gap:3
+            IconButton icon:"magnifier" label:"Search dashboard" variant:"ghost" scheme:"muted" size:"sm" show:{ xs:false md:true }
+            IconButton icon:"bell" label:"Open notifications" variant:"ghost" scheme:"muted" size:"sm"
+            Avatar name:"Jordan Lee" alt:"Jordan Lee" size:"sm" variant:"soft" scheme:"primary" status:"online"
+    start
+      Sidebar show:{ xs:false md:true } variant:"soft" scheme:"muted" w:64 h:"vh-0" border:1
+        body
+          SideNav variant:"solid" scheme:"muted" size:"md" p:4
+            header label:"Workspace" description:"Dashboard blocks" icon:"widget-5"
+            item label:"Overview" href:"/blocks/dashboard-preview/overview" icon:"home"
+            item label:"Task board" href:"/blocks/dashboard-preview/task-board" icon:"checklist"
+            item label:"Team directory" href:"/blocks/dashboard-preview/team-directory" icon:"users-group-rounded"
+            item label:"Reports" href:"/blocks/dashboard-preview/reports" icon:"chart-2"
+            item label:"Settings" href:"/blocks/dashboard-preview/settings" icon:"settings"
+            item label:"Complete profile" href:"/blocks/dashboard-preview/complete-profile" icon:"user-rounded"
+    main
+      children
+    bottomBar
+      BottomBar show:{ xs:true md:false } variant:"soft" scheme:"surface" bordered:true boxed:true
+        tab href:"/blocks/dashboard-preview/overview" label:"Overview"
+          Icon name:"home"
+        tab href:"/blocks/dashboard-preview/task-board" label:"Tasks"
+          Icon name:"checklist"
+        tab href:"/blocks/dashboard-preview/team-directory" label:"Team"
+          Icon name:"users-group-rounded"
+        tab href:"/blocks/dashboard-preview/settings" label:"Settings"
+          Icon name:"settings"

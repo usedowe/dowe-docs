@@ -1,0 +1,349 @@
+page AccordionsPage
+  Section id:"accordions" py:{ xs:6 md:10 }
+    Grid columns:1 gap:4
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "COPY-READY BLOCKS"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Accordion"
+      Text size:"lg" color:"muted"
+        "Five responsive FAQ wireframes built from the real Dowe Accordion component and portable layout primitives."
+  Section id:"outlined-cards" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "01 · OUTLINED CARDS"
+          Title size:"2xl" weight:"black"
+            "Spacious bordered questions with one expanded answer"
+        Button:
+          href:"/blocks/accordion-preview/outlined-cards"
+          variant:"soft"
+          scheme:"primary"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"outlined-cards-preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe:
+              src:"/blocks/accordion-preview/outlined-cards"
+              title:"Outlined accordion cards preview"
+              loading:"lazy"
+              sandbox:"scripts same-origin"
+        tab id:"outlined-cards-code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy accordion"
+            copiedLabel:"Copied"
+            content:"""
+              const answerLines value:[
+                { id:"structure" text:"A clear structure keeps the question easy to scan and the answer focused on one useful idea." },
+                { id:"portability" text:"Portable Dowe components preserve the same disclosure behavior across every supported target." },
+              ]
+              Section id:"outlined-accordion" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:14 }
+                Grid columns:1 gap:{ xs:8 md:12 }
+                  Flex direction:"column" align:"center" gap:3
+                    Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+                      "Frequently Asked Questions"
+                    Text size:"lg" color:"muted"
+                      "A spacious FAQ with bordered disclosure cards and one clear answer at a time."
+                  Accordion variant:"outlined" scheme:"primary" rounded:"lg" w:"full"
+                    item id:"reusable" label:"What makes a reusable website block effective?" defaultOpen:true
+                      Grid columns:1 gap:2
+                        each in:answerLines as:line key:line.id
+                          Text color:"muted"
+                            "{line.text}"
+                    item id:"responsive" label:"How should content adapt across screen sizes?"
+                      Grid columns:1 gap:2
+                        each in:answerLines as:line key:line.id
+                          Text color:"muted"
+                            "{line.text}"
+                    item id:"products" label:"Can the same block support multiple products?"
+                      Grid columns:1 gap:2
+                        each in:answerLines as:line key:line.id
+                          Text color:"muted"
+                            "{line.text}"
+                    item id:"accessible" label:"What keeps interaction accessible?"
+                      Grid columns:1 gap:2
+                        each in:answerLines as:line key:line.id
+                          Text color:"muted"
+                            "{line.text}"
+            """
+  Section id:"minimal-lines" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "02 · MINIMAL LINES"
+          Title size:"2xl" weight:"black"
+            "A quiet disclosure list separated by subtle rules"
+        Button:
+          href:"/blocks/accordion-preview/minimal-lines"
+          variant:"solid"
+          scheme:"primary"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"minimal-lines-preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe:
+              src:"/blocks/accordion-preview/minimal-lines"
+              title:"Minimal line accordion preview"
+              loading:"lazy"
+              sandbox:"scripts same-origin"
+        tab id:"minimal-lines-code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy accordion"
+            copiedLabel:"Copied"
+            content:"""
+              const answerLines value:[
+                { id:"clarity" text:"Each answer begins with the essential point so visitors can understand it without reading unnecessary detail." },
+                { id:"behavior" text:"The disclosure state stays local to the Accordion and remains consistent across web and native targets." },
+              ]
+              Section id:"minimal-lines-accordion" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:14 }
+                Grid columns:1 gap:{ xs:8 md:12 }
+                  Flex direction:"column" align:"center" gap:3
+                    Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+                      "FAQ"
+                    Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+                      "Frequently Asked Questions"
+                    Text size:"lg" color:"muted"
+                      "A minimal disclosure list separated by quiet lines and generous vertical rhythm."
+                  Accordion variant:"ghost" scheme:"muted" rounded:"xs" w:"full"
+                    item id:"reusable" label:"What makes a reusable website block effective?" defaultOpen:true
+                      Grid columns:1 gap:2
+                        each in:answerLines as:line key:line.id
+                          Text color:"muted"
+                            "{line.text}"
+                    item id:"responsive" label:"How should content adapt across screen sizes?"
+                      Grid columns:1 gap:2
+                        each in:answerLines as:line key:line.id
+                          Text color:"muted"
+                            "{line.text}"
+                    item id:"products" label:"Can the same block support multiple products?"
+                      Grid columns:1 gap:2
+                        each in:answerLines as:line key:line.id
+                          Text color:"muted"
+                            "{line.text}"
+                    item id:"accessible" label:"What keeps interaction accessible?"
+                      Grid columns:1 gap:2
+                        each in:answerLines as:line key:line.id
+                          Text color:"muted"
+                            "{line.text}"
+            """
+  Section id:"soft-panels" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "03 · SOFT PANELS"
+          Title size:"2xl" weight:"black"
+            "Rounded tonal surfaces for a calm FAQ hierarchy"
+        Button:
+          href:"/blocks/accordion-preview/soft-panels"
+          variant:"soft"
+          scheme:"primary"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"soft-panels-preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe:
+              src:"/blocks/accordion-preview/soft-panels"
+              title:"Soft panel accordion preview"
+              loading:"lazy"
+              sandbox:"scripts same-origin"
+        tab id:"soft-panels-code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy accordion"
+            copiedLabel:"Copied"
+            content:"""
+              const answerLines value:[
+                { id:"surface" text:"Soft surfaces group each question without making the page feel heavy or visually crowded." },
+                { id:"source" text:"The complete composition remains ordinary Dowe source built from portable layout and display components." },
+              ]
+              Section id:"soft-panels-accordion" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:14 }
+                Grid columns:1 gap:{ xs:8 md:12 }
+                  Flex direction:"column" align:{ xs:"center" md:"start" } gap:3
+                    Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+                      "Frequently Asked Questions"
+                    Text size:"lg" color:"muted"
+                      "Rounded soft panels create a calm hierarchy while keeping every question easy to find."
+                  Accordion variant:"soft" scheme:"muted" rounded:"xl" w:"full"
+                    item id:"reusable" label:"What makes a reusable website block effective?" defaultOpen:true
+                      Grid columns:1 gap:2
+                        each in:answerLines as:line key:line.id
+                          Text color:"muted"
+                            "{line.text}"
+                    item id:"responsive" label:"How should content adapt across screen sizes?"
+                      Grid columns:1 gap:2
+                        each in:answerLines as:line key:line.id
+                          Text color:"muted"
+                            "{line.text}"
+                    item id:"products" label:"Can the same block support multiple products?"
+                      Grid columns:1 gap:2
+                        each in:answerLines as:line key:line.id
+                          Text color:"muted"
+                            "{line.text}"
+                    item id:"accessible" label:"What keeps interaction accessible?"
+                      Grid columns:1 gap:2
+                        each in:answerLines as:line key:line.id
+                          Text color:"muted"
+                            "{line.text}"
+            """
+  Section id:"split-grid" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "04 · SPLIT GRID"
+          Title size:"2xl" weight:"black"
+            "Two disclosure columns that collapse cleanly on mobile"
+        Button:
+          href:"/blocks/accordion-preview/split-grid"
+          variant:"solid"
+          scheme:"primary"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"split-grid-preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe:
+              src:"/blocks/accordion-preview/split-grid"
+              title:"Split grid accordion preview"
+              loading:"lazy"
+              sandbox:"scripts same-origin"
+        tab id:"split-grid-code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy accordion"
+            copiedLabel:"Copied"
+            content:"""
+              const answerLines value:[
+                { id:"layout" text:"Independent disclosure groups make a balanced desktop grid and return to one readable column on smaller screens." },
+                { id:"contract" text:"Each group uses the same Accordion contract, so behavior and visual tokens stay aligned." },
+              ]
+              Section id:"split-grid-accordion" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:14 }
+                Grid columns:1 gap:{ xs:8 md:12 }
+                  Flex direction:"column" align:"center" gap:3
+                    Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+                      "Frequently Asked Questions"
+                    Text size:"lg" color:"muted"
+                      "Two responsive columns organize a larger question set without losing a clear reading order."
+                  Grid columns:{ xs:1 md:2 } gap:5 align:"start"
+                    Accordion variant:"outlined" scheme:"primary" rounded:"lg" w:"full"
+                      item id:"portable" label:"Why start with a portable component?" defaultOpen:true
+                        Grid columns:1 gap:2
+                          each in:answerLines as:line key:line.id
+                            Text color:"muted"
+                              "{line.text}"
+                      item id:"organized" label:"How should a disclosure section be organized?"
+                        Grid columns:1 gap:2
+                          each in:answerLines as:line key:line.id
+                            Text color:"muted"
+                              "{line.text}"
+                      item id:"responsive" label:"What makes the layout responsive?"
+                        Grid columns:1 gap:2
+                          each in:answerLines as:line key:line.id
+                            Text color:"muted"
+                              "{line.text}"
+                    Accordion variant:"outlined" scheme:"primary" rounded:"lg" w:"full"
+                      item id:"hierarchy" label:"How is visual hierarchy preserved?"
+                        Grid columns:1 gap:2
+                          each in:answerLines as:line key:line.id
+                            Text color:"muted"
+                              "{line.text}"
+                      item id:"neutral" label:"Can the content stay product-neutral?"
+                        Grid columns:1 gap:2
+                          each in:answerLines as:line key:line.id
+                            Text color:"muted"
+                              "{line.text}"
+                      item id:"ownership" label:"Where should shared behavior live?"
+                        Grid columns:1 gap:2
+                          each in:answerLines as:line key:line.id
+                            Text color:"muted"
+                              "{line.text}"
+            """
+  Section id:"numbered-list" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "05 · NUMBERED LIST"
+          Title size:"2xl" weight:"black"
+            "Large sequence labels for a memorable reading order"
+        Button:
+          href:"/blocks/accordion-preview/numbered-list"
+          variant:"soft"
+          scheme:"primary"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"numbered-list-preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe:
+              src:"/blocks/accordion-preview/numbered-list"
+              title:"Numbered accordion list preview"
+              loading:"lazy"
+              sandbox:"scripts same-origin"
+        tab id:"numbered-list-code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy accordion"
+            copiedLabel:"Copied"
+            content:"""
+              const answerLines value:[
+                { id:"sequence" text:"Large sequence labels make long FAQ collections easier to scan and discuss with a team." },
+                { id:"interaction" text:"Only the answer changes height; the numbered reading order remains stable throughout the interaction." },
+              ]
+              Section id:"numbered-list-accordion" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:14 }
+                Grid columns:1 gap:{ xs:8 md:10 }
+                  Flex direction:"column" align:{ xs:"center" md:"start" } gap:3
+                    Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+                      "Frequently Asked Questions"
+                    Text size:"lg" color:"muted"
+                      "A numbered disclosure list gives every question a memorable position in the sequence."
+                  Divider scheme:"muted"
+                  Accordion variant:"ghost" scheme:"surface" rounded:"xs" w:"full"
+                    item id:"numbered-reusable" label:"01 · What makes a reusable website block effective?" defaultOpen:true
+                      Grid columns:1 gap:2
+                        each in:answerLines as:line key:line.id
+                          Text color:"muted"
+                            "{line.text}"
+                    item id:"numbered-responsive" label:"02 · How should content adapt across screen sizes?"
+                      Grid columns:1 gap:2
+                        each in:answerLines as:line key:line.id
+                          Text color:"muted"
+                            "{line.text}"
+                    item id:"numbered-products" label:"03 · Can the same block support multiple products?"
+                      Grid columns:1 gap:2
+                        each in:answerLines as:line key:line.id
+                          Text color:"muted"
+                            "{line.text}"
+                    item id:"numbered-accessible" label:"04 · What keeps interaction accessible?"
+                      Grid columns:1 gap:2
+                        each in:answerLines as:line key:line.id
+                          Text color:"muted"
+                            "{line.text}"
+            """

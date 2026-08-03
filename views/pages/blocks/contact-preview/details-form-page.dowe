@@ -1,0 +1,35 @@
+page ContactDetailsFormPage
+  signal form value:{ name:"" email:"" phone:"" company:"" message:"" }
+  const contactDetails value:[
+    { id:"email" emailIcon:true phoneIcon:false addressIcon:false value:"contact@company.com" },
+    { id:"phone" emailIcon:false phoneIcon:true addressIcon:false value:"(123) 456 – 789" },
+    { id:"address" emailIcon:false phoneIcon:false addressIcon:true value:"794 Mcallister St · San Francisco, 94102" },
+  ]
+  Section id:"contact-details-form" bg:"background" color:"onBackground" boxed:true p:{ xs:6 md:12 }
+    Grid columns:{ xs:1 md:"4fr 5fr" } gap:{ xs:8 md:14 } align:"center" minH:"vh-0"
+      Flex direction:"column" align:{ xs:"center" md:"start" } gap:5
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+            "CONTACT US"
+          Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+            "Get in touch today"
+          Text size:"md" color:"muted"
+            "Share a few details and our team will get back to you with a clear next step."
+        Grid columns:1 gap:3
+          each in:contactDetails as:detail key:detail.id
+            Flex align:"center" gap:3
+              Icon name:"letter" fill:"muted" w:5 h:5 show:detail.emailIcon
+              Icon name:"phone-calling" fill:"muted" w:5 h:5 show:detail.phoneIcon
+              Icon name:"map-point" fill:"muted" w:5 h:5 show:detail.addressIcon
+              Text color:"muted"
+                "{detail.value}"
+      Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:5 md:8 }
+        Grid columns:1 gap:4
+          Grid columns:{ xs:1 sm:2 } gap:4
+            Input bind:form.name label:"Name" placeholder:"John Carter" variant:"solid" scheme:"muted" w:"full"
+            Input bind:form.email label:"Email" placeholder:"example@email.com" variant:"solid" scheme:"muted" w:"full"
+            Input bind:form.phone label:"Phone" placeholder:"(123) 456 – 789" variant:"solid" scheme:"muted" w:"full"
+            Input bind:form.company label:"Company" placeholder:"Company" variant:"solid" scheme:"muted" w:"full"
+          Textarea bind:form.message label:"Message" placeholder:"Please type your message here..." rows:5 variant:"solid" scheme:"muted" w:"full"
+          Button variant:"solid" scheme:"primary" size:"md" rounded:"full" w:{ xs:"full" sm:48 }
+            "Send message"

@@ -1,27 +1,16 @@
 # Dowe Project Agents
 
-This project uses Dowe Agent Harnesses.
+This directory owns optional project Harness configuration and generated plans.
 
-## Required Reading
+## When Working With A Harness
 
 1. Read the project-root `AGENTS.md`.
-2. Read this file.
-3. Read `.agents/manifest.json`.
-4. Read the relevant installed skill under `.agents/skills`.
-5. Read the applicable harness under `.agents/harnesses`.
-6. Read the selected project spec before implementation.
-7. Follow Spec -> Contract -> Tests -> Implementation -> Validation -> Documentation.
+2. Read `.agents/manifest.json` and the applicable file under `.agents/harnesses`.
+3. Read the selected project spec and its contracts.
+4. Follow Spec -> Contract -> Tests -> Implementation -> Validation -> Documentation.
 
-## Modes
+Installed authoring skills live under `.agents/skills`. Open only the skill and focused reference
+required by the source surface being changed.
 
-- Project-specific agent support lives under `.agents`.
-- Generated validation evidence lives under `.dowe/agent-harnesses`.
-- Dowe framework agent instructions live in Dowe's `/agents` directory and must not be edited from project harness commands.
-
-## TDD
-
-TDD means Test-Driven Development.
-
-Implementation work must start from a spec, derive tests before implementation, record the expected failure when practical, implement the smallest behavior that satisfies the tests, then validate, update documentation, and review applicable skills before closing.
-
-Native Dowe literal tests can live in any project directory. Run `dowe test [path ...]` for the selected test file or directory when the contract is covered by `test` and `assert` declarations.
+Project-specific agent support stays under `.agents`. Generated validation evidence stays under
+`.dowe/agent-harnesses`.

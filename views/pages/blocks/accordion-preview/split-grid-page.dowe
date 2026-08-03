@@ -1,0 +1,45 @@
+page SplitGridAccordionPage
+  const answerLines value:[
+    { id:"layout" text:"Independent disclosure groups make a balanced desktop grid and return to one readable column on smaller screens." },
+    { id:"contract" text:"Each group uses the same Accordion contract, so behavior and visual tokens stay aligned." },
+  ]
+  Section id:"split-grid-accordion" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:14 } minH:"vh-0"
+    Grid columns:1 gap:{ xs:8 md:12 }
+      Flex direction:"column" align:"center" gap:3
+        Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+          "Frequently Asked Questions"
+        Text size:"lg" color:"muted"
+          "Two responsive columns organize a larger question set without losing a clear reading order."
+      Grid columns:{ xs:1 md:2 } gap:5 align:"start"
+        Accordion variant:"outlined" scheme:"primary" rounded:"lg" w:"full"
+          item id:"portable" label:"Why start with a portable component?" defaultOpen:true
+            Grid columns:1 gap:2
+              each in:answerLines as:line key:line.id
+                Text color:"muted"
+                  "{line.text}"
+          item id:"organized" label:"How should a disclosure section be organized?"
+            Grid columns:1 gap:2
+              each in:answerLines as:line key:line.id
+                Text color:"muted"
+                  "{line.text}"
+          item id:"responsive" label:"What makes the layout responsive?"
+            Grid columns:1 gap:2
+              each in:answerLines as:line key:line.id
+                Text color:"muted"
+                  "{line.text}"
+        Accordion variant:"outlined" scheme:"primary" rounded:"lg" w:"full"
+          item id:"hierarchy" label:"How is visual hierarchy preserved?"
+            Grid columns:1 gap:2
+              each in:answerLines as:line key:line.id
+                Text color:"muted"
+                  "{line.text}"
+          item id:"neutral" label:"Can the content stay product-neutral?"
+            Grid columns:1 gap:2
+              each in:answerLines as:line key:line.id
+                Text color:"muted"
+                  "{line.text}"
+          item id:"ownership" label:"Where should shared behavior live?"
+            Grid columns:1 gap:2
+              each in:answerLines as:line key:line.id
+                Text color:"muted"
+                  "{line.text}"

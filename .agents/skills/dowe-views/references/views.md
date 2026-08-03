@@ -18,6 +18,7 @@ folders.
 | `const plans` | Immutable value owned by a page or layout |
 | `fn loadBlogs` | Ordered view workflow owned by its page or layout |
 | `init` | Unnamed ordered workflow that runs once when its page or layout mounts |
+| `meta name:"..." content:"..."` | Direct static layout or page metadata for the web document head |
 
 ## Routes
 
@@ -68,12 +69,34 @@ page BlogsPage
           "First article"
 ```
 
+### Web metadata
+
+A layout or page may declare direct static `meta name:"..." content:"..."` entries. Layout values
+are defaults; the page overrides matching names. Supported names are
+`title`, `description`, `keywords`, `robots`, `canonical`, `og:title`, `og:description`,
+`og:image`, `og:image:alt`, `og:type`, `og:url`, `og:site_name`, `twitter:card`, `twitter:title`,
+`twitter:description`, `twitter:image`, `twitter:image:alt`, `twitter:site`, and
+`twitter:creator`.
+
+```text
+layout SiteLayout
+  meta name:"title" content:"Acme"
+  meta name:"og:image" content:"https://acme.dev/og.png"
+  Scaffold
+    main
+      children
+```
+
+`meta` is not visual and accepts no children or dynamic values. It affects web SSR and browser
+routing only; desktop, Android, and iOS accept the syntax without emitting native metadata.
+
 ### Init and Splash
 
 A layout or page accepts one direct `init` and one direct `Splash`. `init` has no name, params, or
 return prop. It uses the same ordered statements as `fn` and runs once per mounted scope. Outer
-layouts initialize before the page, all `init` hooks run before legacy `autoload:true` requests,
-and a preserved web layout does not initialize again during page-only navigation.
+layouts initialize before the page, and a preserved web layout does not initialize again during
+page-only navigation. Startup data loading belongs in `init`; there is no other startup request
+mechanism.
 
 `Splash bind:<path>` requires a boolean Signal or View Store. `true` shows only the Splash children;
 `false` shows the normal layout root or ordered page roots. Always set the binding explicitly in
@@ -115,7 +138,9 @@ page BlogsPage
 | `Svg` | Portable vector paths; use direct `Path` children for static geometry or `data:<reference>` for one normalized runtime record |
 
 Avoid Card inside Card. Use `Grid` or `Flex` inside a Card. Do not use Box as the default page,
-section, form, or catalog container.
+section, form, or catalog container. When choosing between Section, Grid, Flex, Card, and Box, or
+when decomposing a reference design into a layout and pages, follow the ordered decision tree and
+anti-pattern table in `references/composition.md`.
 
 `RailNav` accepts direct `item` and `divider` entries. Every item requires a quoted static `label`
 and `icon`. Icon-only mode is the default and reveals the label on web and desktop through hover or
@@ -130,9 +155,16 @@ bottom line for horizontal lists or a leading or trailing line for vertical list
 outline the complete control.
 
 Common structural props include `Grid columns`, `rows`, and `gap`; `Flex direction`, `gap`, `align`,
-`justify`, and `wrap`; and responsive values such as `columns:{ xs:1 md:2 }`. Static visible text
-for `Text`, `Title`, and `Button` is one direct quoted child. Dynamic visible text uses one complete
-braced binding path:
+`justify`, and `wrap`; and responsive values such as `columns:{ xs:1 md:2 }`. Read
+`references/styles.md` for the complete color, variant, spacing, sizing, typography, `show`,
+`animation`, cover, anchor, and navigation prop contract. Static visible text for `Text`, `Title`,
+and `Button` is one direct quoted child. Dynamic visible text uses one complete braced binding path.
+
+## Repeated views
+
+`each in:<collection> as:<item> key:<stable-path>` repeats view nodes. All three props are
+required bare references; `in` names the array, `as` introduces the scoped item, and `key`
+identifies the item across updates.
 
 ```text
 each in:blogs as:blog key:blog.id
@@ -143,15 +175,29 @@ each in:blogs as:blog key:blog.id
       "{blog.content}"
 ```
 
+Inside the loop, item paths stay scoped for visible text and reactive props such as
+`scheme:blog.scheme`. `Select` also accepts a structural `each` over an immutable `const` catalog
+producing `Option value:option.value label:option.label` entries.
+
 `"blog.title"` is literal text. A braced binding must resolve to a string. Mixed text such as
 `"By {blog.author}"` is not interpolated and remains literal. Braces apply to direct visible-text
 children only; props continue to use bare references such as `bind:form.title`, `show:ready`, and
-`onClick:save`.
+`onClick:save`. Static `Text` and `Title` copy remains verbatim across targets; email- and URL-shaped
+strings do not implicitly become links on iOS.
 
 ## State
 
 Use `const` for immutable data, `signal` for page or layout state, and an imported `store` module for
-state shared across routes. Store modules may live anywhere in the project. Add `persistent:true`
+state shared across routes. Signals and Stores accept an optional `type:<Name>` or `type:<Name>[]`
+referencing an imported `type` declaration; typed state validates initial values, binding paths,
+each-item fields, and request bodies.
+
+```text
+import Blog from "@/views/types/blog"
+
+page BlogsPage
+  signal blogs type:Blog[] value:[]
+``` Store modules may live anywhere in the project. Add `persistent:true`
 only when target-local storage should survive an application restart.
 
 For a short Store, the inline form is valid. When its props or initial value make a long line, use a
@@ -177,10 +223,10 @@ View functions contain ordered, target-neutral statements.
 
 | Utility | Binding | Props |
 | --- | --- | --- |
-| `request result` | Function-local result with `ok` and `data` | `method`, exactly one of `route` or `path`; optional `base`, `body`, `headers`, `autoload` |
+| `request result` | Function-local result with `ok` and `data` | `method`, exactly one of `route` or `path`; optional `base`, `body`, `headers` |
 | `set target` | none | `value`, or `source:<standard-library function>` with its props |
 | `reset target` | none | Restores a Signal or View Store to its initial value |
-| `toast` | none | `value:{ type title message visible duration? }`; optional `duration`, `scheme`, `variant`, `position` |
+| `toast` | none | `value:{ type title message visible duration? }`; optional `duration`, Card-equivalent `variant` (`solid`, `soft`, `outlined`, `ghost`), design `scheme`, and corner `position` |
 | `redirect` | none | Required static absolute `path` to a declared internal route; replaces history and terminates the function |
 
 ```text
@@ -194,18 +240,67 @@ fn createBlog
     redirect path:"/login"
 ```
 
-Use `Button onClick:createBlog` to dispatch the named function. Requests can only call client-safe
-routes or client-visible environment bases. Views cannot access Database, KV, server HTTP, crypto,
-spawn, filesystem, or server-only environment values.
+Use `Button onClick:createBlog` to dispatch the named function. `fn` accepts optional
+`params:{ name:Type }` naming the reactive Signals or imported Stores it depends on, and an
+optional `return` contract of `"boolean"`, `"number"`, `"string"`, or a declared type used for
+validation. Requests use `GET`, `POST`, `PUT`, `PATCH`, or `DELETE` and can only call client-safe
+routes or client-visible environment bases; a `/api` route without `base` uses `env.BACKEND_URL`
+implicitly. Views cannot access Database, KV, server HTTP, crypto, spawn, filesystem, or
+server-only environment values.
 
 Use `redirect path:"/login"` in either `fn` or `init` for route guards and completed workflows.
 The path must exist in the effective route graph. Redirect is terminal, uses replace navigation on
 web, desktop, Android, and iOS, and does not accept external or dynamic destinations.
 
+`set target value:<value>` accepts a reactive reference, its boolean negation such as
+`value:!openMenu`, a boolean literal, or a quoted static string, and writes Signals, nested Signal
+paths, or imported Store paths.
+
+### Inline click updates
+
+For one small local update, `onClick` accepts an inline object instead of a named function. It
+requires exactly one `set` target and one operation: `value`, `add`, or `append`.
+
+```text
+IconButton label:"menu" variant:"ghost" icon:"menu-dots" onClick:{ set:openDrawer value:!openDrawer }
+Button onClick:{ set:counter add:1 }
+  "Increment"
+Button onClick:{ set:name append:"!" }
+  "Append punctuation"
+```
+
+`add` requires a numeric target and numeric literal; `append` requires a string target and quoted
+string. Targets are mutable Signals or imported Store paths; inline updates never touch server
+state.
+
+## Localized content
+
+`Text`, `Title`, `Button`, navigation entry labels, and `Tabs` tab labels accept an `i18n` prop
+with a quoted dot-separated translation key. The direct text child or required `label` remains the
+static fallback. Navigation descriptions use `descriptionI18n` and `SideNav` status copy uses
+`statusI18n`; each secondary key requires its corresponding fallback prop.
+
+```text
+Title i18n:"home.hero.title"
+  "AI GENERATES CODE. DOWE BUILDS SYSTEMS."
+
+NavMenu
+  item label:"Views" i18n:"navigation.views" href:"/docs/views"
+```
+
+Catalogs live in root `i18n/<locale>.dowe`; read the dowe-core `main.md` reference for the
+catalog shape. Every referenced key must exist in every locale catalog, and `i18n` outside a
+supported surface fails before target generation.
+
 Portable standard-library calls use `set target source:namespace.function` inside `fn`. Convert SVG
 XML text with `set output source:parse.svg value:input fallback:""`. The result is Dowe `Svg`/`Path`
 source text; `parse.svg` does not mount or execute the XML.
 
+`Svg` is for portable vector marks such as logos and simple geometry. Original photographs,
+illustrations, textures, and authentic screenshots explicitly supplied or requested by the user are
+`Image` assets and must never be redrawn as `Svg` paths or `Canvas` commands. A design reference or
+any crop derived from it is not an application asset; rebuild the UI it depicts with Dowe
+components and use named missing paths for unavailable original media.
 Static `Svg` requires a quoted `viewBox` and one or more direct `Path` children. Runtime `Svg`
 instead uses `data:<reference>` and cannot declare `viewBox` or `Path`. The runtime reference resolves
 to one normalized Dowe vector record or JSON string; it does not accept SVG markup. `Path` accepts
@@ -213,4 +308,6 @@ quoted `d`, quoted `fill`, and optional `transform:"matrix(a b c d e f)"`. Keep 
 with `Svg` rather than treating it as a standalone component.
 
 Canvas is a built-in View component, not a separate application surface. Use it only when semantic
-components cannot express a drawing, chart, diagram, game-like scene, or custom pointer interaction.
+components cannot express a drawing, chart, diagram, game-like scene, or custom pointer
+interaction, and read `references/canvas.md` for its complete command, input, and animation
+contract.

@@ -1,0 +1,54 @@
+page ActionCardsPage
+  const features:
+    value:[
+      {
+        id:"mobile"
+        title:"Mobile app"
+        description:"Keep projects moving with a clear experience designed for smaller screens."
+      },
+      {
+        id:"desktop"
+        title:"Desktop app"
+        description:"Give focused work more room with a fast and familiar desktop workspace."
+      },
+      {
+        id:"users"
+        title:"Multiple users"
+        description:"Bring teammates together with shared context, ownership, and visibility."
+      },
+      {
+        id:"integrations"
+        title:"Integrations"
+        description:"Connect everyday tools and keep important information moving between them."
+      },
+      {
+        id:"reports"
+        title:"Monthly reports"
+        description:"Summarize activity and highlight the progress that matters to stakeholders."
+      },
+      {
+        id:"permissions"
+        title:"Granular permissions"
+        description:"Control access with clear roles that stay manageable as the team grows."
+      },
+    ]
+  Section id:"action-cards" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:12 } minH:"vh-0"
+    Grid columns:1 gap:{ xs:8 md:12 }
+      Flex direction:"column" align:"center" gap:3
+        Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+          "Browse our set of features"
+        Text size:"lg" color:"muted"
+          "A responsive collection of feature summaries with a clear next step on every card."
+      Grid columns:{ xs:1 md:3 } gap:5
+        each in:features as:feature key:feature.id
+          Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:72
+            Flex direction:"column" align:"start" justify:"between" gap:5 minH:56
+              Grid columns:1 gap:4
+                Box bg:"softMuted" rounded:"lg" p:3 w:14
+                  Icon name:"gallery" style:"bold-duotone" fill:"muted" w:8 h:8
+                Title size:"xl" weight:"black"
+                  "{feature.title}"
+                Text color:"muted"
+                  "{feature.description}"
+              Button variant:"ghost" scheme:"primary" size:"sm" iconEnd:"arrow-right"
+                "Learn more"

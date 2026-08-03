@@ -1,0 +1,296 @@
+page SectionsPage
+  Section id:"sections" py:{ xs:6 md:10 }
+    Grid columns:1 gap:4
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "COPY-READY BLOCKS"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Sections"
+      Text size:"lg" color:"muted"
+        "Six responsive wireframe sections built entirely from portable Dowe components."
+  Section id:"media-split" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "01 · MEDIA SPLIT"
+          Title size:"2xl" weight:"black"
+            "A product message beside a large image placeholder"
+        Button href:"/blocks/sections-preview/media-split" variant:"soft" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+          "Open full page"
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"media-split-preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe src:"/blocks/sections-preview/media-split" title:"Media split section preview" loading:"lazy" sandbox:"scripts same-origin"
+        tab id:"media-split-code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy section"
+            copiedLabel:"Copied"
+            content:"""
+              const actions value:[
+                { id:"start" label:"Get started" variant:"solid" },
+                { id:"sales" label:"Talk to sales" variant:"outlined" },
+              ]
+              Section id:"media-split-section" bg:"background" color:"onBackground" boxed:true p:{ xs:6 md:12 }
+                Grid columns:{ xs:1 md:2 } gap:{ xs:8 md:16 } align:"center" minH:"vh-0"
+                  Box show:{ xs:false md:true } bg:"softMuted" rounded:"xl" p:8 minH:96
+                    Flex direction:"column" align:"center" justify:"center" gap:3 minH:80
+                      Icon name:"gallery" style:"bold-duotone" fill:"muted" w:16 h:16
+                      Text size:"sm" color:"muted"
+                        "Image placeholder"
+                  Flex direction:"column" align:{ xs:"center" md:"start" } gap:5
+                    Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+                      "Boost your productivity with our to-do app"
+                    Text size:"lg" color:"muted"
+                      "Plan important work, keep every priority visible, and move through the day with confidence."
+                    Grid columns:1 gap:3 w:"full" show:{ xs:true sm:false }
+                      each in:actions as:action key:action.id
+                        Button variant:action.variant scheme:"primary" size:"lg" rounded:"full" w:"full"
+                          "{action.label}"
+                    Flex align:"center" gap:3 show:{ xs:false sm:true }
+                      each in:actions as:action key:action.id
+                        Button variant:action.variant scheme:"primary" size:"lg" rounded:"full"
+                          "{action.label}"
+                    Box show:{ xs:true md:false } bg:"softMuted" rounded:"xl" p:8 minH:72 w:"full"
+                      Flex direction:"column" align:"center" justify:"center" gap:3 minH:56
+                        Icon name:"gallery" style:"bold-duotone" fill:"muted" w:16 h:16
+                        Text size:"sm" color:"muted"
+                          "Image placeholder"
+            """
+  Section id:"media-benefits" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "02 · MEDIA BENEFITS"
+          Title size:"2xl" weight:"black"
+            "A full-height visual paired with two compact benefits"
+        Button href:"/blocks/sections-preview/media-benefits" variant:"solid" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+          "Open full page"
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"media-benefits-preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe src:"/blocks/sections-preview/media-benefits" title:"Media benefits section preview" loading:"lazy" sandbox:"scripts same-origin"
+        tab id:"media-benefits-code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy section"
+            copiedLabel:"Copied"
+            content:"""
+              const benefits value:[
+                { id:"focus" label:"Keep every priority in one clear view" },
+                { id:"progress" label:"See meaningful progress as work moves forward" },
+              ]
+              Section id:"media-benefits-section" bg:"background" color:"onBackground" boxed:true p:{ xs:6 md:12 }
+                Grid columns:{ xs:1 md:2 } gap:{ xs:8 md:16 } align:"center" minH:"vh-0"
+                  Box show:{ xs:false md:true } bg:"softMuted" p:8 minH:"vh-0"
+                    Flex direction:"column" align:"center" justify:"center" gap:3 minH:"vh-16"
+                      Icon name:"gallery" style:"bold-duotone" fill:"muted" w:16 h:16
+                      Text size:"sm" color:"muted"
+                        "Image placeholder"
+                  Flex direction:"column" align:{ xs:"center" md:"start" } gap:6
+                    Grid columns:1 gap:3
+                      Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+                        "Boost your productivity with our to-do app"
+                      Text size:"lg" color:"muted"
+                        "Bring tasks, decisions, and daily momentum into one dependable workspace."
+                    Grid columns:1 gap:4 w:"full"
+                      each in:benefits as:benefit key:benefit.id
+                        Flex align:"center" gap:4
+                          Box bg:"softMuted" rounded:"full" w:12 h:12 p:2
+                            Icon name:"gallery" style:"bold-duotone" fill:"muted" w:7 h:7
+                          Text color:"muted"
+                            "{benefit.label}"
+                    Box show:{ xs:true md:false } bg:"softMuted" p:8 minH:72 w:"full"
+                      Flex direction:"column" align:"center" justify:"center" gap:3 minH:56
+                        Icon name:"gallery" style:"bold-duotone" fill:"muted" w:16 h:16
+                        Text size:"sm" color:"muted"
+                          "Image placeholder"
+            """
+  Section id:"device-showcase" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "03 · DEVICE SHOWCASE"
+          Title size:"2xl" weight:"black"
+            "Editorial copy with a framed device placeholder"
+        Button href:"/blocks/sections-preview/device-showcase" variant:"soft" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+          "Open full page"
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"device-showcase-preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe src:"/blocks/sections-preview/device-showcase" title:"Device showcase section preview" loading:"lazy" sandbox:"scripts same-origin"
+        tab id:"device-showcase-code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy section"
+            copiedLabel:"Copied"
+            content:"""
+              const paragraphs value:[
+                { id:"collaboration" content:"A visual guide helps every contributor shape the same outcome together." },
+                { id:"clarity" content:"Everyone can see how the finished product will work before launch." },
+              ]
+              Section id:"device-showcase-section" bg:"background" color:"onBackground" boxed:true p:{ xs:6 md:12 }
+                Grid columns:{ xs:1 md:"5fr 7fr" } gap:{ xs:10 md:16 } align:"center" minH:"vh-0"
+                  Flex direction:"column" align:{ xs:"center" md:"start" } gap:6
+                    Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+                      "Boost your productivity with our to-do app"
+                    Grid columns:1 gap:4
+                      each in:paragraphs as:paragraph key:paragraph.id
+                        Text size:"lg" color:"muted"
+                          "{paragraph.content}"
+                    Button variant:"ghost" scheme:"primary" size:"md" iconEnd:"arrow-right"
+                      "Learn more"
+                  Box bg:"softMuted" rounded:"xl" p:{ xs:4 md:6 } w:"full"
+                    Box bg:"surface" border:1 borderColor:"muted" rounded:"lg" minH:{ xs:56 md:96 } p:6
+                      Flex direction:"column" align:"center" justify:"center" gap:3 minH:{ xs:44 md:80 }
+                        Icon name:"laptop" style:"bold-duotone" fill:"muted" w:16 h:16
+                        Text size:"sm" color:"muted"
+                          "Device placeholder"
+            """
+  Section id:"feature-media" p:{ xs:5 md:7 } bg:"softMuted" color:"onSoftMuted"
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "04 · FEATURE MEDIA"
+          Title size:"2xl" weight:"black"
+            "Two stacked features beside a broad media surface"
+        Button href:"/blocks/sections-preview/feature-media" variant:"solid" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+          "Open full page"
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"feature-media-preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe src:"/blocks/sections-preview/feature-media" title:"Feature media section preview" loading:"lazy" sandbox:"scripts same-origin"
+        tab id:"feature-media-code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy section"
+            copiedLabel:"Copied"
+            content:"""
+              const features value:[
+                { id:"one" title:"Feature one" description:"Web design and engineering stay aligned across the product workflow." },
+                { id:"two" title:"Feature two" description:"Fast prototypes expose assumptions before implementation begins." },
+              ]
+              Section id:"feature-media-section" bg:"background" color:"onBackground" boxed:true p:{ xs:6 md:12 }
+                Grid columns:{ xs:1 md:"4fr 7fr" } gap:{ xs:10 md:16 } align:"center" minH:"vh-0"
+                  Grid columns:1 gap:{ xs:8 md:12 }
+                    each in:features as:feature key:feature.id
+                      Flex direction:"column" align:{ xs:"center" md:"start" } gap:3
+                        Box bg:"softMuted" rounded:"full" w:12 h:12 p:2
+                          Icon name:"gallery" style:"bold-duotone" fill:"muted" w:7 h:7
+                        Title size:"xl" weight:"black"
+                          "{feature.title}"
+                        Text color:"muted"
+                          "{feature.description}"
+                  Box bg:"softMuted" rounded:"xl" p:8 minH:{ xs:72 md:96 }
+                    Flex direction:"column" align:"center" justify:"center" gap:3 minH:{ xs:56 md:80 }
+                      Icon name:"gallery" style:"bold-duotone" fill:"muted" w:16 h:16
+                      Text size:"sm" color:"muted"
+                        "Image placeholder"
+            """
+  Section id:"centered-media-cta" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "05 · CENTERED MEDIA CTA"
+          Title size:"2xl" weight:"black"
+            "Centered actions above a full-width image placeholder"
+        Button href:"/blocks/sections-preview/centered-media-cta" variant:"soft" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+          "Open full page"
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"centered-media-cta-preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe src:"/blocks/sections-preview/centered-media-cta" title:"Centered media call to action section preview" loading:"lazy" sandbox:"scripts same-origin"
+        tab id:"centered-media-cta-code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy section"
+            copiedLabel:"Copied"
+            content:"""
+              const actions value:[
+                { id:"start" label:"Get started" variant:"solid" },
+                { id:"sales" label:"Talk to sales" variant:"outlined" },
+              ]
+              Section id:"centered-media-cta-section" bg:"background" color:"onBackground" boxed:true p:{ xs:6 md:12 }
+                Flex direction:"column" align:"center" gap:{ xs:8 md:12 } minH:"vh-0"
+                  Flex direction:"column" align:"center" gap:5 maxW:96
+                    Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+                      "Boost your productivity with our to-do app"
+                    Text size:"lg" color:"muted"
+                      "Turn plans into a calm, visible workflow that keeps the whole team moving together."
+                    Grid columns:1 gap:3 w:"full" show:{ xs:true sm:false }
+                      each in:actions as:action key:action.id
+                        Button variant:action.variant scheme:"primary" size:"lg" rounded:"full" w:"full"
+                          "{action.label}"
+                    Flex align:"center" justify:"center" gap:3 show:{ xs:false sm:true }
+                      each in:actions as:action key:action.id
+                        Button variant:action.variant scheme:"primary" size:"lg" rounded:"full"
+                          "{action.label}"
+                  Box bg:"softMuted" rounded:"xl" p:8 minH:{ xs:72 md:96 } w:"full"
+                    Flex direction:"column" align:"center" justify:"center" gap:3 minH:{ xs:56 md:80 }
+                      Icon name:"gallery" style:"bold-duotone" fill:"muted" w:16 h:16
+                      Text size:"sm" color:"muted"
+                        "Image placeholder"
+            """
+  Section id:"video-features" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "06 · VIDEO FEATURES"
+          Title size:"2xl" weight:"black"
+            "A video placeholder beside focused feature copy"
+        Button href:"/blocks/sections-preview/video-features" variant:"solid" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+          "Open full page"
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"video-features-preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe src:"/blocks/sections-preview/video-features" title:"Video features section preview" loading:"lazy" sandbox:"scripts same-origin"
+        tab id:"video-features-code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy section"
+            copiedLabel:"Copied"
+            content:"""
+              const features value:[
+                { id:"one" title:"Feature one" description:"A shared visual guide gives every contributor a clear place to add input." },
+                { id:"two" title:"Feature two" description:"Concise milestones keep the team focused on what customers need next." },
+              ]
+              Section id:"video-features-section" bg:"background" color:"onBackground" boxed:true p:{ xs:6 md:12 }
+                Grid columns:{ xs:1 md:"5fr 6fr" } gap:{ xs:10 md:16 } align:"center" minH:"vh-0"
+                  Box show:{ xs:false md:true } bg:"softMuted" rounded:"xl" p:8 minH:96
+                    Flex direction:"column" align:"center" justify:"center" gap:3 minH:80
+                      Icon name:"play-circle" style:"bold-duotone" fill:"muted" w:16 h:16
+                      Text size:"sm" color:"muted"
+                        "Video placeholder"
+                  Flex direction:"column" align:{ xs:"center" md:"start" } gap:7
+                    Text size:"lg" color:"muted"
+                      "A visual guide helps designers, developers, customers, and managers shape the same outcome together."
+                    Grid columns:1 gap:6
+                      each in:features as:feature key:feature.id
+                        Grid columns:1 gap:2
+                          Title size:"2xl" weight:"black"
+                            "{feature.title}"
+                          Text color:"muted"
+                            "{feature.description}"
+                    Box show:{ xs:true md:false } bg:"softMuted" rounded:"xl" p:8 minH:72 w:"full"
+                      Flex direction:"column" align:"center" justify:"center" gap:3 minH:56
+                        Icon name:"play-circle" style:"bold-duotone" fill:"muted" w:16 h:16
+                        Text size:"sm" color:"muted"
+                          "Video placeholder"
+            """

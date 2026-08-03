@@ -1,0 +1,91 @@
+page ReverseProxyPage
+  Section id:"reverse-proxy-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SERVER / REVERSE PROXY"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Forward through a trusted route"
+        Text size:"lg" color:"muted"
+          "return reverse forwards an incoming request to an upstream selected from Dowe Cache. The runtime preserves HTTP behavior while preventing request-controlled upstream URLs."
+      Button href:"/docs/server" variant:"ghost" scheme:"muted" size:"sm" iconStart:"server"
+        "Server documentation"
+  Section id:"reverse-proxy-mental-model" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "MENTAL MODEL"
+        Title size:"3xl" weight:"black"
+          "Resolve first, forward second"
+        Text size:"sm" color:"muted"
+          "Read the request Host, require its route from Cache, then return a URL field from that exact binding. The compiler rejects body, query, header, or optional cache values as upstream authority."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          import RouteCache from "@/server/config/cache"
+
+          handler forwardRequest
+            request host source:"header" name:"Host"
+            kv route conn:RouteCache.get key:host required:true
+            return reverse:route.upstreams strategy:"roundRobin" state:route.state loadingUrl:route.loadingUrl errorUrl:route.errorUrl
+        """
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Trusted binding"
+          Text size:"sm" color:"muted"
+            "The root binding must come from required Cache.get in the same handler and the return must select one of its fields."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Validated URL"
+          Text size:"sm" color:"muted"
+            "The runtime accepts HTTP or HTTPS without embedded credentials or fragments."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Server only"
+          Text size:"sm" color:"muted"
+            "Reverse forwarding belongs to the native Dowe server runtime and is not lowered to Cloudflare edge targets."
+  Section id:"reverse-proxy-pools" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "RUNTIME POOLS"
+        Title size:"3xl" weight:"black"
+          "Balance only ready nodes"
+        Text size:"sm" color:"muted"
+          "reverse accepts a Cache-backed array and rotates concurrent requests with roundRobin. Records with enabled:false or a state other than ready never receive traffic."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Loading route"
+          Text size:"sm" color:"muted"
+            "state loading returns a temporary redirect to loadingUrl while Dowe Runtime verifies and starts the application binary."
+        Card variant:"soft" scheme:"danger" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Error route"
+          Text size:"sm" color:"muted"
+            "state error or an empty eligible pool returns a temporary redirect to errorUrl."
+  Section id:"reverse-proxy-http" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "HTTP CONTRACT"
+        Title size:"3xl" weight:"black"
+          "Preserve the request and response"
+        Text size:"sm" color:"muted"
+          "Dowe forwards the method, path, query, body, and safe headers. It removes hop-by-hop headers, sets the upstream Host, and adds the original host as forwarding context."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Upstream response"
+          Text size:"sm" color:"muted"
+            "Status, safe headers, and the response body stream flow back to the client without JSON conversion."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Failure behavior"
+          Text size:"sm" color:"muted"
+            "A missing route fails before forwarding, an invalid URL is rejected, and an unavailable upstream returns a controlled gateway error."

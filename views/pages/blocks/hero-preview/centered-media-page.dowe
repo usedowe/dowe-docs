@@ -1,0 +1,24 @@
+page CenteredMediaHeroPage
+  const mediaFrames value:[
+    { id:"primary" label:"Primary image placeholder" },
+    { id:"secondary" label:"Secondary image placeholder" },
+  ]
+  Section id:"centered-media-hero" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:12 }
+    Grid columns:1 gap:{ xs:8 md:12 }
+      Flex direction:"column" align:"center" gap:5
+        Title size:{ xs:"4xl" md:"6xl" } weight:"black"
+          "A dedicated team to grow your company"
+        Text size:"lg" color:"muted"
+          "A flexible headline, concise supporting copy, and two clear actions for a broad range of products and services."
+        Flex direction:{ xs:"column" sm:"row" } align:"center" justify:"center" gap:3
+          Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" iconEnd:"arrow-right"
+            "Get started"
+          Button variant:"outlined" scheme:"primary" size:"lg" rounded:"full"
+            "Talk to sales"
+      Grid columns:{ xs:1 md:2 } gap:{ xs:4 md:0 } align:"center"
+        each in:mediaFrames as:frame key:frame.id
+          Card variant:"soft" scheme:"muted" rounded:"xl" minH:{ xs:56 md:80 } p:8
+            Flex direction:"column" align:"center" justify:"center" gap:3 minH:{ xs:40 md:64 }
+              Icon name:"gallery" style:"bold-duotone" fill:"muted" w:16 h:16
+              Text size:"sm" color:"muted"
+                "{frame.label}"

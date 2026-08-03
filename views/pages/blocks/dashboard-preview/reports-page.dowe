@@ -1,0 +1,95 @@
+type ReportSlice
+  label:string
+  value:number
+
+type ReportPoint
+  x:number
+  y:number
+
+page DashboardReportsPage
+  signal revenue type:ReportPoint[] value:[
+    { x:1 y:38 },
+    { x:2 y:44 },
+    { x:3 y:41 },
+    { x:4 y:57 },
+    { x:5 y:63 },
+    { x:6 y:71 },
+  ]
+  signal signups type:ReportSlice[] value:[
+    { label:"Jan" value:32 },
+    { label:"Feb" value:46 },
+    { label:"Mar" value:58 },
+    { label:"Apr" value:64 },
+    { label:"May" value:76 },
+  ]
+  signal retention type:ReportPoint[] value:[
+    { x:1 y:82 },
+    { x:2 y:79 },
+    { x:3 y:77 },
+    { x:4 y:74 },
+    { x:5 y:72 },
+    { x:6 y:70 },
+  ]
+  signal channels type:ReportSlice[] value:[
+    { label:"Direct" value:46 },
+    { label:"Organic" value:34 },
+    { label:"Referral" value:22 },
+    { label:"Partner" value:18 },
+  ]
+  Section id:"dashboard-reports" bg:"softMuted" minH:"vh-0" p:{ xs:4 md:8 }
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:{ xs:"start" md:"center" } gap:3
+        Grid columns:1 gap:1
+          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+            "REPORTS"
+          Title size:{ xs:"2xl" md:"4xl" } weight:"black"
+            "Signals worth sharing"
+          Text size:"sm" color:"muted"
+            "Four real chart cards keep trends and comparisons readable at every width."
+        Button variant:"outlined" scheme:"muted" size:"sm" iconStart:"download-minimalistic"
+          "Download report"
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"surface" rounded:"lg" p:{ xs:4 md:6 } border:1
+          Grid columns:1 gap:4
+            Flex justify:"between" align:"center"
+              Grid columns:1 gap:1
+                Title size:"lg" weight:"bold"
+                  "Revenue"
+                Text size:"xs" color:"muted"
+                  "Monthly recurring revenue"
+              Chip variant:"soft" scheme:"success"
+                "+12.8%"
+            LineChart data:revenue variant:"soft" scheme:"surface" size:"md" palette:"ocean" curve:"smooth" showGradientFill:true rounded:"md"
+        Card variant:"soft" scheme:"surface" rounded:"lg" p:{ xs:4 md:6 } border:1
+          Grid columns:1 gap:4
+            Flex justify:"between" align:"center"
+              Grid columns:1 gap:1
+                Title size:"lg" weight:"bold"
+                  "Signups"
+                Text size:"xs" color:"muted"
+                  "New accounts by month"
+              Chip variant:"soft" scheme:"muted"
+                "324 total"
+            BarChart data:signups variant:"soft" scheme:"surface" size:"md" palette:"forest" grouped:true showValues:true barRadius:5 rounded:"md"
+        Card variant:"soft" scheme:"surface" rounded:"lg" p:{ xs:4 md:6 } border:1
+          Grid columns:1 gap:4
+            Flex justify:"between" align:"center"
+              Grid columns:1 gap:1
+                Title size:"lg" weight:"bold"
+                  "Retention"
+                Text size:"xs" color:"muted"
+                  "Active accounts after onboarding"
+              Chip variant:"soft" scheme:"warning"
+                "-4.2%"
+            LineChart data:retention variant:"outlined" scheme:"warning" size:"md" palette:"sunset" curve:"linear" hideGrid:true rounded:"md"
+        Card variant:"soft" scheme:"surface" rounded:"lg" p:{ xs:4 md:6 } border:1
+          Grid columns:1 gap:4
+            Flex justify:"between" align:"center"
+              Grid columns:1 gap:1
+                Title size:"lg" weight:"bold"
+                  "Acquisition channels"
+                Text size:"xs" color:"muted"
+                  "Qualified visits this month"
+              Chip variant:"soft" scheme:"muted"
+                "120 leads"
+            BarChart data:channels variant:"soft" scheme:"surface" size:"md" palette:"ocean" grouped:true showValues:true barRadius:5 rounded:"md"

@@ -1,0 +1,18 @@
+page SplitActionsCtaPage
+  const actions value:[
+    { id:"start" label:"Get started" variant:"solid" },
+    { id:"sales" label:"Talk to sales" variant:"outlined" },
+  ]
+  Section id:"split-actions-cta" bg:"background" color:"onBackground" boxed:true p:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"5fr 3fr" } gap:{ xs:6 md:12 } align:"center" minH:{ xs:72 md:56 }
+      Flex direction:"column" align:{ xs:"center" md:"start" } justify:"center" gap:3
+        Title size:{ xs:"3xl" md:"4xl" } weight:"black"
+          "Create your account today and get started for free!"
+      Grid columns:1 gap:3 w:"full" show:{ xs:true sm:false }
+        each in:actions as:action key:action.id
+          Button variant:action.variant scheme:"primary" size:"lg" rounded:"full" w:"full"
+            "{action.label}"
+      Flex align:"center" justify:{ xs:"center" md:"end" } gap:3 show:{ xs:false sm:true }
+        each in:actions as:action key:action.id
+          Button variant:action.variant scheme:"primary" size:"lg" rounded:"full"
+            "{action.label}"

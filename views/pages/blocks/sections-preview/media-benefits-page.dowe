@@ -1,0 +1,30 @@
+page MediaBenefitsSectionPage
+  const benefits value:[
+    { id:"focus" label:"Keep every priority in one clear view" },
+    { id:"progress" label:"See meaningful progress as work moves forward" },
+  ]
+  Section id:"media-benefits-section" bg:"background" color:"onBackground" boxed:true p:{ xs:6 md:12 }
+    Grid columns:{ xs:1 md:2 } gap:{ xs:8 md:16 } align:"center" minH:"vh-0"
+      Box show:{ xs:false md:true } bg:"softMuted" p:8 minH:"vh-0"
+        Flex direction:"column" align:"center" justify:"center" gap:3 minH:"vh-16"
+          Icon name:"gallery" style:"bold-duotone" fill:"muted" w:16 h:16
+          Text size:"sm" color:"muted"
+            "Image placeholder"
+      Flex direction:"column" align:{ xs:"center" md:"start" } gap:6
+        Grid columns:1 gap:3
+          Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+            "Boost your productivity with our to-do app"
+          Text size:"lg" color:"muted"
+            "Bring tasks, decisions, and daily momentum into one dependable workspace."
+        Grid columns:1 gap:4 w:"full"
+          each in:benefits as:benefit key:benefit.id
+            Flex align:"center" gap:4
+              Box bg:"softMuted" rounded:"full" w:12 h:12 p:2
+                Icon name:"gallery" style:"bold-duotone" fill:"muted" w:7 h:7
+              Text color:"muted"
+                "{benefit.label}"
+        Box show:{ xs:true md:false } bg:"softMuted" p:8 minH:72 w:"full"
+          Flex direction:"column" align:"center" justify:"center" gap:3 minH:56
+            Icon name:"gallery" style:"bold-duotone" fill:"muted" w:16 h:16
+            Text size:"sm" color:"muted"
+              "Image placeholder"

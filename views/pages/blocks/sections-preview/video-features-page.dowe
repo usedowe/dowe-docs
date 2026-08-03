@@ -1,0 +1,35 @@
+page VideoFeaturesSectionPage
+  const features value:[
+    {
+      id:"one"
+      title:"Feature one"
+      description:"A shared visual guide gives every contributor a clear place to add useful input."
+    },
+    {
+      id:"two"
+      title:"Feature two"
+      description:"Concise milestones keep the team focused on what the customer needs next."
+    },
+  ]
+  Section id:"video-features-section" bg:"background" color:"onBackground" boxed:true p:{ xs:6 md:12 }
+    Grid columns:{ xs:1 md:"5fr 6fr" } gap:{ xs:10 md:16 } align:"center" minH:"vh-0"
+      Box show:{ xs:false md:true } bg:"softMuted" rounded:"xl" p:8 minH:96
+        Flex direction:"column" align:"center" justify:"center" gap:3 minH:80
+          Icon name:"play-circle" style:"bold-duotone" fill:"muted" w:16 h:16
+          Text size:"sm" color:"muted"
+            "Video placeholder"
+      Flex direction:"column" align:{ xs:"center" md:"start" } gap:7
+        Text size:"lg" color:"muted"
+          "A visual guide helps designers, developers, customers, and managers shape the same outcome together."
+        Grid columns:1 gap:6
+          each in:features as:feature key:feature.id
+            Grid columns:1 gap:2
+              Title size:"2xl" weight:"black"
+                "{feature.title}"
+              Text color:"muted"
+                "{feature.description}"
+        Box show:{ xs:true md:false } bg:"softMuted" rounded:"xl" p:8 minH:72 w:"full"
+          Flex direction:"column" align:"center" justify:"center" gap:3 minH:56
+            Icon name:"play-circle" style:"bold-duotone" fill:"muted" w:16 h:16
+            Text size:"sm" color:"muted"
+              "Video placeholder"

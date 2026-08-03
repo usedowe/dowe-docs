@@ -1,0 +1,44 @@
+page BentoCardsPage
+  const supportingFeatures:
+    value:[
+      {
+        id:"desktop"
+        title:"Desktop app"
+        description:"A roomy workspace for focused work and complex projects."
+      },
+      {
+        id:"users"
+        title:"Multiple users"
+        description:"Shared context and simple collaboration for every teammate."
+      },
+    ]
+  Section id:"bento-cards" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:12 } minH:"vh-0"
+    Grid columns:1 gap:{ xs:8 md:12 }
+      Flex direction:"column" align:"center" gap:3
+        Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+          "Browse our set of features"
+        Text size:"lg" color:"muted"
+          "Use a strong lead card and compact supporting cards to create a clear visual hierarchy."
+      Grid columns:{ xs:1 md:2 } gap:5
+        Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:80
+          Flex direction:"column" align:"center" justify:"end" gap:5 minH:64
+            Icon name:"gallery" style:"bold-duotone" fill:"muted" w:16 h:16
+            Title size:"xl" weight:"black"
+              "Mobile app"
+            Text color:"muted"
+              "A focused mobile experience for customers and teams wherever their work happens."
+            Button variant:"ghost" scheme:"primary" size:"sm" iconEnd:"arrow-right"
+              "Learn more"
+        Grid columns:1 gap:5
+          each in:supportingFeatures as:feature key:feature.id
+            Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:52
+              Grid columns:{ xs:1 sm:"3fr 2fr" } gap:5 align:"center"
+                Flex direction:"column" align:"start" gap:4
+                  Title size:"xl" weight:"black"
+                    "{feature.title}"
+                  Text color:"muted"
+                    "{feature.description}"
+                  Button variant:"ghost" scheme:"primary" size:"sm" iconEnd:"arrow-right"
+                    "Learn more"
+                Flex align:"center" justify:"center"
+                  Icon name:"gallery" style:"bold-duotone" fill:"muted" w:14 h:14

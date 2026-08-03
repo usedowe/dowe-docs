@@ -1,0 +1,63 @@
+page CloudControlPlanePage
+  Section py:{ xs:6 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SERVER / DOWE CLOUD"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Publish a balanced control plane"
+        Text size:"lg" color:"muted"
+          "The /dash administrator owns Registry and Runtime inventory, active round-robin pools, and host routes sent to Dowe Proxy."
+      Grid columns:{ xs:1 md:4 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Registry"
+          Text size:"sm" color:"muted"
+            "Physical immutable artifact storage endpoints."
+        Card variant:"soft" scheme:"success" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Runtime"
+          Text size:"sm" color:"muted"
+            "Execution upstreams with explicit ready, loading, or offline state."
+        Card variant:"soft" scheme:"secondary" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Pool"
+          Text size:"sm" color:"muted"
+            "Validated ready Runtime membership with roundRobin strategy."
+        Card variant:"soft" scheme:"warning" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Route"
+          Text size:"sm" color:"muted"
+            "Host, project, state, fallbacks, and eligible upstreams published to Cache."
+  Section py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "REQUEST PATH"
+        Title size:"3xl" weight:"black"
+          "Cloud configures; Proxy serves"
+        Text size:"sm" color:"muted"
+          "Dowe Cloud validates inventory and publishes through the protected Proxy API. Dowe Proxy reads only its local Dowe Cache for each request and never waits for the dashboard or Database."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          handler forwardRequest
+            request host source:"header" name:"Host"
+            kv route conn:RouteCache.get key:host required:true
+            return reverse:route.upstreams strategy:"roundRobin" state:route.state loadingUrl:route.loadingUrl errorUrl:route.errorUrl
+        """
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Loading page"
+          Text size:"sm" color:"muted"
+            "A loading route redirects temporarily while the Runtime loads and verifies the binary."
+        Card variant:"soft" scheme:"danger" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Error page"
+          Text size:"sm" color:"muted"
+            "An error state or empty ready pool redirects to the configured failure surface."

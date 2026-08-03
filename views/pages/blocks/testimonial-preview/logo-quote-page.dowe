@@ -1,0 +1,70 @@
+page LogoQuoteTestimonialsPage
+  const testimonials value:{
+    matt:{
+      quote:"The work gave our team a clearer story, a stronger product, and the confidence to make the next decision faster."
+      name:"Matt Cannon"
+      role:"Head of Marketing"
+    }
+    sophie:{
+      quote:"A generous, thoughtful collaboration that turned many competing ideas into one simple and compelling direction."
+      name:"Sophie Moore"
+      role:"Design Director"
+    }
+    john:{
+      quote:"They listened closely, challenged the right assumptions, and delivered an experience our customers immediately understood."
+      name:"John Carter"
+      role:"Product Lead"
+    }
+  }
+  Section id:"logo-quote-testimonials" bg:"background" color:"onBackground" boxed:true py:{ xs:10 md:16 } minH:"vh-0"
+    Grid columns:1 gap:{ xs:8 md:10 }
+      Flex align:"center" justify:"center" wrap:true gap:{ xs:6 md:10 }
+        Icon name:"svg-logos:facebook" w:{ xs:24 md:32 } h:10
+        Icon name:"svg-logos:google" w:{ xs:24 md:32 } h:10
+        Icon name:"svg-logos:youtube" w:{ xs:24 md:32 } h:10
+      Carousel variant:"controls" scheme:"primary" hideIndicators:true gap:4
+        slide id:"matt"
+          Grid columns:{ xs:1 md:"1fr 4fr 1fr" } align:"center" minH:{ xs:72 md:80 }
+            Box show:{ xs:false md:true }
+            Flex direction:"column" align:"center" justify:"center" gap:7
+              Title size:{ xs:"2xl" md:"4xl" } weight:"black"
+                "{testimonials.matt.quote}"
+              Flex align:"center" justify:"center" gap:4
+                Box bg:"softMuted" rounded:"full" w:14 h:14 p:3
+                  Icon name:"gallery" style:"bold-duotone" fill:"muted" w:8 h:8
+                Grid columns:1 gap:1
+                  Text weight:"bold"
+                    "{testimonials.matt.name}"
+                  Text size:"sm" color:"muted"
+                    "{testimonials.matt.role}"
+            Box show:{ xs:false md:true }
+        slide id:"sophie"
+          Grid columns:{ xs:1 md:"1fr 4fr 1fr" } align:"center" minH:{ xs:72 md:80 }
+            Box show:{ xs:false md:true }
+            Flex direction:"column" align:"center" justify:"center" gap:7
+              Title size:{ xs:"2xl" md:"4xl" } weight:"black"
+                "{testimonials.sophie.quote}"
+              Flex align:"center" justify:"center" gap:4
+                Box bg:"softMuted" rounded:"full" w:14 h:14 p:3
+                  Icon name:"gallery" style:"bold-duotone" fill:"muted" w:8 h:8
+                Grid columns:1 gap:1
+                  Text weight:"bold"
+                    "{testimonials.sophie.name}"
+                  Text size:"sm" color:"muted"
+                    "{testimonials.sophie.role}"
+            Box show:{ xs:false md:true }
+        slide id:"john"
+          Grid columns:{ xs:1 md:"1fr 4fr 1fr" } align:"center" minH:{ xs:72 md:80 }
+            Box show:{ xs:false md:true }
+            Flex direction:"column" align:"center" justify:"center" gap:7
+              Title size:{ xs:"2xl" md:"4xl" } weight:"black"
+                "{testimonials.john.quote}"
+              Flex align:"center" justify:"center" gap:4
+                Box bg:"softMuted" rounded:"full" w:14 h:14 p:3
+                  Icon name:"gallery" style:"bold-duotone" fill:"muted" w:8 h:8
+                Grid columns:1 gap:1
+                  Text weight:"bold"
+                    "{testimonials.john.name}"
+                  Text size:"sm" color:"muted"
+                    "{testimonials.john.role}"
+            Box show:{ xs:false md:true }

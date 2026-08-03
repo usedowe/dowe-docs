@@ -1,0 +1,18 @@
+page CenteredActionsCtaPage
+  const actions value:[
+    { id:"start" label:"Get started" variant:"solid" },
+    { id:"sales" label:"Talk to sales" variant:"outlined" },
+  ]
+  Section id:"centered-actions-cta" bg:"background" color:"onBackground" boxed:true p:{ xs:6 md:12 }
+    Flex direction:"column" align:"center" justify:"center" gap:6 minH:{ xs:80 md:"vh-0" }
+      Flex direction:"column" align:"center" gap:3 maxW:96
+        Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+          "Create your account today and get started for free!"
+      Grid columns:1 gap:3 w:"full" show:{ xs:true sm:false }
+        each in:actions as:action key:action.id
+          Button variant:action.variant scheme:"primary" size:"lg" rounded:"full" w:"full"
+            "{action.label}"
+      Flex align:"center" justify:"center" gap:3 show:{ xs:false sm:true }
+        each in:actions as:action key:action.id
+          Button variant:action.variant scheme:"primary" size:"lg" rounded:"full"
+            "{action.label}"

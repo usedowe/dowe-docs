@@ -14,7 +14,7 @@ contract declares them.
 
 | Component | Use and essential contract |
 | --- | --- |
-| `Box` | Neutral wrapper for exceptional background, overlay, cover, or local styling behavior. Prefer a semantic container when one exists. |
+| `Box` | Neutral wrapper for exceptional background, overlay, cover, local styling, or portable relative/absolute/fixed positioning. Prefer a semantic container when one exists. |
 | `Section` | Ordered page band and page-level vertical rhythm. A page begins with one or more sibling Sections; `boxed:true` constrains and centers only its generated inner body at `96rem` web or `1536` native. |
 | `Flex` | One-axis row or column using `direction`, `gap`, `align`, `justify`, and optional wrapping. |
 | `Grid` | Explicit or responsive tracks using `columns`, optional `rows`, `gap`, and alignment. |
@@ -29,10 +29,10 @@ contract declares them.
 
 | Component | Use and essential contract |
 | --- | --- |
-| `AppBar` | Top application bar with optional full-width `top` and `bottom` regions around `start`, `center`, and `end`; `boxed:true` centers its inner content at `96rem` web or `1536` native while preserving the full-width surface. |
-| `Footer` | Page or shell footer with optional `start`, `center`, and `end` regions; `boxed:true` centers its inner content at `96rem` web or `1536` native. |
+| `AppBar` | Top application bar with optional full-width `top` and `bottom` regions around `start`, `center`, and `end`; `boxed:true` centers its inner content at `96rem` web or `1536` native while preserving the full-width surface. It stays visually flat across targets unless `border`, `bordered:true`, or `floating:true` requests separation. |
+| `Footer` | Page or shell footer with optional full-width `top` and `bottom` regions around `start`, `center`, and `end`; it includes horizontal padding `4` from `xs` and `6` from `md`, overridable with `p`, `px`, `pl`, or `pr`. `boxed:true` centers its central row at `96rem` web or `1536` native. Put responsive `show` on children inside a region, not on the structural region block. |
 | `BottomBar` | Bottom navigation containing one or more direct `tab` entries; each entry owns one Icon and navigation metadata; `boxed:true` centers the tab row at `96rem` web or `1536` native. |
-| `NavMenu` | Navigation menu composed from direct `item`, `submenu`, or `megamenu` entries. |
+| `NavMenu` | Horizontal navigation composed from direct `item`, `submenu`, or `megamenu` entries. Submenu and megamenu content opens in a Dowe-owned floating overlay on web, Android, and iOS, uses the structural background surface, preserves `scheme` for trigger and active states, dispatches fragment or route navigation before closing, and uses the same anchored overlay strategy as `Dropdown` on iOS. |
 | `SideNav` | Detailed vertical navigation with optional `header`, direct `item`, `divider`, and `submenu` entries. |
 | `RailNav` | Narrow icon navigation with direct `item` and `divider` entries; each item requires quoted `label` and Solar `icon`. |
 | `Sidebar` | Shell side surface with optional `header`, required `body`, and optional `footer` regions. |
@@ -41,6 +41,8 @@ contract declares them.
 | `Drawer` | Openable side surface with optional `header`, required `body`, and optional `footer`; direct view children also form body content. |
 | `Tabs` | Related panels selected through one or more direct `tab` entries with unique quoted `id` and `label`. |
 | `tab` | Context-only child of Tabs or BottomBar. A Tabs entry owns panel children; a BottomBar entry owns navigation metadata and one Icon. |
+| `Stepper` | Ordered numbered workflow selected through direct `step` entries; use `scheme` and `horizontal` or `vertical` orientation. |
+| `step` | Context-only child of Stepper with unique quoted `id`, quoted `label`, and panel children. |
 
 `Scaffold boxed:true` centers and limits only the `start`, `main`, and `end` body while leaving the outer shell, bars, and overlays full width.
 
@@ -50,7 +52,7 @@ Section, Scaffold, AppBar, Footer, and BottomBar use the wide boxed content cap 
 
 | Component | Use and essential contract |
 | --- | --- |
-| `Button` | Text action or navigation control. Use one direct quoted or complete braced text child and reference a view function with `onClick`. |
+| `Button` | Text action or navigation control. Use one direct quoted or complete braced text child, reference a view function with `onClick`, and bind `loading` to a boolean Signal or View Store path when the action is pending. Loading reuses the bundled `svg-spinners:3-dots-move` Icon and blocks duplicate actions. |
 | `IconButton` | Accessible icon-only action. Supply quoted `label` and Solar `icon`; use `onClick` or supported navigation props. |
 | `ToggleTheme` | Control that switches between configured themes without duplicating theme state in page source. |
 | `SelectTheme` | Theme selector for the configured named theme catalog. |
@@ -95,14 +97,20 @@ Section, Scaffold, AppBar, Footer, and BottomBar use the wide boxed content cap 
 | --- | --- |
 | `Code` | Displays source without executing it. Set `language`, `content`, and optional template or copy behavior. |
 | `Video` | Portable HTTPS video or HLS playback with optional poster, aspect, autoplay preference, and Dowe-owned controls. |
-| `Iframe` | Embeds one quoted HTTPS URL or root-relative internal route. Quoted `src` and accessible `title` are required. |
+| `Iframe` | Embeds one quoted HTTPS URL or root-relative internal route. Quoted `src` and accessible `title` are required. During native `dowe dev`, an internal route uses the active Views origin instead of the API `BACKEND_URL`. |
 | `Device` | Responsive preview frame that contains exactly one Iframe and selects a supported device profile. |
 | `Canvas` | Custom drawing or pointer surface for visuals that semantic components cannot express; keep its commands and data target-neutral. |
 | `Audio` | Portable audio playback for a supported static source with Dowe-owned playback behavior. |
-| `Image` | Portable image with a static or supported bound source and accessible alternative text. |
-| `Icon` | Bundled vector selected by quoted `name`: Solar names, `country-flags:<ISO code>`, or animated `svg-spinners:<name>`. Solar supports six styles; namespaced catalogs use `linear`. |
+| `Image` | Portable original media whose quoted `src` is a project asset path such as `/assets/images/hero.jpg` or an HTTPS URL, with `alt` text (empty marks it decorative), `aspect` (`horizontal`, `vertical`, `square`, `auto`), `objectFit`, `scheme`, and `rounded`. An unavailable source keeps the styled frame as a placeholder without crashing, so authoring the final path first and adding the file later is the canonical placeholder workflow. Never rebuild a photograph with `Svg` or `Canvas`, and never use the design reference or a crop from it to flatten UI into an image asset. |
+| `Icon` | Bundled vector selected by quoted `name`: Solar names, `country-flags:<ISO code>`, animated `svg-spinners:<name>`, or brand-colored `svg-logos:<name>`. Solar supports six styles; namespaced catalogs use `linear`. |
 | `Svg` | Portable vector using either quoted `viewBox` plus direct `Path` children, or runtime `data:<reference>` with no static paths. |
 | `Path` | Context-only Svg path with quoted `d`, paint, and optional matrix transform. |
+
+`Icon name` is always a static quoted value; it cannot bind an `each` item or Signal path, so a
+collection with distinct icons uses explicit sibling declarations. Names must exist in the bundled
+Solar catalog for the selected style and diagnostics reject unknown names: for example
+`magnifier` is valid but `search` is not. Standalone icons accept `fill:<color token>`, `w`, `h`,
+and optional `style`.
 
 Iframe and remote media do not bypass server embedding, authentication, cookie, transport, or
 platform security policy. They never authorize user-authored JavaScript or native host bridges.
@@ -119,8 +127,26 @@ platform security policy. They never authorize user-authored JavaScript or nativ
 | `PieChart` | Non-negative categorical values rendered as slices from compatible `data`. |
 | `Table` | Tabular Signal data with one or more direct `column` definitions using field and label metadata. |
 
-Charts consume portable data rather than a target-specific chart library. Diagnostics reject missing,
-incompatible, or invalid negative data where the chart contract requires non-negative values.
+Charts consume portable Signal data rather than a target-specific chart library. Category charts
+(`ArcChart`, `BarChart`, `PieChart`) read items with `label` and `value`. Point charts
+(`AreaChart`, `LineChart`) read items with numeric `x` and `y`, or a `series` Signal whose items
+contain `label` and `data:[{ x, y }]`. Optional item `color` fields must be Dowe color tokens.
+Every chart accepts `variant`, `scheme`, `size` (`sm` to `xl`), `palette` (`default`, `rainbow`,
+`ocean`, `sunset`, `forest`, `neon`), `legendPosition` (`top`, `right`, `bottom`, `left`, `none`),
+`emptyLabel`, `loading`, and `hideLegend`. Diagnostics reject missing, incompatible, or invalid
+negative data where the chart contract requires non-negative values.
+
+Each `Candlestick` item provides `time` plus numeric `open`, `high`, `low`, and `close`. Optional
+props include `stream` for an SSE feed upserted by `time`, `upColor` and `downColor` tokens, and
+`maxPoints`. Validation rejects OHLC values where `high` or `low` contradicts the body.
+
+`Table data:<signal>` requires at least one direct `column` with quoted `field` and `label`;
+`field` is a relative row path such as `profile.email`, optional `align` accepts `start`,
+`center`, or `end`, and optional `width` accepts static portable hints such as `160px`, `25%`, or
+`1fr`. Table props include `size` (`sm`, `md`, `lg`), `striped`, `bordered`, `dividers`,
+`emptyTitle`, and `emptyDescription`. Cells render strings, numbers, and booleans; objects,
+arrays, and missing fields render empty. Sorting, pagination, selection, and custom cell renderers
+are outside the Table contract.
 
 ## Display, feedback, and rich content
 
@@ -131,6 +157,7 @@ incompatible, or invalid negative data where the chart contract requires non-neg
 | `AvatarGroup` | Static `item` children or bound `items`, with visible-count and overflow behavior. |
 | `Badge` | Compact status or count surface containing one or more view children. |
 | `Brand` | Logo or identity container with one or more arbitrary view children, optional quoted `href` navigation, optional accessible `label`, and Box-compatible `w` and `h`; it adds no Button chrome. |
+| `Banner` | Full-width external surface with one or more arbitrary view children, required quoted HTTPS `href`, optional accessible `label`, and common background, cover, spacing, sizing, border, radius, shadow, and visibility props; web opens a protected new tab and native targets use the system browser. |
 | `Chip` | Compact labeled token with optional `start` and `end` icon regions and supported close behavior. |
 | `Skeleton` | Loading placeholder sized to the content surface it represents. |
 | `ChatBox` | Bound message list with named send and pagination functions plus loading, sending, and streaming state. |
@@ -151,10 +178,10 @@ incompatible, or invalid negative data where the chart contract requires non-neg
 
 | Component | Use and essential contract |
 | --- | --- |
-| `Modal` | Open state, named close function, optional `header` and `footer`, and required body view content. |
-| `AlertDialog` | Open confirmation surface with named confirm, cancel, and close functions. |
+| `Modal` | Open state, named close function, optional `header` and `footer`, required body content, Card-equivalent `variant` and `scheme`, and a generated Drawer-style close control unless hidden. |
+| `AlertDialog` | Open confirmation surface with named confirm and cancel functions; `variant` styles the neutral Card-equivalent panel, while `scheme` styles the generated solid confirm Button and cancel remains outlined muted. |
 | `Tooltip` | Accessible contextual label around one or more trigger view children. |
-| `Toast` | Renders feedback from a compatible source value. It is distinct from the lowercase `toast` statement that updates feedback state inside a view function. |
+| `Toast` | Renders static or Signal-backed feedback with Card-equivalent `solid`, `soft`, `outlined`, and `ghost` variants, a design `scheme`, one of four corner positions, and the generated Drawer-style close control. It is distinct from the recommended lowercase `toast` statement that updates the global feedback presenter inside a view function. |
 | `Dropdown` | Anchored surface with required `trigger`, optional `header` and `footer`, and direct `item` or `divider` entries. |
 | `Command` | Searchable command surface with direct `item` entries or `group` collections and named item functions. |
 
@@ -176,6 +203,7 @@ components and cannot be used as independent page roots.
 | `mark` | RichText |
 | `marker`, `waypoint` | Map |
 | `slide` | Carousel |
+| `step` | Stepper |
 
 Do not infer a contextual child from a similarly named component. Use the exact owner-child shape and
 let compiler diagnostics reject children, props, or bindings outside that context.

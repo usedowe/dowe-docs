@@ -1,0 +1,48 @@
+page AvatarCardsTestimonialsPage
+  const testimonials:
+    value:[
+      {
+        id:"john"
+        title:"An amazing service"
+        quote:"A thoughtful service that made a complex project feel clear, calm, and easy to move forward."
+        name:"John Carter"
+        role:"Designer at Northstar Studio"
+      },
+      {
+        id:"sophie"
+        title:"One of a kind service"
+        quote:"The team brought focus to every decision and gave us a result we can confidently build on."
+        name:"Sophie Moore"
+        role:"Head of Design at Northstar Studio"
+      },
+      {
+        id:"andy"
+        title:"The best service"
+        quote:"From the first conversation to delivery, every detail felt considered and genuinely useful."
+        name:"Andy Smith"
+        role:"Developer at Northstar Studio"
+      },
+    ]
+  Section id:"avatar-card-testimonials" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:14 } minH:"vh-0"
+    Grid columns:1 gap:{ xs:8 md:12 }
+      Flex direction:"column" align:"center" gap:3
+        Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+          "What our clients say"
+        Text size:"lg" color:"muted"
+          "Real feedback from people who trusted our team with important work."
+      Grid columns:{ xs:1 md:3 } gap:5
+        each in:testimonials as:testimonial key:testimonial.id
+          Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:72
+            Flex direction:"column" align:"start" justify:"between" gap:6 minH:56
+              Grid columns:1 gap:4
+                Box bg:"softMuted" rounded:"full" w:14 h:14 p:3
+                  Icon name:"gallery" style:"bold-duotone" fill:"muted" w:8 h:8
+                Title size:"xl" weight:"black"
+                  "{testimonial.title}"
+                Text color:"muted"
+                  "{testimonial.quote}"
+              Grid columns:1 gap:1
+                Text weight:"bold"
+                  "{testimonial.name}"
+                Text size:"sm" color:"muted"
+                  "{testimonial.role}"

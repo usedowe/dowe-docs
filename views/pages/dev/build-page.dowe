@@ -65,6 +65,39 @@ page BuildPage
               "Dry run"
             Text size:"sm" color:"muted"
               "Add --dry-run to regenerate target assets and build.json without executing the final toolchain or writing the release executable."
+  Section id:"build-environment" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PRODUCTION ENVIRONMENT"
+        Title size:"3xl" weight:"black"
+          "Build with .env.live"
+        Text size:"sm" color:"muted"
+          "Keep development values in .env. Every dowe build reads Live values from the Git-ignored .env.live file, so release compilation never requires editing the development profile."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy environment files"
+        copiedLabel:"Copied"
+        content:"""
+          .env.example
+          .env
+          .env.live
+        """
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Separate local profiles"
+            Text size:"sm" color:"muted"
+              "dowe dev resolves .env. dowe build resolves .env.live and does not fall back to .env when a Live value is missing."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Process overrides first"
+            Text size:"sm" color:"muted"
+              "CI and signing variables from the process environment override .env.live. Keep every shared variable name declared in .env.example."
   Section id:"build-targets" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
@@ -193,4 +226,4 @@ page BuildPage
                 target/build.json
         """
       Text size:"sm" color:"muted"
-        "A successful non-dry build verifies that the expected artifact exists. Reports exclude .env, signing passwords, private keys, and authored Dowe source."
+        "A successful non-dry build verifies that the expected artifact exists. Reports exclude every .env profile, signing passwords, private keys, and authored Dowe source."

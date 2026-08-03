@@ -7,7 +7,7 @@ page DeployPage
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Dowe Deploy"
         Text size:"lg" color:"muted"
-          "Build native release artifacts, publish mobile apps, or generate server and Cloudflare output owned by Dowe."
+          "Build native release artifacts, publish mobile apps, or deploy to Dowe Cloud, Docker, SSH, and Cloudflare."
       Button:
         href:"/docs/dev/install"
         variant:"soft"
@@ -24,7 +24,7 @@ page DeployPage
         Title size:"3xl" weight:"black"
           "Choose a configured surface"
         Text size:"sm" color:"muted"
-          "Run deploy from the project root. Server and Web keep their providers; Android adds Google Play and iOS adds App Store Connect on macOS."
+          "Run deploy from the project root. Select Live, Stage, or UAT before the deploy surface; Android and iOS remain Live-only."
       Code:
         language:"dowe"
         variant:"soft"
@@ -32,10 +32,14 @@ page DeployPage
         copyLabel:"Copy commands"
         copiedLabel:"Copied"
         content:"""
+          dowe login
           dowe deploy
-          dowe deploy server --target docker --registry ghcr.io/acme --image clinic
-          dowe deploy --target cloudflare --name clinic-api
-          dowe deploy web --name clinic-web --publish
+          dowe deploy server --target dowe --publish
+          dowe deploy web --target dowe --publish
+          dowe deploy server --target ssh --publish --host server.example.com --user deploy --key-file $HOME/.ssh/id_ed25519
+          dowe deploy server --environment stage --target docker --registry ghcr.io/acme --image clinic
+          dowe deploy --environment uat --target cloudflare --name clinic-api
+          dowe deploy web --environment live --name clinic-web --publish
           dowe deploy --target android --track internal --publish
           dowe deploy --target ios --publish
         """
@@ -45,19 +49,43 @@ page DeployPage
             Text size:"xs" weight:"bold" color:"primary"
               "SERVER"
             Title size:"lg" weight:"bold"
-              "Docker or Cloudflare Worker"
+              "Dowe Cloud, Docker, SSH, or Cloudflare Worker"
             Text size:"sm" color:"muted"
-              "Docker creates a native Linux image. Cloudflare Worker keeps the existing Dowe-owned Wasm lowering."
+              "Dowe Cloud uploads a verified application binary. Docker creates a native Linux image. SSH installs one executable as a Debian or Ubuntu systemd service. Cloudflare Worker keeps Dowe-owned Wasm lowering."
+            Text size:"sm" color:"muted"
+              "Run dowe login once to validate and save the dashboard API token, or use DOWE_CLOUD_TOKEN in CI."
         Card variant:"soft" scheme:"surface" p:5 rounded:"md"
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "WEB"
             Title size:"lg" weight:"bold"
-              "Cloudflare Pages"
+              "Dowe Cloud or Cloudflare Pages"
             Text size:"sm" color:"muted"
               "Pages packages the generated web distribution and can publish it with Wrangler."
             Text size:"sm" color:"muted"
               "Project assets stay available under /assets, including social images referenced only by SEO metadata."
+  Section id:"deploy-environment" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "DEPLOY ENVIRONMENTS"
+        Title size:"3xl" weight:"black"
+          "Deploy without rewriting .env"
+        Text size:"sm" color:"muted"
+          "dowe dev uses .env. Deploy selects .env.live, .env.stage, or .env.uat, while dowe build always uses .env.live. Ignore every local value file and declare shared names in .env.example."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Client configuration"
+            Text size:"sm" color:"muted"
+              "Values referenced from Views are compiled from the selected profile into the output. The process environment has higher precedence and Dowe never falls back to another profile."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Server secrets"
+            Text size:"sm" color:"muted"
+              "Dotenv profiles are never copied into a package. Stage and UAT require the server-only DOWE_DEPLOY_ACCESS_PASSWORD; Live does not include that access middleware."
   Section id:"native-builds" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
@@ -208,6 +236,34 @@ page DeployPage
         copyLabel:"Copy entrypoint"
         copiedLabel:"Copied"
         content:"/usr/local/bin/dowe server --root /app --bind 0.0.0.0:8080"
+  Section id:"deploy-ssh" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SSH / SYSTEMD"
+        Title size:"3xl" weight:"black"
+          "Install one native server executable"
+        Text size:"sm" color:"muted"
+          "SSH deploy embeds the selected Dowe application in the same-version Linux amd64 runtime, uploads it with OpenSSH, and enables a background systemd service."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Password or key"
+            Text size:"sm" color:"muted"
+              "OpenSSH owns password and key-passphrase prompts. Dowe stores neither and keeps normal host-key verification enabled."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Debian or Ubuntu"
+            Text size:"sm" color:"muted"
+              "The remote installer rejects other distributions, non-amd64 hosts, missing systemd, or accounts without sudo access."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Background service"
+            Text size:"sm" color:"muted"
+              "systemctl enable --now starts the app immediately, enables boot startup, and restarts it after a failure."
   Section id:"deploy-build-result" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
@@ -242,16 +298,16 @@ page DeployPage
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "CURRENT BOUNDARIES"
         Title size:"3xl" weight:"black"
-          "Two Server targets, one shared Dowe authority"
+          "Four Server providers, one shared Dowe authority"
         Text size:"sm" color:"muted"
-          "SSH, Linux host, and the former dowe build command are retired. Docker and Cloudflare continue through the shared deploy API used by CLI and IPC."
+          "Dowe Cloud, Docker, SSH, and Cloudflare continue through the shared deploy API used by CLI and IPC. The former Linux host package remains retired."
       Grid columns:{ xs:1 md:2 } gap:4
         Card variant:"soft" scheme:"primary" p:5 rounded:"md"
           Grid columns:1 gap:2
             Title size:"lg" weight:"bold"
               "Secrets stay outside"
             Text size:"sm" color:"muted"
-              ".env is never copied. Declare names in .env.example and provide production values through the platform."
+              ".env, .env.live, .env.stage, and .env.uat are never copied. Declare names in .env.example and provide runtime server values through the platform."
         Card variant:"soft" scheme:"surface" p:5 rounded:"md"
           Grid columns:1 gap:2
             Title size:"lg" weight:"bold"

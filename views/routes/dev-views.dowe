@@ -4,6 +4,7 @@ import DevPage from "@/views/pages/dev/dev-page"
 import HmrPage from "@/views/pages/dev/hmr-page"
 import BuildPage from "@/views/pages/dev/build-page"
 import DeployPage from "@/views/pages/dev/deploy-page"
+import DeployEnvironmentsPage from "@/views/pages/dev/deploy-environments-page"
 import InstallPage from "@/views/pages/dev/install-page"
 import AgentPage from "@/views/pages/dev/agent-page"
 import TestsPage from "@/views/pages/dev/tests-page"
@@ -17,6 +18,7 @@ views DevViews
     route path:"hmr" page:HmrPage
     route path:"build" page:BuildPage
     route path:"deploy" page:DeployPage
+    route path:"deploy-environments" page:DeployEnvironmentsPage
     route path:"install" page:InstallPage
     route path:"agent" page:AgentPage
     route path:"tests" page:TestsPage

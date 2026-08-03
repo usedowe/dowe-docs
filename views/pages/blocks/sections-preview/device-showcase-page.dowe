@@ -1,0 +1,28 @@
+page DeviceShowcaseSectionPage
+  const paragraphs value:[
+    {
+      id:"collaboration"
+      content:"A visual guide helps designers, developers, customers, and managers shape the same outcome together."
+    },
+    {
+      id:"clarity"
+      content:"Everyone can see how the finished product will work before the final details are committed."
+    },
+  ]
+  Section id:"device-showcase-section" bg:"background" color:"onBackground" boxed:true p:{ xs:6 md:12 }
+    Grid columns:{ xs:1 md:"5fr 7fr" } gap:{ xs:10 md:16 } align:"center" minH:"vh-0"
+      Flex direction:"column" align:{ xs:"center" md:"start" } gap:6
+        Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+          "Boost your productivity with our to-do app"
+        Grid columns:1 gap:4
+          each in:paragraphs as:paragraph key:paragraph.id
+            Text size:"lg" color:"muted"
+              "{paragraph.content}"
+        Button variant:"ghost" scheme:"primary" size:"md" iconEnd:"arrow-right"
+          "Learn more"
+      Box bg:"softMuted" rounded:"xl" p:{ xs:4 md:6 } w:"full"
+        Box bg:"surface" border:1 borderColor:"muted" rounded:"lg" minH:{ xs:56 md:96 } p:6
+          Flex direction:"column" align:"center" justify:"center" gap:3 minH:{ xs:44 md:80 }
+            Icon name:"laptop" style:"bold-duotone" fill:"muted" w:16 h:16
+            Text size:"sm" color:"muted"
+              "Device placeholder"

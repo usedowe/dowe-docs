@@ -1,0 +1,155 @@
+page BillingTogglePricingPage
+  signal monthly value:true
+  signal annual value:false
+  const plans:
+    value:[
+      {
+        id:"basic"
+        name:"Basic"
+        monthlyPrice:"$99"
+        annualPrice:"$990"
+        popular:false
+        standard:true
+        featureOne:"All analytics features"
+        featureTwo:"Up to 250,000 tracked visits"
+        featureThree:"Normal support"
+        featureFour:"Mobile app"
+        featureFive:"Up to 3 team members"
+      },
+      {
+        id:"growth"
+        name:"Growth"
+        monthlyPrice:"$199"
+        annualPrice:"$1,990"
+        popular:true
+        standard:false
+        featureOne:"Everything on Basic plan"
+        featureTwo:"Up to 1,000,000 tracked visits"
+        featureThree:"Premium support"
+        featureFour:"Mobile app"
+        featureFive:"Up to 10 team members"
+      },
+      {
+        id:"enterprise"
+        name:"Enterprise"
+        monthlyPrice:"$399"
+        annualPrice:"$3,990"
+        popular:false
+        standard:true
+        featureOne:"Everything on Growth plan"
+        featureTwo:"Up to 5,000,000 tracked visits"
+        featureThree:"Dedicated support"
+        featureFour:"Mobile app"
+        featureFive:"Up to 50 team members"
+      },
+    ]
+  fn showMonthly
+    set monthly value:true
+    set annual value:false
+  fn showAnnual
+    set monthly value:false
+    set annual value:true
+  Section id:"billing-toggle-pricing" bg:"background" color:"onBackground" boxed:true minH:"vh-0" py:{ xs:8 md:12 }
+    Grid columns:1 gap:{ xs:7 md:10 }
+      Flex direction:"column" align:"center" gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PRICING"
+        Title size:{ xs:"4xl" md:"6xl" } weight:"black"
+          "Affordable pricing plans"
+        Text size:"lg" color:"muted"
+          "Switch the billing period and choose the plan that matches your current pace."
+      Flex align:"center" justify:"center" gap:2
+        Button variant:"solid" scheme:"primary" size:"sm" rounded:"full" show:monthly onClick:showMonthly
+          "Monthly plan"
+        Button variant:"outlined" scheme:"primary" size:"sm" rounded:"full" show:annual onClick:showMonthly
+          "Monthly plan"
+        Button variant:"outlined" scheme:"primary" size:"sm" rounded:"full" show:monthly onClick:showAnnual
+          "Annual plan"
+        Button variant:"solid" scheme:"primary" size:"sm" rounded:"full" show:annual onClick:showAnnual
+          "Annual plan"
+      Grid columns:{ xs:1 md:3 } gap:5 align:"stretch"
+        each in:plans as:plan key:plan.id
+          Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:7 } minH:96 show:plan.standard
+            Flex direction:"column" justify:"between" gap:7 minH:80
+              Grid columns:1 gap:4
+                Title size:"xl" weight:"black"
+                  "{plan.name}"
+                Flex align:"end" gap:2
+                  Title size:"4xl" weight:"black" show:monthly
+                    "{plan.monthlyPrice}"
+                  Title size:"4xl" weight:"black" show:annual
+                    "{plan.annualPrice}"
+                  Text color:"muted" show:monthly
+                    "/month"
+                  Text color:"muted" show:annual
+                    "/year"
+                Text color:"muted"
+                  "A flexible plan with transparent capacity and support."
+                Divider orientation:"horizontal" scheme:"muted"
+                Grid columns:1 gap:3
+                  Flex align:"center" gap:3
+                    Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                    Text size:"sm" weight:"bold"
+                      "{plan.featureOne}"
+                  Flex align:"center" gap:3
+                    Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                    Text size:"sm" weight:"bold"
+                      "{plan.featureTwo}"
+                  Flex align:"center" gap:3
+                    Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                    Text size:"sm" weight:"bold"
+                      "{plan.featureThree}"
+                  Flex align:"center" gap:3
+                    Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                    Text size:"sm" weight:"bold"
+                      "{plan.featureFour}"
+                  Flex align:"center" gap:3
+                    Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                    Text size:"sm" weight:"bold"
+                      "{plan.featureFive}"
+              Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" w:"full"
+                "Get started"
+          Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:6 md:7 } minH:96 show:plan.popular
+            Flex direction:"column" justify:"between" gap:7 minH:80
+              Grid columns:1 gap:4
+                Flex justify:"between" align:"center"
+                  Title size:"xl" weight:"black"
+                    "{plan.name}"
+                  Box bg:"surface" color:"onSurface" rounded:"full" p:2
+                    Text size:"xs" weight:"bold"
+                      "Popular"
+                Flex align:"end" gap:2
+                  Title size:"4xl" weight:"black" show:monthly
+                    "{plan.monthlyPrice}"
+                  Title size:"4xl" weight:"black" show:annual
+                    "{plan.annualPrice}"
+                  Text show:monthly
+                    "/month"
+                  Text show:annual
+                    "/year"
+                Text
+                  "A flexible plan with transparent capacity and support."
+                Divider orientation:"horizontal" scheme:"muted"
+                Grid columns:1 gap:3
+                  Flex align:"center" gap:3
+                    Icon name:"check-circle" style:"bold" fill:"onMuted" w:5 h:5
+                    Text size:"sm" weight:"bold"
+                      "{plan.featureOne}"
+                  Flex align:"center" gap:3
+                    Icon name:"check-circle" style:"bold" fill:"onMuted" w:5 h:5
+                    Text size:"sm" weight:"bold"
+                      "{plan.featureTwo}"
+                  Flex align:"center" gap:3
+                    Icon name:"check-circle" style:"bold" fill:"onMuted" w:5 h:5
+                    Text size:"sm" weight:"bold"
+                      "{plan.featureThree}"
+                  Flex align:"center" gap:3
+                    Icon name:"check-circle" style:"bold" fill:"onMuted" w:5 h:5
+                    Text size:"sm" weight:"bold"
+                      "{plan.featureFour}"
+                  Flex align:"center" gap:3
+                    Icon name:"check-circle" style:"bold" fill:"onMuted" w:5 h:5
+                    Text size:"sm" weight:"bold"
+                      "{plan.featureFive}"
+              Button variant:"solid" scheme:"secondary" size:"lg" rounded:"full" w:"full"
+                "Get started"

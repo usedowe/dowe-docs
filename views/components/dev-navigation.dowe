@@ -6,6 +6,7 @@ component DevNavigation
     item label:"Hot Reload" href:"/docs/dev/hmr" icon:"restart"
     item label:"Dowe Build" href:"/docs/dev/build" icon:"layers-minimalistic"
     item label:"Dowe Deploy" href:"/docs/dev/deploy" icon:"settings"
+    item label:"Deploy Environments" href:"/docs/dev/deploy-environments" icon:"lock"
     item label:"Dowe Agent" href:"/docs/dev/agent" icon:"cpu"
     item label:"Testing" href:"/docs/dev/tests" icon:"check-circle"
     item label:"Project Icons" href:"/docs/dev/icons" icon:"gallery"

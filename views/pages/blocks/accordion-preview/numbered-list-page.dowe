@@ -1,0 +1,34 @@
+page NumberedListAccordionPage
+  const answerLines value:[
+    { id:"sequence" text:"Large sequence labels make long FAQ collections easier to scan and discuss with a team." },
+    { id:"interaction" text:"Only the answer changes height; the numbered reading order remains stable throughout the interaction." },
+  ]
+  Section id:"numbered-list-accordion" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:14 } minH:"vh-0"
+    Grid columns:1 gap:{ xs:8 md:10 }
+      Flex direction:"column" align:{ xs:"center" md:"start" } gap:3
+        Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+          "Frequently Asked Questions"
+        Text size:"lg" color:"muted"
+          "A numbered disclosure list gives every question a memorable position in the sequence."
+      Divider scheme:"muted"
+      Accordion variant:"ghost" scheme:"surface" rounded:"xs" w:"full"
+        item id:"numbered-reusable" label:"01 · What makes a reusable website block effective?" defaultOpen:true
+          Grid columns:1 gap:2
+            each in:answerLines as:line key:line.id
+              Text color:"muted"
+                "{line.text}"
+        item id:"numbered-responsive" label:"02 · How should content adapt across screen sizes?"
+          Grid columns:1 gap:2
+            each in:answerLines as:line key:line.id
+              Text color:"muted"
+                "{line.text}"
+        item id:"numbered-products" label:"03 · Can the same block support multiple products?"
+          Grid columns:1 gap:2
+            each in:answerLines as:line key:line.id
+              Text color:"muted"
+                "{line.text}"
+        item id:"numbered-accessible" label:"04 · What keeps interaction accessible?"
+          Grid columns:1 gap:2
+            each in:answerLines as:line key:line.id
+              Text color:"muted"
+                "{line.text}"

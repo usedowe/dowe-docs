@@ -1,2 +1,5 @@
 .dowe
 .env
+.env.live
+.env.stage
+.env.uat

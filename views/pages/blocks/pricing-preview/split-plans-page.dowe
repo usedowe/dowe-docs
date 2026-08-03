@@ -1,0 +1,73 @@
+page SplitPlansPricingPage
+  const basicFeatures:
+    value:[
+      { id:"analytics" label:"All analytics features" },
+      { id:"visits" label:"Up to 250,000 tracked visits" },
+      { id:"support" label:"Normal support" },
+      { id:"mobile" label:"Mobile app" },
+    ]
+  const enterpriseFeatures:
+    value:[
+      { id:"growth" label:"Everything on Growth plan" },
+      { id:"visits" label:"Up to 5,000,000 tracked visits" },
+      { id:"support" label:"Dedicated support" },
+      { id:"mobile" label:"Mobile app" },
+      { id:"members" label:"Up to 50 team members" },
+      { id:"updates" label:"Unlimited updates" },
+      { id:"collaboration" label:"Collaboration tools" },
+      { id:"integrations" label:"All integrations included" },
+    ]
+  Section id:"split-plans-pricing" bg:"background" color:"onBackground" boxed:true minH:"vh-0" py:{ xs:8 md:12 }
+    Grid columns:1 gap:{ xs:8 md:12 }
+      Flex direction:"column" align:"center" gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PRICING"
+        Title size:{ xs:"4xl" md:"6xl" } weight:"black"
+          "Affordable pricing plans"
+        Text size:"lg" color:"muted"
+          "Compare a focused starter offer with an expanded plan for complex teams and workflows."
+      Grid columns:{ xs:1 md:"2fr 3fr" } gap:6 align:"stretch"
+        Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 }
+          Flex direction:"column" justify:"between" gap:7 minH:{ xs:96 md:"vh-32" }
+            Grid columns:1 gap:5
+              Flex justify:"between" align:"center"
+                Box bg:"softMuted" rounded:"lg" w:14 h:14
+                  Flex align:"center" justify:"center" w:"full" h:"full"
+                    Icon name:"gallery" style:"bold-duotone" fill:"muted" w:8 h:8
+                Box bg:"softMuted" rounded:"full" p:3
+                  Text size:"sm" weight:"bold"
+                    "$99/mo"
+              Title size:"3xl" weight:"black"
+                "Basic Plan"
+              Text color:"muted"
+                "A practical foundation for individual work, early products, and focused experiments."
+              Grid columns:1 gap:3
+                each in:basicFeatures as:feature key:feature.id
+                  Flex align:"center" gap:3
+                    Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                    Text size:"sm" weight:"bold"
+                      "{feature.label}"
+            Button variant:"solid" scheme:"primary" size:"lg" rounded:"full"
+              "Get started"
+        Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 }
+          Flex direction:"column" justify:"between" gap:7 minH:{ xs:96 md:"vh-32" }
+            Grid columns:1 gap:5
+              Flex justify:"between" align:"center"
+                Box bg:"softMuted" rounded:"lg" w:14 h:14
+                  Flex align:"center" justify:"center" w:"full" h:"full"
+                    Icon name:"gallery" style:"bold-duotone" fill:"onMuted" w:8 h:8
+                Box bg:"surface" color:"onSurface" rounded:"full" p:3
+                  Text size:"sm" weight:"bold"
+                    "$399/mo"
+              Title size:"3xl" weight:"black"
+                "Enterprise Plan"
+              Text
+                "Built for organizations that need more capacity, collaboration, and dedicated support."
+              Grid columns:{ xs:1 md:2 } gap:3
+                each in:enterpriseFeatures as:feature key:feature.id
+                  Flex align:"center" gap:3
+                    Icon name:"check-circle" style:"bold" fill:"onMuted" w:5 h:5
+                    Text size:"sm" weight:"bold"
+                      "{feature.label}"
+            Button variant:"solid" scheme:"secondary" size:"lg" rounded:"full"
+              "Get started"

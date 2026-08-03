@@ -1,0 +1,36 @@
+layout CenteredMediaHeroLayout
+  const navigationItems value:[
+    { id:"home" label:"Home" },
+    { id:"about" label:"About" },
+    { id:"resources" label:"Resources" },
+    { id:"contact" label:"Contact" },
+  ]
+  signal openNavigation value:false
+  Scaffold
+    appBar
+      AppBar variant:"solid" scheme:"surface" position:"fixed" boxed:true py:2
+        start
+          Brand href:"/blocks/hero-preview/centered-media" label:"Placeholder home"
+            Flex align:"center" gap:2
+              Icon name:"layers-minimalistic" style:"bold-duotone" fill:"primary" w:7 h:7
+              Text weight:"black"
+                "PLACEHOLDER"
+        center
+          Flex align:"center" gap:1 show:{ xs:false md:true }
+            each in:navigationItems as:item key:item.id
+              Button variant:"ghost" scheme:"primary" size:"sm"
+                "{item.label}"
+        end
+          Flex align:"center" gap:2
+            Button href:"/blocks/hero-preview/lead-form" variant:"solid" scheme:"primary" size:"sm" rounded:"full" show:{ xs:false md:true }
+              "Get started"
+            IconButton icon:"hamburger-menu" label:"Open navigation" variant:"ghost" scheme:"primary" show:{ xs:true md:false } onClick:{ set:openNavigation value:!openNavigation }
+    main
+      children
+    overlays
+      Drawer open:openNavigation position:"start" variant:"solid" scheme:"surface" show:{ xs:true md:false }
+        body
+          Flex direction:"column" align:"stretch" gap:2 p:4
+            each in:navigationItems as:item key:item.id
+              Button variant:"ghost" scheme:"primary" size:"md" w:"full"
+                "{item.label}"

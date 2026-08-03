@@ -1,0 +1,17 @@
+page FullBleedHeroPage
+  Section id:"full-bleed-hero" bg:"muted" color:"onMuted" boxed:true py:{ xs:10 md:14 }
+    Grid columns:{ xs:1 md:"5fr 4fr" } gap:{ xs:10 md:14 } align:"center" minH:"vh-16"
+      Flex direction:"column" align:"start" justify:"center" gap:5
+        Title size:{ xs:"4xl" md:"6xl" } weight:"black"
+          "A dedicated team to grow your company"
+        Text size:"lg"
+          "Use a full-width color field to create contrast while the content and media placeholder remain simple and reusable."
+        Flex direction:{ xs:"column" sm:"row" } align:"center" gap:3
+          Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" iconEnd:"arrow-right"
+            "Get started"
+          Button variant:"outlined" scheme:"muted" size:"lg" rounded:"full"
+            "Talk to sales"
+      Flex direction:"column" align:"center" justify:"center" gap:3 minH:{ xs:48 md:72 }
+        Icon name:"gallery" style:"bold-duotone" fill:"onMuted" w:16 h:16
+        Text size:"sm"
+          "Image placeholder"

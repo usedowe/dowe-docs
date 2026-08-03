@@ -1,0 +1,201 @@
+page ComparisonTablePricingPage
+  const plans:
+    value:[
+      { id:"basic" name:"Basic" price:"$99.00" featured:false standard:true },
+      { id:"growth" name:"Growth" price:"$199.00" featured:true standard:false },
+      { id:"enterprise" name:"Enterprise" price:"$399.00" featured:false standard:true },
+    ]
+  const featureRows:
+    value:[
+      {
+        id:"users"
+        label:"Number of users"
+        basicValue:"1 user"
+        growthValue:"5 users"
+        enterpriseValue:"Unlimited"
+        values:true
+        checks:false
+        basicCheck:false
+        growthCheck:false
+        enterpriseCheck:false
+      },
+      {
+        id:"credit"
+        label:"Total credit limit"
+        basicValue:"$1,000 USD"
+        growthValue:"$10,000 USD"
+        enterpriseValue:"$100,000 USD"
+        values:true
+        checks:false
+        basicCheck:false
+        growthCheck:false
+        enterpriseCheck:false
+      },
+      {
+        id:"individual"
+        label:"Individual user analytics"
+        basicValue:""
+        growthValue:""
+        enterpriseValue:""
+        values:false
+        checks:true
+        basicCheck:true
+        growthCheck:true
+        enterpriseCheck:true
+      },
+      {
+        id:"behaviour"
+        label:"Behaviour analytics"
+        basicValue:""
+        growthValue:""
+        enterpriseValue:""
+        values:false
+        checks:true
+        basicCheck:false
+        growthCheck:true
+        enterpriseCheck:true
+      },
+    ]
+  const reportingRows:
+    value:[
+      { id:"daily" label:"Daily reports" growthCheck:true enterpriseCheck:true },
+      { id:"weekly" label:"Weekly reports" growthCheck:true enterpriseCheck:true },
+      { id:"monthly" label:"Monthly reports" growthCheck:false enterpriseCheck:true },
+      { id:"custom" label:"Custom reports" growthCheck:false enterpriseCheck:true },
+    ]
+  const basicMobileFeatures:
+    value:[
+      { id:"users" label:"Number of users" value:"1 user" },
+      { id:"credit" label:"Total credit limit" value:"$1,000 USD" },
+      { id:"analytics" label:"Individual user analytics" value:"Included" },
+    ]
+  const growthMobileFeatures:
+    value:[
+      { id:"users" label:"Number of users" value:"5 users" },
+      { id:"credit" label:"Total credit limit" value:"$10,000 USD" },
+      { id:"analytics" label:"Behaviour analytics" value:"Included" },
+      { id:"reports" label:"Weekly reports" value:"Included" },
+    ]
+  const enterpriseMobileFeatures:
+    value:[
+      { id:"users" label:"Number of users" value:"Unlimited" },
+      { id:"credit" label:"Total credit limit" value:"$100,000 USD" },
+      { id:"analytics" label:"Behaviour analytics" value:"Included" },
+      { id:"reports" label:"Custom reports" value:"Included" },
+    ]
+  Section id:"comparison-table-pricing" bg:"background" color:"onBackground" boxed:true minH:"vh-0" py:{ xs:8 md:12 }
+    Grid columns:1 gap:{ xs:8 md:12 }
+      Flex direction:"column" align:"center" gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PRICING"
+        Title size:{ xs:"4xl" md:"6xl" } weight:"black"
+          "Affordable pricing plans"
+        Text size:"lg" color:"muted"
+          "Compare capacity, analytics, and reporting access before choosing the right plan."
+      Grid columns:1 gap:0 show:{ xs:false md:true }
+        Grid columns:"2fr 1fr 1fr 1fr" gap:0 align:"stretch"
+          Flex align:"end" p:4
+            Title size:"xl" weight:"black"
+              "Features"
+          each in:plans as:plan key:plan.id
+            Box p:5 bg:"softMuted" show:plan.featured
+              Flex direction:"column" align:"center" gap:3
+                Text color:"muted"
+                  "{plan.price}"
+                Title size:"xl" weight:"black"
+                  "{plan.name}"
+                Button variant:"solid" scheme:"primary" size:"md" rounded:"full" w:"full"
+                  "Get started"
+            Box p:5 show:plan.standard
+              Flex direction:"column" align:"center" gap:3
+                Text color:"muted"
+                  "{plan.price}"
+                Title size:"xl" weight:"black"
+                  "{plan.name}"
+                Button variant:"solid" scheme:"primary" size:"md" rounded:"full" w:"full"
+                  "Get started"
+        each in:featureRows as:row key:row.id
+          Grid columns:"2fr 1fr 1fr 1fr" gap:0 align:"center" border:1 borderColor:"muted"
+            Text p:4 color:"muted"
+              "{row.label}"
+            Flex align:"center" justify:"center" p:4
+              Text show:row.values
+                "{row.basicValue}"
+              Icon name:"check-circle" style:"bold" fill:"muted" w:6 h:6 show:row.basicCheck
+            Box p:4 bg:"softMuted"
+              Flex align:"center" justify:"center" w:"full" h:"full"
+                Text show:row.values
+                  "{row.growthValue}"
+                Icon name:"check-circle" style:"bold" fill:"muted" w:6 h:6 show:row.growthCheck
+            Flex align:"center" justify:"center" p:4
+              Text show:row.values
+                "{row.enterpriseValue}"
+              Icon name:"check-circle" style:"bold" fill:"muted" w:6 h:6 show:row.enterpriseCheck
+        Grid columns:"2fr 1fr 1fr 1fr" gap:0 border:1 borderColor:"muted"
+          Title size:"xl" weight:"black" p:4
+            "Reporting"
+          Box
+          Box bg:"softMuted"
+          Box
+        each in:reportingRows as:row key:row.id
+          Grid columns:"2fr 1fr 1fr 1fr" gap:0 align:"center" border:1 borderColor:"muted"
+            Text p:4 color:"muted"
+              "{row.label}"
+            Box p:4
+            Box p:4 bg:"softMuted"
+              Flex align:"center" justify:"center" w:"full" h:"full"
+                Icon name:"check-circle" style:"bold" fill:"muted" w:6 h:6 show:row.growthCheck
+            Flex align:"center" justify:"center" p:4
+              Icon name:"check-circle" style:"bold" fill:"muted" w:6 h:6 show:row.enterpriseCheck
+      Carousel variant:"dots" scheme:"primary" indicatorType:"dot" gap:4 show:{ xs:true md:false }
+        slide id:"basic"
+          Grid columns:1 gap:6
+            Flex direction:"column" align:"center" gap:3
+              Text color:"muted"
+                "$99.00"
+              Title size:"2xl" weight:"black"
+                "Basic"
+              Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" w:"full"
+                "Get started"
+            Title size:"xl" weight:"black"
+              "Features"
+            each in:basicMobileFeatures as:feature key:feature.id
+              Flex justify:"between" align:"center" gap:4 p:4 border:1 borderColor:"muted"
+                Text color:"muted"
+                  "{feature.label}"
+                Text weight:"bold"
+                  "{feature.value}"
+        slide id:"growth"
+          Grid columns:1 gap:6
+            Flex direction:"column" align:"center" gap:3
+              Text color:"muted"
+                "$199.00"
+              Title size:"2xl" weight:"black"
+                "Growth"
+              Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" w:"full"
+                "Get started"
+            Title size:"xl" weight:"black"
+              "Features"
+            each in:growthMobileFeatures as:feature key:feature.id
+              Flex justify:"between" align:"center" gap:4 p:4 border:1 borderColor:"muted"
+                Text color:"muted"
+                  "{feature.label}"
+                Text weight:"bold"
+                  "{feature.value}"
+        slide id:"enterprise"
+          Grid columns:1 gap:6
+            Flex direction:"column" align:"center" gap:3
+              Text color:"muted"
+                "$399.00"
+              Title size:"2xl" weight:"black"
+                "Enterprise"
+              Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" w:"full"
+                "Get started"
+            Title size:"xl" weight:"black"
+              "Features"
+            each in:enterpriseMobileFeatures as:feature key:feature.id
+              Flex justify:"between" align:"center" gap:4 p:4 border:1 borderColor:"muted"
+                Text color:"muted"
+                  "{feature.label}"
+                Text weight:"bold"
+                  "{feature.value}"

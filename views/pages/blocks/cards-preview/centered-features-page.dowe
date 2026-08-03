@@ -1,0 +1,51 @@
+page CenteredFeatureCardsPage
+  const features:
+    value:[
+      {
+        id:"mobile"
+        title:"Mobile app"
+        description:"A focused mobile experience that keeps important work close at hand."
+      },
+      {
+        id:"desktop"
+        title:"Desktop app"
+        description:"A spacious desktop workspace designed for productive daily routines."
+      },
+      {
+        id:"users"
+        title:"Multiple users"
+        description:"Invite teammates and coordinate shared work from one clear place."
+      },
+      {
+        id:"integrations"
+        title:"Integrations"
+        description:"Connect the tools your team already uses without adding extra friction."
+      },
+      {
+        id:"reports"
+        title:"Monthly reports"
+        description:"Turn activity into a concise summary that makes progress easy to review."
+      },
+      {
+        id:"permissions"
+        title:"Granular permissions"
+        description:"Give every collaborator the access they need and nothing they do not."
+      },
+    ]
+  Section id:"centered-feature-cards" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:12 } minH:"vh-0"
+    Grid columns:1 gap:{ xs:8 md:12 }
+      Flex direction:"column" align:"center" gap:3
+        Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+          "Browse our set of features"
+        Text size:"lg" color:"muted"
+          "Explore a flexible set of capabilities designed for teams, products, and growing businesses."
+      Grid columns:{ xs:1 md:3 } gap:5
+        each in:features as:feature key:feature.id
+          Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:64
+            Flex direction:"column" align:"center" justify:"center" gap:4 minH:48
+              Box bg:"softMuted" rounded:"lg" p:3
+                Icon name:"gallery" style:"bold-duotone" fill:"muted" w:9 h:9
+              Title size:"xl" weight:"black"
+                "{feature.title}"
+              Text color:"muted"
+                "{feature.description}"

@@ -1,0 +1,72 @@
+page FileStoragePage
+  Section id:"file-storage-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SERVER / FILE STORAGE"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Persist bounded server files"
+        Text size:"lg" color:"muted"
+          "file is Dowe's server-only storage declaration for immutable artifacts, exports, and generated media. The shared Rust runtime owns paths, integrity checks, and asynchronous host I/O."
+      Button href:"/docs/server" variant:"ghost" scheme:"muted" size:"sm" iconStart:"server"
+        "Server documentation"
+  Section id:"file-storage-operations" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "OPERATIONS"
+        Title size:"3xl" weight:"black"
+          "Write, read, inspect, and delete"
+        Text size:"sm" color:"muted"
+          "Every declaration names its result first. root selects the operator-configured storage directory and path must resolve below that root."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          handler manageArtifact
+            request payload source:"bytes"
+            file stored source:"write" root:env.STORAGE_ROOT path:req.params.hash data:payload sha256:req.params.hash
+            file available source:"exists" root:env.STORAGE_ROOT path:req.params.hash
+            file artifact source:"read" root:env.STORAGE_ROOT path:req.params.hash
+            file removed source:"delete" root:env.STORAGE_ROOT path:req.params.hash
+            return json:{ stored:stored available:available removed:removed }
+        """
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "write and read"
+          Text size:"sm" color:"muted"
+            "write returns size and SHA-256 metadata. read produces a byte binding that can be returned or passed to another server declaration."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "exists and delete"
+          Text size:"sm" color:"muted"
+            "exists reports availability without reading content. delete is idempotent and reports whether a file was removed."
+  Section id:"file-storage-safety" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "STORAGE BOUNDARY"
+        Title size:"3xl" weight:"black"
+          "Keep every path confined"
+        Text size:"sm" color:"muted"
+          "Paths must be non-empty and relative. Dowe rejects absolute paths, dot traversal, and symlinks below the configured root."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Atomic writes"
+          Text size:"sm" color:"muted"
+            "Dowe creates parent directories, writes and synchronizes a temporary file, then renames it into place."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Optional integrity"
+          Text size:"sm" color:"muted"
+            "sha256 rejects mismatched bytes before the destination is published."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Native runtime"
+          Text size:"sm" color:"muted"
+            "File Storage is available in native Dowe Server and is rejected for edge targets without host storage."

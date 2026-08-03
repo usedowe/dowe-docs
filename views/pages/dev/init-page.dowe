@@ -115,6 +115,9 @@ page InitPage
           theme.dowe
           .env.example
           .env
+          .env.live
+          .env.stage
+          .env.uat
           .gitignore
           .zed/settings.json
           views/
@@ -140,7 +143,7 @@ page InitPage
             Title size:"lg" weight:"bold"
               "Local values stay local"
             Text size:"sm" color:"muted"
-              ".env.example declares shareable names. The generated .env contains local development values and is excluded from Git."
+              ".env.example declares shareable names. The generated .env contains development values; .env.live, .env.stage, and .env.uat contain local deploy values. Every value file is excluded from Git."
         Card variant:"soft" scheme:"primary" p:5 rounded:"md"
           Grid columns:1 gap:2
             Title size:"lg" weight:"bold"

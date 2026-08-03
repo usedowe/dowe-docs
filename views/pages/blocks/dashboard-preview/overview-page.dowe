@@ -1,0 +1,130 @@
+type DashboardMetric
+  id:string
+  label:string
+  value:string
+  change:string
+
+type ChartSlice
+  label:string
+  value:number
+
+type ChartPoint
+  x:number
+  y:number
+
+page DashboardOverviewPage
+  const metrics:
+    value:[
+      { id:"revenue" label:"Revenue" value:"$84.2k" change:"+12.8%" },
+      { id:"orders" label:"Orders" value:"1,284" change:"+8.4%" },
+      { id:"customers" label:"Customers" value:"8,492" change:"+5.2%" },
+      { id:"conversion" label:"Conversion" value:"6.84%" change:"+1.6%" },
+    ]
+  const countries:
+    value:[
+      { id:"us" label:"United States" value:"42%" },
+      { id:"de" label:"Germany" value:"24%" },
+      { id:"co" label:"Colombia" value:"18%" },
+      { id:"jp" label:"Japan" value:"16%" },
+    ]
+  const activity:
+    value:[
+      { id:"activity-1" name:"Maya Chen" action:"published a report" time:"4m ago" },
+      { id:"activity-2" name:"Leo Martin" action:"invited a collaborator" time:"18m ago" },
+      { id:"activity-3" name:"Amara Okafor" action:"updated a workspace" time:"42m ago" },
+    ]
+  signal allocation type:ChartSlice[] value:[
+    { label:"Product" value:42 },
+    { label:"Operations" value:26 },
+    { label:"Growth" value:19 },
+    { label:"Support" value:13 },
+  ]
+  signal trend type:ChartPoint[] value:[
+    { x:1 y:38 },
+    { x:2 y:44 },
+    { x:3 y:41 },
+    { x:4 y:57 },
+    { x:5 y:63 },
+    { x:6 y:71 },
+    { x:7 y:68 },
+    { x:8 y:82 },
+  ]
+  Section id:"dashboard-overview" bg:"softMuted" minH:"vh-0" p:{ xs:4 md:8 }
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:{ xs:"start" md:"center" } gap:3
+        Grid columns:1 gap:1
+          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+            "OVERVIEW"
+          Title size:{ xs:"2xl" md:"4xl" } weight:"black"
+            "Good morning, Jordan"
+          Text size:"sm" color:"muted"
+            "Here is the latest view of your workspace activity."
+        Button variant:"outlined" scheme:"muted" size:"sm" iconStart:"download-minimalistic"
+          "Export"
+      Grid columns:{ xs:1 sm:2 lg:4 } gap:4
+        each in:metrics as:metric key:metric.id
+          Card variant:"soft" scheme:"surface" rounded:"lg" p:5 border:1
+            Grid columns:1 gap:2
+              Text size:"xs" color:"muted"
+                "{metric.label}"
+              Title size:"2xl" weight:"black"
+                "{metric.value}"
+              Flex align:"center" gap:2
+                Chip variant:"soft" scheme:"success"
+                  "{metric.change}"
+                Text size:"xs" color:"muted"
+                  "vs last month"
+      Grid columns:{ xs:1 lg:"2fr 1fr" } gap:4
+        Card variant:"soft" scheme:"surface" rounded:"lg" p:{ xs:4 md:6 } border:1
+          Grid columns:1 gap:4
+            Flex justify:"between" align:"center" gap:3
+              Grid columns:1 gap:1
+                Title size:"lg" weight:"bold"
+                  "Revenue trend"
+                Text size:"xs" color:"muted"
+                  "Last eight reporting periods"
+              Chip variant:"soft" scheme:"muted"
+                "Updated"
+            LineChart data:trend variant:"soft" scheme:"surface" size:"lg" palette:"ocean" curve:"smooth" showGradientFill:true hideGrid:true rounded:"md"
+        Card variant:"soft" scheme:"surface" rounded:"lg" p:{ xs:4 md:6 } border:1
+          Grid columns:1 gap:4
+            Grid columns:1 gap:1
+              Title size:"lg" weight:"bold"
+                "Workload mix"
+              Text size:"xs" color:"muted"
+                "Current allocation across teams"
+            ArcChart data:allocation variant:"soft" scheme:"surface" size:"md" palette:"ocean" legendPosition:"bottom" centerText:"Active" centerValue:"100%" thickness:18 gap:4 hideValues:true rounded:"md"
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"surface" rounded:"lg" p:{ xs:4 md:6 } border:1
+          Grid columns:1 gap:4
+            Flex justify:"between" align:"center"
+              Title size:"lg" weight:"bold"
+                "Top countries"
+              IconButton icon:"menu-dots" label:"Open country actions" variant:"ghost" scheme:"muted" size:"sm"
+            Grid columns:1 gap:2
+              each in:countries as:country key:country.id
+                Flex justify:"between" align:"center" p:2
+                  Flex align:"center" gap:2
+                    Icon name:"global" style:"linear" fill:"muted" w:5 h:5
+                    Text size:"sm"
+                      "{country.label}"
+                  Text size:"sm" weight:"bold"
+                    "{country.value}"
+        Card variant:"soft" scheme:"surface" rounded:"lg" p:{ xs:4 md:6 } border:1
+          Grid columns:1 gap:4
+            Flex justify:"between" align:"center"
+              Title size:"lg" weight:"bold"
+                "Recent activity"
+              Button variant:"ghost" scheme:"primary" size:"sm"
+                "View all"
+            Grid columns:1 gap:3
+              each in:activity as:item key:item.id
+                Flex align:"center" gap:3
+                  Avatar name:"Team member" alt:"Team member avatar placeholder" size:"sm" variant:"soft" scheme:"primary"
+                  Grid columns:1 gap:1
+                    Text size:"sm" weight:"bold"
+                      "{item.name}"
+                    Text size:"xs" color:"muted"
+                      "{item.action}"
+                    Text size:"xs" color:"muted"
+                      "{item.time}"

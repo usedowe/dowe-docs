@@ -1,0 +1,98 @@
+page DeployEnvironmentsPage
+  Section id:"deploy-environments-introduction" py:{ xs:6 md:10 }
+    Grid columns:1 gap:4
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "DEVELOPMENT / DEPLOY ENVIRONMENTS"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Live, Stage, and UAT"
+      Text size:"lg" color:"muted"
+        "Publish isolated remote versions without editing the .env file used by dowe dev."
+  Section id:"deploy-environments-profiles" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Title size:"3xl" weight:"black"
+        "One local profile per environment"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy profile names"
+        copiedLabel:"Copied"
+        content:"""
+          .env
+          .env.live
+          .env.stage
+          .env.uat
+        """
+      Text size:"sm" color:"muted"
+        "Declare shared variable names in .env.example. Process environment values take precedence over the selected local file, and Dowe never falls back to another profile."
+      Text size:"sm" color:"muted"
+        "Keep all four value files in .gitignore. They are compiler inputs and are never copied into deployment packages."
+  Section id:"deploy-environments-selection" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "DEPLOY FLOW"
+        Title size:"3xl" weight:"black"
+          "Select the environment first"
+        Text size:"sm" color:"muted"
+          "Interactive deploy asks for Live, Stage, or UAT before it asks for the Server or Web surface. Scripts use --environment; Live is the default."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy deploy commands"
+        copiedLabel:"Copied"
+        content:"""
+          dowe deploy
+          dowe deploy web --environment stage --publish
+          dowe deploy web --environment uat --publish
+          dowe deploy server --environment live --target cloudflare --publish
+        """
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Live"
+            Text size:"sm" color:"muted"
+              "Uses production names and URLs for real users. No preview access gate is generated."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Stage"
+            Text size:"sm" color:"muted"
+              "Uses a stable Stage URL for remote team testing and isolated output under .dowe/dist/stage."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "UAT"
+            Text size:"sm" color:"muted"
+              "Uses a stable UAT URL for tester acceptance and isolated output under .dowe/dist/uat."
+  Section id:"deploy-environments-access" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PREVIEW ACCESS"
+        Title size:"3xl" weight:"black"
+          "Protect previews without changing Live"
+        Text size:"sm" color:"muted"
+          "Stage and UAT require a server-only DOWE_DEPLOY_ACCESS_PASSWORD with at least 12 characters. Browsers receive an HTTP Basic Auth challenge before any app route or static asset runs."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Password handling"
+            Text size:"sm" color:"muted"
+              "Dowe packages only a SHA-256 hash. The raw password, selected dotenv file, and other server secrets stay outside the package and deployment report."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Grid columns:1 gap:2
+            Title size:"lg" weight:"bold"
+              "Provider isolation"
+            Text size:"sm" color:"muted"
+              "Cloudflare Pages uses stage.<project>.pages.dev and uat.<project>.pages.dev aliases, Workers use name suffixes, and Docker uses stage or uat default tags. Live keeps existing production destinations."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy access variable"
+        copiedLabel:"Copied"
+        content:"DOWE_DEPLOY_ACCESS_PASSWORD=use-a-long-private-password"

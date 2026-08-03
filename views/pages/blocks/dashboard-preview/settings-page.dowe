@@ -1,0 +1,56 @@
+page DashboardSettingsPage
+  signal settings value:{ fullName:"Jordan Lee" email:"jordan@example.com" password:"" timezone:"utc" digest:"weekly" }
+  const timezones:
+    value:[
+      { id:"utc" value:"utc" label:"UTC" },
+      { id:"bogota" value:"bogota" label:"Bogota (GMT-5)" },
+      { id:"berlin" value:"berlin" label:"Berlin (GMT+1)" },
+    ]
+  const digests:
+    value:[
+      { id:"daily" value:"daily" label:"Daily" },
+      { id:"weekly" value:"weekly" label:"Weekly" },
+      { id:"never" value:"never" label:"Never" },
+    ]
+  Section id:"dashboard-settings" bg:"softMuted" minH:"vh-0" p:{ xs:4 md:8 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:1
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SETTINGS"
+        Title size:{ xs:"2xl" md:"4xl" } weight:"black"
+          "Workspace preferences"
+        Text size:"sm" color:"muted"
+          "Keep identity, security, and notifications in one responsive form."
+      Grid columns:{ xs:1 lg:"280px 1fr" } gap:4 align:"start"
+        Card variant:"soft" scheme:"surface" rounded:"lg" p:{ xs:5 md:6 } border:1
+          Flex direction:"column" align:"center" gap:3
+            Avatar name:"Jordan Lee" alt:"Jordan Lee profile photo placeholder" size:"xl" variant:"soft" scheme:"primary" bordered:true
+            Text size:"sm" weight:"bold"
+              "Profile photo"
+            Text size:"xs" color:"muted"
+              "Placeholder avatar for this copy-ready block."
+            Button variant:"outlined" scheme:"muted" size:"sm"
+              "Change photo"
+        Card variant:"soft" scheme:"surface" rounded:"lg" p:{ xs:5 md:8 } border:1
+          Grid columns:1 gap:5
+            Grid columns:1 gap:1
+              Title size:"xl" weight:"bold"
+                "Profile and notifications"
+              Text size:"sm" color:"muted"
+                "These fields are ready to bind to a settings endpoint."
+            Alert type:"info" variant:"soft" scheme:"info" message:"Changes are saved locally in this preview."
+            Grid columns:{ xs:1 md:2 } gap:4
+              Input bind:settings.fullName label:"Full name" placeholder:"Your full name" variant:"outlined" scheme:"muted" w:"full"
+              Input bind:settings.email label:"Email address" placeholder:"you@example.com" variant:"outlined" scheme:"muted" w:"full"
+              PasswordField bind:settings.password label:"Password" placeholder:"Enter a new password" hideStrength:true variant:"outlined" scheme:"muted" w:"full"
+              Select bind:settings.timezone label:"Timezone" placeholder:"Choose a timezone" variant:"outlined" scheme:"muted" w:"full"
+                each in:timezones as:timezone key:timezone.id
+                  Option value:timezone.value label:timezone.label
+              Select bind:settings.digest label:"Email digest" placeholder:"Choose a cadence" variant:"outlined" scheme:"muted" w:"full"
+                each in:digests as:digest key:digest.id
+                  Option value:digest.value label:digest.label
+            Flex direction:{ xs:"column" sm:"row" } justify:"end" gap:3
+              Button variant:"ghost" scheme:"muted" size:"md"
+                "Cancel"
+              Button variant:"solid" scheme:"primary" size:"md"
+                "Save changes"

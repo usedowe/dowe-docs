@@ -1,0 +1,68 @@
+page ShoppingCartStorePage
+  signal giftOrder value:false
+  const items:
+    value:[
+      { id:"item-1" name:"Lorem ipsum" option:"Lorem ipsum | 128G" quantity:"1" price:"$99.99" },
+      { id:"item-2" name:"Lorem ipsum" option:"Lorem ipsum | 128G" quantity:"1" price:"$99.99" },
+    ]
+  Section id:"store-shopping-cart" bg:"background" color:"onBackground" boxed:true py:{ xs:6 md:10 } minH:"vh-0"
+    Grid columns:{ xs:1 md:"1fr auto" } gap:{ xs:6 md:10 } align:"start"
+      Card show:{ xs:true md:false } variant:"ghost" scheme:"surface" p:0
+        Grid columns:1 gap:4
+          Title size:"2xl" weight:"black"
+            "Subtotal (2 items): $239.89"
+          Checkbox bind:giftOrder label:"This order contains a gift" scheme:"muted"
+          Button variant:"solid" scheme:"warning" size:"lg" rounded:"full" w:"full"
+            "Proceed to checkout"
+          Divider
+      Grid columns:1 gap:5
+        each in:items as:item key:item.id
+          Grid columns:1 gap:5
+            Grid columns:{ xs:"auto 1fr" md:"auto 1fr auto auto" } gap:{ xs:4 md:6 } align:"center"
+              Card variant:"soft" scheme:"muted" rounded:"xl" p:4 w:{ xs:32 md:36 } minH:{ xs:32 md:36 }
+                Flex align:"center" justify:"center" minH:{ xs:24 md:28 }
+                  Icon name:"gallery" style:"bold-duotone" fill:"muted" w:8 h:8
+              Grid columns:1 gap:1
+                Title size:{ xs:"lg" md:"2xl" } weight:"black"
+                  "{item.name}"
+                Text size:{ xs:"sm" md:"lg" } color:"muted"
+                  "{item.option}"
+              Flex align:"center" gap:2
+                IconButton icon:"heart" label:"Save item" variant:"ghost" scheme:"muted" rounded:"full"
+                Box bg:"softMuted" rounded:"full" p:1
+                  Flex align:"center" gap:2
+                    Button variant:"ghost" scheme:"muted" size:"sm" rounded:"full"
+                      "−"
+                    Text weight:"bold"
+                      "{item.quantity}"
+                    Button variant:"ghost" scheme:"muted" size:"sm" rounded:"full"
+                      "+"
+              Flex align:"center" gap:2
+                Title size:"xl" weight:"black"
+                  "{item.price}"
+                IconButton icon:"trash-bin-minimalistic" label:"Remove item" variant:"ghost" scheme:"muted"
+            Divider
+        Grid show:{ xs:false md:true } columns:1 gap:4
+          Flex justify:"between"
+            Text size:"lg" color:"muted"
+              "Subtotal"
+            Text size:"lg" color:"muted"
+              "$199.89"
+          Flex justify:"between"
+            Text color:"muted"
+              "Tax"
+            Text color:"muted"
+              "(20%) $39.98"
+          Divider
+          Flex justify:"between"
+            Title size:"2xl" weight:"black"
+              "Subtotal"
+            Title size:"2xl" weight:"black"
+              "$239.87"
+      Card show:{ xs:false md:true } variant:"outlined" scheme:"muted" rounded:"md" p:6 w:80
+        Grid columns:1 gap:4
+          Title size:"lg" weight:"black"
+            "Subtotal (2 items): $239.89"
+          Checkbox bind:giftOrder label:"This order contains a gift" scheme:"muted"
+          Button variant:"solid" scheme:"warning" size:"lg" rounded:"full" w:"full"
+            "Proceed to checkout"

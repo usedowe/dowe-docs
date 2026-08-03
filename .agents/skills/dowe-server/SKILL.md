@@ -1,6 +1,6 @@
 ---
 name: dowe-server
-description: Author Dowe APIs, endpoint groups, handlers, middleware, server functions, providers, services, repositories, tasks, spawn, HTTP, crypto, Database, Cache, Vector, and responses.
+description: Use for Dowe source under server or server blocks: routes, handlers, middleware, functions, persistence, tasks, protocols, security, and responses; skip for view- or theme-only edits.
 ---
 
 # Dowe server authoring
@@ -19,12 +19,26 @@ Keep every new backend module under `server/`; only root `main.dowe` connects it
    `blogs-handler.dowe`, `blogs-service.dowe`, and `blogs-repository.dowe`.
 4. Put Database, Cache, and Vector work in repository functions and reuse imported config connection declarations.
 5. Keep external providers, secrets, process handles, and persistence server-only.
-6. Prefer opaque ULID sessions with Cache-aside validation and Database fallback when the application needs immediate revocation; Bearer does not imply JWT.
-7. Return only explicit JSON, text, bytes, proxy, or Agent responses. Handlers and
-   middleware use `return <props>` directly; static routes use `response <props>`.
-8. Keep endpoint groups one level; put middleware on the group, HTTP method, or WebSocket instead
+6. Use portable standard-library capabilities as `<namespace> <binding> source:"<function>" <props>`;
+   read `references/runtime.md` for the implemented catalog and runtime rules.
+7. Keep physical files behind `file` with an explicit storage root and relative path; use
+   `request ... source:"bytes"` for byte-exact uploads and `sha256` for immutable artifacts.
+8. Prefer opaque ULID sessions with Cache-aside validation and Database fallback when the application needs immediate revocation; Bearer does not imply JWT.
+9. Use the canonical HTTP return forms exactly:
+   - handlers and middleware: `return text:"..."`, `return json:<value>`,
+     `return status:201 json:<value>`, `return bytes:<binding>`, or `return proxy:<binding>`;
+   - static routes: `response text:"..."` or another `response <props>` form;
+   - reusable server functions: `return value:<value>`.
+   Never write `return response ...`: `response` after `return` is rejected by the compiler.
+10. Keep endpoint groups one level; put middleware on the group, HTTP method, or WebSocket instead
    of nesting a group.
-9. Validate the complete import chain with the compiler.
+11. Validate the complete import chain with the compiler.
 
-Read `references/server.md` for declarations, binding rules, accepted props, scope restrictions,
-Database, Cache, Vector, and their operation utilities, plus the canonical layer boundaries.
+## Reference routing
+
+| Task | Read only |
+| --- | --- |
+| Declarations, binding rules, functions, routing, sessions, or layer boundaries | `references/server.md` |
+| Database, Cache, Vector, entities, seeders, or persistence operations | `references/data.md` |
+| Standard-library namespaces, signatures, fallbacks, sorting, or server-only execution | `references/runtime.md` |
+| TLS, HTTP, responses, crypto, spawn, JWT, WebSockets, CORS, jobs, transports, or models | `references/runtime.md` |

@@ -58,7 +58,7 @@ page TlsPage
         Title size:"3xl" weight:"black"
           "Feed domains from Dowe data"
         Text size:"sm" color:"muted"
-          "A reverse proxy or application platform can let an administrator update local KV or Database state. Dowe merges that state with static names and reloads TLS when the effective set changes."
+          "A reverse proxy or application platform can load domains from local Dowe data or an authenticated HTTPS control plane. Dowe validates and reloads the effective set when it changes."
       Code:
         language:"dowe"
         variant:"soft"
@@ -71,9 +71,31 @@ page TlsPage
             domains:["platform.example.com"]
             email:"ops@example.com"
             staging:false
-            domainsFrom:{ kv:"domains" key:"tls" }
-            refreshSeconds:60
+            domainsFrom:{
+              endpoint:env.CONTROL_PLANE_URL
+              path:"/v1/domains"
+              bearer:env.CONTROL_PLANE_TOKEN
+              timeoutMs:5000
+            }
+            refreshSeconds:30
+            httpPort:80
         """
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Authenticated catalog"
+          Text size:"sm" color:"muted"
+            "The endpoint and bearer remain server-only. Responses may contain domain strings or records with host or hostname."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Ports 80 and 443"
+          Text size:"sm" color:"muted"
+            "HTTPS stays on 443. Port 80 issues permanent redirects while preserving the request path and query."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Closed host policy"
+          Text size:"sm" color:"muted"
+            "Only hosts in the effective TLS catalog redirect. Unknown or malformed Host values receive 421."
       Card variant:"outline" scheme:"info" p:5 rounded:"md"
         Title size:"lg" weight:"bold"
           "Product foundation, not product policy"

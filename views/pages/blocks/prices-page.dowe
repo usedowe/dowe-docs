@@ -1,0 +1,594 @@
+page PricesPage
+  Section id:"prices" py:{ xs:6 md:10 }
+    Grid columns:1 gap:4
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "COPY-READY BLOCKS"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Pricing"
+      Text size:"lg" color:"muted"
+        "Six responsive pricing wireframes built from real Dowe components and reusable data."
+  Section id:"feature-cards" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "01 · FEATURE CARDS"
+          Title size:"2xl" weight:"black"
+            "Plan summaries above detailed feature lists"
+        Button href:"/blocks/pricing-preview/feature-cards" variant:"soft" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+          "Open full page"
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe src:"/blocks/pricing-preview/feature-cards" title:"Feature cards pricing preview" loading:"lazy" sandbox:"scripts same-origin"
+        tab id:"code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy pricing block"
+            copiedLabel:"Copied"
+            content:"""
+              const plans value:[
+                {
+                  id:"basic"
+                  name:"Basic"
+                  price:"$99"
+                  featureOne:"All analytics features"
+                  featureTwo:"Up to 250,000 tracked visits"
+                  featureThree:"Normal support"
+                  featureFour:"Mobile app"
+                  featureFive:"Up to 3 team members"
+                },
+                {
+                  id:"growth"
+                  name:"Growth"
+                  price:"$199"
+                  featureOne:"Everything on Basic plan"
+                  featureTwo:"Up to 1,000,000 tracked visits"
+                  featureThree:"Premium support"
+                  featureFour:"Mobile app"
+                  featureFive:"Up to 10 team members"
+                },
+                {
+                  id:"enterprise"
+                  name:"Enterprise"
+                  price:"$399"
+                  featureOne:"Everything on Growth plan"
+                  featureTwo:"Up to 5,000,000 tracked visits"
+                  featureThree:"Dedicated support"
+                  featureFour:"Mobile app"
+                  featureFive:"Up to 50 team members"
+                },
+              ]
+
+              Section id:"feature-cards-pricing" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:12 }
+                Grid columns:1 gap:{ xs:8 md:12 }
+                  Flex direction:"column" align:"center" gap:3
+                    Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+                      "PRICING"
+                    Title size:{ xs:"4xl" md:"6xl" } weight:"black"
+                      "Affordable pricing plans"
+                    Text size:"lg" color:"muted"
+                      "Choose a clear starting point, then scale the plan as your team and traffic grow."
+                  Grid columns:{ xs:1 md:3 } gap:5 align:"stretch"
+                    each in:plans as:plan key:plan.id
+                      Card variant:"outlined" scheme:"muted" rounded:"xl" p:0
+                        Grid columns:1 gap:0
+                          Box bg:"softMuted" p:{ xs:6 md:7 }
+                            Flex direction:"column" align:"center" gap:2
+                              Title size:"xl" weight:"bold"
+                                "{plan.name}"
+                              Title size:"4xl" weight:"black"
+                                "{plan.price}"
+                              Text color:"muted"
+                                "Billed monthly"
+                              Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" w:"full"
+                                "Get started"
+                          Grid columns:1 gap:3 p:{ xs:6 md:7 }
+                            Flex align:"center" gap:3
+                              Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                              Text size:"sm" weight:"bold"
+                                "{plan.featureOne}"
+                            Flex align:"center" gap:3
+                              Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                              Text size:"sm" weight:"bold"
+                                "{plan.featureTwo}"
+                            Flex align:"center" gap:3
+                              Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                              Text size:"sm" weight:"bold"
+                                "{plan.featureThree}"
+                            Flex align:"center" gap:3
+                              Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                              Text size:"sm" weight:"bold"
+                                "{plan.featureFour}"
+                            Flex align:"center" gap:3
+                              Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                              Text size:"sm" weight:"bold"
+                                "{plan.featureFive}"
+            """
+  Section id:"media-cards" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "02 · MEDIA CARDS"
+          Title size:"2xl" weight:"black"
+            "Visual placeholders introduce each plan"
+        Button href:"/blocks/pricing-preview/media-cards" variant:"solid" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+          "Open full page"
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe src:"/blocks/pricing-preview/media-cards" title:"Media cards pricing preview" loading:"lazy" sandbox:"scripts same-origin"
+        tab id:"code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy pricing block"
+            copiedLabel:"Copied"
+            content:"""
+              const plans value:[
+                {
+                  id:"basic"
+                  name:"BASIC PLAN"
+                  price:"$99/mo"
+                  description:"A focused plan for individuals validating an idea and building a steady workflow."
+                },
+                {
+                  id:"growth"
+                  name:"GROWTH PLAN"
+                  price:"$199/mo"
+                  description:"More capacity and support for teams turning repeatable work into reliable growth."
+                },
+                {
+                  id:"enterprise"
+                  name:"ENTERPRISE PLAN"
+                  price:"$399/mo"
+                  description:"Advanced scale, dedicated support, and room for organization-wide collaboration."
+                },
+              ]
+
+              Section id:"media-cards-pricing" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:12 }
+                Grid columns:1 gap:{ xs:8 md:12 }
+                  Flex direction:"column" align:"center" gap:3
+                    Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+                      "PRICING"
+                    Title size:{ xs:"4xl" md:"6xl" } weight:"black"
+                      "Affordable pricing plans"
+                    Text size:"lg" color:"muted"
+                      "Pick the level of support and capacity that best matches your next stage of growth."
+                  Grid columns:{ xs:1 md:3 } gap:5 align:"stretch"
+                    each in:plans as:plan key:plan.id
+                      Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 }
+                        Flex direction:"column" align:"center" justify:"between" gap:5 minH:{ xs:80 md:96 }
+                          Flex direction:"column" align:"center" gap:4
+                            Box bg:"softMuted" rounded:"full" w:24 h:24
+                              Flex align:"center" justify:"center" w:"full" h:"full"
+                                Icon name:"gallery" style:"bold-duotone" fill:"muted" w:12 h:12
+                            Title size:"3xl" weight:"black"
+                              "{plan.price}"
+                            Text size:"sm" weight:"bold" spacing:"widest" color:"muted"
+                              "{plan.name}"
+                            Text color:"muted"
+                              "{plan.description}"
+                          Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" w:"full"
+                            "Get started"
+            """
+  Section id:"split-plans" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "03 · SPLIT PLANS"
+          Title size:"2xl" weight:"black"
+            "A focused starter card beside an expanded enterprise offer"
+        Button href:"/blocks/pricing-preview/split-plans" variant:"soft" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+          "Open full page"
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe src:"/blocks/pricing-preview/split-plans" title:"Split plans pricing preview" loading:"lazy" sandbox:"scripts same-origin"
+        tab id:"code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy pricing block"
+            copiedLabel:"Copied"
+            content:"""
+              const basicFeatures value:[
+                { id:"analytics" label:"All analytics features" },
+                { id:"visits" label:"Up to 250,000 tracked visits" },
+                { id:"support" label:"Normal support" },
+                { id:"mobile" label:"Mobile app" },
+              ]
+              const enterpriseFeatures value:[
+                { id:"growth" label:"Everything on Growth plan" },
+                { id:"visits" label:"Up to 5,000,000 tracked visits" },
+                { id:"support" label:"Dedicated support" },
+                { id:"mobile" label:"Mobile app" },
+                { id:"members" label:"Up to 50 team members" },
+                { id:"updates" label:"Unlimited updates" },
+                { id:"collaboration" label:"Collaboration tools" },
+                { id:"integrations" label:"All integrations included" },
+              ]
+
+              Section id:"split-plans-pricing" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:12 }
+                Grid columns:{ xs:1 md:"2fr 3fr" } gap:6 align:"stretch"
+                  Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 }
+                    Grid columns:1 gap:5
+                      Flex justify:"between" align:"center"
+                        Icon name:"gallery" style:"bold-duotone" fill:"muted" w:12 h:12
+                        Box bg:"softMuted" rounded:"full" p:3
+                          Text size:"sm" weight:"bold"
+                            "$99/mo"
+                      Title size:"3xl" weight:"black"
+                        "Basic Plan"
+                      Grid columns:1 gap:3
+                        each in:basicFeatures as:feature key:feature.id
+                          Flex align:"center" gap:3
+                            Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                            Text size:"sm" weight:"bold"
+                              "{feature.label}"
+                      Button variant:"solid" scheme:"primary" size:"lg" rounded:"full"
+                        "Get started"
+                  Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 }
+                    Grid columns:1 gap:5
+                      Flex justify:"between" align:"center"
+                        Icon name:"gallery" style:"bold-duotone" fill:"onMuted" w:12 h:12
+                        Box bg:"surface" color:"onSurface" rounded:"full" p:3
+                          Text size:"sm" weight:"bold"
+                            "$399/mo"
+                      Title size:"3xl" weight:"black"
+                        "Enterprise Plan"
+                      Grid columns:{ xs:1 md:2 } gap:3
+                        each in:enterpriseFeatures as:feature key:feature.id
+                          Flex align:"center" gap:3
+                            Icon name:"check-circle" style:"bold" fill:"onMuted" w:5 h:5
+                            Text size:"sm" weight:"bold"
+                              "{feature.label}"
+                      Button variant:"solid" scheme:"secondary" size:"lg" rounded:"full"
+                        "Get started"
+            """
+  Section id:"minimal-columns" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "04 · MINIMAL COLUMNS"
+          Title size:"2xl" weight:"black"
+            "Three quiet columns with one elevated recommendation"
+        Button href:"/blocks/pricing-preview/minimal-columns" variant:"solid" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+          "Open full page"
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe src:"/blocks/pricing-preview/minimal-columns" title:"Minimal columns pricing preview" loading:"lazy" sandbox:"scripts same-origin"
+        tab id:"code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy pricing block"
+            copiedLabel:"Copied"
+            content:"""
+              const plans value:[
+                {
+                  id:"personal"
+                  name:"Personal"
+                  price:"$39"
+                  popular:false
+                  standard:true
+                  featureOne:"All analytics features"
+                  featureTwo:"Up to 250,000 tracked visits"
+                  featureThree:"Normal support"
+                  featureFour:"Mobile app"
+                },
+                {
+                  id:"team"
+                  name:"Team"
+                  price:"$59"
+                  popular:true
+                  standard:false
+                  featureOne:"Everything on Growth plan"
+                  featureTwo:"Up to 500,000 tracked visits"
+                  featureThree:"Dedicated support"
+                  featureFour:"Mobile app"
+                },
+                {
+                  id:"unlimited"
+                  name:"Unlimited"
+                  price:"$139"
+                  popular:false
+                  standard:true
+                  featureOne:"Up to 50 team members"
+                  featureTwo:"Unlimited updates"
+                  featureThree:"Collaboration tools"
+                  featureFour:"All integrations included"
+                },
+              ]
+
+              Section id:"minimal-columns-pricing" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:14 }
+                Grid columns:{ xs:1 md:3 } gap:{ xs:5 md:0 } align:"stretch"
+                  each in:plans as:plan key:plan.id
+                    Card variant:"ghost" scheme:"background" rounded:"xl" p:{ xs:6 md:8 } minH:96 show:plan.standard
+                      Flex direction:"column" justify:"between" gap:8 minH:80
+                        Grid columns:1 gap:5
+                          Flex justify:"between" align:"center"
+                            Title size:"3xl" weight:"black"
+                              "{plan.name}"
+                            Title size:"xl" weight:"bold" color:"muted"
+                              "{plan.price}"
+                          Grid columns:1 gap:3
+                            Flex align:"center" gap:3
+                              Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                              Text size:"sm" weight:"bold"
+                                "{plan.featureOne}"
+                            Flex align:"center" gap:3
+                              Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                              Text size:"sm" weight:"bold"
+                                "{plan.featureTwo}"
+                            Flex align:"center" gap:3
+                              Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                              Text size:"sm" weight:"bold"
+                                "{plan.featureThree}"
+                            Flex align:"center" gap:3
+                              Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                              Text size:"sm" weight:"bold"
+                                "{plan.featureFour}"
+                        Button variant:"solid" scheme:"primary" size:"lg" rounded:"full"
+                          "Get started"
+                    Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:96 show:plan.popular
+                      Flex direction:"column" justify:"between" gap:8 minH:80
+                        Text size:"sm" color:"muted"
+                          "Popular"
+                        Flex justify:"between" align:"center"
+                          Title size:"3xl" weight:"black"
+                            "{plan.name}"
+                          Title size:"xl" weight:"bold" color:"muted"
+                            "{plan.price}"
+                        Grid columns:1 gap:3
+                          Flex align:"center" gap:3
+                            Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                            Text size:"sm" weight:"bold"
+                              "{plan.featureOne}"
+                          Flex align:"center" gap:3
+                            Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                            Text size:"sm" weight:"bold"
+                              "{plan.featureTwo}"
+                          Flex align:"center" gap:3
+                            Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                            Text size:"sm" weight:"bold"
+                              "{plan.featureThree}"
+                          Flex align:"center" gap:3
+                            Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                            Text size:"sm" weight:"bold"
+                              "{plan.featureFour}"
+                        Button variant:"solid" scheme:"primary" size:"lg" rounded:"full"
+                          "Get started"
+            """
+  Section id:"billing-toggle" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "05 · BILLING TOGGLE"
+          Title size:"2xl" weight:"black"
+            "Interactive monthly and annual pricing"
+        Button href:"/blocks/pricing-preview/billing-toggle" variant:"soft" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+          "Open full page"
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe src:"/blocks/pricing-preview/billing-toggle" title:"Billing toggle pricing preview" loading:"lazy" sandbox:"scripts same-origin"
+        tab id:"code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy pricing block"
+            copiedLabel:"Copied"
+            content:"""
+              signal monthly value:true
+              signal annual value:false
+              const plans value:[
+                {
+                  id:"basic"
+                  name:"Basic"
+                  monthlyPrice:"$99"
+                  annualPrice:"$990"
+                  popular:false
+                  standard:true
+                  featureOne:"All analytics features"
+                  featureTwo:"Up to 250,000 tracked visits"
+                },
+                {
+                  id:"growth"
+                  name:"Growth"
+                  monthlyPrice:"$199"
+                  annualPrice:"$1,990"
+                  popular:true
+                  standard:false
+                  featureOne:"Everything on Basic plan"
+                  featureTwo:"Up to 1,000,000 tracked visits"
+                },
+                {
+                  id:"enterprise"
+                  name:"Enterprise"
+                  monthlyPrice:"$399"
+                  annualPrice:"$3,990"
+                  popular:false
+                  standard:true
+                  featureOne:"Everything on Growth plan"
+                  featureTwo:"Up to 5,000,000 tracked visits"
+                },
+              ]
+              fn showMonthly
+                set monthly value:true
+                set annual value:false
+              fn showAnnual
+                set monthly value:false
+                set annual value:true
+
+              Section id:"billing-toggle-pricing" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:12 }
+                Grid columns:1 gap:{ xs:7 md:10 }
+                  Flex direction:"column" align:"center" gap:3
+                    Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+                      "PRICING"
+                    Title size:{ xs:"4xl" md:"6xl" } weight:"black"
+                      "Affordable pricing plans"
+                  Flex align:"center" justify:"center" gap:2
+                    Button variant:"solid" scheme:"primary" rounded:"full" show:monthly onClick:showMonthly
+                      "Monthly plan"
+                    Button variant:"outlined" scheme:"primary" rounded:"full" show:annual onClick:showMonthly
+                      "Monthly plan"
+                    Button variant:"outlined" scheme:"primary" rounded:"full" show:monthly onClick:showAnnual
+                      "Annual plan"
+                    Button variant:"solid" scheme:"primary" rounded:"full" show:annual onClick:showAnnual
+                      "Annual plan"
+                  Grid columns:{ xs:1 md:3 } gap:5 align:"stretch"
+                    each in:plans as:plan key:plan.id
+                      Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:7 } show:plan.standard
+                        Grid columns:1 gap:5
+                          Title size:"xl" weight:"black"
+                            "{plan.name}"
+                          Flex align:"end" gap:2
+                            Title size:"4xl" weight:"black" show:monthly
+                              "{plan.monthlyPrice}"
+                            Title size:"4xl" weight:"black" show:annual
+                              "{plan.annualPrice}"
+                          Flex align:"center" gap:3
+                            Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                            Text size:"sm" weight:"bold"
+                              "{plan.featureOne}"
+                          Flex align:"center" gap:3
+                            Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                            Text size:"sm" weight:"bold"
+                              "{plan.featureTwo}"
+                          Button variant:"solid" scheme:"primary" size:"lg" rounded:"full"
+                            "Get started"
+                      Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:6 md:7 } show:plan.popular
+                        Grid columns:1 gap:5
+                          Flex justify:"between" align:"center"
+                            Title size:"xl" weight:"black"
+                              "{plan.name}"
+                            Box bg:"surface" color:"onSurface" rounded:"full" p:2
+                              Text size:"xs" weight:"bold"
+                                "Popular"
+                          Flex align:"end" gap:2
+                            Title size:"4xl" weight:"black" show:monthly
+                              "{plan.monthlyPrice}"
+                            Title size:"4xl" weight:"black" show:annual
+                              "{plan.annualPrice}"
+                          Flex align:"center" gap:3
+                            Icon name:"check-circle" style:"bold" fill:"onMuted" w:5 h:5
+                            Text size:"sm" weight:"bold"
+                              "{plan.featureOne}"
+                          Flex align:"center" gap:3
+                            Icon name:"check-circle" style:"bold" fill:"onMuted" w:5 h:5
+                            Text size:"sm" weight:"bold"
+                              "{plan.featureTwo}"
+                          Button variant:"solid" scheme:"secondary" size:"lg" rounded:"full"
+                            "Get started"
+            """
+  Section id:"comparison-table" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "06 · COMPARISON TABLE"
+          Title size:"2xl" weight:"black"
+            "A plan matrix that becomes a swipeable mobile comparison"
+        Button href:"/blocks/pricing-preview/comparison-table" variant:"solid" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+          "Open full page"
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe src:"/blocks/pricing-preview/comparison-table" title:"Comparison table pricing preview" loading:"lazy" sandbox:"scripts same-origin"
+        tab id:"code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy pricing block"
+            copiedLabel:"Copied"
+            content:"""
+              const plans value:[
+                { id:"basic" name:"Basic" price:"$99.00" },
+                { id:"growth" name:"Growth" price:"$199.00" },
+                { id:"enterprise" name:"Enterprise" price:"$399.00" },
+              ]
+              const featureRows value:[
+                {
+                  id:"users"
+                  label:"Number of users"
+                  basicValue:"1 user"
+                  growthValue:"5 users"
+                  enterpriseValue:"Unlimited"
+                },
+                {
+                  id:"credit"
+                  label:"Total credit limit"
+                  basicValue:"$1,000 USD"
+                  growthValue:"$10,000 USD"
+                  enterpriseValue:"$100,000 USD"
+                },
+              ]
+
+              Section id:"comparison-table-pricing" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:12 }
+                Grid columns:1 gap:{ xs:8 md:12 }
+                  Flex direction:"column" align:"center" gap:3
+                    Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+                      "PRICING"
+                    Title size:{ xs:"4xl" md:"6xl" } weight:"black"
+                      "Affordable pricing plans"
+                  Grid columns:1 gap:0 show:{ xs:false md:true }
+                    Grid columns:"2fr 1fr 1fr 1fr" gap:0 align:"stretch"
+                      Title size:"xl" weight:"black" p:4
+                        "Features"
+                      each in:plans as:plan key:plan.id
+                        Flex direction:"column" align:"center" gap:3 p:5
+                          Text color:"muted"
+                            "{plan.price}"
+                          Title size:"xl" weight:"black"
+                            "{plan.name}"
+                          Button variant:"solid" scheme:"primary" rounded:"full" w:"full"
+                            "Get started"
+                    each in:featureRows as:row key:row.id
+                      Grid columns:"2fr 1fr 1fr 1fr" gap:0 align:"center" border:1 borderColor:"muted"
+                        Text p:4 color:"muted"
+                          "{row.label}"
+                        Text p:4
+                          "{row.basicValue}"
+                        Text p:4
+                          "{row.growthValue}"
+                        Text p:4
+                          "{row.enterpriseValue}"
+                  Carousel variant:"dots" scheme:"primary" indicatorType:"dot" gap:4 show:{ xs:true md:false }
+                    slide id:"basic"
+                      Grid columns:1 gap:5
+                        Title size:"2xl" weight:"black"
+                          "Basic"
+                        Button variant:"solid" scheme:"primary" rounded:"full" w:"full"
+                          "Get started"
+                        Text color:"muted"
+                          "Number of users · 1 user"
+                    slide id:"growth"
+                      Grid columns:1 gap:5
+                        Title size:"2xl" weight:"black"
+                          "Growth"
+                        Button variant:"solid" scheme:"primary" rounded:"full" w:"full"
+                          "Get started"
+                        Text color:"muted"
+                          "Number of users · 5 users"
+                    slide id:"enterprise"
+                      Grid columns:1 gap:5
+                        Title size:"2xl" weight:"black"
+                          "Enterprise"
+                        Button variant:"solid" scheme:"primary" rounded:"full" w:"full"
+                          "Get started"
+                        Text color:"muted"
+                          "Number of users · Unlimited"
+            """

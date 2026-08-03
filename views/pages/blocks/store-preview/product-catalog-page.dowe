@@ -1,0 +1,58 @@
+page ProductCatalogStorePage
+  const filters:
+    value:[
+      { id:"type" label:"Product type" },
+      { id:"price" label:"Price" },
+      { id:"color" label:"Color" },
+      { id:"promotion" label:"Promotion" },
+    ]
+  const products:
+    value:[
+      { id:"product-01" name:"Everyday object" description:"A neutral product description." price:"$99.99" },
+      { id:"product-02" name:"Useful object" description:"A neutral product description." price:"$99.99" },
+      { id:"product-03" name:"Simple object" description:"A neutral product description." price:"$99.99" },
+      { id:"product-04" name:"Modern object" description:"A neutral product description." price:"$99.99" },
+      { id:"product-05" name:"Everyday object" description:"A neutral product description." price:"$99.99" },
+      { id:"product-06" name:"Useful object" description:"A neutral product description." price:"$99.99" },
+      { id:"product-07" name:"Simple object" description:"A neutral product description." price:"$99.99" },
+      { id:"product-08" name:"Modern object" description:"A neutral product description." price:"$99.99" },
+      { id:"product-09" name:"Everyday object" description:"A neutral product description." price:"$99.99" },
+      { id:"product-10" name:"Useful object" description:"A neutral product description." price:"$99.99" },
+      { id:"product-11" name:"Simple object" description:"A neutral product description." price:"$99.99" },
+      { id:"product-12" name:"Modern object" description:"A neutral product description." price:"$99.99" },
+    ]
+  Section id:"store-product-catalog" bg:"background" color:"onBackground" boxed:true py:{ xs:6 md:10 } minH:"vh-0"
+    Grid columns:1 gap:{ xs:6 md:8 }
+      Flex wrap:true gap:2
+        each in:filters as:filter key:filter.id
+          Button variant:"outlined" scheme:"muted" size:"sm" rounded:"md" iconEnd:"alt-arrow-down"
+            "{filter.label}"
+      Title size:{ xs:"2xl" md:"4xl" } weight:"black"
+        "Products you may like"
+      Grid columns:{ xs:2 md:4 } gap:{ xs:4 md:6 }
+        each in:products as:product key:product.id
+          Grid columns:1 gap:3
+            Card variant:"soft" scheme:"muted" rounded:"xl" p:3 minH:{ xs:40 md:56 }
+              Flex direction:"column" justify:"between" minH:{ xs:32 md:48 }
+                Flex justify:"end"
+                  IconButton icon:"heart" label:"Save product" variant:"solid" scheme:"muted" size:"xs" rounded:"full"
+                Flex align:"center" justify:"center"
+                  Icon name:"gallery" style:"bold-duotone" fill:"muted" w:{ xs:10 md:14 } h:{ xs:10 md:14 }
+            Grid columns:1 gap:2
+              Flex justify:"between" align:"start" gap:2
+                Text size:"sm" weight:"bold"
+                  "{product.name}"
+                Text size:"sm" weight:"black"
+                  "{product.price}"
+              Text size:"xs" color:"muted"
+                "{product.description}"
+              Flex align:"center" gap:1
+                Icon name:"star" style:"bold" fill:"onBackground" w:4 h:4
+                Icon name:"star" style:"bold" fill:"onBackground" w:4 h:4
+                Icon name:"star" style:"bold" fill:"onBackground" w:4 h:4
+                Icon name:"star" style:"bold" fill:"onBackground" w:4 h:4
+                Icon name:"star" style:"bold" fill:"onBackground" w:4 h:4
+                Text size:"xs" color:"muted"
+                  "(261)"
+              Button variant:"outlined" scheme:"primary" size:"sm" rounded:"full"
+                "Add to basket"

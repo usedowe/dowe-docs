@@ -1,0 +1,378 @@
+page TestimonialsPage
+  Section id:"testimonials" py:{ xs:6 md:10 }
+    Grid columns:1 gap:4
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "COPY-READY BLOCKS"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Testimonials"
+      Text size:"lg" color:"muted"
+        "Five responsive testimonial wireframes built from real Dowe components, portable placeholders, logo Icons, and Carousels."
+  Section id:"avatar-cards" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "01 · AVATAR CARDS"
+          Title size:"2xl" weight:"black"
+            "Three outlined testimonials with compact avatar placeholders"
+        Button:
+          href:"/blocks/testimonial-preview/avatar-cards"
+          variant:"soft"
+          scheme:"primary"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"avatar-cards-preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe:
+              src:"/blocks/testimonial-preview/avatar-cards"
+              title:"Avatar card testimonials preview"
+              loading:"lazy"
+              sandbox:"scripts same-origin"
+        tab id:"avatar-cards-code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy testimonials"
+            copiedLabel:"Copied"
+            content:"""
+              const testimonials value:[
+                { id:"john" title:"An amazing service" quote:"A thoughtful service that made a complex project feel clear, calm, and easy to move forward." name:"John Carter" role:"Designer at Northstar Studio" },
+                { id:"sophie" title:"One of a kind service" quote:"The team brought focus to every decision and gave us a result we can confidently build on." name:"Sophie Moore" role:"Head of Design at Northstar Studio" },
+                { id:"andy" title:"The best service" quote:"From the first conversation to delivery, every detail felt considered and genuinely useful." name:"Andy Smith" role:"Developer at Northstar Studio" },
+              ]
+              Section id:"avatar-card-testimonials" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:14 }
+                Grid columns:1 gap:{ xs:8 md:12 }
+                  Flex direction:"column" align:"center" gap:3
+                    Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+                      "What our clients say"
+                    Text size:"lg" color:"muted"
+                      "Real feedback from people who trusted our team with important work."
+                  Grid columns:{ xs:1 md:3 } gap:5
+                    each in:testimonials as:testimonial key:testimonial.id
+                      Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:72
+                        Flex direction:"column" align:"start" justify:"between" gap:6 minH:56
+                          Grid columns:1 gap:4
+                            Box bg:"softMuted" rounded:"full" w:14 h:14 p:3
+                              Icon name:"gallery" style:"bold-duotone" fill:"muted" w:8 h:8
+                            Title size:"xl" weight:"black"
+                              "{testimonial.title}"
+                            Text color:"muted"
+                              "{testimonial.quote}"
+                          Grid columns:1 gap:1
+                            Text weight:"bold"
+                              "{testimonial.name}"
+                            Text size:"sm" color:"muted"
+                              "{testimonial.role}"
+            """
+  Section id:"rating-carousel" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "02 · RATING CAROUSEL"
+          Title size:"2xl" weight:"black"
+            "Star-rated review cards with actions and native carousel controls"
+        Button:
+          href:"/blocks/testimonial-preview/rating-carousel"
+          variant:"solid"
+          scheme:"primary"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"rating-carousel-preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe:
+              src:"/blocks/testimonial-preview/rating-carousel"
+              title:"Rating carousel testimonials preview"
+              loading:"lazy"
+              sandbox:"scripts same-origin"
+        tab id:"rating-carousel-code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy carousel"
+            copiedLabel:"Copied"
+            content:"""
+              const stars value:[
+                { id:"one" },
+                { id:"two" },
+                { id:"three" },
+                { id:"four" },
+                { id:"five" },
+              ]
+              const reviews value:{
+                john:{ quote:"The team understood the brief quickly and turned it into a polished experience that feels effortless to use." name:"John Carter" role:"Web Designer" }
+                sophie:{ quote:"Every milestone was clear, collaborative, and delivered with the care we hoped to see from a long-term partner." name:"Sophie Moore" role:"Head of Marketing" }
+                matt:{ quote:"A practical process, strong communication, and a final result that gave our team immediate momentum." name:"Matt Cannon" role:"Lead Developer" }
+              }
+              Section id:"rating-carousel-testimonials" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:14 }
+                Grid columns:1 gap:{ xs:8 md:10 }
+                  Grid columns:{ xs:1 md:"1fr auto" } gap:6 align:"end"
+                    Grid columns:1 gap:3
+                      Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+                        "What our clients say"
+                      Text size:"lg" color:"muted"
+                        "Trusted by ambitious teams that value clear thinking and dependable delivery."
+                    Flex direction:{ xs:"column" sm:"row" } gap:3
+                      Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" iconEnd:"arrow-right"
+                        "Get started"
+                      Button variant:"outlined" scheme:"primary" size:"lg" rounded:"full"
+                        "Talk to sales"
+                  Carousel variant:"controls" scheme:"primary" slideWidth:360 gap:20 hideIndicators:true
+                    slide id:"john"
+                      Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:64
+                        Flex direction:"column" justify:"between" gap:6 minH:48
+                          Flex gap:1
+                            each in:stars as:star key:star.id
+                              Icon name:"star" style:"bold" fill:"muted" w:6 h:6
+                          Text color:"muted"
+                            "{reviews.john.quote}"
+                          Grid columns:1 gap:1
+                            Text weight:"bold"
+                              "{reviews.john.name}"
+                            Text color:"muted"
+                              "{reviews.john.role}"
+                    slide id:"sophie"
+                      Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:64
+                        Flex direction:"column" justify:"between" gap:6 minH:48
+                          Flex gap:1
+                            each in:stars as:star key:star.id
+                              Icon name:"star" style:"bold" fill:"muted" w:6 h:6
+                          Text color:"muted"
+                            "{reviews.sophie.quote}"
+                          Grid columns:1 gap:1
+                            Text weight:"bold"
+                              "{reviews.sophie.name}"
+                            Text color:"muted"
+                              "{reviews.sophie.role}"
+                    slide id:"matt"
+                      Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:64
+                        Flex direction:"column" justify:"between" gap:6 minH:48
+                          Flex gap:1
+                            each in:stars as:star key:star.id
+                              Icon name:"star" style:"bold" fill:"muted" w:6 h:6
+                          Text color:"muted"
+                            "{reviews.matt.quote}"
+                          Grid columns:1 gap:1
+                            Text weight:"bold"
+                              "{reviews.matt.name}"
+                            Text color:"muted"
+                              "{reviews.matt.role}"
+            """
+  Section id:"logo-quote" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "03 · LOGO QUOTE"
+          Title size:"2xl" weight:"black"
+            "A centered quote carousel introduced by real bundled logo Icons"
+        Button:
+          href:"/blocks/testimonial-preview/logo-quote"
+          variant:"soft"
+          scheme:"primary"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"logo-quote-preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe:
+              src:"/blocks/testimonial-preview/logo-quote"
+              title:"Logo quote testimonials preview"
+              loading:"lazy"
+              sandbox:"scripts same-origin"
+        tab id:"logo-quote-code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy logo quote"
+            copiedLabel:"Copied"
+            content:"""
+              const testimonials value:{
+                matt:{ quote:"The work gave our team a clearer story, a stronger product, and the confidence to make the next decision faster." name:"Matt Cannon" role:"Head of Marketing" }
+                sophie:{ quote:"A generous, thoughtful collaboration that turned many competing ideas into one simple and compelling direction." name:"Sophie Moore" role:"Design Director" }
+              }
+              Section id:"logo-quote-testimonials" bg:"background" color:"onBackground" boxed:true py:{ xs:10 md:16 }
+                Grid columns:1 gap:{ xs:8 md:10 }
+                  Flex align:"center" justify:"center" wrap:true gap:{ xs:6 md:10 }
+                    Icon name:"svg-logos:facebook" w:{ xs:24 md:32 } h:10
+                    Icon name:"svg-logos:google" w:{ xs:24 md:32 } h:10
+                    Icon name:"svg-logos:youtube" w:{ xs:24 md:32 } h:10
+                  Carousel variant:"controls" scheme:"primary" hideIndicators:true gap:4
+                    slide id:"matt"
+                      Grid columns:{ xs:1 md:"1fr 4fr 1fr" } align:"center" minH:{ xs:72 md:80 }
+                        Box show:{ xs:false md:true }
+                        Flex direction:"column" align:"center" justify:"center" gap:7
+                          Title size:{ xs:"2xl" md:"4xl" } weight:"black"
+                            "{testimonials.matt.quote}"
+                          Flex align:"center" justify:"center" gap:4
+                            Box bg:"softMuted" rounded:"full" w:14 h:14 p:3
+                              Icon name:"gallery" style:"bold-duotone" fill:"muted" w:8 h:8
+                            Grid columns:1 gap:1
+                              Text weight:"bold"
+                                "{testimonials.matt.name}"
+                              Text size:"sm" color:"muted"
+                                "{testimonials.matt.role}"
+                        Box show:{ xs:false md:true }
+                    slide id:"sophie"
+                      Grid columns:{ xs:1 md:"1fr 4fr 1fr" } align:"center" minH:{ xs:72 md:80 }
+                        Box show:{ xs:false md:true }
+                        Flex direction:"column" align:"center" justify:"center" gap:7
+                          Title size:{ xs:"2xl" md:"4xl" } weight:"black"
+                            "{testimonials.sophie.quote}"
+                          Flex align:"center" justify:"center" gap:4
+                            Box bg:"softMuted" rounded:"full" w:14 h:14 p:3
+                              Icon name:"gallery" style:"bold-duotone" fill:"muted" w:8 h:8
+                            Grid columns:1 gap:1
+                              Text weight:"bold"
+                                "{testimonials.sophie.name}"
+                              Text size:"sm" color:"muted"
+                                "{testimonials.sophie.role}"
+                        Box show:{ xs:false md:true }
+            """
+  Section id:"split-media" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "04 · SPLIT MEDIA"
+          Title size:"2xl" weight:"black"
+            "A generous image placeholder paired with a testimonial carousel"
+        Button:
+          href:"/blocks/testimonial-preview/split-media"
+          variant:"solid"
+          scheme:"primary"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"split-media-preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe:
+              src:"/blocks/testimonial-preview/split-media"
+              title:"Split media testimonials preview"
+              loading:"lazy"
+              sandbox:"scripts same-origin"
+        tab id:"split-media-code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy split testimonial"
+            copiedLabel:"Copied"
+            content:"""
+              const testimonials value:{
+                john:{ title:"An amazing service" quote:"The team made every stage easy to understand and delivered a result that feels both useful and beautifully considered." name:"John Carter" role:"Designer at Northstar Studio" }
+                sophie:{ title:"A brilliant collaboration" quote:"They brought clarity to a complicated brief and helped our team move from early ideas to a confident launch." name:"Sophie Moore" role:"Head of Design at Northstar Studio" }
+              }
+              Section id:"split-media-testimonials" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:14 }
+                Grid columns:1 gap:{ xs:8 md:10 }
+                  Grid columns:1 gap:3
+                    Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+                      "What our clients say"
+                    Text size:"lg" color:"muted"
+                      "A flexible testimonial story with a prominent media placeholder and clear attribution."
+                  Carousel variant:"controls" scheme:"primary" hideIndicators:true gap:4
+                    slide id:"john"
+                      Card variant:"soft" scheme:"surface" rounded:"xl"
+                        Grid columns:{ xs:1 md:"4fr 5fr" } minH:96
+                          Box bg:"softMuted" minH:{ xs:64 md:96 } p:8
+                            Flex align:"center" justify:"center" minH:{ xs:48 md:80 }
+                              Icon name:"gallery" style:"bold-duotone" fill:"muted" w:20 h:20
+                          Flex direction:"column" align:"start" justify:"center" gap:5 p:{ xs:7 md:12 }
+                            Title size:{ xs:"2xl" md:"3xl" } weight:"black"
+                              "{testimonials.john.title}"
+                            Text size:"lg" color:"muted"
+                              "{testimonials.john.quote}"
+                            Grid columns:1 gap:1
+                              Text weight:"bold"
+                                "{testimonials.john.name}"
+                              Text color:"muted"
+                                "{testimonials.john.role}"
+                    slide id:"sophie"
+                      Card variant:"soft" scheme:"surface" rounded:"xl"
+                        Grid columns:{ xs:1 md:"4fr 5fr" } minH:96
+                          Box bg:"softMuted" minH:{ xs:64 md:96 } p:8
+                            Flex align:"center" justify:"center" minH:{ xs:48 md:80 }
+                              Icon name:"gallery" style:"bold-duotone" fill:"muted" w:20 h:20
+                          Flex direction:"column" align:"start" justify:"center" gap:5 p:{ xs:7 md:12 }
+                            Title size:{ xs:"2xl" md:"3xl" } weight:"black"
+                              "{testimonials.sophie.title}"
+                            Text size:"lg" color:"muted"
+                              "{testimonials.sophie.quote}"
+                            Grid columns:1 gap:1
+                              Text weight:"bold"
+                                "{testimonials.sophie.name}"
+                              Text color:"muted"
+                                "{testimonials.sophie.role}"
+            """
+  Section id:"soft-cards" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "05 · SOFT CARDS"
+          Title size:"2xl" weight:"black"
+            "Three soft testimonial cards with simple profile rows"
+        Button:
+          href:"/blocks/testimonial-preview/soft-cards"
+          variant:"soft"
+          scheme:"primary"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+        tab id:"soft-cards-preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe:
+              src:"/blocks/testimonial-preview/soft-cards"
+              title:"Soft card testimonials preview"
+              loading:"lazy"
+              sandbox:"scripts same-origin"
+        tab id:"soft-cards-code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy testimonials"
+            copiedLabel:"Copied"
+            content:"""
+              const testimonials value:[
+                { id:"john" quote:"A visual system should make collaboration easier, reduce uncertainty, and help good decisions happen sooner." name:"John Carter" role:"Head of Marketing" },
+                { id:"matt" quote:"The new direction gave our team a shared language and made the work feel simpler from the very first week." name:"Matt Cannon" role:"Product Director" },
+                { id:"sophie" quote:"Clear thinking and careful craft came together in a result that works beautifully for our customers and our team." name:"Sophie Moore" role:"Lead Developer" },
+              ]
+              Section id:"soft-card-testimonials" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:14 }
+                Grid columns:1 gap:{ xs:8 md:12 }
+                  Flex direction:"column" align:"center" gap:3
+                    Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+                      "What our clients say"
+                    Text size:"lg" color:"muted"
+                      "Short stories from collaborators who found clarity, momentum, and a better way forward."
+                  Grid columns:{ xs:1 md:3 } gap:5
+                    each in:testimonials as:testimonial key:testimonial.id
+                      Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:7 md:9 } minH:64
+                        Flex direction:"column" justify:"between" gap:7 minH:52
+                          Text size:"lg" color:"muted"
+                            "{testimonial.quote}"
+                          Flex align:"center" gap:4
+                            Box bg:"surface" rounded:"full" w:14 h:14 p:3
+                              Icon name:"gallery" style:"bold-duotone" fill:"muted" w:8 h:8
+                            Grid columns:1 gap:1
+                              Text weight:"bold"
+                                "{testimonial.name}"
+                              Text color:"muted"
+                                "{testimonial.role}"
+            """

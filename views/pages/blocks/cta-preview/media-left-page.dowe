@@ -1,0 +1,26 @@
+page MediaLeftCtaPage
+  const actions value:[
+    { id:"start" label:"Get started" variant:"solid" },
+    { id:"sales" label:"Talk to sales" variant:"outlined" },
+  ]
+  Section id:"media-left-cta" bg:"background" color:"onBackground" boxed:true p:{ xs:6 md:12 }
+    Grid columns:{ xs:1 md:"5fr 5fr" } gap:{ xs:8 md:14 } align:"center" minH:"vh-0"
+      Box bg:"softMuted" rounded:"xl" p:8 minH:{ xs:64 md:80 }
+        Flex direction:"column" align:"center" justify:"center" gap:3 minH:{ xs:48 md:64 }
+          Icon name:"gallery" style:"bold-duotone" fill:"muted" w:16 h:16
+          Text size:"sm" color:"muted"
+            "Image placeholder"
+      Flex direction:"column" align:{ xs:"center" md:"start" } justify:"center" gap:5
+        Grid columns:1 gap:3
+          Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+            "Create your account today and get started for free!"
+          Text size:"lg" color:"muted"
+            "Start with a clear plan, invite your team, and turn the next milestone into visible progress."
+        Grid columns:1 gap:3 w:"full" show:{ xs:true sm:false }
+          each in:actions as:action key:action.id
+            Button variant:action.variant scheme:"primary" size:"lg" rounded:"full" w:"full"
+              "{action.label}"
+        Flex align:"center" gap:3 show:{ xs:false sm:true }
+          each in:actions as:action key:action.id
+            Button variant:action.variant scheme:"primary" size:"lg" rounded:"full"
+              "{action.label}"

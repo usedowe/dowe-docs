@@ -1,0 +1,96 @@
+page RatingCarouselTestimonialsPage
+  const stars value:[
+    { id:"one" },
+    { id:"two" },
+    { id:"three" },
+    { id:"four" },
+    { id:"five" },
+  ]
+  const reviews value:{
+    john:{
+      quote:"The team understood the brief quickly and turned it into a polished experience that feels effortless to use."
+      name:"John Carter"
+      role:"Web Designer"
+    }
+    sophie:{
+      quote:"Every milestone was clear, collaborative, and delivered with the care we hoped to see from a long-term partner."
+      name:"Sophie Moore"
+      role:"Head of Marketing"
+    }
+    matt:{
+      quote:"A practical process, strong communication, and a final result that gave our team immediate momentum."
+      name:"Matt Cannon"
+      role:"Lead Developer"
+    }
+    andy:{
+      quote:"They kept the work focused without losing the details that make the finished product feel distinctive."
+      name:"Andy Smith"
+      role:"VP of Product"
+    }
+  }
+  Section id:"rating-carousel-testimonials" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:14 } minH:"vh-0"
+    Grid columns:1 gap:{ xs:8 md:10 }
+      Grid columns:{ xs:1 md:"1fr auto" } gap:6 align:"end"
+        Grid columns:1 gap:3
+          Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+            "What our clients say"
+          Text size:"lg" color:"muted"
+            "Trusted by ambitious teams that value clear thinking and dependable delivery."
+        Flex direction:{ xs:"column" sm:"row" } gap:3
+          Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" iconEnd:"arrow-right"
+            "Get started"
+          Button variant:"outlined" scheme:"primary" size:"lg" rounded:"full"
+            "Talk to sales"
+      Carousel variant:"controls" scheme:"primary" slideWidth:360 gap:20 hideIndicators:true
+        slide id:"john"
+          Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:64
+            Flex direction:"column" justify:"between" gap:6 minH:48
+              Flex gap:1
+                each in:stars as:star key:star.id
+                  Icon name:"star" style:"bold" fill:"muted" w:6 h:6
+              Text color:"muted"
+                "{reviews.john.quote}"
+              Grid columns:1 gap:1
+                Text weight:"bold"
+                  "{reviews.john.name}"
+                Text color:"muted"
+                  "{reviews.john.role}"
+        slide id:"sophie"
+          Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:64
+            Flex direction:"column" justify:"between" gap:6 minH:48
+              Flex gap:1
+                each in:stars as:star key:star.id
+                  Icon name:"star" style:"bold" fill:"muted" w:6 h:6
+              Text color:"muted"
+                "{reviews.sophie.quote}"
+              Grid columns:1 gap:1
+                Text weight:"bold"
+                  "{reviews.sophie.name}"
+                Text color:"muted"
+                  "{reviews.sophie.role}"
+        slide id:"matt"
+          Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:64
+            Flex direction:"column" justify:"between" gap:6 minH:48
+              Flex gap:1
+                each in:stars as:star key:star.id
+                  Icon name:"star" style:"bold" fill:"muted" w:6 h:6
+              Text color:"muted"
+                "{reviews.matt.quote}"
+              Grid columns:1 gap:1
+                Text weight:"bold"
+                  "{reviews.matt.name}"
+                Text color:"muted"
+                  "{reviews.matt.role}"
+        slide id:"andy"
+          Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:64
+            Flex direction:"column" justify:"between" gap:6 minH:48
+              Flex gap:1
+                each in:stars as:star key:star.id
+                  Icon name:"star" style:"bold" fill:"muted" w:6 h:6
+              Text color:"muted"
+                "{reviews.andy.quote}"
+              Grid columns:1 gap:1
+                Text weight:"bold"
+                  "{reviews.andy.name}"
+                Text color:"muted"
+                  "{reviews.andy.role}"

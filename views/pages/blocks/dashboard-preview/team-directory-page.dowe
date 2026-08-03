@@ -1,0 +1,72 @@
+type DirectoryMember
+  id:string
+  name:string
+  role:string
+  company:string
+  location:string
+  status:string
+
+page DashboardTeamDirectoryPage
+  signal search value:""
+  signal currentPage value:1
+  signal totalMembers value:24
+  const members:
+    value:[
+      { id:"member-1" name:"Jane Doe" role:"Senior Designer" company:"Northstar" location:"Bogota" status:"Active" },
+      { id:"member-2" name:"Avery Morgan" role:"Product Designer" company:"Meridian" location:"Lisbon" status:"Active" },
+      { id:"member-3" name:"Maya Ortiz" role:"Design Engineer" company:"Dowe" location:"Mexico City" status:"Away" },
+      { id:"member-4" name:"Kai Bennett" role:"UX Researcher" company:"Atlas" location:"Berlin" status:"Active" },
+      { id:"member-5" name:"Nora Kim" role:"Content Designer" company:"Canvas" location:"Seoul" status:"Active" },
+      { id:"member-6" name:"Leo Martin" role:"Product Manager" company:"Orbit" location:"Paris" status:"Busy" },
+    ]
+  fn loadMembers
+    set currentPage value:currentPage
+  Section id:"dashboard-team-directory" bg:"softMuted" minH:"vh-0" p:{ xs:4 md:8 }
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:{ xs:"start" md:"center" } gap:3
+        Grid columns:1 gap:1
+          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+            "TEAM DIRECTORY"
+          Title size:{ xs:"2xl" md:"4xl" } weight:"black"
+            "People and permissions"
+          Text size:"sm" color:"muted"
+            "Search, scan status, and move through a real paginated directory."
+        Button variant:"outlined" scheme:"muted" size:"sm" iconStart:"download-minimalistic"
+          "Export"
+      Card variant:"soft" scheme:"surface" rounded:"lg" p:{ xs:4 md:6 } border:1
+        Grid columns:1 gap:4
+          Flex direction:{ xs:"column" sm:"row" } justify:"between" align:{ xs:"stretch" sm:"end" } gap:3
+            Input bind:search label:"Search" placeholder:"Search people" iconStart:"magnifier" variant:"outlined" scheme:"muted" w:{ xs:"full" sm:80 }
+            Button variant:"solid" scheme:"primary" size:"md" iconStart:"filter"
+              "Filter"
+          Grid columns:1 gap:0
+            Grid columns:{ xs:"1fr auto" md:"2fr 1fr 1fr 1fr auto" } gap:3 align:"center" p:3 border:1 borderColor:"muted"
+              Text size:"xs" weight:"bold"
+                "Member"
+              Text size:"xs" weight:"bold" show:{ xs:false md:true }
+                "Company"
+              Text size:"xs" weight:"bold" show:{ xs:false md:true }
+                "Location"
+              Text size:"xs" weight:"bold" show:{ xs:false md:true }
+                "Status"
+              Box
+            each in:members as:member key:member.id
+              Grid columns:{ xs:"1fr auto" md:"2fr 1fr 1fr 1fr auto" } gap:3 align:"center" p:3 border:1 borderColor:"muted"
+                Flex align:"center" gap:3
+                  Avatar name:"Team member" alt:"Team member avatar placeholder" size:"md" variant:"soft" scheme:"primary"
+                  Grid columns:1 gap:1
+                    Text size:"sm" weight:"bold"
+                      "{member.name}"
+                    Text size:"xs" color:"muted"
+                      "{member.role}"
+                Text size:"sm" show:{ xs:false md:true }
+                  "{member.company}"
+                Text size:"sm" show:{ xs:false md:true }
+                  "{member.location}"
+                Chip variant:"soft" scheme:"success" show:{ xs:false md:true }
+                  "{member.status}"
+                IconButton icon:"menu-dots" label:"Open member actions" variant:"ghost" scheme:"muted" size:"sm"
+          Flex direction:{ xs:"column" sm:"row" } justify:"between" align:{ xs:"start" sm:"center" } gap:3 pt:3
+            Text size:"sm" color:"muted"
+              "Showing 1–6 of 24 members"
+            Pagination bind:currentPage total:totalMembers pageSize:6 onChange:loadMembers variant:"ghost" scheme:"primary" size:"sm" ariaLabel:"Team directory pages"

@@ -1,0 +1,47 @@
+page MediaCardsPricingPage
+  const plans:
+    value:[
+      {
+        id:"basic"
+        name:"BASIC PLAN"
+        price:"$99/mo"
+        description:"A focused plan for individuals validating an idea and building a steady workflow."
+      },
+      {
+        id:"growth"
+        name:"GROWTH PLAN"
+        price:"$199/mo"
+        description:"More capacity and support for teams turning repeatable work into reliable growth."
+      },
+      {
+        id:"enterprise"
+        name:"ENTERPRISE PLAN"
+        price:"$399/mo"
+        description:"Advanced scale, dedicated support, and room for organization-wide collaboration."
+      },
+    ]
+  Section id:"media-cards-pricing" bg:"background" color:"onBackground" boxed:true minH:"vh-0" py:{ xs:8 md:12 }
+    Grid columns:1 gap:{ xs:8 md:12 }
+      Flex direction:"column" align:"center" gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PRICING"
+        Title size:{ xs:"4xl" md:"6xl" } weight:"black"
+          "Affordable pricing plans"
+        Text size:"lg" color:"muted"
+          "Pick the level of support and capacity that best matches your next stage of growth."
+      Grid columns:{ xs:1 md:3 } gap:5 align:"stretch"
+        each in:plans as:plan key:plan.id
+          Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 }
+            Flex direction:"column" align:"center" justify:"between" gap:5 minH:{ xs:80 md:96 }
+              Flex direction:"column" align:"center" gap:4
+                Box bg:"softMuted" rounded:"full" w:24 h:24
+                  Flex align:"center" justify:"center" w:"full" h:"full"
+                    Icon name:"gallery" style:"bold-duotone" fill:"muted" w:12 h:12
+                Title size:"3xl" weight:"black"
+                  "{plan.price}"
+                Text size:"sm" weight:"bold" spacing:"widest" color:"muted"
+                  "{plan.name}"
+                Text color:"muted"
+                  "{plan.description}"
+              Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" w:"full"
+                "Get started"

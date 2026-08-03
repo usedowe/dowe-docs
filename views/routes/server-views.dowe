@@ -3,11 +3,20 @@ import ServerLayout from "@/views/layouts/server-layout"
 import TlsPage from "@/views/pages/server/tls-page"
 import KvPage from "@/views/pages/server/kv-page"
 import VectorPage from "@/views/pages/server/vector-page"
+import QueuePage from "@/views/pages/server/queue-page"
 import JwtPage from "@/views/pages/server/jwt-page"
 import SessionPage from "@/views/pages/server/session-page"
 import SpawnPage from "@/views/pages/server/spawn-page"
 import HttpPage from "@/views/pages/server/http-page"
 import CryptoPage from "@/views/pages/server/crypto-page"
+import StandardLibraryPage from "@/views/pages/server/standard-library-page"
+import RequestBytesPage from "@/views/pages/server/request-bytes-page"
+import FileStoragePage from "@/views/pages/server/file-storage-page"
+import ReverseProxyPage from "@/views/pages/server/reverse-proxy-page"
+import TasksPage from "@/views/pages/server/tasks-page"
+import BackgroundJobsPage from "@/views/pages/server/background-jobs-page"
+import PasswordsPage from "@/views/pages/server/passwords-page"
+import CloudControlPlanePage from "@/views/pages/server/cloud-control-plane-page"
 import DatabasePage from "@/views/pages/server/db/db-page"
 import DatabaseSelectPage from "@/views/pages/server/db/select-page"
 import DatabaseInsertPage from "@/views/pages/server/db/insert-page"
@@ -24,11 +33,20 @@ views ServerViews
     route path:"db" page:DatabasePage
     route path:"kv" page:KvPage
     route path:"vector" page:VectorPage
+    route path:"queue" page:QueuePage
     route path:"jwt" page:JwtPage
     route path:"session" page:SessionPage
     route path:"spawn" page:SpawnPage
     route path:"http" page:HttpPage
     route path:"crypto" page:CryptoPage
+    route path:"standard-library" page:StandardLibraryPage
+    route path:"request-bytes" page:RequestBytesPage
+    route path:"file-storage" page:FileStoragePage
+    route path:"reverse-proxy" page:ReverseProxyPage
+    route path:"tasks" page:TasksPage
+    route path:"background-jobs" page:BackgroundJobsPage
+    route path:"passwords" page:PasswordsPage
+    route path:"cloud-control-plane" page:CloudControlPlanePage
     route path:"db/select" page:DatabaseSelectPage
     route path:"db/insert" page:DatabaseInsertPage
     route path:"db/update" page:DatabaseUpdatePage

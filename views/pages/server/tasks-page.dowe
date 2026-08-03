@@ -1,0 +1,134 @@
+page TasksPage
+  Section id:"tasks-introduction" py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SERVER / TASKS"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Start isolated work now"
+        Text size:"lg" color:"muted"
+          "Tasks start detached server work immediately. The caller continues without a result while Dowe runs the work in an isolated worker."
+      Button href:"/docs/server/background-jobs" variant:"ghost" scheme:"muted" size:"sm" iconStart:"chart-2"
+        "Scheduled cron jobs"
+  Section id:"tasks-named" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "NAMED TASKS"
+        Title size:"3xl" weight:"black"
+          "Reuse an imported server function"
+        Text size:"sm" color:"muted"
+          "Use a named task when the detached work belongs in a reusable server module. The caller evaluates args before the worker starts, then returns immediately."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          import writeAudit from "@/server/tasks/write-audit"
+
+          handler createOrder
+            const order value:req.json
+            task writeAudit args:{ orderId:order.id event:"order.created" }
+            return status:202 json:{ accepted:true }
+        """
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Explicit data"
+          Text size:"sm" color:"muted"
+            "Pass JSON-compatible values through args so the worker receives only the data it needs."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Independent worker"
+          Text size:"sm" color:"muted"
+            "The function resolves Database, Cache, and provider access inside its own server process."
+        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "No result binding"
+          Text size:"sm" color:"muted"
+            "Task results are intentionally discarded. Worker failures are logged without failing the caller."
+  Section id:"tasks-reverse-proxy" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "REVERSE-PROXY TELEMETRY"
+        Title size:"3xl" weight:"black"
+          "Measure a real upstream response"
+        Text size:"sm" color:"muted"
+          "Tasks are immediate by default. Only a direct handler that finishes with return reverse can opt into after headers timing."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          import RouteCache from "@/server/config/cache"
+          import emitTelemetry from "@/server/tasks/telemetry"
+
+          handler forwardRequest
+            request host source:"header" name:"Host"
+            kv route conn:RouteCache.get key:host required:true
+            task emitTelemetry args:{ event:{ projectId:route.projectId status:0 method:"" path:"" latencyMs:0 bytesIn:0 bytesOut:0 custom:"edge" } } after:"headers"
+            return reverse:route.url
+        """
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"outlined" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Headers, not fallbacks"
+          Text size:"sm" color:"muted"
+            "The task starts after real upstream headers. Upstream 4xx and 5xx responses count; local loading, error, or connection failures do not."
+        Card variant:"outlined" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Measured event"
+          Text size:"sm" color:"muted"
+            "Dowe overwrites status, method, path, latency, input bytes, and output bytes while preserving custom event fields. Missing Content-Length becomes zero."
+        Card variant:"outlined" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Tight scope"
+          Text size:"sm" color:"muted"
+            "after headers is rejected in init, reusable functions, middleware, WebSockets, protocol handlers, non-reverse handlers, and cron."
+  Section id:"tasks-inline" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "INLINE TASKS"
+        Title size:"3xl" weight:"black"
+          "Keep small detached work local"
+        Text size:"sm" color:"muted"
+          "An inline task is useful when the work is short and does not deserve a reusable module. Its body has its own worker scope."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          handler createOrder
+            const order value:req.json
+            task args:{ orderId:order.id }
+              str auditKey source:"join" values:["order", args.orderId] delimiter:":"
+              log "queued audit" auditKey
+            return status:202 json:{ accepted:true }
+        """
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"outlined" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Pass values through args"
+          Text size:"sm" color:"muted"
+            "Inline bodies can use args and imported server configuration, but cannot capture handler locals, req, environment values, or runtime handles."
+        Card variant:"outlined" scheme:"surface" p:5 rounded:"md"
+          Title size:"lg" weight:"bold"
+            "Keep control at the caller"
+          Text size:"sm" color:"muted"
+            "Inline tasks cannot return a value, launch another task or cron registration, or send an HTTP or WebSocket response."
+  Section id:"tasks-limits" pb:{ xs:7 md:10 }
+    Grid columns:1 gap:4
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "PROCESS BOUNDARY"
+      Title size:"3xl" weight:"black"
+        "Choose tasks for non-critical work"
+      Text size:"sm" color:"muted"
+        "Tasks do not expose cancellation, inspection, retry, or durable delivery. Use cron for UTC schedules, and keep a request synchronous when its response depends on the result."
