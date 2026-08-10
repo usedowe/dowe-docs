@@ -51,7 +51,7 @@ page DatePage
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Date"
         Text size:"lg" color:"muted"
-          "Date provides an Input-like trigger with a custom calendar dropdown, typed string values, explicit bounds, and consistent feedback."
+          "Date provides an Input-like trigger with a custom calendar dropdown, typed string values, explicit bounds, and consistent feedback. Its sm, md, and lg sizes scale both trigger height and displayed date text."
   Section id:"date-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
@@ -128,14 +128,14 @@ page DatePage
         Title size:"3xl" weight:"black"
           "Pair dates with useful context"
         Text size:"sm" color:"muted"
-          "helpText guides the selection and errorText reserves a clear correction path when a workflow validates the date."
+          "helpText guides selection and errorText reserves a correction path. Sizes map to 32, 40, and 48 logical units; labelFloating adds 8."
       Grid columns:{ xs:1 md:2 } gap:5
         Date value:"2026-12-05" label:"Billing date" helpText:"Invoices close on the fifth business day." variant:"outlined" scheme:"success" size:"sm" name:"billing-date"
         Date value:"2026-12-05" label:"Date needs review" errorText:"This date must fall after the contract start date." variant:"outlined" scheme:"danger" size:"lg" name:"review-date"
       Flex wrap:true justify:"center" align:"center" gap:3
-        Date value:"2026-08-10" label:"Small" variant:"outlined" scheme:"primary" size:"sm"
-        Date value:"2026-08-10" label:"Medium" variant:"outlined" scheme:"primary" size:"md"
-        Date value:"2026-08-10" label:"Large" variant:"outlined" scheme:"primary" size:"lg"
+        Date value:"2026-08-10" label:"Small" labelFloating:true variant:"outlined" scheme:"primary" size:"sm"
+        Date value:"2026-08-10" label:"Medium" labelFloating:true variant:"outlined" scheme:"primary" size:"md"
+        Date value:"2026-08-10" label:"Large" labelFloating:true variant:"outlined" scheme:"primary" size:"lg"
   Section id:"date-contract" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
@@ -144,7 +144,7 @@ page DatePage
         Title size:"3xl" weight:"black"
           "One calendar-day contract"
         Text size:"sm" color:"muted"
-          "Dowe lowers the same string value, bounds, label, and feedback model to web, SwiftUI, and Compose."
+          "Dowe lowers the same string value, bounds, label, and feedback model to web, SwiftUI, and Compose. The floating label stays aligned with the displayed date instead of the trailing calendar affordance."
       Grid columns:{ xs:1 md:3 } gap:4
         Card variant:"soft" scheme:"surface" p:5 rounded:"md"
           Grid columns:1 gap:2

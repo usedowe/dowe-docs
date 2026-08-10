@@ -1,6 +1,60 @@
 page SvgPage
-  signal svgSource value:"<svg width='120px' height='72px' viewBox='0 0 120 72'><g transform='matrix(1,0,0,1,8,8)'><path d='M0 0L48 0L48 48L0 48Z' style='fill:rgb(31,58,95)'/><path d='M56 0L104 24L56 48Z' style='fill:rgb(107,198,112)'/></g></svg>"
-  signal doweSvg value:""
+  signal svgSource:
+    value:"""
+      <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+      <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+      <svg width="861px" height="861px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+          <g transform="matrix(1,0,0,1,-836.178226,-2166.5)">
+              <g transform="matrix(1,0,0,1,-848.085069,-36.99298)">
+                  <g transform="matrix(1,0,0,1,-556.974379,-1001.579391)">
+                      <path d="M2475.471,3641.373L2475.471,3396.15L2646.754,3396.15C2649.985,3396.15 2653.19,3396.188 2656.369,3396.263C2667.689,3396.529 2678.675,3397.269 2689.326,3398.483C2707.154,3400.516 2724.046,3403.877 2740,3408.565C2793.681,3426.61 2838.886,3463.176 2868.004,3510.653L2757.787,3691.776C2756.045,3694.638 2752.992,3696.445 2749.645,3696.594C2746.298,3696.743 2743.096,3695.215 2741.107,3692.519L2668.469,3594.059C2666.59,3591.512 2663.558,3590.078 2660.397,3590.242C2657.236,3590.406 2654.369,3592.145 2652.763,3594.873L2569.928,3735.578C2568.345,3738.268 2565.549,3740.016 2562.438,3740.263C2559.327,3740.51 2556.291,3739.224 2554.303,3736.817L2475.471,3641.373Z" style="fill:rgb(31,58,96);"/>
+                  </g>
+                  <g transform="matrix(1,0,0,1,-556.974379,-1001.579391)">
+                      <path d="M2868.004,3510.653C2890.314,3547.029 2903.181,3589.81 2903.181,3635.572C2903.181,3741.063 2834.809,3830.71 2740,3862.579C2724.046,3867.268 2707.154,3870.629 2689.326,3872.661C2678.675,3873.876 2667.689,3874.616 2656.369,3874.882C2653.19,3874.957 2649.985,3874.994 2646.754,3874.994L2475.471,3874.994L2475.471,3641.373L2554.303,3736.817C2556.291,3739.224 2559.327,3740.51 2562.438,3740.263C2565.549,3740.016 2568.345,3738.268 2569.928,3735.578L2652.763,3594.873C2654.369,3592.145 2657.236,3590.406 2660.397,3590.242C2663.558,3590.078 2666.59,3591.512 2668.469,3594.059L2741.107,3692.519C2743.096,3695.215 2746.298,3696.743 2749.645,3696.594C2752.992,3696.445 2756.045,3694.638 2757.787,3691.776L2868.004,3510.653Z" style="fill:rgb(107,198,110);"/>
+                  </g>
+              </g>
+              <g transform="matrix(0.910148,0,0,0.910148,-628.396678,152.342495)">
+                  <path d="M2082.161,2213C2343.217,2213 2555.161,2424.944 2555.161,2686C2555.161,2947.056 2343.217,3159 2082.161,3159C1821.105,3159 1609.161,2947.056 1609.161,2686C1609.161,2424.944 1821.105,2213 2082.161,2213ZM2082.161,2272.675C2310.282,2272.675 2495.486,2457.88 2495.486,2686C2495.486,2914.12 2310.282,3099.325 2082.161,3099.325C1854.041,3099.325 1668.836,2914.12 1668.836,2686C1668.836,2457.88 1854.041,2272.675 2082.161,2272.675Z" style="fill:rgb(107,198,110);"/>
+              </g>
+          </g>
+      </svg>
+    """
+  signal doweSvg:
+    value:"""
+      Svg viewBox:"0 0 861 861" w:"full" h:"full"
+        Path d:"M2475.471,3641.373L2475.471,3396.15L2646.754,3396.15C2649.985,3396.15 2653.19,3396.188 2656.369,3396.263C2667.689,3396.529 2678.675,3397.269 2689.326,3398.483C2707.154,3400.516 2724.046,3403.877 2740,3408.565C2793.681,3426.61 2838.886,3463.176 2868.004,3510.653L2757.787,3691.776C2756.045,3694.638 2752.992,3696.445 2749.645,3696.594C2746.298,3696.743 2743.096,3695.215 2741.107,3692.519L2668.469,3594.059C2666.59,3591.512 2663.558,3590.078 2660.397,3590.242C2657.236,3590.406 2654.369,3592.145 2652.763,3594.873L2569.928,3735.578C2568.345,3738.268 2565.549,3740.016 2562.438,3740.263C2559.327,3740.51 2556.291,3739.224 2554.303,3736.817L2475.471,3641.373Z" fill:"#1f3a60" fillRule:"evenodd" transform:"matrix(1 0 0 1 -2241.237674 -3205.072371)"
+        Path d:"M2868.004,3510.653C2890.314,3547.029 2903.181,3589.81 2903.181,3635.572C2903.181,3741.063 2834.809,3830.71 2740,3862.579C2724.046,3867.268 2707.154,3870.629 2689.326,3872.661C2678.675,3873.876 2667.689,3874.616 2656.369,3874.882C2653.19,3874.957 2649.985,3874.994 2646.754,3874.994L2475.471,3874.994L2475.471,3641.373L2554.303,3736.817C2556.291,3739.224 2559.327,3740.51 2562.438,3740.263C2565.549,3740.016 2568.345,3738.268 2569.928,3735.578L2652.763,3594.873C2654.369,3592.145 2657.236,3590.406 2660.397,3590.242C2663.558,3590.078 2666.59,3591.512 2668.469,3594.059L2741.107,3692.519C2743.096,3695.215 2746.298,3696.743 2749.645,3696.594C2752.992,3696.445 2756.045,3694.638 2757.787,3691.776L2868.004,3510.653Z" fill:"#6bc66e" fillRule:"evenodd" transform:"matrix(1 0 0 1 -2241.237674 -3205.072371)"
+        Path d:"M2082.161,2213C2343.217,2213 2555.161,2424.944 2555.161,2686C2555.161,2947.056 2343.217,3159 2082.161,3159C1821.105,3159 1609.161,2947.056 1609.161,2686C1609.161,2424.944 1821.105,2213 2082.161,2213ZM2082.161,2272.675C2310.282,2272.675 2495.486,2457.88 2495.486,2686C2495.486,2914.12 2310.282,3099.325 2082.161,3099.325C1854.041,3099.325 1668.836,2914.12 1668.836,2686C1668.836,2457.88 1854.041,2272.675 2082.161,2272.675Z" fill:"#6bc66e" fillRule:"evenodd" transform:"matrix(0.910148 0 0 0.910148 -1464.574904 -2014.157505)"
+    """
+  signal svgPreview:
+    value:"""
+      {
+        "viewBox":"0 0 861 861",
+        "paths":[
+          {
+            "d":"M2475.471,3641.373L2475.471,3396.15L2646.754,3396.15C2649.985,3396.15 2653.19,3396.188 2656.369,3396.263C2667.689,3396.529 2678.675,3397.269 2689.326,3398.483C2707.154,3400.516 2724.046,3403.877 2740,3408.565C2793.681,3426.61 2838.886,3463.176 2868.004,3510.653L2757.787,3691.776C2756.045,3694.638 2752.992,3696.445 2749.645,3696.594C2746.298,3696.743 2743.096,3695.215 2741.107,3692.519L2668.469,3594.059C2666.59,3591.512 2663.558,3590.078 2660.397,3590.242C2657.236,3590.406 2654.369,3592.145 2652.763,3594.873L2569.928,3735.578C2568.345,3738.268 2565.549,3740.016 2562.438,3740.263C2559.327,3740.51 2556.291,3739.224 2554.303,3736.817L2475.471,3641.373Z",
+            "paint":"fill",
+            "color":"#1f3a60",
+            "transform":"matrix(1 0 0 1 -2241.237674 -3205.072371)",
+            "evenOdd":true
+          },
+          {
+            "d":"M2868.004,3510.653C2890.314,3547.029 2903.181,3589.81 2903.181,3635.572C2903.181,3741.063 2834.809,3830.71 2740,3862.579C2724.046,3867.268 2707.154,3870.629 2689.326,3872.661C2678.675,3873.876 2667.689,3874.616 2656.369,3874.882C2653.19,3874.957 2649.985,3874.994 2646.754,3874.994L2475.471,3874.994L2475.471,3641.373L2554.303,3736.817C2556.291,3739.224 2559.327,3740.51 2562.438,3740.263C2565.549,3740.016 2568.345,3738.268 2569.928,3735.578L2652.763,3594.873C2654.369,3592.145 2657.236,3590.406 2660.397,3590.242C2663.558,3590.078 2666.59,3591.512 2668.469,3594.059L2741.107,3692.519C2743.096,3695.215 2746.298,3696.743 2749.645,3696.594C2752.992,3696.445 2756.045,3694.638 2757.787,3691.776L2868.004,3510.653Z",
+            "paint":"fill",
+            "color":"#6bc66e",
+            "transform":"matrix(1 0 0 1 -2241.237674 -3205.072371)",
+            "evenOdd":true
+          },
+          {
+            "d":"M2082.161,2213C2343.217,2213 2555.161,2424.944 2555.161,2686C2555.161,2947.056 2343.217,3159 2082.161,3159C1821.105,3159 1609.161,2947.056 1609.161,2686C1609.161,2424.944 1821.105,2213 2082.161,2213ZM2082.161,2272.675C2310.282,2272.675 2495.486,2457.88 2495.486,2686C2495.486,2914.12 2310.282,3099.325 2082.161,3099.325C1854.041,3099.325 1668.836,2914.12 1668.836,2686C1668.836,2457.88 1854.041,2272.675 2082.161,2272.675Z",
+            "paint":"fill",
+            "color":"#6bc66e",
+            "transform":"matrix(0.910148 0 0 0.910148 -1464.574904 -2014.157505)",
+            "evenOdd":true
+          }
+        ]
+      }
+    """
   const svgProps:
     value:[
       {
@@ -38,8 +92,13 @@ page SvgPage
       },
       {
         prop:"fill"
-        type:"currentColor | none | color token"
+        type:"currentColor | none | hex | color token"
         defaultValue:"currentColor"
+      },
+      {
+        prop:"fillRule"
+        type:"nonzero | evenodd"
+        defaultValue:"nonzero"
       },
       {
         prop:"transform"
@@ -48,7 +107,8 @@ page SvgPage
       },
     ]
   fn convertSvg
-    set doweSvg source:parse.svg value:svgSource fallback:""
+    set doweSvg source:parse.svg value:svgSource fallback:"" colors:"original" format:"source"
+    set svgPreview source:parse.svg value:svgSource fallback:"" colors:"original" format:"data"
   Section id:"svg-introduction" py:{ xs:6 md:10 }
     Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
       Grid columns:1 gap:3
@@ -58,9 +118,6 @@ page SvgPage
           "Svg"
         Text size:"lg" color:"muted"
           "Svg renders portable inline vector paths from one target-neutral Dowe source tree."
-      Svg viewBox:"0 0 120 72" w:32 h:20
-        Path d:"M0 0L48 0L48 48L0 48Z" fill:"primary" transform:"matrix(1 0 0 1 8 8)"
-        Path d:"M56 0L104 24L56 48Z" fill:"secondary" transform:"matrix(1 0 0 1 8 8)"
   Section id:"svg-converter" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
@@ -84,6 +141,11 @@ page SvgPage
           Button onClick:convertSvg variant:"solid" scheme:"primary" iconStart:"code"
             "Convert to Dowe"
         Grid columns:1 gap:3
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+              "PREVIEW"
+            Box p:4 border:1 rounded:"lg" w:"full"
+              Svg data:svgPreview w:"full" h:48
           Code:
             language:"dowe"
             template:true
@@ -93,7 +155,7 @@ page SvgPage
             copiedLabel:"Copied"
             content:"{doweSvg}"
           Text size:"xs" color:"muted"
-            "The importer maps distinct SVG fills to primary, secondary, tertiary, and the remaining semantic color tokens in encounter order."
+            "The preview and generated Path declarations preserve original colors and inherited evenodd fill rules, so compound-path holes remain visible."
       Code:
         language:"dowe"
         variant:"soft"
@@ -101,16 +163,19 @@ page SvgPage
         copyLabel:"Copy function"
         copiedLabel:"Copied"
         content:"""
-          signal svgSource value:"<svg viewBox='0 0 24 24'><path d='M4 4L20 4L12 20Z'/></svg>"
+          signal svgSource value:"<svg viewBox='0 0 24 24' style='fill-rule:evenodd'><path d='M2 2H22V22H2ZM7 7H17V17H7Z'/></svg>"
           signal doweSvg value:""
+          signal svgPreview value:""
 
           fn convertSvg
-            set doweSvg source:parse.svg value:svgSource fallback:""
+            set doweSvg source:parse.svg value:svgSource fallback:"" colors:"original" format:"source"
+            set svgPreview source:parse.svg value:svgSource fallback:"" colors:"original" format:"data"
 
           Textarea bind:svgSource label:"SVG source" rows:12
           Button onClick:convertSvg
             "Convert to Dowe"
           Code language:"dowe" template:true content:"{doweSvg}"
+          Svg data:svgPreview w:"full" h:48
         """
   Section id:"svg-contract" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
@@ -138,15 +203,19 @@ page SvgPage
         copiedLabel:"Copied"
         content:"""
           Svg viewBox:"0 0 120 72" w:32 h:20
-            Path d:"M0 0L48 0L48 48L0 48Z" fill:"primary" transform:"matrix(1 0 0 1 8 8)"
-            Path d:"M56 0L104 24L56 48Z" fill:"secondary" transform:"matrix(1 0 0 1 8 8)"
+            Path d:"M42 24H60C70 24 78 29 82 36L72 48L62 34L52 48L42 36Z" fill:"#1f3a60"
+            Path d:"M60 4A32 32 0 1 1 60 68A32 32 0 1 1 60 4ZM60 10A26 26 0 1 0 60 62A26 26 0 1 0 60 10Z" fill:"#6bc66e" fillRule:"evenodd"
         """
   Section id:"svg-support" p:{ xs:5 md:7 }
     Grid columns:1 gap:4
       Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
         "PORTABLE SUBSET"
       Title size:"3xl" weight:"black"
-        "Paths and affine matrices"
-      Alert type:"info" message:"parse.svg imports svg, g, and path elements plus matrix(...) transforms. It ignores unsupported drawing elements and never executes scripts, DTD, external entities, or user JavaScript." variant:"soft" scheme:"info"
+        "Paths, fill rules, and affine matrices"
+      Alert:
+        type:"info"
+        message:"parse.svg imports svg, g, path, and non-rounded rect elements; inherits nonzero or evenodd fill-rule; and flattens matrix(...) transforms. It ignores unsupported drawing elements and never executes scripts, DTD, external entities, or user JavaScript."
+        variant:"soft"
+        scheme:"info"
       Text size:"sm" color:"muted"
-        "Web emits inline SVG. Android draws the same path model on Canvas, and iOS renders it as SwiftUI paths while caching parsed geometry across drawing passes. Adjust w and h after conversion for the destination layout."
+        "Generated source writes inherited evenodd as Path fillRule, while preview data uses evenOdd. Web, Android Canvas, and iOS SwiftUI consume the same normalized rule and geometry."

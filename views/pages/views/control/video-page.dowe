@@ -51,13 +51,6 @@ page VideoPage
           "Video"
         Text size:"lg" color:"muted"
           "Video plays one portable HTTPS media source with the same Dowe-drawn controls on web, Android, and iOS."
-      Video:
-        src:"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
-        poster:"https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1200&q=80"
-        variant:"soft"
-        scheme:"success"
-        rounded:"lg"
-        minW:56
   Section id:"video-source" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
@@ -99,9 +92,7 @@ page VideoPage
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
-        content:"""
-          Video src:"https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8" poster:"/images/trailer.jpg" autoplay:false aspect:"horizontal" scheme:"surface"
-        """
+        content:"Video src:\"https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8\" poster:\"/images/trailer.jpg\" autoplay:false aspect:\"horizontal\" scheme:\"surface\""
   Section id:"video-aspect" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
@@ -113,15 +104,30 @@ page VideoPage
           "horizontal is 16 / 9, vertical is 9 / 16, and square is 1 / 1. Video content stays aspect-fit and centered on both axes while poster artwork covers the authored frame."
       Grid columns:{ xs:1 md:3 } gap:4
         Grid columns:1 gap:2
-          Video src:"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" aspect:"horizontal" variant:"solid" scheme:"surface" rounded:"md"
+          Video:
+            src:"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+            aspect:"horizontal"
+            variant:"solid"
+            scheme:"surface"
+            rounded:"md"
           Text size:"sm" weight:"bold"
             "horizontal · 16 / 9"
         Grid columns:1 gap:2
-          Video src:"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" aspect:"vertical" variant:"solid" scheme:"surface" rounded:"md"
+          Video:
+            src:"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+            aspect:"vertical"
+            variant:"solid"
+            scheme:"surface"
+            rounded:"md"
           Text size:"sm" weight:"bold"
             "vertical · 9 / 16"
         Grid columns:1 gap:2
-          Video src:"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" aspect:"square" variant:"solid" scheme:"surface" rounded:"md"
+          Video:
+            src:"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+            aspect:"square"
+            variant:"solid"
+            scheme:"surface"
+            rounded:"md"
           Text size:"sm" weight:"bold"
             "square · 1 / 1"
       Code:
@@ -130,9 +136,7 @@ page VideoPage
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
-        content:"""
-          Video src:"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" aspect:"vertical" rounded:"lg"
-        """
+        content:"Video src:\"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4\" aspect:\"vertical\" rounded:\"lg\""
   Section id:"video-surface" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
@@ -161,9 +165,7 @@ page VideoPage
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
-        content:"""
-          Video src:"https://example.com/trailer.mp4" variant:"outlined" scheme:"warning" rounded:"md"
-        """
+        content:"Video src:\"https://example.com/trailer.mp4\" variant:\"outlined\" scheme:\"warning\" rounded:\"md\""
   Section id:"video-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2

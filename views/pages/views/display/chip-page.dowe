@@ -5,6 +5,9 @@ page ChipPage
       { prop:"scheme" type:"primary | secondary | tertiary | muted | background | surface | success | info | warning | danger" defaultValue:"muted" },
       { prop:"size" type:"xs | sm | md | lg | xl" defaultValue:"md" },
       { prop:"onClose" type:"Action name" defaultValue:"—" },
+      { prop:"onClick" type:"fn reference" defaultValue:"—" },
+      { prop:"rotate, scale, translateX, translateY" type:"portable transform values" defaultValue:"—" },
+      { prop:"animation, transition, gesture" type:"portable motion presets" defaultValue:"none" },
       { prop:"start" type:"optional Svg region" defaultValue:"—" },
       { prop:"end" type:"optional Svg region" defaultValue:"—" },
     ]

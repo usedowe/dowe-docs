@@ -94,7 +94,7 @@ page GridPage
         Title size:"3xl" weight:"black"
           "Adapt the structure by width"
         Text size:"sm" color:"muted"
-          "Responsive columns keep one track on small screens and add tracks as space becomes available."
+          "Responsive columns select the highest matching breakpoint while the viewport narrows or widens, without requiring a reload."
       Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
         Grid columns:{ xs:1 sm:2 md:3 } gap:4
           Box bg:"success" color:"surface" p:4 rounded:"sm"

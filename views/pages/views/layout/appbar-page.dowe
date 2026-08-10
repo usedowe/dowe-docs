@@ -22,6 +22,11 @@ page AppBarPage
         defaultValue:"false"
       },
       {
+        prop:"dockOnScroll"
+        type:"boolean · requires fixed + floating"
+        defaultValue:"false"
+      },
+      {
         prop:"bordered"
         type:"boolean"
         defaultValue:"false"
@@ -134,9 +139,11 @@ page AppBarPage
           Iframe src:"/examples/appbar-one" title:"Fixed boxed AppBar example" loading:"lazy" sandbox:"scripts same-origin"
       Flex direction:"column" gap:3
         Title size:"xl" weight:"bold"
-          "Sticky, floating, and blurred"
+          "Floating, docked on scroll"
+        Text size:"sm" color:"muted"
+          "Scroll beyond 100 logical units to animate the fixed floating surface into the viewport top edge on web, Android, and iOS. Native side controls remain on one line while the surface changes width, radius, and border."
         Device device:"mobile" w:"full" rounded:"md" border:1
-          Iframe src:"/examples/appbar-two" title:"Sticky floating AppBar example" loading:"lazy" sandbox:"scripts same-origin"
+          Iframe src:"/examples/appbar-two" title:"Floating AppBar docking on scroll example" loading:"lazy" sandbox:"scripts same-origin"
       Flex direction:"column" gap:3
         Title size:"xl" weight:"bold"
           "Full-width regions and scroll reveal"

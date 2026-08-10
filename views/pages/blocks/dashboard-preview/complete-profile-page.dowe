@@ -39,7 +39,7 @@ page DashboardCompleteProfilePage
               Select bind:profile.timezone label:"Timezone" placeholder:"Choose a timezone" variant:"outlined" scheme:"muted" w:"full"
                 each in:timezones as:timezone key:timezone.id
                   Option value:timezone.value label:timezone.label
-              PasswordField bind:profile.password label:"Create a password" placeholder:"Use a secure password" hideStrength:false variant:"outlined" scheme:"muted" w:"full"
+              Password bind:profile.password label:"Create a password" placeholder:"Use a secure password" hideStrength:false variant:"outlined" scheme:"muted" w:"full"
           step id:"finish" label:"Finish"
             Grid columns:1 gap:4 p:{ xs:2 md:4 }
               Avatar name:"Profile" alt:"Profile photo placeholder" size:"lg" variant:"soft" scheme:"primary"

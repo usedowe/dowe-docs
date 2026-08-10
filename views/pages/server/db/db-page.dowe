@@ -90,6 +90,12 @@ page DatabasePage
           scheme:"secondary"
           iconStart:"restart"
           "Transactions"
+        Button:
+          href:"/docs/server/db/entities"
+          variant:"soft"
+          scheme:"primary"
+          iconStart:"document-text"
+          "Entities"
   Section id:"database-providers" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
@@ -183,6 +189,8 @@ page DatabasePage
           "Describe shape once, seed it deterministically"
         Text size:"sm" color:"muted"
           "entity and seeder are importable server bindings. Postgres and D1 use the selected entities to generate migration SQL; Dowe Database remains schema-less. Seeders run once per database and fingerprint."
+        Button href:"/docs/server/db/entities" variant:"soft" scheme:"primary" size:"sm"
+          "Read the entity contract"
       Code:
         language:"dowe"
         variant:"soft"

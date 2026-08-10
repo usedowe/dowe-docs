@@ -56,7 +56,7 @@ page ComboBoxPage
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "ComboBox"
         Text size:"lg" color:"muted"
-          "ComboBox combines a searchable popover, static options, optional clearing, and a typed single-selection Signal."
+          "ComboBox combines a searchable popover, static options, optional clearing, and a typed single-selection Signal. Its sm, md, and lg sizes scale both control height and displayed text on every target."
   Section id:"combo-box-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
@@ -116,7 +116,7 @@ page ComboBoxPage
         Title size:"3xl" weight:"black"
           "Tune the control to its context"
         Text size:"sm" color:"muted"
-          "The searchable behavior stays constant while the field surface and touch density adapt to the surrounding form."
+          "The searchable behavior stays constant while sm, md, and lg map to 32, 40, and 48 logical units. labelFloating adds 8 on every target."
       Grid columns:{ xs:1 md:2 } gap:5
         ComboBox value:"design" label:"Soft field" placeholder:"Choose a team" variant:"soft" scheme:"secondary" size:"sm" name:"soft-team"
           comboOption value:"design" label:"Design" description:"Tokens and visual systems." icon:"edit"
@@ -154,11 +154,11 @@ page ComboBoxPage
           comboOption value:"billing" label:"Billing" description:"Plans and invoices." icon:"settings"
           comboOption value:"usage" label:"Usage" description:"Consumption and limits." icon:"search"
       Flex wrap:true justify:"center" align:"center" gap:3
-        ComboBox value:"small" label:"Small" variant:"outlined" scheme:"primary" size:"sm" name:"small-catalog"
+        ComboBox value:"small" label:"Small" labelFloating:true variant:"outlined" scheme:"primary" size:"sm" name:"small-catalog"
           comboOption value:"small" label:"Small catalog"
-        ComboBox value:"medium" label:"Medium" variant:"outlined" scheme:"primary" size:"md" name:"medium-catalog"
+        ComboBox value:"medium" label:"Medium" labelFloating:true variant:"outlined" scheme:"primary" size:"md" name:"medium-catalog"
           comboOption value:"medium" label:"Medium catalog"
-        ComboBox value:"large" label:"Large" variant:"outlined" scheme:"primary" size:"lg" name:"large-catalog"
+        ComboBox value:"large" label:"Large" labelFloating:true variant:"outlined" scheme:"primary" size:"lg" name:"large-catalog"
           comboOption value:"large" label:"Large catalog"
   Section id:"combo-box-contract" py:{ xs:7 md:10 }
     Grid columns:1 gap:5

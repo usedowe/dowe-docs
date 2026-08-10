@@ -3,7 +3,9 @@ import Logo from "@/views/components/logo"
 import Github from "@/views/components/github"
 layout ViewsLayout
   meta name:"title" content:"Dowe Views Documentation"
-  meta name:"description" content:"Learn Dowe layouts, pages, components, state, routing, and web generation."
+  meta:
+    name:"description"
+    content:"Learn Dowe layouts, pages, components, state, routing, and web generation."
   meta name:"og:image" content:"https://dowe.dev/icons/web/icon-512x512.png"
   meta name:"og:image:alt" content:"Dowe logo"
   meta name:"og:type" content:"website"
@@ -40,10 +42,10 @@ layout ViewsLayout
     overlays
       Drawer open:openDrawer
         header
-          NavMenu
-            item label:"Views" href:"/docs/views"
-            item label:"Server" href:"/docs/server"
+          NavMenu size:"sm"
             item label:"Dev" href:"/docs/dev"
+            item label:"Server" href:"/docs/server"
+            item label:"Views" href:"/docs/views"
             item label:"Blocks" href:"/blocks/hero"
         body
           ViewsNavigation

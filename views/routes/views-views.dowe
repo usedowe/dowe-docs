@@ -31,9 +31,9 @@ import DragDropPage from "@/views/pages/views/forms/drag-drop-page"
 import DropzonePage from "@/views/pages/views/forms/dropzone-page"
 import EditorPage from "@/views/pages/views/forms/editor-page"
 import ImageCropperPage from "@/views/pages/views/forms/image-cropper-page"
-import PasswordFieldPage from "@/views/pages/views/forms/password-field-page"
-import PhoneFieldPage from "@/views/pages/views/forms/phone-field-page"
-import PinFieldPage from "@/views/pages/views/forms/pin-field-page"
+import PasswordPage from "@/views/pages/views/forms/password-page"
+import PhonePage from "@/views/pages/views/forms/phone-page"
+import PinPage from "@/views/pages/views/forms/pin-page"
 import AlertPage from "@/views/pages/views/display/alert-page"
 import AvatarPage from "@/views/pages/views/display/avatar-page"
 import AvatarGroupPage from "@/views/pages/views/display/avatar-group-page"
@@ -81,6 +81,11 @@ import WidthPage from "@/views/pages/views/styles/width-page"
 import HeightPage from "@/views/pages/views/styles/height-page"
 import BorderPage from "@/views/pages/views/styles/border-page"
 import ShadowPage from "@/views/pages/views/styles/shadow-page"
+import TransformsPage from "@/views/pages/views/styles/transforms-page"
+import AnimationsPage from "@/views/pages/views/styles/animations-page"
+import TransitionsPage from "@/views/pages/views/styles/transitions-page"
+import GesturesPage from "@/views/pages/views/styles/gestures-page"
+import EventsPage from "@/views/pages/views/styles/events-page"
 import VideoPage from "@/views/pages/views/control/video-page"
 import RecordPage from "@/views/pages/views/control/record-page"
 import ToggleGroupPage from "@/views/pages/views/control/toggle-group-page"
@@ -114,6 +119,11 @@ views ViewsViews
     route path:"style/height" page:HeightPage
     route path:"style/border" page:BorderPage
     route path:"style/shadow" page:ShadowPage
+    route path:"style/transforms" page:TransformsPage
+    route path:"style/animations" page:AnimationsPage
+    route path:"style/transitions" page:TransitionsPage
+    route path:"style/gestures" page:GesturesPage
+    route path:"style/events" page:EventsPage
     route path:"state/signals" page:SignalsPage
     route path:"state/store" page:StorePage
     route path:"logic/functions" page:FunctionsPage
@@ -155,9 +165,9 @@ views ViewsViews
     route path:"form/dropzone" page:DropzonePage
     route path:"form/editor" page:EditorPage
     route path:"form/image-cropper" page:ImageCropperPage
-    route path:"form/password-field" page:PasswordFieldPage
-    route path:"form/phone-field" page:PhoneFieldPage
-    route path:"form/pin-field" page:PinFieldPage
+    route path:"form/password" page:PasswordPage
+    route path:"form/phone" page:PhonePage
+    route path:"form/pin" page:PinPage
     route path:"multi-theme/toggle-theme" page:ToggleThemePage
     route path:"multi-theme/select-theme" page:SelectThemePage
     route path:"theme/fonts" page:FontsPage

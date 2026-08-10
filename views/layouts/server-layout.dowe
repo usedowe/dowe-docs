@@ -31,10 +31,10 @@ layout ServerLayout
     overlays
       Drawer open:openDrawer
         header
-          NavMenu
-            item label:"Views" href:"/docs/views"
-            item label:"Server" href:"/docs/server"
+          NavMenu size:"sm"
             item label:"Dev" href:"/docs/dev"
+            item label:"Server" href:"/docs/server"
+            item label:"Views" href:"/docs/views"
             item label:"Blocks" href:"/blocks/hero"
         body
           ServerNavigation

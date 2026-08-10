@@ -25,7 +25,7 @@ page LoginSplitAuthPage
                 "Welcome back. Enter your details to continue."
             Grid columns:1 gap:4
               Input bind:form.email label:"Email address" placeholder:"you@example.com" variant:"soft" scheme:"primary" w:"full"
-              PasswordField bind:form.password label:"Password" placeholder:"Enter your password" hideStrength:true variant:"soft" scheme:"primary" w:"full"
+              Password bind:form.password label:"Password" placeholder:"Enter your password" hideStrength:true variant:"soft" scheme:"primary" w:"full"
               Flex justify:"between" align:"center" gap:2
                 Checkbox bind:form.remember label:"Remember me" scheme:"primary"
                 Button href:"/blocks/auth-preview/forgot-password" variant:"ghost" scheme:"primary" size:"xs"

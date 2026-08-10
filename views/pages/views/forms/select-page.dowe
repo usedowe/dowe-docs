@@ -44,6 +44,11 @@ page SelectPage
         defaultValue:"false"
       },
       {
+        prop:"size"
+        type:"sm | md | lg"
+        defaultValue:"md"
+      },
+      {
         prop:"variant"
         type:"solid | soft | outlined | ghost"
         defaultValue:"solid"
@@ -138,7 +143,7 @@ page SelectPage
         Title size:"3xl" weight:"black"
           "Fixed or floating"
         Text size:"sm" color:"muted"
-          "A fixed label stays above the trigger. A floating label rests inside an empty control, activates when the list opens, and stays active after a choice is made."
+          "A fixed label stays above the trigger. A floating label rests inside an empty control, activates when the list opens, and stays active after a choice is made. Its active origin matches the selected text and is not moved by the trailing arrow."
       Grid columns:{ xs:1 md:2 } gap:5
         Select label:"Role" placeholder:"Choose a role" variant:"outlined" scheme:"primary" w:"full"
           Option value:"admin" label:"Administrator"
@@ -172,6 +177,22 @@ page SelectPage
             scheme:"primary"
             Option value:"admin" label:"Administrator"
         """
+  Section id:"select-sizes" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SIZES"
+        Title size:"3xl" weight:"black"
+          "The same trigger height everywhere"
+        Text size:"sm" color:"muted"
+          "Small, medium, and large triggers are 32, 40, and 48 logical units, and their selected text scales through body sm, md, and lg. A floating label adds exactly 8 units."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Select label:"Small" placeholder:"32 + 8" labelFloating:true variant:"outlined" scheme:"primary" size:"sm" w:"full"
+          Option value:"small" label:"Small option"
+        Select label:"Medium" placeholder:"40 + 8" labelFloating:true variant:"outlined" scheme:"primary" size:"md" w:"full"
+          Option value:"medium" label:"Medium option"
+        Select label:"Large" placeholder:"48 + 8" labelFloating:true variant:"outlined" scheme:"primary" size:"lg" w:"full"
+          Option value:"large" label:"Large option"
   Section id:"select-variants" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2

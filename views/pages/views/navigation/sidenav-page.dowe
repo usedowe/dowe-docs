@@ -362,13 +362,15 @@ page SideNavPage
             Title size:"lg" weight:"bold"
               "Expandable submenus"
             Text size:"sm" color:"muted"
-              "The open prop defines initial state. Users can then expand or collapse the submenu locally on every target. On iOS, the layout height and content opacity animate without sliding rows through the trigger label or the navigation entries above it. With wide:true, the complete row is tappable, including the space between the label and arrow."
+              "The open prop defines initial state. Dowe then keeps the last expanded state in application-session memory, including when a SideNav inside a Drawer is unmounted and mounted again. The memory resets on application restart or web reload. Give structurally identical SideNav instances distinct id values when their submenu state must remain independent."
+            Text size:"sm" color:"muted"
+              "On iOS, the layout height and content opacity animate without sliding rows through the trigger label or the navigation entries above it. With wide:true, the complete row is tappable, including the space between the label and arrow."
             Code:
               language:"dowe"
               variant:"ghost"
               scheme:"surface"
               content:"""
-                SideNav
+                SideNav id:"content-navigation"
                   submenu label:"Content" open:true bordered:false
                     item label:"Articles" href:"/articles"
                     item label:"Authors" href:"/authors"

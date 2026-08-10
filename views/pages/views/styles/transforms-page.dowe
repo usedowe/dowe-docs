@@ -1,0 +1,119 @@
+page TransformsPage
+  const transformProps:
+    value:[
+      { prop:"rotate" values:"Whole degrees from -180 through 180" defaultValue:"0" responsive:"Yes" },
+      { prop:"scale" values:"Decimal factor from 0.5 through 2" defaultValue:"1" responsive:"Yes" },
+      { prop:"translateX" values:"Signed Dowe scale -96 through 96 in half steps" defaultValue:"0" responsive:"Yes" },
+      { prop:"translateY" values:"Signed Dowe scale -96 through 96 in half steps" defaultValue:"0" responsive:"Yes" },
+    ]
+  const transformCompatibility:
+    value:[
+      { group:"Layout and shell" components:"Box, Section, Flex, Grid, AppBar, Footer, BottomBar, Sidebar, Scaffold, Drawer" },
+      { group:"Navigation" components:"NavMenu, SideNav, RailNav, Tabs, Stepper" },
+      { group:"Content and display" components:"Code, media, Canvas, Table, display components, Card, Text, Title" },
+      { group:"Charts" components:"Candlestick, ArcChart, AreaChart, BarChart, LineChart, PieChart" },
+      { group:"Controls and forms" components:"All styled controls and form roots, including Button, Chip, Input, Select, Fab, and Toggle" },
+      { group:"Overlays" components:"Modal, AlertDialog, Tooltip, Toast, Dropdown, Command" },
+    ]
+  Section id:"transforms-introduction" py:{ xs:6 md:10 }
+    Flex direction:"column" gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "STYLES"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Transforms"
+      Text size:"lg" color:"muted"
+        "Rotate, scale, and translate any styled view component with one portable Dowe contract."
+  Section id:"transforms-chips" p:{ xs:5 md:8 }
+    Grid columns:{ xs:1 md:2 } gap:8 align:"center"
+      Flex direction:"column" gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "COMPOSITION"
+        Title size:"3xl" weight:"black"
+          "Chips with personality"
+        Text color:"muted"
+          "Transforms change the rendered geometry without disturbing the Flex layout around each chip."
+        Code:
+          language:"dowe"
+          variant:"soft"
+          scheme:"surface"
+          copyLabel:"Copy Dowe"
+          copiedLabel:"Copied"
+          content:"""
+            Flex direction:"column" align:"center" gap:3
+              Chip variant:"solid" scheme:"warning" size:"sm" rotate:-7
+                "Mobile Apps"
+              Chip variant:"soft" scheme:"muted" size:"sm" rotate:4
+                "Web Sites"
+              Chip variant:"solid" scheme:"success" size:"sm" rotate:-4
+                "Software"
+              Chip variant:"solid" scheme:"muted" size:"sm" rotate:8
+                "UI/UX Design"
+          """
+      Box bg:"onBackground" rounded:"xl" p:{ xs:8 md:12 }
+        Flex direction:"column" align:"center" gap:3
+          Chip variant:"solid" scheme:"warning" size:"sm" rotate:-7
+            "Mobile Apps"
+          Chip variant:"soft" scheme:"muted" size:"sm" rotate:4
+            "Web Sites"
+          Chip variant:"solid" scheme:"success" size:"sm" rotate:-4
+            "Software"
+          Chip variant:"solid" scheme:"muted" size:"sm" rotate:8
+            "UI/UX Design"
+  Section id:"transforms-responsive" py:{ xs:7 md:10 }
+    Flex direction:"column" gap:5
+      Title size:"3xl" weight:"black"
+        "Responsive transform values"
+      Text color:"muted"
+        "rotate, scale, translateX, and translateY accept breakpoint objects and retain their last resolved value."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Chip rotate:{ xs:-3 md:-8 } scale:{ xs:1 md:1.1 } translateX:{ xs:0 md:2 }
+            "Responsive"
+        """
+  Section id:"transforms-api" py:{ xs:7 md:10 }
+    Flex direction:"column" gap:5
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Values, defaults, and responsive support"
+        Text size:"sm" color:"muted"
+          "Responsive objects accept xs, sm, md, lg, and xl. Each value remains active until a later breakpoint overrides it."
+      Table:
+        data:transformProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"values" label:"Accepted values" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1fr"
+        column field:"responsive" label:"Responsive" width:"1fr"
+      Alert type:"info" variant:"soft" scheme:"info" message:"Translation uses the Dowe scale: 1 equals 0.25rem on web, 4dp on Android, and 4pt on iOS. Half-step values such as -1.5 and 0.5 are valid; quarter steps are rejected."
+  Section id:"transforms-compatibility" py:{ xs:7 md:10 }
+    Flex direction:"column" gap:5
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "COMPATIBILITY"
+        Title size:"3xl" weight:"black"
+          "Every shared styled surface"
+        Text size:"sm" color:"muted"
+          "The table groups the component roots that accept rotate, scale, translateX, and translateY."
+      Table:
+        data:transformCompatibility
+        variant:"outlined"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"group" label:"Group" width:"1fr"
+        column field:"components" label:"Compatible components" width:"4fr"
+      Alert type:"warning" variant:"soft" scheme:"warning" message:"Context entries are excluded: Option, fabAction, comboOption, csvColumn, dragGroup, dragItem, tab, step, region entries, Svg, and Path do not accept motion props. Wrap them in a styled Box when the composition needs a transform."

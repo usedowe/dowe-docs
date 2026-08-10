@@ -1,13 +1,13 @@
 layout AppBarFloatingLayout
   Scaffold p:{ xs:2 md:4 }
     appBar
-      AppBar variant:"soft" scheme:"surface" position:"sticky" boxed:true bordered:true blurred:true floating:true
+      AppBar variant:"soft" scheme:"surface" position:"fixed" boxed:true blurred:true floating:true dockOnScroll:true
         start
           Text weight:"bold"
             "Dowe"
         center
           Text size:"sm" color:"muted"
-            "Sticky AppBar"
+            "Dock on scroll"
         end
           Button href:"/examples/appbar-one" variant:"ghost" scheme:"primary" size:"sm"
             "Standard example"

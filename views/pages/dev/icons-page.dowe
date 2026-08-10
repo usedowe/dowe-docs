@@ -54,7 +54,7 @@ page IconsPage
             Title size:"lg" weight:"bold"
               "Centered and scaled"
             Text size:"sm" color:"muted"
-              "The logo keeps its aspect ratio and occupies at most seventy percent of a square canvas. The macOS ICNS follows Apple's grid, so its surface is the centered eight hundred twenty four pixel square of a one thousand twenty four pixel canvas."
+              "The logo keeps its aspect ratio. Browser favicons use ninety percent of the canvas for a more noticeable tab mark, while larger web and native compositions keep their platform spacing. The macOS ICNS follows Apple's grid, so its surface is the centered eight hundred twenty four pixel square of a one thousand twenty four pixel canvas."
         Card variant:"soft" scheme:"surface" p:5 rounded:"md"
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
@@ -89,7 +89,7 @@ page IconsPage
             android/
         """
       Text size:"sm" color:"muted"
-        "Web receives favicon and touch icons. Desktop receives ICO, ICNS, and PNG assets; the ICNS keeps Apple's transparent margin, includes native 1x and 2x sizes, and is applied to both the macOS app and its DMG. iOS receives an AppIcon asset catalog, while Android receives legacy, round, and adaptive launcher resources."
+        "Web receives favicon and touch icons. The favicon variants reduce internal padding at browser-tab sizes without changing the larger web icons. Desktop receives ICO, ICNS, and PNG assets; the ICNS keeps Apple's transparent margin, includes native 1x and 2x sizes, and is applied to both the macOS app and its DMG. iOS receives an AppIcon asset catalog, while Android receives legacy, round, and adaptive launcher resources."
   Section id:"icons-development" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2

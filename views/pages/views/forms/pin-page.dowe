@@ -1,6 +1,6 @@
-page PinFieldPage
+page PinPage
   signal verificationCode value:""
-  const pinFieldProps:
+  const pinProps:
     value:[
       {
         prop:"bind / value"
@@ -48,16 +48,16 @@ page PinFieldPage
         defaultValue:"—"
       },
     ]
-  Section id:"pin-field-introduction" py:{ xs:6 md:10 }
+  Section id:"pin-introduction" py:{ xs:6 md:10 }
     Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "FORM"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
-          "PinField"
+          "Pin"
         Text size:"lg" color:"muted"
-          "PinField coordinates segmented entry, focus movement, paste distribution, masking, and one joined string value."
-  Section id:"pin-field-playground" p:{ xs:5 md:7 }
+          "Pin coordinates segmented entry, focus movement, paste distribution, masking, and one joined string value."
+  Section id:"pin-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
@@ -65,7 +65,7 @@ page PinFieldPage
         Title size:"3xl" weight:"black"
           "Verify a high-value action"
         Text size:"sm" color:"muted"
-          "Enter or paste a six-digit code. Focus advances per character, Backspace returns to the previous empty field, and bind receives the joined value."
+          "Enter or paste a six-digit code. Focus advances per character, Backspace returns to the previous empty field, and Android keeps every cell inside narrow containers."
       Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
         Grid columns:1 gap:5
           Grid columns:1 gap:2
@@ -75,7 +75,7 @@ page PinFieldPage
               "Confirm the security code"
             Text size:"sm" color:"muted"
               "A six-digit code was sent to the verified contact method."
-          PinField:
+          Pin:
             bind:verificationCode
             length:6
             type:"number"
@@ -99,9 +99,9 @@ page PinFieldPage
         content:"""
           signal verificationCode value:""
 
-          PinField bind:verificationCode length:6 type:"number" label:"Verification code" helpText:"The code expires in ten minutes. You can paste all six digits at once." variant:"outlined" scheme:"primary" size:"lg" name:"transfer-code"
+          Pin bind:verificationCode length:6 type:"number" label:"Verification code" helpText:"The code expires in ten minutes. You can paste all six digits at once." variant:"outlined" scheme:"primary" size:"lg" name:"transfer-code"
         """
-  Section id:"pin-field-modes" py:{ xs:7 md:10 }
+  Section id:"pin-modes" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
@@ -111,7 +111,7 @@ page PinFieldPage
         Text size:"sm" color:"muted"
           "Numeric codes suit one-time verification, password mode masks sensitive access keys, and text mode accepts alphanumeric recovery codes."
       Grid columns:{ xs:1 md:3 } gap:5
-        PinField:
+        Pin:
           value:"5821"
           length:4
           type:"number"
@@ -121,7 +121,7 @@ page PinFieldPage
           scheme:"info"
           size:"sm"
           name:"device-code"
-        PinField:
+        Pin:
           value:"749205"
           length:6
           type:"password"
@@ -131,7 +131,7 @@ page PinFieldPage
           scheme:"secondary"
           size:"md"
           name:"vault-pin"
-        PinField:
+        Pin:
           value:"A7K9Q2M4"
           length:8
           type:"text"
@@ -148,13 +148,13 @@ page PinFieldPage
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          PinField value:"5821" length:4 type:"number" label:"Device code" variant:"soft" scheme:"info" size:"sm"
+          Pin value:"5821" length:4 type:"number" label:"Device code" variant:"soft" scheme:"info" size:"sm"
 
-          PinField value:"749205" length:6 type:"password" label:"Vault PIN" variant:"solid" scheme:"secondary" size:"md"
+          Pin value:"749205" length:6 type:"password" label:"Vault PIN" variant:"solid" scheme:"secondary" size:"md"
 
-          PinField value:"A7K9Q2M4" length:8 type:"text" label:"Recovery key" variant:"line" scheme:"success" size:"md"
+          Pin value:"A7K9Q2M4" length:8 type:"text" label:"Recovery key" variant:"line" scheme:"success" size:"md"
         """
-  Section id:"pin-field-states" p:{ xs:5 md:7 }
+  Section id:"pin-states" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
@@ -164,7 +164,7 @@ page PinFieldPage
         Text size:"sm" color:"muted"
           "Validation applies to the joined value, so feedback stays attached to the complete segmented control."
       Grid columns:{ xs:1 md:2 } gap:5
-        PinField:
+        Pin:
           value:"1840"
           length:6
           type:"number"
@@ -174,7 +174,7 @@ page PinFieldPage
           scheme:"danger"
           size:"md"
           name:"expired-code"
-        PinField:
+        Pin:
           length:8
           type:"text"
           label:"Enrollment key"
@@ -184,10 +184,10 @@ page PinFieldPage
           size:"md"
           name:"enrollment-key"
       Flex wrap:true justify:"center" align:"center" gap:4
-        PinField length:4 type:"number" label:"Small" variant:"soft" scheme:"primary" size:"sm"
-        PinField length:4 type:"number" label:"Medium" variant:"soft" scheme:"primary" size:"md"
-        PinField length:4 type:"number" label:"Large" variant:"soft" scheme:"primary" size:"lg"
-  Section id:"pin-field-contract" py:{ xs:7 md:10 }
+        Pin length:4 type:"number" label:"Small" variant:"soft" scheme:"primary" size:"sm"
+        Pin length:4 type:"number" label:"Medium" variant:"soft" scheme:"primary" size:"md"
+        Pin length:4 type:"number" label:"Large" variant:"soft" scheme:"primary" size:"lg"
+  Section id:"pin-contract" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
@@ -220,8 +220,8 @@ page PinFieldPage
             Title size:"lg" weight:"bold"
               "Portable code entry"
             Text size:"sm" color:"muted"
-              "Web, SwiftUI, and Compose preserve cell count, Input-sized styling, type, focus, paste, feedback, and sizing. Numeric entry uses a numeric keyboard without browser number spinners."
-  Section id:"pin-field-props" py:{ xs:7 md:10 }
+              "Web, SwiftUI, Android Compose, and the Android launcher preserve cell count, type, focus, paste, feedback, 40/44/52-unit widths, 32/40/48-unit heights, and Input typography. Numeric entry uses a numeric keyboard without browser number spinners."
+  Section id:"pin-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
@@ -229,9 +229,9 @@ page PinFieldPage
         Title size:"3xl" weight:"black"
           "Props"
         Text size:"sm" color:"muted"
-          "PinField also accepts the applicable common spacing, sizing, visibility, accessibility, and shadow props."
+          "Pin also accepts the applicable common spacing, sizing, visibility, accessibility, and shadow props."
       Table:
-        data:pinFieldProps
+        data:pinProps
         variant:"soft"
         scheme:"surface"
         size:"sm"

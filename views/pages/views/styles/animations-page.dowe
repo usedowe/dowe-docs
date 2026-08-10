@@ -1,0 +1,99 @@
+page AnimationsPage
+  const animationPresets:
+    value:[
+      { value:"none" behavior:"Render at the final state without entrance motion" },
+      { value:"fadeIn" behavior:"Fade from transparent to opaque" },
+      { value:"slideUp" behavior:"Enter from below while fading in" },
+      { value:"slideDown" behavior:"Enter from above while fading in" },
+      { value:"slideLeft" behavior:"Enter from the right while fading in" },
+      { value:"slideRight" behavior:"Enter from the left while fading in" },
+      { value:"scaleIn" behavior:"Enter from a slightly smaller scale while fading in" },
+    ]
+  Section id:"animations-introduction" py:{ xs:6 md:10 }
+    Flex direction:"column" gap:3 animation:"fadeIn"
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "STYLES"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Animations"
+      Text size:"lg" color:"muted"
+        "Apply entrance motion to any styled component while preserving its authored transforms."
+  Section id:"animations-presets" p:{ xs:5 md:8 }
+    Flex direction:"column" gap:6
+      Grid columns:{ xs:1 md:"1fr auto" } gap:4 align:"end"
+        Flex direction:"column" gap:2
+          Title size:"3xl" weight:"black"
+            "Seven entrance presets"
+          Text size:"sm" color:"muted"
+            "Entrance motion runs once when the page appears. Use Replay animations to remount this example and compare every preset."
+        Button href:"/docs/views/style/animations" navigate:"replace" variant:"solid" scheme:"primary" size:"sm"
+          "Replay animations"
+      Grid columns:{ xs:2 md:3 } gap:5
+        Card variant:"soft" scheme:"primary" animation:"fadeIn" p:5
+          Text weight:"bold"
+            "fadeIn"
+        Card variant:"soft" scheme:"secondary" animation:"slideUp" p:5
+          Text weight:"bold"
+            "slideUp"
+        Card variant:"soft" scheme:"tertiary" animation:"slideDown" p:5
+          Text weight:"bold"
+            "slideDown"
+        Card variant:"soft" scheme:"info" animation:"slideLeft" p:5
+          Text weight:"bold"
+            "slideLeft"
+        Card variant:"soft" scheme:"warning" animation:"slideRight" p:5
+          Text weight:"bold"
+            "slideRight"
+        Card variant:"soft" scheme:"success" animation:"scaleIn" p:5
+          Text weight:"bold"
+            "scaleIn"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Button href:"/docs/views/style/animations" navigate:"replace"
+            "Replay animations"
+          Flex direction:"column" gap:3 animation:"fadeIn"
+            Chip animation:"slideRight" rotate:-5
+              "Mobile Apps"
+        """
+  Section id:"animations-accessibility" py:{ xs:7 md:10 }
+    Flex direction:"column" gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "ACCESSIBILITY"
+      Title size:"3xl" weight:"black"
+        "Reduced motion is automatic"
+      Text color:"muted"
+        "Generated web, desktop, Android, and iOS views suppress non-essential entrance movement when the operating system requests reduced motion."
+  Section id:"animations-api" py:{ xs:7 md:10 }
+    Flex direction:"column" gap:5
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Preset values"
+        Text size:"sm" color:"muted"
+          "animation is a static quoted preset. Its default is none; it does not accept responsive objects or Signal paths."
+      Table:
+        data:animationPresets
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"value" label:"Value" width:"1fr"
+        column field:"behavior" label:"Entrance behavior" width:"4fr"
+      Alert type:"info" variant:"soft" scheme:"info" message:"Runs once per appearance. Entrance presets preserve rotate, scale, translateX, and translateY. They are not looping animations and do not accept custom keyframes or durations."
+      Alert type:"info" variant:"soft" scheme:"muted" message:"On web, Dowe holds the initial animation frame until hydration is ready, then starts the entrance without flashing the completed state."
+  Section id:"animations-compatibility" py:{ xs:7 md:10 }
+    Flex direction:"column" gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "COMPATIBILITY"
+      Title size:"3xl" weight:"black"
+        "Available on styled components"
+      Text color:"muted"
+        "Layout and shell roots, navigation roots, content, charts, controls, forms, and overlays accept animation. Examples include Box, Section, Flex, Grid, Card, Chip, Text, Title, Image, Button, Input, Tabs, Stepper, and Modal."
+      Alert type:"warning" variant:"soft" scheme:"warning" message:"Not available on context entries: Option, fabAction, comboOption, csvColumn, dragGroup, dragItem, tab, step, region entries, Svg, and Path do not accept animation."

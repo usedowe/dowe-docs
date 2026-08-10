@@ -32,6 +32,16 @@ page FooterPage
         defaultValue:"{ xs:4 md:6 }"
       },
       {
+        prop:"pt"
+        type:"scale | responsive scale"
+        defaultValue:"{ xs:10 md:16 }"
+      },
+      {
+        prop:"pb"
+        type:"scale | responsive scale"
+        defaultValue:"{ xs:4 md:6 }"
+      },
+      {
         prop:"top | start | center | end | bottom"
         type:"optional content regions"
         defaultValue:"—"
@@ -45,7 +55,7 @@ page FooterPage
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Footer"
         Text size:"lg" color:"muted"
-          "Footers close a page with full-width top and bottom bands around a balanced start, center, and end row."
+          "Footers close a page with top and bottom bands around a balanced start, center, and end row inside one shared inner container."
   Section id:"footer-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
@@ -54,7 +64,7 @@ page FooterPage
         Title size:"3xl" weight:"black"
           "A complete product footer"
         Text size:"sm" color:"muted"
-          "Use top and bottom for full-width responsive bands, then keep identity, navigation, and actions in the start, center, and end row. Footer includes a responsive horizontal gutter, while boxed:true constrains the central row and keeps the surface and edge bands full width. Override the gutter with p, px, pl, or pr when the composition needs different spacing."
+          "Use top and bottom for responsive bands, then keep identity, navigation, and actions in the start, center, and end row. Footer includes horizontal spacing 4 on small viewports and 6 from md, a more pronounced top spacing of 10 and 16, and bottom spacing of 4 and 6. boxed:true constrains top, the central row, and bottom together while keeping the outer surface full width. Override spacing with p, px, py, pl, pr, pt, or pb when the composition needs a different rhythm."
       Card variant:"outlined" scheme:"surface" p:{ xs:4 md:6 } rounded:"md" border:1
         Footer variant:"soft" scheme:"surface" bordered:true boxed:true
           top
@@ -113,7 +123,7 @@ page FooterPage
         Title size:"3xl" weight:"black"
           "Five regions, one responsive contract"
         Text size:"sm" color:"muted"
-          "top and bottom span the full bar around the central start, center, and end row. A missing region reserves no artificial space."
+          "top and bottom span the shared inner container around the central start, center, and end row. A missing region reserves no artificial space."
       Grid columns:{ xs:1 md:5 } gap:4
         Card variant:"soft" scheme:"surface" p:5 rounded:"md"
           Grid columns:1 gap:2

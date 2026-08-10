@@ -44,6 +44,11 @@ page InputPage
         defaultValue:"false"
       },
       {
+        prop:"size"
+        type:"sm | md | lg"
+        defaultValue:"md"
+      },
+      {
         prop:"variant"
         type:"solid | soft | outlined | ghost"
         defaultValue:"solid"
@@ -166,6 +171,19 @@ page InputPage
         Input variant:"outlined" scheme:"info" label:"Info" placeholder:"Enter a value" w:"full"
         Input variant:"outlined" scheme:"warning" label:"Warning" placeholder:"Enter a value" w:"full"
         Input variant:"outlined" scheme:"danger" label:"Danger" placeholder:"Enter a value" w:"full"
+  Section id:"input-sizes" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SIZES"
+        Title size:"3xl" weight:"black"
+          "One scale on every target"
+        Text size:"sm" color:"muted"
+          "Small, medium, and large controls are 32, 40, and 48 logical units, and their value text scales through body sm, md, and lg. A floating label adds 8 units without changing the selected size, including when the controls share a stretching Grid or Flex row on web."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Input label:"Small" placeholder:"32 + 8" labelFloating:true variant:"outlined" scheme:"primary" size:"sm" w:"full"
+        Input label:"Medium" placeholder:"40 + 8" labelFloating:true variant:"outlined" scheme:"primary" size:"md" w:"full"
+        Input label:"Large" placeholder:"48 + 8" labelFloating:true variant:"outlined" scheme:"primary" size:"lg" w:"full"
   Section id:"input-icons" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
@@ -174,7 +192,7 @@ page InputPage
         Title size:"3xl" weight:"black"
           "Context inside the field"
         Text size:"sm" color:"muted"
-          "Input resolves Solar icons at compile time. Floating-label fields hide them while empty and unfocused, then reveal them after focus or a value moves the label above the editable row."
+          "Input resolves Solar icons at compile time. Floating-label fields hide them while empty and unfocused, then reveal them after focus or a value moves the label above the editable row. The active label begins after iconStart and its gap, aligned with the editable text."
       Grid columns:{ xs:1 md:2 } gap:5
         Input label:"Search" placeholder:"Search documentation" variant:"outlined" scheme:"info" iconStart:"magnifier" w:"full"
         Input label:"Project" placeholder:"dowe-app" labelFloating:true variant:"soft" scheme:"success" iconStart:"folder" iconEnd:"check-circle" w:"full"

@@ -428,7 +428,7 @@ page ButtonPage
         Text size:"sm" color:"muted"
           "The controls bind directly to the preview. Conditional icon values resolve to a validated Solar name or an empty string without reserving icon space."
         Text size:"sm" color:"muted"
-          "On web and desktop, Button labels stay on one line and keep their control height in narrow layouts. Let the surrounding Flex wrap or change direction when the row no longer fits."
+          "On web, desktop, Android, and iOS, Button labels stay on one line and keep their control height in narrow layouts. Let the surrounding Flex wrap or change direction when the row no longer fits."
         Text size:"sm" color:"muted"
           "On web, iOS, and Android, the full rendered Button surface is interactive, including its padding, label, and optional icons."
       Grid columns:{ xs:1 md:3 } gap:4

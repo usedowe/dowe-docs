@@ -18,6 +18,7 @@ import BackgroundJobsPage from "@/views/pages/server/background-jobs-page"
 import PasswordsPage from "@/views/pages/server/passwords-page"
 import CloudControlPlanePage from "@/views/pages/server/cloud-control-plane-page"
 import DatabasePage from "@/views/pages/server/db/db-page"
+import DatabaseEntitiesPage from "@/views/pages/server/db/entities-page"
 import DatabaseSelectPage from "@/views/pages/server/db/select-page"
 import DatabaseInsertPage from "@/views/pages/server/db/insert-page"
 import DatabaseUpdatePage from "@/views/pages/server/db/update-page"
@@ -47,6 +48,7 @@ views ServerViews
     route path:"background-jobs" page:BackgroundJobsPage
     route path:"passwords" page:PasswordsPage
     route path:"cloud-control-plane" page:CloudControlPlanePage
+    route path:"db/entities" page:DatabaseEntitiesPage
     route path:"db/select" page:DatabaseSelectPage
     route path:"db/insert" page:DatabaseInsertPage
     route path:"db/update" page:DatabaseUpdatePage

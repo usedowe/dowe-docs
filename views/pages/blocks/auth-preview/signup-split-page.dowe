@@ -27,7 +27,7 @@ page SignupSplitAuthPage
               Input bind:form.firstName label:"First name" placeholder:"First name" variant:"soft" scheme:"success" w:"full"
               Input bind:form.lastName label:"Last name" placeholder:"Last name" variant:"soft" scheme:"success" w:"full"
             Input bind:form.email label:"Email address" placeholder:"you@example.com" variant:"soft" scheme:"success" w:"full"
-            PasswordField bind:form.password label:"Password" placeholder:"Create a password" hideStrength:false variant:"soft" scheme:"success" w:"full"
+            Password bind:form.password label:"Password" placeholder:"Create a password" hideStrength:false variant:"soft" scheme:"success" w:"full"
             Checkbox bind:form.accepted label:"I agree to the terms and privacy policy." scheme:"success"
             Button variant:"solid" scheme:"success" size:"md" w:"full"
               "Create account"

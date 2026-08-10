@@ -1,4 +1,42 @@
 page AgentPage
+  const referenceChecks value:[
+    {
+      id:"structure"
+      label:"STRUCTURE"
+      title:"Keep chrome in the layout"
+      description:"A shared AppBar or Footer belongs to one Scaffold layout even when the route graph currently has one page. Ordered page bands remain sibling Sections."
+    },
+    {
+      id:"blueprint"
+      label:"BLUEPRINT"
+      title:"Decide before authoring"
+      description:"The visual QA blueprint records exact bands and region bounds, semantic components, ownership, data, assets, theme decisions, and reusable candidates before application source changes."
+    },
+    {
+      id:"collections"
+      label:"COLLECTIONS"
+      title:"Model repeated UI once"
+      description:"Repeated cards, metrics, and rows use one collection and one each: const for fixed content, a typed signal for backend updates, and a View Store only across routes."
+    },
+    {
+      id:"responsive"
+      label:"RESPONSIVE"
+      title:"Separate evidence from inference"
+      description:"The supplied viewport is observed. Unshown breakpoints are conservative inferences validated at xs and md without hiding essential content or actions."
+    },
+    {
+      id:"quality"
+      label:"UX AND ACCESSIBILITY"
+      title:"Review behavior, not only pixels"
+      description:"Loading, empty, error, focus, keyboard, touch, overlay, contrast, labels, source order, and reduced motion stay part of completion."
+    },
+    {
+      id:"fidelity"
+      label:"VISUAL QA"
+      title:"Compare every band"
+      description:"The reference remains evidence, never an asset. Deterministic capture writes a rendered image, diff, and machine-readable band report below .dowe."
+    },
+  ]
   Section id:"agent-introduction" py:{ xs:6 md:10 }
     Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
       Grid columns:1 gap:3
@@ -116,23 +154,23 @@ page AgentPage
           "Treat the image as a visual contract"
         Text size:"sm" color:"muted"
           "When a user asks for an exact reconstruction, dowe-views inventories the complete shell and every visible page band before authoring source."
-      Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
-          Grid columns:1 gap:3
-            Text size:"xs" weight:"bold" color:"primary"
-              "STRUCTURE"
-            Title size:"xl" weight:"black"
-              "Keep chrome in the layout"
-            Text size:"sm" color:"muted"
-              "A shared AppBar or Footer belongs to one Scaffold layout even when the route graph currently has one page. Ordered page bands remain sibling Sections."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:3
-            Text size:"xs" weight:"bold" color:"muted"
-              "FIDELITY"
-            Title size:"xl" weight:"black"
-              "Compare every band"
-            Text size:"sm" color:"muted"
-              "The reference and its crops remain validation evidence, never project assets. The agent rebuilds navigation, text, cards, charts, dashboards, logos, and decorative geometry with Dowe components, using Image only for independently obtained original media."
+      Grid columns:{ xs:1 md:3 } gap:4
+        each in:referenceChecks as:check key:check.id
+          Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+            Grid columns:1 gap:3
+              Text size:"xs" weight:"bold" color:"muted"
+                "{check.label}"
+              Title size:"xl" weight:"black"
+                "{check.title}"
+              Text size:"sm" color:"muted"
+                "{check.description}"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy visual QA command"
+        copiedLabel:"Copied"
+        content:"python3 .agents/skills/dowe-views/scripts/visual_qa.py self-test"
   Section id:"project-starters" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2

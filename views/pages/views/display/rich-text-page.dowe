@@ -3,6 +3,7 @@ page RichTextPage
     value:[
       { prop:"size" type:"Text size token" defaultValue:"md" },
       { prop:"weight" type:"Text weight token" defaultValue:"—" },
+      { prop:"title" type:"boolean" defaultValue:"false" },
     ]
   const markProps:
     value:[
@@ -97,6 +98,24 @@ page RichTextPage
           mark text:" access" style:"box" scheme:"primary"
           mark text:" is now" style:"mark" scheme:"muted"
           mark text:" available" style:"wave" scheme:"success"
+      """
+  Section id:"rich-text-headlines" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "TITLE SCALE"
+        Title size:"3xl" weight:"black"
+          "Build hero strips without styling Title"
+        Text size:"sm" color:"muted"
+          "Set title:true to keep Title typography while every visual treatment remains owned by the mark."
+        Text size:"sm" color:"muted"
+          "On web, Android, and iOS, fitting marks keep their intrinsic width while oversized marks wrap on whole-word boundaries with centered lines inside the available container."
+      Card variant:"soft" scheme:"surface" p:{ xs:6 md:9 } rounded:"md"
+        RichText title:true size:{ xs:"3xl" md:"5xl" }
+          mark text:"DEVELOPMENT, BRANDING" style:"mark" scheme:"secondary"
+      Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+        RichText title:true size:{ xs:"3xl" md:"5xl" }
+          mark text:"DEVELOPMENT, BRANDING" style:"mark" scheme:"secondary"
       """
   Section id:"rich-text-patterns" p:{ xs:5 md:7 }
     Grid columns:{ xs:1 md:3 } gap:4

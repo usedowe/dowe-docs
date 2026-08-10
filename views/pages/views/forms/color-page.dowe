@@ -62,7 +62,7 @@ page ColorPage
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Color"
         Text size:"lg" color:"muted"
-          "Color gives people a typed picker with live format details, semantic schemes, and a string Signal contract."
+          "Color gives people one native-feeling picker across web, iOS, and Android, with live format details and a string Signal contract. Its sm, md, and lg sizes scale both trigger height and displayed value text."
   Section id:"color-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
@@ -71,7 +71,7 @@ page ColorPage
         Title size:"3xl" weight:"black"
           "Build a color token"
         Text size:"sm" color:"muted"
-          "bind keeps the selected hex value available to the rest of the view. The format rows are opt-in so a compact field can stay focused."
+          "Open the field to adjust saturation, brightness, and hue. bind writes the canonical uppercase hex value continuously, while format rows stay opt-in."
       Grid columns:{ xs:1 md:2 } gap:4
         Color:
           bind:brandColor
@@ -113,7 +113,7 @@ page ColorPage
         Title size:"3xl" weight:"black"
           "Expose the formats your workflow needs"
         Text size:"sm" color:"muted"
-          "Hex is the source value. RGB, CMYK, and OKLCH summaries can be shown together for design tools and color handoff."
+          "Hex is the stored value. RGB, CMYK, and OKLCH are computed from the same selected sRGB color for design tools and handoff."
       Grid columns:{ xs:1 md:2 } gap:5
         Color value:"#14b8a6" label:"Product accent" showHex:true showRgb:true showCmyk:true showOklch:true variant:"soft" scheme:"success" size:"md" name:"product-accent"
         Color value:"#a855f7" label:"Campaign highlight" showHex:true showOklch:true variant:"line" scheme:"secondary" size:"sm" name:"campaign-highlight"
@@ -155,10 +155,12 @@ page ColorPage
           scheme:"danger"
           size:"md"
           name:"review-color"
+      Text size:"sm" color:"muted"
+        "The base heights are 32, 40, and 48; labelFloating adds 8 logical units on every target."
       Flex wrap:true justify:"center" align:"center" gap:3
-        Color value:"#0ea5e9" label:"Small" variant:"outlined" scheme:"info" size:"sm"
-        Color value:"#f59e0b" label:"Medium" variant:"outlined" scheme:"warning" size:"md"
-        Color value:"#22c55e" label:"Large" variant:"outlined" scheme:"success" size:"lg"
+        Color value:"#0ea5e9" label:"Small" labelFloating:true variant:"outlined" scheme:"info" size:"sm"
+        Color value:"#f59e0b" label:"Medium" labelFloating:true variant:"outlined" scheme:"warning" size:"md"
+        Color value:"#22c55e" label:"Large" labelFloating:true variant:"outlined" scheme:"success" size:"lg"
   Section id:"color-contract" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
@@ -167,7 +169,7 @@ page ColorPage
         Title size:"3xl" weight:"black"
           "One portable color model"
         Text size:"sm" color:"muted"
-          "Dowe lowers the same hex value, format summaries, labels, and feedback text to web, SwiftUI, and Compose targets."
+          "Dowe lowers the same anchored panel, saturation and brightness plane, hue slider, preview, formats, labels, and feedback to web, SwiftUI, and Compose. A floating label begins after the leading swatch so both remain readable."
       Grid columns:{ xs:1 md:3 } gap:4
         Card variant:"soft" scheme:"surface" p:5 rounded:"md"
           Grid columns:1 gap:2
@@ -176,7 +178,7 @@ page ColorPage
             Title size:"lg" weight:"bold"
               "String Signal"
             Text size:"sm" color:"muted"
-              "bind reads and writes a validated hex string without executing user JavaScript."
+              "bind reads and writes one uppercase #RRGGBB string continuously while the picker moves."
         Card variant:"soft" scheme:"surface" p:5 rounded:"md"
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
@@ -184,7 +186,7 @@ page ColorPage
             Title size:"lg" weight:"bold"
               "Opt-in details"
             Text size:"sm" color:"muted"
-              "showHex, showRgb, showCmyk, and showOklch add deterministic summaries below the picker."
+              "showHex, showRgb, showCmyk, and showOklch add deterministic rows inside the anchored panel."
         Card variant:"soft" scheme:"surface" p:5 rounded:"md"
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"

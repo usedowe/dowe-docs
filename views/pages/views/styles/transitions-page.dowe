@@ -1,0 +1,80 @@
+page TransitionsPage
+  const transitionPresets:
+    value:[
+      { value:"none" web:"Immediate" native:"Immediate" use:"No interpolation" },
+      { value:"quick" web:"120ms ease-out" native:"120ms native timing" use:"Compact controls" },
+      { value:"smooth" web:"220ms ease-in-out" native:"220ms native timing" use:"General feedback" },
+      { value:"spring" web:"320ms spring curve" native:"Native spring" use:"Expressive settling" },
+    ]
+  Section id:"transitions-introduction" py:{ xs:6 md:10 }
+    Flex direction:"column" gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "STYLES"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Transitions"
+      Text size:"lg" color:"muted"
+        "Choose how quickly gesture feedback enters and settles across every target."
+  Section id:"transitions-presets" p:{ xs:5 md:8 }
+    Grid columns:{ xs:1 md:2 } gap:8 align:"center"
+      Flex direction:"column" gap:4
+        Title size:"3xl" weight:"black"
+          "Four timing presets"
+        Text color:"muted"
+          "none is immediate, quick is compact, smooth softens general movement, and spring adds expressive settling."
+        Code:
+          language:"dowe"
+          variant:"soft"
+          scheme:"surface"
+          copyLabel:"Copy Dowe"
+          copiedLabel:"Copied"
+          content:"""
+            Chip transition:"spring" gesture:"lift"
+              "Hover or press"
+          """
+      Flex direction:"column" align:"center" gap:4
+        Chip variant:"soft" scheme:"muted" transition:"none" gesture:"grow"
+          "none"
+        Chip variant:"soft" scheme:"info" transition:"quick" gesture:"grow"
+          "quick"
+        Chip variant:"soft" scheme:"success" transition:"smooth" gesture:"grow"
+          "smooth"
+        Chip variant:"solid" scheme:"warning" transition:"spring" gesture:"grow"
+          "spring"
+  Section id:"transitions-composition" py:{ xs:7 md:10 }
+    Flex direction:"column" gap:3
+      Title size:"3xl" weight:"black"
+        "Transitions need an interactive state"
+      Text color:"muted"
+        "Pair transition with gesture. Use animation when the component itself should enter with motion."
+  Section id:"transitions-api" py:{ xs:7 md:10 }
+    Flex direction:"column" gap:5
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Timing values"
+        Text size:"sm" color:"muted"
+          "transition is a static quoted preset. When omitted, web uses its 180ms gesture baseline and native targets use their general-purpose feedback timing. Author a preset for deterministic named timing."
+      Table:
+        data:transitionPresets
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"value" label:"Value" width:"1fr"
+        column field:"web" label:"Web reference" width:"2fr"
+        column field:"native" label:"Native" width:"2fr"
+        column field:"use" label:"Use" width:"2fr"
+      Text size:"sm" color:"muted"
+        "SwiftUI and Jetpack Compose use their native spring implementations. Reduced motion makes interactive changes immediate."
+  Section id:"transitions-compatibility" py:{ xs:7 md:10 }
+    Flex direction:"column" gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "COMPATIBILITY"
+      Title size:"3xl" weight:"black"
+        "Same surface as gesture"
+      Text color:"muted"
+        "Every styled layout, navigation root, content component, chart, control, form, and overlay accepts transition. It is excluded from Option, fabAction, comboOption, csvColumn, dragGroup, dragItem, tab, step, region entries, Svg, and Path."
+      Alert type:"warning" variant:"soft" scheme:"warning" message:"A transition needs state. transition alone has no visual result. Pair it with gesture; use animation for entrance motion. Custom timings and Signal-backed values are rejected."

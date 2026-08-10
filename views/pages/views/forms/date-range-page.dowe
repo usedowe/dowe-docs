@@ -57,7 +57,7 @@ page DateRangePage
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "DateRange"
         Text size:"lg" color:"muted"
-          "DateRange is an Input-like trigger with a custom calendar dropdown for one bounded interval and independently typed start and end Signals."
+          "DateRange is an Input-like trigger with a custom calendar dropdown for one bounded interval and independently typed start and end Signals. Its sm, md, and lg sizes scale both trigger height and displayed range text."
   Section id:"date-range-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
@@ -137,10 +137,10 @@ page DateRangePage
         Title size:"3xl" weight:"black"
           "Keep both boundaries understandable"
         Text size:"sm" color:"muted"
-          "helpText and errorText apply to the interval, while size keeps both controls aligned as one field."
+          "helpText and errorText apply to the interval. Sizes map to 32, 40, and 48 logical units; labelFloating adds 8 while the range stays one field."
       Grid columns:{ xs:1 md:2 } gap:5
-        DateRange startValue:"2026-08-05" endValue:"2026-08-12" label:"Small range" helpText:"Compact range for a filter bar." variant:"outlined" scheme:"primary" size:"sm" name:"small-range"
-        DateRange startValue:"2026-08-05" endValue:"2026-08-12" label:"Large range" errorText:"Choose an end date after the start date." variant:"outlined" scheme:"danger" size:"lg" name:"large-range"
+        DateRange startValue:"2026-08-05" endValue:"2026-08-12" label:"Small range" labelFloating:true helpText:"Compact range for a filter bar." variant:"outlined" scheme:"primary" size:"sm" name:"small-range"
+        DateRange startValue:"2026-08-05" endValue:"2026-08-12" label:"Large range" labelFloating:true errorText:"Choose an end date after the start date." variant:"outlined" scheme:"danger" size:"lg" name:"large-range"
   Section id:"date-range-contract" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
@@ -172,9 +172,9 @@ page DateRangePage
             Text size:"xs" weight:"bold" color:"muted"
               "TARGETS"
             Title size:"lg" weight:"bold"
-              "Aligned calendar"
+              "Aligned calendar and label"
             Text size:"sm" color:"muted"
-              "Web, iOS, and Android keep the month navigation, selected range, bounds, and start/end behavior paired."
+              "Web, iOS, and Android keep the month navigation, selected range, bounds, and start/end behavior paired. The floating label stays aligned with the displayed range instead of the trailing calendar affordance."
   Section id:"date-range-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
