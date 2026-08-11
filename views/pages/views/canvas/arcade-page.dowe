@@ -14,7 +14,7 @@ page CanvasArcadePage
         x:40
         y:50
         radius:2
-        fill:"onBackground"
+        fill:"backgroundText"
         opacity:0.5
         motion:{ vx:-18 wrap:true }
       },
@@ -23,7 +23,7 @@ page CanvasArcadePage
         x:180
         y:120
         radius:3
-        fill:"onBackground"
+        fill:"backgroundText"
         opacity:0.7
         motion:{ vx:-28 wrap:true }
       },
@@ -32,7 +32,7 @@ page CanvasArcadePage
         x:350
         y:44
         radius:2
-        fill:"onBackground"
+        fill:"backgroundText"
         opacity:0.4
         motion:{ vx:-12 wrap:true }
       },
@@ -41,7 +41,7 @@ page CanvasArcadePage
         x:520
         y:240
         radius:3
-        fill:"onBackground"
+        fill:"backgroundText"
         opacity:0.8
         motion:{ vx:-35 wrap:true }
       },
@@ -50,7 +50,7 @@ page CanvasArcadePage
         x:610
         y:90
         radius:2
-        fill:"onBackground"
+        fill:"backgroundText"
         opacity:0.6
         motion:{ vx:-22 wrap:true }
       },
@@ -60,7 +60,7 @@ page CanvasArcadePage
         y:80
         radius:28
         fill:"danger"
-        stroke:"onDanger"
+        stroke:"dangerText"
         strokeWidth:3
         opacity:0.85
         motion:{ vx:-54 rotation:24 wrap:true }
@@ -71,7 +71,7 @@ page CanvasArcadePage
         y:270
         radius:18
         fill:"warning"
-        stroke:"onWarning"
+        stroke:"warningText"
         strokeWidth:3
         opacity:0.8
         motion:{ vx:-34 rotation:-18 wrap:true }
@@ -86,7 +86,7 @@ page CanvasArcadePage
         ]
         closed:true
         fill:"primary"
-        stroke:"onPrimary"
+        stroke:"primaryText"
         strokeWidth:3
         motion:{ pulse:0.7 }
       },
@@ -95,7 +95,7 @@ page CanvasArcadePage
         x:68
         y:180
         radius:7
-        fill:"onPrimary"
+        fill:"primaryText"
         motion:{ pulse:1.4 }
       },
       {
@@ -103,7 +103,7 @@ page CanvasArcadePage
         x:320
         y:38
         text:"DOWE ORBIT"
-        fill:"onBackground"
+        fill:"backgroundText"
         size:24
         align:"center"
       },
@@ -165,7 +165,7 @@ page CanvasArcadePage
         copiedLabel:"Copied"
         content:"""
           signal gameScene value:[
-            { type:"circle" x:520 y:240 radius:3 fill:"onBackground" motion:{ vx:-35 wrap:true } },
+            { type:"circle" x:520 y:240 radius:3 fill:"backgroundText" motion:{ vx:-35 wrap:true } },
             { type:"circle" x:540 y:80 radius:28 fill:"danger" motion:{ vx:-54 rotation:24 wrap:true } },
             { type:"polyline" points:[{ x:90 y:180 }, { x:38 y:210 }, { x:54 y:180 }, { x:38 y:150 }] closed:true fill:"primary" motion:{ pulse:0.7 } },
           ]
@@ -216,5 +216,5 @@ page CanvasArcadePage
       Flex justify:"space-between" align:"center" wrap:true gap:3
         Button href:"/docs/views/canvas/overview" variant:"ghost" scheme:"muted" iconStart:"alt-arrow-left"
           "Canvas overview"
-        Button href:"/docs/views/canvas/particles" variant:"solid" scheme:"primary" iconEnd:"alt-arrow-right"
+        Button href:"/docs/views/canvas/particles" iconEnd:"alt-arrow-right"
           "Explore particles"

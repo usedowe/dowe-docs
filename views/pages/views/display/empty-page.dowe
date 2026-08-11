@@ -34,12 +34,12 @@ page EmptyPage
         Text size:"sm" color:"muted"
           "The type selects a portable illustration family. Keep the title and description specific, then choose either navigation or an action for the recovery path."
       Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+        Card variant:"outlined" p:{ xs:5 md:7 } border:1
           Grid columns:1 gap:4
             Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
               "SEARCH"
             Empty type:"result" title:"No matching projects" description:"Try a broader query or reset the filters." actionLabel:"Reset filters" variant:"soft" scheme:"info" onClick:retrySearch
-        Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+        Card variant:"outlined" p:{ xs:5 md:7 } border:1
           Grid columns:1 gap:4
             Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
               "TEMPLATE"
@@ -76,7 +76,7 @@ page EmptyPage
         Title size:"3xl" weight:"black"
           "Make the next step obvious"
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "FILTERED COLLECTION"
@@ -84,7 +84,7 @@ page EmptyPage
               "Reset, do not dead-end"
             Text size:"sm" color:"muted"
               "Use onClick when the parent page owns a local reset or query mutation."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "NEW SURFACE"
@@ -92,7 +92,7 @@ page EmptyPage
               "Navigate to a builder"
             Text size:"sm" color:"muted"
               "Use href when the recovery step is a route and does not need local state."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "COPY"

@@ -70,7 +70,7 @@ page CsvFieldPage
           "Import a contact list"
         Text size:"sm" color:"muted"
           "Choose a CSV, map the required output columns, review a compact preview, and confirm the import only after the mapping is valid."
-      Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+      Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Grid columns:1 gap:5
           CsvField:
             buttonText:"Upload contacts CSV"
@@ -180,7 +180,7 @@ page CsvFieldPage
         Text size:"sm" color:"muted"
           "Web parses the selected CSV locally; native targets keep the same mapping and preview model while using target-owned picker hooks."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "COLUMNS"
@@ -188,7 +188,7 @@ page CsvFieldPage
               "Explicit contract"
             Text size:"sm" color:"muted"
               "Each csvColumn declares a required output name and optional visible label."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "PREVIEW"
@@ -196,7 +196,7 @@ page CsvFieldPage
               "Bounded rows"
             Text size:"sm" color:"muted"
               "previewRows and previewPageSize keep review surfaces compact and predictable."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "VALIDATION"

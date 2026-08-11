@@ -92,15 +92,13 @@ page SelectPage
           "Choose a workspace role"
         Text size:"sm" color:"muted"
           "bind keeps the selected string in a Signal while each renders a validated catalog of Option children."
-      Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+      Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Grid columns:1 gap:4
           Select:
             bind:selectedRole
             label:"Workspace role"
             placeholder:"Choose a role"
             labelFloating:true
-            variant:"outlined"
-            scheme:"primary"
             w:"full"
             each in:roleOptions as:option key:option.id
               Option value:option.value label:option.label description:option.description
@@ -120,8 +118,6 @@ page SelectPage
             label:"Workspace role"
             placeholder:"Choose a role"
             labelFloating:true
-            variant:"outlined"
-            scheme:"primary"
             Option:
               value:"admin"
               label:"Administrator"
@@ -145,7 +141,7 @@ page SelectPage
         Text size:"sm" color:"muted"
           "A fixed label stays above the trigger. A floating label rests inside an empty control, activates when the list opens, and stays active after a choice is made. Its active origin matches the selected text and is not moved by the trailing arrow."
       Grid columns:{ xs:1 md:2 } gap:5
-        Select label:"Role" placeholder:"Choose a role" variant:"outlined" scheme:"primary" w:"full"
+        Select label:"Role" placeholder:"Choose a role" w:"full"
           Option value:"admin" label:"Administrator"
           Option value:"editor" label:"Editor"
           Option value:"viewer" label:"Viewer"
@@ -153,8 +149,6 @@ page SelectPage
           label:"Role"
           placeholder:"Choose a role"
           labelFloating:true
-          variant:"outlined"
-          scheme:"primary"
           w:"full"
           Option value:"admin" label:"Administrator"
           Option value:"editor" label:"Editor"
@@ -166,15 +160,13 @@ page SelectPage
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Select label:"Role" placeholder:"Choose a role" variant:"outlined" scheme:"primary"
+          Select label:"Role" placeholder:"Choose a role"
             Option value:"admin" label:"Administrator"
 
           Select:
             label:"Role"
             placeholder:"Choose a role"
             labelFloating:true
-            variant:"outlined"
-            scheme:"primary"
             Option value:"admin" label:"Administrator"
         """
   Section id:"select-sizes" py:{ xs:7 md:10 }
@@ -187,11 +179,11 @@ page SelectPage
         Text size:"sm" color:"muted"
           "Small, medium, and large triggers are 32, 40, and 48 logical units, and their selected text scales through body sm, md, and lg. A floating label adds exactly 8 units."
       Grid columns:{ xs:1 md:3 } gap:4
-        Select label:"Small" placeholder:"32 + 8" labelFloating:true variant:"outlined" scheme:"primary" size:"sm" w:"full"
+        Select label:"Small" placeholder:"32 + 8" labelFloating:true size:"sm" w:"full"
           Option value:"small" label:"Small option"
-        Select label:"Medium" placeholder:"40 + 8" labelFloating:true variant:"outlined" scheme:"primary" size:"md" w:"full"
+        Select label:"Medium" placeholder:"40 + 8" labelFloating:true w:"full"
           Option value:"medium" label:"Medium option"
-        Select label:"Large" placeholder:"48 + 8" labelFloating:true variant:"outlined" scheme:"primary" size:"lg" w:"full"
+        Select label:"Large" placeholder:"48 + 8" labelFloating:true size:"lg" w:"full"
           Option value:"large" label:"Large option"
   Section id:"select-variants" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
@@ -203,13 +195,13 @@ page SelectPage
         Text size:"sm" color:"muted"
           "Variant changes the trigger treatment while the option list, arrow, labels, and single-choice behavior stay consistent."
       Grid columns:{ xs:1 md:2 } gap:5
-        Select label:"Solid" placeholder:"Choose a role" variant:"solid" scheme:"primary" w:"full"
+        Select label:"Solid" placeholder:"Choose a role" variant:"solid" w:"full"
           Option value:"admin" label:"Administrator"
-        Select label:"Soft" placeholder:"Choose a role" variant:"soft" scheme:"primary" w:"full"
+        Select label:"Soft" placeholder:"Choose a role" variant:"soft" w:"full"
           Option value:"editor" label:"Editor"
-        Select label:"Outlined" placeholder:"Choose a role" variant:"outlined" scheme:"primary" w:"full"
+        Select label:"Outlined" placeholder:"Choose a role" w:"full"
           Option value:"viewer" label:"Viewer"
-        Select label:"Ghost" placeholder:"Choose a role" variant:"ghost" scheme:"primary" w:"full"
+        Select label:"Ghost" placeholder:"Choose a role" variant:"ghost" w:"full"
           Option value:"guest" label:"Guest"
   Section id:"select-schemes" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
@@ -221,21 +213,21 @@ page SelectPage
         Text size:"sm" color:"muted"
           "Outlined controls keep a neutral resting border while scheme controls their foreground, focus, and selected-option accent."
       Grid columns:{ xs:1 md:2 } gap:5
-        Select label:"Primary" placeholder:"Choose" variant:"outlined" scheme:"primary" w:"full"
+        Select label:"Primary" placeholder:"Choose" w:"full"
           Option value:"primary" label:"Primary"
-        Select label:"Secondary" placeholder:"Choose" variant:"outlined" scheme:"secondary" w:"full"
+        Select label:"Secondary" placeholder:"Choose" scheme:"secondary" w:"full"
           Option value:"secondary" label:"Secondary"
-        Select label:"Tertiary" placeholder:"Choose" variant:"outlined" scheme:"tertiary" w:"full"
+        Select label:"Tertiary" placeholder:"Choose" scheme:"tertiary" w:"full"
           Option value:"tertiary" label:"Tertiary"
-        Select label:"Muted" placeholder:"Choose" variant:"outlined" scheme:"muted" w:"full"
+        Select label:"Muted" placeholder:"Choose" scheme:"muted" w:"full"
           Option value:"muted" label:"Muted"
-        Select label:"Success" placeholder:"Choose" variant:"outlined" scheme:"success" w:"full"
+        Select label:"Success" placeholder:"Choose" scheme:"success" w:"full"
           Option value:"success" label:"Success"
-        Select label:"Info" placeholder:"Choose" variant:"outlined" scheme:"info" w:"full"
+        Select label:"Info" placeholder:"Choose" scheme:"info" w:"full"
           Option value:"info" label:"Info"
-        Select label:"Warning" placeholder:"Choose" variant:"outlined" scheme:"warning" w:"full"
+        Select label:"Warning" placeholder:"Choose" scheme:"warning" w:"full"
           Option value:"warning" label:"Warning"
-        Select label:"Danger" placeholder:"Choose" variant:"outlined" scheme:"danger" w:"full"
+        Select label:"Danger" placeholder:"Choose" scheme:"danger" w:"full"
           Option value:"danger" label:"Danger"
   Section id:"select-contract" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
@@ -247,7 +239,7 @@ page SelectPage
         Text size:"sm" color:"muted"
           "Dowe owns the trigger and option popover instead of delegating selection to platform-native menus, pickers, or spinners."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "SINGLE CHOICE"
@@ -255,7 +247,7 @@ page SelectPage
               "String binding"
             Text size:"sm" color:"muted"
               "A selected Option writes its normalized string value to bind. Duplicate values are invalid."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "STRUCTURE"
@@ -263,7 +255,7 @@ page SelectPage
               "Direct children"
             Text size:"sm" color:"muted"
               "Option is valid only as a direct Select child, with a non-empty label and optional description."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "TARGETS"

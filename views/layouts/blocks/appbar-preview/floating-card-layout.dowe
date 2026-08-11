@@ -2,8 +2,6 @@ layout AppBarFloatingCardLayout
   Scaffold p:{ xs:2 md:4 }
     appBar
       AppBar:
-        variant:"solid"
-        scheme:"surface"
         position:"sticky"
         boxed:true
         floating:true
@@ -13,20 +11,18 @@ layout AppBarFloatingCardLayout
           Flex align:"center" gap:5
             Brand href:"/blocks/appbar" label:"Pekoo home"
               Flex align:"center" gap:2
-                Icon name:"bolt-circle" style:"bold" fill:"primary" w:8 h:8
+                Icon name:"bolt-circle-bold" fill:"primary" w:8 h:8
                 Text size:"xl" weight:"black"
                   "PEKOO."
             Flex align:"center" gap:2 show:{ xs:false lg:true }
               IconButton:
                 icon:"global"
                 label:"Community"
-                variant:"solid"
                 scheme:"danger"
                 rounded:"full"
               IconButton:
                 icon:"figma"
                 label:"Design profile"
-                variant:"solid"
                 scheme:"info"
                 rounded:"full"
         center
@@ -39,7 +35,6 @@ layout AppBarFloatingCardLayout
           Flex align:"center" gap:2
             Button:
               href:"/blocks/appbar-preview/centered-pill"
-              variant:"solid"
               scheme:"secondary"
               size:"sm"
               rounded:"full"
@@ -49,7 +44,6 @@ layout AppBarFloatingCardLayout
               icon:"hamburger-menu"
               label:"Open navigation"
               variant:"ghost"
-              scheme:"primary"
               show:{ xs:true md:false }
     main
       children

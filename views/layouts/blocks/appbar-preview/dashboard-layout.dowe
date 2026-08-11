@@ -2,8 +2,6 @@ layout AppBarDashboardLayout
   Scaffold
     appBar
       AppBar:
-        variant:"solid"
-        scheme:"surface"
         position:"sticky"
         boxed:true
         bordered:true
@@ -16,7 +14,6 @@ layout AppBarDashboardLayout
               label:"Search dashboard"
               placeholder:"Type to search ..."
               labelFloating:true
-              variant:"outlined"
               scheme:"muted"
               iconStart:"magnifier"
               w:72

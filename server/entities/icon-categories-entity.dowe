@@ -1,0 +1,6 @@
+entity IconCategories
+  slug:string required:true unique:true index:true
+  label:string required:true
+  position:int required:true index:true
+  positionKey:string required:true index:true
+  count:int required:true

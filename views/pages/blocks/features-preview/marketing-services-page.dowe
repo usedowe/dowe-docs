@@ -32,7 +32,7 @@ page MarketingServicesFeaturesPage
         description:"Improve discovery across search and social with one coordinated, measurable growth plan."
       },
     ]
-  Section id:"marketing-services-features" bg:"surface" color:"onSurface" boxed:true py:{ xs:8 md:12 }
+  Section id:"marketing-services-features" bg:"surface" color:"surfaceText" boxed:true py:{ xs:8 md:12 }
     Grid columns:1 gap:{ xs:8 md:12 }
       Flex direction:"column" align:"center" gap:3
         Flex direction:"column" align:"center" gap:0 show:{ xs:false md:true }
@@ -48,7 +48,7 @@ page MarketingServicesFeaturesPage
         each in:marketingServices as:service key:service.id
           Flex align:"start" gap:4 minH:28
             Box bg:"softPrimary" rounded:"full" p:3
-              Icon name:"graph-new-up" style:"line-duotone" fill:"primary" w:10 h:10
+              Icon name:"graph-new-up-line-duotone" fill:"primary" w:10 h:10
             Grid columns:1 gap:2
               Title size:"lg" weight:"black"
                 "{service.title}"

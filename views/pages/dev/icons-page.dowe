@@ -1,32 +1,54 @@
 page IconsPage
+  const iconCommandRows:
+    value:[
+      {
+        area:"Source"
+        result:"Local SVG only"
+        guidance:"SVG doctypes are accepted without fetching their DTD. External entities are rejected."
+      },
+      {
+        area:"Composition"
+        result:"Centered and scaled"
+        guidance:"The logo keeps its aspect ratio. Browser favicons use ninety percent of the canvas for a more noticeable tab mark, while larger web and native compositions keep their platform spacing."
+      },
+      {
+        area:"Dependencies"
+        result:"Included in Dowe"
+        guidance:"Projects do not need Dowe, Node.js, ImageMagick, or another image utility."
+      },
+    ]
+  const iconSyncRows:
+    value:[
+      {
+        area:"Source of truth"
+        guidance:"Commit icons and never edit the copies generated below .dowe."
+      },
+      {
+        area:"Native refresh"
+        guidance:"iOS rebuilds its host when icon assets or bundle metadata change."
+      },
+      {
+        area:"Web deployment"
+        guidance:"Web deploys publish only icons/web under /icons. Desktop, iOS, Android, and the source manifest stay outside the public assets upload."
+      },
+    ]
   Section id:"icons-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "DEVELOPMENT / PROJECT ICONS"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "One SVG, every app icon"
+      Text size:"lg" color:"muted"
+        "Generate web, desktop, iOS, and Android icon sets with the Dowe utilities included in Dowe."
+  Section id:"icons-command" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "DEVELOPMENT / PROJECT ICONS"
-        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
-          "One SVG, every app icon"
-        Text size:"lg" color:"muted"
-          "Generate web, desktop, iOS, and Android icon sets with the Dowe utilities included in Dowe."
-      Button:
-        href:"/docs/dev/tests"
-        variant:"soft"
-        scheme:"primary"
-        size:"sm"
-        rounded:"full"
-        iconStart:"check-circle"
-        "Open Testing docs"
-  Section id:"icons-command" p:{ xs:5 md:7 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "GENERATION"
+          "1 / GENERATION"
         Title size:"3xl" weight:"black"
           "Keep the vector source simple"
         Text size:"sm" color:"muted"
-          "Use icon.svg in the project root or assets/icon.svg. Dowe asks for the path first, then an opaque hexadecimal background, rounded value, and target selection."
-        Text size:"sm" color:"muted"
-          "The dowe icons namespace only generates application assets. D1 migration utilities use the separate dowe d1 namespace."
+          "Use icon.svg in the project root or assets/icon.svg. Dowe asks for the path first, then an opaque hexadecimal background, rounded value, and target selection. The dowe icons namespace only generates application assets; D1 migration utilities use the separate dowe d1 namespace."
       Code:
         language:"dowe"
         variant:"soft"
@@ -38,40 +60,25 @@ page IconsPage
           dowe icons --source assets/icon.svg --background '#ffffff' --rounded md
           dowe icons --source icon.svg --background '#111827' --rounded full --target web --target desktop
         """
-      Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "SOURCE"
-            Title size:"lg" weight:"bold"
-              "Local SVG only"
-            Text size:"sm" color:"muted"
-              "SVG doctypes are accepted without fetching their DTD. External entities are rejected."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "COMPOSITION"
-            Title size:"lg" weight:"bold"
-              "Centered and scaled"
-            Text size:"sm" color:"muted"
-              "The logo keeps its aspect ratio. Browser favicons use ninety percent of the canvas for a more noticeable tab mark, while larger web and native compositions keep their platform spacing. The macOS ICNS follows Apple's grid, so its surface is the centered eight hundred twenty four pixel square of a one thousand twenty four pixel canvas."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "DEPENDENCIES"
-            Title size:"lg" weight:"bold"
-              "Included in Dowe"
-            Text size:"sm" color:"muted"
-              "Projects do not need Dowe, Node.js, ImageMagick, or another image utility."
+      Table:
+        data:iconCommandRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"area" label:"Concern" width:"2fr"
+        column field:"result" label:"Rule" width:"2fr"
+        column field:"guidance" label:"Details" width:"5fr"
   Section id:"icons-output" py:{ xs:7 md:10 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "VERSIONED ASSETS"
-        Title size:"3xl" weight:"black"
-          "Commit assets, regenerate safely"
-        Text size:"sm" color:"muted"
-          "Dowe writes target folders and a deterministic manifest below icons. Regenerating selected targets removes their stale files and preserves every unselected platform."
+    Grid columns:1 gap:4
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "2 / VERSIONED ASSETS"
+      Title size:"3xl" weight:"black"
+        "Commit assets, regenerate safely"
+      Text size:"sm" color:"muted"
+        "Dowe writes target folders and a deterministic manifest below icons. Regenerating selected targets removes their stale files and preserves every unselected platform."
       Code:
         language:"dowe"
         variant:"soft"
@@ -89,28 +96,23 @@ page IconsPage
             android/
         """
       Text size:"sm" color:"muted"
-        "Web receives favicon and touch icons. The favicon variants reduce internal padding at browser-tab sizes without changing the larger web icons. Desktop receives ICO, ICNS, and PNG assets; the ICNS keeps Apple's transparent margin, includes native 1x and 2x sizes, and is applied to both the macOS app and its DMG. iOS receives an AppIcon asset catalog, while Android receives legacy, round, and adaptive launcher resources."
+        "Web receives favicon and touch icons. Desktop receives ICO, ICNS, and PNG assets; the ICNS keeps Apple's transparent margin, includes native 1x and 2x sizes, and is applied to both the macOS app and its DMG. iOS receives an AppIcon asset catalog, while Android receives legacy, round, and adaptive launcher resources."
   Section id:"icons-development" p:{ xs:5 md:7 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "DEVELOPMENT SYNC"
+          "3 / DEVELOPMENT SYNC"
         Title size:"3xl" weight:"black"
           "Regeneration reaches every target"
         Text size:"sm" color:"muted"
           "dowe dev watches icons and synchronizes current copies into disposable .dowe output. Web avoids stale icon caching, desktop hosts consume their native format, and mobile builds receive their launcher resources."
-        Text size:"sm" color:"muted"
-          "Web deploys publish only icons/web under /icons. Desktop, iOS, Android, and the source manifest stay outside the public assets upload."
-      Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Title size:"lg" weight:"bold"
-              "Source of truth"
-            Text size:"sm" color:"muted"
-              "Commit icons and never edit the copies generated below .dowe."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Title size:"lg" weight:"bold"
-              "Native refresh"
-            Text size:"sm" color:"muted"
-              "iOS rebuilds its host when icon assets or bundle metadata change."
+      Table:
+        data:iconSyncRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"area" label:"Area" width:"2fr"
+        column field:"guidance" label:"Behavior" width:"5fr"

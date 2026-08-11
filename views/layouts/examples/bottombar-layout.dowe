@@ -1,7 +1,7 @@
 layout BottomBarLayout
   Scaffold
     appBar
-      AppBar variant:"soft" scheme:"surface" position:"fixed" boxed:true bordered:true
+      AppBar variant:"soft" position:"fixed" boxed:true bordered:true
         start
           Text weight:"bold"
             "Dowe"
@@ -9,7 +9,7 @@ layout BottomBarLayout
           Text size:"sm" color:"muted"
             "BottomBar shell"
         end
-          Button href:"/examples/scaffold" variant:"ghost" scheme:"primary" size:"sm"
+          Button href:"/examples/scaffold" variant:"ghost" size:"sm"
             "Shell"
     main
       children

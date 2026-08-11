@@ -1,0 +1,6 @@
+entity Icons
+  key:string required:true unique:true index:true
+  name:string required:true index:true
+  category:string required:true index:true
+  style:string required:true index:true
+  svg:json required:true

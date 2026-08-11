@@ -5,7 +5,7 @@ layout AppBarCreativeLayout
         start
           Brand href:"/blocks/appbar" label:"Pekoo home"
             Flex align:"center" gap:2
-              Icon name:"bolt-circle" style:"bold" fill:"danger" w:8 h:8
+              Icon name:"bolt-circle-bold" fill:"danger" w:8 h:8
               Text size:"xl" weight:"black"
                 "PEKOO."
         center
@@ -18,10 +18,8 @@ layout AppBarCreativeLayout
           Flex align:"center" gap:3
             Button:
               href:"/blocks/appbar-preview/floating-card"
-              variant:"solid"
               scheme:"danger"
               size:"sm"
-              rounded:"md"
               show:{ xs:false sm:true }
               "Get In Touch"
             IconButton:
@@ -29,6 +27,5 @@ layout AppBarCreativeLayout
               label:"Open navigation"
               variant:"outlined"
               scheme:"muted"
-              rounded:"md"
     main
       children

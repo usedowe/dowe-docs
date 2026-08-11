@@ -74,7 +74,7 @@ page ParsePage
       Grid columns:{ xs:1 md:2 } gap:5
         Grid columns:1 gap:3
           Textarea bind:svgInput label:"SVG source" rows:10 maxLength:60000 variant:"outlined" scheme:"primary" w:"full"
-          Button onClick:parseSvgInput variant:"solid" scheme:"primary" iconStart:"code"
+          Button onClick:parseSvgInput iconStart:"code"
             "Run parse.svg"
         Code:
           language:"dowe"

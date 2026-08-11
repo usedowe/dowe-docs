@@ -66,7 +66,7 @@ page PinPage
           "Verify a high-value action"
         Text size:"sm" color:"muted"
           "Enter or paste a six-digit code. Focus advances per character, Backspace returns to the previous empty field, and Android keeps every cell inside narrow containers."
-      Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+      Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Grid columns:1 gap:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
@@ -81,14 +81,12 @@ page PinPage
             type:"number"
             label:"Verification code"
             helpText:"The code expires in ten minutes. You can paste all six digits at once."
-            variant:"outlined"
-            scheme:"primary"
             size:"lg"
             name:"transfer-code"
           Flex wrap:true justify:"end" align:"center" gap:3
             Button variant:"ghost" scheme:"muted" size:"sm"
               "Send another code"
-            Button variant:"solid" scheme:"primary" size:"sm" iconEnd:"alt-arrow-right"
+            Button size:"sm" iconEnd:"alt-arrow-right"
               "Verify transfer"
       Code:
         language:"dowe"
@@ -99,7 +97,7 @@ page PinPage
         content:"""
           signal verificationCode value:""
 
-          Pin bind:verificationCode length:6 type:"number" label:"Verification code" helpText:"The code expires in ten minutes. You can paste all six digits at once." variant:"outlined" scheme:"primary" size:"lg" name:"transfer-code"
+          Pin bind:verificationCode length:6 type:"number" label:"Verification code" helpText:"The code expires in ten minutes. You can paste all six digits at once." size:"lg" name:"transfer-code"
         """
   Section id:"pin-modes" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
@@ -129,7 +127,6 @@ page PinPage
           helpText:"Masked while preserving the joined value."
           variant:"solid"
           scheme:"secondary"
-          size:"md"
           name:"vault-pin"
         Pin:
           value:"A7K9Q2M4"
@@ -139,7 +136,6 @@ page PinPage
           helpText:"Text mode accepts an alphanumeric key."
           variant:"line"
           scheme:"success"
-          size:"md"
           name:"recovery-key"
       Code:
         language:"dowe"
@@ -150,9 +146,9 @@ page PinPage
         content:"""
           Pin value:"5821" length:4 type:"number" label:"Device code" variant:"soft" scheme:"info" size:"sm"
 
-          Pin value:"749205" length:6 type:"password" label:"Vault PIN" variant:"solid" scheme:"secondary" size:"md"
+          Pin value:"749205" length:6 type:"password" label:"Vault PIN" variant:"solid" scheme:"secondary"
 
-          Pin value:"A7K9Q2M4" length:8 type:"text" label:"Recovery key" variant:"line" scheme:"success" size:"md"
+          Pin value:"A7K9Q2M4" length:8 type:"text" label:"Recovery key" variant:"line" scheme:"success"
         """
   Section id:"pin-states" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
@@ -170,9 +166,7 @@ page PinPage
           type:"number"
           label:"Expired verification code"
           errorText:"This code is incomplete or has expired. Request a new one."
-          variant:"outlined"
           scheme:"danger"
-          size:"md"
           name:"expired-code"
         Pin:
           length:8
@@ -181,12 +175,11 @@ page PinPage
           helpText:"Paste the complete eight-character key from the enrollment screen."
           variant:"soft"
           scheme:"warning"
-          size:"md"
           name:"enrollment-key"
       Flex wrap:true justify:"center" align:"center" gap:4
-        Pin length:4 type:"number" label:"Small" variant:"soft" scheme:"primary" size:"sm"
-        Pin length:4 type:"number" label:"Medium" variant:"soft" scheme:"primary" size:"md"
-        Pin length:4 type:"number" label:"Large" variant:"soft" scheme:"primary" size:"lg"
+        Pin length:4 type:"number" label:"Small" variant:"soft" size:"sm"
+        Pin length:4 type:"number" label:"Medium" variant:"soft"
+        Pin length:4 type:"number" label:"Large" variant:"soft" size:"lg"
   Section id:"pin-contract" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
@@ -197,7 +190,7 @@ page PinPage
         Text size:"sm" color:"muted"
           "Dowe coordinates entry across individual cells and exposes a single predictable value to the surrounding form."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "KEYBOARD"
@@ -205,7 +198,7 @@ page PinPage
               "Managed focus"
             Text size:"sm" color:"muted"
               "Character entry advances focus and Backspace returns to the previous empty cell."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "PASTE"
@@ -213,7 +206,7 @@ page PinPage
               "Distributed input"
             Text size:"sm" color:"muted"
               "Pasting fills consecutive cells up to length and updates the joined value once."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "TARGETS"

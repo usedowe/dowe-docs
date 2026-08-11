@@ -28,7 +28,7 @@ page RatingCarouselTestimonialsPage
       role:"VP of Product"
     }
   }
-  Section id:"rating-carousel-testimonials" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:14 } minH:"vh-0"
+  Section id:"rating-carousel-testimonials" bg:"background" color:"backgroundText" boxed:true py:{ xs:8 md:14 } minH:"vh-0"
     Grid columns:1 gap:{ xs:8 md:10 }
       Grid columns:{ xs:1 md:"1fr auto" } gap:6 align:"end"
         Grid columns:1 gap:3
@@ -37,9 +37,9 @@ page RatingCarouselTestimonialsPage
           Text size:"lg" color:"muted"
             "Trusted by ambitious teams that value clear thinking and dependable delivery."
         Flex direction:{ xs:"column" sm:"row" } gap:3
-          Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" iconEnd:"arrow-right"
+          Button size:"lg" rounded:"full" iconEnd:"arrow-right"
             "Get started"
-          Button variant:"outlined" scheme:"primary" size:"lg" rounded:"full"
+          Button variant:"outlined" size:"lg" rounded:"full"
             "Talk to sales"
       Carousel variant:"controls" scheme:"primary" slideWidth:360 gap:20 hideIndicators:true
         slide id:"john"
@@ -47,7 +47,7 @@ page RatingCarouselTestimonialsPage
             Flex direction:"column" justify:"between" gap:6 minH:48
               Flex gap:1
                 each in:stars as:star key:star.id
-                  Icon name:"star" style:"bold" fill:"muted" w:6 h:6
+                  Icon name:"star-bold" fill:"muted" w:6 h:6
               Text color:"muted"
                 "{reviews.john.quote}"
               Grid columns:1 gap:1
@@ -60,7 +60,7 @@ page RatingCarouselTestimonialsPage
             Flex direction:"column" justify:"between" gap:6 minH:48
               Flex gap:1
                 each in:stars as:star key:star.id
-                  Icon name:"star" style:"bold" fill:"muted" w:6 h:6
+                  Icon name:"star-bold" fill:"muted" w:6 h:6
               Text color:"muted"
                 "{reviews.sophie.quote}"
               Grid columns:1 gap:1
@@ -73,7 +73,7 @@ page RatingCarouselTestimonialsPage
             Flex direction:"column" justify:"between" gap:6 minH:48
               Flex gap:1
                 each in:stars as:star key:star.id
-                  Icon name:"star" style:"bold" fill:"muted" w:6 h:6
+                  Icon name:"star-bold" fill:"muted" w:6 h:6
               Text color:"muted"
                 "{reviews.matt.quote}"
               Grid columns:1 gap:1
@@ -86,7 +86,7 @@ page RatingCarouselTestimonialsPage
             Flex direction:"column" justify:"between" gap:6 minH:48
               Flex gap:1
                 each in:stars as:star key:star.id
-                  Icon name:"star" style:"bold" fill:"muted" w:6 h:6
+                  Icon name:"star-bold" fill:"muted" w:6 h:6
               Text color:"muted"
                 "{reviews.andy.quote}"
               Grid columns:1 gap:1

@@ -34,26 +34,26 @@ page SkeletonPage
         Text size:"sm" color:"muted"
           "Choose a variant from the content geometry, then use animation to communicate whether the wait is active or intentionally static."
       Grid columns:{ xs:1 md:4 } gap:4
-        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+        Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" color:"muted"
               "TEXT"
             Skeleton variant:"text" animation:"wave" w:"full" h:5
             Skeleton variant:"text" animation:"wave" w:28 h:5
             Skeleton variant:"text" animation:"wave" w:20 h:5
-        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+        Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:3 align:"center"
             Text size:"xs" weight:"bold" color:"muted"
               "CIRCULAR"
             Skeleton variant:"circular" animation:"pulse" w:16 h:16 rounded:"full"
             Skeleton variant:"text" animation:"pulse" w:24 h:4
-        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+        Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" color:"muted"
               "RECTANGULAR"
             Skeleton variant:"rectangular" animation:"wave" w:"full" h:28
             Skeleton variant:"text" animation:"wave" w:24 h:4
-        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+        Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" color:"muted"
               "ROUNDED"
@@ -74,7 +74,7 @@ page SkeletonPage
           "Mirror the finished dashboard"
         Text size:"sm" color:"muted"
           "Skeleton works best when the loading tree preserves the same hierarchy as the eventual content: avatar, heading, metadata, and action region."
-      Card variant:"soft" scheme:"surface" p:{ xs:5 md:8 } rounded:"md"
+      Card variant:"soft" p:{ xs:5 md:8 }
         Grid columns:{ xs:1 md:"auto 1fr auto" } gap:5 align:"center"
           Skeleton variant:"circular" animation:"pulse" w:16 h:16 rounded:"full"
           Grid columns:1 gap:3
@@ -85,21 +85,21 @@ page SkeletonPage
             Skeleton variant:"rounded" animation:"wave" w:28 h:10 rounded:"full"
             Skeleton variant:"text" animation:"none" w:20 h:4
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+        Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" color:"muted"
               "PULSE"
             Skeleton variant:"rounded" animation:"pulse" w:"full" h:20 rounded:"md"
             Text size:"sm" color:"muted"
               "Use pulse for a calm, low-frequency loading cue."
-        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+        Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" color:"muted"
               "WAVE"
             Skeleton variant:"rounded" animation:"wave" w:"full" h:20 rounded:"md"
             Text size:"sm" color:"muted"
               "Use wave when the content is actively being fetched or assembled."
-        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+        Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" color:"muted"
               "NONE"
@@ -107,7 +107,7 @@ page SkeletonPage
             Text size:"sm" color:"muted"
               "Use none when motion is not appropriate or the placeholder is a static frame."
       Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
-        Card variant:"soft" scheme:"surface" p:8 rounded:"md"
+        Card variant:"soft" p:8
           Grid columns:{ xs:1 md:"auto 1fr auto" } gap:5 align:"center"
             Skeleton variant:"circular" animation:"pulse" w:16 h:16 rounded:"full"
             Grid columns:1 gap:3
@@ -117,7 +117,7 @@ page SkeletonPage
       """
   Section id:"skeleton-guidance" p:{ xs:5 md:7 }
     Grid columns:{ xs:1 md:3 } gap:4
-      Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+      Card variant:"soft" p:5
         Grid columns:1 gap:2
           Text size:"xs" weight:"bold" color:"muted"
             "DIMENSIONS"
@@ -125,7 +125,7 @@ page SkeletonPage
             "Reserve the real space"
           Text size:"sm" color:"muted"
             "Use w and h to reflect the content that will replace the placeholder."
-      Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+      Card variant:"soft" p:5
         Grid columns:1 gap:2
           Text size:"xs" weight:"bold" color:"muted"
             "MOTION"
@@ -133,7 +133,7 @@ page SkeletonPage
             "Choose one cue"
           Text size:"sm" color:"muted"
             "A page with many placeholders should still feel like one loading state."
-      Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+      Card variant:"soft" p:5
         Grid columns:1 gap:2
           Text size:"xs" weight:"bold" color:"muted"
             "SEMANTICS"

@@ -30,7 +30,7 @@ page BannerPage
         href:"https://dowe.dev"
         label:"Explore Dowe"
         bg:"softPrimary"
-        color:"onSoftPrimary"
+        color:"softPrimaryText"
         p:{ xs:5 md:8 }
         rounded:"lg"
         border:1
@@ -59,7 +59,7 @@ page BannerPage
             href:"https://dowe.dev"
             label:"Explore Dowe"
             bg:"softPrimary"
-            color:"onSoftPrimary"
+            color:"softPrimaryText"
             p:{ xs:5 md:8 }
             rounded:"lg"
             Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"center"
@@ -84,7 +84,7 @@ page BannerPage
           href:"https://dowe.dev/docs"
           label:"Read the Dowe documentation"
           bg:"softSecondary"
-          color:"onSoftSecondary"
+          color:"softSecondaryText"
           px:{ xs:4 md:6 }
           py:4
           rounded:"md"
@@ -100,7 +100,7 @@ page BannerPage
           label:"Discover Dowe targets"
           cover:"/assets/blocks/hero/geometric-grid.jpg"
           overlay:0.68
-          color:"onPrimary"
+          color:"primaryText"
           minH:64
           p:{ xs:6 md:10 }
           rounded:"lg"
@@ -130,7 +130,7 @@ page BannerPage
             label:"Discover Dowe targets"
             cover:"/assets/campaign.jpg"
             overlay:0.68
-            color:"onPrimary"
+            color:"primaryText"
             minH:64
             p:{ xs:6 md:10 }
             rounded:"lg"
@@ -147,7 +147,7 @@ page BannerPage
         Text size:"sm" color:"muted"
           "Banner fixes external behavior so every target can preserve the same safe intent."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "DESTINATION"
@@ -155,7 +155,7 @@ page BannerPage
               "HTTPS is required"
             Text size:"sm" color:"muted"
               "Internal paths, fragments, relative URLs, HTTP, and unsafe schemes fail before target generation."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "CONTENT"
@@ -163,7 +163,7 @@ page BannerPage
               "Children own the visuals"
             Text size:"sm" color:"muted"
               "Compose text, icons, images, Flex, and Grid freely. Banner adds no Button variant or control metrics."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "TARGETS"
@@ -173,7 +173,7 @@ page BannerPage
               "Web opens a protected new tab. Android and iOS use the system browser."
   Section id:"banner-accessibility" p:{ xs:5 md:7 }
     Grid columns:{ xs:1 md:2 } gap:4
-      Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+      Card variant:"outlined" p:5 border:1
         Grid columns:1 gap:2
           Text size:"xs" weight:"bold" color:"muted"
             "ACCESSIBILITY"
@@ -181,7 +181,7 @@ page BannerPage
             "Name the complete link"
           Text size:"sm" color:"muted"
             "Use label when the visible tree does not produce one concise destination name for assistive technology."
-      Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+      Card variant:"outlined" p:5 border:1
         Grid columns:1 gap:2
           Text size:"xs" weight:"bold" color:"muted"
             "COMPOSITION"

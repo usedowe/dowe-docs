@@ -69,11 +69,9 @@ page DatePage
           min:"2026-08-01"
           max:"2026-12-31"
           helpText:"Choose a date in the next release window."
-          variant:"outlined"
-          scheme:"primary"
           size:"lg"
           name:"launch-date"
-        Card variant:"soft" scheme:"surface" p:{ xs:5 md:7 } rounded:"md"
+        Card variant:"soft" p:{ xs:5 md:7 }
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
               "VALUE CONTRACT"
@@ -92,7 +90,7 @@ page DatePage
         content:"""
           signal launchDate value:"2026-08-15"
 
-          Date bind:launchDate label:"Launch date" labelFloating:true min:"2026-08-01" max:"2026-12-31" helpText:"Choose a date in the next release window." variant:"outlined" scheme:"primary" size:"lg" name:"launch-date"
+          Date bind:launchDate label:"Launch date" labelFloating:true min:"2026-08-01" max:"2026-12-31" helpText:"Choose a date in the next release window." size:"lg" name:"launch-date"
         """
   Section id:"date-bounds" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
@@ -104,10 +102,10 @@ page DatePage
         Text size:"sm" color:"muted"
           "min and max define an inclusive calendar window. The visual surface can change without changing the value contract."
       Grid columns:{ xs:1 md:2 } gap:5
-        Date value:"2026-09-01" label:"Outlined" min:"2026-01-01" max:"2026-12-31" variant:"outlined" scheme:"info" size:"md" name:"outlined-date"
-        Date value:"2026-09-01" label:"Soft" min:"2026-01-01" max:"2026-12-31" variant:"soft" scheme:"success" size:"md" name:"soft-date"
-        Date value:"2026-10-15" label:"Solid" min:"2026-09-01" max:"2026-12-31" variant:"solid" scheme:"warning" size:"md" name:"solid-date"
-        Date value:"2026-11-20" label:"Line" min:"2026-01-01" max:"2026-12-31" variant:"line" scheme:"secondary" size:"md" name:"line-date"
+        Date value:"2026-09-01" label:"Outlined" min:"2026-01-01" max:"2026-12-31" scheme:"info" name:"outlined-date"
+        Date value:"2026-09-01" label:"Soft" min:"2026-01-01" max:"2026-12-31" variant:"soft" scheme:"success" name:"soft-date"
+        Date value:"2026-10-15" label:"Solid" min:"2026-09-01" max:"2026-12-31" variant:"solid" scheme:"warning" name:"solid-date"
+        Date value:"2026-11-20" label:"Line" min:"2026-01-01" max:"2026-12-31" variant:"line" scheme:"secondary" name:"line-date"
       Code:
         language:"dowe"
         variant:"soft"
@@ -115,10 +113,10 @@ page DatePage
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Date value:"2026-09-01" label:"Outlined" min:"2026-01-01" max:"2026-12-31" variant:"outlined" scheme:"info" size:"md"
-          Date value:"2026-09-01" label:"Soft" min:"2026-01-01" max:"2026-12-31" variant:"soft" scheme:"success" size:"md"
-          Date value:"2026-10-15" label:"Solid" min:"2026-09-01" max:"2026-12-31" variant:"solid" scheme:"warning" size:"md"
-          Date value:"2026-11-20" label:"Line" min:"2026-01-01" max:"2026-12-31" variant:"line" scheme:"secondary" size:"md"
+          Date value:"2026-09-01" label:"Outlined" min:"2026-01-01" max:"2026-12-31" scheme:"info"
+          Date value:"2026-09-01" label:"Soft" min:"2026-01-01" max:"2026-12-31" variant:"soft" scheme:"success"
+          Date value:"2026-10-15" label:"Solid" min:"2026-09-01" max:"2026-12-31" variant:"solid" scheme:"warning"
+          Date value:"2026-11-20" label:"Line" min:"2026-01-01" max:"2026-12-31" variant:"line" scheme:"secondary"
         """
   Section id:"date-feedback" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
@@ -130,12 +128,12 @@ page DatePage
         Text size:"sm" color:"muted"
           "helpText guides selection and errorText reserves a correction path. Sizes map to 32, 40, and 48 logical units; labelFloating adds 8."
       Grid columns:{ xs:1 md:2 } gap:5
-        Date value:"2026-12-05" label:"Billing date" helpText:"Invoices close on the fifth business day." variant:"outlined" scheme:"success" size:"sm" name:"billing-date"
-        Date value:"2026-12-05" label:"Date needs review" errorText:"This date must fall after the contract start date." variant:"outlined" scheme:"danger" size:"lg" name:"review-date"
+        Date value:"2026-12-05" label:"Billing date" helpText:"Invoices close on the fifth business day." scheme:"success" size:"sm" name:"billing-date"
+        Date value:"2026-12-05" label:"Date needs review" errorText:"This date must fall after the contract start date." scheme:"danger" size:"lg" name:"review-date"
       Flex wrap:true justify:"center" align:"center" gap:3
-        Date value:"2026-08-10" label:"Small" labelFloating:true variant:"outlined" scheme:"primary" size:"sm"
-        Date value:"2026-08-10" label:"Medium" labelFloating:true variant:"outlined" scheme:"primary" size:"md"
-        Date value:"2026-08-10" label:"Large" labelFloating:true variant:"outlined" scheme:"primary" size:"lg"
+        Date value:"2026-08-10" label:"Small" labelFloating:true size:"sm"
+        Date value:"2026-08-10" label:"Medium" labelFloating:true
+        Date value:"2026-08-10" label:"Large" labelFloating:true size:"lg"
   Section id:"date-contract" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
@@ -146,7 +144,7 @@ page DatePage
         Text size:"sm" color:"muted"
           "Dowe lowers the same string value, bounds, label, and feedback model to web, SwiftUI, and Compose. The floating label stays aligned with the displayed date instead of the trailing calendar affordance."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "BINDING"
@@ -154,7 +152,7 @@ page DatePage
               "String Signal"
             Text size:"sm" color:"muted"
               "bind reads and writes YYYY-MM-DD values without timezone conversion."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "VALIDATION"
@@ -162,7 +160,7 @@ page DatePage
               "Inclusive bounds"
             Text size:"sm" color:"muted"
               "min and max keep a date inside a declared calendar window and must form a valid range."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "TARGETS"

@@ -18,12 +18,11 @@ page AppBarsPage
         Button:
           href:"/blocks/appbar-preview/classic-saas"
           variant:"soft"
-          scheme:"primary"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"classic-saas-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe:
@@ -39,11 +38,11 @@ page AppBarsPage
             copyLabel:"Copy AppBar"
             copiedLabel:"Copied"
             content:"""
-              AppBar variant:"soft" scheme:"surface" position:"sticky" boxed:true py:2
+              AppBar variant:"soft" position:"sticky" boxed:true py:2
                 start
                   Brand href:"/blocks/appbar" label:"Olmo home"
                     Flex align:"center" gap:2
-                      Icon name:"layers-minimalistic" style:"bold" fill:"primary" w:8 h:8
+                      Icon name:"layers-minimalistic-bold" fill:"primary" w:8 h:8
                       Text size:"xl" weight:"black"
                         "OLMO."
                 center
@@ -63,7 +62,7 @@ page AppBarsPage
                       "Let's Started"
                     IconButton icon:"hamburger-menu" label:"Open navigation" variant:"ghost" show:{ xs:true md:false }
             """
-  Section id:"creative" p:{ xs:5 md:7 } bg:"softDanger" color:"onSoftDanger"
+  Section id:"creative" p:{ xs:5 md:7 } bg:"softDanger" color:"softDangerText"
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -73,13 +72,12 @@ page AppBarsPage
             "A soft campaign surface with compact controls"
         Button:
           href:"/blocks/appbar-preview/creative"
-          variant:"solid"
           scheme:"danger"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"creative-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe:
@@ -99,7 +97,7 @@ page AppBarsPage
                 start
                   Brand href:"/blocks/appbar" label:"Pekoo home"
                     Flex align:"center" gap:2
-                      Icon name:"bolt-circle" style:"bold" fill:"danger" w:8 h:8
+                      Icon name:"bolt-circle-bold" fill:"danger" w:8 h:8
                       Text size:"xl" weight:"black"
                         "PEKOO."
                 center
@@ -110,9 +108,9 @@ page AppBarsPage
                     item label:"Contact" href:"/blocks/appbar-preview/centered-pill"
                 end
                   Flex align:"center" gap:3
-                    Button href:"/blocks/appbar-preview/floating-card" scheme:"danger" size:"sm" rounded:"md" show:{ xs:false sm:true }
+                    Button href:"/blocks/appbar-preview/floating-card" scheme:"danger" size:"sm" show:{ xs:false sm:true }
                       "Get In Touch"
-                    IconButton icon:"hamburger-menu" label:"Open navigation" variant:"outlined" scheme:"muted" rounded:"md"
+                    IconButton icon:"hamburger-menu" label:"Open navigation" variant:"outlined" scheme:"muted"
             """
   Section id:"social-pill" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
@@ -125,12 +123,11 @@ page AppBarsPage
         Button:
           href:"/blocks/appbar-preview/social-pill"
           variant:"soft"
-          scheme:"primary"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"social-pill-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe:
@@ -151,7 +148,7 @@ page AppBarsPage
                   Flex align:"center" gap:5
                     Brand href:"/blocks/appbar" label:"Pekoo home"
                       Flex align:"center" gap:2
-                        Icon name:"bolt-circle" style:"bold" fill:"primary" w:8 h:8
+                        Icon name:"bolt-circle-bold" fill:"primary" w:8 h:8
                         Text size:"xl" weight:"black"
                           "PEKOO."
                     Flex align:"center" gap:2 show:{ xs:false lg:true }
@@ -167,7 +164,7 @@ page AppBarsPage
                   Button href:"/blocks/appbar-preview/floating-card" size:"sm" rounded:"full" show:{ xs:false sm:true }
                     "Get In Touch"
             """
-  Section id:"floating-card" p:{ xs:5 md:7 } bg:"softDanger" color:"onSoftDanger"
+  Section id:"floating-card" p:{ xs:5 md:7 } bg:"softDanger" color:"softDangerText"
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -177,13 +174,12 @@ page AppBarsPage
             "An inset navigation surface above campaign color"
         Button:
           href:"/blocks/appbar-preview/floating-card"
-          variant:"solid"
           scheme:"danger"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"floating-card-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe:
@@ -199,12 +195,12 @@ page AppBarsPage
             copyLabel:"Copy AppBar"
             copiedLabel:"Copied"
             content:"""
-              AppBar variant:"solid" scheme:"surface" position:"sticky" boxed:true floating:true bordered:true py:2
+              AppBar position:"sticky" boxed:true floating:true bordered:true py:2
                 start
                   Flex align:"center" gap:5
                     Brand href:"/blocks/appbar" label:"Pekoo home"
                       Flex align:"center" gap:2
-                        Icon name:"bolt-circle" style:"bold" fill:"primary" w:8 h:8
+                        Icon name:"bolt-circle-bold" fill:"primary" w:8 h:8
                         Text size:"xl" weight:"black"
                           "PEKOO."
                     Flex align:"center" gap:2 show:{ xs:false lg:true }
@@ -236,7 +232,7 @@ page AppBarsPage
           rounded:"full"
           iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"centered-pill-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe:
@@ -256,7 +252,7 @@ page AppBarsPage
                 start
                   Brand href:"/blocks/appbar" label:"Pekoo home"
                     Flex align:"center" gap:2
-                      Icon name:"bolt-circle" style:"bold" fill:"primary" w:8 h:8
+                      Icon name:"bolt-circle-bold" fill:"primary" w:8 h:8
                       Text size:"xl" weight:"black"
                         "PEKOO."
                 center
@@ -269,7 +265,7 @@ page AppBarsPage
                   Button href:"/blocks/appbar-preview/dashboard" size:"sm" rounded:"full" show:{ xs:false sm:true }
                     "Hire Me"
             """
-  Section id:"hosting" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
+  Section id:"hosting" p:{ xs:5 md:7 } bg:"softPrimary" color:"softPrimaryText"
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -279,13 +275,11 @@ page AppBarsPage
             "A utility strip above product navigation"
         Button:
           href:"/blocks/appbar-preview/hosting"
-          variant:"solid"
-          scheme:"primary"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"hosting-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe:
@@ -301,9 +295,9 @@ page AppBarsPage
             copyLabel:"Copy AppBar"
             copiedLabel:"Copied"
             content:"""
-              AppBar variant:"solid" scheme:"primary" position:"sticky" boxed:true
+              AppBar scheme:"primary" position:"sticky" boxed:true
                 top
-                  Box bg:"tertiary" color:"onTertiary" px:4 py:2
+                  Box bg:"tertiary" color:"tertiaryText" px:4 py:2
                     Grid columns:{ xs:1 md:3 } gap:4 align:"center"
                       Text size:"xs" weight:"bold"
                         "Contact@hostc.com"
@@ -316,8 +310,8 @@ page AppBarsPage
                 start
                   Brand href:"/blocks/appbar" label:"Hostc home"
                     Flex align:"center" gap:2
-                      Icon name:"global" style:"bold" fill:"warning" w:9 h:9
-                      Text size:"xl" weight:"black" color:"onPrimary"
+                      Icon name:"global-bold" fill:"warning" w:9 h:9
+                      Text size:"xl" weight:"black" color:"primaryText"
                         "HOSTC"
                 center
                   NavMenu variant:"soft" scheme:"surface" size:"sm" show:{ xs:false md:true }
@@ -344,12 +338,11 @@ page AppBarsPage
         Button:
           href:"/blocks/appbar-preview/dashboard"
           variant:"soft"
-          scheme:"primary"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"dashboard-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe:
@@ -365,12 +358,12 @@ page AppBarsPage
             copyLabel:"Copy AppBar"
             copiedLabel:"Copied"
             content:"""
-              AppBar variant:"solid" scheme:"surface" position:"sticky" boxed:true bordered:true py:1
+              AppBar position:"sticky" boxed:true bordered:true py:1
                 start
                   Flex align:"center" gap:6
                     Text size:"lg" weight:"black"
                       "Dashboard"
-                    Input label:"Search dashboard" placeholder:"Type to search ..." labelFloating:true variant:"outlined" scheme:"muted" iconStart:"magnifier" w:72 show:{ xs:false md:true }
+                    Input label:"Search dashboard" placeholder:"Type to search ..." labelFloating:true scheme:"muted" iconStart:"magnifier" w:72 show:{ xs:false md:true }
                 end
                   Flex align:"center" gap:3
                     IconButton icon:"letter" label:"Open messages" variant:"ghost" scheme:"muted" size:"sm" show:{ xs:false md:true }
@@ -384,7 +377,7 @@ page AppBarsPage
                         "Admin"
                     IconButton icon:"settings" label:"Open settings" variant:"ghost" scheme:"muted" size:"sm" show:{ xs:false md:true }
             """
-  Section id:"admin" p:{ xs:5 md:7 } bg:"softMuted" color:"onSoftMuted"
+  Section id:"admin" p:{ xs:5 md:7 } bg:"softMuted" color:"softMutedText"
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -394,13 +387,12 @@ page AppBarsPage
             "Global tools above a complete product menu"
         Button:
           href:"/blocks/appbar-preview/admin"
-          variant:"solid"
           scheme:"muted"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"admin-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe:
@@ -416,11 +408,11 @@ page AppBarsPage
             copyLabel:"Copy AppBar"
             copiedLabel:"Copied"
             content:"""
-              AppBar variant:"solid" scheme:"surface" position:"sticky" bordered:true px:4
+              AppBar position:"sticky" bordered:true px:4
                 start
                   Brand href:"/blocks/appbar" label:"Vuexy home"
                     Flex align:"center" gap:3
-                      Icon name:"widget-5" style:"bold" fill:"primary" w:8 h:8
+                      Icon name:"widget-5-bold" fill:"primary" w:8 h:8
                       Text size:"xl" weight:"black"
                         "Vuexy"
                 end

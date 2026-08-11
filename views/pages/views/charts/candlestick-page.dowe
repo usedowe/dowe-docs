@@ -95,7 +95,7 @@ page CandlestickPage
           upColor:"info"
           downColor:"warning"
           maxPoints:120
-        Card variant:"soft" scheme:"info" p:5 rounded:"md"
+        Card variant:"soft" scheme:"info" p:5
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" spacing:"widest"
               "STREAM PAYLOAD"

@@ -108,16 +108,12 @@ page ShadowPage
           bind:shadowSizeChoice
           label:"Shadow size"
           placeholder:"Choose a size"
-          variant:"outlined"
-          scheme:"primary"
           each in:shadowSizeOptions as:option key:option.id
             Option value:option.value label:option.label
         Select:
           bind:shadowColorChoice
           label:"Shadow color"
           placeholder:"Choose a color"
-          variant:"outlined"
-          scheme:"primary"
           each in:shadowColorOptions as:option key:option.id
             Option value:option.value label:option.label
       Code:
@@ -128,7 +124,7 @@ page ShadowPage
         copiedLabel:"Copied"
         template:true
         content:"""
-          Card shadow:"{shadowSizeChoice}" shadowColor:"{shadowColorChoice}" p:6 rounded:"md"
+          Card shadow:"{shadowSizeChoice}" shadowColor:"{shadowColorChoice}" p:6
             Text "Theme-aware shadow"
         """
   Section id:"shadow-components" py:{ xs:7 md:10 }
@@ -144,7 +140,7 @@ page ShadowPage
         Flex direction:"column" gap:3 align:"center" p:6
           Text size:"xs" weight:"bold" color:"muted"
             "CARD"
-          Card shadow:"md" shadowColor:"primary" p:6 rounded:"md"
+          Card shadow:"md" shadowColor:"primary" p:6
             Flex direction:"column" gap:2
               Title size:"lg" weight:"bold"
                 "Release ready"
@@ -177,7 +173,6 @@ page ShadowPage
           Input:
             label:"Workspace"
             placeholder:"dowe-app"
-            variant:"outlined"
             scheme:"info"
             shadow:"md"
             shadowColor:"info"
@@ -190,19 +185,19 @@ page ShadowPage
         Title size:"3xl" weight:"black"
           "Five shadow levels"
       Grid columns:{ xs:1 sm:2 lg:5 } gap:4
-        Card shadow:"xs" shadowColor:"muted" p:5 rounded:"md"
+        Card shadow:"xs" shadowColor:"muted" p:5
           Text weight:"bold"
             "xs"
-        Card shadow:"sm" shadowColor:"muted" p:5 rounded:"md"
+        Card shadow:"sm" shadowColor:"muted" p:5
           Text weight:"bold"
             "sm"
-        Card shadow:"md" shadowColor:"muted" p:5 rounded:"md"
+        Card shadow:"md" shadowColor:"muted" p:5
           Text weight:"bold"
             "md"
-        Card shadow:"lg" shadowColor:"muted" p:5 rounded:"md"
+        Card shadow:"lg" shadowColor:"muted" p:5
           Text weight:"bold"
             "lg"
-        Card shadow:"xl" shadowColor:"muted" p:5 rounded:"md"
+        Card shadow:"xl" shadowColor:"muted" p:5
           Text weight:"bold"
             "xl"
   Section id:"shadow-colors" py:{ xs:7 md:10 }
@@ -213,7 +208,7 @@ page ShadowPage
         Title size:"3xl" weight:"black"
           "Eight theme families"
       Grid columns:{ xs:1 sm:2 lg:4 } gap:5
-        Button shadow:"md" shadowColor:"primary" variant:"soft" scheme:"primary"
+        Button shadow:"md" shadowColor:"primary" variant:"soft"
           "Primary"
         Button shadow:"md" shadowColor:"secondary" variant:"soft" scheme:"secondary"
           "Secondary"

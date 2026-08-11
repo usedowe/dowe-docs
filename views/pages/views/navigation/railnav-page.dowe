@@ -86,9 +86,9 @@ page RailNavPage
         Text size:"sm" color:"muted"
           "Use a fragment such as href:\"#railnav-labels\" to navigate to a Section id on the same page. The transition scrolls smoothly and aligns below a fixed or sticky AppBar on web."
       Grid columns:{ xs:1 md:2 } gap:6 align:"start"
-        Card variant:"outlined" scheme:"surface" p:{ xs:6 md:10 } rounded:"md" border:1
+        Card variant:"outlined" p:{ xs:6 md:10 } border:1
           Flex justify:"center"
-            RailNav variant:"ghost" scheme:"primary" size:"md"
+            RailNav scheme:"primary"
               item label:"RailNav" href:"#railnav-introduction" icon:"route"
               divider
               item label:"Compact" href:"#railnav-default" icon:"home"
@@ -102,7 +102,7 @@ page RailNavPage
           copyLabel:"Copy Dowe"
           copiedLabel:"Copied"
           content:"""
-            RailNav variant:"ghost" scheme:"primary" size:"md"
+            RailNav scheme:"primary"
               item label:"RailNav" href:"#railnav-introduction" icon:"route"
               divider
               item label:"Compact" href:"#railnav-default" icon:"home"
@@ -124,14 +124,14 @@ page RailNavPage
           variant:"soft"
           scheme:"surface"
           content:"""
-            RailNav showLabels:true size:"sm" variant:"soft" scheme:"muted"
+            RailNav showLabels:true size:"sm" variant:"soft"
               item label:"Home" href:"/" icon:"home"
               item label:"Map" href:"/map" icon:"map"
               item label:"Saved" href:"/saved" icon:"bookmark"
           """
-      Card variant:"soft" scheme:"surface" p:{ xs:6 md:9 } rounded:"md"
+      Card variant:"soft" p:{ xs:6 md:9 }
         Flex justify:"center"
-          RailNav showLabels:true size:"sm" variant:"soft" scheme:"muted"
+          RailNav showLabels:true size:"sm" variant:"soft"
             item label:"Home" href:"/docs/views" icon:"home"
             item label:"Map" href:"/docs/views" icon:"map"
             item label:"Saved" href:"/docs/views" icon:"bookmark"
@@ -157,7 +157,7 @@ page RailNavPage
           RailNav variant:"outlined" scheme:"primary" size:"sm"
             item label:"Outlined" href:"/docs/views/navigation/railnav" icon:"home"
             item label:"Settings" href:"/docs/views" icon:"settings"
-          RailNav variant:"ghost" scheme:"primary" size:"sm"
+          RailNav scheme:"primary" size:"sm"
             item label:"Ghost" href:"/docs/views/navigation/railnav" icon:"home"
             item label:"Settings" href:"/docs/views" icon:"settings"
       Grid columns:1 gap:4
@@ -178,11 +178,11 @@ page RailNavPage
         Title size:"xl" weight:"bold"
           "Sizes"
         Flex wrap:true align:"start" gap:5
-          RailNav variant:"outlined" scheme:"muted" size:"sm"
+          RailNav variant:"outlined" size:"sm"
             item label:"Small" href:"/docs/views/navigation/railnav" icon:"route"
-          RailNav variant:"outlined" scheme:"muted" size:"md"
+          RailNav variant:"outlined"
             item label:"Medium" href:"/docs/views/navigation/railnav" icon:"route"
-          RailNav variant:"outlined" scheme:"muted" size:"lg"
+          RailNav variant:"outlined" size:"lg"
             item label:"Large" href:"/docs/views/navigation/railnav" icon:"route"
   Section id:"railnav-contract" p:{ xs:5 md:7 }
     Grid columns:{ xs:1 md:2 } gap:6

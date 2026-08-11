@@ -8,5 +8,5 @@ import ApiRoutes from "@/server/endpoints"
 main
   views:[HomeViews, ViewsViews, ServerViews, ExamplesViews, DevViews, BlockViews]
   server port:8081
-    cors target:"server" devOrigins:true methods:["GET"] headers:["Content-Type"] credentials:false maxAge:600
+    cors target:"server" devOrigins:true methods:["GET", "POST", "PATCH", "DELETE"] headers:["Content-Type", "Authorization"] credentials:false maxAge:600
     endpoints:ApiRoutes

@@ -15,15 +15,12 @@ page StorePage
             "01 · PRODUCT CATALOG"
           Title size:"2xl" weight:"black"
             "Responsive filters and a repeated product grid"
-        Button href:"/blocks/store-preview/product-catalog" variant:"soft" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/store-preview/product-catalog" variant:"soft" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"product-catalog-preview" label:"Preview"
-          Grid columns:{ xs:1 xl:"3fr 1fr" } gap:4 align:"start"
-            Device device:"laptop" w:"full" rounded:"lg" border:1
-              Iframe src:"/blocks/store-preview/product-catalog" title:"Product catalog desktop preview" loading:"lazy" sandbox:"scripts same-origin"
-            Device device:"mobile" rounded:"lg" border:1
-              Iframe src:"/blocks/store-preview/product-catalog" title:"Product catalog mobile preview" loading:"lazy" sandbox:"scripts same-origin"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe src:"/blocks/store-preview/product-catalog" title:"Product catalog desktop preview" loading:"lazy" sandbox:"scripts same-origin"
         tab id:"product-catalog-code" label:"Code"
           Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy block" copiedLabel:"Copied" content:"""
             page ProductCatalogStorePage
@@ -49,11 +46,11 @@ page StorePage
                   { id:"product-11" name:"Simple object" description:"A neutral product description." price:"$99.99" },
                   { id:"product-12" name:"Modern object" description:"A neutral product description." price:"$99.99" },
                 ]
-              Section id:"store-product-catalog" bg:"background" color:"onBackground" boxed:true py:{ xs:6 md:10 } minH:"vh-0"
+              Section id:"store-product-catalog" bg:"background" color:"backgroundText" boxed:true py:{ xs:6 md:10 } minH:"vh-0"
                 Grid columns:1 gap:{ xs:6 md:8 }
                   Flex wrap:true gap:2
                     each in:filters as:filter key:filter.id
-                      Button variant:"outlined" scheme:"muted" size:"sm" rounded:"md" iconEnd:"alt-arrow-down"
+                      Button variant:"outlined" scheme:"muted" size:"sm" iconEnd:"alt-arrow-down"
                         "{filter.label}"
                   Title size:{ xs:"2xl" md:"4xl" } weight:"black"
                     "Products you may like"
@@ -63,9 +60,9 @@ page StorePage
                         Card variant:"soft" scheme:"muted" rounded:"xl" p:3 minH:{ xs:40 md:56 }
                           Flex direction:"column" justify:"between" minH:{ xs:32 md:48 }
                             Flex justify:"end"
-                              IconButton icon:"heart" label:"Save product" variant:"solid" scheme:"muted" size:"xs" rounded:"full"
+                              IconButton icon:"heart" label:"Save product" scheme:"muted" size:"xs" rounded:"full"
                             Flex align:"center" justify:"center"
-                              Icon name:"gallery" style:"bold-duotone" fill:"muted" w:{ xs:10 md:14 } h:{ xs:10 md:14 }
+                              Icon name:"gallery-bold-duotone" fill:"muted" w:{ xs:10 md:14 } h:{ xs:10 md:14 }
                         Grid columns:1 gap:2
                           Flex justify:"between" align:"start" gap:2
                             Text size:"sm" weight:"bold"
@@ -75,17 +72,17 @@ page StorePage
                           Text size:"xs" color:"muted"
                             "{product.description}"
                           Flex align:"center" gap:1
-                            Icon name:"star" style:"bold" fill:"onBackground" w:4 h:4
-                            Icon name:"star" style:"bold" fill:"onBackground" w:4 h:4
-                            Icon name:"star" style:"bold" fill:"onBackground" w:4 h:4
-                            Icon name:"star" style:"bold" fill:"onBackground" w:4 h:4
-                            Icon name:"star" style:"bold" fill:"onBackground" w:4 h:4
+                            Icon name:"star-bold" fill:"backgroundText" w:4 h:4
+                            Icon name:"star-bold" fill:"backgroundText" w:4 h:4
+                            Icon name:"star-bold" fill:"backgroundText" w:4 h:4
+                            Icon name:"star-bold" fill:"backgroundText" w:4 h:4
+                            Icon name:"star-bold" fill:"backgroundText" w:4 h:4
                             Text size:"xs" color:"muted"
                               "(261)"
-                          Button variant:"outlined" scheme:"primary" size:"sm" rounded:"full"
+                          Button variant:"outlined" size:"sm" rounded:"full"
                             "Add to basket"
           """
-  Section id:"product-detail" p:{ xs:5 md:7 } bg:"softMuted" color:"onSoftMuted"
+  Section id:"product-detail" p:{ xs:5 md:7 } bg:"softMuted" color:"softMutedText"
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -93,15 +90,12 @@ page StorePage
             "02 · PRODUCT DETAIL"
           Title size:"2xl" weight:"black"
             "Product gallery, description, quantity, and purchase actions"
-        Button href:"/blocks/store-preview/product-detail" variant:"solid" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/store-preview/product-detail" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"product-detail-preview" label:"Preview"
-          Grid columns:{ xs:1 xl:"3fr 1fr" } gap:4 align:"start"
-            Device device:"laptop" w:"full" rounded:"lg" border:1
-              Iframe src:"/blocks/store-preview/product-detail" title:"Product detail desktop preview" loading:"lazy" sandbox:"scripts same-origin"
-            Device device:"mobile" rounded:"lg" border:1
-              Iframe src:"/blocks/store-preview/product-detail" title:"Product detail mobile preview" loading:"lazy" sandbox:"scripts same-origin"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe src:"/blocks/store-preview/product-detail" title:"Product detail desktop preview" loading:"lazy" sandbox:"scripts same-origin"
         tab id:"product-detail-code" label:"Code"
           Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy block" copiedLabel:"Copied" content:"""
             page ProductDetailStorePage
@@ -114,17 +108,17 @@ page StorePage
                 }
               const thumbnails value:[{ id:"view-1" }, { id:"view-2" }, { id:"view-3" }]
               const stars value:[{ id:"star-1" }, { id:"star-2" }, { id:"star-3" }, { id:"star-4" }, { id:"star-5" }]
-              Section id:"store-product-detail" bg:"background" color:"onBackground" boxed:true py:{ xs:6 md:10 } minH:"vh-0"
+              Section id:"store-product-detail" bg:"background" color:"backgroundText" boxed:true py:{ xs:6 md:10 } minH:"vh-0"
                 Grid columns:{ xs:1 md:"5fr 4fr" } gap:{ xs:8 md:12 } align:"start"
                   Grid columns:1 gap:4
                     Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:6 md:10 } minH:{ xs:64 md:96 }
                       Flex align:"center" justify:"center" minH:{ xs:52 md:80 }
-                        Icon name:"gallery" style:"bold-duotone" fill:"muted" w:{ xs:16 md:24 } h:{ xs:16 md:24 }
+                        Icon name:"gallery-bold-duotone" fill:"muted" w:{ xs:16 md:24 } h:{ xs:16 md:24 }
                     Grid columns:3 gap:4
                       each in:thumbnails as:thumbnail key:thumbnail.id
                         Card variant:"soft" scheme:"muted" rounded:"xl" p:4 minH:{ xs:28 md:40 }
                           Flex align:"center" justify:"center" minH:{ xs:20 md:32 }
-                            Icon name:"gallery" style:"bold-duotone" fill:"muted" w:8 h:8
+                            Icon name:"gallery-bold-duotone" fill:"muted" w:8 h:8
                   Grid columns:1 gap:5
                     Text size:"sm" color:"muted" spacing:"wide"
                       "HOME / PRODUCT"
@@ -140,7 +134,7 @@ page StorePage
                       "The neutral presentation keeps attention on the product while the supporting content remains easy to scan."
                     Flex align:"center" gap:1
                       each in:stars as:star key:star.id
-                        Icon name:"star" style:"bold" fill:"onBackground" w:5 h:5
+                        Icon name:"star-bold" fill:"backgroundText" w:5 h:5
                       Text size:"xs" color:"muted"
                         "(261)"
                     Divider
@@ -153,16 +147,16 @@ page StorePage
                             "1"
                           Button variant:"ghost" scheme:"muted" size:"sm" rounded:"full"
                             "+"
-                      Button variant:"outlined" scheme:"muted" size:"sm" rounded:"md"
+                      Button variant:"outlined" scheme:"muted" size:"sm"
                         "IN STOCK"
                     Divider
                     Text color:"muted"
                       "{product.delivery}"
                     Divider
                     Grid columns:{ xs:1 sm:2 } gap:3
-                      Button variant:"solid" scheme:"warning" size:"lg" rounded:"full" w:"full"
+                      Button scheme:"warning" size:"lg" rounded:"full" w:"full"
                         "Buy Now"
-                      Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" w:"full"
+                      Button size:"lg" rounded:"full" w:"full"
                         "Add to Cart"
           """
   Section id:"shopping-cart" p:{ xs:5 md:7 }
@@ -173,15 +167,12 @@ page StorePage
             "03 · SHOPPING CART"
           Title size:"2xl" weight:"black"
             "Repeated cart rows with responsive totals and checkout summary"
-        Button href:"/blocks/store-preview/shopping-cart" variant:"soft" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/store-preview/shopping-cart" variant:"soft" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"shopping-cart-preview" label:"Preview"
-          Grid columns:{ xs:1 xl:"3fr 1fr" } gap:4 align:"start"
-            Device device:"laptop" w:"full" rounded:"lg" border:1
-              Iframe src:"/blocks/store-preview/shopping-cart" title:"Shopping cart desktop preview" loading:"lazy" sandbox:"scripts same-origin"
-            Device device:"mobile" rounded:"lg" border:1
-              Iframe src:"/blocks/store-preview/shopping-cart" title:"Shopping cart mobile preview" loading:"lazy" sandbox:"scripts same-origin"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe src:"/blocks/store-preview/shopping-cart" title:"Shopping cart desktop preview" loading:"lazy" sandbox:"scripts same-origin"
         tab id:"shopping-cart-code" label:"Code"
           Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy block" copiedLabel:"Copied" content:"""
             page ShoppingCartStorePage
@@ -191,14 +182,14 @@ page StorePage
                   { id:"item-1" name:"Lorem ipsum" option:"Lorem ipsum | 128G" quantity:"1" price:"$99.99" },
                   { id:"item-2" name:"Lorem ipsum" option:"Lorem ipsum | 128G" quantity:"1" price:"$99.99" },
                 ]
-              Section id:"store-shopping-cart" bg:"background" color:"onBackground" boxed:true py:{ xs:6 md:10 } minH:"vh-0"
+              Section id:"store-shopping-cart" bg:"background" color:"backgroundText" boxed:true py:{ xs:6 md:10 } minH:"vh-0"
                 Grid columns:{ xs:1 md:"1fr auto" } gap:{ xs:6 md:10 } align:"start"
-                  Card show:{ xs:true md:false } variant:"ghost" scheme:"surface" p:0
+                  Card show:{ xs:true md:false } variant:"ghost" p:0
                     Grid columns:1 gap:4
                       Title size:"2xl" weight:"black"
                         "Subtotal (2 items): $239.89"
                       Checkbox bind:giftOrder label:"This order contains a gift" scheme:"muted"
-                      Button variant:"solid" scheme:"warning" size:"lg" rounded:"full" w:"full"
+                      Button scheme:"warning" size:"lg" rounded:"full" w:"full"
                         "Proceed to checkout"
                       Divider
                   Grid columns:1 gap:5
@@ -207,7 +198,7 @@ page StorePage
                         Grid columns:{ xs:"auto 1fr" md:"auto 1fr auto auto" } gap:{ xs:4 md:6 } align:"center"
                           Card variant:"soft" scheme:"muted" rounded:"xl" p:4 w:{ xs:32 md:36 } minH:{ xs:32 md:36 }
                             Flex align:"center" justify:"center" minH:{ xs:24 md:28 }
-                              Icon name:"gallery" style:"bold-duotone" fill:"muted" w:8 h:8
+                              Icon name:"gallery-bold-duotone" fill:"muted" w:8 h:8
                           Grid columns:1 gap:1
                             Title size:{ xs:"lg" md:"2xl" } weight:"black"
                               "{item.name}"
@@ -245,11 +236,11 @@ page StorePage
                           "Subtotal"
                         Title size:"2xl" weight:"black"
                           "$239.87"
-                  Card show:{ xs:false md:true } variant:"outlined" scheme:"muted" rounded:"md" p:6 w:80
+                  Card show:{ xs:false md:true } variant:"outlined" scheme:"muted" p:6 w:80
                     Grid columns:1 gap:4
                       Title size:"lg" weight:"black"
                         "Subtotal (2 items): $239.89"
                       Checkbox bind:giftOrder label:"This order contains a gift" scheme:"muted"
-                      Button variant:"solid" scheme:"warning" size:"lg" rounded:"full" w:"full"
+                      Button scheme:"warning" size:"lg" rounded:"full" w:"full"
                         "Proceed to checkout"
           """

@@ -16,7 +16,7 @@ page LogoQuoteTestimonialsPage
       role:"Product Lead"
     }
   }
-  Section id:"logo-quote-testimonials" bg:"background" color:"onBackground" boxed:true py:{ xs:10 md:16 } minH:"vh-0"
+  Section id:"logo-quote-testimonials" bg:"background" color:"backgroundText" boxed:true py:{ xs:10 md:16 } minH:"vh-0"
     Grid columns:1 gap:{ xs:8 md:10 }
       Flex align:"center" justify:"center" wrap:true gap:{ xs:6 md:10 }
         Icon name:"svg-logos:facebook" w:{ xs:24 md:32 } h:10
@@ -31,7 +31,7 @@ page LogoQuoteTestimonialsPage
                 "{testimonials.matt.quote}"
               Flex align:"center" justify:"center" gap:4
                 Box bg:"softMuted" rounded:"full" w:14 h:14 p:3
-                  Icon name:"gallery" style:"bold-duotone" fill:"muted" w:8 h:8
+                  Icon name:"gallery-bold-duotone" fill:"muted" w:8 h:8
                 Grid columns:1 gap:1
                   Text weight:"bold"
                     "{testimonials.matt.name}"
@@ -46,7 +46,7 @@ page LogoQuoteTestimonialsPage
                 "{testimonials.sophie.quote}"
               Flex align:"center" justify:"center" gap:4
                 Box bg:"softMuted" rounded:"full" w:14 h:14 p:3
-                  Icon name:"gallery" style:"bold-duotone" fill:"muted" w:8 h:8
+                  Icon name:"gallery-bold-duotone" fill:"muted" w:8 h:8
                 Grid columns:1 gap:1
                   Text weight:"bold"
                     "{testimonials.sophie.name}"
@@ -61,7 +61,7 @@ page LogoQuoteTestimonialsPage
                 "{testimonials.john.quote}"
               Flex align:"center" justify:"center" gap:4
                 Box bg:"softMuted" rounded:"full" w:14 h:14 p:3
-                  Icon name:"gallery" style:"bold-duotone" fill:"muted" w:8 h:8
+                  Icon name:"gallery-bold-duotone" fill:"muted" w:8 h:8
                 Grid columns:1 gap:1
                   Text weight:"bold"
                     "{testimonials.john.name}"

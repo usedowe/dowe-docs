@@ -49,7 +49,7 @@ page TransformsPage
               Chip variant:"solid" scheme:"muted" size:"sm" rotate:8
                 "UI/UX Design"
           """
-      Box bg:"onBackground" rounded:"xl" p:{ xs:8 md:12 }
+      Box bg:"backgroundText" rounded:"xl" p:{ xs:8 md:12 }
         Flex direction:"column" align:"center" gap:3
           Chip variant:"solid" scheme:"warning" size:"sm" rotate:-7
             "Mobile Apps"

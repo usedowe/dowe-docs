@@ -76,7 +76,7 @@ page PhonePage
           "Collect an international contact number"
         Text size:"sm" color:"muted"
           "Search the Dowe country popover, keep Colombia and nearby markets at the top, and store the selected dial code separately from the digit-only bound local number."
-      Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+      Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Grid columns:1 gap:5
           Phone:
             bind:contactPhone
@@ -199,7 +199,7 @@ page PhonePage
         Text size:"sm" color:"muted"
           "Dowe owns country metadata, ordering, search, dial-code storage, selected state, and the shared circle-flags SVGs across generated targets."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "CATALOG"
@@ -207,7 +207,7 @@ page PhonePage
               "Searchable countries"
             Text size:"sm" color:"muted"
               "Country names, flags, and dial codes come from the deterministic Dowe-owned catalog."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "VALUE"
@@ -215,7 +215,7 @@ page PhonePage
               "Digit-only local value"
             Text size:"sm" color:"muted"
               "bind owns local-number digits and dialCodeName identifies the generated companion form value."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "TARGETS"

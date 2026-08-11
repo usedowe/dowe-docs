@@ -1,0 +1,5 @@
+test "server block routes"
+  assert equal actual:["/blocks/server/crud", "/blocks/server/auth", "/blocks/server/queue", "/blocks/server/utilities"] expected:["/blocks/server/crud", "/blocks/server/auth", "/blocks/server/queue", "/blocks/server/utilities"]
+
+test "server example endpoints"
+  assert equal actual:["/api/examples/blogs", "/api/examples/auth", "/api/examples/queue", "/api/examples/utilities"] expected:["/api/examples/blogs", "/api/examples/auth", "/api/examples/queue", "/api/examples/utilities"]

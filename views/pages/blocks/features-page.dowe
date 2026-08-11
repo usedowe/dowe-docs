@@ -18,12 +18,11 @@ page FeaturesPage
         Button:
           href:"/blocks/features-preview/customer-centric"
           variant:"soft"
-          scheme:"primary"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"customer-centric-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe:
@@ -60,7 +59,7 @@ page FeaturesPage
                     preview:"Launch an Automation"
                   },
                 ]
-              Section id:"customer-centric-features" bg:"surface" color:"onSurface" boxed:true py:{ xs:8 md:12 }
+              Section id:"customer-centric-features" bg:"surface" color:"surfaceText" boxed:true py:{ xs:8 md:12 }
                 Flex direction:"column" align:"center" gap:0
                   Flex direction:"column" align:"center" gap:0 show:{ xs:false md:true }
                     Title size:"5xl" weight:"black"
@@ -78,7 +77,7 @@ page FeaturesPage
                       Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:5 md:6 } minH:80
                         Flex direction:"column" gap:4 minH:64
                           Box bg:"softPrimary" rounded:"full" w:14 h:14 p:2
-                            Icon name:"route" style:"line-duotone" fill:"primary" w:10 h:10
+                            Icon name:"route-line-duotone" fill:"primary" w:10 h:10
                           Grid columns:1 gap:2 minH:20
                             Title size:"lg" weight:"black"
                               "{benefit.title}"
@@ -88,7 +87,7 @@ page FeaturesPage
                           Box bg:"surface" rounded:"lg" p:4 shadow:"sm" minH:28
                             Grid columns:1 gap:3
                               Flex align:"center" gap:3
-                                Icon name:"check-circle" style:"bold" fill:"success" w:6 h:6
+                                Icon name:"check-circle-bold" fill:"success" w:6 h:6
                                 Text weight:"bold"
                                   "{benefit.preview}"
                               Grid columns:3 gap:2
@@ -96,9 +95,9 @@ page FeaturesPage
                                 Box h:8 bg:"softPrimary" rounded:"sm"
                                 Box h:8 bg:"softMuted" rounded:"sm"
                               Flex justify:"end"
-                                Icon name:"cursor" style:"bold" fill:"onSurface" w:7 h:7
+                                Icon name:"cursor-bold" fill:"surfaceText" w:7 h:7
             """
-  Section id:"marketing-services" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
+  Section id:"marketing-services" p:{ xs:5 md:7 } bg:"softPrimary" color:"softPrimaryText"
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -108,13 +107,11 @@ page FeaturesPage
             "Six capabilities in a clean two-column rhythm"
         Button:
           href:"/blocks/features-preview/marketing-services"
-          variant:"solid"
-          scheme:"primary"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"marketing-services-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe:
@@ -163,7 +160,7 @@ page FeaturesPage
                     description:"Improve discovery across search and social with one coordinated, measurable growth plan."
                   },
                 ]
-              Section id:"marketing-services-features" bg:"surface" color:"onSurface" boxed:true py:{ xs:8 md:12 }
+              Section id:"marketing-services-features" bg:"surface" color:"surfaceText" boxed:true py:{ xs:8 md:12 }
                 Grid columns:1 gap:{ xs:8 md:12 }
                   Flex direction:"column" align:"center" gap:3
                     Flex direction:"column" align:"center" gap:0 show:{ xs:false md:true }
@@ -179,7 +176,7 @@ page FeaturesPage
                     each in:marketingServices as:service key:service.id
                       Flex align:"start" gap:4 minH:28
                         Box bg:"softPrimary" rounded:"full" p:3
-                          Icon name:"graph-new-up" style:"line-duotone" fill:"primary" w:10 h:10
+                          Icon name:"graph-new-up-line-duotone" fill:"primary" w:10 h:10
                         Grid columns:1 gap:2
                           Title size:"lg" weight:"black"
                             "{service.title}"
@@ -202,7 +199,7 @@ page FeaturesPage
           rounded:"full"
           iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"brand-transformation-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe:
@@ -241,7 +238,7 @@ page FeaturesPage
                     description:"Create a durable content system across channels, formats, and customer stages."
                   },
                 ]
-              Section id:"brand-transformation-features" bg:"surface" color:"onSurface" boxed:true py:{ xs:8 md:12 }
+              Section id:"brand-transformation-features" bg:"surface" color:"surfaceText" boxed:true py:{ xs:8 md:12 }
                 Grid columns:{ xs:1 md:"5fr 7fr" } gap:{ xs:10 md:16 } align:"center"
                   Flex direction:"column" gap:6
                     Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
@@ -255,16 +252,16 @@ page FeaturesPage
                   Box bg:"softMuted" p:{ xs:5 md:8 }
                     Grid columns:{ xs:1 sm:2 } gap:5
                       each in:brandCapabilities as:capability key:capability.id
-                        Card variant:"solid" scheme:"surface" rounded:"lg" shadow:"md" p:6 minH:56
+                        Card rounded:"lg" shadow:"md" p:6 minH:56
                           Flex direction:"column" gap:4
                             Box bg:"softPrimary" rounded:"full" w:14 h:14 p:2
-                              Icon name:"stars" style:"line-duotone" fill:"primary" w:10 h:10
+                              Icon name:"stars-line-duotone" fill:"primary" w:10 h:10
                             Title size:"lg" weight:"black"
                               "{capability.title}"
                             Text color:"muted"
                               "{capability.description}"
             """
-  Section id:"online-solutions" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
+  Section id:"online-solutions" p:{ xs:5 md:7 } bg:"softPrimary" color:"softPrimaryText"
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -274,13 +271,11 @@ page FeaturesPage
             "The capability grid reversed for a new reading flow"
         Button:
           href:"/blocks/features-preview/online-solutions"
-          variant:"solid"
-          scheme:"primary"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"online-solutions-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe:
@@ -319,15 +314,15 @@ page FeaturesPage
                     description:"Create a durable content system across channels, formats, and customer stages."
                   },
                 ]
-              Section id:"online-solutions-features" bg:"surface" color:"onSurface" boxed:true py:{ xs:8 md:12 }
+              Section id:"online-solutions-features" bg:"surface" color:"surfaceText" boxed:true py:{ xs:8 md:12 }
                 Grid columns:{ xs:1 md:"7fr 5fr" } gap:{ xs:10 md:16 } align:"center"
                   Box bg:"softMuted" p:{ xs:5 md:8 }
                     Grid columns:{ xs:1 sm:2 } gap:5
                       each in:onlineCapabilities as:capability key:capability.id
-                        Card variant:"solid" scheme:"surface" rounded:"lg" shadow:"md" p:6 minH:56
+                        Card rounded:"lg" shadow:"md" p:6 minH:56
                           Flex direction:"column" gap:4
                             Box bg:"softPrimary" rounded:"full" w:14 h:14 p:2
-                              Icon name:"stars" style:"line-duotone" fill:"primary" w:10 h:10
+                              Icon name:"stars-line-duotone" fill:"primary" w:10 h:10
                             Title size:"lg" weight:"black"
                               "{capability.title}"
                             Text color:"muted"
@@ -358,7 +353,7 @@ page FeaturesPage
           rounded:"full"
           iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"complete-solutions-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe:
@@ -395,7 +390,7 @@ page FeaturesPage
                     preview:"Automation"
                   },
                 ]
-              Section id:"complete-solutions-features" bg:"surface" color:"onSurface" boxed:true py:{ xs:8 md:12 }
+              Section id:"complete-solutions-features" bg:"surface" color:"surfaceText" boxed:true py:{ xs:8 md:12 }
                 Grid columns:1 gap:{ xs:8 md:12 }
                   Flex direction:"column" align:"center" gap:3
                     Title size:{ xs:"4xl" md:"6xl" } weight:"black"
@@ -410,7 +405,7 @@ page FeaturesPage
                             Grid columns:1 gap:4
                               Flex align:"center" justify:"between"
                                 Flex align:"center" gap:2
-                                  Icon name:"widget-4" style:"bold-duotone" fill:"primary" w:6 h:6
+                                  Icon name:"widget-4-bold-duotone" fill:"primary" w:6 h:6
                                   Text weight:"bold"
                                     "{solution.preview}"
                                 Flex gap:2
@@ -421,7 +416,7 @@ page FeaturesPage
                                 Box bg:"softWarning" rounded:"md" minH:16
                                 Box bg:"softMuted" rounded:"md" minH:16
                               Flex justify:"end"
-                                Icon name:"cursor" style:"bold" fill:"onSurface" w:7 h:7
+                                Icon name:"cursor-bold" fill:"surfaceText" w:7 h:7
                         Grid columns:1 gap:2 minH:20
                           Title size:"lg" weight:"black"
                             "{solution.title}"

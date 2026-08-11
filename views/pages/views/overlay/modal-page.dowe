@@ -72,18 +72,18 @@ page ModalPage
           "A focused profile review"
         Text size:"sm" color:"muted"
           "Open the dialog to inspect its optional header and footer, Card-resolved surface, Drawer close control, overlay, and explicit close action."
-      Card variant:"outlined" scheme:"surface" p:{ xs:6 md:10 } rounded:"md" border:1
+      Card variant:"outlined" p:{ xs:6 md:10 } border:1
         Flex justify:"center" align:"center"
-          Button onClick:openProfileModal variant:"solid" scheme:"primary" iconStart:"user"
+          Button onClick:openProfileModal iconStart:"user"
             "Review profile"
-      Modal open:profileModalOpen onClose:closeProfileModal scheme:"surface"
+      Modal open:profileModalOpen onClose:closeProfileModal
         header
           Title size:"xl" weight:"black"
             "Review profile"
         Grid columns:1 gap:3
           Text color:"muted"
             "Confirm that this profile is ready to appear in the workspace directory."
-          Card variant:"soft" scheme:"background" p:4 rounded:"md"
+          Card variant:"soft" scheme:"background" p:4
             Grid columns:1 gap:1
               Text weight:"bold"
                 "Maya Chen"
@@ -93,7 +93,7 @@ page ModalPage
           Flex justify:"end" gap:3
             Button onClick:closeProfileModal variant:"ghost" scheme:"muted"
               "Cancel"
-            Button onClick:closeProfileModal variant:"solid" scheme:"primary"
+            Button onClick:closeProfileModal
               "Confirm"
       Code:
         language:"dowe"
@@ -113,14 +113,14 @@ page ModalPage
           Button onClick:openProfileModal
             "Review profile"
 
-          Modal open:profileModalOpen onClose:closeProfileModal scheme:"surface"
+          Modal open:profileModalOpen onClose:closeProfileModal
             header
               Title size:"xl"
                 "Review profile"
             Text
               "Confirm that this profile is ready to appear in the directory."
             footer
-              Button onClick:closeProfileModal variant:"solid" scheme:"primary"
+              Button onClick:closeProfileModal
                 "Confirm"
         """
   Section id:"modal-regions" py:{ xs:7 md:10 }
@@ -133,7 +133,7 @@ page ModalPage
         Text size:"sm" color:"muted"
           "The body is required. Add header for a title or context, and footer for persistent actions that stay grouped at the bottom of the dialog."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "HEADER"
@@ -141,7 +141,7 @@ page ModalPage
               "Optional context"
             Text size:"sm" color:"muted"
               "Use header for the dialog title, status, or compact context that people need before reading the body."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "BODY"
@@ -149,7 +149,7 @@ page ModalPage
               "Required content"
             Text size:"sm" color:"muted"
               "Place the task, explanation, form controls, or supporting information directly inside Modal."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "FOOTER"
@@ -167,7 +167,7 @@ page ModalPage
         Text size:"sm" color:"muted"
           "By default, the generated close control and a click on the overlay close the dialog. Keep a visible action in the footer when the task must make its exit explicit."
       Grid columns:{ xs:1 md:2 } gap:5
-        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+        Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:3
             Text size:"sm" weight:"bold"
               "Standard close behavior"
@@ -175,7 +175,7 @@ page ModalPage
               "The overlay and generated Drawer-style SVG control dismiss this dialog, and onClose invokes the declared function after the open Signal changes."
             Button onClick:openPolicyModal variant:"outlined" scheme:"info"
               "Open policy"
-        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+        Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:3
             Text size:"sm" weight:"bold"
               "Explicit decision"
@@ -191,12 +191,11 @@ page ModalPage
           "This dialog can close from its overlay, generated close control, or the footer action."
         footer
           Flex justify:"end"
-            Button onClick:closePolicyModal variant:"solid" scheme:"info"
+            Button onClick:closePolicyModal scheme:"info"
               "Understood"
       Modal:
         open:protectedModalOpen
         onClose:closeProtectedModal
-        scheme:"surface"
         disableOverlayClose:true
         hideCloseButton:true
         header
@@ -208,7 +207,7 @@ page ModalPage
           Flex justify:"end" gap:3
             Button onClick:closeProtectedModal variant:"ghost" scheme:"muted"
               "Cancel"
-            Button onClick:closeProtectedModal variant:"solid" scheme:"warning"
+            Button onClick:closeProtectedModal scheme:"warning"
               "Publish"
       Code:
         language:"dowe"
@@ -226,7 +225,7 @@ page ModalPage
             footer
               Button onClick:closePublish variant:"ghost" scheme:"muted"
                 "Cancel"
-              Button onClick:publish variant:"solid" scheme:"warning"
+              Button onClick:publish scheme:"warning"
                 "Publish"
         """
   Section id:"modal-variants" py:{ xs:7 md:10 }
@@ -245,7 +244,7 @@ page ModalPage
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Modal open:detailsOpen variant:"solid" scheme:"surface"
+          Modal open:detailsOpen
             Text
               "Default dialog surface"
 
@@ -271,7 +270,7 @@ page ModalPage
         Text size:"sm" color:"muted"
           "The same source stays signal-driven on every target while Dowe generates the appropriate overlay surface and close behavior."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "WEB"
@@ -279,7 +278,7 @@ page ModalPage
               "Fixed dialog overlay"
             Text size:"sm" color:"muted"
               "Generated web output uses the shared Card surface, 560-unit panel metrics, Drawer SVG close control, Escape handling, and reactive Signal updates."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "ANDROID"
@@ -287,7 +286,7 @@ page ModalPage
               "Dowe popup dialog"
             Text size:"sm" color:"muted"
               "Compose and the Android development launcher use the same Card colors and border, panel metrics, and Drawer close geometry."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "IOS"

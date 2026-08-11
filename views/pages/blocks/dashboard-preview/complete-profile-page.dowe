@@ -21,7 +21,7 @@ page DashboardCompleteProfilePage
           "A focused setup flow"
         Text size:"sm" color:"muted"
           "Use the portable Stepper to collect only the details the workspace needs."
-      Card variant:"soft" scheme:"surface" rounded:"lg" p:{ xs:4 md:8 } border:1
+      Card variant:"soft" rounded:"lg" p:{ xs:4 md:8 } border:1
         Stepper scheme:"primary" orientation:"horizontal"
           step id:"identity" label:"Identity"
             Grid columns:1 gap:4 p:{ xs:2 md:4 }
@@ -29,17 +29,17 @@ page DashboardCompleteProfilePage
                 Avatar name:"Profile" alt:"Profile photo placeholder" size:"xl" variant:"soft" scheme:"primary" bordered:true
                 Text size:"xs" color:"muted"
                   "Photo placeholder"
-              Input bind:profile.name label:"Display name" placeholder:"How should we call you?" variant:"outlined" scheme:"muted" w:"full"
-              Input bind:profile.email label:"Email address" placeholder:"you@example.com" variant:"outlined" scheme:"muted" w:"full"
+              Input bind:profile.name label:"Display name" placeholder:"How should we call you?" scheme:"muted" w:"full"
+              Input bind:profile.email label:"Email address" placeholder:"you@example.com" scheme:"muted" w:"full"
           step id:"workspace" label:"Workspace"
             Grid columns:1 gap:4 p:{ xs:2 md:4 }
-              Select bind:profile.role label:"Primary role" placeholder:"Choose a role" variant:"outlined" scheme:"muted" w:"full"
+              Select bind:profile.role label:"Primary role" placeholder:"Choose a role" scheme:"muted" w:"full"
                 each in:roles as:role key:role.id
                   Option value:role.value label:role.label
-              Select bind:profile.timezone label:"Timezone" placeholder:"Choose a timezone" variant:"outlined" scheme:"muted" w:"full"
+              Select bind:profile.timezone label:"Timezone" placeholder:"Choose a timezone" scheme:"muted" w:"full"
                 each in:timezones as:timezone key:timezone.id
                   Option value:timezone.value label:timezone.label
-              Password bind:profile.password label:"Create a password" placeholder:"Use a secure password" hideStrength:false variant:"outlined" scheme:"muted" w:"full"
+              Password bind:profile.password label:"Create a password" placeholder:"Use a secure password" hideStrength:false scheme:"muted" w:"full"
           step id:"finish" label:"Finish"
             Grid columns:1 gap:4 p:{ xs:2 md:4 }
               Avatar name:"Profile" alt:"Profile photo placeholder" size:"lg" variant:"soft" scheme:"primary"
@@ -48,7 +48,7 @@ page DashboardCompleteProfilePage
               Text size:"sm" color:"muted"
                 "Review your details, then enter the workspace."
               Flex direction:{ xs:"column" sm:"row" } justify:"between" gap:3
-                Button variant:"ghost" scheme:"muted" size:"md"
+                Button variant:"ghost" scheme:"muted"
                   "Back"
-                Button variant:"solid" scheme:"primary" size:"md"
+                Button
                   "Continue"

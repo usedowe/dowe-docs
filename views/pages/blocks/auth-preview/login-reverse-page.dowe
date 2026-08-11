@@ -10,7 +10,7 @@ page LoginReverseAuthPage
         p:6
         Flex direction:"column" justify:"center" align:"center" minH:40
           Box bg:"surface" rounded:"lg" p:5 shadow:"lg" shadowColor:"muted"
-            Icon name:"lock-password" style:"bold-duotone" fill:"tertiary" w:16 h:16
+            Icon name:"lock-password-bold-duotone" fill:"tertiary" w:16 h:16
       Flex:
         direction:"column"
         justify:"center"
@@ -31,7 +31,7 @@ page LoginReverseAuthPage
                 Checkbox bind:form.remember label:"Remember me" scheme:"tertiary"
                 Button href:"/blocks/auth-preview/forgot-password" variant:"ghost" scheme:"tertiary" size:"xs"
                   "Forgot password?"
-              Button variant:"solid" scheme:"tertiary" size:"md" w:"full"
+              Button scheme:"tertiary" w:"full"
                 "Log in"
             Grid columns:{ xs:1 sm:2 } gap:3
               Button variant:"outlined" scheme:"tertiary" size:"sm" iconStart:"global" w:"full"
@@ -50,4 +50,4 @@ page LoginReverseAuthPage
         p:12
         Flex direction:"column" justify:"center" align:"center" minH:"vh-0"
           Box bg:"surface" rounded:"lg" p:9 shadow:"xl" shadowColor:"muted"
-            Icon name:"lock-password" style:"bold-duotone" fill:"tertiary" w:24 h:24
+            Icon name:"lock-password-bold-duotone" fill:"tertiary" w:24 h:24

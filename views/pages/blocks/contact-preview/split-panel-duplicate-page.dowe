@@ -1,6 +1,6 @@
 page ContactSplitPanelDuplicatePage
   signal form value:{ name:"" email:"" phone:"" company:"" message:"" }
-  Section id:"contact-split-panel-duplicate" bg:"background" color:"onBackground" p:0 minH:"vh-0"
+  Section id:"contact-split-panel-duplicate" bg:"background" color:"backgroundText" p:0 minH:"vh-0"
     Grid columns:{ xs:1 md:"5fr 7fr" } gap:0 minH:"vh-0"
       Box p:{ xs:5 md:10 }
         Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:6 md:10 }
@@ -16,10 +16,10 @@ page ContactSplitPanelDuplicatePage
               Input bind:form.phone label:"Phone" placeholder:"(123) 456 – 789" variant:"solid" scheme:"muted" w:"full"
               Input bind:form.company label:"Company" placeholder:"Company" variant:"solid" scheme:"muted" w:"full"
             Textarea bind:form.message label:"Leave us a message" placeholder:"Please type your message here..." rows:5 variant:"solid" scheme:"muted" w:"full"
-            Button variant:"solid" scheme:"primary" size:"md" rounded:"full" w:{ xs:"full" sm:48 }
+            Button rounded:"full" w:{ xs:"full" sm:48 }
               "Send message"
       Box bg:"softMuted" p:8 minH:{ xs:64 md:"vh-0" }
         Flex direction:"column" align:"center" justify:"center" gap:3 minH:{ xs:48 md:"vh-0" }
-          Icon name:"gallery" style:"bold-duotone" fill:"muted" w:16 h:16
+          Icon name:"gallery-bold-duotone" fill:"muted" w:16 h:16
           Text size:"sm" color:"muted"
             "Image placeholder"

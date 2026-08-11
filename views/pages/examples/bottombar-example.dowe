@@ -8,19 +8,19 @@ page BottomBarExample
       Text size:"lg" color:"muted"
         "The BottomBar remains at the lower edge while the Scaffold main region fills and scrolls through the viewport."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+        Card variant:"soft" scheme:"primary" p:5
           Grid columns:1 gap:2
             Text weight:"bold"
               "Start"
             Text size:"sm"
               "Secondary navigation or a return action."
-        Card variant:"soft" scheme:"secondary" p:5 rounded:"md"
+        Card variant:"soft" scheme:"secondary" p:5
           Grid columns:1 gap:2
             Text weight:"bold"
               "Center"
             Text size:"sm"
               "Status and context remain easy to scan."
-        Card variant:"soft" scheme:"tertiary" p:5 rounded:"md"
+        Card variant:"soft" scheme:"tertiary" p:5
           Grid columns:1 gap:2
             Text weight:"bold"
               "End"

@@ -5,7 +5,7 @@ page ContactDetailsFormPage
     { id:"phone" emailIcon:false phoneIcon:true addressIcon:false value:"(123) 456 – 789" },
     { id:"address" emailIcon:false phoneIcon:false addressIcon:true value:"794 Mcallister St · San Francisco, 94102" },
   ]
-  Section id:"contact-details-form" bg:"background" color:"onBackground" boxed:true p:{ xs:6 md:12 }
+  Section id:"contact-details-form" bg:"background" color:"backgroundText" boxed:true p:{ xs:6 md:12 }
     Grid columns:{ xs:1 md:"4fr 5fr" } gap:{ xs:8 md:14 } align:"center" minH:"vh-0"
       Flex direction:"column" align:{ xs:"center" md:"start" } gap:5
         Grid columns:1 gap:2
@@ -31,5 +31,5 @@ page ContactDetailsFormPage
             Input bind:form.phone label:"Phone" placeholder:"(123) 456 – 789" variant:"solid" scheme:"muted" w:"full"
             Input bind:form.company label:"Company" placeholder:"Company" variant:"solid" scheme:"muted" w:"full"
           Textarea bind:form.message label:"Message" placeholder:"Please type your message here..." rows:5 variant:"solid" scheme:"muted" w:"full"
-          Button variant:"solid" scheme:"primary" size:"md" rounded:"full" w:{ xs:"full" sm:48 }
+          Button rounded:"full" w:{ xs:"full" sm:48 }
             "Send message"

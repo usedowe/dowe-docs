@@ -1,26 +1,69 @@
 page HmrPage
+  const hmrProcessRows:
+    value:[
+      {
+        phase:"Watch"
+        action:"Detect eligible saves"
+        guidance:"Dowe watches project inputs and their import graph while the development session remains open."
+      },
+      {
+        phase:"Build"
+        action:"Publish complete modules"
+        guidance:"A new version becomes active only after its compiler and target artifacts finish successfully."
+      },
+      {
+        phase:"Apply"
+        action:"Update the running target"
+        guidance:"Each selected target applies its own valid module without waiting for a slower sibling target."
+      },
+    ]
+  const hmrTargetRows:
+    value:[
+      {
+        target:"Web"
+        behavior:"Replace the smallest safe boundary"
+        guidance:"A page edit replaces the page boundary when its layout is unchanged. Layout changes replace the application boundary, and an HMR failure can recover with a full browser reload."
+      },
+      {
+        target:"Desktop"
+        behavior:"Reload the shared Views output"
+        guidance:"The desktop development window uses the same generated Views server as web and refreshes its WebView when a successful reload is published."
+      },
+      {
+        target:"Android"
+        behavior:"Load a new DEX module"
+        guidance:"After the development host is installed, later view updates load a new DEX and render with Android Views without running adb install again."
+      },
+      {
+        target:"iOS"
+        behavior:"Load a new Swift module"
+        guidance:"After the simulator host is installed, later view updates load a new dylib and render with SwiftUI without running simctl install again."
+      },
+    ]
+  const hmrStateRows:
+    value:[
+      {
+        state:"Route and compatible state"
+        guidance:"Targets keep the active route when it still exists. Web also restores compatible Signal values and bound control state after hydration."
+      },
+      {
+        state:"Failed rebuild"
+        guidance:"Compiler or native module failures report diagnostics, keep the previous valid module active, and leave watch available for the next save."
+      },
+    ]
   Section id:"hmr-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "DEVELOPMENT / HOT MODULE RELOAD"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Hot reload across targets"
+      Text size:"lg" color:"muted"
+        "Keep dowe dev running while Dowe rebuilds changed views and publishes the latest valid module to each selected development target."
+  Section id:"hmr-start" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "DEVELOPMENT / HOT MODULE RELOAD"
-        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
-          "Hot reload across targets"
-        Text size:"lg" color:"muted"
-          "Keep dowe dev running while Dowe rebuilds changed views and publishes the latest valid module to each selected development target."
-      Button:
-        href:"/docs/dev/dev"
-        variant:"soft"
-        scheme:"primary"
-        size:"sm"
-        rounded:"full"
-        iconStart:"code"
-        "Open Dowe Dev docs"
-  Section id:"hmr-start" p:{ xs:5 md:7 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "AUTOMATIC IN DEVELOPMENT"
+          "1 / AUTOMATIC IN DEVELOPMENT"
         Title size:"3xl" weight:"black"
           "Save source and let the active session update"
         Text size:"sm" color:"muted"
@@ -37,118 +80,70 @@ page HmrPage
           dowe dev --target android
           dowe dev --target ios
         """
-      Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"primary"
-              "WATCH"
-            Title size:"lg" weight:"bold"
-              "Detect eligible saves"
-            Text size:"sm" color:"muted"
-              "Dowe watches project inputs and their import graph while the development session remains open."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "BUILD"
-            Title size:"lg" weight:"bold"
-              "Publish complete modules"
-            Text size:"sm" color:"muted"
-              "A new version becomes active only after its compiler and target artifacts finish successfully."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "APPLY"
-            Title size:"lg" weight:"bold"
-              "Update the running target"
-            Text size:"sm" color:"muted"
-              "Each selected target applies its own valid module without waiting for a slower sibling target."
+      Table:
+        data:hmrProcessRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"phase" label:"Phase" width:"1fr"
+        column field:"action" label:"Responsibility" width:"2fr"
+        column field:"guidance" label:"Behavior" width:"5fr"
   Section id:"hmr-targets" py:{ xs:7 md:10 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "TARGET BEHAVIOR"
+          "2 / TARGET BEHAVIOR"
         Title size:"3xl" weight:"black"
           "Keep the renderer native to each platform"
         Text size:"sm" color:"muted"
           "HMR changes development delivery, not the rendering model. Dowe does not execute authored source in the browser or replace native views with a WebView."
-      Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"primary"
-              "WEB"
-            Title size:"lg" weight:"bold"
-              "Replace the smallest safe boundary"
-            Text size:"sm" color:"muted"
-              "A page edit replaces the page boundary when its layout is unchanged. Layout changes replace the application boundary, and an HMR failure can recover with a full browser reload."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "DESKTOP"
-            Title size:"lg" weight:"bold"
-              "Reload the shared Views output"
-            Text size:"sm" color:"muted"
-              "The desktop development window uses the same generated Views server as web and refreshes its WebView when a successful reload is published."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "ANDROID"
-            Title size:"lg" weight:"bold"
-              "Load a new DEX module"
-            Text size:"sm" color:"muted"
-              "After the development host is installed, later view updates load a new DEX and render with Android Views without running adb install again."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "iOS"
-            Title size:"lg" weight:"bold"
-              "Load a new Swift module"
-            Text size:"sm" color:"muted"
-              "After the simulator host is installed, later view updates load a new dylib and render with SwiftUI without running simctl install again."
+      Table:
+        data:hmrTargetRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"target" label:"Target" width:"1fr"
+        column field:"behavior" label:"Update strategy" width:"2fr"
+        column field:"guidance" label:"Details" width:"5fr"
   Section id:"hmr-state" p:{ xs:5 md:7 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "STATE AND RECOVERY"
+          "3 / STATE AND RECOVERY"
         Title size:"3xl" weight:"black"
           "Keep the last valid experience active"
         Text size:"sm" color:"muted"
           "Dowe preserves useful development context when the new module remains compatible and avoids replacing a working module with incomplete output."
-      Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Title size:"lg" weight:"bold"
-              "Route and compatible state"
-            Text size:"sm" color:"muted"
-              "Targets keep the active route when it still exists. Web also restores compatible Signal values and bound control state after hydration."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Title size:"lg" weight:"bold"
-              "Failed rebuild"
-            Text size:"sm" color:"muted"
-              "Compiler or native module failures report diagnostics, keep the previous valid module active, and leave watch available for the next save."
+      Table:
+        data:hmrStateRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"state" label:"State" width:"2fr"
+        column field:"guidance" label:"What happens" width:"5fr"
       Text size:"sm" color:"muted"
         "Server changes use a successful backend restart rather than view HMR. Production builds do not include the HMR client, module server, or .dowe/dev dependency."
   Section id:"hmr-performance" py:{ xs:7 md:10 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "CURRENT PERFORMANCE"
-        Title size:"3xl" weight:"black"
-          "Expect some reloads to take time today"
-        Text size:"sm" color:"muted"
-          "Hot reload is available now, but its current pipeline can feel slow, especially during a first native build, after a cache invalidation, or in a large project. Keep the session open so Dowe can reuse valid generated and native build units."
-      Card variant:"soft" scheme:"primary" p:5 rounded:"md"
-        Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"primary"
-            "PLANNED REFACTOR"
-          Title size:"lg" weight:"bold"
-            "A shorter path from save to screen"
-          Text size:"sm" color:"muted"
-            "The HMR pipeline is planned for a future refactor focused on faster invalidation, rebuild, publication, and application of changed modules. Until that work lands, reload duration depends on the selected target, toolchain state, and the size of the affected view graph."
+    Grid columns:1 gap:4
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "4 / CURRENT PERFORMANCE"
+      Title size:"3xl" weight:"black"
+        "Expect some reloads to take time today"
+      Text size:"sm" color:"muted"
+        "Hot reload is available now, but its current pipeline can feel slow, especially during a first native build, after a cache invalidation, or in a large project. Keep the session open so Dowe can reuse valid generated and native build units."
+      Alert type:"info" message:"The HMR pipeline is planned for a future refactor focused on faster invalidation, rebuild, publication, and application of changed modules. Reload duration depends on the selected target, toolchain state, and the size of the affected view graph."
       Button:
         href:"/docs/dev/dev#dev-watch"
         variant:"soft"
-        scheme:"primary"
         size:"sm"
         rounded:"full"
         iconStart:"restart"

@@ -14,7 +14,7 @@ page CanvasInfographicPage
         x:36
         y:46
         text:"Portable target coverage"
-        fill:"onSurface"
+        fill:"surfaceText"
         size:24
       },
       {
@@ -23,7 +23,7 @@ page CanvasInfographicPage
         y1:78
         x2:160
         y2:310
-        stroke:"onSurface"
+        stroke:"surfaceText"
         strokeWidth:1
         opacity:0.18
       },
@@ -33,7 +33,7 @@ page CanvasInfographicPage
         y1:310
         x2:606
         y2:310
-        stroke:"onSurface"
+        stroke:"surfaceText"
         strokeWidth:1
         opacity:0.18
       },
@@ -42,7 +42,7 @@ page CanvasInfographicPage
         x:32
         y:118
         text:"Web"
-        fill:"onSurface"
+        fill:"surfaceText"
         size:18
       },
       {
@@ -59,7 +59,7 @@ page CanvasInfographicPage
         x:584
         y:117
         text:"100%"
-        fill:"onSurface"
+        fill:"surfaceText"
         size:16
         align:"end"
       },
@@ -68,7 +68,7 @@ page CanvasInfographicPage
         x:32
         y:190
         text:"iOS"
-        fill:"onSurface"
+        fill:"surfaceText"
         size:18
       },
       {
@@ -85,7 +85,7 @@ page CanvasInfographicPage
         x:584
         y:189
         text:"100%"
-        fill:"onSurface"
+        fill:"surfaceText"
         size:16
         align:"end"
       },
@@ -94,7 +94,7 @@ page CanvasInfographicPage
         x:32
         y:262
         text:"Android"
-        fill:"onSurface"
+        fill:"surfaceText"
         size:18
       },
       {
@@ -111,7 +111,7 @@ page CanvasInfographicPage
         x:584
         y:261
         text:"100%"
-        fill:"onSurface"
+        fill:"surfaceText"
         size:16
         align:"end"
       },
@@ -219,10 +219,10 @@ page CanvasInfographicPage
         copiedLabel:"Copied"
         content:"""
           signal infographic value:[
-            { type:"line" x1:160 y1:78 x2:160 y2:310 stroke:"onSurface" opacity:0.18 },
-            { type:"text" x:32 y:118 text:"Web" fill:"onSurface" size:18 },
+            { type:"line" x1:160 y1:78 x2:160 y2:310 stroke:"surfaceText" opacity:0.18 },
+            { type:"text" x:32 y:118 text:"Web" fill:"surfaceText" size:18 },
             { type:"rect" x:160 y:92 width:410 height:36 radius:8 fill:"primary" },
-            { type:"text" x:584 y:117 text:"100%" fill:"onSurface" size:16 align:"end" },
+            { type:"text" x:584 y:117 text:"100%" fill:"surfaceText" size:16 align:"end" },
           ]
 
           Canvas scene:infographic viewWidth:640 viewHeight:360 autoplay:false label:"Target coverage infographic" w:"full" h:96
@@ -256,5 +256,5 @@ page CanvasInfographicPage
       Flex justify:"space-between" align:"center" wrap:true gap:3
         Button href:"/docs/views/canvas/particles" variant:"ghost" scheme:"muted" iconStart:"alt-arrow-left"
           "Particles"
-        Button href:"/docs/views/canvas/composition" variant:"solid" scheme:"primary" iconEnd:"alt-arrow-right"
+        Button href:"/docs/views/canvas/composition" iconEnd:"alt-arrow-right"
           "Compose images"

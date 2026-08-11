@@ -1,0 +1,4 @@
+entity Sessions
+  id:string primary:true
+  userId:string required:true index:true
+  createdAt:timestamp required:true

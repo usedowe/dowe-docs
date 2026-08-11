@@ -23,7 +23,7 @@ page AvatarCardsTestimonialsPage
         role:"Developer at Northstar Studio"
       },
     ]
-  Section id:"avatar-card-testimonials" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:14 } minH:"vh-0"
+  Section id:"avatar-card-testimonials" bg:"background" color:"backgroundText" boxed:true py:{ xs:8 md:14 } minH:"vh-0"
     Grid columns:1 gap:{ xs:8 md:12 }
       Flex direction:"column" align:"center" gap:3
         Title size:{ xs:"3xl" md:"5xl" } weight:"black"
@@ -36,7 +36,7 @@ page AvatarCardsTestimonialsPage
             Flex direction:"column" align:"start" justify:"between" gap:6 minH:56
               Grid columns:1 gap:4
                 Box bg:"softMuted" rounded:"full" w:14 h:14 p:3
-                  Icon name:"gallery" style:"bold-duotone" fill:"muted" w:8 h:8
+                  Icon name:"gallery-bold-duotone" fill:"muted" w:8 h:8
                 Title size:"xl" weight:"black"
                   "{testimonial.title}"
                 Text color:"muted"

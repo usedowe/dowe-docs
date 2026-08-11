@@ -15,9 +15,9 @@ page DashboardPage
             "01 · OVERVIEW"
           Title size:"2xl" weight:"black"
             "A measured overview with metrics and workload signals"
-        Button href:"/blocks/dashboard-preview/overview" variant:"soft" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/dashboard-preview/overview" variant:"soft" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"overview-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe src:"/blocks/dashboard-preview/overview" title:"Dashboard overview preview" loading:"lazy" sandbox:"scripts same-origin"
@@ -88,7 +88,7 @@ page DashboardPage
                       "Export"
                   Grid columns:{ xs:1 sm:2 lg:4 } gap:4
                     each in:metrics as:metric key:metric.id
-                      Card variant:"soft" scheme:"surface" rounded:"lg" p:5 border:1
+                      Card variant:"soft" rounded:"lg" p:5 border:1
                         Grid columns:1 gap:2
                           Text size:"xs" color:"muted"
                             "{metric.label}"
@@ -100,7 +100,7 @@ page DashboardPage
                             Text size:"xs" color:"muted"
                               "vs last month"
                   Grid columns:{ xs:1 lg:"2fr 1fr" } gap:4
-                    Card variant:"soft" scheme:"surface" rounded:"lg" p:{ xs:4 md:6 } border:1
+                    Card variant:"soft" rounded:"lg" p:{ xs:4 md:6 } border:1
                       Grid columns:1 gap:4
                         Flex justify:"between" align:"center" gap:3
                           Grid columns:1 gap:1
@@ -111,7 +111,7 @@ page DashboardPage
                           Chip variant:"soft" scheme:"muted"
                             "Updated"
                         LineChart data:trend variant:"soft" scheme:"surface" size:"lg" palette:"ocean" curve:"smooth" showGradientFill:true hideGrid:true rounded:"md"
-                    Card variant:"soft" scheme:"surface" rounded:"lg" p:{ xs:4 md:6 } border:1
+                    Card variant:"soft" rounded:"lg" p:{ xs:4 md:6 } border:1
                       Grid columns:1 gap:4
                         Grid columns:1 gap:1
                           Title size:"lg" weight:"bold"
@@ -120,7 +120,7 @@ page DashboardPage
                             "Current allocation across teams"
                         ArcChart data:allocation variant:"soft" scheme:"surface" size:"md" palette:"ocean" legendPosition:"bottom" centerText:"Active" centerValue:"100%" thickness:18 gap:4 hideValues:true rounded:"md"
                   Grid columns:{ xs:1 md:2 } gap:4
-                    Card variant:"soft" scheme:"surface" rounded:"lg" p:{ xs:4 md:6 } border:1
+                    Card variant:"soft" rounded:"lg" p:{ xs:4 md:6 } border:1
                       Grid columns:1 gap:4
                         Flex justify:"between" align:"center"
                           Title size:"lg" weight:"bold"
@@ -130,17 +130,17 @@ page DashboardPage
                           each in:countries as:country key:country.id
                             Flex justify:"between" align:"center" p:2
                               Flex align:"center" gap:2
-                                Icon name:"global" style:"linear" fill:"muted" w:5 h:5
+                                Icon name:"global" fill:"muted" w:5 h:5
                                 Text size:"sm"
                                   "{country.label}"
                               Text size:"sm" weight:"bold"
                                 "{country.value}"
-                    Card variant:"soft" scheme:"surface" rounded:"lg" p:{ xs:4 md:6 } border:1
+                    Card variant:"soft" rounded:"lg" p:{ xs:4 md:6 } border:1
                       Grid columns:1 gap:4
                         Flex justify:"between" align:"center"
                           Title size:"lg" weight:"bold"
                             "Recent activity"
-                          Button variant:"ghost" scheme:"primary" size:"sm"
+                          Button variant:"ghost" size:"sm"
                             "View all"
                         Grid columns:1 gap:3
                           each in:activity as:item key:item.id
@@ -160,10 +160,10 @@ page DashboardPage
             layout DashboardPreviewLayout
               Scaffold minH:"vh-0" boxed:true
                 appBar
-                  AppBar variant:"solid" scheme:"surface" position:"sticky" bordered:true boxed:true py:2
+                  AppBar position:"sticky" bordered:true boxed:true py:2
                     start
                       Flex align:"center" gap:3
-                        Icon name:"widget-5" style:"bold-duotone" fill:"primary" w:7 h:7
+                        Icon name:"widget-5-bold-duotone" fill:"primary" w:7 h:7
                         Text size:"lg" weight:"black"
                           "Dashboard"
                     end
@@ -174,7 +174,7 @@ page DashboardPage
                 start
                   Sidebar show:{ xs:false md:true } variant:"soft" scheme:"muted" w:64 h:"vh-0" border:1
                     body
-                      SideNav variant:"solid" scheme:"muted" size:"md" p:4
+                      SideNav variant:"solid" p:4
                         header label:"Workspace" description:"Dashboard blocks" icon:"widget-5"
                         item label:"Overview" href:"/blocks/dashboard-preview/overview" icon:"home"
                         item label:"Task board" href:"/blocks/dashboard-preview/task-board" icon:"checklist"
@@ -196,7 +196,7 @@ page DashboardPage
                       Icon name:"settings"
 
           """
-  Section id:"dashboard-task-board" p:{ xs:5 md:7 } bg:"softMuted" color:"onSoftMuted"
+  Section id:"dashboard-task-board" p:{ xs:5 md:7 } bg:"softMuted" color:"softMutedText"
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -204,9 +204,9 @@ page DashboardPage
             "02 · TASK BOARD"
           Title size:"2xl" weight:"black"
             "Three kanban columns with repeated task cards"
-        Button href:"/blocks/dashboard-preview/task-board" variant:"solid" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/dashboard-preview/task-board" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"task-board-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe src:"/blocks/dashboard-preview/task-board" title:"Dashboard task board preview" loading:"lazy" sandbox:"scripts same-origin"
@@ -246,7 +246,7 @@ page DashboardPage
                         "Plan the next release"
                       Text size:"sm" color:"muted"
                         "A neutral kanban surface keeps priorities visible across every target."
-                    Button variant:"solid" scheme:"primary" size:"sm" iconStart:"add-circle"
+                    Button size:"sm" iconStart:"add-circle"
                       "Add task"
                   Grid columns:{ xs:1 md:3 } gap:4 align:"start"
                     Box bg:"softMuted" rounded:"lg" p:3 border:1
@@ -260,11 +260,11 @@ page DashboardPage
                           IconButton icon:"menu-dots" label:"Open backlog actions" variant:"ghost" scheme:"muted" size:"sm"
                         Grid columns:1 gap:3
                           each in:backlogTasks as:task key:task.id
-                            Card variant:"soft" scheme:"surface" rounded:"md" p:4 border:1
+                            Card variant:"soft" p:4 border:1
                               Grid columns:1 gap:3
                                 Box bg:"softMuted" rounded:"sm" minH:16 p:3
                                   Flex direction:"column" align:"center" justify:"center" gap:1 minH:10
-                                    Icon name:"gallery" style:"bold-duotone" fill:"muted" w:6 h:6
+                                    Icon name:"gallery-bold-duotone" fill:"muted" w:6 h:6
                                     Text size:"xs" color:"muted"
                                       "Media placeholder"
                                 Flex justify:"between" align:"start" gap:2
@@ -291,11 +291,11 @@ page DashboardPage
                           IconButton icon:"menu-dots" label:"Open progress actions" variant:"ghost" scheme:"muted" size:"sm"
                         Grid columns:1 gap:3
                           each in:progressTasks as:task key:task.id
-                            Card variant:"soft" scheme:"surface" rounded:"md" p:4 border:1
+                            Card variant:"soft" p:4 border:1
                               Grid columns:1 gap:3
                                 Box bg:"softMuted" rounded:"sm" minH:16 p:3
                                   Flex direction:"column" align:"center" justify:"center" gap:1 minH:10
-                                    Icon name:"gallery" style:"bold-duotone" fill:"muted" w:6 h:6
+                                    Icon name:"gallery-bold-duotone" fill:"muted" w:6 h:6
                                     Text size:"xs" color:"muted"
                                       "Media placeholder"
                                 Flex justify:"between" align:"start" gap:2
@@ -322,11 +322,11 @@ page DashboardPage
                           IconButton icon:"menu-dots" label:"Open review actions" variant:"ghost" scheme:"muted" size:"sm"
                         Grid columns:1 gap:3
                           each in:reviewTasks as:task key:task.id
-                            Card variant:"soft" scheme:"surface" rounded:"md" p:4 border:1
+                            Card variant:"soft" p:4 border:1
                               Grid columns:1 gap:3
                                 Box bg:"softMuted" rounded:"sm" minH:16 p:3
                                   Flex direction:"column" align:"center" justify:"center" gap:1 minH:10
-                                    Icon name:"gallery" style:"bold-duotone" fill:"muted" w:6 h:6
+                                    Icon name:"gallery-bold-duotone" fill:"muted" w:6 h:6
                                     Text size:"xs" color:"muted"
                                       "Media placeholder"
                                 Flex justify:"between" align:"start" gap:2
@@ -349,10 +349,10 @@ page DashboardPage
             layout DashboardPreviewLayout
               Scaffold minH:"vh-0" boxed:true
                 appBar
-                  AppBar variant:"solid" scheme:"surface" position:"sticky" bordered:true boxed:true py:2
+                  AppBar position:"sticky" bordered:true boxed:true py:2
                     start
                       Flex align:"center" gap:3
-                        Icon name:"widget-5" style:"bold-duotone" fill:"primary" w:7 h:7
+                        Icon name:"widget-5-bold-duotone" fill:"primary" w:7 h:7
                         Text size:"lg" weight:"black"
                           "Dashboard"
                     end
@@ -363,7 +363,7 @@ page DashboardPage
                 start
                   Sidebar show:{ xs:false md:true } variant:"soft" scheme:"muted" w:64 h:"vh-0" border:1
                     body
-                      SideNav variant:"solid" scheme:"muted" size:"md" p:4
+                      SideNav variant:"solid" p:4
                         header label:"Workspace" description:"Dashboard blocks" icon:"widget-5"
                         item label:"Overview" href:"/blocks/dashboard-preview/overview" icon:"home"
                         item label:"Task board" href:"/blocks/dashboard-preview/task-board" icon:"checklist"
@@ -393,9 +393,9 @@ page DashboardPage
             "03 · TEAM DIRECTORY"
           Title size:"2xl" weight:"black"
             "Responsive member rows with a real Pagination"
-        Button href:"/blocks/dashboard-preview/team-directory" variant:"soft" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/dashboard-preview/team-directory" variant:"soft" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"team-directory-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe src:"/blocks/dashboard-preview/team-directory" title:"Dashboard team directory preview" loading:"lazy" sandbox:"scripts same-origin forms"
@@ -436,11 +436,11 @@ page DashboardPage
                         "Search, scan status, and move through a real paginated directory."
                     Button variant:"outlined" scheme:"muted" size:"sm" iconStart:"download-minimalistic"
                       "Export"
-                  Card variant:"soft" scheme:"surface" rounded:"lg" p:{ xs:4 md:6 } border:1
+                  Card variant:"soft" rounded:"lg" p:{ xs:4 md:6 } border:1
                     Grid columns:1 gap:4
                       Flex direction:{ xs:"column" sm:"row" } justify:"between" align:{ xs:"stretch" sm:"end" } gap:3
-                        Input bind:search label:"Search" placeholder:"Search people" iconStart:"magnifier" variant:"outlined" scheme:"muted" w:{ xs:"full" sm:80 }
-                        Button variant:"solid" scheme:"primary" size:"md" iconStart:"filter"
+                        Input bind:search label:"Search" placeholder:"Search people" iconStart:"magnifier" scheme:"muted" w:{ xs:"full" sm:80 }
+                        Button iconStart:"filter"
                           "Filter"
                       Grid columns:1 gap:0
                         Grid columns:{ xs:"1fr auto" md:"2fr 1fr 1fr 1fr auto" } gap:3 align:"center" p:3 border:1 borderColor:"muted"
@@ -480,10 +480,10 @@ page DashboardPage
             layout DashboardPreviewLayout
               Scaffold minH:"vh-0" boxed:true
                 appBar
-                  AppBar variant:"solid" scheme:"surface" position:"sticky" bordered:true boxed:true py:2
+                  AppBar position:"sticky" bordered:true boxed:true py:2
                     start
                       Flex align:"center" gap:3
-                        Icon name:"widget-5" style:"bold-duotone" fill:"primary" w:7 h:7
+                        Icon name:"widget-5-bold-duotone" fill:"primary" w:7 h:7
                         Text size:"lg" weight:"black"
                           "Dashboard"
                     end
@@ -494,7 +494,7 @@ page DashboardPage
                 start
                   Sidebar show:{ xs:false md:true } variant:"soft" scheme:"muted" w:64 h:"vh-0" border:1
                     body
-                      SideNav variant:"solid" scheme:"muted" size:"md" p:4
+                      SideNav variant:"solid" p:4
                         header label:"Workspace" description:"Dashboard blocks" icon:"widget-5"
                         item label:"Overview" href:"/blocks/dashboard-preview/overview" icon:"home"
                         item label:"Task board" href:"/blocks/dashboard-preview/task-board" icon:"checklist"
@@ -516,7 +516,7 @@ page DashboardPage
                       Icon name:"settings"
 
           """
-  Section id:"dashboard-reports" p:{ xs:5 md:7 } bg:"softMuted" color:"onSoftMuted"
+  Section id:"dashboard-reports" p:{ xs:5 md:7 } bg:"softMuted" color:"softMutedText"
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -524,9 +524,9 @@ page DashboardPage
             "04 · REPORTS"
           Title size:"2xl" weight:"black"
             "Four chart cards that collapse cleanly"
-        Button href:"/blocks/dashboard-preview/reports" variant:"solid" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/dashboard-preview/reports" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"reports-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe src:"/blocks/dashboard-preview/reports" title:"Dashboard reports preview" loading:"lazy" sandbox:"scripts same-origin"
@@ -583,7 +583,7 @@ page DashboardPage
                     Button variant:"outlined" scheme:"muted" size:"sm" iconStart:"download-minimalistic"
                       "Download report"
                   Grid columns:{ xs:1 md:2 } gap:4
-                    Card variant:"soft" scheme:"surface" rounded:"lg" p:{ xs:4 md:6 } border:1
+                    Card variant:"soft" rounded:"lg" p:{ xs:4 md:6 } border:1
                       Grid columns:1 gap:4
                         Flex justify:"between" align:"center"
                           Grid columns:1 gap:1
@@ -594,7 +594,7 @@ page DashboardPage
                           Chip variant:"soft" scheme:"success"
                             "+12.8%"
                         LineChart data:revenue variant:"soft" scheme:"surface" size:"md" palette:"ocean" curve:"smooth" showGradientFill:true rounded:"md"
-                    Card variant:"soft" scheme:"surface" rounded:"lg" p:{ xs:4 md:6 } border:1
+                    Card variant:"soft" rounded:"lg" p:{ xs:4 md:6 } border:1
                       Grid columns:1 gap:4
                         Flex justify:"between" align:"center"
                           Grid columns:1 gap:1
@@ -605,7 +605,7 @@ page DashboardPage
                           Chip variant:"soft" scheme:"muted"
                             "324 total"
                         BarChart data:signups variant:"soft" scheme:"surface" size:"md" palette:"forest" grouped:true showValues:true barRadius:5 rounded:"md"
-                    Card variant:"soft" scheme:"surface" rounded:"lg" p:{ xs:4 md:6 } border:1
+                    Card variant:"soft" rounded:"lg" p:{ xs:4 md:6 } border:1
                       Grid columns:1 gap:4
                         Flex justify:"between" align:"center"
                           Grid columns:1 gap:1
@@ -616,7 +616,7 @@ page DashboardPage
                           Chip variant:"soft" scheme:"warning"
                             "-4.2%"
                         LineChart data:retention variant:"outlined" scheme:"warning" size:"md" palette:"sunset" curve:"linear" hideGrid:true rounded:"md"
-                    Card variant:"soft" scheme:"surface" rounded:"lg" p:{ xs:4 md:6 } border:1
+                    Card variant:"soft" rounded:"lg" p:{ xs:4 md:6 } border:1
                       Grid columns:1 gap:4
                         Flex justify:"between" align:"center"
                           Grid columns:1 gap:1
@@ -634,10 +634,10 @@ page DashboardPage
             layout DashboardPreviewLayout
               Scaffold minH:"vh-0" boxed:true
                 appBar
-                  AppBar variant:"solid" scheme:"surface" position:"sticky" bordered:true boxed:true py:2
+                  AppBar position:"sticky" bordered:true boxed:true py:2
                     start
                       Flex align:"center" gap:3
-                        Icon name:"widget-5" style:"bold-duotone" fill:"primary" w:7 h:7
+                        Icon name:"widget-5-bold-duotone" fill:"primary" w:7 h:7
                         Text size:"lg" weight:"black"
                           "Dashboard"
                     end
@@ -648,7 +648,7 @@ page DashboardPage
                 start
                   Sidebar show:{ xs:false md:true } variant:"soft" scheme:"muted" w:64 h:"vh-0" border:1
                     body
-                      SideNav variant:"solid" scheme:"muted" size:"md" p:4
+                      SideNav variant:"solid" p:4
                         header label:"Workspace" description:"Dashboard blocks" icon:"widget-5"
                         item label:"Overview" href:"/blocks/dashboard-preview/overview" icon:"home"
                         item label:"Task board" href:"/blocks/dashboard-preview/task-board" icon:"checklist"
@@ -678,9 +678,9 @@ page DashboardPage
             "05 · SETTINGS"
           Title size:"2xl" weight:"black"
             "A responsive settings form with secure controls"
-        Button href:"/blocks/dashboard-preview/settings" variant:"soft" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/dashboard-preview/settings" variant:"soft" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"settings-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe src:"/blocks/dashboard-preview/settings" title:"Dashboard settings preview" loading:"lazy" sandbox:"scripts same-origin forms"
@@ -710,7 +710,7 @@ page DashboardPage
                     Text size:"sm" color:"muted"
                       "Keep identity, security, and notifications in one responsive form."
                   Grid columns:{ xs:1 lg:"280px 1fr" } gap:4 align:"start"
-                    Card variant:"soft" scheme:"surface" rounded:"lg" p:{ xs:5 md:6 } border:1
+                    Card variant:"soft" rounded:"lg" p:{ xs:5 md:6 } border:1
                       Flex direction:"column" align:"center" gap:3
                         Avatar name:"Jordan Lee" alt:"Jordan Lee profile photo placeholder" size:"xl" variant:"soft" scheme:"primary" bordered:true
                         Text size:"sm" weight:"bold"
@@ -719,7 +719,7 @@ page DashboardPage
                           "Placeholder avatar for this copy-ready block."
                         Button variant:"outlined" scheme:"muted" size:"sm"
                           "Change photo"
-                    Card variant:"soft" scheme:"surface" rounded:"lg" p:{ xs:5 md:8 } border:1
+                    Card variant:"soft" rounded:"lg" p:{ xs:5 md:8 } border:1
                       Grid columns:1 gap:5
                         Grid columns:1 gap:1
                           Title size:"xl" weight:"bold"
@@ -728,19 +728,19 @@ page DashboardPage
                             "These fields are ready to bind to a settings endpoint."
                         Alert type:"info" variant:"soft" scheme:"info" message:"Changes are saved locally in this preview."
                         Grid columns:{ xs:1 md:2 } gap:4
-                          Input bind:settings.fullName label:"Full name" placeholder:"Your full name" variant:"outlined" scheme:"muted" w:"full"
-                          Input bind:settings.email label:"Email address" placeholder:"you@example.com" variant:"outlined" scheme:"muted" w:"full"
-                          Password bind:settings.password label:"Password" placeholder:"Enter a new password" hideStrength:true variant:"outlined" scheme:"muted" w:"full"
-                          Select bind:settings.timezone label:"Timezone" placeholder:"Choose a timezone" variant:"outlined" scheme:"muted" w:"full"
+                          Input bind:settings.fullName label:"Full name" placeholder:"Your full name" scheme:"muted" w:"full"
+                          Input bind:settings.email label:"Email address" placeholder:"you@example.com" scheme:"muted" w:"full"
+                          Password bind:settings.password label:"Password" placeholder:"Enter a new password" hideStrength:true scheme:"muted" w:"full"
+                          Select bind:settings.timezone label:"Timezone" placeholder:"Choose a timezone" scheme:"muted" w:"full"
                             each in:timezones as:timezone key:timezone.id
                               Option value:timezone.value label:timezone.label
-                          Select bind:settings.digest label:"Email digest" placeholder:"Choose a cadence" variant:"outlined" scheme:"muted" w:"full"
+                          Select bind:settings.digest label:"Email digest" placeholder:"Choose a cadence" scheme:"muted" w:"full"
                             each in:digests as:digest key:digest.id
                               Option value:digest.value label:digest.label
                         Flex direction:{ xs:"column" sm:"row" } justify:"end" gap:3
-                          Button variant:"ghost" scheme:"muted" size:"md"
+                          Button variant:"ghost" scheme:"muted"
                             "Cancel"
-                          Button variant:"solid" scheme:"primary" size:"md"
+                          Button
                             "Save changes"
 
           """
@@ -749,10 +749,10 @@ page DashboardPage
             layout DashboardPreviewLayout
               Scaffold minH:"vh-0" boxed:true
                 appBar
-                  AppBar variant:"solid" scheme:"surface" position:"sticky" bordered:true boxed:true py:2
+                  AppBar position:"sticky" bordered:true boxed:true py:2
                     start
                       Flex align:"center" gap:3
-                        Icon name:"widget-5" style:"bold-duotone" fill:"primary" w:7 h:7
+                        Icon name:"widget-5-bold-duotone" fill:"primary" w:7 h:7
                         Text size:"lg" weight:"black"
                           "Dashboard"
                     end
@@ -763,7 +763,7 @@ page DashboardPage
                 start
                   Sidebar show:{ xs:false md:true } variant:"soft" scheme:"muted" w:64 h:"vh-0" border:1
                     body
-                      SideNav variant:"solid" scheme:"muted" size:"md" p:4
+                      SideNav variant:"solid" p:4
                         header label:"Workspace" description:"Dashboard blocks" icon:"widget-5"
                         item label:"Overview" href:"/blocks/dashboard-preview/overview" icon:"home"
                         item label:"Task board" href:"/blocks/dashboard-preview/task-board" icon:"checklist"
@@ -785,7 +785,7 @@ page DashboardPage
                       Icon name:"settings"
 
           """
-  Section id:"dashboard-complete-profile" p:{ xs:5 md:7 } bg:"softMuted" color:"onSoftMuted"
+  Section id:"dashboard-complete-profile" p:{ xs:5 md:7 } bg:"softMuted" color:"softMutedText"
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -793,9 +793,9 @@ page DashboardPage
             "06 · COMPLETE PROFILE"
           Title size:"2xl" weight:"black"
             "A portable Stepper for profile setup"
-        Button href:"/blocks/dashboard-preview/complete-profile" variant:"solid" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/dashboard-preview/complete-profile" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"complete-profile-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe src:"/blocks/dashboard-preview/complete-profile" title:"Dashboard complete profile preview" loading:"lazy" sandbox:"scripts same-origin forms"
@@ -824,7 +824,7 @@ page DashboardPage
                       "A focused setup flow"
                     Text size:"sm" color:"muted"
                       "Use the portable Stepper to collect only the details the workspace needs."
-                  Card variant:"soft" scheme:"surface" rounded:"lg" p:{ xs:4 md:8 } border:1
+                  Card variant:"soft" rounded:"lg" p:{ xs:4 md:8 } border:1
                     Stepper scheme:"primary" orientation:"horizontal"
                       step id:"identity" label:"Identity"
                         Grid columns:1 gap:4 p:{ xs:2 md:4 }
@@ -832,17 +832,17 @@ page DashboardPage
                             Avatar name:"Profile" alt:"Profile photo placeholder" size:"xl" variant:"soft" scheme:"primary" bordered:true
                             Text size:"xs" color:"muted"
                               "Photo placeholder"
-                          Input bind:profile.name label:"Display name" placeholder:"How should we call you?" variant:"outlined" scheme:"muted" w:"full"
-                          Input bind:profile.email label:"Email address" placeholder:"you@example.com" variant:"outlined" scheme:"muted" w:"full"
+                          Input bind:profile.name label:"Display name" placeholder:"How should we call you?" scheme:"muted" w:"full"
+                          Input bind:profile.email label:"Email address" placeholder:"you@example.com" scheme:"muted" w:"full"
                       step id:"workspace" label:"Workspace"
                         Grid columns:1 gap:4 p:{ xs:2 md:4 }
-                          Select bind:profile.role label:"Primary role" placeholder:"Choose a role" variant:"outlined" scheme:"muted" w:"full"
+                          Select bind:profile.role label:"Primary role" placeholder:"Choose a role" scheme:"muted" w:"full"
                             each in:roles as:role key:role.id
                               Option value:role.value label:role.label
-                          Select bind:profile.timezone label:"Timezone" placeholder:"Choose a timezone" variant:"outlined" scheme:"muted" w:"full"
+                          Select bind:profile.timezone label:"Timezone" placeholder:"Choose a timezone" scheme:"muted" w:"full"
                             each in:timezones as:timezone key:timezone.id
                               Option value:timezone.value label:timezone.label
-                          Password bind:profile.password label:"Create a password" placeholder:"Use a secure password" hideStrength:false variant:"outlined" scheme:"muted" w:"full"
+                          Password bind:profile.password label:"Create a password" placeholder:"Use a secure password" hideStrength:false scheme:"muted" w:"full"
                       step id:"finish" label:"Finish"
                         Grid columns:1 gap:4 p:{ xs:2 md:4 }
                           Avatar name:"Profile" alt:"Profile photo placeholder" size:"lg" variant:"soft" scheme:"primary"
@@ -851,9 +851,9 @@ page DashboardPage
                           Text size:"sm" color:"muted"
                             "Review your details, then enter the workspace."
                           Flex direction:{ xs:"column" sm:"row" } justify:"between" gap:3
-                            Button variant:"ghost" scheme:"muted" size:"md"
+                            Button variant:"ghost" scheme:"muted"
                               "Back"
-                            Button variant:"solid" scheme:"primary" size:"md"
+                            Button
                               "Continue"
 
           """
@@ -862,10 +862,10 @@ page DashboardPage
             layout DashboardPreviewLayout
               Scaffold minH:"vh-0" boxed:true
                 appBar
-                  AppBar variant:"solid" scheme:"surface" position:"sticky" bordered:true boxed:true py:2
+                  AppBar position:"sticky" bordered:true boxed:true py:2
                     start
                       Flex align:"center" gap:3
-                        Icon name:"widget-5" style:"bold-duotone" fill:"primary" w:7 h:7
+                        Icon name:"widget-5-bold-duotone" fill:"primary" w:7 h:7
                         Text size:"lg" weight:"black"
                           "Dashboard"
                     end
@@ -876,7 +876,7 @@ page DashboardPage
                 start
                   Sidebar show:{ xs:false md:true } variant:"soft" scheme:"muted" w:64 h:"vh-0" border:1
                     body
-                      SideNav variant:"solid" scheme:"muted" size:"md" p:4
+                      SideNav variant:"solid" p:4
                         header label:"Workspace" description:"Dashboard blocks" icon:"widget-5"
                         item label:"Overview" href:"/blocks/dashboard-preview/overview" icon:"home"
                         item label:"Task board" href:"/blocks/dashboard-preview/task-board" icon:"checklist"

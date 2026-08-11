@@ -68,7 +68,7 @@ page PaginationPage
         Text size:"sm" color:"muted"
           "The bound Signal receives the selected page. Pagination never requests, sorts, or slices records itself; keep that work in the declared function and its server endpoint."
       Grid columns:{ xs:1 md:2 } gap:6 align:"start"
-        Card variant:"outlined" scheme:"surface" p:{ xs:5 md:8 } rounded:"md" border:1
+        Card variant:"outlined" p:{ xs:5 md:8 } border:1
           Grid columns:1 gap:4
             Title size:"lg" weight:"bold"
               "Five pages of results"
@@ -109,22 +109,22 @@ page PaginationPage
         Text size:"sm" color:"muted"
           "Variants change the treatment only. Every variant keeps the same selected-page binding and function dispatch contract."
       Grid columns:{ xs:1 md:2 } gap:5
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Solid"
             Pagination bind:page total:50 pageSize:10 onChange:describePageChange variant:"solid" scheme:"primary" size:"sm"
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Outlined"
             Pagination bind:outlinedPage total:50 pageSize:10 onChange:describePageChange variant:"outlined" scheme:"primary" size:"sm"
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Soft"
             Pagination bind:softPage total:50 pageSize:10 onChange:describePageChange variant:"soft" scheme:"primary" size:"sm"
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Ghost"
@@ -142,7 +142,7 @@ page PaginationPage
           "The current portable subset renders at most 25 pages. Use a positive static pageSize and a total that stays within that range."
         Text size:"sm" color:"muted"
           "When the range exceeds seven pages, Pagination keeps the first, final, current, and nearby pages visible and condenses the gaps with ellipses."
-      Card variant:"soft" scheme:"surface" p:6 rounded:"md"
+      Card variant:"soft" p:6
         Grid columns:1 gap:3
           Title size:"lg" weight:"bold"
             "Authoring rules"
@@ -159,7 +159,7 @@ page PaginationPage
           "Web output generates semantic navigation controls with labels for previous, next, and the current page. Boundary controls are unavailable when there is no earlier or later page."
         Text size:"sm" color:"muted"
           "Android and iOS generate equivalent native controls with the same clamping and dispatch behavior."
-      Card variant:"outlined" scheme:"surface" p:6 rounded:"md" border:1
+      Card variant:"outlined" p:6 border:1
         Grid columns:1 gap:3
           Title size:"lg" weight:"bold"
             "Name the navigation"

@@ -31,12 +31,12 @@ layout HomeLayout
           Github
     main
       children
-      Footer variant:"solid" scheme:"muted" boxed:true py:{ xs:6 md:3 }
+      Footer scheme:"muted" boxed:true py:{ xs:6 md:3 }
         start
-          Text size:"xs" color:"onMuted"
+          Text size:"xs" color:"mutedText"
             "Dowe @ 2026. All rights reserved."
         end
-          Text size:"xs" color:"onMuted"
+          Text size:"xs" color:"mutedText"
             "info@dowe.dev"
           IconButton:
             icon:"svg-logos:x"

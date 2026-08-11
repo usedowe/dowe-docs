@@ -32,7 +32,7 @@ page DividerPage
           "Compare orientation and scheme"
         Text size:"sm" color:"muted"
           "Horizontal lines fill the available width. Vertical lines fill the authored height, so pair them with an explicit h when the surrounding content has no intrinsic height."
-      Card variant:"outlined" scheme:"surface" p:{ xs:6 md:9 } rounded:"md" border:1
+      Card variant:"outlined" p:{ xs:6 md:9 } border:1
         Grid columns:1 gap:5
           Text weight:"bold"
             "Horizontal content boundary"
@@ -54,7 +54,7 @@ page DividerPage
           "Compose a split toolbar"
         Text size:"sm" color:"muted"
           "Divider is deliberately neutral: parent Flex or Grid owns alignment, spacing, and responsive behavior."
-      Card variant:"soft" scheme:"surface" p:{ xs:5 md:7 } rounded:"md"
+      Card variant:"soft" p:{ xs:5 md:7 }
         Flex direction:{ xs:"column" md:"row" } align:"center" gap:4
           Flex direction:"column" gap:1
             Text size:"xs" weight:"bold" color:"muted"
@@ -74,7 +74,7 @@ page DividerPage
             Text weight:"bold"
               "Synchronized"
       Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+        Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" color:"muted"
               "SECTION RHYTHM"
@@ -83,7 +83,7 @@ page DividerPage
             Divider scheme:"muted"
             Text size:"sm" color:"muted"
               "Use the page Section and Grid gap for rhythm, then place Divider only where the line itself carries meaning."
-        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+        Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" color:"muted"
               "TOKEN COLORS"
@@ -101,7 +101,7 @@ page DividerPage
               Divider orientation:"vertical" scheme:"danger" h:8
   Section id:"divider-contract" p:{ xs:5 md:7 }
     Grid columns:{ xs:1 md:3 } gap:4
-      Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+      Card variant:"soft" p:5
         Grid columns:1 gap:2
           Text size:"xs" weight:"bold" color:"muted"
             "HORIZONTAL"
@@ -109,7 +109,7 @@ page DividerPage
             "Width follows the parent"
           Text size:"sm" color:"muted"
             "Use the parent layout to define horizontal padding and gap."
-      Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+      Card variant:"soft" p:5
         Grid columns:1 gap:2
           Text size:"xs" weight:"bold" color:"muted"
             "VERTICAL"
@@ -117,7 +117,7 @@ page DividerPage
             "Height is intentional"
           Text size:"sm" color:"muted"
             "Set h when a vertical line sits beside content with no shared intrinsic height."
-      Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+      Card variant:"soft" p:5
         Grid columns:1 gap:2
           Text size:"xs" weight:"bold" color:"muted"
             "PORTABLE"

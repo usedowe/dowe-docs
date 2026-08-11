@@ -1,10 +1,10 @@
 layout DashboardPreviewLayout
   Scaffold minH:"vh-0" boxed:true
     appBar
-      AppBar variant:"solid" scheme:"surface" position:"sticky" bordered:true boxed:true py:2
+      AppBar position:"sticky" bordered:true boxed:true py:2
         start
           Flex align:"center" gap:3
-            Icon name:"widget-5" style:"bold-duotone" fill:"primary" w:7 h:7
+            Icon name:"widget-5-bold-duotone" fill:"primary" w:7 h:7
             Text size:"lg" weight:"black"
               "Dashboard"
         end
@@ -15,7 +15,7 @@ layout DashboardPreviewLayout
     start
       Sidebar show:{ xs:false md:true } variant:"soft" scheme:"muted" w:64 h:"vh-0" border:1
         body
-          SideNav variant:"solid" scheme:"muted" size:"md" p:4
+          SideNav variant:"solid" p:4
             header label:"Workspace" description:"Dashboard blocks" icon:"widget-5"
             item label:"Overview" href:"/blocks/dashboard-preview/overview" icon:"home"
             item label:"Task board" href:"/blocks/dashboard-preview/task-board" icon:"checklist"

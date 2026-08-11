@@ -1,26 +1,98 @@
 page DatabasePage
+  const databaseModelRows:
+    value:[
+      {
+        part:"Handle"
+        example:"database db1"
+        guidance:"In dowe dev, opens or reuses .dowe/db/<name>; in production, selects the declared provider adapter."
+      },
+      {
+        part:"Result"
+        example:"query blog"
+        guidance:"Keeps the result variable explicit and inferable for later response data."
+      },
+      {
+        part:"Boundary"
+        example:"Server only"
+        guidance:"Views receive response data, never a Database handle or its credentials."
+      },
+    ]
+  const databaseOperationRows:
+    value:[
+      {
+        operation:"list / read"
+        purpose:"Select and read"
+        href:"/docs/server/db/select"
+      },
+      {
+        operation:"insert"
+        purpose:"Create a record"
+        href:"/docs/server/db/insert"
+      },
+      {
+        operation:"update"
+        purpose:"Patch a record"
+        href:"/docs/server/db/update"
+      },
+      {
+        operation:"delete"
+        purpose:"Remove a record"
+        href:"/docs/server/db/delete"
+      },
+      {
+        operation:"transactions"
+        purpose:"Stage Dowe inserts atomically"
+        href:"/docs/server/db/transactions"
+      },
+      {
+        operation:"entities"
+        purpose:"Define SQL provider schema contracts"
+        href:"/docs/server/db/entities"
+      },
+    ]
+  const databaseProviderRows:
+    value:[
+      {
+        provider:"PostgreSQL"
+        guidance:"host and port locate the PostgreSQL server. account is the database user, secret is its password, and name is the PostgreSQL database name."
+      },
+      {
+        provider:"D1"
+        guidance:"account is the Cloudflare account ID, secret is the API token, and name is the D1 database ID. D1 does not use host or port; the runtime builds the official HTTP endpoint."
+      },
+      {
+        provider:"Dowe Database"
+        guidance:"host and port locate the Dowe WebSocket service. account and secret are database-scoped credentials, and name selects the Dowe NoSQL database."
+      },
+    ]
+  const databaseSchemaRows:
+    value:[
+      {
+        part:"entities"
+        guidance:"List the entity bindings included by this database. Their fields and constraints become the Postgres or D1 schema contract."
+      },
+      {
+        part:"seeders"
+        guidance:"List static seeder bindings in execution order. A changed fingerprint is a new seeder run; a restart does not duplicate rows."
+      },
+      {
+        part:"server-only"
+        guidance:"Entities, seeders, providers, and credentials stay in server modules. Return only the records or fields your endpoint needs."
+      },
+    ]
   Section id:"database-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "SERVER / DATABASE"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Database"
+      Text size:"lg" color:"muted"
+        "Database is Dowe's Dowe-owned server data contract. One query syntax can target PostgreSQL, Cloudflare D1, or Dowe Database, while handles and credentials stay server-only."
+  Section id:"database-mental-model" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "SERVER / DATABASE"
-        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
-          "Database"
-        Text size:"lg" color:"muted"
-          "Database is Dowe's Dowe-owned server data contract. One query syntax can target PostgreSQL, Cloudflare D1, or Dowe Database, while handles and credentials stay server-only."
-      Button:
-        href:"/docs/server/db/select"
-        variant:"soft"
-        scheme:"primary"
-        size:"sm"
-        rounded:"full"
-        iconStart:"magnifier"
-        "Read data"
-  Section id:"database-mental-model" p:{ xs:5 md:7 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "MENTAL MODEL"
+          "1 / MENTAL MODEL"
         Title size:"3xl" weight:"black"
           "Declare a handle, then bind results"
         Text size:"sm" color:"muted"
@@ -37,100 +109,59 @@ page DatabasePage
             query blog db:db1.read table:"blogs" where:{ id:req.params.id } required:true
             return json:{ ok:true data:blog }
         """
-      Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "HANDLE"
-            Title size:"lg" weight:"bold"
-              "database db1"
-            Text size:"sm" color:"muted"
-              "In dowe dev, opens or reuses .dowe/db/<name>; in production, selects the declared provider adapter."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "RESULT"
-            Title size:"lg" weight:"bold"
-              "query blog"
-            Text size:"sm" color:"muted"
-              "Keeps the result variable explicit and inferable for later response data."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "BOUNDARY"
-            Title size:"lg" weight:"bold"
-              "Server only"
-            Text size:"sm" color:"muted"
-              "Views receive response data, never a Database handle or its credentials."
+      Table:
+        data:databaseModelRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"part" label:"Part" width:"2fr"
+        column field:"example" label:"Example" width:"2fr"
+        column field:"guidance" label:"Meaning" width:"5fr"
   Section id:"database-operations" py:{ xs:7 md:10 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "OPERATIONS"
+          "2 / OPERATIONS"
         Title size:"3xl" weight:"black"
           "Choose the data flow"
         Text size:"sm" color:"muted"
           "Use list, read, insert, update, and delete for predictable record access. Use query for the supported SQL-like read grammar. The operation syntax stays the same when the provider changes."
-      Grid columns:{ xs:1 md:2 lg:3 } gap:4
-        Button href:"/docs/server/db/select" variant:"soft" scheme:"info" iconStart:"magnifier"
-          "Select and read"
-        Button href:"/docs/server/db/insert" variant:"soft" scheme:"success" iconStart:"add-circle"
-          "Insert"
-        Button href:"/docs/server/db/update" variant:"soft" scheme:"warning" iconStart:"pen"
-          "Update"
-        Button:
-          href:"/docs/server/db/delete"
-          variant:"soft"
-          scheme:"danger"
-          iconStart:"trash-bin-trash"
-          "Delete"
-        Button:
-          href:"/docs/server/db/transactions"
-          variant:"soft"
-          scheme:"secondary"
-          iconStart:"restart"
-          "Transactions"
-        Button:
-          href:"/docs/server/db/entities"
-          variant:"soft"
-          scheme:"primary"
-          iconStart:"document-text"
-          "Entities"
+      Table:
+        data:databaseOperationRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"operation" label:"Operation" width:"2fr"
+        column field:"purpose" label:"Use it for" width:"4fr"
+        column field:"href" label:"Documentation route" width:"2fr"
   Section id:"database-providers" p:{ xs:5 md:7 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "PROVIDERS"
+          "3 / PROVIDERS"
         Title size:"3xl" weight:"black"
           "Three adapters, one server contract"
         Text size:"sm" color:"muted"
           "The provider selects the Dowe adapter used in production. host, port, account, secret, and name are server-only props; Dowe never sends them to a View."
-      Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "POSTGRES"
-            Title size:"lg" weight:"bold"
-              "PostgreSQL"
-            Text size:"sm" color:"muted"
-              "host and port locate the PostgreSQL server. account is the database user, secret is its password, and name is the PostgreSQL database name."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "CLOUDFLARE"
-            Title size:"lg" weight:"bold"
-              "D1"
-            Text size:"sm" color:"muted"
-              "account is the Cloudflare account ID, secret is the API token, and name is the D1 database ID. D1 does not use host or port; the runtime builds the official HTTP endpoint."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "DOWE"
-            Title size:"lg" weight:"bold"
-              "Dowe Database"
-            Text size:"sm" color:"muted"
-              "host and port locate the Dowe WebSocket service. account and secret are database-scoped credentials, and name selects the Dowe NoSQL database."
+      Table:
+        data:databaseProviderRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"provider" label:"Provider" width:"2fr"
+        column field:"guidance" label:"Connection contract" width:"5fr"
       Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" color:"muted"
+          "The same query against each provider"
         Code:
           language:"dowe"
           variant:"soft"
@@ -148,6 +179,9 @@ page DatabasePage
               seeders:[Bootstrap]
             query blogs db:appDb.list table:"blogs"
           """
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" color:"muted"
+          "Cloudflare D1"
         Code:
           language:"dowe"
           variant:"soft"
@@ -163,6 +197,9 @@ page DatabasePage
               seeders:[Bootstrap]
             query blogs db:appDb.list table:"blogs"
           """
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" color:"muted"
+          "Dowe Database"
         Code:
           language:"dowe"
           variant:"soft"
@@ -181,16 +218,14 @@ page DatabasePage
             query blogs db:appDb.list table:"blogs"
           """
   Section id:"database-schema" py:{ xs:7 md:10 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "ENTITIES AND SEEDERS"
+          "4 / ENTITIES AND SEEDERS"
         Title size:"3xl" weight:"black"
           "Describe shape once, seed it deterministically"
         Text size:"sm" color:"muted"
           "entity and seeder are importable server bindings. Postgres and D1 use the selected entities to generate migration SQL; Dowe Database remains schema-less. Seeders run once per database and fingerprint."
-        Button href:"/docs/server/db/entities" variant:"soft" scheme:"primary" size:"sm"
-          "Read the entity contract"
       Code:
         language:"dowe"
         variant:"soft"
@@ -211,36 +246,26 @@ page DatabasePage
           seeder Bootstrap
             insert entity:Users value:{ id:"01H00000000000000000000000" name:"Admin" email:"admin@example.com" }
         """
-      Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Title size:"lg" weight:"bold"
-              "entities"
-            Text size:"sm" color:"muted"
-              "List the entity bindings included by this database. Their fields and constraints become the Postgres or D1 schema contract."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Title size:"lg" weight:"bold"
-              "seeders"
-            Text size:"sm" color:"muted"
-              "List static seeder bindings in execution order. A changed fingerprint is a new seeder run; a restart does not duplicate rows."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Title size:"lg" weight:"bold"
-              "server-only"
-            Text size:"sm" color:"muted"
-              "Entities, seeders, providers, and credentials stay in server modules. Return only the records or fields your endpoint needs."
+      Table:
+        data:databaseSchemaRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"part" label:"Part" width:"2fr"
+        column field:"guidance" label:"Responsibility" width:"5fr"
   Section id:"database-environments" p:{ xs:5 md:7 }
-    Grid columns:1 gap:5
-      Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "DEVELOPMENT AND PRODUCTION"
-        Title size:"3xl" weight:"black"
-          "The same source behaves predictably in both environments"
-        Text size:"sm" color:"muted"
-          "During dowe dev, all three providers use the embedded local Database under .dowe/db/<name> and resolve only name. No account, secret, external network, Wrangler process, or second D1 port is used."
-        Text size:"sm" color:"muted"
-          "During production, Dowe resolves the full provider connection, applies Postgres or D1 migrations, runs pending seeders, and only then starts accepting traffic. Dowe Database uses authenticated WebSocket operations and does not require SQL migrations."
+    Grid columns:1 gap:4
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "5 / DEVELOPMENT AND PRODUCTION"
+      Title size:"3xl" weight:"black"
+        "The same source behaves predictably in both environments"
+      Text size:"sm" color:"muted"
+        "During dowe dev, all three providers use the embedded local Database under .dowe/db/<name> and resolve only name. No account, secret, external network, Wrangler process, or second D1 port is used."
+      Text size:"sm" color:"muted"
+        "During production, Dowe resolves the full provider connection, applies Postgres or D1 migrations, runs pending seeders, and only then starts accepting traffic. Dowe Database uses authenticated WebSocket operations and does not require SQL migrations."
       Code:
         language:"dowe"
         variant:"soft"

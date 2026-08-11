@@ -3,21 +3,21 @@ page SignupCardAuthPage
   Section id:"signup-card-auth" bg:"softMuted" boxed:true p:{ xs:5 md:10 } minH:"vh-0"
     Grid columns:{ xs:1 md:"1fr 1fr 1fr" } align:"center" minH:"vh-0"
       Box show:{ xs:false md:true }
-      Card variant:"solid" scheme:"surface" rounded:"xl" shadow:"xl" shadowColor:"primary" p:{ xs:6 md:8 } border:1
+      Card rounded:"xl" shadow:"xl" shadowColor:"primary" p:{ xs:6 md:8 } border:1
         Grid columns:1 gap:5
           Flex direction:"column" align:"center" gap:2
-            Icon name:"shield-check" style:"bold-duotone" fill:"primary" w:12 h:12
+            Icon name:"shield-check-bold-duotone" fill:"primary" w:12 h:12
             Title size:"3xl" weight:"black"
               "Sign up free"
             Text size:"sm" color:"muted"
               "14-day free access to unlimited resources."
           Grid columns:2 gap:3
-            Input bind:form.firstName label:"First name" placeholder:"First name" variant:"soft" scheme:"primary" w:"full"
-            Input bind:form.lastName label:"Last name" placeholder:"Last name" variant:"soft" scheme:"primary" w:"full"
-          Input bind:form.email label:"Email address" placeholder:"you@example.com" variant:"soft" scheme:"primary" w:"full"
-          Password bind:form.password label:"Password" placeholder:"Create a password" hideStrength:false variant:"soft" scheme:"primary" w:"full"
-          Checkbox bind:form.accepted label:"I agree to the terms and privacy policy." scheme:"primary"
-          Button variant:"solid" scheme:"primary" size:"md" w:"full"
+            Input bind:form.firstName label:"First name" placeholder:"First name" variant:"soft" w:"full"
+            Input bind:form.lastName label:"Last name" placeholder:"Last name" variant:"soft" w:"full"
+          Input bind:form.email label:"Email address" placeholder:"you@example.com" variant:"soft" w:"full"
+          Password bind:form.password label:"Password" placeholder:"Create a password" hideStrength:false variant:"soft" w:"full"
+          Checkbox bind:form.accepted label:"I agree to the terms and privacy policy."
+          Button w:"full"
             "Create free account"
           Grid columns:"1fr auto 1fr" gap:3 align:"center"
             Divider
@@ -25,13 +25,13 @@ page SignupCardAuthPage
               "OR"
             Divider
           Grid columns:{ xs:1 sm:3 } gap:3
-            Button variant:"outlined" scheme:"primary" size:"sm" iconStart:"global" w:"full"
+            Button variant:"outlined" size:"sm" iconStart:"global" w:"full"
               "Google"
-            Button variant:"outlined" scheme:"primary" size:"sm" iconStart:"smartphone" w:"full"
+            Button variant:"outlined" size:"sm" iconStart:"smartphone" w:"full"
               "Apple"
-            Button variant:"outlined" scheme:"primary" size:"sm" iconStart:"chat-round-line" w:"full"
+            Button variant:"outlined" size:"sm" iconStart:"chat-round-line" w:"full"
               "Twitter"
           Divider
-          Button href:"/blocks/auth-preview/login-card" variant:"ghost" scheme:"primary" size:"sm"
+          Button href:"/blocks/auth-preview/login-card" variant:"ghost" size:"sm"
             "Already have an account? Log in"
       Box show:{ xs:false md:true }

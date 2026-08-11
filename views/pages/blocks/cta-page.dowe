@@ -15,9 +15,9 @@ page CtasPage
             "01 · SPLIT ACTIONS"
           Title size:"2xl" weight:"black"
             "A compact headline balanced by two calls to action"
-        Button href:"/blocks/cta-preview/split-actions" variant:"soft" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/cta-preview/split-actions" variant:"soft" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"split-actions-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe src:"/blocks/cta-preview/split-actions" title:"Split actions CTA preview" loading:"lazy" sandbox:"scripts same-origin"
@@ -34,21 +34,21 @@ page CtasPage
                 { id:"sales" label:"Talk to sales" variant:"outlined" },
               ]
 
-              Section id:"split-actions-cta" bg:"background" color:"onBackground" boxed:true p:{ xs:6 md:10 }
+              Section id:"split-actions-cta" bg:"background" color:"backgroundText" boxed:true p:{ xs:6 md:10 }
                 Grid columns:{ xs:1 md:"5fr 3fr" } gap:{ xs:6 md:12 } align:"center" minH:{ xs:72 md:56 }
                   Flex direction:"column" align:{ xs:"center" md:"start" } justify:"center" gap:3
                     Title size:{ xs:"3xl" md:"4xl" } weight:"black"
                       "Create your account today and get started for free!"
                   Grid columns:1 gap:3 w:"full" show:{ xs:true sm:false }
                     each in:actions as:action key:action.id
-                      Button variant:action.variant scheme:"primary" size:"lg" rounded:"full" w:"full"
+                      Button variant:action.variant size:"lg" rounded:"full" w:"full"
                         "{action.label}"
                   Flex align:"center" justify:{ xs:"center" md:"end" } gap:3 show:{ xs:false sm:true }
                     each in:actions as:action key:action.id
-                      Button variant:action.variant scheme:"primary" size:"lg" rounded:"full"
+                      Button variant:action.variant size:"lg" rounded:"full"
                         "{action.label}"
             """
-  Section id:"centered-actions" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
+  Section id:"centered-actions" p:{ xs:5 md:7 } bg:"softPrimary" color:"softPrimaryText"
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -56,9 +56,9 @@ page CtasPage
             "02 · CENTERED ACTIONS"
           Title size:"2xl" weight:"black"
             "A centered conversion message with paired actions"
-        Button href:"/blocks/cta-preview/centered-actions" variant:"solid" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/cta-preview/centered-actions" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"centered-actions-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe src:"/blocks/cta-preview/centered-actions" title:"Centered actions CTA preview" loading:"lazy" sandbox:"scripts same-origin"
@@ -75,18 +75,18 @@ page CtasPage
                 { id:"sales" label:"Talk to sales" variant:"outlined" },
               ]
 
-              Section id:"centered-actions-cta" bg:"background" color:"onBackground" boxed:true p:{ xs:6 md:12 }
+              Section id:"centered-actions-cta" bg:"background" color:"backgroundText" boxed:true p:{ xs:6 md:12 }
                 Flex direction:"column" align:"center" justify:"center" gap:6 minH:{ xs:80 md:"vh-0" }
                   Flex direction:"column" align:"center" gap:3 maxW:96
                     Title size:{ xs:"3xl" md:"5xl" } weight:"black"
                       "Create your account today and get started for free!"
                   Grid columns:1 gap:3 w:"full" show:{ xs:true sm:false }
                     each in:actions as:action key:action.id
-                      Button variant:action.variant scheme:"primary" size:"lg" rounded:"full" w:"full"
+                      Button variant:action.variant size:"lg" rounded:"full" w:"full"
                         "{action.label}"
                   Flex align:"center" justify:"center" gap:3 show:{ xs:false sm:true }
                     each in:actions as:action key:action.id
-                      Button variant:action.variant scheme:"primary" size:"lg" rounded:"full"
+                      Button variant:action.variant size:"lg" rounded:"full"
                         "{action.label}"
             """
   Section id:"media-panel" p:{ xs:5 md:7 }
@@ -97,9 +97,9 @@ page CtasPage
             "03 · MEDIA PANEL"
           Title size:"2xl" weight:"black"
             "A soft split panel pairing conversion copy with media"
-        Button href:"/blocks/cta-preview/media-panel" variant:"soft" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/cta-preview/media-panel" variant:"soft" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"media-panel-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe src:"/blocks/cta-preview/media-panel" title:"Media panel CTA preview" loading:"lazy" sandbox:"scripts same-origin"
@@ -116,7 +116,7 @@ page CtasPage
                 { id:"sales" label:"Talk to sales" variant:"outlined" },
               ]
 
-              Section id:"media-panel-cta" bg:"softMuted" color:"onSoftMuted" boxed:true p:{ xs:6 md:12 }
+              Section id:"media-panel-cta" bg:"softMuted" color:"softMutedText" boxed:true p:{ xs:6 md:12 }
                 Grid columns:{ xs:1 md:"5fr 4fr" } gap:{ xs:8 md:14 } align:"center" minH:"vh-0"
                   Flex direction:"column" align:{ xs:"center" md:"start" } justify:"center" gap:5
                     Grid columns:1 gap:3
@@ -126,19 +126,19 @@ page CtasPage
                         "Bring your next idea to life with a focused workspace built for clear plans and steady progress."
                     Grid columns:1 gap:3 w:"full" show:{ xs:true sm:false }
                       each in:actions as:action key:action.id
-                        Button variant:action.variant scheme:"primary" size:"lg" rounded:"full" w:"full"
+                        Button variant:action.variant size:"lg" rounded:"full" w:"full"
                           "{action.label}"
                     Flex align:"center" gap:3 show:{ xs:false sm:true }
                       each in:actions as:action key:action.id
-                        Button variant:action.variant scheme:"primary" size:"lg" rounded:"full"
+                        Button variant:action.variant size:"lg" rounded:"full"
                           "{action.label}"
                   Box bg:"surface" rounded:"xl" p:8 minH:{ xs:72 md:96 }
                     Flex direction:"column" align:"center" justify:"center" gap:3 minH:{ xs:56 md:80 }
-                      Icon name:"gallery" style:"bold-duotone" fill:"muted" w:16 h:16
+                      Icon name:"gallery-bold-duotone" fill:"muted" w:16 h:16
                       Text size:"sm" color:"muted"
                         "Image placeholder"
             """
-  Section id:"app-download" p:{ xs:5 md:7 } bg:"softMuted" color:"onSoftMuted"
+  Section id:"app-download" p:{ xs:5 md:7 } bg:"softMuted" color:"softMutedText"
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -146,9 +146,9 @@ page CtasPage
             "04 · APP DOWNLOAD"
           Title size:"2xl" weight:"black"
             "Two platform cards with distinct store actions"
-        Button href:"/blocks/cta-preview/app-download" variant:"solid" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/cta-preview/app-download" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"app-download-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe src:"/blocks/cta-preview/app-download" title:"App download CTA preview" loading:"lazy" sandbox:"scripts same-origin"
@@ -160,15 +160,15 @@ page CtasPage
             copyLabel:"Copy CTA"
             copiedLabel:"Copied"
             content:"""
-              Section id:"app-download-cta" bg:"background" color:"onBackground" boxed:true p:{ xs:6 md:12 }
+              Section id:"app-download-cta" bg:"background" color:"backgroundText" boxed:true p:{ xs:6 md:12 }
                 Grid columns:{ xs:1 md:2 } gap:{ xs:5 md:8 } align:"stretch" minH:"vh-0"
-                  Card variant:"solid" scheme:"primary" rounded:"xl" p:{ xs:7 md:10 } minH:{ xs:80 md:96 }
+                  Card scheme:"primary" rounded:"xl" p:{ xs:7 md:10 } minH:{ xs:80 md:96 }
                     Flex direction:"column" align:{ xs:"center" md:"start" } justify:"center" gap:5 minH:{ xs:64 md:80 }
                       Title size:{ xs:"3xl" md:"4xl" } weight:"black"
                         "Download our app for iOS and iPadOS"
-                      Text size:"lg" color:"onPrimary"
+                      Text size:"lg" color:"primaryText"
                         "Stay connected to your work from every Apple device, wherever the day takes you."
-                      Button variant:"solid" scheme:"muted" size:"lg" rounded:"full" iconStart:"smartphone"
+                      Button scheme:"muted" size:"lg" rounded:"full" iconStart:"smartphone"
                         "Download for iOS"
                   Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:7 md:10 } minH:{ xs:80 md:96 }
                     Flex direction:"column" align:{ xs:"center" md:"start" } justify:"center" gap:5 minH:{ xs:64 md:80 }
@@ -176,7 +176,7 @@ page CtasPage
                         "Download our app for Android"
                       Text size:"lg" color:"muted"
                         "Take the same focused workflow with you across phones, tablets, and compatible devices."
-                      Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" iconStart:"play"
+                      Button size:"lg" rounded:"full" iconStart:"play"
                         "Download for Android"
             """
   Section id:"media-left" p:{ xs:5 md:7 }
@@ -187,9 +187,9 @@ page CtasPage
             "05 · MEDIA LEFT"
           Title size:"2xl" weight:"black"
             "A compact media placeholder leading into focused copy"
-        Button href:"/blocks/cta-preview/media-left" variant:"soft" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/cta-preview/media-left" variant:"soft" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"media-left-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe src:"/blocks/cta-preview/media-left" title:"Media left CTA preview" loading:"lazy" sandbox:"scripts same-origin"
@@ -206,11 +206,11 @@ page CtasPage
                 { id:"sales" label:"Talk to sales" variant:"outlined" },
               ]
 
-              Section id:"media-left-cta" bg:"background" color:"onBackground" boxed:true p:{ xs:6 md:12 }
+              Section id:"media-left-cta" bg:"background" color:"backgroundText" boxed:true p:{ xs:6 md:12 }
                 Grid columns:{ xs:1 md:"5fr 5fr" } gap:{ xs:8 md:14 } align:"center" minH:"vh-0"
                   Box bg:"softMuted" rounded:"xl" p:8 minH:{ xs:64 md:80 }
                     Flex direction:"column" align:"center" justify:"center" gap:3 minH:{ xs:48 md:64 }
-                      Icon name:"gallery" style:"bold-duotone" fill:"muted" w:16 h:16
+                      Icon name:"gallery-bold-duotone" fill:"muted" w:16 h:16
                       Text size:"sm" color:"muted"
                         "Image placeholder"
                   Flex direction:"column" align:{ xs:"center" md:"start" } justify:"center" gap:5
@@ -221,14 +221,14 @@ page CtasPage
                         "Start with a clear plan, invite your team, and turn the next milestone into visible progress."
                     Grid columns:1 gap:3 w:"full" show:{ xs:true sm:false }
                       each in:actions as:action key:action.id
-                        Button variant:action.variant scheme:"primary" size:"lg" rounded:"full" w:"full"
+                        Button variant:action.variant size:"lg" rounded:"full" w:"full"
                           "{action.label}"
                     Flex align:"center" gap:3 show:{ xs:false sm:true }
                       each in:actions as:action key:action.id
-                        Button variant:action.variant scheme:"primary" size:"lg" rounded:"full"
+                        Button variant:action.variant size:"lg" rounded:"full"
                           "{action.label}"
             """
-  Section id:"benefit-list" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
+  Section id:"benefit-list" p:{ xs:5 md:7 } bg:"softPrimary" color:"softPrimaryText"
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -236,9 +236,9 @@ page CtasPage
             "06 · BENEFIT LIST"
           Title size:"2xl" weight:"black"
             "A benefit checklist beside a large media placeholder"
-        Button href:"/blocks/cta-preview/benefit-list" variant:"solid" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/cta-preview/benefit-list" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"benefit-list-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe src:"/blocks/cta-preview/benefit-list" title:"Benefit list CTA preview" loading:"lazy" sandbox:"scripts same-origin"
@@ -262,7 +262,7 @@ page CtasPage
                 { id:"sales" label:"Talk to sales" variant:"outlined" },
               ]
 
-              Section id:"benefit-list-cta" bg:"softMuted" color:"onSoftMuted" boxed:true p:{ xs:6 md:12 }
+              Section id:"benefit-list-cta" bg:"softMuted" color:"softMutedText" boxed:true p:{ xs:6 md:12 }
                 Grid columns:{ xs:1 md:"5fr 4fr" } gap:{ xs:8 md:14 } align:"center" minH:"vh-0"
                   Flex direction:"column" align:{ xs:"center" md:"start" } justify:"center" gap:6
                     Title size:{ xs:"3xl" md:"5xl" } weight:"black"
@@ -270,20 +270,20 @@ page CtasPage
                     Grid columns:{ xs:1 sm:2 } gap:3 w:"full"
                       each in:benefits as:benefit key:benefit.id
                         Flex align:"center" gap:3
-                          Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                          Icon name:"check-circle-bold" fill:"muted" w:5 h:5
                           Text color:"muted"
                             "{benefit.label}"
                     Grid columns:1 gap:3 w:"full" show:{ xs:true sm:false }
                       each in:actions as:action key:action.id
-                        Button variant:action.variant scheme:"primary" size:"lg" rounded:"full" w:"full"
+                        Button variant:action.variant size:"lg" rounded:"full" w:"full"
                           "{action.label}"
                     Flex align:"center" gap:3 show:{ xs:false sm:true }
                       each in:actions as:action key:action.id
-                        Button variant:action.variant scheme:"primary" size:"lg" rounded:"full"
+                        Button variant:action.variant size:"lg" rounded:"full"
                           "{action.label}"
                   Box bg:"surface" rounded:"xl" p:8 minH:{ xs:72 md:96 }
                     Flex direction:"column" align:"center" justify:"center" gap:3 minH:{ xs:56 md:80 }
-                      Icon name:"gallery" style:"bold-duotone" fill:"muted" w:16 h:16
+                      Icon name:"gallery-bold-duotone" fill:"muted" w:16 h:16
                       Text size:"sm" color:"muted"
                         "Image placeholder"
             """
@@ -295,9 +295,9 @@ page CtasPage
             "07 · INSET PANEL"
           Title size:"2xl" weight:"black"
             "A centered CTA framed by a soft inset surface"
-        Button href:"/blocks/cta-preview/inset-panel" variant:"soft" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/cta-preview/inset-panel" variant:"soft" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"inset-panel-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe src:"/blocks/cta-preview/inset-panel" title:"Inset panel CTA preview" loading:"lazy" sandbox:"scripts same-origin"
@@ -314,7 +314,7 @@ page CtasPage
                 { id:"sales" label:"Talk to sales" variant:"outlined" },
               ]
 
-              Section id:"inset-panel-cta" bg:"background" color:"onBackground" boxed:true p:{ xs:5 md:12 }
+              Section id:"inset-panel-cta" bg:"background" color:"backgroundText" boxed:true p:{ xs:5 md:12 }
                 Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:7 md:14 } minH:{ xs:80 md:96 }
                   Flex direction:"column" align:"center" justify:"center" gap:6 minH:{ xs:64 md:72 }
                     Flex direction:"column" align:"center" gap:3 maxW:96
@@ -322,10 +322,10 @@ page CtasPage
                         "Create your account today and get started for free!"
                     Grid columns:1 gap:3 w:"full" show:{ xs:true sm:false }
                       each in:actions as:action key:action.id
-                        Button variant:action.variant scheme:"primary" size:"lg" rounded:"full" w:"full"
+                        Button variant:action.variant size:"lg" rounded:"full" w:"full"
                           "{action.label}"
                     Flex align:"center" justify:"center" gap:3 show:{ xs:false sm:true }
                       each in:actions as:action key:action.id
-                        Button variant:action.variant scheme:"primary" size:"lg" rounded:"full"
+                        Button variant:action.variant size:"lg" rounded:"full"
                           "{action.label}"
             """

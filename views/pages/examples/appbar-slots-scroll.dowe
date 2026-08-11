@@ -9,19 +9,19 @@ page AppBarSlotsScroll
         Text size:"lg" color:"muted"
           "The announcement is top, navigation stays in the central row, and the scroll hint is bottom."
       Grid columns:1 gap:4
-        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+        Card variant:"soft" scheme:"primary" p:5
           Flex direction:"column" gap:2
             Title size:"xl" weight:"bold"
               "Scroll down"
             Text color:"muted"
               "The AppBar moves out of view after a downward scroll gesture."
-        Card variant:"soft" scheme:"secondary" p:5 rounded:"md"
+        Card variant:"soft" scheme:"secondary" p:5
           Flex direction:"column" gap:2
             Title size:"xl" weight:"bold"
               "Scroll up"
             Text color:"muted"
               "The same bar returns immediately when the scroll direction reverses."
-        Card variant:"soft" scheme:"tertiary" p:5 rounded:"md"
+        Card variant:"soft" scheme:"tertiary" p:5
           Flex direction:"column" gap:2
             Title size:"xl" weight:"bold"
               "Reach the top"

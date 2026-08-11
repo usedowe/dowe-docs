@@ -3,25 +3,25 @@ layout FooterSocialLayout
     main
       children
     bottomBar
-      Footer variant:"solid" scheme:"muted" boxed:true py:{ xs:6 md:3 }
+      Footer scheme:"muted" boxed:true py:{ xs:6 md:3 }
         top
           Flex justify:"center" show:{ xs:true md:false }
-            Text size:"xs" color:"onMuted"
+            Text size:"xs" color:"mutedText"
               "CompanyName @ 202X. All rights reserved."
         center
           Flex direction:"row" align:"center" justify:"between" gap:8 w:"full" show:{ xs:false md:true }
-            Text size:"xs" color:"onMuted"
+            Text size:"xs" color:"mutedText"
               "CompanyName @ 202X. All rights reserved."
             Flex align:"center" justify:"center" gap:1
-              IconButton icon:"play-circle" label:"YouTube" href:"https://youtube.com" variant:"solid" scheme:"muted"
-              IconButton icon:"users-group-rounded" label:"Facebook" href:"https://facebook.com" variant:"solid" scheme:"muted"
-              IconButton icon:"chat-square" label:"Twitter" href:"https://twitter.com" variant:"solid" scheme:"muted"
-              IconButton icon:"camera" label:"Instagram" href:"https://instagram.com" variant:"solid" scheme:"muted"
-              IconButton icon:"link-circle" label:"LinkedIn" href:"https://linkedin.com" variant:"solid" scheme:"muted"
+              IconButton icon:"play-circle" label:"YouTube" href:"https://youtube.com" scheme:"muted"
+              IconButton icon:"users-group-rounded" label:"Facebook" href:"https://facebook.com" scheme:"muted"
+              IconButton icon:"chat-square" label:"Twitter" href:"https://twitter.com" scheme:"muted"
+              IconButton icon:"camera" label:"Instagram" href:"https://instagram.com" scheme:"muted"
+              IconButton icon:"link-circle" label:"LinkedIn" href:"https://linkedin.com" scheme:"muted"
         bottom
           Flex align:"center" justify:"center" gap:1 show:{ xs:true md:false }
-            IconButton icon:"play-circle" label:"YouTube" href:"https://youtube.com" variant:"solid" scheme:"muted"
-            IconButton icon:"users-group-rounded" label:"Facebook" href:"https://facebook.com" variant:"solid" scheme:"muted"
-            IconButton icon:"chat-square" label:"Twitter" href:"https://twitter.com" variant:"solid" scheme:"muted"
-            IconButton icon:"camera" label:"Instagram" href:"https://instagram.com" variant:"solid" scheme:"muted"
-            IconButton icon:"link-circle" label:"LinkedIn" href:"https://linkedin.com" variant:"solid" scheme:"muted"
+            IconButton icon:"play-circle" label:"YouTube" href:"https://youtube.com" scheme:"muted"
+            IconButton icon:"users-group-rounded" label:"Facebook" href:"https://facebook.com" scheme:"muted"
+            IconButton icon:"chat-square" label:"Twitter" href:"https://twitter.com" scheme:"muted"
+            IconButton icon:"camera" label:"Instagram" href:"https://instagram.com" scheme:"muted"
+            IconButton icon:"link-circle" label:"LinkedIn" href:"https://linkedin.com" scheme:"muted"

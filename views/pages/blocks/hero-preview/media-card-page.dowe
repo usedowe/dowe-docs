@@ -1,5 +1,5 @@
 page MediaCardHeroPage
-  Section id:"media-card-hero" bg:"background" color:"onBackground" boxed:true py:{ xs:6 md:10 }
+  Section id:"media-card-hero" bg:"background" color:"backgroundText" boxed:true py:{ xs:6 md:10 }
     Card variant:"soft" scheme:"muted" rounded:"xl" minH:"vh-16" p:{ xs:7 md:14 }
       Grid columns:1 gap:{ xs:10 md:14 } minH:"vh-16"
         Flex direction:"column" align:"center" justify:"center" gap:5
@@ -8,11 +8,11 @@ page MediaCardHeroPage
           Text size:"lg" color:"muted"
             "Place a focused message over a generous media surface while keeping the example independent from a specific brand or image."
           Flex direction:{ xs:"column" sm:"row" } align:"center" justify:"center" gap:3
-            Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" iconEnd:"arrow-right"
+            Button size:"lg" rounded:"full" iconEnd:"arrow-right"
               "Get started"
-            Button variant:"outlined" scheme:"primary" size:"lg" rounded:"full"
+            Button variant:"outlined" size:"lg" rounded:"full"
               "Talk to sales"
         Flex direction:"column" align:"center" justify:"center" gap:3 minH:{ xs:44 md:64 }
-          Icon name:"gallery" style:"bold-duotone" fill:"muted" w:16 h:16
+          Icon name:"gallery-bold-duotone" fill:"muted" w:16 h:16
           Text size:"sm" color:"muted"
             "Image placeholder"

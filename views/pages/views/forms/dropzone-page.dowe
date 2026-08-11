@@ -65,7 +65,7 @@ page DropzonePage
           "Collect profile images"
         Text size:"sm" color:"muted"
           "Accept only images, keep one file per profile, and cap the payload before it enters the upload workflow."
-      Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+      Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Grid columns:1 gap:4
           Dropzone:
             accept:"image/*"
@@ -139,7 +139,7 @@ page DropzonePage
         Text size:"sm" color:"muted"
           "Dowe owns file filtering, drag state, preview summaries, size rejection, and removal affordances in generated target code."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "FILTERING"
@@ -147,7 +147,7 @@ page DropzonePage
               "Types and size"
             Text size:"sm" color:"muted"
               "accept, multiple, and maxSize create a visible intake policy before files are selected."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "FEEDBACK"
@@ -155,7 +155,7 @@ page DropzonePage
               "Attached errors"
             Text size:"sm" color:"muted"
               "errorText and helpText keep correction and guidance close to the drop target."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "TARGETS"

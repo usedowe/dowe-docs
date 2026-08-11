@@ -6,7 +6,7 @@ page MediaGridCardsPage
       { id:"users" title:"Multiple users" description:"Shared tools for coordinated teams." },
       { id:"integrations" title:"Integrations" description:"Useful connections for everyday workflows." },
     ]
-  Section id:"media-grid-cards" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:12 } minH:"vh-0"
+  Section id:"media-grid-cards" bg:"background" color:"backgroundText" boxed:true py:{ xs:8 md:12 } minH:"vh-0"
     Grid columns:1 gap:{ xs:8 md:12 }
       Flex direction:"column" align:"center" gap:3
         Title size:{ xs:"3xl" md:"5xl" } weight:"black"
@@ -19,7 +19,7 @@ page MediaGridCardsPage
             Grid columns:1 gap:4
               Box bg:"softMuted" rounded:"lg" minH:44 p:6
                 Flex align:"center" justify:"center" minH:32
-                  Icon name:"gallery" style:"bold-duotone" fill:"muted" w:14 h:14
+                  Icon name:"gallery-bold-duotone" fill:"muted" w:14 h:14
               Grid columns:1 gap:2
                 Title size:"lg" weight:"black"
                   "{product.title}"

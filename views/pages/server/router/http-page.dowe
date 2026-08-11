@@ -1,7 +1,18 @@
 page RouterHttpPage
+  const httpRouteRows:
+    value:[
+      {
+        form:"Inline or multiline"
+        guidance:"A property-suite header such as post: accepts path and handler one per line. It lowers exactly like the compact form."
+      },
+      {
+        form:"Dynamic segments"
+        guidance:"Use :id in a path and read req.params.id inside the server handler. Route matching stays owned by the Dowe runtime."
+      },
+    ]
   Section id:"router-http" py:{ xs:6 md:10 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "HTTP ROUTES"
         Title size:{ xs:"3xl" md:"5xl" } weight:"black"
@@ -22,14 +33,13 @@ page RouterHttpPage
                 path:"/login"
                 handler:loginUser
         """
-      Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "Inline or multiline"
-          Text size:"sm" color:"muted"
-            "A property-suite header such as post: accepts path and handler one per line. It lowers exactly like the compact form."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "Dynamic segments"
-          Text size:"sm" color:"muted"
-            "Use :id in a path and read req.params.id inside the server handler. Route matching stays owned by the Dowe runtime."
+      Table:
+        data:httpRouteRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"form" label:"Form" width:"2fr"
+        column field:"guidance" label:"Guidance" width:"5fr"

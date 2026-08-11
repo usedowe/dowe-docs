@@ -65,8 +65,8 @@ page FooterPage
           "A complete product footer"
         Text size:"sm" color:"muted"
           "Use top and bottom for responsive bands, then keep identity, navigation, and actions in the start, center, and end row. Footer includes horizontal spacing 4 on small viewports and 6 from md, a more pronounced top spacing of 10 and 16, and bottom spacing of 4 and 6. boxed:true constrains top, the central row, and bottom together while keeping the outer surface full width. Override spacing with p, px, py, pl, pr, pt, or pb when the composition needs a different rhythm."
-      Card variant:"outlined" scheme:"surface" p:{ xs:4 md:6 } rounded:"md" border:1
-        Footer variant:"soft" scheme:"surface" bordered:true boxed:true
+      Card variant:"outlined" p:{ xs:4 md:6 } border:1
+        Footer variant:"soft" bordered:true boxed:true
           top
             Text size:"xs" color:"muted" show:{ xs:true md:false }
               "Build once. Ship every target."
@@ -84,7 +84,7 @@ page FooterPage
               Button href:"/docs/dev/agent" variant:"ghost" scheme:"muted" size:"sm"
                 "Agents"
           end
-            Button href:"/docs/views/control/button" variant:"soft" scheme:"primary" size:"sm"
+            Button href:"/docs/views/control/button" variant:"soft" size:"sm"
               "Explore components"
           bottom
             Text size:"xs" color:"muted"
@@ -96,7 +96,7 @@ page FooterPage
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Footer variant:"soft" scheme:"surface" bordered:true boxed:true
+          Footer variant:"soft" bordered:true boxed:true
             top
               Text size:"xs" color:"muted" show:{ xs:true md:false }
                 "Build once. Ship every target."
@@ -109,7 +109,7 @@ page FooterPage
               Button href:"/docs/server" variant:"ghost" scheme:"muted" size:"sm"
                 "Server"
             end
-              Button href:"/docs/views/control/button" variant:"soft" scheme:"primary" size:"sm"
+              Button href:"/docs/views/control/button" variant:"soft" size:"sm"
                 "Explore components"
             bottom
               Text size:"xs" color:"muted"
@@ -125,7 +125,7 @@ page FooterPage
         Text size:"sm" color:"muted"
           "top and bottom span the shared inner container around the central start, center, and end row. A missing region reserves no artificial space."
       Grid columns:{ xs:1 md:5 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "TOP"
@@ -133,7 +133,7 @@ page FooterPage
               "Opening band"
             Text size:"sm" color:"muted"
               "Place a directory, announcement, or mobile-only identity above the row."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "START"
@@ -141,7 +141,7 @@ page FooterPage
               "Identity"
             Text size:"sm" color:"muted"
               "Use the leading region for a brand, project name, or ownership label."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "CENTER"
@@ -149,7 +149,7 @@ page FooterPage
               "Navigation"
             Text size:"sm" color:"muted"
               "The center region takes flexible space when start or end content is present."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "END"
@@ -157,7 +157,7 @@ page FooterPage
               "Action"
             Text size:"sm" color:"muted"
               "Keep one conversion, support, or account action close to the trailing edge."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "BOTTOM"
@@ -176,7 +176,7 @@ page FooterPage
           Text size:"sm" color:"muted"
             "Center region expands"
         end
-          Button variant:"soft" scheme:"primary" size:"sm"
+          Button variant:"soft" size:"sm"
             "End action"
         bottom
           Text size:"sm" color:"muted"
@@ -191,7 +191,7 @@ page FooterPage
         Text size:"sm" color:"muted"
           "variant controls the surface treatment, scheme chooses the design family, and bordered, blurred, and boxed refine the shell without changing its regions."
       Grid columns:{ xs:1 md:2 } gap:4
-        Footer variant:"solid" scheme:"surface" bordered:true
+        Footer bordered:true
           start
             Text size:"sm" weight:"bold"
               "Solid surface"
@@ -226,7 +226,7 @@ page FooterPage
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Footer variant:"solid" scheme:"surface" bordered:true
+          Footer bordered:true
             start
               Text
                 "Solid surface"
@@ -272,7 +272,7 @@ page FooterPage
           Grid columns:1 gap:2
             Text size:"xs" color:"muted"
               "Need help?"
-            Button href:"/docs/views" variant:"solid" scheme:"primary" size:"sm"
+            Button href:"/docs/views" size:"sm"
               "Read the docs"
         bottom
           Text size:"xs" color:"muted"
@@ -301,7 +301,7 @@ page FooterPage
                 Button href:"/docs/views/overlay/command" variant:"ghost" scheme:"muted" size:"sm"
                   "Shortcuts"
             end
-              Button href:"/docs/views" variant:"solid" scheme:"primary" size:"sm"
+              Button href:"/docs/views" size:"sm"
                 "Read the docs"
             bottom
               Text size:"xs" color:"muted"

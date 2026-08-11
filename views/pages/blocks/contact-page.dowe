@@ -15,9 +15,9 @@ page ContactsPage
             "01 · DETAILS + FORM"
           Title size:"2xl" weight:"black"
             "Contact details beside a structured message form"
-        Button href:"/blocks/contact-preview/details-form" variant:"soft" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/contact-preview/details-form" variant:"soft" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"details-form-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe src:"/blocks/contact-preview/details-form" title:"Contact details and form preview" loading:"lazy" sandbox:"scripts same-origin forms"
@@ -36,7 +36,7 @@ page ContactsPage
                 { id:"address" emailIcon:false phoneIcon:false addressIcon:true value:"794 Mcallister St · San Francisco, 94102" },
               ]
 
-              Section id:"contact-details-form" bg:"background" color:"onBackground" boxed:true p:{ xs:6 md:12 }
+              Section id:"contact-details-form" bg:"background" color:"backgroundText" boxed:true p:{ xs:6 md:12 }
                 Grid columns:{ xs:1 md:"4fr 5fr" } gap:{ xs:8 md:14 } align:"center" minH:"vh-0"
                   Flex direction:"column" align:{ xs:"center" md:"start" } gap:5
                     Grid columns:1 gap:2
@@ -62,10 +62,10 @@ page ContactsPage
                         Input bind:form.phone label:"Phone" placeholder:"(123) 456 – 789" variant:"solid" scheme:"muted" w:"full"
                         Input bind:form.company label:"Company" placeholder:"Company" variant:"solid" scheme:"muted" w:"full"
                       Textarea bind:form.message label:"Message" placeholder:"Please type your message here..." rows:5 variant:"solid" scheme:"muted" w:"full"
-                      Button variant:"solid" scheme:"primary" size:"md" rounded:"full" w:{ xs:"full" sm:48 }
+                      Button rounded:"full" w:{ xs:"full" sm:48 }
                         "Send message"
             """
-  Section id:"info-media" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
+  Section id:"info-media" p:{ xs:5 md:7 } bg:"softPrimary" color:"softPrimaryText"
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -73,9 +73,9 @@ page ContactsPage
             "02 · INFO + MEDIA"
           Title size:"2xl" weight:"black"
             "A neutral media placeholder paired with contact information"
-        Button href:"/blocks/contact-preview/info-media" variant:"solid" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/contact-preview/info-media" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"info-media-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe src:"/blocks/contact-preview/info-media" title:"Contact information and media preview" loading:"lazy" sandbox:"scripts same-origin"
@@ -93,14 +93,14 @@ page ContactsPage
                 { id:"address" emailIcon:false phoneIcon:false addressIcon:true value:"794 Mcallister St · San Francisco, 94102" },
               ]
 
-              Section id:"contact-info-media" bg:"softMuted" color:"onSoftMuted" boxed:true p:{ xs:6 md:12 }
+              Section id:"contact-info-media" bg:"softMuted" color:"softMutedText" boxed:true p:{ xs:6 md:12 }
                 Grid columns:{ xs:1 md:2 } gap:{ xs:8 md:14 } align:"center" minH:"vh-0"
                   Box rounded:"xl" p:8 minH:{ xs:64 md:96 }
                     Flex direction:"column" align:"center" justify:"center" gap:3 minH:{ xs:48 md:80 }
-                      Icon name:"gallery" style:"bold-duotone" fill:"muted" w:16 h:16
+                      Icon name:"gallery-bold-duotone" fill:"muted" w:16 h:16
                       Text size:"sm" color:"muted"
                         "Image placeholder"
-                  Card variant:"solid" scheme:"surface" rounded:"xl" p:{ xs:6 md:9 }
+                  Card rounded:"xl" p:{ xs:6 md:9 }
                     Grid columns:1 gap:5
                       Grid columns:1 gap:2
                         Title size:{ xs:"3xl" md:"4xl" } weight:"black"
@@ -124,9 +124,9 @@ page ContactsPage
             "03 · FOOTER + FORM"
           Title size:"2xl" weight:"black"
             "A compact message card above a contact footer band"
-        Button href:"/blocks/contact-preview/footer-form" variant:"soft" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/contact-preview/footer-form" variant:"soft" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"footer-form-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe src:"/blocks/contact-preview/footer-form" title:"Contact form and footer preview" loading:"lazy" sandbox:"scripts same-origin forms"
@@ -158,14 +158,14 @@ page ContactsPage
                 },
               ]
 
-              Section id:"contact-footer-form" bg:"softMuted" color:"onSoftMuted" p:0 minH:"vh-0"
+              Section id:"contact-footer-form" bg:"softMuted" color:"softMutedText" p:0 minH:"vh-0"
                 Grid columns:{ xs:1 md:"5fr 4fr" } gap:{ xs:6 md:10 } align:"center" p:{ xs:6 md:10 }
                   Box p:8 minH:{ xs:48 md:72 }
                     Flex direction:"column" align:"center" justify:"center" gap:3 minH:{ xs:40 md:64 }
-                      Icon name:"gallery" style:"bold-duotone" fill:"muted" w:16 h:16
+                      Icon name:"gallery-bold-duotone" fill:"muted" w:16 h:16
                       Text size:"sm" color:"muted"
                         "Image placeholder"
-                  Card variant:"solid" scheme:"surface" rounded:"xl" p:{ xs:6 md:8 }
+                  Card rounded:"xl" p:{ xs:6 md:8 }
                     Grid columns:1 gap:4
                       Grid columns:1 gap:1
                         Title size:"3xl" weight:"black"
@@ -175,9 +175,9 @@ page ContactsPage
                       Input bind:form.name placeholder:"Name" variant:"soft" scheme:"muted" w:"full"
                       Input bind:form.email placeholder:"Email" variant:"soft" scheme:"muted" w:"full"
                       Textarea bind:form.message placeholder:"Please type your message here..." rows:5 variant:"soft" scheme:"muted" w:"full"
-                      Button variant:"solid" scheme:"primary" size:"md" rounded:"full" w:"full"
+                      Button rounded:"full" w:"full"
                         "Send message"
-                Box bg:"muted" color:"onMuted" p:{ xs:7 md:10 }
+                Box bg:"muted" color:"mutedText" p:{ xs:7 md:10 }
                   Grid columns:{ xs:1 sm:2 } gap:8
                     each in:footerGroups as:group key:group.id
                       Grid columns:1 gap:2
@@ -191,7 +191,7 @@ page ContactsPage
                           Text show:group.showLineThree
                             "{group.lineThree}"
             """
-  Section id:"split-panel" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
+  Section id:"split-panel" p:{ xs:5 md:7 } bg:"softPrimary" color:"softPrimaryText"
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -199,9 +199,9 @@ page ContactsPage
             "04 · SPLIT PANEL"
           Title size:"2xl" weight:"black"
             "An elevated contact surface against a split background"
-        Button href:"/blocks/contact-preview/split-panel" variant:"solid" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/contact-preview/split-panel" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"split-panel-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe src:"/blocks/contact-preview/split-panel" title:"Split panel contact preview" loading:"lazy" sandbox:"scripts same-origin forms"
@@ -215,7 +215,7 @@ page ContactsPage
             content:"""
               signal form value:{ name:"" email:"" phone:"" company:"" message:"" }
 
-              Section id:"contact-split-panel" bg:"background" color:"onBackground" p:0 minH:"vh-0"
+              Section id:"contact-split-panel" bg:"background" color:"backgroundText" p:0 minH:"vh-0"
                 Grid columns:{ xs:1 md:"5fr 7fr" } gap:0 minH:"vh-0"
                   Box p:{ xs:5 md:10 }
                     Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:6 md:10 }
@@ -231,11 +231,11 @@ page ContactsPage
                           Input bind:form.phone label:"Phone" placeholder:"(123) 456 – 789" variant:"solid" scheme:"muted" w:"full"
                           Input bind:form.company label:"Company" placeholder:"Company" variant:"solid" scheme:"muted" w:"full"
                         Textarea bind:form.message label:"Leave us a message" placeholder:"Please type your message here..." rows:5 variant:"solid" scheme:"muted" w:"full"
-                        Button variant:"solid" scheme:"primary" size:"md" rounded:"full" w:{ xs:"full" sm:48 }
+                        Button rounded:"full" w:{ xs:"full" sm:48 }
                           "Send message"
                   Box bg:"softMuted" p:8 minH:{ xs:64 md:"vh-0" }
                     Flex direction:"column" align:"center" justify:"center" gap:3 minH:{ xs:48 md:"vh-0" }
-                      Icon name:"gallery" style:"bold-duotone" fill:"muted" w:16 h:16
+                      Icon name:"gallery-bold-duotone" fill:"muted" w:16 h:16
                       Text size:"sm" color:"muted"
                         "Image placeholder"
             """
@@ -247,9 +247,9 @@ page ContactsPage
             "05 · SPLIT PANEL SECONDARY"
           Title size:"2xl" weight:"black"
             "A second routed version of the repeated split reference"
-        Button href:"/blocks/contact-preview/split-panel-secondary" variant:"soft" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/contact-preview/split-panel-secondary" variant:"soft" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"split-panel-secondary-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe src:"/blocks/contact-preview/split-panel-secondary" title:"Secondary split panel contact preview" loading:"lazy" sandbox:"scripts same-origin forms"
@@ -263,7 +263,7 @@ page ContactsPage
             content:"""
               signal form value:{ name:"" email:"" phone:"" company:"" message:"" }
 
-              Section id:"contact-split-panel-duplicate" bg:"background" color:"onBackground" p:0 minH:"vh-0"
+              Section id:"contact-split-panel-duplicate" bg:"background" color:"backgroundText" p:0 minH:"vh-0"
                 Grid columns:{ xs:1 md:"5fr 7fr" } gap:0 minH:"vh-0"
                   Box p:{ xs:5 md:10 }
                     Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:6 md:10 }
@@ -279,15 +279,15 @@ page ContactsPage
                           Input bind:form.phone label:"Phone" placeholder:"(123) 456 – 789" variant:"solid" scheme:"muted" w:"full"
                           Input bind:form.company label:"Company" placeholder:"Company" variant:"solid" scheme:"muted" w:"full"
                         Textarea bind:form.message label:"Leave us a message" placeholder:"Please type your message here..." rows:5 variant:"solid" scheme:"muted" w:"full"
-                        Button variant:"solid" scheme:"primary" size:"md" rounded:"full" w:{ xs:"full" sm:48 }
+                        Button rounded:"full" w:{ xs:"full" sm:48 }
                           "Send message"
                   Box bg:"softMuted" p:8 minH:{ xs:64 md:"vh-0" }
                     Flex direction:"column" align:"center" justify:"center" gap:3 minH:{ xs:48 md:"vh-0" }
-                      Icon name:"gallery" style:"bold-duotone" fill:"muted" w:16 h:16
+                      Icon name:"gallery-bold-duotone" fill:"muted" w:16 h:16
                       Text size:"sm" color:"muted"
                         "Image placeholder"
             """
-  Section id:"social-media" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
+  Section id:"social-media" p:{ xs:5 md:7 } bg:"softPrimary" color:"softPrimaryText"
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -295,9 +295,9 @@ page ContactsPage
             "06 · FORM + SOCIALS + MEDIA"
           Title size:"2xl" weight:"black"
             "A centered introduction above contact, social, and media surfaces"
-        Button href:"/blocks/contact-preview/social-media" variant:"solid" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/contact-preview/social-media" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"social-media-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe src:"/blocks/contact-preview/social-media" title:"Contact form with socials and media preview" loading:"lazy" sandbox:"scripts same-origin forms"
@@ -317,7 +317,7 @@ page ContactsPage
                 { id:"network" website:false community:false photos:false network:true },
               ]
 
-              Section id:"contact-social-media" bg:"background" color:"onBackground" boxed:true p:{ xs:6 md:12 }
+              Section id:"contact-social-media" bg:"background" color:"backgroundText" boxed:true p:{ xs:6 md:12 }
                 Grid columns:1 gap:{ xs:8 md:10 } minH:"vh-0"
                   Flex direction:"column" align:"center" gap:2
                     Title size:{ xs:"3xl" md:"6xl" } weight:"black"
@@ -333,7 +333,7 @@ page ContactsPage
                         Input bind:form.company label:"Company" placeholder:"Company" variant:"soft" scheme:"muted" w:"full"
                       Textarea bind:form.message label:"Leave us a message" placeholder:"Please type your message here..." rows:5 variant:"soft" scheme:"muted" w:"full"
                       Flex direction:{ xs:"column" sm:"row" } justify:"between" align:"center" gap:4
-                        Button variant:"solid" scheme:"primary" size:"md" rounded:"full" w:{ xs:"full" sm:48 }
+                        Button rounded:"full" w:{ xs:"full" sm:48 }
                           "Send message"
                         Flex align:"center" justify:"center" gap:2
                           each in:socialLinks as:social key:social.id
@@ -343,7 +343,7 @@ page ContactsPage
                             IconButton icon:"link-circle" label:"Network" variant:"soft" scheme:"muted" size:"sm" show:social.network
                     Box bg:"softMuted" rounded:"xl" p:8 minH:{ xs:72 md:96 }
                       Flex direction:"column" align:"center" justify:"center" gap:3 minH:{ xs:56 md:80 }
-                        Icon name:"gallery" style:"bold-duotone" fill:"muted" w:16 h:16
+                        Icon name:"gallery-bold-duotone" fill:"muted" w:16 h:16
                         Text size:"sm" color:"muted"
                           "Image placeholder"
             """

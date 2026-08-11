@@ -83,7 +83,7 @@ page ComparisonTablePricingPage
       { id:"analytics" label:"Behaviour analytics" value:"Included" },
       { id:"reports" label:"Custom reports" value:"Included" },
     ]
-  Section id:"comparison-table-pricing" bg:"background" color:"onBackground" boxed:true minH:"vh-0" py:{ xs:8 md:12 }
+  Section id:"comparison-table-pricing" bg:"background" color:"backgroundText" boxed:true minH:"vh-0" py:{ xs:8 md:12 }
     Grid columns:1 gap:{ xs:8 md:12 }
       Flex direction:"column" align:"center" gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
@@ -104,7 +104,7 @@ page ComparisonTablePricingPage
                   "{plan.price}"
                 Title size:"xl" weight:"black"
                   "{plan.name}"
-                Button variant:"solid" scheme:"primary" size:"md" rounded:"full" w:"full"
+                Button rounded:"full" w:"full"
                   "Get started"
             Box p:5 show:plan.standard
               Flex direction:"column" align:"center" gap:3
@@ -112,7 +112,7 @@ page ComparisonTablePricingPage
                   "{plan.price}"
                 Title size:"xl" weight:"black"
                   "{plan.name}"
-                Button variant:"solid" scheme:"primary" size:"md" rounded:"full" w:"full"
+                Button rounded:"full" w:"full"
                   "Get started"
         each in:featureRows as:row key:row.id
           Grid columns:"2fr 1fr 1fr 1fr" gap:0 align:"center" border:1 borderColor:"muted"
@@ -121,16 +121,16 @@ page ComparisonTablePricingPage
             Flex align:"center" justify:"center" p:4
               Text show:row.values
                 "{row.basicValue}"
-              Icon name:"check-circle" style:"bold" fill:"muted" w:6 h:6 show:row.basicCheck
+              Icon name:"check-circle-bold" fill:"muted" w:6 h:6 show:row.basicCheck
             Box p:4 bg:"softMuted"
               Flex align:"center" justify:"center" w:"full" h:"full"
                 Text show:row.values
                   "{row.growthValue}"
-                Icon name:"check-circle" style:"bold" fill:"muted" w:6 h:6 show:row.growthCheck
+                Icon name:"check-circle-bold" fill:"muted" w:6 h:6 show:row.growthCheck
             Flex align:"center" justify:"center" p:4
               Text show:row.values
                 "{row.enterpriseValue}"
-              Icon name:"check-circle" style:"bold" fill:"muted" w:6 h:6 show:row.enterpriseCheck
+              Icon name:"check-circle-bold" fill:"muted" w:6 h:6 show:row.enterpriseCheck
         Grid columns:"2fr 1fr 1fr 1fr" gap:0 border:1 borderColor:"muted"
           Title size:"xl" weight:"black" p:4
             "Reporting"
@@ -144,9 +144,9 @@ page ComparisonTablePricingPage
             Box p:4
             Box p:4 bg:"softMuted"
               Flex align:"center" justify:"center" w:"full" h:"full"
-                Icon name:"check-circle" style:"bold" fill:"muted" w:6 h:6 show:row.growthCheck
+                Icon name:"check-circle-bold" fill:"muted" w:6 h:6 show:row.growthCheck
             Flex align:"center" justify:"center" p:4
-              Icon name:"check-circle" style:"bold" fill:"muted" w:6 h:6 show:row.enterpriseCheck
+              Icon name:"check-circle-bold" fill:"muted" w:6 h:6 show:row.enterpriseCheck
       Carousel variant:"dots" scheme:"primary" indicatorType:"dot" gap:4 show:{ xs:true md:false }
         slide id:"basic"
           Grid columns:1 gap:6
@@ -155,7 +155,7 @@ page ComparisonTablePricingPage
                 "$99.00"
               Title size:"2xl" weight:"black"
                 "Basic"
-              Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" w:"full"
+              Button size:"lg" rounded:"full" w:"full"
                 "Get started"
             Title size:"xl" weight:"black"
               "Features"
@@ -172,7 +172,7 @@ page ComparisonTablePricingPage
                 "$199.00"
               Title size:"2xl" weight:"black"
                 "Growth"
-              Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" w:"full"
+              Button size:"lg" rounded:"full" w:"full"
                 "Get started"
             Title size:"xl" weight:"black"
               "Features"
@@ -189,7 +189,7 @@ page ComparisonTablePricingPage
                 "$399.00"
               Title size:"2xl" weight:"black"
                 "Enterprise"
-              Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" w:"full"
+              Button size:"lg" rounded:"full" w:"full"
                 "Get started"
             Title size:"xl" weight:"black"
               "Features"

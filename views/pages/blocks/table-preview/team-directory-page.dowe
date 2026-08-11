@@ -122,7 +122,7 @@ page DashboardTablePage
     Grid columns:1 gap:5
       Title size:{ xs:"2xl" md:"4xl" } weight:"black"
         "Dashboard"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"documents" label:"Documents · 2"
           Grid columns:1 gap:4 py:4
             Flex justify:"end" w:"full"
@@ -139,8 +139,6 @@ page DashboardTablePage
                   icon:"magnifier"
                   label:"Load results"
                   onClick:loadMembers
-                  variant:"solid"
-                  scheme:"primary"
             Grid show:{ when:loadState gt:0 }
               Grid columns:1 gap:2
                 Skeleton variant:"rounded" h:12 w:"full"

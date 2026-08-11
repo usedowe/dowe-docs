@@ -1,0 +1,7 @@
+entity ExampleBlogs
+  id:string primary:true
+  title:string required:true
+  content:string required:true
+  ownerId:string required:true index:true
+  createdAt:timestamp required:true
+  updatedAt:timestamp required:true

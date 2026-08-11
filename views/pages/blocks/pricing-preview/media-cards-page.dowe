@@ -20,7 +20,7 @@ page MediaCardsPricingPage
         description:"Advanced scale, dedicated support, and room for organization-wide collaboration."
       },
     ]
-  Section id:"media-cards-pricing" bg:"background" color:"onBackground" boxed:true minH:"vh-0" py:{ xs:8 md:12 }
+  Section id:"media-cards-pricing" bg:"background" color:"backgroundText" boxed:true minH:"vh-0" py:{ xs:8 md:12 }
     Grid columns:1 gap:{ xs:8 md:12 }
       Flex direction:"column" align:"center" gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
@@ -36,12 +36,12 @@ page MediaCardsPricingPage
               Flex direction:"column" align:"center" gap:4
                 Box bg:"softMuted" rounded:"full" w:24 h:24
                   Flex align:"center" justify:"center" w:"full" h:"full"
-                    Icon name:"gallery" style:"bold-duotone" fill:"muted" w:12 h:12
+                    Icon name:"gallery-bold-duotone" fill:"muted" w:12 h:12
                 Title size:"3xl" weight:"black"
                   "{plan.price}"
                 Text size:"sm" weight:"bold" spacing:"widest" color:"muted"
                   "{plan.name}"
                 Text color:"muted"
                   "{plan.description}"
-              Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" w:"full"
+              Button size:"lg" rounded:"full" w:"full"
                 "Get started"

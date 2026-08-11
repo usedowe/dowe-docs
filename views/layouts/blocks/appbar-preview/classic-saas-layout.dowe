@@ -1,11 +1,11 @@
 layout AppBarClassicSaasLayout
   Scaffold
     appBar
-      AppBar variant:"soft" scheme:"surface" position:"sticky" boxed:true py:2
+      AppBar variant:"soft" position:"sticky" boxed:true py:2
         start
           Brand href:"/blocks/appbar" label:"Olmo home"
             Flex align:"center" gap:2
-              Icon name:"layers-minimalistic" style:"bold" fill:"primary" w:8 h:8
+              Icon name:"layers-minimalistic-bold" fill:"primary" w:8 h:8
               Text size:"xl" weight:"black"
                 "OLMO."
         center
@@ -23,8 +23,6 @@ layout AppBarClassicSaasLayout
           Flex align:"center" gap:2
             Button:
               href:"/blocks/appbar-preview/creative"
-              variant:"solid"
-              scheme:"primary"
               size:"sm"
               show:{ xs:false sm:true }
               "Let's Started"
@@ -32,7 +30,6 @@ layout AppBarClassicSaasLayout
               icon:"hamburger-menu"
               label:"Open navigation"
               variant:"ghost"
-              scheme:"primary"
               show:{ xs:true md:false }
     main
       children

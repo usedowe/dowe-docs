@@ -76,7 +76,7 @@ page ImageCropperPage
           "Prepare a profile portrait"
         Text size:"sm" color:"muted"
           "Select a JPEG or PNG, refine the crop inside a circular frame, and bind the applied data URL to the profile form."
-      Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+      Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Grid columns:{ xs:1 md:"auto 1fr" } gap:6 align:"center"
           ImageCropper:
             bind:profileImage
@@ -123,7 +123,7 @@ page ImageCropperPage
         Text size:"sm" color:"muted"
           "Shape defines the visible crop treatment while dimensions and aspect ratio constrain the generated image result."
       Grid columns:{ xs:1 md:2 } gap:5
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:4
             Title size:"lg" weight:"bold"
               "Team avatar"
@@ -139,7 +139,7 @@ page ImageCropperPage
               scheme:"secondary"
               size:"lg"
               name:"team-avatar"
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:4
             Title size:"lg" weight:"bold"
               "Product thumbnail"
@@ -215,7 +215,7 @@ page ImageCropperPage
         Text size:"sm" color:"muted"
           "The picker and crop operation stay target-owned. Web produces the bound data URL through generated canvas behavior."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "INPUT"
@@ -223,7 +223,7 @@ page ImageCropperPage
               "Explicit file types"
             Text size:"sm" color:"muted"
               "accept limits the picker while min and max dimensions define the image contract."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "CROP"
@@ -231,7 +231,7 @@ page ImageCropperPage
               "Visible framing"
             Text size:"sm" color:"muted"
               "The modal preserves the overlay, grid, resize handles, reset, cancel, and apply actions."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "OUTPUT"

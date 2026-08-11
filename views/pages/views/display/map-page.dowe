@@ -93,7 +93,7 @@ page MapPage
         Text size:"sm" color:"muted"
           "A map can be interactive for exploration or quiet and compact when it only confirms a stored location."
       Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+        Card variant:"outlined" p:{ xs:5 md:7 } border:1
           Grid columns:1 gap:4
             Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
               "LOCATION CARD"
@@ -101,7 +101,7 @@ page MapPage
               marker id:"office-card" lat:4.7109 lng:-74.0721 label:"Office" icon:"start"
             Text size:"sm" color:"muted"
               "Disable interaction when the map is a visual confirmation rather than a planning tool."
-        Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+        Card variant:"outlined" p:{ xs:5 md:7 } border:1
           Grid columns:1 gap:4
             Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
               "WAYPOINTS"
@@ -122,7 +122,7 @@ page MapPage
       """
   Section id:"map-entries" p:{ xs:5 md:7 }
     Grid columns:{ xs:1 md:2 } gap:4
-      Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+      Card variant:"soft" p:5
         Grid columns:1 gap:3
           Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
             "MARKERS"
@@ -130,7 +130,7 @@ page MapPage
             "Give every marker an id"
           Text size:"sm" color:"muted"
             "Markers require unique static ids plus latitude and longitude. label and popup provide accessible and contextual copy; onClick stays optional."
-      Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+      Card variant:"soft" p:5
         Grid columns:1 gap:3
           Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
             "ROUTES"

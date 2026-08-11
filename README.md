@@ -70,7 +70,7 @@ development output stays under `.dowe/`.
 
 - Dowe CLI `1.0.5` or newer.
 - A terminal on macOS, Linux, or Windows.
-- Cloudflare D1 credentials only when exercising the live icon catalog API.
+- A Dowe Database service only when exercising the remote icon catalog API.
 
 Install Dowe on macOS or Linux:
 
@@ -113,11 +113,13 @@ replace only the values required for the integration you are exercising.
 | Variable | Purpose |
 | --- | --- |
 | `BACKEND_URL` | Local server base URL used by generated view requests. |
-| `ACCOUNT_ID` | Cloudflare account that owns the documentation D1 database. |
-| `CLOUDFLARE_API_TOKEN` | Server-only credential used to access D1. |
-| `DATABASE_ID` | D1 database containing the documentation icon catalog. |
+| `DOWE_HOST`, `DOWE_PORT` | Dowe Database service address for production or remote testing. |
+| `DOWE_ACCOUNT`, `DOWE_SECRET` | Server-only Dowe Database credentials. |
 | `VECTOR_HOST`, `VECTOR_PORT` | Example Dowe Vector connection settings used in documentation content. |
 | `VECTOR_USER`, `VECTOR_PASSWORD`, `VECTOR_DATABASE` | Example Vector account and database names used in documentation content. |
+
+The icon catalog uses the fixed Dowe Database name `dowe-docs-icons`; it is not a credential and
+does not need to be repeated in dotenv files.
 
 Never commit `.env` or expose server credentials in views, generated client data, screenshots, or
 documentation examples.
@@ -132,8 +134,9 @@ dowe-docs/
 ├── assets/
 ├── server/
 │   ├── config/
+│   ├── entities/
 │   ├── handlers/
-│   ├── migrations/
+│   ├── seeders/
 │   └── endpoints.dowe
 ├── views/
 │   ├── components/
@@ -154,7 +157,7 @@ dowe-docs/
 | `views/pages` | Owns page content, examples, and block previews. |
 | `views/components` | Contains shared navigation, brand, and documentation UI. |
 | `views/store` | Owns shared reactive documentation preferences. |
-| `server` | Provides the server-only icon catalog integration. |
+| `server` | Provides the server-only icon catalog integration and Dowe Database seeders. |
 | `assets` | Stores original brand, icon, and example media. |
 | `.agents` | Contains project-mode Dowe authoring guidance and validation configuration. |
 | `.dowe` | Contains generated development, language, app, and distribution artifacts. |

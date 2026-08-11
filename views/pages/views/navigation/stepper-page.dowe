@@ -52,7 +52,7 @@ page StepperPage
         Text size:"sm" color:"muted"
           "Stepper accepts only direct step entries. Each step owns a unique id, a visible label, and one or more view nodes for its panel. The first step starts active."
       Grid columns:{ xs:1 md:2 } gap:6 align:"start"
-        Card variant:"outlined" scheme:"surface" p:{ xs:5 md:8 } rounded:"md" border:1
+        Card variant:"outlined" p:{ xs:5 md:8 } border:1
           Stepper scheme:"primary" orientation:"horizontal"
             step id:"account" label:"Account"
               Grid columns:1 gap:2 p:4
@@ -74,7 +74,7 @@ page StepperPage
                   "Review and submit"
                 Text size:"sm" color:"muted"
                   "Confirm the workflow before continuing."
-                Button variant:"solid" scheme:"primary"
+                Button
                   "Submit"
         Code:
           language:"dowe"
@@ -103,7 +103,7 @@ page StepperPage
           "A track that stays usable on small screens"
         Text size:"sm" color:"muted"
           "The horizontal track keeps its intrinsic width and stays bounded by its container. When labels no longer fit, the controls scroll horizontally while the active panel keeps the available width."
-      Card variant:"soft" scheme:"surface" p:{ xs:4 md:7 } rounded:"md"
+      Card variant:"soft" p:{ xs:4 md:7 }
         Stepper scheme:"secondary"
           step id:"workspace" label:"Workspace details"
             Text size:"sm" p:4
@@ -128,7 +128,7 @@ page StepperPage
         Text size:"sm" color:"muted"
           "Use horizontal for compact progress across a page. Use vertical when labels need more room or the workflow belongs beside its content."
       Grid columns:{ xs:1 md:2 } gap:5 align:"start"
-        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+        Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Horizontal"
@@ -142,7 +142,7 @@ page StepperPage
               step id:"publish" label:"Publish"
                 Text size:"sm" p:3
                   "Release the approved version."
-        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+        Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Vertical"
@@ -166,7 +166,7 @@ page StepperPage
         Text size:"sm" color:"muted"
           "scheme selects the numbered indicator and active label family consistently on web, Android, and iOS."
       Grid columns:{ xs:1 md:2 } gap:5
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Stepper scheme:"warning"
             step id:"warning-one" label:"Prepare"
               Text size:"sm" p:3
@@ -174,7 +174,7 @@ page StepperPage
             step id:"warning-two" label:"Confirm"
               Text size:"sm" p:3
                 "Confirm before continuing"
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Stepper scheme:"danger"
             step id:"danger-one" label:"Inspect"
               Text size:"sm" p:3
@@ -194,7 +194,7 @@ page StepperPage
           "Web and desktop use tablist, tab, and tabpanel roles because each numbered control selects one visible panel. The active control also exposes aria-current step."
         Text size:"sm" color:"muted"
           "Android and iOS generate native buttons, local state, numbered indicators, connectors, overflow behavior, and the same selected panel."
-      Card variant:"soft" scheme:"surface" p:6 rounded:"md"
+      Card variant:"soft" p:6
         Grid columns:1 gap:3
           Title size:"lg" weight:"bold"
             "Authoring rules"

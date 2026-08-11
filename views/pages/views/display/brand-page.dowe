@@ -31,7 +31,7 @@ page BrandPage
           "Give the identity its own interaction surface"
         Text size:"sm" color:"muted"
           "Set href when the mark should return home. Brand remains intrinsic unless w or h defines its rendered frame."
-      Card variant:"outlined" scheme:"surface" p:{ xs:6 md:9 } rounded:"md" border:1
+      Card variant:"outlined" p:{ xs:6 md:9 } border:1
         Flex direction:{ xs:"column" md:"row" } justify:"center" align:"center" gap:10
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
@@ -72,7 +72,7 @@ page BrandPage
         Text size:"sm" color:"muted"
           "Brand owns an optional navigation boundary while its children own every visible pixel."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "NAVIGATION"
@@ -80,7 +80,7 @@ page BrandPage
               "href is optional"
             Text size:"sm" color:"muted"
               "Without href the mark is a static identity group. With href the full authored frame becomes interactive."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "DIMENSIONS"
@@ -88,7 +88,7 @@ page BrandPage
               "w and h match Box"
             Text size:"sm" color:"muted"
               "Use common scalar or responsive size values to control the logo frame on every target."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "VISUALS"
@@ -98,7 +98,7 @@ page BrandPage
               "Svg and Image are the usual children, but any valid view child is accepted. Brand adds no variant, scheme, padding, or control background."
   Section id:"brand-accessibility" p:{ xs:5 md:7 }
     Grid columns:{ xs:1 md:2 } gap:4
-      Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+      Card variant:"outlined" p:5 border:1
         Grid columns:1 gap:2
           Text size:"xs" weight:"bold" color:"muted"
             "ACCESSIBILITY"
@@ -106,7 +106,7 @@ page BrandPage
             "Label the identity"
           Text size:"sm" color:"muted"
             "Use label when an Svg has no independent text alternative or when the whole navigable mark needs one concise name."
-      Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+      Card variant:"outlined" p:5 border:1
         Grid columns:1 gap:2
           Text size:"xs" weight:"bold" color:"muted"
             "APP BARS"

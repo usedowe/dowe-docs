@@ -1,20 +1,29 @@
 page SpawnPage
+  const spawnModelRows:
+    value:[
+      { part:"Binding" meaning:"ffmpeg names the result that later statements can return, inspect, or use as a byte response." },
+      { part:"Command" meaning:"command identifies the executable. args is an ordered array, never an implicit shell expression." },
+      { part:"Boundary" meaning:"spawn is available only to server runtime code. Views and client targets cannot start processes." },
+    ]
+  const spawnOptionRows:
+    value:[
+      { option:"timeoutMs and maxOutputBytes" guidance:"Limit a waiting process and its captured stdout or stderr to protect the server request lifecycle." },
+      { option:"background" guidance:"Use background:true only when the caller deliberately owns a long-lived helper. The process remains server-managed." },
+      { option:"Migration" guidance:"Replace let ffmpeg = dowe.spawn with spawn ffmpeg. The legacy expression form is rejected with the current declaration syntax." },
+    ]
   Section id:"spawn-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "SERVER / SPAWN"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Run a controlled process"
+      Text size:"lg" color:"muted"
+        "spawn is a server-only declaration that runs an installed command through Dowe's Dowe-owned process runtime. It binds the process result without executing Dowe source through Node.js."
+  Section id:"spawn-mental-model" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "SERVER / SPAWN"
-        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
-          "Run a controlled process"
-        Text size:"lg" color:"muted"
-          "spawn is a server-only declaration that runs an installed command through Dowe's Dowe-owned process runtime. It binds the process result without executing Dowe source through Node.js."
-      Button href:"/docs/server" variant:"ghost" scheme:"muted" size:"sm" iconStart:"server"
-        "Server documentation"
-  Section id:"spawn-mental-model" p:{ xs:5 md:7 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "MENTAL MODEL"
+          "1 / MENTAL MODEL"
         Title size:"3xl" weight:"black"
           "Declare the result binding first"
         Text size:"sm" color:"muted"
@@ -30,27 +39,21 @@ page SpawnPage
             spawn ffmpeg command:"ffmpeg" args:["-version"] timeoutMs:5000 maxOutputBytes:65536
             return json:{ ok:ffmpeg.ok stdout:ffmpeg.stdout stderr:ffmpeg.stderr }
         """
-      Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "BINDING"
-          Text size:"sm" color:"muted"
-            "ffmpeg names the result that later statements can return, inspect, or use as a byte response."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "COMMAND"
-          Text size:"sm" color:"muted"
-            "command identifies the executable. args is an ordered array, never an implicit shell expression."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "BOUNDARY"
-          Text size:"sm" color:"muted"
-            "spawn is available only to server runtime code. Views and client targets cannot start processes."
+      Table:
+        data:spawnModelRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"part" label:"Part" width:"2fr"
+        column field:"meaning" label:"Contract" width:"5fr"
   Section id:"spawn-options" py:{ xs:7 md:10 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "OPTIONS"
+          "2 / OPTIONS"
         Title size:"3xl" weight:"black"
           "Bound output and process lifetime"
         Text size:"sm" color:"muted"
@@ -65,14 +68,13 @@ page SpawnPage
           init
             spawn encoder command:"ffmpeg" args:["-re","-i","input.mp4"] cwd:"/srv/media" background:true
         """
-      Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "timeoutMs and maxOutputBytes"
-          Text size:"sm" color:"muted"
-            "Limit a waiting process and its captured stdout or stderr to protect the server request lifecycle."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "Migration"
-          Text size:"sm" color:"muted"
-            "Replace let ffmpeg = dowe.spawn with spawn ffmpeg. The legacy expression form is rejected with the current declaration syntax."
+      Table:
+        data:spawnOptionRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"option" label:"Option" width:"2fr"
+        column field:"guidance" label:"Guidance" width:"5fr"

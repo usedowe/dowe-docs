@@ -1,26 +1,140 @@
 page DeployPage
+  const deploySurfaceRows:
+    value:[
+      {
+        surface:"Server"
+        providers:"Dowe Cloud, Docker, SSH, or Cloudflare Worker"
+        guidance:"Dowe Cloud uploads a verified application binary. Docker creates a native Linux image. SSH installs one executable as a Debian or Ubuntu systemd service. Cloudflare Worker keeps Dowe-owned Wasm lowering. Use dowe login once or DOWE_CLOUD_TOKEN in CI."
+      },
+      {
+        surface:"Web"
+        providers:"Dowe Cloud or Cloudflare Pages"
+        guidance:"Pages packages the generated web distribution and can publish it with Wrangler. Project assets stay available under /assets, including social images referenced only by SEO metadata."
+      },
+    ]
+  const deployEnvironmentRows:
+    value:[
+      {
+        area:"Client configuration"
+        guidance:"Values referenced from Views are compiled from the selected profile into the output. The process environment has higher precedence and Dowe never falls back to another profile."
+      },
+      {
+        area:"Server secrets"
+        guidance:"Dotenv profiles are never copied into a package. Stage and UAT require the server-only DOWE_DEPLOY_ACCESS_PASSWORD; Live does not include that access middleware."
+      },
+    ]
+  const nativeBuildRows:
+    value:[
+      {
+        target:"Mobile"
+        artifact:"APK and IPA"
+        guidance:"Android downloads and verifies its pinned Gradle Wrapper, creates and reuses a private project keystore automatically, and produces a signed release APK. iOS embeds its distribution profile and produces a signed IPA."
+      },
+      {
+        target:"Desktop"
+        artifact:"DMG, EXE, and Linux"
+        guidance:"Windows builds run on Windows and Linux builds run on Linux. Each appends a verified Dowe app bundle to the installed Dowe executable without Tauri, .NET, C, Cargo, Docker, or project target SDKs."
+      },
+      {
+        target:"Safe plans"
+        artifact:"Dry run"
+        guidance:"Add --dry-run to materialize manifests and inspect commands without running toolchains or contacting a store."
+      },
+    ]
+  const storeRows:
+    value:[
+      {
+        store:"Google Play"
+        guidance:"Set Android signing variables and DOWE_GOOGLE_PLAY_ACCESS_TOKEN. Increment DOWE_APP_BUILD_NUMBER for each upload; the default track is internal."
+      },
+      {
+        store:"App Store Connect"
+        guidance:"On macOS, set the iOS signing profile and identity plus the App Store API key and issuer."
+      },
+    ]
+  const dockerRows:
+    value:[
+      {
+        concern:"Registry"
+        defaultValue:"docker.io"
+        guidance:"Use Docker Hub, ghcr.io, a private host, or a registry with a port."
+      },
+      {
+        concern:"Image"
+        defaultValue:"project:latest"
+        guidance:"Dowe adds latest when the selected image name does not contain a tag."
+      },
+      {
+        concern:"Platform"
+        defaultValue:"linux/amd64"
+        guidance:"The current native runtime and generated build command target Linux amd64."
+      },
+    ]
+  const runtimeRows:
+    value:[
+      {
+        concern:"One native executable"
+        guidance:"The same dowe binary runs development commands and the production-only server subcommand."
+      },
+      {
+        concern:"Immutable release archive"
+        guidance:"The Dockerfile downloads the versioned Linux archive and extracts dowe without requiring Dowe on the user machine."
+      },
+    ]
+  const sshRows:
+    value:[
+      {
+        concern:"Password or key"
+        guidance:"OpenSSH owns password and key-passphrase prompts. Dowe stores neither and keeps normal host-key verification enabled."
+      },
+      {
+        concern:"Debian or Ubuntu"
+        guidance:"The remote installer rejects other distributions, non-amd64 hosts, missing systemd, or accounts without sudo access."
+      },
+      {
+        concern:"Background service"
+        guidance:"systemctl enable --now starts the app immediately, enables boot startup, and restarts it after a failure."
+      },
+    ]
+  const deployResultRows:
+    value:[
+      {
+        state:"Daemon available"
+        guidance:"Dowe runs docker build for linux/amd64 with the full registry and image tag."
+      },
+      {
+        state:"Daemon unavailable"
+        guidance:"Deploy succeeds and reports that no local image was built."
+      },
+      {
+        state:"Dry run"
+        guidance:"The context and command are produced without executing Docker."
+      },
+    ]
+  const deployBoundaryRows:
+    value:[
+      {
+        area:"Secrets stay outside"
+        guidance:".env, .env.live, .env.stage, and .env.uat are never copied. Declare names in .env.example and provide runtime server values through the platform."
+      },
+      {
+        area:"Push stays explicit"
+        guidance:"Dowe tags the local Docker image but does not log in or push it to the registry."
+      },
+    ]
   Section id:"deploy-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "DEVELOPMENT / PRODUCTION DEPLOY"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Dowe Deploy"
+      Text size:"lg" color:"muted"
+        "Build native release artifacts, publish mobile apps, or deploy to Dowe Cloud, Docker, SSH, and Cloudflare."
+  Section id:"deploy-command" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "DEVELOPMENT / PRODUCTION DEPLOY"
-        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
-          "Dowe Deploy"
-        Text size:"lg" color:"muted"
-          "Build native release artifacts, publish mobile apps, or deploy to Dowe Cloud, Docker, SSH, and Cloudflare."
-      Button:
-        href:"/docs/dev/install"
-        variant:"soft"
-        scheme:"primary"
-        size:"sm"
-        rounded:"full"
-        iconStart:"upload"
-        "Install Dowe"
-  Section id:"deploy-command" p:{ xs:5 md:7 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "CAPABILITY-AWARE MENU"
+          "1 / CAPABILITY-AWARE MENU"
         Title size:"3xl" weight:"black"
           "Choose a configured surface"
         Text size:"sm" color:"muted"
@@ -43,54 +157,41 @@ page DeployPage
           dowe deploy --target android --track internal --publish
           dowe deploy --target ios --publish
         """
-      Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"primary"
-              "SERVER"
-            Title size:"lg" weight:"bold"
-              "Dowe Cloud, Docker, SSH, or Cloudflare Worker"
-            Text size:"sm" color:"muted"
-              "Dowe Cloud uploads a verified application binary. Docker creates a native Linux image. SSH installs one executable as a Debian or Ubuntu systemd service. Cloudflare Worker keeps Dowe-owned Wasm lowering."
-            Text size:"sm" color:"muted"
-              "Run dowe login once to validate and save the dashboard API token, or use DOWE_CLOUD_TOKEN in CI."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "WEB"
-            Title size:"lg" weight:"bold"
-              "Dowe Cloud or Cloudflare Pages"
-            Text size:"sm" color:"muted"
-              "Pages packages the generated web distribution and can publish it with Wrangler."
-            Text size:"sm" color:"muted"
-              "Project assets stay available under /assets, including social images referenced only by SEO metadata."
+      Table:
+        data:deploySurfaceRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"surface" label:"Surface" width:"1fr"
+        column field:"providers" label:"Providers" width:"2fr"
+        column field:"guidance" label:"Behavior" width:"5fr"
   Section id:"deploy-environment" py:{ xs:7 md:10 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "DEPLOY ENVIRONMENTS"
+          "2 / DEPLOY ENVIRONMENTS"
         Title size:"3xl" weight:"black"
           "Deploy without rewriting .env"
         Text size:"sm" color:"muted"
           "dowe dev uses .env. Deploy selects .env.live, .env.stage, or .env.uat, while dowe build always uses .env.live. Ignore every local value file and declare shared names in .env.example."
-      Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Title size:"lg" weight:"bold"
-              "Client configuration"
-            Text size:"sm" color:"muted"
-              "Values referenced from Views are compiled from the selected profile into the output. The process environment has higher precedence and Dowe never falls back to another profile."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Title size:"lg" weight:"bold"
-              "Server secrets"
-            Text size:"sm" color:"muted"
-              "Dotenv profiles are never copied into a package. Stage and UAT require the server-only DOWE_DEPLOY_ACCESS_PASSWORD; Live does not include that access middleware."
+      Table:
+        data:deployEnvironmentRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"area" label:"Area" width:"2fr"
+        column field:"guidance" label:"Rule" width:"5fr"
   Section id:"native-builds" py:{ xs:7 md:10 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "NATIVE RELEASE ARTIFACTS"
+          "3 / NATIVE RELEASE ARTIFACTS"
         Title size:"3xl" weight:"black"
           "Build without publishing"
         Text size:"sm" color:"muted"
@@ -108,89 +209,56 @@ page DeployPage
           dowe build --target windows
           dowe build --target linux
         """
-      Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"primary"
-              "MOBILE"
-            Title size:"lg" weight:"bold"
-              "APK and IPA"
-            Text size:"sm" color:"muted"
-              "Android downloads and verifies its pinned Gradle Wrapper, creates and reuses a private project keystore automatically, streams Gradle progress, then produces a signed release APK. A global Gradle installation is not required. iOS embeds its distribution profile and produces a signed IPA."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "DESKTOP"
-            Title size:"lg" weight:"bold"
-              "DMG, EXE, and Linux"
-            Text size:"sm" color:"muted"
-              "Windows builds run on Windows and Linux builds run on Linux. Each appends a verified Dowe app bundle to the installed Dowe executable without Tauri, .NET, C, Cargo, Docker, or project target SDKs."
-            Text
-              "iOS builds automatically match an Apple signing identity from the Keychain with a compatible provisioning profile managed by Xcode. Environment overrides remain available for CI."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "SAFE PLANS"
-            Title size:"lg" weight:"bold"
-              "Dry run"
-            Text size:"sm" color:"muted"
-              "Add --dry-run to materialize manifests and inspect commands without running toolchains or contacting a store."
+      Table:
+        data:nativeBuildRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"target" label:"Target" width:"2fr"
+        column field:"artifact" label:"Artifact" width:"2fr"
+        column field:"guidance" label:"Details" width:"5fr"
   Section id:"mobile-stores" p:{ xs:5 md:7 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "MOBILE STORES"
+          "4 / MOBILE STORES"
         Title size:"3xl" weight:"black"
           "Upload an already signed release"
         Text size:"sm" color:"muted"
           "Google Play receives an Android App Bundle through an edit. App Store Connect receives the signed IPA through Xcode's upload adapter. Non-interactive publication requires --publish."
-      Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Title size:"lg" weight:"bold"
-              "Google Play"
-            Text size:"sm" color:"muted"
-              "Set Android signing variables and DOWE_GOOGLE_PLAY_ACCESS_TOKEN. Increment DOWE_APP_BUILD_NUMBER for each upload; the default track is internal."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Title size:"lg" weight:"bold"
-              "App Store Connect"
-            Text size:"sm" color:"muted"
-              "On macOS, set the iOS signing profile and identity plus the App Store API key and issuer."
+      Table:
+        data:storeRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"store" label:"Store" width:"2fr"
+        column field:"guidance" label:"Requirements" width:"5fr"
   Section id:"deploy-docker" py:{ xs:7 md:10 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "NATIVE DOCKER RUNTIME"
+          "5 / NATIVE DOCKER RUNTIME"
         Title size:"3xl" weight:"black"
           "Tag the image you intend to run"
         Text size:"sm" color:"muted"
           "Interactive Docker asks for a registry and image name. docker.io and the project folder provide safe defaults."
-      Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"primary"
-              "REGISTRY"
-            Title size:"lg" weight:"bold"
-              "docker.io"
-            Text size:"sm" color:"muted"
-              "Use Docker Hub, ghcr.io, a private host, or a registry with a port."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "IMAGE"
-            Title size:"lg" weight:"bold"
-              "project:latest"
-            Text size:"sm" color:"muted"
-              "Dowe adds latest when the selected image name does not contain a tag."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "PLATFORM"
-            Title size:"lg" weight:"bold"
-              "linux/amd64"
-            Text size:"sm" color:"muted"
-              "The current native runtime and generated build command target Linux amd64."
+      Table:
+        data:dockerRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"concern" label:"Concern" width:"2fr"
+        column field:"defaultValue" label:"Default" width:"2fr"
+        column field:"guidance" label:"Rule" width:"5fr"
       Code:
         language:"dowe"
         variant:"soft"
@@ -208,27 +276,24 @@ page DeployPage
               assets/
         """
   Section id:"deploy-runtime" p:{ xs:5 md:7 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "DISTROLESS / NONROOT"
+          "6 / DISTROLESS / NONROOT"
         Title size:"3xl" weight:"black"
           "Ship one Dowe binary, not the toolchain"
         Text size:"sm" color:"muted"
           "The final image contains the app and the Linux dowe executable. It does not contain Cargo, rustc, a shell, or Node.js."
-      Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Title size:"lg" weight:"bold"
-              "One native executable"
-            Text size:"sm" color:"muted"
-              "The same dowe binary runs development commands and the production-only server subcommand."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Title size:"lg" weight:"bold"
-              "Immutable release archive"
-            Text size:"sm" color:"muted"
-              "The Dockerfile downloads the versioned Linux archive and extracts dowe without requiring Dowe on the user machine."
+      Table:
+        data:runtimeRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"concern" label:"Concern" width:"2fr"
+        column field:"guidance" label:"Rule" width:"5fr"
       Code:
         language:"dowe"
         variant:"soft"
@@ -237,80 +302,59 @@ page DeployPage
         copiedLabel:"Copied"
         content:"/usr/local/bin/dowe server --root /app --bind 0.0.0.0:8080"
   Section id:"deploy-ssh" py:{ xs:7 md:10 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "SSH / SYSTEMD"
+          "7 / SSH / SYSTEMD"
         Title size:"3xl" weight:"black"
           "Install one native server executable"
         Text size:"sm" color:"muted"
           "SSH deploy embeds the selected Dowe application in the same-version Linux amd64 runtime, uploads it with OpenSSH, and enables a background systemd service."
-      Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Title size:"lg" weight:"bold"
-              "Password or key"
-            Text size:"sm" color:"muted"
-              "OpenSSH owns password and key-passphrase prompts. Dowe stores neither and keeps normal host-key verification enabled."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Title size:"lg" weight:"bold"
-              "Debian or Ubuntu"
-            Text size:"sm" color:"muted"
-              "The remote installer rejects other distributions, non-amd64 hosts, missing systemd, or accounts without sudo access."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Title size:"lg" weight:"bold"
-              "Background service"
-            Text size:"sm" color:"muted"
-              "systemctl enable --now starts the app immediately, enables boot startup, and restarts it after a failure."
+      Table:
+        data:sshRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"concern" label:"Concern" width:"2fr"
+        column field:"guidance" label:"Rule" width:"5fr"
   Section id:"deploy-build-result" py:{ xs:7 md:10 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "SAFE FALLBACK"
+          "8 / SAFE FALLBACK"
         Title size:"3xl" weight:"black"
           "Keep the context when Docker is unavailable"
         Text size:"sm" color:"muted"
           "Dowe always writes the context first. A working daemon builds and tags the image; a missing client or daemon leaves a usable Dockerfile for later."
-      Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Title size:"lg" weight:"bold"
-              "Daemon available"
-            Text size:"sm" color:"muted"
-              "Dowe runs docker build for linux/amd64 with the full registry and image tag."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Title size:"lg" weight:"bold"
-              "Daemon unavailable"
-            Text size:"sm" color:"muted"
-              "Deploy succeeds and reports that no local image was built."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Title size:"lg" weight:"bold"
-              "Dry run"
-            Text size:"sm" color:"muted"
-              "The context and command are produced without executing Docker."
+      Table:
+        data:deployResultRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"state" label:"State" width:"2fr"
+        column field:"guidance" label:"Result" width:"5fr"
   Section id:"deploy-boundaries" p:{ xs:5 md:7 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "CURRENT BOUNDARIES"
+          "9 / CURRENT BOUNDARIES"
         Title size:"3xl" weight:"black"
           "Four Server providers, one shared Dowe authority"
         Text size:"sm" color:"muted"
           "Dowe Cloud, Docker, SSH, and Cloudflare continue through the shared deploy API used by CLI and IPC. The former Linux host package remains retired."
-      Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Title size:"lg" weight:"bold"
-              "Secrets stay outside"
-            Text size:"sm" color:"muted"
-              ".env, .env.live, .env.stage, and .env.uat are never copied. Declare names in .env.example and provide runtime server values through the platform."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Title size:"lg" weight:"bold"
-              "Push stays explicit"
-            Text size:"sm" color:"muted"
-              "Dowe tags the local Docker image but does not log in or push it to the registry."
+      Table:
+        data:deployBoundaryRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"area" label:"Boundary" width:"2fr"
+        column field:"guidance" label:"Rule" width:"5fr"

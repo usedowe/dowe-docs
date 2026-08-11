@@ -1,26 +1,63 @@
 page InitPage
+  const initTemplateRows:
+    value:[
+      {
+        template:"CRUD"
+        role:"A production-shaped fullstack example"
+        guidance:"Creates an editorial blogs application with users, sessions, authentication, public listing, owner-scoped writes, a persistent View Store, and focused modal workflows. Its Database declaration defaults to the local Dowe provider."
+      },
+      {
+        template:"Blank"
+        role:"The shortest path to Hello Dowe"
+        guidance:"Creates one visible page and one GET /api/hello endpoint. Use it to learn the project boundary before adding routes, views, and server modules. Add --i18n to either template for English and Spanish catalogs."
+      },
+    ]
+  const initProjectRows:
+    value:[
+      {
+        area:"Source at the root"
+        guidance:"main.dowe owns application wiring, theme.dowe owns the design system, and imports use the project-root @/ alias."
+      },
+      {
+        area:"Local values stay local"
+        guidance:".env.example declares shareable names. The generated .env contains development values; .env.live, .env.stage, and .env.uat contain local deploy values. Every value file is excluded from Git."
+      },
+      {
+        area:"Agents start with context"
+        guidance:"Init installs the project Agent Harness and four focused public authoring skills so coding agents can inspect the same Dowe contracts."
+      },
+    ]
+  const initSafetyRows:
+    value:[
+      {
+        situation:"Existing project"
+        behavior:"main.dowe is the marker"
+        guidance:"Interactive init asks before reinstalling managed files and defaults to keeping the existing project unchanged."
+      },
+      {
+        situation:"Non-interactive"
+        behavior:"Never overwrite"
+        guidance:"An explicit --template run against an existing project fails before writing and asks you to use an interactive terminal."
+      },
+      {
+        situation:"Generated output"
+        behavior:"Init leaves .dowe absent"
+        guidance:"The .dowe directory is ignored and created only by later development, validation, build, or deploy commands."
+      },
+    ]
   Section id:"init-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "START HERE / PROJECT SETUP"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Dowe Init"
+      Text size:"lg" color:"muted"
+        "Create a complete Dowe project in the current directory, with source, editor settings, local environment files, and agent-ready guidance."
+  Section id:"init-command" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "START HERE / PROJECT SETUP"
-        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
-          "Dowe Init"
-        Text size:"lg" color:"muted"
-          "Create a complete Dowe project in the current directory, with source, editor settings, local environment files, and agent-ready guidance."
-      Button:
-        href:"/docs/dev/install"
-        variant:"soft"
-        scheme:"primary"
-        size:"sm"
-        rounded:"full"
-        iconStart:"document-text"
-        "Install Dowe first"
-  Section id:"init-command" p:{ xs:5 md:7 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "YOUR FIRST PROJECT"
+          "1 / YOUR FIRST PROJECT"
         Title size:"3xl" weight:"black"
           "Initialize the directory you want to own"
         Text size:"sm" color:"muted"
@@ -36,23 +73,7 @@ page InitPage
           cd my-dowe-app
           dowe init
         """
-      Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"primary"
-              "INTERACTIVE"
-            Title size:"xl" weight:"black"
-              "Choose the right starting point"
-            Text size:"sm" color:"muted"
-              "Select CRUD for a complete fullstack example or blank for the smallest Hello Dowe application, then decide whether the project needs i18n."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "AUTOMATION"
-            Title size:"xl" weight:"black"
-              "Skip the menus"
-            Text size:"sm" color:"muted"
-              "Use an explicit template in scripts, CI preparation, or any workflow where the same project shape must be created deterministically."
+      Alert type:"info" message:"Select CRUD for a complete fullstack example or blank for the smallest Hello Dowe application. Use --i18n when the first version should include English and Spanish catalogs."
       Code:
         language:"dowe"
         variant:"soft"
@@ -66,40 +87,30 @@ page InitPage
           dowe init --template blank --i18n
         """
   Section id:"init-templates" py:{ xs:7 md:10 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "TWO CANONICAL STARTERS"
+          "2 / TWO CANONICAL STARTERS"
         Title size:"3xl" weight:"black"
           "Start small or study the full system"
         Text size:"sm" color:"muted"
           "Both templates use the same Dowe Source Format and the same Rust-owned compiler. The difference is how much application structure they create for you."
-      Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
-          Grid columns:1 gap:3
-            Text size:"xs" weight:"bold" color:"primary"
-              "CRUD"
-            Title size:"xl" weight:"black"
-              "A production-shaped fullstack example"
-            Text size:"sm" color:"muted"
-              "Creates an editorial blogs application with users, sessions, authentication, public listing, owner-scoped writes, a persistent View Store, and focused modal workflows."
-            Text size:"sm" color:"muted"
-              "Its Database declaration defaults to the local Dowe provider. Provider selection remains server configuration, so init never asks you to choose a database."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:3
-            Text size:"xs" weight:"bold" color:"muted"
-              "BLANK"
-            Title size:"xl" weight:"black"
-              "The shortest path to Hello Dowe"
-            Text size:"sm" color:"muted"
-              "Creates one visible page and one GET /api/hello endpoint. Use it when you want to learn the project boundary before adding your own routes, views, and server modules."
-            Text size:"sm" color:"muted"
-              "Add --i18n to either template when the first version should include English and Spanish catalogs."
+      Table:
+        data:initTemplateRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"template" label:"Template" width:"1fr"
+        column field:"role" label:"Best for" width:"2fr"
+        column field:"guidance" label:"What it creates" width:"5fr"
   Section id:"init-project" p:{ xs:5 md:7 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "PROJECT BOUNDARY"
+          "3 / PROJECT BOUNDARY"
         Title size:"3xl" weight:"black"
           "Know what Dowe creates"
         Text size:"sm" color:"muted"
@@ -131,70 +142,46 @@ page InitPage
           AGENTS.md
           CLAUDE.md
         """
-      Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Title size:"lg" weight:"bold"
-              "Source at the root"
-            Text size:"sm" color:"muted"
-              "main.dowe owns application wiring, theme.dowe owns the design system, and imports use the project-root @/ alias."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Title size:"lg" weight:"bold"
-              "Local values stay local"
-            Text size:"sm" color:"muted"
-              ".env.example declares shareable names. The generated .env contains development values; .env.live, .env.stage, and .env.uat contain local deploy values. Every value file is excluded from Git."
-        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Title size:"lg" weight:"bold"
-              "Agents start with context"
-            Text size:"sm" color:"muted"
-              "Init installs the project Agent Harness and four focused public authoring skills so coding agents can inspect the same Dowe contracts."
+      Table:
+        data:initProjectRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"area" label:"Area" width:"2fr"
+        column field:"guidance" label:"Ownership" width:"5fr"
   Section id:"init-safety" py:{ xs:7 md:10 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "SAFE INITIALIZATION"
+          "4 / SAFE INITIALIZATION"
         Title size:"3xl" weight:"black"
           "No partial project and no silent overwrite"
         Text size:"sm" color:"muted"
           "Dowe validates every destination before it writes. A conflict stops new-project initialization without leaving a partially copied template."
-      Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"primary"
-              "EXISTING PROJECT"
-            Title size:"lg" weight:"bold"
-              "main.dowe is the marker"
-            Text size:"sm" color:"muted"
-              "Interactive init asks before reinstalling managed files and defaults to keeping the existing project unchanged."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "NON-INTERACTIVE"
-            Title size:"lg" weight:"bold"
-              "Never overwrite"
-            Text size:"sm" color:"muted"
-              "An explicit --template run against an existing project fails before writing and asks you to use an interactive terminal."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "GENERATED OUTPUT"
-            Title size:"lg" weight:"bold"
-              "Init leaves .dowe absent"
-            Text size:"sm" color:"muted"
-              "The .dowe directory is ignored and created only by later development, validation, build, or deploy commands."
+      Table:
+        data:initSafetyRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"situation" label:"Situation" width:"2fr"
+        column field:"behavior" label:"Decision" width:"2fr"
+        column field:"guidance" label:"What happens" width:"5fr"
       Text size:"sm" color:"muted"
         "Initialization does not run development automatically, initialize Git, install node_modules, add Tailwind, or execute authored source through Node.js."
   Section id:"init-next" p:{ xs:5 md:7 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "NEXT STEP"
-        Title size:"3xl" weight:"black"
-          "Start the generated project"
-        Text size:"sm" color:"muted"
-          "Run the fullstack development targets from the same directory. Dowe compiles main.dowe and its imports, starts the server and web views, and writes disposable artifacts below .dowe."
+    Grid columns:1 gap:4
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "5 / NEXT STEP"
+      Title size:"3xl" weight:"black"
+        "Start the generated project"
+      Text size:"sm" color:"muted"
+        "Run the fullstack development targets from the same directory. Dowe compiles main.dowe and its imports, starts the server and web views, and writes disposable artifacts below .dowe."
       Code:
         language:"dowe"
         variant:"soft"
@@ -205,7 +192,6 @@ page InitPage
       Button:
         href:"/docs/dev/dev"
         variant:"soft"
-        scheme:"primary"
         size:"sm"
         rounded:"full"
         iconStart:"code"

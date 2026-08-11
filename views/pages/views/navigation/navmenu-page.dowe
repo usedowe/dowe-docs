@@ -98,7 +98,7 @@ page NavMenuPage
           "On iOS, NavMenu uses the same Dowe-owned anchored overlay as Dropdown instead of the system popover. Android lets the selected child run before popup dismissal, then animates to the laid-out Section below the AppBar."
         Text size:"sm" color:"muted"
           "An item can use href:\"#navmenu-structure\" to target a Section id on the current page. Dowe validates the fragment, scrolls smoothly, respects reduced motion, and keeps the destination below a fixed or sticky AppBar."
-      Card variant:"outlined" scheme:"surface" p:{ xs:5 md:8 } rounded:"md" border:1
+      Card variant:"outlined" p:{ xs:5 md:8 } border:1
         Flex justify:"center"
           NavMenu variant:"ghost" scheme:"primary" size:"md"
             item label:"Overview" href:"#navmenu-introduction"
@@ -181,7 +181,7 @@ page NavMenuPage
         Text size:"sm" color:"muted"
           "Activating content inside either popover dispatches its navigation or action before closing the overlay on web, Android, and iOS. Tapping the trigger again or outside also closes it."
       Grid columns:{ xs:1 md:2 } gap:5
-        Card variant:"soft" scheme:"surface" p:6 rounded:"md"
+        Card variant:"soft" p:6
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Submenu destinations"
@@ -197,7 +197,7 @@ page NavMenuPage
                     item label:"Guides" description:"Start here" href:"/guides"
                     item label:"API" description:"Reference" href:"/api"
               """
-        Card variant:"soft" scheme:"surface" p:6 rounded:"md"
+        Card variant:"soft" p:6
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Megamenu content"
@@ -212,26 +212,26 @@ page NavMenuPage
                   megamenu label:"Resources"
                     content
                       Grid columns:{ xs:1 md:2 } gap:4
-                        Card variant:"soft" scheme:"surface" p:4
+                        Card variant:"soft" p:4
                           Title size:"lg"
                             "Learn"
                           Text size:"sm" color:"muted"
                             "Guides and examples."
               """
-      Card variant:"outlined" scheme:"surface" p:{ xs:5 md:8 } rounded:"md" border:1
+      Card variant:"outlined" p:{ xs:5 md:8 } border:1
         Flex justify:"center"
           NavMenu variant:"soft" scheme:"muted" size:"md"
             item label:"Home" href:"/docs/views"
             megamenu label:"Resources"
               content
                 Grid columns:{ xs:1 md:2 } gap:4 p:4
-                  Card variant:"soft" scheme:"surface" p:4
+                  Card variant:"soft" p:4
                     Grid columns:1 gap:2
                       Title size:"lg" weight:"bold"
                         "Learn"
                       Text size:"sm" color:"muted"
                         "Guides, examples, and component references."
-                  Card variant:"soft" scheme:"surface" p:4
+                  Card variant:"soft" p:4
                     Grid columns:1 gap:2
                       Title size:"lg" weight:"bold"
                         "Build"

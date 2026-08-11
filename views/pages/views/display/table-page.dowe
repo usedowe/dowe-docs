@@ -274,7 +274,7 @@ page TablePage
         Title size:"3xl" weight:"black"
           "Semantic rows, native output"
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "WEB AND DESKTOP"
@@ -282,7 +282,7 @@ page TablePage
               "A real table"
             Text size:"sm" color:"muted"
               "Dowe emits semantic table markup inside a horizontal overflow container."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "NATIVE"
@@ -290,7 +290,7 @@ page TablePage
               "Readable rows"
             Text size:"sm" color:"muted"
               "SwiftUI and Compose render native headers, cells, and the same empty-state copy."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "CURRENT SCOPE"

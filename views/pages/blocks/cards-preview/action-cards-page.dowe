@@ -32,7 +32,7 @@ page ActionCardsPage
         description:"Control access with clear roles that stay manageable as the team grows."
       },
     ]
-  Section id:"action-cards" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:12 } minH:"vh-0"
+  Section id:"action-cards" bg:"background" color:"backgroundText" boxed:true py:{ xs:8 md:12 } minH:"vh-0"
     Grid columns:1 gap:{ xs:8 md:12 }
       Flex direction:"column" align:"center" gap:3
         Title size:{ xs:"3xl" md:"5xl" } weight:"black"
@@ -45,10 +45,10 @@ page ActionCardsPage
             Flex direction:"column" align:"start" justify:"between" gap:5 minH:56
               Grid columns:1 gap:4
                 Box bg:"softMuted" rounded:"lg" p:3 w:14
-                  Icon name:"gallery" style:"bold-duotone" fill:"muted" w:8 h:8
+                  Icon name:"gallery-bold-duotone" fill:"muted" w:8 h:8
                 Title size:"xl" weight:"black"
                   "{feature.title}"
                 Text color:"muted"
                   "{feature.description}"
-              Button variant:"ghost" scheme:"primary" size:"sm" iconEnd:"arrow-right"
+              Button variant:"ghost" size:"sm" iconEnd:"arrow-right"
                 "Learn more"

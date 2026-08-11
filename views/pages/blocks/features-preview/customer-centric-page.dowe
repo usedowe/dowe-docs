@@ -20,7 +20,7 @@ page CustomerCentricFeaturesPage
         preview:"Launch an Automation"
       },
     ]
-  Section id:"customer-centric-features" bg:"surface" color:"onSurface" boxed:true py:{ xs:8 md:12 }
+  Section id:"customer-centric-features" bg:"surface" color:"surfaceText" boxed:true py:{ xs:8 md:12 }
     Flex direction:"column" align:"center" gap:0
       Flex direction:"column" align:"center" gap:0 show:{ xs:false md:true }
         Title size:"5xl" weight:"black"
@@ -38,7 +38,7 @@ page CustomerCentricFeaturesPage
           Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:5 md:6 } minH:80
             Flex direction:"column" gap:4 minH:64
               Box bg:"softPrimary" rounded:"full" w:14 h:14 p:2
-                Icon name:"route" style:"line-duotone" fill:"primary" w:10 h:10
+                Icon name:"route-line-duotone" fill:"primary" w:10 h:10
               Grid columns:1 gap:2 minH:20
                 Title size:"lg" weight:"black"
                   "{benefit.title}"
@@ -48,7 +48,7 @@ page CustomerCentricFeaturesPage
               Box bg:"surface" rounded:"lg" p:4 shadow:"sm" minH:28
                 Grid columns:1 gap:3
                   Flex align:"center" gap:3
-                    Icon name:"check-circle" style:"bold" fill:"success" w:6 h:6
+                    Icon name:"check-circle-bold" fill:"success" w:6 h:6
                     Text weight:"bold"
                       "{benefit.preview}"
                   Grid columns:3 gap:2
@@ -56,4 +56,4 @@ page CustomerCentricFeaturesPage
                     Box h:8 bg:"softPrimary" rounded:"sm"
                     Box h:8 bg:"softMuted" rounded:"sm"
                   Flex justify:"end"
-                    Icon name:"cursor" style:"bold" fill:"onSurface" w:7 h:7
+                    Icon name:"cursor-bold" fill:"surfaceText" w:7 h:7

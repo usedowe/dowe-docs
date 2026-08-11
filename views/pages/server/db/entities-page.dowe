@@ -1,20 +1,61 @@
 page DatabaseEntitiesPage
+  const entityTypeRows:
+    value:[
+      { type:"string" mapping:"TEXT on PostgreSQL and D1." },
+      { type:"bool" mapping:"BOOLEAN on PostgreSQL and INTEGER on D1." },
+      { type:"int" mapping:"BIGINT on PostgreSQL and INTEGER on D1." },
+      { type:"number" mapping:"DOUBLE PRECISION on PostgreSQL and REAL on D1." },
+      { type:"decimal" mapping:"DOUBLE PRECISION on PostgreSQL and NUMERIC on D1 in the current generator." },
+      { type:"timestamp" mapping:"TEXT on both providers." },
+      { type:"json" mapping:"JSONB on PostgreSQL and TEXT on D1." },
+    ]
+  const entityConstraintRows:
+    value:[
+      {
+        constraint:"primary"
+        guidance:"Creates the single PRIMARY KEY and also makes the field NOT NULL."
+      },
+      {
+        constraint:"required"
+        guidance:"Emits NOT NULL for PostgreSQL and D1 migrations."
+      },
+      {
+        constraint:"unique"
+        guidance:"Emits a UNIQUE constraint for the field."
+      },
+      {
+        constraint:"index"
+        guidance:"Emits a deterministic secondary index named from the table and field."
+      },
+    ]
+  const entityProviderRows:
+    value:[
+      {
+        provider:"PostgreSQL"
+        guidance:"Dowe generates deterministic CREATE TABLE and CREATE INDEX migration SQL and applies pending migrations before the production listener opens."
+      },
+      {
+        provider:"Cloudflare D1"
+        guidance:"Dowe generates equivalent SQLite-compatible migration artifacts and applies them before seeders."
+      },
+      {
+        provider:"Dowe Database"
+        guidance:"The local and remote Dowe engines stay dynamic. Entity metadata does not create a schema or reject undeclared record fields at runtime."
+      },
+    ]
   Section id:"database-entities-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "SERVER / DATABASE / ENTITIES"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Entities"
+      Text size:"lg" color:"muted"
+        "An entity is an importable server contract that names a table, its fields, and the constraints Dowe can lower into deterministic PostgreSQL or D1 migrations. Dowe Database remains schema-less and does not create a local SQL schema from entities."
+  Section id:"database-entities-declaration" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "SERVER / DATABASE / ENTITIES"
-        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
-          "Entities"
-        Text size:"lg" color:"muted"
-          "An entity is an importable server contract that names a table, its fields, and the constraints Dowe can lower into deterministic PostgreSQL or D1 migrations. Dowe Database remains schema-less and does not create a local SQL schema from entities."
-      Button href:"/docs/server/db" variant:"ghost" scheme:"muted" size:"sm"
-        "Database overview"
-  Section id:"database-entities-declaration" p:{ xs:5 md:7 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "DECLARATION"
+          "1 / DECLARATION"
         Title size:"3xl" weight:"black"
           "Describe one table with explicit fields"
         Text size:"sm" color:"muted"
@@ -36,180 +77,109 @@ page DatabaseEntitiesPage
             createdAt:timestamp required:true index:true
             metadata:json
         """
-      Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Title size:"lg" weight:"bold"
-              "Binding"
-            Text size:"sm" color:"muted"
-              "SmsDeliveries is the symbol imported by Database config and referenced by a seeder."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Title size:"lg" weight:"bold"
-              "Table"
-            Text size:"sm" color:"muted"
-              "The compiler derives sms_deliveries from the entity name. Query operations still use the table string."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Title size:"lg" weight:"bold"
-              "Implicit primary"
-            Text size:"sm" color:"muted"
-              "When no field is marked primary and an id field exists, Dowe promotes that id field to required primary. It does not add a missing id field to an entity."
+      Alert type:"info" message:"When no field is marked primary and an id field exists, Dowe promotes that id field to required primary. It does not add a missing id field to an entity."
   Section id:"database-entities-types" py:{ xs:7 md:10 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "FIELD TYPES"
+          "2 / FIELD TYPES"
         Title size:"3xl" weight:"black"
           "Use the implemented portable type set"
         Text size:"sm" color:"muted"
           "Entity field types are fixed and validated during compilation. The provider migration maps each type to its current SQL representation."
-      Grid columns:{ xs:1 md:2 lg:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "string"
-          Text size:"sm" color:"muted"
-            "TEXT on PostgreSQL and D1."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "bool"
-          Text size:"sm" color:"muted"
-            "BOOLEAN on PostgreSQL and INTEGER on D1."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "int"
-          Text size:"sm" color:"muted"
-            "BIGINT on PostgreSQL and INTEGER on D1."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "number"
-          Text size:"sm" color:"muted"
-            "DOUBLE PRECISION on PostgreSQL and REAL on D1."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "decimal"
-          Text size:"sm" color:"muted"
-            "DOUBLE PRECISION on PostgreSQL and NUMERIC on D1 in the current generator."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "timestamp"
-          Text size:"sm" color:"muted"
-            "TEXT on both providers."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "json"
-          Text size:"sm" color:"muted"
-            "JSONB on PostgreSQL and TEXT on D1."
+      Table:
+        data:entityTypeRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"type" label:"Dowe type" width:"2fr"
+        column field:"mapping" label:"Provider mapping" width:"5fr"
   Section id:"database-entities-constraints" p:{ xs:5 md:7 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "CONSTRAINTS"
+          "3 / CONSTRAINTS"
         Title size:"3xl" weight:"black"
           "Make storage requirements visible"
         Text size:"sm" color:"muted"
           "Constraint props are boolean and belong after the field type. Unknown props, duplicate fields, unsupported types, and multiple primary fields fail compilation."
-      Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Title size:"lg" weight:"bold"
-              "primary"
-            Text size:"sm" color:"muted"
-              "Creates the single PRIMARY KEY and also makes the field NOT NULL."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Title size:"lg" weight:"bold"
-              "required"
-            Text size:"sm" color:"muted"
-              "Emits NOT NULL for PostgreSQL and D1 migrations."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Title size:"lg" weight:"bold"
-              "unique"
-            Text size:"sm" color:"muted"
-              "Emits a UNIQUE constraint for the field."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Title size:"lg" weight:"bold"
-              "index"
-            Text size:"sm" color:"muted"
-              "Emits a deterministic secondary index named from the table and field."
+      Table:
+        data:entityConstraintRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"constraint" label:"Constraint" width:"2fr"
+        column field:"guidance" label:"Generated behavior" width:"5fr"
       Text size:"sm" color:"muted"
         "Entities do not currently declare foreign keys, relations, defaults, compound indexes, or provider-specific column types."
   Section id:"database-entities-modules" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
-      Grid columns:1 gap:2
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "MODULES AND DATABASE CONFIG"
+          "4 / MODULES AND DATABASE CONFIG"
         Title size:"3xl" weight:"black"
           "Import the entity into one server-only handle"
         Text size:"sm" color:"muted"
           "Keep entity declarations under server/entities and import them into a shared Database config module. The entities list selects the migration contracts owned by that handle."
-      Grid columns:{ xs:1 lg:2 } gap:4
-        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
-          Grid columns:1 gap:3
-            Text size:"xs" weight:"bold" color:"primary"
-              "server/entities/sms-delivery-entity.dowe"
-            Code:
-              language:"dowe"
-              variant:"soft"
-              scheme:"surface"
-              copyLabel:"Copy entity module"
-              copiedLabel:"Copied"
-              content:"""
-                entity SmsDeliveries
-                  id:string primary:true
-                  recipient:string required:true index:true
-                  status:string required:true index:true
-                  createdAt:timestamp required:true
-              """
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:3
-            Text size:"xs" weight:"bold" color:"muted"
-              "server/config/database.dowe"
-            Code:
-              language:"dowe"
-              variant:"soft"
-              scheme:"surface"
-              copyLabel:"Copy Database config"
-              copiedLabel:"Copied"
-              content:"""
-                import SmsDeliveries from "@/server/entities/sms-delivery-entity"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" color:"primary"
+          "server/entities/sms-delivery-entity.dowe"
+        Code:
+          language:"dowe"
+          variant:"soft"
+          scheme:"surface"
+          copyLabel:"Copy entity module"
+          copiedLabel:"Copied"
+          content:"""
+            entity SmsDeliveries
+              id:string primary:true
+              recipient:string required:true index:true
+              status:string required:true index:true
+              createdAt:timestamp required:true
+          """
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" color:"muted"
+          "server/config/database.dowe"
+        Code:
+          language:"dowe"
+          variant:"soft"
+          scheme:"surface"
+          copyLabel:"Copy Database config"
+          copiedLabel:"Copied"
+          content:"""
+            import SmsDeliveries from "@/server/entities/sms-delivery-entity"
 
-                database appDb provider:"postgres"
-                  host:env.POSTGRES_HOST
-                  port:env.POSTGRES_PORT
-                  account:env.POSTGRES_USER
-                  secret:env.POSTGRES_PASSWORD
-                  name:env.POSTGRES_DATABASE
-                  entities:[SmsDeliveries]
-                  seeders:[]
-              """
+            database appDb provider:"postgres"
+              host:env.POSTGRES_HOST
+              port:env.POSTGRES_PORT
+              account:env.POSTGRES_USER
+              secret:env.POSTGRES_PASSWORD
+              name:env.POSTGRES_DATABASE
+              entities:[SmsDeliveries]
+              seeders:[]
+          """
   Section id:"database-entities-provider-behavior" p:{ xs:5 md:7 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "PROVIDER BEHAVIOR"
+          "5 / PROVIDER BEHAVIOR"
         Title size:"3xl" weight:"black"
           "Know what the entity controls"
-      Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Title size:"lg" weight:"bold"
-              "PostgreSQL"
-            Text size:"sm" color:"muted"
-              "Dowe generates deterministic CREATE TABLE and CREATE INDEX migration SQL and applies pending migrations before the production listener opens."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Title size:"lg" weight:"bold"
-              "Cloudflare D1"
-            Text size:"sm" color:"muted"
-              "Dowe generates the equivalent SQLite-compatible migration artifacts and applies them before seeders."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Title size:"lg" weight:"bold"
-              "Dowe Database"
-            Text size:"sm" color:"muted"
-              "The local and remote Dowe engines stay dynamic. Entity metadata does not create a schema or reject undeclared record fields at runtime."
+      Table:
+        data:entityProviderRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"provider" label:"Provider" width:"2fr"
+        column field:"guidance" label:"Entity effect" width:"5fr"
       Text size:"sm" color:"muted"
         "A query still uses db:<handle>.<operation> and a table string. An entity is compile-time schema and migration authority for SQL providers, not a runtime Database handle and not a value exposed to Views."

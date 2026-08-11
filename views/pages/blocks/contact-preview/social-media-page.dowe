@@ -6,7 +6,7 @@ page ContactSocialMediaPage
     { id:"photos" website:false community:false photos:true network:false },
     { id:"network" website:false community:false photos:false network:true },
   ]
-  Section id:"contact-social-media" bg:"background" color:"onBackground" boxed:true p:{ xs:6 md:12 }
+  Section id:"contact-social-media" bg:"background" color:"backgroundText" boxed:true p:{ xs:6 md:12 }
     Grid columns:1 gap:{ xs:8 md:10 } minH:"vh-0"
       Flex direction:"column" align:"center" gap:2
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
@@ -22,7 +22,7 @@ page ContactSocialMediaPage
             Input bind:form.company label:"Company" placeholder:"Company" variant:"soft" scheme:"muted" w:"full"
           Textarea bind:form.message label:"Leave us a message" placeholder:"Please type your message here..." rows:5 variant:"soft" scheme:"muted" w:"full"
           Flex direction:{ xs:"column" sm:"row" } justify:"between" align:"center" gap:4
-            Button variant:"solid" scheme:"primary" size:"md" rounded:"full" w:{ xs:"full" sm:48 }
+            Button rounded:"full" w:{ xs:"full" sm:48 }
               "Send message"
             Flex align:"center" justify:"center" gap:2
               each in:socialLinks as:social key:social.id
@@ -32,6 +32,6 @@ page ContactSocialMediaPage
                 IconButton icon:"link-circle" label:"Network" variant:"soft" scheme:"muted" size:"sm" show:social.network
         Box bg:"softMuted" rounded:"xl" p:8 minH:{ xs:72 md:96 }
           Flex direction:"column" align:"center" justify:"center" gap:3 minH:{ xs:56 md:80 }
-            Icon name:"gallery" style:"bold-duotone" fill:"muted" w:16 h:16
+            Icon name:"gallery-bold-duotone" fill:"muted" w:16 h:16
             Text size:"sm" color:"muted"
               "Image placeholder"

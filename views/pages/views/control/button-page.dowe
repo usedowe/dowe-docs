@@ -436,31 +436,25 @@ page ButtonPage
           bind:schemeChoice
           label:"Scheme"
           placeholder:"Choose a scheme"
-          variant:"outlined"
-          scheme:"primary"
           each in:schemeOptions as:option key:option.id
             Option value:option.value label:option.label
         Select:
           bind:variantChoice
           label:"Variant"
           placeholder:"Choose a variant"
-          variant:"outlined"
-          scheme:"primary"
           each in:variantOptions as:option key:option.id
             Option value:option.value label:option.label
         Select:
           bind:sizeChoice
           label:"Size"
           placeholder:"Choose a size"
-          variant:"outlined"
-          scheme:"primary"
           each in:sizeOptions as:option key:option.id
             Option value:option.value label:option.label
       Grid columns:{ xs:1 md:2 } gap:4
-        Checkbox bind:startIconEnabled label:"Start icon" scheme:"primary"
-        Checkbox bind:endIconEnabled label:"End icon" scheme:"primary"
-        Checkbox bind:loadingChoice label:"Loading" scheme:"primary"
-      Card variant:"outlined" scheme:"surface" p:{ xs:6 md:10 } rounded:"md" border:1
+        Checkbox bind:startIconEnabled label:"Start icon"
+        Checkbox bind:endIconEnabled label:"End icon"
+        Checkbox bind:loadingChoice label:"Loading"
+      Card variant:"outlined" p:{ xs:6 md:10 } border:1
         Flex justify:"center" align:"center" gap:3
           Button:
             variant:variantChoice
@@ -522,7 +516,7 @@ page ButtonPage
           "Five control densities"
       Flex wrap:true justify:"center" align:"center" gap:3
         each in:sizeButtons as:button key:button.id
-          Button variant:button.variant scheme:"primary" size:button.size
+          Button variant:button.variant size:button.size
             "{button.label}"
   Section id:"button-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5

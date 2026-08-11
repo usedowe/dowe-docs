@@ -4,31 +4,49 @@ page EachPage
     { id:"stores" title:"Stores" description:"Shared application state imported by consumers." },
     { id:"functions" title:"Functions" description:"Named reactive behavior for events." },
   ]
+  const eachContractRows:
+    value:[
+      {
+        part:"in"
+        meaning:"The collection to iterate. It can be a Signal or an immutable const collection."
+        example:"in:features"
+      },
+      {
+        part:"as"
+        meaning:"The name available inside the repeated view tree for the current item."
+        example:"as:feature"
+      },
+      {
+        part:"key"
+        meaning:"A stable unique value that lets Dowe track each repeated item deterministically."
+        example:"key:feature.id"
+      },
+    ]
   Section id:"each-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
       Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-        "LOGIC"
+        "LOGIC / COLLECTIONS"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
-        "Each"
+        "Render a collection with each"
       Text size:"lg" color:"muted"
-        "Use each to render one or more view nodes for every item in a Signal or immutable const collection."
+        "Use each to render one or more view nodes for every item in a Signal or immutable const collection. The repeated body is a normal Dowe view tree, so it can contain text, layout primitives, and other supported components."
   Section id:"each-example" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
-      Grid columns:1 gap:2
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "EXAMPLE"
+          "1 / LIVE EXAMPLE"
         Title size:"3xl" weight:"black"
           "Repeat a catalog"
         Text size:"sm" color:"muted"
-          "The in collection, as alias, and deterministic key are all required."
-      Grid columns:{ xs:1 md:3 } gap:4
+          "The collection supplies the data. as gives each item a readable local name, and key identifies that item when the collection changes."
+        Alert type:"info" message:"each repeats its indented children. It does not create a new page or route; it only expands the view tree at the position where it appears."
+      Grid columns:1 gap:3
         each in:features as:feature key:feature.id
-          Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-            Grid columns:1 gap:2
-              Title size:"lg" weight:"bold"
-                "{feature.title}"
-              Text size:"sm" color:"muted"
-                "{feature.description}"
+          Grid columns:1 gap:1
+            Text size:"lg" weight:"bold"
+              "{feature.title}"
+            Text size:"sm" color:"muted"
+              "{feature.description}"
       Code:
         language:"dowe"
         variant:"soft"
@@ -45,3 +63,23 @@ page EachPage
             Text
               "{feature.title}"
         """
+  Section id:"each-contract" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "2 / THE CONTRACT"
+        Title size:{ xs:"2xl" md:"4xl" } weight:"black"
+          "Give every item a stable identity"
+        Text color:"muted"
+          "These three fields make the repeated tree explicit. If the collection is reactive, Dowe can compare items and update the generated view without guessing which item moved."
+      Table:
+        data:eachContractRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"part" label:"Part" width:"1fr"
+        column field:"meaning" label:"What it does" width:"5fr"
+        column field:"example" label:"Example" width:"2fr"

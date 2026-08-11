@@ -74,7 +74,7 @@ page CardPage
         Text size:"sm" color:"muted"
           "Use scheme for semantic color and variant for visual weight. Cards also accept structural background and surface schemes."
       Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"solid" scheme:"primary" rounded:"md" minH:32
+        Card scheme:"primary" minH:32
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
               "SOLID"
@@ -82,7 +82,7 @@ page CardPage
               "Primary decision"
             Text size:"sm"
               "Use the strongest emphasis for a featured summary or decisive callout."
-        Card variant:"soft" scheme:"success" rounded:"md" minH:32
+        Card variant:"soft" scheme:"success" minH:32
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
               "SOFT"
@@ -90,7 +90,7 @@ page CardPage
               "Routine confirmation"
             Text size:"sm"
               "Soft color keeps related details visible without competing with the page."
-        Card variant:"outlined" scheme:"warning" rounded:"md" minH:32
+        Card variant:"outlined" scheme:"warning" minH:32
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
               "OUTLINED"
@@ -98,7 +98,7 @@ page CardPage
               "Contextual boundary"
             Text size:"sm"
               "A border separates related information while preserving the surrounding surface."
-        Card variant:"ghost" scheme:"danger" rounded:"md" minH:32
+        Card variant:"ghost" scheme:"danger" minH:32
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
               "GHOST"
@@ -113,7 +113,7 @@ page CardPage
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Card variant:"outlined" scheme:"warning" rounded:"md"
+          Card variant:"outlined" scheme:"warning"
             Grid columns:1 gap:2
               Title size:"xl"
                 "Review required"
@@ -138,7 +138,7 @@ page CardPage
           content:"""
             Card variant:"soft" scheme:"muted"
               Title size:"xl"
-                "Uses onSoftMuted"
+                "Uses softMutedText"
               Text size:"sm"
                 "No repeated color prop is required."
               Text size:"sm" color:"warning"
@@ -147,7 +147,7 @@ page CardPage
       Card variant:"soft" scheme:"muted" rounded:"lg"
         Grid columns:1 gap:2
           Title size:"xl" weight:"black"
-            "Uses onSoftMuted"
+            "Uses softMutedText"
           Text size:"sm"
             "No repeated color prop is required."
           Text size:"sm" color:"warning"
@@ -162,7 +162,7 @@ page CardPage
         Text size:"sm" color:"muted"
           "cover supplies the base image, overlay adds contrast, and children remain above both layers in every target."
       Grid columns:{ xs:1 md:2 } gap:4
-        Card cover:"https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" overlay:0.62 scheme:"surface" rounded:"lg" minH:72
+        Card cover:"https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" overlay:0.62 rounded:"lg" minH:72
           Flex direction:"column" justify:"end" gap:2 minH:60
             Text size:"xs" weight:"bold" spacing:"widest"
               "COVER CARD"
@@ -170,7 +170,7 @@ page CardPage
               "Foreground stays legible"
             Text size:"sm"
               "The image is centered and covers the card without changing child order."
-        Card variant:"outlined" scheme:"surface" rounded:"lg" minH:72
+        Card variant:"outlined" rounded:"lg" minH:72
           Flex direction:"column" justify:"between" gap:3 minH:60
             Grid columns:1 gap:2
               Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
@@ -179,7 +179,7 @@ page CardPage
                 "Image, overlay, content"
               Text size:"sm" color:"muted"
                 "The component owns the layered surface so page layout stays simple."
-            Button variant:"soft" scheme:"primary" size:"sm" rounded:"full"
+            Button variant:"soft" size:"sm" rounded:"full"
               "Open project"
       Code:
         language:"dowe"
@@ -205,7 +205,7 @@ page CardPage
         Text size:"sm" color:"muted"
           "Cards default to p:{ xs:4 lg:5 } and add no gap between children. Use Grid or Flex inside the card, and use spans only as a direct Grid child."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"outlined" scheme:"surface" rounded:"md"
+        Card variant:"outlined"
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
               "DEFAULT PADDING"
@@ -213,7 +213,7 @@ page CardPage
               "Responsive by default"
             Text size:"sm" color:"muted"
               "The compact and large-screen padding values are supplied automatically."
-        Card variant:"soft" scheme:"info" p:{ xs:5 md:7 } rounded:"md" colSpan:{ xs:1 md:2 }
+        Card variant:"soft" scheme:"info" p:{ xs:5 md:7 } colSpan:{ xs:1 md:2 }
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
               "EXPLICIT PADDING AND SPAN"
@@ -229,7 +229,7 @@ page CardPage
         copiedLabel:"Copied"
         content:"""
           Grid columns:{ xs:1 md:3 } gap:4
-            Card variant:"outlined" scheme:"surface"
+            Card variant:"outlined"
               Text
                 "Uses default responsive padding."
             Card variant:"soft" scheme:"info" p:{ xs:5 md:7 } colSpan:{ xs:1 md:2 }
@@ -246,19 +246,19 @@ page CardPage
         Text size:"sm" color:"muted"
           "animation is resolved by Dowe rather than a target-specific runtime. Choose a preset that supports the surrounding content hierarchy."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"primary" animation:"fadeIn" rounded:"md"
+        Card variant:"soft" scheme:"primary" animation:"fadeIn"
           Grid columns:1 gap:1
             Text size:"xs" weight:"bold" spacing:"widest"
               "FADE IN"
             Text size:"sm"
               "A quiet appearance for supporting content."
-        Card variant:"soft" scheme:"secondary" animation:"slideUp" rounded:"md"
+        Card variant:"soft" scheme:"secondary" animation:"slideUp"
           Grid columns:1 gap:1
             Text size:"xs" weight:"bold" spacing:"widest"
               "SLIDE UP"
             Text size:"sm"
               "A directional entrance for sequential content."
-        Card variant:"soft" scheme:"tertiary" animation:"scaleIn" rounded:"md"
+        Card variant:"soft" scheme:"tertiary" animation:"scaleIn"
           Grid columns:1 gap:1
             Text size:"xs" weight:"bold" spacing:"widest"
               "SCALE IN"

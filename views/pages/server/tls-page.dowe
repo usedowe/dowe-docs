@@ -1,24 +1,38 @@
 page TlsPage
+  const tlsAcmeRows:
+    value:[
+      { concern:"Multiple domains" guidance:"One declared set becomes the certificate SAN set. Duplicate names are removed before issuance." },
+      { concern:"Automatic renewal" guidance:"ACME state loads cached material and renews the certificate while the server stays active." },
+      { concern:"Server only" guidance:"Views never receive account state, cache contents, private keys, or managed domain sources." },
+    ]
+  const tlsManagedRows:
+    value:[
+      { concern:"Authenticated catalog" guidance:"The endpoint and bearer remain server-only. Responses may contain domain strings or records with host or hostname." },
+      { concern:"Ports 80 and 443" guidance:"HTTPS stays on 443. Port 80 issues permanent redirects while preserving the request path and query." },
+      { concern:"Closed host policy" guidance:"Only hosts in the effective TLS catalog redirect. Unknown or malformed Host values receive 421." },
+    ]
+  const tlsPolicyRows:
+    value:[
+      { owner:"Dowe runtime" responsibility:"Certificate issuance, ACME state, renewal, cached private material, and effective domain matching." },
+      { owner:"Authored server" responsibility:"Administrator authorization, upstream routing, DNS integration, application deployment, and tenant policy." },
+    ]
   Section id:"tls-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "SERVER / TLS"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Own HTTPS in the Dowe runtime"
+      Text size:"lg" color:"muted"
+        "Dowe issues, caches, and renews multi-domain Let's Encrypt certificates without Certbot, Node.js, or an external reverse proxy."
+  Section id:"tls-acme" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "SERVER / TLS"
-        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
-          "Own HTTPS in the Dowe runtime"
-        Text size:"lg" color:"muted"
-          "Dowe issues, caches, and renews multi-domain Let's Encrypt certificates without Certbot, Node.js, or an external reverse proxy."
-      Button href:"/docs/server" variant:"ghost" scheme:"muted" size:"sm" iconStart:"server"
-        "Server documentation"
-  Section id:"tls-acme" p:{ xs:5 md:7 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "ACME"
+          "1 / ACME"
         Title size:"3xl" weight:"black"
           "Declare every public hostname"
         Text size:"sm" color:"muted"
-          "TLS-ALPN-01 runs on the HTTPS listener. The cache lives below .dowe, staging is safe by default, and the certificate state remains polled for automatic renewal."
+          "TLS-ALPN-01 runs on the HTTPS listener. The cache lives below .dowe, staging is safe by default, and certificate state is polled for automatic renewal."
       Code:
         language:"dowe"
         variant:"soft"
@@ -34,27 +48,21 @@ page TlsPage
                 email:"admin@example.com"
                 staging:false
         """
-      Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "Multiple domains"
-          Text size:"sm" color:"muted"
-            "One declared set becomes the certificate SAN set. Duplicate names are removed before issuance."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "Automatic renewal"
-          Text size:"sm" color:"muted"
-            "The ACME state loads cached material and renews the certificate while the server stays active."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "Server only"
-          Text size:"sm" color:"muted"
-            "Views never receive account state, cache contents, private keys, or managed domain sources."
+      Table:
+        data:tlsAcmeRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"concern" label:"Concern" width:"2fr"
+        column field:"guidance" label:"What Dowe does" width:"5fr"
   Section id:"tls-managed-domains" py:{ xs:7 md:10 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "MANAGED DOMAINS"
+          "2 / MANAGED DOMAINS"
         Title size:"3xl" weight:"black"
           "Feed domains from Dowe data"
         Text size:"sm" color:"muted"
@@ -80,32 +88,31 @@ page TlsPage
             refreshSeconds:30
             httpPort:80
         """
-      Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "Authenticated catalog"
-          Text size:"sm" color:"muted"
-            "The endpoint and bearer remain server-only. Responses may contain domain strings or records with host or hostname."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "Ports 80 and 443"
-          Text size:"sm" color:"muted"
-            "HTTPS stays on 443. Port 80 issues permanent redirects while preserving the request path and query."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "Closed host policy"
-          Text size:"sm" color:"muted"
-            "Only hosts in the effective TLS catalog redirect. Unknown or malformed Host values receive 421."
-      Card variant:"outline" scheme:"info" p:5 rounded:"md"
-        Title size:"lg" weight:"bold"
-          "Product foundation, not product policy"
-        Text size:"sm" color:"muted"
-          "Dowe owns certificate lifecycle. Your authored server still owns administrator authorization, upstream routing, DNS integration, application deployment, and tenant policy."
+      Table:
+        data:tlsManagedRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"concern" label:"Concern" width:"2fr"
+        column field:"guidance" label:"What happens" width:"5fr"
+      Table:
+        data:tlsPolicyRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"owner" label:"Owner" width:"2fr"
+        column field:"responsibility" label:"Responsibility" width:"5fr"
   Section id:"tls-local" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
-      Grid columns:1 gap:2
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "LOCAL DEVELOPMENT"
+          "3 / LOCAL DEVELOPMENT"
         Title size:"3xl" weight:"black"
           "Use a self-signed localhost certificate"
         Text size:"sm" color:"muted"

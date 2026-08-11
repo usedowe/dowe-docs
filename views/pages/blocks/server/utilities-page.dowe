@@ -1,0 +1,137 @@
+page ServerUtilitiesBlockPage
+  signal utilityForm value:{ text:"  Dowe Server Utilities  " number:"42" values:[3, 10, 5] }
+  signal result value:{ normalized:"" slug:"" total:"" average:"" count:"" }
+  signal message value:""
+  signal messageVisible value:false
+  fn runUtilities
+    request response method:"POST" route:"/api/examples/utilities" body:utilityForm
+    if response.ok
+      set result value:response.data
+      set message value:"Rust-owned utilities transformed the request."
+      set messageVisible value:true
+    else
+      set message value:"The utility endpoint returned an error."
+      set messageVisible value:true
+  Section id:"server-utilities-introduction" py:{ xs:6 md:10 }
+    Grid columns:1 gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "SERVER BLOCK / UTILITIES"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Portable server utilities"
+      Text size:"lg" color:"muted"
+        "One endpoint demonstrates string normalization, parsing, sorting, math, list operations, URL encoding, JSON merging, and timestamps without JavaScript or Node.js."
+  Section id:"server-utilities-playground" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Card variant:"soft" scheme:"primary" p:{ xs:5 md:7 } rounded:"xl"
+        Grid columns:1 gap:4
+          Text size:"xs" weight:"bold" color:"primary"
+            "LIVE VIEW + SERVER"
+          Title size:"2xl" weight:"black"
+            "Transform one request"
+          Text size:"sm" color:"muted"
+            "The View owns editable input. The server owns normalization and computation, then returns serializable data for rendering."
+          Text show:messageVisible size:"sm" color:"success"
+            "{message}"
+          Input bind:utilityForm.text label:"Text" placeholder:"Write a phrase" labelFloating:true w:"full"
+          Input bind:utilityForm.number label:"Integer text" placeholder:"42" labelFloating:true w:"full"
+          Text size:"sm" color:"muted"
+            "Values used for sort, sum, average, first, and count: [3, 10, 5]"
+          Button onClick:runUtilities iconStart:"code"
+            "Run server utilities"
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"outlined" p:5
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold" color:"muted"
+              "NORMALIZED OUTPUT"
+            Text size:"xl" weight:"black"
+              "{result.normalized}"
+            Text size:"sm" color:"muted"
+              "Slug"
+            Text size:"sm" color:"muted"
+              "{result.slug}"
+        Card variant:"soft" scheme:"success" p:5
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold" color:"success"
+              "COMPUTED OUTPUT"
+            Text size:"sm" color:"muted"
+              "The response also includes total, average, count, first, encoded, summary, and timestamp."
+            Text size:"sm" color:"success"
+              "Total"
+            Text size:"sm" color:"muted"
+              "{result.total}"
+            Text size:"sm" color:"success"
+              "Average"
+            Text size:"sm" color:"muted"
+              "{result.average}"
+            Text size:"sm" color:"success"
+              "Count"
+            Text size:"sm" color:"muted"
+              "{result.count}"
+  Section id:"server-utilities-files" py:{ xs:7 md:10 }
+    Grid columns:1 gap:4
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "SOURCE FILES"
+      Title size:"3xl" weight:"black"
+        "Capability-first, target-neutral code"
+      Text color:"muted"
+        "Each declaration names its namespace, result binding, source function, and inputs. The same server model executes in the Rust runtime."
+      Tabs variant:"line" position:"top" w:"full"
+        tab id:"view" label:"View"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy View"
+            copiedLabel:"Copied"
+            content:"""
+              signal result value:{ normalized:"" slug:"" total:"" average:"" count:"" }
+
+              fn runUtilities
+                request response method:"POST" route:"/api/examples/utilities" body:utilityForm
+                if response.ok
+                  set result value:response.data
+
+              Text
+                "{result.normalized}"
+            """
+        tab id:"handler" label:"Handler"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy handler"
+            copiedLabel:"Copied"
+            content:"""
+              handler runExampleUtilities
+                const body value:req.json
+                str normalized source:"trim" value:body.text
+                str slug source:"lower" value:normalized
+                str slugged source:"replace" value:slug from:" " to:"-"
+                parse number source:"int" value:body.number fallback:0
+                sort ordered source:"desc" values:body.values
+                math total source:"sum" values:ordered
+                math average source:"average" values:ordered
+                list count source:"count" values:ordered
+                list first source:"first" values:ordered
+                url encoded source:"encode" value:slugged
+                json summary source:"merge" left:{ slug:slugged } right:{ count:count }
+                date timestamp source:"now"
+                return json:{ ok:true data:{ normalized:normalized slug:slugged number:number ordered:ordered total:total average:average count:count first:first encoded:encoded summary:summary timestamp:timestamp } }
+            """
+        tab id:"catalog" label:"Catalog"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy catalog"
+            copiedLabel:"Copied"
+            content:"""
+              str: trim, lower, upper, length, contains, startsWith, endsWith, replace, split, join
+              math: add, sub, mul, div, round, floor, ceil, abs, min, max, sum, average
+              parse: int, float, bool, json, string, svg
+              url: encode, decode, parse, queryGet, querySet
+              sort: asc, desc, by
+              list: take, skip, first, last, count, filterEquals, filterContains, mapField
+              json: get, set, pick, omit, merge, stringify, parse
+              date: now, formatIso, addDays, diffDays
+            """

@@ -18,12 +18,11 @@ page TablesPage
         Button:
           href:"/blocks/table-preview/team-directory"
           variant:"soft"
-          scheme:"primary"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"team-directory-desktop" label:"Desktop"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe:
@@ -108,13 +107,13 @@ page TablesPage
                   Grid columns:1 gap:5
                     Title size:{ xs:"2xl" md:"4xl" } weight:"black"
                       "Dashboard"
-                    Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+                    Tabs variant:"line" position:"top" w:"full"
                       tab id:"documents" label:"Documents · 2"
                         Grid columns:1 gap:4 py:4
                           Flex justify:"end" w:"full"
                             Flex align:"end" gap:2 w:{ xs:"full" md:80 }
                               Input bind:search label:"Search" placeholder:"Search people" iconStart:"magnifier" variant:"solid" scheme:"muted" w:"full"
-                              IconButton icon:"magnifier" label:"Load results" onClick:loadMembers variant:"solid" scheme:"primary"
+                              IconButton icon:"magnifier" label:"Load results" onClick:loadMembers
                           Grid show:{ when:loadState gt:0 }
                             Grid columns:1 gap:2
                               Skeleton variant:"rounded" h:12 w:"full"

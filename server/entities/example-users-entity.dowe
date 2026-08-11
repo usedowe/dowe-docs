@@ -1,0 +1,6 @@
+entity ExampleUsers
+  id:string primary:true
+  name:string required:true
+  email:string required:true unique:true
+  passwordHash:string required:true
+  createdAt:timestamp required:true

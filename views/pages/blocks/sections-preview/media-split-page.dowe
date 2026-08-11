@@ -3,11 +3,11 @@ page MediaSplitSectionPage
     { id:"start" label:"Get started" variant:"solid" },
     { id:"sales" label:"Talk to sales" variant:"outlined" },
   ]
-  Section id:"media-split-section" bg:"background" color:"onBackground" boxed:true p:{ xs:6 md:12 }
+  Section id:"media-split-section" bg:"background" color:"backgroundText" boxed:true p:{ xs:6 md:12 }
     Grid columns:{ xs:1 md:2 } gap:{ xs:8 md:16 } align:"center" minH:"vh-0"
       Box show:{ xs:false md:true } bg:"softMuted" rounded:"xl" p:8 minH:96
         Flex direction:"column" align:"center" justify:"center" gap:3 minH:80
-          Icon name:"gallery" style:"bold-duotone" fill:"muted" w:16 h:16
+          Icon name:"gallery-bold-duotone" fill:"muted" w:16 h:16
           Text size:"sm" color:"muted"
             "Image placeholder"
       Flex direction:"column" align:{ xs:"center" md:"start" } gap:5
@@ -17,14 +17,14 @@ page MediaSplitSectionPage
           "Plan important work, keep every priority visible, and move through the day with confidence."
         Grid columns:1 gap:3 w:"full" show:{ xs:true sm:false }
           each in:actions as:action key:action.id
-            Button variant:action.variant scheme:"primary" size:"lg" rounded:"full" w:"full"
+            Button variant:action.variant size:"lg" rounded:"full" w:"full"
               "{action.label}"
         Flex align:"center" gap:3 show:{ xs:false sm:true }
           each in:actions as:action key:action.id
-            Button variant:action.variant scheme:"primary" size:"lg" rounded:"full"
+            Button variant:action.variant size:"lg" rounded:"full"
               "{action.label}"
         Box show:{ xs:true md:false } bg:"softMuted" rounded:"xl" p:8 minH:72 w:"full"
           Flex direction:"column" align:"center" justify:"center" gap:3 minH:56
-            Icon name:"gallery" style:"bold-duotone" fill:"muted" w:16 h:16
+            Icon name:"gallery-bold-duotone" fill:"muted" w:16 h:16
             Text size:"sm" color:"muted"
               "Image placeholder"

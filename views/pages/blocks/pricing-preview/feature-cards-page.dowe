@@ -32,7 +32,7 @@ page FeatureCardsPricingPage
         featureFive:"Up to 50 team members"
       },
     ]
-  Section id:"feature-cards-pricing" bg:"background" color:"onBackground" boxed:true minH:"vh-0" py:{ xs:8 md:12 }
+  Section id:"feature-cards-pricing" bg:"background" color:"backgroundText" boxed:true minH:"vh-0" py:{ xs:8 md:12 }
     Grid columns:1 gap:{ xs:8 md:12 }
       Flex direction:"column" align:"center" gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
@@ -53,26 +53,26 @@ page FeatureCardsPricingPage
                     "{plan.price}"
                   Text color:"muted"
                     "Billed monthly"
-                  Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" w:"full"
+                  Button size:"lg" rounded:"full" w:"full"
                     "Get started"
               Grid columns:1 gap:3 p:{ xs:6 md:7 }
                 Flex align:"center" gap:3
-                  Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                  Icon name:"check-circle-bold" fill:"muted" w:5 h:5
                   Text size:"sm" weight:"bold"
                     "{plan.featureOne}"
                 Flex align:"center" gap:3
-                  Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                  Icon name:"check-circle-bold" fill:"muted" w:5 h:5
                   Text size:"sm" weight:"bold"
                     "{plan.featureTwo}"
                 Flex align:"center" gap:3
-                  Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                  Icon name:"check-circle-bold" fill:"muted" w:5 h:5
                   Text size:"sm" weight:"bold"
                     "{plan.featureThree}"
                 Flex align:"center" gap:3
-                  Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                  Icon name:"check-circle-bold" fill:"muted" w:5 h:5
                   Text size:"sm" weight:"bold"
                     "{plan.featureFour}"
                 Flex align:"center" gap:3
-                  Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                  Icon name:"check-circle-bold" fill:"muted" w:5 h:5
                   Text size:"sm" weight:"bold"
                     "{plan.featureFive}"

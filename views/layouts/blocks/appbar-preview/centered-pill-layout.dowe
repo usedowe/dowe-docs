@@ -5,7 +5,7 @@ layout AppBarCenteredPillLayout
         start
           Brand href:"/blocks/appbar" label:"Pekoo home"
             Flex align:"center" gap:2
-              Icon name:"bolt-circle" style:"bold" fill:"primary" w:8 h:8
+              Icon name:"bolt-circle-bold" fill:"primary" w:8 h:8
               Text size:"xl" weight:"black"
                 "PEKOO."
         center
@@ -23,8 +23,6 @@ layout AppBarCenteredPillLayout
           Flex align:"center" gap:2
             Button:
               href:"/blocks/appbar-preview/dashboard"
-              variant:"solid"
-              scheme:"primary"
               size:"sm"
               rounded:"full"
               show:{ xs:false sm:true }
@@ -33,7 +31,6 @@ layout AppBarCenteredPillLayout
               icon:"hamburger-menu"
               label:"Open navigation"
               variant:"ghost"
-              scheme:"primary"
               show:{ xs:true md:false }
     main
       children

@@ -11,7 +11,7 @@ page HomePage
           "Full-stack development, from one codebase"
       Box h:12
       Grid columns:{ xs:1 md:"720px" } gap:3
-        Tabs variant:"line" scheme:"primary"
+        Tabs variant:"line"
           tab id:"hero-unix" label:"macOS / Linux"
             Code:
               language:"dowe"
@@ -32,21 +32,21 @@ page HomePage
       Flex wrap:true justify:"center" align:"center" gap:{ xs:8 md:24 }
         Flex direction:"column" align:"center" gap:3
           Flex align:"center" gap:3
-            Icon name:"route" style:"bold-duotone" fill:"muted" w:10 h:10
+            Icon name:"route-bold-duotone" fill:"muted" w:10 h:10
             Text size:"3xl" weight:"black" color:"muted"
               "Server"
           Text size:"xs"
             "Native routing and host capabilities."
         Flex direction:"column" align:"center" gap:3
           Flex align:"center" gap:3
-            Icon name:"global" style:"bold-duotone" fill:"muted" w:10 h:10
+            Icon name:"global-bold-duotone" fill:"muted" w:10 h:10
             Text size:"3xl" weight:"black" color:"muted"
               "Web"
           Text size:"xs"
             "Initial SSR plus route assets."
         Flex direction:"column" align:"center" gap:3
           Flex align:"center" gap:3
-            Icon name:"laptop" style:"bold-duotone" fill:"muted" w:10 h:10
+            Icon name:"laptop-bold-duotone" fill:"muted" w:10 h:10
             Text size:"3xl" weight:"black" color:"muted"
               "Desktop"
           Text size:"xs"

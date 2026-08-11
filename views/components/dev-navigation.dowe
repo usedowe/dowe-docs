@@ -1,5 +1,5 @@
 component DevNavigation
-  SideNav variant:"solid" scheme:"muted" size:"md" p:4
+  SideNav variant:"solid" p:4
     item label:"Installation" href:"/docs/dev/install" icon:"document-text"
     item label:"Dowe Init" href:"/docs/dev" icon:"add-circle"
     item label:"Dowe Dev" href:"/docs/dev/dev" icon:"code"

@@ -61,7 +61,7 @@ page ToastPage
           "Send global feedback"
         Text size:"sm" color:"muted"
           "A lowercase toast statement replaces the current message in the generated global presenter. It does not require a Toast node in the page tree."
-      Card variant:"outlined" scheme:"surface" p:{ xs:6 md:10 } rounded:"md" border:1
+      Card variant:"outlined" p:{ xs:6 md:10 } border:1
         Flex wrap:true justify:"center" gap:3
           Button onClick:showSuccessToast variant:"soft" scheme:"success"
             "Show success"
@@ -81,7 +81,7 @@ page ToastPage
           fn saveChanges
             toast value:{ type:"success" title:"Changes saved" message:"Your workspace is up to date." visible:true } duration:6000 position:"top-right" variant:"soft" scheme:"success"
 
-          Button onClick:saveChanges variant:"solid" scheme:"primary"
+          Button onClick:saveChanges
             "Save changes"
         """
   Section id:"toast-variants" py:{ xs:7 md:10 }
@@ -94,15 +94,15 @@ page ToastPage
         Text size:"sm" color:"muted"
           "Variant controls the surface treatment and scheme selects its design family. Outlined keeps a readable neutral Card surface with the selected family on its border."
       Grid columns:{ xs:1 md:4 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Solid"
             Text size:"sm" color:"muted"
               "Family color and matching on-color."
-            Button onClick:showSolidToast variant:"solid" scheme:"success"
+            Button onClick:showSolidToast scheme:"success"
               "Preview"
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Soft"
@@ -110,7 +110,7 @@ page ToastPage
               "Soft family pair for quieter feedback."
             Button onClick:showSoftToast variant:"soft" scheme:"info"
               "Preview"
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Outlined"
@@ -118,7 +118,7 @@ page ToastPage
               "Neutral surface with a family border."
             Button onClick:showOutlinedToast variant:"outlined" scheme:"warning"
               "Preview"
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Ghost"
@@ -136,13 +136,13 @@ page ToastPage
         Text size:"sm" color:"muted"
           "Every generated Toast includes the same portable SVG close control as Drawer. The surface is non-modal, so the page remains scrollable while the close control stays interactive. Duration closes the presenter automatically."
       Grid columns:{ xs:1 md:2 } gap:5
-        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+        Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:2
             Text size:"sm" weight:"bold"
               "Manual dismissal"
             Text size:"sm" color:"muted"
               "The close control removes the current message on web, Compose, the Android development launcher, and SwiftUI. On iOS, unrelated reactive updates cannot restart a dismissal already in progress."
-        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+        Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:2
             Text size:"sm" weight:"bold"
               "Automatic dismissal"
@@ -158,7 +158,7 @@ page ToastPage
         Text size:"sm" color:"muted"
           "Dowe keeps the normalized feedback model shared while each generator owns the portable overlay implementation."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "WEB"
@@ -166,7 +166,7 @@ page ToastPage
               "Generated overlay"
             Text size:"sm" color:"muted"
               "HTML, CSS, and router state use the Card surface rules, corner placement, shared timer, and SVG close control."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "ANDROID"
@@ -174,7 +174,7 @@ page ToastPage
               "Dowe popup"
             Text size:"sm" color:"muted"
               "Compose and the development launcher use the same Card colors, border, metrics, timer, placement, and close SVG."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "IOS"

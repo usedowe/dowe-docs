@@ -1,0 +1,237 @@
+import exampleSession from "@/views/store/example-session"
+
+type ExampleBlogRow
+  id:string
+  title:string
+  content:string
+  ownerId:string
+  createdAt:string
+  updatedAt:string
+
+page ServerCrudBlockPage
+  signal blogs type:ExampleBlogRow[] value:[]
+  signal loading value:true
+  signal form value:{ title:"" content:"" }
+  signal editForm value:{ id:"" title:"" content:"" }
+  signal message value:""
+  init
+    request result method:"GET" route:"/api/examples/blogs"
+    if result.ok
+      set blogs value:result.data
+      set loading value:false
+    else
+      set loading value:false
+      set message value:"The example database is not ready yet."
+  fn loadBlogs
+    request result method:"GET" route:"/api/examples/blogs"
+    if result.ok
+      set blogs value:result.data
+      set message value:"Blogs refreshed from Database."
+    else
+      set message value:"Could not read the example database."
+  fn createBlog
+    request result method:"POST" route:"/api/examples/blogs" body:form headers:{ Authorization:exampleSession.authorization }
+    if result.ok
+      set blogs value:result.data
+      set form value:{ title:"" content:"" }
+      set message value:"Blog created through the protected endpoint."
+    else
+      set message value:"Sign in on the Auth block before creating a blog."
+  fn updateBlog
+    request result method:"PATCH" route:"/api/examples/blogs/:id" body:editForm headers:{ Authorization:exampleSession.authorization }
+    if result.ok
+      set blogs value:result.data
+      set editForm value:{ id:"" title:"" content:"" }
+      set message value:"Blog updated through the protected endpoint."
+    else
+      set message value:"The blog id or session is not valid."
+  fn deleteBlog
+    request result method:"DELETE" route:"/api/examples/blogs/:id" headers:{ Authorization:exampleSession.authorization }
+    if result.ok
+      set blogs value:result.data
+      set message value:"Blog deleted from Database."
+    else
+      set message value:"The blog could not be deleted."
+  Section id:"server-crud-introduction" py:{ xs:6 md:10 }
+    Grid columns:1 gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "SERVER BLOCK / CRUD"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Database-backed CRUD"
+      Text size:"lg" color:"muted"
+        "A real endpoint graph, layered server modules, and a View form that reads, creates, updates, and deletes records."
+  Section id:"server-crud-playground" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Card variant:"soft" scheme:"primary" p:{ xs:5 md:7 } rounded:"xl"
+        Grid columns:1 gap:4
+          Flex justify:"between" align:"center" gap:3 wrap:true
+            Grid columns:1 gap:1
+              Text size:"xs" weight:"bold" color:"primary"
+                "LIVE VIEW + SERVER"
+              Title size:"2xl" weight:"black"
+                "Edit the example collection"
+            Chip show:exampleSession.authenticated variant:"soft" scheme:"success" size:"sm"
+              "AUTHENTICATED"
+            Chip show:exampleSession.guest variant:"soft" scheme:"warning" size:"sm"
+              "GUEST"
+          Text size:"sm" color:"muted"
+            "This page calls /api/examples/blogs. Use the Auth block first if you want to write data."
+          Text show:exampleSession.authenticated size:"sm" color:"info"
+            "{message}"
+          Grid columns:{ xs:1 md:2 } gap:4
+            Card variant:"outlined" p:4
+              Grid columns:1 gap:3
+                Text size:"xs" weight:"bold" color:"muted"
+                  "CREATE"
+                Input bind:form.title label:"Title" placeholder:"A useful server example" labelFloating:true w:"full"
+                Textarea bind:form.content label:"Content" placeholder:"Write a short entry" rows:5 labelFloating:true w:"full"
+                Button onClick:createBlog show:exampleSession.authenticated iconStart:"add-circle"
+                  "Create blog"
+                Text show:exampleSession.guest size:"sm" color:"warning"
+                  "Authenticate to enable writes."
+            Card variant:"outlined" p:4
+              Grid columns:1 gap:3
+                Text size:"xs" weight:"bold" color:"muted"
+                  "UPDATE"
+                Input bind:editForm.id label:"Blog id" placeholder:"Paste an id from the table" labelFloating:true w:"full"
+                Input bind:editForm.title label:"New title" placeholder:"Updated title" labelFloating:true w:"full"
+                Textarea bind:editForm.content label:"New content" placeholder:"Updated content" rows:3 labelFloating:true w:"full"
+                Button onClick:updateBlog show:exampleSession.authenticated variant:"outlined" iconStart:"pen"
+                  "Update blog"
+          Card variant:"outlined" p:4
+            Grid columns:1 gap:3
+              Flex justify:"between" align:"center" gap:3 wrap:true
+                Title size:"xl" weight:"black"
+                  "Records"
+                Button onClick:loadBlogs variant:"soft" size:"sm" iconStart:"restart"
+                  "Refresh"
+              Table data:blogs variant:"ghost" scheme:"surface" size:"sm" dividers:true emptyTitle:"No blogs yet" emptyDescription:"Create the first record from the form above."
+                column field:"id" label:"Id" width:"2fr"
+                column field:"title" label:"Title" width:"2fr"
+                column field:"ownerId" label:"Owner" width:"2fr"
+              Text show:exampleSession.authenticated size:"sm" color:"muted"
+                "Delete uses the same authenticated session and the id from the table."
+              Flex gap:3 wrap:true
+                Input bind:editForm.id placeholder:"Blog id to delete" label:"Delete by id" labelFloating:true w:"full"
+                Button onClick:deleteBlog show:exampleSession.authenticated variant:"outlined" scheme:"danger" iconStart:"trash-bin-trash"
+                  "Delete"
+  Section id:"server-crud-files" py:{ xs:7 md:10 }
+    Grid columns:1 gap:4
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "SOURCE FILES"
+      Title size:"3xl" weight:"black"
+        "Every tab is a real project file"
+      Text color:"muted"
+        "The preview above calls the same handlers shown below. Database access remains in the repository, while Views only see JSON responses."
+      Tabs variant:"line" position:"top" w:"full"
+        tab id:"view" label:"View"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy View"
+            copiedLabel:"Copied"
+            content:"""
+              import exampleSession from "@/views/store/example-session"
+
+              page ServerCrudBlockPage
+                signal blogs value:[]
+                signal form value:{ title:"" content:"" }
+                fn createBlog
+                  request result method:"POST" route:"/api/examples/blogs" body:form headers:{ Authorization:exampleSession.authorization }
+                  if result.ok
+                    set blogs value:result.data
+                    set form value:{ title:"" content:"" }
+                Button onClick:createBlog show:exampleSession.authenticated
+                  "Create blog"
+            """
+        tab id:"endpoints" label:"Endpoints"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy endpoints"
+            copiedLabel:"Copied"
+            content:"""
+              endpoints ApiRoutes
+                group path:"/api/examples/blogs"
+                  get path:"" handler:listExampleBlogs
+                  post path:"" handler:createExampleBlog middleware:[requireExampleAuth]
+                  patch path:"/:id" handler:updateExampleBlog middleware:[requireExampleAuth]
+                  delete path:"/:id" handler:deleteExampleBlog middleware:[requireExampleAuth]
+            """
+        tab id:"handler" label:"Handler"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy handler"
+            copiedLabel:"Copied"
+            content:"""
+              import createExampleBlogService from "@/server/services/example-crud-service"
+
+              handler createExampleBlog
+                const body value:req.json
+                createExampleBlogService result args:{ title:body.title content:body.content ownerId:req.context.auth.subject }
+                return status:201 json:{ ok:true data:result.blogs created:result.created }
+            """
+        tab id:"service" label:"Service"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy service"
+            copiedLabel:"Copied"
+            content:"""
+              fn createExampleBlogService params:{ title:string content:string ownerId:string }
+                createExampleBlogRepository created args:{ title:args.title content:args.content ownerId:args.ownerId }
+                listExampleBlogsRepository blogs
+                return value:{ created:created blogs:blogs }
+            """
+        tab id:"repository" label:"Repository"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy repository"
+            copiedLabel:"Copied"
+            content:"""
+              fn createExampleBlogRepository params:{ title:string content:string ownerId:string }
+                date now source:"now"
+                query created db:ExamplesDb.insert table:"example_blogs" value:{ title:args.title content:args.content ownerId:args.ownerId createdAt:now updatedAt:now } required:["title", "content", "ownerId"]
+                return value:created
+            """
+        tab id:"config" label:"Config"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy config"
+            copiedLabel:"Copied"
+            content:"""
+              import ExampleBlogs from "@/server/entities/example-blogs-entity"
+
+              database ExamplesDb provider:"dowe" host:env.DOWE_HOST port:env.DOWE_PORT account:env.DOWE_ACCOUNT secret:env.DOWE_SECRET name:"dowe-docs-examples" entities:[ExampleBlogs] seeders:[]
+            """
+        tab id:"entity" label:"Entity"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy entity"
+            copiedLabel:"Copied"
+            content:"""
+              entity ExampleBlogs
+                id:string primary:true
+                title:string required:true
+                content:string required:true
+                ownerId:string required:true index:true
+                createdAt:timestamp required:true
+                updatedAt:timestamp required:true
+            """
+  Splash bind:loading
+    Section minH:"vh-0"
+      Flex direction:"column" align:"center" justify:"center" gap:3 h:"full"
+        Icon name:"svg-spinners:3-dots-bounce" fill:"primary" w:10 h:10
+        Text size:"sm" color:"muted"
+          "Loading Database records"

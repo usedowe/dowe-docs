@@ -17,7 +17,7 @@ page SplitPlansPricingPage
       { id:"collaboration" label:"Collaboration tools" },
       { id:"integrations" label:"All integrations included" },
     ]
-  Section id:"split-plans-pricing" bg:"background" color:"onBackground" boxed:true minH:"vh-0" py:{ xs:8 md:12 }
+  Section id:"split-plans-pricing" bg:"background" color:"backgroundText" boxed:true minH:"vh-0" py:{ xs:8 md:12 }
     Grid columns:1 gap:{ xs:8 md:12 }
       Flex direction:"column" align:"center" gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
@@ -33,7 +33,7 @@ page SplitPlansPricingPage
               Flex justify:"between" align:"center"
                 Box bg:"softMuted" rounded:"lg" w:14 h:14
                   Flex align:"center" justify:"center" w:"full" h:"full"
-                    Icon name:"gallery" style:"bold-duotone" fill:"muted" w:8 h:8
+                    Icon name:"gallery-bold-duotone" fill:"muted" w:8 h:8
                 Box bg:"softMuted" rounded:"full" p:3
                   Text size:"sm" weight:"bold"
                     "$99/mo"
@@ -44,19 +44,19 @@ page SplitPlansPricingPage
               Grid columns:1 gap:3
                 each in:basicFeatures as:feature key:feature.id
                   Flex align:"center" gap:3
-                    Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                    Icon name:"check-circle-bold" fill:"muted" w:5 h:5
                     Text size:"sm" weight:"bold"
                       "{feature.label}"
-            Button variant:"solid" scheme:"primary" size:"lg" rounded:"full"
+            Button size:"lg" rounded:"full"
               "Get started"
-        Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 }
+        Card scheme:"muted" rounded:"xl" p:{ xs:6 md:8 }
           Flex direction:"column" justify:"between" gap:7 minH:{ xs:96 md:"vh-32" }
             Grid columns:1 gap:5
               Flex justify:"between" align:"center"
                 Box bg:"softMuted" rounded:"lg" w:14 h:14
                   Flex align:"center" justify:"center" w:"full" h:"full"
-                    Icon name:"gallery" style:"bold-duotone" fill:"onMuted" w:8 h:8
-                Box bg:"surface" color:"onSurface" rounded:"full" p:3
+                    Icon name:"gallery-bold-duotone" fill:"mutedText" w:8 h:8
+                Box bg:"surface" color:"surfaceText" rounded:"full" p:3
                   Text size:"sm" weight:"bold"
                     "$399/mo"
               Title size:"3xl" weight:"black"
@@ -66,8 +66,8 @@ page SplitPlansPricingPage
               Grid columns:{ xs:1 md:2 } gap:3
                 each in:enterpriseFeatures as:feature key:feature.id
                   Flex align:"center" gap:3
-                    Icon name:"check-circle" style:"bold" fill:"onMuted" w:5 h:5
+                    Icon name:"check-circle-bold" fill:"mutedText" w:5 h:5
                     Text size:"sm" weight:"bold"
                       "{feature.label}"
-            Button variant:"solid" scheme:"secondary" size:"lg" rounded:"full"
+            Button scheme:"secondary" size:"lg" rounded:"full"
               "Get started"

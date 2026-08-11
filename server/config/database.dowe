@@ -1,7 +1,13 @@
+import IconCategories from "@/server/entities/icon-categories-entity"
+import Icons from "@/server/entities/icons-entity"
+import IconCatalog from "@/server/seeders/icon-catalog-seeder"
+
 database IconDb:
-  provider:"d1"
-  account:env.ACCOUNT_ID
-  secret:env.CLOUDFLARE_API_TOKEN
-  name:env.DATABASE_ID
-  entities:[]
-  seeders:[]
+  provider:"dowe"
+  host:env.DOWE_HOST
+  port:env.DOWE_PORT
+  account:env.DOWE_ACCOUNT
+  secret:env.DOWE_SECRET
+  name:"dowe-docs-icons"
+  entities:[IconCategories, Icons]
+  seeders:[IconCatalog]

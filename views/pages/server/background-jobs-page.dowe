@@ -1,22 +1,46 @@
 page BackgroundJobsPage
+  const jobDefinitionRows:
+    value:[
+      {
+        concern:"Reusable work"
+        guidance:"The same function contract can be tested and reused like any other server function."
+      },
+      {
+        concern:"Server-only access"
+        guidance:"Database, Cache, environment, and provider handles stay inside the worker function."
+      },
+      {
+        concern:"Explicit input"
+        guidance:"The params contract makes every value required by the job visible before it runs."
+      },
+    ]
+  const cronRows:
+    value:[
+      { field:"Minute" values:"0-59" },
+      { field:"Hour" values:"0-23" },
+      { field:"Day" values:"1-31" },
+      { field:"Month" values:"1-12" },
+      { field:"Weekday" values:"0-7, Sunday is 0 or 7" },
+    ]
+  const jobRuntimeRows:
+    value:[
+      { behavior:"Isolated execution" guidance:"Every run starts in a child process. A worker failure is logged without terminating the server." },
+      { behavior:"No local overlap" guidance:"If the previous run is still active, Dowe skips the next due run for that registration." },
+      { behavior:"No catch-up" guidance:"Runs missed while the server is offline are not replayed after startup." },
+    ]
   Section id:"background-jobs-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "SERVER / BACKGROUND JOBS"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Run scheduled server work"
+      Text size:"lg" color:"muted"
+        "A background job is an imported server function registered with cron. Dowe runs each scheduled execution in an isolated worker without blocking the server."
+  Section id:"background-jobs-definition" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "SERVER / BACKGROUND JOBS"
-        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
-          "Run scheduled server work"
-        Text size:"lg" color:"muted"
-          "A background job is an imported server function registered with cron. Dowe runs each scheduled execution in an isolated worker without blocking the server."
-        Button href:"/docs/server/tasks" variant:"ghost" scheme:"muted" size:"sm" iconStart:"code"
-          "Immediate tasks"
-      Button href:"/docs/server" variant:"ghost" scheme:"muted" size:"sm" iconStart:"server"
-        "Server documentation"
-  Section id:"background-jobs-definition" p:{ xs:5 md:7 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "DEFINE THE WORK"
+          "1 / DEFINE THE WORK"
         Title size:"3xl" weight:"black"
           "Use an ordinary server function"
         Text size:"sm" color:"muted"
@@ -34,27 +58,21 @@ page BackgroundJobsPage
             query removed db:appDb.delete table:"audit_events" where:{ olderThanDays:args.retentionDays }
             return value:{ removed:removed }
         """
-      Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "Reusable work"
-          Text size:"sm" color:"muted"
-            "The same function contract can be tested and reused like any other server function."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "Server-only access"
-          Text size:"sm" color:"muted"
-            "Database, Cache, environment, and provider handles stay inside the worker function."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "Explicit input"
-          Text size:"sm" color:"muted"
-            "The params contract makes every value required by the job visible before it runs."
+      Table:
+        data:jobDefinitionRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"concern" label:"Concern" width:"2fr"
+        column field:"guidance" label:"Rule" width:"5fr"
   Section id:"background-jobs-registration" py:{ xs:7 md:10 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "REGISTER THE SCHEDULE"
+          "2 / REGISTER THE SCHEDULE"
         Title size:"3xl" weight:"black"
           "Attach cron directly to server.init"
         Text size:"sm" color:"muted"
@@ -73,56 +91,33 @@ page BackgroundJobsPage
               init
                 cron compactAudit schedule:"0 3 * * *" args:{ retentionDays:30 }
         """
-      Grid columns:{ xs:1 md:5 } gap:3
-        Card variant:"outlined" scheme:"surface" p:4 rounded:"md"
-          Text size:"xs" weight:"bold" color:"muted"
-            "MINUTE"
-          Text size:"sm"
-            "0-59"
-        Card variant:"outlined" scheme:"surface" p:4 rounded:"md"
-          Text size:"xs" weight:"bold" color:"muted"
-            "HOUR"
-          Text size:"sm"
-            "0-23"
-        Card variant:"outlined" scheme:"surface" p:4 rounded:"md"
-          Text size:"xs" weight:"bold" color:"muted"
-            "DAY"
-          Text size:"sm"
-            "1-31"
-        Card variant:"outlined" scheme:"surface" p:4 rounded:"md"
-          Text size:"xs" weight:"bold" color:"muted"
-            "MONTH"
-          Text size:"sm"
-            "1-12"
-        Card variant:"outlined" scheme:"surface" p:4 rounded:"md"
-          Text size:"xs" weight:"bold" color:"muted"
-            "WEEKDAY"
-          Text size:"sm"
-            "0-7, Sunday is 0 or 7"
+      Table:
+        data:cronRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"field" label:"Field" width:"2fr"
+        column field:"values" label:"Accepted values" width:"5fr"
       Text size:"sm" color:"muted"
         "Cron fields accept *, numeric values, lists, ranges, and steps such as */15. Each server replica owns its own scheduler."
   Section id:"background-jobs-runtime" pb:{ xs:7 md:10 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "RUNTIME BEHAVIOR"
+          "3 / RUNTIME BEHAVIOR"
         Title size:"3xl" weight:"black"
           "Know what happens when a job runs"
-      Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "Isolated execution"
-          Text size:"sm" color:"muted"
-            "Every run starts in a child process. A worker failure is logged without terminating the server."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "No local overlap"
-          Text size:"sm" color:"muted"
-            "If the previous run is still active, Dowe skips the next due run for that registration."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "No catch-up"
-          Text size:"sm" color:"muted"
-            "Runs missed while the server is offline are not replayed after startup."
-      Text size:"sm" color:"muted"
-        "Current support does not include source-level cancellation, result inspection, durable delivery, or distributed singleton scheduling."
+      Table:
+        data:jobRuntimeRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"behavior" label:"Behavior" width:"2fr"
+        column field:"guidance" label:"Result" width:"5fr"
+      Alert type:"info" message:"Current support does not include source-level cancellation, result inspection, durable delivery, or distributed singleton scheduling."

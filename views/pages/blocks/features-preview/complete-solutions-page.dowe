@@ -20,7 +20,7 @@ page CompleteSolutionsFeaturesPage
         preview:"Automation"
       },
     ]
-  Section id:"complete-solutions-features" bg:"surface" color:"onSurface" boxed:true py:{ xs:8 md:12 }
+  Section id:"complete-solutions-features" bg:"surface" color:"surfaceText" boxed:true py:{ xs:8 md:12 }
     Grid columns:1 gap:{ xs:8 md:12 }
       Flex direction:"column" align:"center" gap:3
         Title size:{ xs:"4xl" md:"6xl" } weight:"black"
@@ -35,7 +35,7 @@ page CompleteSolutionsFeaturesPage
                 Grid columns:1 gap:4
                   Flex align:"center" justify:"between"
                     Flex align:"center" gap:2
-                      Icon name:"widget-4" style:"bold-duotone" fill:"primary" w:6 h:6
+                      Icon name:"widget-4-bold-duotone" fill:"primary" w:6 h:6
                       Text weight:"bold"
                         "{solution.preview}"
                     Flex gap:2
@@ -46,7 +46,7 @@ page CompleteSolutionsFeaturesPage
                     Box bg:"softWarning" rounded:"md" minH:16
                     Box bg:"softMuted" rounded:"md" minH:16
                   Flex justify:"end"
-                    Icon name:"cursor" style:"bold" fill:"onSurface" w:7 h:7
+                    Icon name:"cursor-bold" fill:"surfaceText" w:7 h:7
             Grid columns:1 gap:2 minH:20
               Title size:"lg" weight:"black"
                 "{solution.title}"

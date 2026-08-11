@@ -1,0 +1,11 @@
+type ExampleSessionUser
+  id:string
+  name:string
+  email:string
+
+type ExampleSessionState
+  authenticated:bool
+  guest:bool
+  authorization:string
+  token:string
+  user:ExampleSessionUser

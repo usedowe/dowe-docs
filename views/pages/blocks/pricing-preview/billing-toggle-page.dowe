@@ -49,7 +49,7 @@ page BillingTogglePricingPage
   fn showAnnual
     set monthly value:false
     set annual value:true
-  Section id:"billing-toggle-pricing" bg:"background" color:"onBackground" boxed:true minH:"vh-0" py:{ xs:8 md:12 }
+  Section id:"billing-toggle-pricing" bg:"background" color:"backgroundText" boxed:true minH:"vh-0" py:{ xs:8 md:12 }
     Grid columns:1 gap:{ xs:7 md:10 }
       Flex direction:"column" align:"center" gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
@@ -59,13 +59,13 @@ page BillingTogglePricingPage
         Text size:"lg" color:"muted"
           "Switch the billing period and choose the plan that matches your current pace."
       Flex align:"center" justify:"center" gap:2
-        Button variant:"solid" scheme:"primary" size:"sm" rounded:"full" show:monthly onClick:showMonthly
+        Button size:"sm" rounded:"full" show:monthly onClick:showMonthly
           "Monthly plan"
-        Button variant:"outlined" scheme:"primary" size:"sm" rounded:"full" show:annual onClick:showMonthly
+        Button variant:"outlined" size:"sm" rounded:"full" show:annual onClick:showMonthly
           "Monthly plan"
-        Button variant:"outlined" scheme:"primary" size:"sm" rounded:"full" show:monthly onClick:showAnnual
+        Button variant:"outlined" size:"sm" rounded:"full" show:monthly onClick:showAnnual
           "Annual plan"
-        Button variant:"solid" scheme:"primary" size:"sm" rounded:"full" show:annual onClick:showAnnual
+        Button size:"sm" rounded:"full" show:annual onClick:showAnnual
           "Annual plan"
       Grid columns:{ xs:1 md:3 } gap:5 align:"stretch"
         each in:plans as:plan key:plan.id
@@ -88,34 +88,34 @@ page BillingTogglePricingPage
                 Divider orientation:"horizontal" scheme:"muted"
                 Grid columns:1 gap:3
                   Flex align:"center" gap:3
-                    Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                    Icon name:"check-circle-bold" fill:"muted" w:5 h:5
                     Text size:"sm" weight:"bold"
                       "{plan.featureOne}"
                   Flex align:"center" gap:3
-                    Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                    Icon name:"check-circle-bold" fill:"muted" w:5 h:5
                     Text size:"sm" weight:"bold"
                       "{plan.featureTwo}"
                   Flex align:"center" gap:3
-                    Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                    Icon name:"check-circle-bold" fill:"muted" w:5 h:5
                     Text size:"sm" weight:"bold"
                       "{plan.featureThree}"
                   Flex align:"center" gap:3
-                    Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                    Icon name:"check-circle-bold" fill:"muted" w:5 h:5
                     Text size:"sm" weight:"bold"
                       "{plan.featureFour}"
                   Flex align:"center" gap:3
-                    Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                    Icon name:"check-circle-bold" fill:"muted" w:5 h:5
                     Text size:"sm" weight:"bold"
                       "{plan.featureFive}"
-              Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" w:"full"
+              Button size:"lg" rounded:"full" w:"full"
                 "Get started"
-          Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:6 md:7 } minH:96 show:plan.popular
+          Card scheme:"muted" rounded:"xl" p:{ xs:6 md:7 } minH:96 show:plan.popular
             Flex direction:"column" justify:"between" gap:7 minH:80
               Grid columns:1 gap:4
                 Flex justify:"between" align:"center"
                   Title size:"xl" weight:"black"
                     "{plan.name}"
-                  Box bg:"surface" color:"onSurface" rounded:"full" p:2
+                  Box bg:"surface" color:"surfaceText" rounded:"full" p:2
                     Text size:"xs" weight:"bold"
                       "Popular"
                 Flex align:"end" gap:2
@@ -132,24 +132,24 @@ page BillingTogglePricingPage
                 Divider orientation:"horizontal" scheme:"muted"
                 Grid columns:1 gap:3
                   Flex align:"center" gap:3
-                    Icon name:"check-circle" style:"bold" fill:"onMuted" w:5 h:5
+                    Icon name:"check-circle-bold" fill:"mutedText" w:5 h:5
                     Text size:"sm" weight:"bold"
                       "{plan.featureOne}"
                   Flex align:"center" gap:3
-                    Icon name:"check-circle" style:"bold" fill:"onMuted" w:5 h:5
+                    Icon name:"check-circle-bold" fill:"mutedText" w:5 h:5
                     Text size:"sm" weight:"bold"
                       "{plan.featureTwo}"
                   Flex align:"center" gap:3
-                    Icon name:"check-circle" style:"bold" fill:"onMuted" w:5 h:5
+                    Icon name:"check-circle-bold" fill:"mutedText" w:5 h:5
                     Text size:"sm" weight:"bold"
                       "{plan.featureThree}"
                   Flex align:"center" gap:3
-                    Icon name:"check-circle" style:"bold" fill:"onMuted" w:5 h:5
+                    Icon name:"check-circle-bold" fill:"mutedText" w:5 h:5
                     Text size:"sm" weight:"bold"
                       "{plan.featureFour}"
                   Flex align:"center" gap:3
-                    Icon name:"check-circle" style:"bold" fill:"onMuted" w:5 h:5
+                    Icon name:"check-circle-bold" fill:"mutedText" w:5 h:5
                     Text size:"sm" weight:"bold"
                       "{plan.featureFive}"
-              Button variant:"solid" scheme:"secondary" size:"lg" rounded:"full" w:"full"
+              Button scheme:"secondary" size:"lg" rounded:"full" w:"full"
                 "Get started"

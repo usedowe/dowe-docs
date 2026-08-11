@@ -96,7 +96,7 @@ page CanvasParticlesPage
         y1:180
         x2:640
         y2:180
-        stroke:"onSurface"
+        stroke:"surfaceText"
         strokeWidth:1
         opacity:0.12
       },
@@ -105,7 +105,7 @@ page CanvasParticlesPage
         x:320
         y:188
         text:"MOTION FIELD"
-        fill:"onSurface"
+        fill:"surfaceText"
         size:26
         align:"center"
         opacity:0.9
@@ -161,7 +161,7 @@ page CanvasParticlesPage
           signal particles value:[
             { type:"circle" x:30 y:40 radius:9 fill:"primary" opacity:0.7 motion:{ vx:22 vy:14 pulse:0.7 wrap:true } },
             { type:"circle" x:220 y:90 radius:7 fill:"tertiary" opacity:0.8 motion:{ vx:-28 vy:20 pulse:1.2 wrap:true } },
-            { type:"text" x:320 y:188 text:"MOTION FIELD" fill:"onSurface" size:26 align:"center" },
+            { type:"text" x:320 y:188 text:"MOTION FIELD" fill:"surfaceText" size:26 align:"center" },
           ]
 
           Canvas scene:particles viewWidth:640 viewHeight:360 fps:60 label:"Animated particle field" w:"full" h:96
@@ -217,5 +217,5 @@ page CanvasParticlesPage
       Flex justify:"space-between" align:"center" wrap:true gap:3
         Button href:"/docs/views/canvas/arcade" variant:"ghost" scheme:"muted" iconStart:"alt-arrow-left"
           "Arcade"
-        Button href:"/docs/views/canvas/infographic" variant:"solid" scheme:"primary" iconEnd:"alt-arrow-right"
+        Button href:"/docs/views/canvas/infographic" iconEnd:"alt-arrow-right"
           "Build an infographic"

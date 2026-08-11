@@ -1,0 +1,6 @@
+import { ExamplesQueue } from "@/server/config/examples"
+
+handler publishExampleEvent
+  const body value:req.json
+  msg sent conn:ExamplesQueue.publish queue:"docs-events" payload:{ event:body.event payload:{ message:body.message } }
+  return json:{ ok:sent.ok messageId:sent.id }

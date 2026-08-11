@@ -61,7 +61,7 @@ page TogglePage
           "Bind one boolean setting"
         Text size:"sm" color:"muted"
           "bind connects Toggle to a boolean Signal. Changing the switch writes the new value without executing user JavaScript."
-      Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+      Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Grid columns:1 gap:4
           Toggle:
             bind:notificationsEnabled
@@ -180,7 +180,7 @@ page TogglePage
         Text size:"sm" color:"muted"
           "Dowe lowers the same boolean switch to web, iOS, and Android, keeping labels, scheme, state, and disabled behavior aligned."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "BINDING"
@@ -188,7 +188,7 @@ page TogglePage
               "Boolean only"
             Text size:"sm" color:"muted"
               "bind accepts a bool Signal path and writes true or false when the user changes the switch."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "STATE CONTEXT"
@@ -196,7 +196,7 @@ page TogglePage
               "Labels on both sides"
             Text size:"sm" color:"muted"
               "label, labelLeft, and labelRight explain the setting and both of its available states."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "TARGETS"

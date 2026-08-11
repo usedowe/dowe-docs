@@ -4,12 +4,12 @@ page TabsPage
       {
         prop:"variant"
         type:"solid | outlined | line | ghost | pills"
-        defaultValue:"solid"
+        defaultValue:"pills"
       },
       {
         prop:"scheme"
         type:"primary | secondary | tertiary | muted | background | surface | success | info | warning | danger"
-        defaultValue:"muted"
+        defaultValue:"primary"
       },
       {
         prop:"position"
@@ -56,8 +56,8 @@ page TabsPage
         Text size:"sm" color:"muted"
           "The tab list wraps its controls instead of stretching across the panel. If a horizontal list becomes wider than its container, it stays bounded and scrolls."
       Grid columns:{ xs:1 md:2 } gap:6 align:"start"
-        Card variant:"outlined" scheme:"surface" p:{ xs:5 md:8 } rounded:"md" border:1
-          Tabs variant:"pills" scheme:"primary" position:"top"
+        Card variant:"outlined" p:{ xs:5 md:8 } border:1
+          Tabs position:"top"
             tab id:"overview" label:"Overview"
               Grid columns:1 gap:2 p:4
                 Title size:"lg" weight:"bold"
@@ -83,7 +83,7 @@ page TabsPage
           copyLabel:"Copy Dowe"
           copiedLabel:"Copied"
           content:"""
-            Tabs variant:"pills" scheme:"primary" position:"top"
+            Tabs position:"top"
               tab id:"overview" label:"Overview"
                 Text size:"sm"
                   "Project summary"
@@ -104,55 +104,55 @@ page TabsPage
         Text size:"sm" color:"muted"
           "Variant changes the tab list treatment without changing panel behavior or keyboard navigation."
       Grid columns:{ xs:1 md:2 } gap:5
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Solid"
-            Tabs variant:"solid" scheme:"primary"
+            Tabs variant:"solid"
               tab id:"solid-first" label:"First"
                 Text size:"sm" p:3
                   "The active tab uses a filled treatment."
               tab id:"solid-second" label:"Second"
                 Text size:"sm" p:3
                   "Panels keep their own view content."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Outlined"
-            Tabs variant:"outlined" scheme:"primary"
+            Tabs variant:"outlined"
               tab id:"outlined-first" label:"First"
                 Text size:"sm" p:3
                   "A border keeps the tab list distinct."
               tab id:"outlined-second" label:"Second"
                 Text size:"sm" p:3
                   "The same panel contract applies."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Line"
-            Tabs variant:"line" scheme:"primary"
+            Tabs variant:"line"
               tab id:"line-first" label:"First"
                 Text size:"sm" p:3
                   "The accent label and bottom line emphasize the active destination without outlining the control."
               tab id:"line-second" label:"Second"
                 Text size:"sm" p:3
                   "Use it for denser interfaces."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Ghost"
-            Tabs variant:"ghost" scheme:"primary"
+            Tabs variant:"ghost"
               tab id:"ghost-first" label:"First"
                 Text size:"sm" p:3
                   "A quiet option for low-emphasis navigation."
               tab id:"ghost-second" label:"Second"
                 Text size:"sm" p:3
                   "The active state remains clear."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Pills"
-            Tabs variant:"pills" scheme:"primary"
+            Tabs
               tab id:"pills-first" label:"First"
                 Text size:"sm" p:3
                   "Rounded controls separate each destination."
@@ -169,7 +169,7 @@ page TabsPage
         Text size:"sm" color:"muted"
           "top and bottom use a horizontal tab list. start and end place a vertical list beside the panel on every generated target."
       Grid columns:{ xs:1 md:2 } gap:5
-        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+        Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Bottom"
@@ -180,7 +180,7 @@ page TabsPage
               tab id:"bottom-details" label:"Details"
                 Text size:"sm" p:3
                   "Use this when the panel should lead visually."
-        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+        Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Start"
@@ -191,7 +191,7 @@ page TabsPage
               tab id:"start-security" label:"Security"
                 Text size:"sm" p:3
                   "Keep related settings together."
-        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+        Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "End"
@@ -225,28 +225,28 @@ page TabsPage
         Text size:"sm" color:"muted"
           "Tabs uses scheme, not color. Action and structural scheme families work consistently across web, desktop, Android, and iOS."
       Flex wrap:true align:"start" gap:5
-        Tabs variant:"pills" scheme:"primary"
+        Tabs
           tab id:"primary-panel" label:"Primary"
             Text size:"sm" p:3
               "Primary panel"
           tab id:"primary-next" label:"Next"
             Text size:"sm" p:3
               "Next panel"
-        Tabs variant:"pills" scheme:"success"
+        Tabs scheme:"success"
           tab id:"success-panel" label:"Success"
             Text size:"sm" p:3
               "Success panel"
           tab id:"success-next" label:"Next"
             Text size:"sm" p:3
               "Next panel"
-        Tabs variant:"pills" scheme:"warning"
+        Tabs scheme:"warning"
           tab id:"warning-panel" label:"Warning"
             Text size:"sm" p:3
               "Warning panel"
           tab id:"warning-next" label:"Next"
             Text size:"sm" p:3
               "Next panel"
-        Tabs variant:"pills" scheme:"surface"
+        Tabs scheme:"surface"
           tab id:"surface-panel" label:"Surface"
             Text size:"sm" p:3
               "Surface panel"
@@ -265,7 +265,7 @@ page TabsPage
           "Web and desktop output uses tablist, tab, and tabpanel roles. Arrow keys move through the tab controls, while Home and End move to the first and last control."
         Text size:"sm" color:"muted"
           "Android and iOS generate native stateful controls with the same initial active tab, orientation, variant, and scheme."
-      Card variant:"soft" scheme:"surface" p:6 rounded:"md"
+      Card variant:"soft" p:6
         Grid columns:1 gap:3
           Title size:"lg" weight:"bold"
             "Authoring rules"

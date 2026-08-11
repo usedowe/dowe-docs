@@ -36,19 +36,19 @@ page CountdownPage
         Text size:"sm" color:"muted"
           "The same target instant can be presented with different density and emphasis depending on where it appears in the product."
       Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"outlined" scheme:"surface" rounded:"md" border:1 p:{ xs:5 md:7 }
+        Card variant:"outlined" border:1 p:{ xs:5 md:7 }
           Grid columns:1 gap:4
             Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
               "FULL TIMELINE"
             Countdown target:"2030-01-01T00:00:00Z" size:"lg" variant:"outlined" scheme:"primary" daysLabel:"Days" hoursLabel:"Hours" minutesLabel:"Minutes" secondsLabel:"Seconds"
             Text size:"sm" color:"muted"
               "Calendar-scale day values expand their unit. Narrow containers compact lg and xl timelines, keep fitting timelines centered, and use bounded horizontal scroll only as a final fallback."
-        Card variant:"solid" scheme:"muted" rounded:"md" p:{ xs:5 md:7 }
+        Card scheme:"muted" p:{ xs:5 md:7 }
           Grid columns:1 gap:4
-            Text size:"xs" weight:"bold" spacing:"widest" color:"onMuted"
+            Text size:"xs" weight:"bold" spacing:"widest" color:"mutedText"
               "LAST MILE"
             Countdown target:"2030-01-01T00:00:00Z" showDays:false showHours:true showMinutes:true showSeconds:true size:"xl" variant:"soft" scheme:"danger" hoursLabel:"hrs" minutesLabel:"min" secondsLabel:"sec"
-            Text size:"sm" color:"onMuted"
+            Text size:"sm" color:"mutedText"
               "Hide days when the audience is already inside the final delivery window."
       Code:
         language:"dowe"
@@ -70,21 +70,21 @@ page CountdownPage
         Text size:"sm" color:"muted"
           "Countdown is useful for launches, handoffs, and limited windows when the authored labels explain exactly what the numbers mean."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" color:"muted"
               "EVENT"
             Title size:"lg" weight:"black"
               "Launch day"
             Countdown target:"2030-01-01T00:00:00Z" size:"md" variant:"soft" scheme:"success" showDays:true showHours:false showMinutes:false showSeconds:false daysLabel:"Days to launch"
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" color:"muted"
               "HANDOFF"
             Title size:"lg" weight:"black"
               "Review window"
             Countdown target:"2030-01-01T00:00:00Z" size:"md" variant:"outlined" scheme:"info" showDays:false showHours:true showMinutes:true showSeconds:false hoursLabel:"Hours left" minutesLabel:"Minutes left"
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" color:"muted"
               "MICRO"
@@ -104,7 +104,7 @@ page CountdownPage
         """
   Section id:"countdown-contract" p:{ xs:5 md:7 }
     Grid columns:{ xs:1 md:2 } gap:4
-      Card variant:"outlined" scheme:"surface" rounded:"md" border:1 p:5
+      Card variant:"outlined" border:1 p:5
         Grid columns:1 gap:2
           Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
             "TARGET"
@@ -112,7 +112,7 @@ page CountdownPage
             "Use an ISO-like instant"
           Text size:"sm" color:"muted"
             "The target is a quoted static date/time string. Keep the same instant in copied examples and server-owned workflow data."
-      Card variant:"outlined" scheme:"surface" rounded:"md" border:1 p:5
+      Card variant:"outlined" border:1 p:5
         Grid columns:1 gap:2
           Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
             "COMPLETION"
@@ -142,7 +142,7 @@ page CountdownPage
         column field:"defaultValue" label:"Default" width:"1fr"
   Section id:"countdown-next" p:{ xs:5 md:7 }
     Flex wrap:true justify:"between" gap:4
-      Button href:"/docs/views/display/collapsible" variant:"outlined" scheme:"primary" size:"md" rounded:"full"
+      Button href:"/docs/views/display/collapsible" variant:"outlined" rounded:"full"
         "Previous Collapsible"
-      Button href:"/docs/views/display/carousel" variant:"solid" scheme:"primary" size:"md" rounded:"full"
+      Button href:"/docs/views/display/carousel" rounded:"full"
         "Next Carousel"

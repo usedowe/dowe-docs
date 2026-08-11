@@ -1,5 +1,5 @@
 component ServerNavigation
-  SideNav variant:"solid" scheme:"muted" size:"md" p:4
+  SideNav variant:"solid" p:4
     item label:"Overview" href:"/docs/server" icon:"home"
     item label:"Background jobs" href:"/docs/server/background-jobs" icon:"chart-2"
     item label:"Cache" href:"/docs/server/kv" icon:"key"

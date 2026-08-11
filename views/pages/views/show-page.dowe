@@ -1,35 +1,53 @@
 page ShowPage
   signal detailsVisible value:false
   signal itemCount value:0
+  const showFormsRows:
+    value:[
+      {
+        form:"Static"
+        syntax:"show:false"
+        use:"Omit a component on every target."
+      },
+      {
+        form:"Responsive"
+        syntax:"show:{ xs:false md:true }"
+        use:"Render at selected breakpoints."
+      },
+      {
+        form:"Reactive"
+        syntax:"show:signal or comparison"
+        use:"Follow a boolean Signal or a typed numeric condition."
+      },
+    ]
   Section id:"show-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
       Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-        "LOGIC"
+        "LOGIC / VISIBILITY"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
-        "Show"
+        "Control visibility with show"
       Text size:"lg" color:"muted"
-        "The common show prop controls whether a visible component renders and participates in layout."
+        "The common show prop controls whether a visible component renders and participates in layout. Use a static boolean, a responsive map, or a reactive condition that Dowe can evaluate from page state."
   Section id:"show-example" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
-      Grid columns:1 gap:2
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "INTERACTIVE EXAMPLE"
+          "1 / LIVE EXAMPLE"
         Title size:"3xl" weight:"black"
-          "Boolean and numeric conditions"
+          "Combine boolean and numeric conditions"
         Text size:"sm" color:"muted"
-          "When a condition is false, the associated component takes no space in the layout."
-      Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
-        Grid columns:1 gap:4
-          Flex wrap:true gap:3
-            Button onClick:{ set:detailsVisible value:!detailsVisible } scheme:"primary"
-              "Toggle details"
-            Button onClick:{ set:itemCount add:1 } variant:"outlined" scheme:"primary"
-              "Add item"
-          Text show:detailsVisible size:"sm" color:"muted"
-            "This message follows a boolean Signal."
-          Card show:{ when:itemCount gte:3 } variant:"soft" scheme:"success" p:4 rounded:"md"
-            Text
-              "You added at least three items."
+          "When a condition is false, the associated component takes no space in the layout. Toggle the boolean Signal to reveal text, then add items until the numeric condition becomes true."
+        Alert type:"info" message:"show decides whether the component renders. The component's own props and children remain unchanged when the condition becomes true again."
+      Grid columns:1 gap:4
+        Flex wrap:true gap:3
+          Button onClick:{ set:detailsVisible value:!detailsVisible }
+            "Toggle details"
+          Button onClick:{ set:itemCount add:1 } variant:"outlined"
+            "Add item"
+        Text show:detailsVisible size:"sm" color:"muted"
+          "This message follows a boolean Signal."
+        Card show:{ when:itemCount gte:3 } variant:"soft" scheme:"success" p:4
+          Text
+            "You added at least three items."
       Code:
         language:"dowe"
         variant:"soft"
@@ -48,19 +66,22 @@ page ShowPage
               "Three items reached"
         """
   Section id:"show-forms" py:{ xs:7 md:10 }
-    Grid columns:{ xs:1 md:3 } gap:4
-      Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-        Title size:"lg" weight:"bold"
-          "Static"
-        Text size:"sm" color:"muted"
-          "Use show:false to omit a component on every target."
-      Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-        Title size:"lg" weight:"bold"
-          "Responsive"
-        Text size:"sm" color:"muted"
-          "Use show:{ xs:false md:true } for breakpoint visibility."
-      Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-        Title size:"lg" weight:"bold"
-          "Reactive"
-        Text size:"sm" color:"muted"
-          "Use a boolean Signal path or a typed numeric comparison."
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "2 / CHOOSE THE FORM"
+        Title size:{ xs:"2xl" md:"4xl" } weight:"black"
+          "Use the condition that matches the owner"
+        Text color:"muted"
+          "Keep visibility close to the component it controls. A static rule belongs in the view tree, a breakpoint rule belongs in responsive props, and a reactive rule reads state owned by the page or layout."
+      Table:
+        data:showFormsRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"form" label:"Form" width:"1fr"
+        column field:"syntax" label:"Syntax" width:"2fr"
+        column field:"use" label:"Use it when" width:"4fr"

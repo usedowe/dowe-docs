@@ -1,230 +1,185 @@
 page StandardLibraryPage
+  const standardModelRows:
+    value:[
+      { part:"Binding" meaning:"parsed, sorted, and total are ordinary server bindings. Later statements can reference them by name." },
+      { part:"source" meaning:"source selects one function from the canonical namespace, such as json, asc, or sum." },
+      { part:"Named props" meaning:"value, values, fallback, field, and direction are validated against the selected function before runtime." },
+    ]
+  const standardBoundaryRows:
+    value:[
+      { rule:"Server boundary" guidance:"Declarations execute in the Rust server runtime. They cannot open network connections, read files, launch processes, or expose environment secrets." },
+      { rule:"Fallbacks" guidance:"Invalid parse input returns fallback when supplied, otherwise null. A fallback keeps the rest of the function in a predictable JSON-compatible shape." },
+      { rule:"Pure values" guidance:"Standard-library calls do not mutate request data or source arrays. sort and list return new logical arrays." },
+    ]
+  const standardCatalogRows:
+    value:[
+      { namespace:"str" functions:"trim(value), lower(value), upper(value), length(value), contains(value, needle), startsWith(value, prefix), endsWith(value, suffix), replace(value, from, to), split(value, delimiter, limit?), join(values, delimiter?)" },
+      { namespace:"math" functions:"add(left, right), sub(left, right), mul(left, right), div(left, right), round(value), floor(value), ceil(value), abs(value), min(values), max(values), sum(values), average(values)" },
+      { namespace:"parse" functions:"int(value, fallback?), float(value, fallback?), bool(value, fallback?), json(value, fallback?), string(value, fallback?), svg(value, fallback?)" },
+      { namespace:"url" functions:"encode(value), decode(value, fallback?), parse(value), queryGet(value, name), querySet(value, name, param)" },
+      { namespace:"csv" functions:"parse(value, delimiter?, header?, maxRows?, maxColumns?), stringify(rows, delimiter?)" },
+      { namespace:"sort" functions:"asc(values), desc(values), by(values, field, direction?, nulls?)" },
+      { namespace:"list" functions:"take(values, count), skip(values, count), first(values), last(values), count(values), filterEquals(values, field, value), filterContains(values, field, value), mapField(values, field), sumBy(values, field), averageBy(values, field)" },
+      { namespace:"json" functions:"get(value, path, fallback?), set(value, path, next), pick(value, fields), omit(value, fields), merge(left, right), stringify(value, pretty?), parse(value, fallback?)" },
+      { namespace:"date" functions:"now(), formatIso(value), addDays(value, days), diffDays(start, end)" },
+      { namespace:"id" functions:"ulid() returns a canonical server-only identifier." },
+    ]
   Section id:"standard-library-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "SERVER / STANDARD LIBRARY"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Compose portable server values"
+      Text size:"lg" color:"muted"
+        "The standard library gives reusable server functions small, deterministic operations for parsing, sorting, formatting, and numeric work. Each declaration names a capability, a source function, and the named props that it needs."
+  Section id:"standard-library-mental-model" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "SERVER / STANDARD LIBRARY"
-        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
-          "Compose portable server values"
-        Text size:"lg" color:"muted"
-          "The standard library gives reusable server functions small, deterministic operations for parsing, sorting, and numeric work. Each declaration names its capability, binding, source function, and named props."
-      Button href:"/docs/server" variant:"ghost" scheme:"muted" size:"sm" iconStart:"server"
-        "Server documentation"
-  Section id:"standard-library-mental-model" p:{ xs:5 md:7 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "MENTAL MODEL"
+          "1 / MENTAL MODEL"
         Title size:"3xl" weight:"black"
           "Declare a capability-first value"
         Text size:"sm" color:"muted"
-          "The binding is the value exposed to later statements. source selects one function in the namespace, and every other prop is named. There is no assignment operator and no callback or dynamic code."
+          "The binding is the value exposed to later statements. source selects one function in the namespace, and every other prop is named. There is no assignment operator, callback, or dynamic code."
       Code:
         language:"dowe"
         variant:"soft"
         scheme:"surface"
-        copyLabel:"Copy standard-library declarations"
+        copyLabel:"Copy declarations"
         copiedLabel:"Copied"
         content:"""
           parse parsed source:"json" value:args.payload fallback:[]
           sort sorted source:"asc" values:parsed
           math total source:"sum" values:sorted
         """
-      Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "Binding"
-          Text size:"sm" color:"muted"
-            "parsed, sorted, and total are ordinary server bindings. Later statements can reference them by name."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "source"
-          Text size:"sm" color:"muted"
-            "source:\"json\", source:\"asc\", and source:\"sum\" select functions from the canonical catalog."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "Named props"
-          Text size:"sm" color:"muted"
-            "Props such as value, values, fallback, field, and direction are validated against the selected function before runtime."
+      Table:
+        data:standardModelRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"part" label:"Part" width:"2fr"
+        column field:"meaning" label:"How to read it" width:"5fr"
   Section id:"standard-library-flow" py:{ xs:7 md:10 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "FN + HANDLER FLOW"
+          "2 / FN + HANDLER FLOW"
         Title size:{ xs:"2xl" md:"4xl" } weight:"black"
           "Keep algorithms reusable and HTTP at the edge"
         Text color:"muted"
           "A reusable fn transforms data and returns value. The handler imports it, passes named args, and owns the HTTP response. This keeps parsing, sorting, and aggregation out of route wiring."
-      Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
-          Grid columns:1 gap:3
-            Text size:"xs" weight:"bold" color:"primary"
-              "server/functions/scores.dowe"
-            Code:
-              language:"dowe"
-              variant:"soft"
-              scheme:"surface"
-              copyLabel:"Copy reusable function"
-              copiedLabel:"Copied"
-              content:"""
-                fn summarizeScores params:{ payload:string }
-                  parse parsed source:"json" value:args.payload fallback:[]
-                  sort sorted source:"asc" values:parsed
-                  math total source:"sum" values:sorted
-                  return value:{ total:total sorted:sorted }
-              """
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:3
-            Text size:"xs" weight:"bold" color:"muted"
-              "server/handlers/scores.dowe"
-            Code:
-              language:"dowe"
-              variant:"soft"
-              scheme:"surface"
-              copyLabel:"Copy handler"
-              copiedLabel:"Copied"
-              content:"""
-                import summarizeScores from "@/server/functions/scores"
+      Text size:"xs" weight:"bold" color:"muted"
+        "server/functions/scores.dowe"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy reusable function"
+        copiedLabel:"Copied"
+        content:"""
+          fn summarizeScores params:{ payload:string }
+            parse parsed source:"json" value:args.payload fallback:[]
+            sort sorted source:"asc" values:parsed
+            math total source:"sum" values:sorted
+            return value:{ total:total sorted:sorted }
+        """
+      Text size:"xs" weight:"bold" color:"muted"
+        "server/handlers/scores.dowe"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy handler"
+        copiedLabel:"Copied"
+        content:"""
+          import summarizeScores from "@/server/functions/scores"
 
-                handler summarize
-                  const body value:req.json
-                  summarizeScores result args:{ payload:body.payload }
-                  return json:result
-              """
-      Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "Server boundary"
-          Text size:"sm" color:"muted"
-            "These declarations execute in the Rust server runtime. They cannot open network connections, read files, launch processes, or expose environment secrets."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "Fallbacks"
-          Text size:"sm" color:"muted"
-            "Invalid parse input returns its fallback when supplied, otherwise null. A fallback keeps the rest of the function in a predictable JSON-compatible shape."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "Pure values"
-          Text size:"sm" color:"muted"
-            "Standard-library calls do not mutate request data or source arrays. sort and list return new logical arrays."
+          handler summarize
+            const body value:req.json
+            summarizeScores result args:{ payload:body.payload }
+            return json:result
+        """
+      Table:
+        data:standardBoundaryRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"rule" label:"Boundary" width:"2fr"
+        column field:"guidance" label:"What it means" width:"5fr"
   Section id:"standard-library-catalog" p:{ xs:5 md:7 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "IMPLEMENTED CATALOG"
+          "3 / IMPLEMENTED CATALOG"
         Title size:{ xs:"2xl" md:"4xl" } weight:"black"
           "Use only the canonical functions"
         Text color:"muted"
-          "The namespace and source names below are implemented today. Unknown functions and props are rejected during compilation."
-      Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "str"
-          Text size:"sm" color:"muted"
-            "trim(value), lower(value), upper(value), length(value), contains(value, needle), startsWith(value, prefix), endsWith(value, suffix), replace(value, from, to), split(value, delimiter, limit?), join(values, delimiter?)"
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "math"
-          Text size:"sm" color:"muted"
-            "add(left, right), sub(left, right), mul(left, right), div(left, right), round(value), floor(value), ceil(value), abs(value), min(values), max(values), sum(values), average(values)"
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "parse"
-          Text size:"sm" color:"muted"
-            "int(value, fallback?), float(value, fallback?), bool(value, fallback?), json(value, fallback?), string(value, fallback?), svg(value, fallback?)"
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "url"
-          Text size:"sm" color:"muted"
-            "encode(value), decode(value, fallback?), parse(value), queryGet(value, name), querySet(value, name, param)"
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "csv"
-          Text size:"sm" color:"muted"
-            "parse(value, delimiter?, header?, maxRows?, maxColumns?), stringify(rows, delimiter?)"
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "sort"
-          Text size:"sm" color:"muted"
-            "asc(values), desc(values), by(values, field, direction?, nulls?)"
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "list"
-          Text size:"sm" color:"muted"
-            "take(values, count), skip(values, count), first(values), last(values), count(values), filterEquals(values, field, value), filterContains(values, field, value), mapField(values, field), sumBy(values, field), averageBy(values, field)"
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "json"
-          Text size:"sm" color:"muted"
-            "get(value, path, fallback?), set(value, path, next), pick(value, fields), omit(value, fields), merge(left, right), stringify(value, pretty?), parse(value, fallback?)"
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "date"
-          Text size:"sm" color:"muted"
-            "now(), formatIso(value), addDays(value, days), diffDays(start, end)"
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "id"
-          Text size:"sm" color:"muted"
-            "ulid() is server-only and returns a canonical identifier."
+          "The namespace and source names below are implemented today. Unknown functions and props are rejected during compilation. The optional ? marks an optional argument."
+      Table:
+        data:standardCatalogRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"namespace" label:"Namespace" width:"1fr"
+        column field:"functions" label:"Available functions" width:"6fr"
   Section id:"standard-library-details" py:{ xs:7 md:10 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "MATH / PARSE / SORT"
-        Title size:{ xs:"2xl" md:"4xl" } weight:"black"
-          "Predictable edges for user data"
-        Text color:"muted"
-          "Finite numbers, controlled parse failures, and stable ordering make these helpers suitable for request-bound algorithms without hidden side effects."
-      Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "math"
-          Text size:"sm" color:"muted"
-            "All math values are finite numbers. sum([]) is 0. average([]), min([]), and max([]) are null. Division by zero and non-finite results are controlled runtime results."
-          Code:
-            language:"dowe"
-            variant:"soft"
-            scheme:"surface"
-            copyLabel:"Copy math"
-            copiedLabel:"Copied"
-            content:"""
-              math total source:"sum" values:[1, 2, 3]
-              math mean source:"average" values:body.scores
-            """
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "parse"
-          Text size:"sm" color:"muted"
-            "int rejects decimal text, float accepts finite text, bool accepts the documented boolean spellings, and json returns a JSON value. Every parser returns fallback or null instead of throwing into the handler."
-          Code:
-            language:"dowe"
-            variant:"soft"
-            scheme:"surface"
-            copyLabel:"Copy parse"
-            copiedLabel:"Copied"
-            content:"""
-              parse page source:"int" value:req.params.page fallback:1
-              parse filters source:"json" value:body.filters fallback:[]
-              parse icon source:"svg" value:body.icon fallback:""
-            """
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "sort"
-          Text size:"sm" color:"muted"
-            "asc and desc compare values stably. by reads a dotted field, accepts direction asc or desc, and places missing values first or last with nulls."
-          Code:
-            language:"dowe"
-            variant:"soft"
-            scheme:"surface"
-            copyLabel:"Copy sort"
-            copiedLabel:"Copied"
-            content:"""
-              sort newest source:"by" values:body.items field:"createdAt" direction:"desc" nulls:"last"
-            """
-      Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-        Grid columns:1 gap:2
-          Title size:"lg" weight:"bold"
-            "Spec and support boundary"
-          Text size:"sm" color:"muted"
-            "The implemented contract is defined by /specs/features/00068-add-portable-standard-library and /specs/features/00131-canonicalize-server-values-and-returns. This page documents the server subset; it does not add functions beyond the shared catalog."
+          "4 / DETAILS"
+        Title size:"3xl" weight:"black"
+          "Know the predictable edge cases"
+        Text size:"sm" color:"muted"
+          "The declarations are intentionally finite. Read the result rules below before using a parser or aggregate in a handler."
+      Text size:"xs" weight:"bold" color:"muted"
+        "math"
+      Text size:"sm" color:"muted"
+        "All math values are finite numbers. sum([]) is 0. average([]), min([]), and max([]) are null. Division by zero and non-finite results are controlled runtime results."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy math"
+        copiedLabel:"Copied"
+        content:"""
+          math total source:"sum" values:[1, 2, 3]
+          math mean source:"average" values:body.scores
+        """
+      Text size:"xs" weight:"bold" color:"muted"
+        "parse"
+      Text size:"sm" color:"muted"
+        "int rejects decimal text, float accepts finite text, bool accepts the documented boolean spellings, and json returns a JSON value. Every parser returns fallback or null instead of throwing into the handler."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy parse"
+        copiedLabel:"Copied"
+        content:"""
+          parse page source:"int" value:req.params.page fallback:1
+          parse filters source:"json" value:body.filters fallback:[]
+          parse icon source:"svg" value:body.icon fallback:""
+        """
+      Text size:"xs" weight:"bold" color:"muted"
+        "sort"
+      Text size:"sm" color:"muted"
+        "asc and desc compare values stably. by reads a dotted field, accepts direction asc or desc, and places missing values first or last with nulls."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy sort"
+        copiedLabel:"Copied"
+        content:"""
+          sort newest source:"by" values:body.items field:"createdAt" direction:"desc" nulls:"last"
+        """
+      Alert type:"info" message:"The implemented contract is defined by /specs/features/00068-add-portable-standard-library and /specs/features/00131-canonicalize-server-values-and-returns. This page documents the server subset; it does not add functions beyond the shared catalog."

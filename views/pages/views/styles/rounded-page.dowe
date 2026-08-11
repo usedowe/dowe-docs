@@ -67,7 +67,7 @@ page RoundedPage
             Text size:"sm" color:"muted"
               "Small corners keep dense interfaces precise."
         Flex direction:"column" gap:3 align:"center" justify:"center" p:6
-          Button variant:"solid" scheme:"secondary" rounded:"full"
+          Button scheme:"secondary" rounded:"full"
             "Pill action"
           Text size:"sm" color:"muted"
             "Full follows the control shape."

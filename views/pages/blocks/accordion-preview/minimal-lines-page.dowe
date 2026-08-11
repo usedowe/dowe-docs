@@ -3,7 +3,7 @@ page MinimalLinesAccordionPage
     { id:"clarity" text:"Each answer begins with the essential point so visitors can understand it without reading unnecessary detail." },
     { id:"behavior" text:"The disclosure state stays local to the Accordion and remains consistent across web and native targets." },
   ]
-  Section id:"minimal-lines-accordion" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:14 } minH:"vh-0"
+  Section id:"minimal-lines-accordion" bg:"background" color:"backgroundText" boxed:true py:{ xs:8 md:14 } minH:"vh-0"
     Grid columns:1 gap:{ xs:8 md:12 }
       Flex direction:"column" align:"center" gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
@@ -12,7 +12,7 @@ page MinimalLinesAccordionPage
           "Frequently Asked Questions"
         Text size:"lg" color:"muted"
           "A minimal disclosure list separated by quiet lines and generous vertical rhythm."
-      Accordion variant:"ghost" scheme:"muted" rounded:"xs" w:"full"
+      Accordion scheme:"muted" rounded:"xs" w:"full"
         item id:"reusable" label:"What makes a reusable website block effective?" defaultOpen:true
           Grid columns:1 gap:2
             each in:answerLines as:line key:line.id

@@ -1,0 +1,22 @@
+import listExampleBlogsService from "@/server/services/example-crud-service"
+import createExampleBlogService from "@/server/services/example-crud-service"
+import updateExampleBlogService from "@/server/services/example-crud-service"
+import deleteExampleBlogService from "@/server/services/example-crud-service"
+
+handler listExampleBlogs
+  listExampleBlogsService result
+  return json:{ ok:true data:result }
+
+handler createExampleBlog
+  const body value:req.json
+  createExampleBlogService result args:{ title:body.title content:body.content ownerId:req.context.auth.subject }
+  return status:201 json:{ ok:true data:result.blogs created:result.created }
+
+handler updateExampleBlog
+  const body value:req.json
+  updateExampleBlogService result args:{ id:req.params.id ownerId:req.context.auth.subject title:body.title content:body.content }
+  return json:{ ok:true changed:result.changed data:result.blogs }
+
+handler deleteExampleBlog
+  deleteExampleBlogService result args:{ id:req.params.id ownerId:req.context.auth.subject }
+  return json:{ ok:true deleted:result.deleted data:result.blogs }

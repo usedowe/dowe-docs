@@ -22,7 +22,7 @@ page DashboardSettingsPage
         Text size:"sm" color:"muted"
           "Keep identity, security, and notifications in one responsive form."
       Grid columns:{ xs:1 lg:"280px 1fr" } gap:4 align:"start"
-        Card variant:"soft" scheme:"surface" rounded:"lg" p:{ xs:5 md:6 } border:1
+        Card variant:"soft" rounded:"lg" p:{ xs:5 md:6 } border:1
           Flex direction:"column" align:"center" gap:3
             Avatar name:"Jordan Lee" alt:"Jordan Lee profile photo placeholder" size:"xl" variant:"soft" scheme:"primary" bordered:true
             Text size:"sm" weight:"bold"
@@ -31,7 +31,7 @@ page DashboardSettingsPage
               "Placeholder avatar for this copy-ready block."
             Button variant:"outlined" scheme:"muted" size:"sm"
               "Change photo"
-        Card variant:"soft" scheme:"surface" rounded:"lg" p:{ xs:5 md:8 } border:1
+        Card variant:"soft" rounded:"lg" p:{ xs:5 md:8 } border:1
           Grid columns:1 gap:5
             Grid columns:1 gap:1
               Title size:"xl" weight:"bold"
@@ -40,17 +40,17 @@ page DashboardSettingsPage
                 "These fields are ready to bind to a settings endpoint."
             Alert type:"info" variant:"soft" scheme:"info" message:"Changes are saved locally in this preview."
             Grid columns:{ xs:1 md:2 } gap:4
-              Input bind:settings.fullName label:"Full name" placeholder:"Your full name" variant:"outlined" scheme:"muted" w:"full"
-              Input bind:settings.email label:"Email address" placeholder:"you@example.com" variant:"outlined" scheme:"muted" w:"full"
-              Password bind:settings.password label:"Password" placeholder:"Enter a new password" hideStrength:true variant:"outlined" scheme:"muted" w:"full"
-              Select bind:settings.timezone label:"Timezone" placeholder:"Choose a timezone" variant:"outlined" scheme:"muted" w:"full"
+              Input bind:settings.fullName label:"Full name" placeholder:"Your full name" scheme:"muted" w:"full"
+              Input bind:settings.email label:"Email address" placeholder:"you@example.com" scheme:"muted" w:"full"
+              Password bind:settings.password label:"Password" placeholder:"Enter a new password" hideStrength:true scheme:"muted" w:"full"
+              Select bind:settings.timezone label:"Timezone" placeholder:"Choose a timezone" scheme:"muted" w:"full"
                 each in:timezones as:timezone key:timezone.id
                   Option value:timezone.value label:timezone.label
-              Select bind:settings.digest label:"Email digest" placeholder:"Choose a cadence" variant:"outlined" scheme:"muted" w:"full"
+              Select bind:settings.digest label:"Email digest" placeholder:"Choose a cadence" scheme:"muted" w:"full"
                 each in:digests as:digest key:digest.id
                   Option value:digest.value label:digest.label
             Flex direction:{ xs:"column" sm:"row" } justify:"end" gap:3
-              Button variant:"ghost" scheme:"muted" size:"md"
+              Button variant:"ghost" scheme:"muted"
                 "Cancel"
-              Button variant:"solid" scheme:"primary" size:"md"
+              Button
                 "Save changes"

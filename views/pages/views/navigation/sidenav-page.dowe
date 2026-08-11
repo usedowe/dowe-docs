@@ -187,34 +187,30 @@ page SideNavPage
         Text size:"sm" color:"muted"
           "The controls bind directly to the preview and update the same target-neutral navigation tree without resetting submenu state."
         Text size:"sm" color:"muted"
+          "Inactive labels and descriptions keep the page foreground on every target, while the selected scheme is reserved for active and pressed rows."
+        Text size:"sm" color:"muted"
           "SideNav items and submenu items can target a Section id with href:\"#sidenav-structure\". Dowe validates the fragment, animates the scroll, and keeps the section below a fixed or sticky AppBar on web."
       Grid columns:{ xs:1 md:3 } gap:4
         Select:
           bind:schemeChoice
           label:"Scheme"
           placeholder:"Choose a scheme"
-          variant:"outlined"
-          scheme:"primary"
           each in:schemeOptions as:option key:option.id
             Option value:option.value label:option.label
         Select:
           bind:variantChoice
           label:"Variant"
           placeholder:"Choose a variant"
-          variant:"outlined"
-          scheme:"primary"
           each in:variantOptions as:option key:option.id
             Option value:option.value label:option.label
         Select:
           bind:sizeChoice
           label:"Size"
           placeholder:"Choose a size"
-          variant:"outlined"
-          scheme:"primary"
           each in:sizeOptions as:option key:option.id
             Option value:option.value label:option.label
-      Checkbox bind:wideEnabled label:"Fill the available width" scheme:"primary"
-      Card variant:"outlined" scheme:"surface" p:{ xs:6 md:10 } rounded:"md" border:1
+      Checkbox bind:wideEnabled label:"Fill the available width"
+      Card variant:"outlined" p:{ xs:6 md:10 } border:1
         SideNav variant:variantChoice scheme:schemeChoice size:sizeChoice wide:wideEnabled
           header label:"Workspace" description:"Project navigation" icon:"sidebar-minimalistic"
           item:
@@ -264,16 +260,16 @@ page SideNavPage
         Title size:"xl" weight:"bold"
           "Variants"
         Grid columns:{ xs:1 md:2 } gap:4
-          SideNav variant:"solid" scheme:"primary" size:"md" wide:true
+          SideNav variant:"solid" scheme:"primary" wide:true
             item label:"Solid" description:"Filled navigation" href:"/docs/views"
             item label:"Settings" href:"/docs/views"
-          SideNav variant:"soft" scheme:"primary" size:"md" wide:true
+          SideNav variant:"soft" scheme:"primary" wide:true
             item label:"Soft" description:"Subtle navigation" href:"/docs/views"
             item label:"Settings" href:"/docs/views"
-          SideNav variant:"outlined" scheme:"primary" size:"md" wide:true
+          SideNav variant:"outlined" scheme:"primary" wide:true
             item label:"Outlined" description:"Bordered navigation" href:"/docs/views"
             item label:"Settings" href:"/docs/views"
-          SideNav variant:"ghost" scheme:"primary" size:"md" wide:true
+          SideNav scheme:"primary" wide:true
             item label:"Ghost" description:"Minimal navigation" href:"/docs/views"
             item label:"Settings" href:"/docs/views"
       Grid columns:1 gap:4
@@ -286,7 +282,7 @@ page SideNavPage
             item label:"Secondary" href:"/docs/views"
           SideNav variant:"soft" scheme:"tertiary" size:"sm" wide:true
             item label:"Tertiary" href:"/docs/views"
-          SideNav variant:"soft" scheme:"muted" size:"sm" wide:true
+          SideNav variant:"soft" size:"sm" wide:true
             item label:"Muted" href:"/docs/views"
           SideNav variant:"soft" scheme:"success" size:"sm" wide:true
             item label:"Success" href:"/docs/views"
@@ -300,11 +296,11 @@ page SideNavPage
         Title size:"xl" weight:"bold"
           "Sizes"
         Flex wrap:true align:"start" gap:5
-          SideNav variant:"outlined" scheme:"muted" size:"sm"
+          SideNav variant:"outlined" size:"sm"
             item label:"Small" description:"Compact density" href:"/docs/views"
-          SideNav variant:"outlined" scheme:"muted" size:"md"
+          SideNav variant:"outlined"
             item label:"Medium" description:"Default density" href:"/docs/views"
-          SideNav variant:"outlined" scheme:"muted" size:"lg"
+          SideNav variant:"outlined" size:"lg"
             item label:"Large" description:"Spacious density" href:"/docs/views"
   Section id:"sidenav-width" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
@@ -316,21 +312,21 @@ page SideNavPage
         Text size:"sm" color:"muted"
           "Without wide, SideNav and its interactive rows use their content width. Set wide:true when the navigation and the active or hovered rows should fill the available horizontal space on web, Android, and iOS."
       Grid columns:{ xs:1 md:2 } gap:5
-        Card variant:"soft" scheme:"surface" p:6 rounded:"md"
+        Card variant:"soft" p:6
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Intrinsic by default"
             Text size:"sm" color:"muted"
               "The navigation stays as narrow as its entries require."
-            SideNav variant:"soft" scheme:"muted" size:"sm"
+            SideNav variant:"soft" size:"sm"
               item label:"Statistics" href:"/docs/views" status:"New" icon:"chart"
-        Card variant:"soft" scheme:"surface" p:6 rounded:"md"
+        Card variant:"soft" p:6
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Fill with wide"
             Text size:"sm" color:"muted"
               "The navigation and its entry states expand across the available width."
-            SideNav variant:"soft" scheme:"muted" size:"sm" wide:true
+            SideNav variant:"soft" size:"sm" wide:true
               item label:"Statistics" href:"/docs/views" status:"New" icon:"chart"
   Section id:"sidenav-structure" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
@@ -341,8 +337,10 @@ page SideNavPage
           "Entries with clear roles"
         Text size:"sm" color:"muted"
           "Use headers to introduce groups, items for navigation or actions, dividers for separation, and submenus for expandable destinations."
+        Text size:"sm" color:"muted"
+          "Only headers use the scheme title role. Items and submenu triggers use the normal text foreground while inactive."
       Grid columns:{ xs:1 md:2 } gap:5
-        Card variant:"soft" scheme:"surface" p:6 rounded:"md"
+        Card variant:"soft" p:6
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Navigation entries"
@@ -357,7 +355,7 @@ page SideNavPage
                   item label:"Overview" href:"/overview"
                   item label:"Create project" onClick:createProject
               """
-        Card variant:"soft" scheme:"surface" p:6 rounded:"md"
+        Card variant:"soft" p:6
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Expandable submenus"
@@ -389,7 +387,7 @@ page SideNavPage
         variant:"soft"
         scheme:"surface"
         content:"""
-          SideNav size:"md" wide:true
+          SideNav wide:true
             header label:"Workspace" icon:"sidebar-minimalistic"
             item label:"Home" href:"/" icon:"home"
             submenu label:"Content" icon:"document-text"

@@ -37,7 +37,7 @@ page RichTextPage
           "Build a release message"
         Text size:"sm" color:"muted"
           "Use marks to give hierarchy to a single sentence without splitting it into unrelated Text nodes."
-      Card variant:"outlined" scheme:"surface" p:{ xs:6 md:9 } rounded:"md" border:1
+      Card variant:"outlined" p:{ xs:6 md:9 } border:1
         RichText size:"xl" weight:"bold"
           mark text:"Dowe" style:"grad" scheme:"primary"
           mark text:"generates" style:"under" scheme:"info"
@@ -63,7 +63,7 @@ page RichTextPage
         Text size:"sm" color:"muted"
           "The style belongs to the mark entry. Use schemes for semantic emphasis and keep the surrounding sentence readable without relying on color alone."
       Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"soft" scheme:"surface" p:{ xs:5 md:7 } rounded:"md"
+        Card variant:"soft" p:{ xs:5 md:7 }
           Grid columns:1 gap:4
             Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
               "EDITORIAL"
@@ -75,7 +75,7 @@ page RichTextPage
               mark text:"Read the" style:"mark" scheme:"muted"
               mark text:" highlighted clause" style:"glow" scheme:"warning"
               mark text:" before shipping." style:"mark" scheme:"muted"
-        Card variant:"soft" scheme:"surface" p:{ xs:5 md:7 } rounded:"md"
+        Card variant:"soft" p:{ xs:5 md:7 }
           Grid columns:1 gap:4
             Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
               "PRODUCT UI"
@@ -110,7 +110,7 @@ page RichTextPage
           "Set title:true to keep Title typography while every visual treatment remains owned by the mark."
         Text size:"sm" color:"muted"
           "On web, Android, and iOS, fitting marks keep their intrinsic width while oversized marks wrap on whole-word boundaries with centered lines inside the available container."
-      Card variant:"soft" scheme:"surface" p:{ xs:6 md:9 } rounded:"md"
+      Card variant:"soft" p:{ xs:6 md:9 }
         RichText title:true size:{ xs:"3xl" md:"5xl" }
           mark text:"DEVELOPMENT, BRANDING" style:"mark" scheme:"secondary"
       Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
@@ -119,7 +119,7 @@ page RichTextPage
       """
   Section id:"rich-text-patterns" p:{ xs:5 md:7 }
     Grid columns:{ xs:1 md:3 } gap:4
-      Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+      Card variant:"outlined" p:5 border:1
         Grid columns:1 gap:2
           Text size:"xs" weight:"bold" color:"muted"
             "HEADLINES"
@@ -127,7 +127,7 @@ page RichTextPage
             "Keep a sentence"
           Text size:"sm" color:"muted"
             "Use a larger size and a restrained number of marks for hero or release copy."
-      Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+      Card variant:"outlined" p:5 border:1
         Grid columns:1 gap:2
           Text size:"xs" weight:"bold" color:"muted"
             "STATUS"
@@ -135,7 +135,7 @@ page RichTextPage
             "Pair style and scheme"
           Text size:"sm" color:"muted"
             "The style controls treatment; scheme controls the semantic color family."
-      Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+      Card variant:"outlined" p:5 border:1
         Grid columns:1 gap:2
           Text size:"xs" weight:"bold" color:"muted"
             "ACCESSIBILITY"

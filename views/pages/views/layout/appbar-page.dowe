@@ -103,7 +103,7 @@ page AppBarPage
           layout MainLayout
             Scaffold
               appBar
-                AppBar variant:"soft" scheme:"surface" position:"sticky" boxed:true bordered:true hideOnScroll:true
+                AppBar variant:"soft" position:"sticky" boxed:true bordered:true hideOnScroll:true
                   top
                     Marquee speed:"slow"
                       Text size:"xs"
@@ -115,7 +115,7 @@ page AppBarPage
                     Text size:"sm"
                       "Documentation"
                   end
-                    Button href:"/" variant:"ghost" scheme:"primary" size:"sm"
+                    Button href:"/" variant:"ghost" size:"sm"
                       "Home"
                   bottom
                     Text size:"xs" color:"muted"

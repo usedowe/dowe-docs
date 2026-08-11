@@ -116,6 +116,10 @@ import SoftCardsTestimonialsPage from "@/views/pages/blocks/testimonial-preview/
 import ProductCatalogStorePage from "@/views/pages/blocks/store-preview/product-catalog-page"
 import ProductDetailStorePage from "@/views/pages/blocks/store-preview/product-detail-page"
 import ShoppingCartStorePage from "@/views/pages/blocks/store-preview/shopping-cart-page"
+import ServerCrudBlockPage from "@/views/pages/blocks/server/crud-page"
+import ServerAuthBlockPage from "@/views/pages/blocks/server/auth-page"
+import ServerQueueBlockPage from "@/views/pages/blocks/server/queue-page"
+import ServerUtilitiesBlockPage from "@/views/pages/blocks/server/utilities-page"
 views BlockViews
   group path:"/blocks/" layout:BlocksLayout
     route path:"appbar" page:AppBarsPage
@@ -134,6 +138,10 @@ views BlockViews
     route path:"table" page:TablesPage
     route path:"testimonial" page:TestimonialsPage
     route path:"dashboard" page:DashboardPage
+    route path:"server/crud" page:ServerCrudBlockPage
+    route path:"server/auth" page:ServerAuthBlockPage
+    route path:"server/queue" page:ServerQueueBlockPage
+    route path:"server/utilities" page:ServerUtilitiesBlockPage
   group path:"/blocks/appbar-preview/classic-saas" layout:AppBarClassicSaasLayout
     route path:"" page:AppBarPreviewPage
   group path:"/blocks/appbar-preview/creative" layout:AppBarCreativeLayout

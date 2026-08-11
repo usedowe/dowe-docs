@@ -3,45 +3,45 @@ layout FooterBrandLayout
     main
       children
     bottomBar
-      Footer variant:"solid" scheme:"muted" boxed:true py:{ xs:8 md:6 }
+      Footer scheme:"muted" boxed:true py:{ xs:8 md:6 }
         top
           Grid columns:3 align:"center" show:{ xs:false md:true }
             Flex justify:"start" wrap:true gap:1
-              Button href:"/blocks/footer-preview/navigation" variant:"solid" scheme:"muted" size:"sm"
+              Button href:"/blocks/footer-preview/navigation" scheme:"muted" size:"sm"
                 "Eleven"
-              Button href:"/blocks/footer-preview/social" variant:"solid" scheme:"muted" size:"sm"
+              Button href:"/blocks/footer-preview/social" scheme:"muted" size:"sm"
                 "Twelve"
-              Button href:"/blocks/footer-preview/legal" variant:"solid" scheme:"muted" size:"sm"
+              Button href:"/blocks/footer-preview/legal" scheme:"muted" size:"sm"
                 "Thirteen"
             Flex justify:"center"
               Brand href:"/blocks/footer" label:"WebbyFrames home"
                 Flex align:"center" gap:2
-                  Icon name:"widget-5" style:"linear" fill:"onMuted" w:7 h:7
+                  Icon name:"widget-5" fill:"mutedText" w:7 h:7
                   Flex direction:"column" align:"center"
-                    Text size:"lg" weight:"black" color:"onMuted"
+                    Text size:"lg" weight:"black" color:"mutedText"
                       "WebbyFrames"
-                    Text size:"xs" color:"onMuted"
+                    Text size:"xs" color:"mutedText"
                       "for Figma"
             Flex justify:"end" gap:1
-              IconButton icon:"play-circle" label:"YouTube" href:"https://youtube.com" variant:"solid" scheme:"muted"
-              IconButton icon:"camera" label:"Instagram" href:"https://instagram.com" variant:"solid" scheme:"muted"
-              IconButton icon:"link-circle" label:"LinkedIn" href:"https://linkedin.com" variant:"solid" scheme:"muted"
+              IconButton icon:"play-circle" label:"YouTube" href:"https://youtube.com" scheme:"muted"
+              IconButton icon:"camera" label:"Instagram" href:"https://instagram.com" scheme:"muted"
+              IconButton icon:"link-circle" label:"LinkedIn" href:"https://linkedin.com" scheme:"muted"
           Flex justify:"center" show:{ xs:true md:false }
             Brand href:"/blocks/footer" label:"WebbyFrames home"
               Flex align:"center" gap:2
-                Icon name:"widget-5" style:"linear" fill:"onMuted" w:7 h:7
-                Text size:"lg" weight:"black" color:"onMuted"
+                Icon name:"widget-5" fill:"mutedText" w:7 h:7
+                Text size:"lg" weight:"black" color:"mutedText"
                   "WebbyFrames"
         center
-          Text size:"xs" color:"onMuted" show:{ xs:false md:true }
+          Text size:"xs" color:"mutedText" show:{ xs:false md:true }
             "CompanyName @ 202X. All rights reserved."
-          Text size:"xs" color:"onMuted" show:{ xs:true md:false }
+          Text size:"xs" color:"mutedText" show:{ xs:true md:false }
             "CompanyName @ 202X. All rights reserved."
         bottom
           Flex justify:"center" wrap:true gap:1 show:{ xs:true md:false }
-            Button href:"/blocks/footer-preview/navigation" variant:"solid" scheme:"muted" size:"sm"
+            Button href:"/blocks/footer-preview/navigation" scheme:"muted" size:"sm"
               "Eleven"
-            Button href:"/blocks/footer-preview/social" variant:"solid" scheme:"muted" size:"sm"
+            Button href:"/blocks/footer-preview/social" scheme:"muted" size:"sm"
               "Twelve"
-            Button href:"/blocks/footer-preview/legal" variant:"solid" scheme:"muted" size:"sm"
+            Button href:"/blocks/footer-preview/legal" scheme:"muted" size:"sm"
               "Thirteen"

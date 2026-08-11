@@ -15,7 +15,7 @@ page CanvasOverviewPage
         y1:72
         x2:640
         y2:72
-        stroke:"onSurface"
+        stroke:"surfaceText"
         strokeWidth:1
         opacity:0.12
       },
@@ -25,7 +25,7 @@ page CanvasOverviewPage
         y1:144
         x2:640
         y2:144
-        stroke:"onSurface"
+        stroke:"surfaceText"
         strokeWidth:1
         opacity:0.12
       },
@@ -35,7 +35,7 @@ page CanvasOverviewPage
         y1:216
         x2:640
         y2:216
-        stroke:"onSurface"
+        stroke:"surfaceText"
         strokeWidth:1
         opacity:0.12
       },
@@ -45,7 +45,7 @@ page CanvasOverviewPage
         y1:288
         x2:640
         y2:288
-        stroke:"onSurface"
+        stroke:"surfaceText"
         strokeWidth:1
         opacity:0.12
       },
@@ -69,7 +69,7 @@ page CanvasOverviewPage
         y:215
         radius:13
         fill:"secondary"
-        stroke:"onSecondary"
+        stroke:"secondaryText"
         strokeWidth:4
       },
       {
@@ -78,7 +78,7 @@ page CanvasOverviewPage
         y:125
         radius:18
         fill:"tertiary"
-        stroke:"onTertiary"
+        stroke:"tertiaryText"
         strokeWidth:4
         motion:{ pulse:0.7 }
       },
@@ -99,7 +99,7 @@ page CanvasOverviewPage
         x:36
         y:48
         text:"RETAINED SCENE"
-        fill:"onSurface"
+        fill:"surfaceText"
         size:24
       },
       {
@@ -107,7 +107,7 @@ page CanvasOverviewPage
         x:529
         y:262
         text:"6 commands"
-        fill:"onSoftPrimary"
+        fill:"softPrimaryText"
         size:16
         align:"center"
       },
@@ -258,7 +258,7 @@ page CanvasOverviewPage
               { type:"rect" x:0 y:0 width:640 height:360 fill:"surface" },
               { type:"polyline" points:[{ x:50 y:270 }, { x:355 y:125 }, { x:590 y:72 }] stroke:"primary" strokeWidth:8 },
               { type:"circle" x:355 y:125 radius:18 fill:"tertiary" motion:{ pulse:0.7 } },
-              { type:"text" x:36 y:48 text:"RETAINED SCENE" fill:"onSurface" size:24 },
+              { type:"text" x:36 y:48 text:"RETAINED SCENE" fill:"surfaceText" size:24 },
             ]
 
             Canvas scene:scene viewWidth:640 viewHeight:360 fit:"contain" label:"Layered retained scene" w:"full" h:96
@@ -328,5 +328,5 @@ page CanvasOverviewPage
         column field:"type" label:"Type" width:"3fr"
         column field:"defaultValue" label:"Default" width:"1.2fr"
       Flex justify:"end"
-        Button href:"/docs/views/canvas/arcade" variant:"solid" scheme:"primary" iconEnd:"alt-arrow-right"
+        Button href:"/docs/views/canvas/arcade" iconEnd:"alt-arrow-right"
           "Build an arcade scene"

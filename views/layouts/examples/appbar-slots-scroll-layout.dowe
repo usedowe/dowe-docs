@@ -1,7 +1,7 @@
 layout AppBarSlotsScrollLayout
   Scaffold
     appBar
-      AppBar variant:"soft" scheme:"surface" position:"sticky" boxed:true bordered:true hideOnScroll:true
+      AppBar variant:"soft" position:"sticky" boxed:true bordered:true hideOnScroll:true
         top
           Box bg:"primary" px:3 py:2
             Text size:"xs" weight:"bold" color:"background"
@@ -13,7 +13,7 @@ layout AppBarSlotsScrollLayout
           Text size:"sm" color:"muted"
             "Scroll-aware AppBar"
         end
-          Button href:"/examples/appbar-one" variant:"ghost" scheme:"primary" size:"sm"
+          Button href:"/examples/appbar-one" variant:"ghost" size:"sm"
             "Fixed"
         bottom
           Box bg:"background" px:3 py:2

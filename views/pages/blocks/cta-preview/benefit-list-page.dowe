@@ -10,7 +10,7 @@ page BenefitListCtaPage
     { id:"start" label:"Get started" variant:"solid" },
     { id:"sales" label:"Talk to sales" variant:"outlined" },
   ]
-  Section id:"benefit-list-cta" bg:"softMuted" color:"onSoftMuted" boxed:true p:{ xs:6 md:12 }
+  Section id:"benefit-list-cta" bg:"softMuted" color:"softMutedText" boxed:true p:{ xs:6 md:12 }
     Grid columns:{ xs:1 md:"5fr 4fr" } gap:{ xs:8 md:14 } align:"center" minH:"vh-0"
       Flex direction:"column" align:{ xs:"center" md:"start" } justify:"center" gap:6
         Title size:{ xs:"3xl" md:"5xl" } weight:"black"
@@ -18,19 +18,19 @@ page BenefitListCtaPage
         Grid columns:{ xs:1 sm:2 } gap:3 w:"full"
           each in:benefits as:benefit key:benefit.id
             Flex align:"center" gap:3
-              Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+              Icon name:"check-circle-bold" fill:"muted" w:5 h:5
               Text color:"muted"
                 "{benefit.label}"
         Grid columns:1 gap:3 w:"full" show:{ xs:true sm:false }
           each in:actions as:action key:action.id
-            Button variant:action.variant scheme:"primary" size:"lg" rounded:"full" w:"full"
+            Button variant:action.variant size:"lg" rounded:"full" w:"full"
               "{action.label}"
         Flex align:"center" gap:3 show:{ xs:false sm:true }
           each in:actions as:action key:action.id
-            Button variant:action.variant scheme:"primary" size:"lg" rounded:"full"
+            Button variant:action.variant size:"lg" rounded:"full"
               "{action.label}"
       Box bg:"surface" rounded:"xl" p:8 minH:{ xs:72 md:96 }
         Flex direction:"column" align:"center" justify:"center" gap:3 minH:{ xs:56 md:80 }
-          Icon name:"gallery" style:"bold-duotone" fill:"muted" w:16 h:16
+          Icon name:"gallery-bold-duotone" fill:"muted" w:16 h:16
           Text size:"sm" color:"muted"
             "Image placeholder"

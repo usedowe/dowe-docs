@@ -1,9 +1,9 @@
 layout AppBarHostingLayout
   Scaffold
     appBar
-      AppBar variant:"solid" scheme:"primary" position:"sticky" boxed:true
+      AppBar scheme:"primary" position:"sticky" boxed:true
         top
-          Box bg:"tertiary" color:"onTertiary" px:4 py:2
+          Box bg:"tertiary" color:"tertiaryText" px:4 py:2
             Grid columns:{ xs:1 md:3 } gap:4 align:"center"
               Text size:"xs" weight:"bold"
                 "Contact@hostc.com"
@@ -16,8 +16,8 @@ layout AppBarHostingLayout
         start
           Brand href:"/blocks/appbar" label:"Hostc home"
             Flex align:"center" gap:2
-              Icon name:"global" style:"bold" fill:"warning" w:9 h:9
-              Text size:"xl" weight:"black" color:"onPrimary"
+              Icon name:"global-bold" fill:"warning" w:9 h:9
+              Text size:"xl" weight:"black" color:"primaryText"
                 "HOSTC"
         center
           NavMenu variant:"soft" scheme:"surface" size:"sm" show:{ xs:false md:true }
@@ -36,7 +36,6 @@ layout AppBarHostingLayout
           Flex align:"center" gap:2
             Button:
               href:"/blocks/appbar-preview/dashboard"
-              variant:"solid"
               scheme:"warning"
               size:"sm"
               rounded:"full"

@@ -214,11 +214,10 @@ websocket "/api/v1/agent/ws"
 Streaming agent requests over plain HTTP are rejected; streaming agent clients use a declared
 WebSocket path and `bridge sse`.
 
-## Queue service
+## Queue service and application publication
 
-`queue service` is a host-only declaration. It is valid once as a direct child of `main.server`,
-accepts no props or children, and reserves the authenticated WebSocket path
-`/v1/queues/:name`:
+`queue service` is valid once as a direct child of `main.server`, accepts no props or children, and
+reserves the authenticated WebSocket path `/v1/queues/:name`:
 
 ```text
 main
@@ -233,6 +232,10 @@ requires a bearer secret and `X-Dowe-Queue-Account`; loopback may use `ws://`, w
 clients use `wss://` with Rustls/WebPKI roots. Queue receipts remain bound to the subscription that
 issued them, and pending deliveries are requeued when that session or the Dowe service closes.
 
+The account catalog at `.dowe/queue/_auth` has its own exclusive
+`.lock`. Account writers take `.dowe/queue/_auth/.lock` before read-modify-write and atomically
+replace the catalog; a second writer fails closed instead of losing an account record.
+
 The shared Rust provider contract supports Dowe and RabbitMQ transports. The root CLI exposes
 `dowe queue start`, `create-account`, `init`, `list`, `inspect`, `declare`, `bind`, `publish`, and
 `purge`. Dowe returns authoritative created flags, publication destinations, and inspected topology.
@@ -240,8 +243,27 @@ RabbitMQ confirms publication but AMQP cannot know whether declare/bind created 
 destinations, or enumerate topology, so those reports use unknown/`None` rather than fabricated
 `true` or empty values. RabbitMQ connections require TLS outside loopback, and selecting the Dowe
 provider does not contact RabbitMQ. A future explicit management authority would be required for
-RabbitMQ topology enumeration. Application-side Dowe Source Format Queue handles and
-publish/subscribe operations are not implemented; use the Rust provider API or CLI.
+RabbitMQ topology enumeration.
+
+Server actions can declare a provider connection and publish directly to an existing queue:
+
+```text
+queue appQueue provider:"dowe" host:env.QUEUE_HOST port:env.QUEUE_PORT account:env.QUEUE_USER secret:env.QUEUE_PASSWORD vhost:env.QUEUE_VHOST
+msg sent conn:appQueue.publish queue:"notifications" payload:{ userId:"123" event:"user_created" }
+return json:{ ok:sent.ok messageId:sent.id }
+```
+
+The connection and all credentials are server-only. Add the names used by `env.*` to the root
+`.env.example`, keep local values in ignored `.env`, and use `.env.live`, `.env.stage`, or `.env.uat`
+for deploy values. During `dowe dev`, Queue resolves only `vhost` and uses persistent local Dowe
+storage below `.dowe/queue/<vhost>`; production resolves provider, host, port, account, secret, and
+vhost. `provider:"rabbitmq"` uses `vhost` as the AMQP virtual host.
+
+`msg ... publish` is direct work-queue publication. The queue must already exist; the operation does
+not declare or bind a queue or interpret the destination as a topic. Its exact result shape is
+`{ ok, id }`, and it is not retried after an ambiguous response because the provider may already
+have committed. Source-level consume, subscribe, ACK, and NACK remain streaming Rust provider APIs
+with session-bound receipts rather than finite Dowe Source Format statements.
 
 ## CORS
 

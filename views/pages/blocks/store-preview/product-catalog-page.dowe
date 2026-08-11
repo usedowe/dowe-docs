@@ -21,11 +21,11 @@ page ProductCatalogStorePage
       { id:"product-11" name:"Simple object" description:"A neutral product description." price:"$99.99" },
       { id:"product-12" name:"Modern object" description:"A neutral product description." price:"$99.99" },
     ]
-  Section id:"store-product-catalog" bg:"background" color:"onBackground" boxed:true py:{ xs:6 md:10 } minH:"vh-0"
+  Section id:"store-product-catalog" bg:"background" color:"backgroundText" boxed:true py:{ xs:6 md:10 } minH:"vh-0"
     Grid columns:1 gap:{ xs:6 md:8 }
       Flex wrap:true gap:2
         each in:filters as:filter key:filter.id
-          Button variant:"outlined" scheme:"muted" size:"sm" rounded:"md" iconEnd:"alt-arrow-down"
+          Button variant:"outlined" scheme:"muted" size:"sm" iconEnd:"alt-arrow-down"
             "{filter.label}"
       Title size:{ xs:"2xl" md:"4xl" } weight:"black"
         "Products you may like"
@@ -35,9 +35,9 @@ page ProductCatalogStorePage
             Card variant:"soft" scheme:"muted" rounded:"xl" p:3 minH:{ xs:40 md:56 }
               Flex direction:"column" justify:"between" minH:{ xs:32 md:48 }
                 Flex justify:"end"
-                  IconButton icon:"heart" label:"Save product" variant:"solid" scheme:"muted" size:"xs" rounded:"full"
+                  IconButton icon:"heart" label:"Save product" scheme:"muted" size:"xs" rounded:"full"
                 Flex align:"center" justify:"center"
-                  Icon name:"gallery" style:"bold-duotone" fill:"muted" w:{ xs:10 md:14 } h:{ xs:10 md:14 }
+                  Icon name:"gallery-bold-duotone" fill:"muted" w:{ xs:10 md:14 } h:{ xs:10 md:14 }
             Grid columns:1 gap:2
               Flex justify:"between" align:"start" gap:2
                 Text size:"sm" weight:"bold"
@@ -47,12 +47,12 @@ page ProductCatalogStorePage
               Text size:"xs" color:"muted"
                 "{product.description}"
               Flex align:"center" gap:1
-                Icon name:"star" style:"bold" fill:"onBackground" w:4 h:4
-                Icon name:"star" style:"bold" fill:"onBackground" w:4 h:4
-                Icon name:"star" style:"bold" fill:"onBackground" w:4 h:4
-                Icon name:"star" style:"bold" fill:"onBackground" w:4 h:4
-                Icon name:"star" style:"bold" fill:"onBackground" w:4 h:4
+                Icon name:"star-bold" fill:"backgroundText" w:4 h:4
+                Icon name:"star-bold" fill:"backgroundText" w:4 h:4
+                Icon name:"star-bold" fill:"backgroundText" w:4 h:4
+                Icon name:"star-bold" fill:"backgroundText" w:4 h:4
+                Icon name:"star-bold" fill:"backgroundText" w:4 h:4
                 Text size:"xs" color:"muted"
                   "(261)"
-              Button variant:"outlined" scheme:"primary" size:"sm" rounded:"full"
+              Button variant:"outlined" size:"sm" rounded:"full"
                 "Add to basket"

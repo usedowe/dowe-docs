@@ -138,7 +138,7 @@ page SvgPage
             variant:"outlined"
             scheme:"primary"
             w:"full"
-          Button onClick:convertSvg variant:"solid" scheme:"primary" iconStart:"code"
+          Button onClick:convertSvg iconStart:"code"
             "Convert to Dowe"
         Grid columns:1 gap:3
           Grid columns:1 gap:2

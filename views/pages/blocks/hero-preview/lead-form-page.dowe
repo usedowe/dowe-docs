@@ -12,7 +12,7 @@ page LeadFormHeroPage
     { id:"company" label:"Company" },
     { id:"role" label:"Role" },
   ]
-  Section id:"lead-form-hero" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:12 }
+  Section id:"lead-form-hero" bg:"background" color:"backgroundText" boxed:true py:{ xs:8 md:12 }
     Grid columns:{ xs:1 md:"5fr 4fr" } gap:{ xs:8 md:14 } align:"center"
       Flex direction:"column" align:"start" gap:5
         Title size:{ xs:"4xl" md:"6xl" } weight:"black"
@@ -22,7 +22,7 @@ page LeadFormHeroPage
         Grid columns:1 gap:3
           each in:benefits as:benefit key:benefit.id
             Flex align:"center" gap:3
-              Icon name:"check-circle" style:"bold" fill:"primary" w:6 h:6
+              Icon name:"check-circle-bold" fill:"primary" w:6 h:6
               Text weight:"bold"
                 "{benefit.label}"
       Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:5 md:8 }
@@ -32,5 +32,5 @@ page LeadFormHeroPage
               Text size:"sm" weight:"bold"
                 "{field.label}"
               Input placeholder:"Enter value" variant:"solid" scheme:"muted" w:"full"
-          Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" w:"full"
+          Button size:"lg" rounded:"full" w:"full"
             "Get started"

@@ -25,7 +25,7 @@ page AnimationsPage
             "Seven entrance presets"
           Text size:"sm" color:"muted"
             "Entrance motion runs once when the page appears. Use Replay animations to remount this example and compare every preset."
-        Button href:"/docs/views/style/animations" navigate:"replace" variant:"solid" scheme:"primary" size:"sm"
+        Button href:"/docs/views/style/animations" navigate:"replace" size:"sm"
           "Replay animations"
       Grid columns:{ xs:2 md:3 } gap:5
         Card variant:"soft" scheme:"primary" animation:"fadeIn" p:5

@@ -1,5 +1,5 @@
 component ViewsNavigation
-  SideNav variant:"solid" scheme:"muted" size:"md" p:4
+  SideNav variant:"solid" p:4
     item label:"Overview" href:"/docs/views" icon:"home"
     item label:"Web metadata" href:"/docs/views/web/metadata" icon:"global"
     item label:"i18n" href:"/docs/views/i18n" icon:"earth"

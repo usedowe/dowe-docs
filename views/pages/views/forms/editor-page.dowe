@@ -66,7 +66,7 @@ page EditorPage
           "Draft a release article"
         Text size:"sm" color:"muted"
           "The toolbar exposes formatting, headings, alignment, lists, links, history, and clear formatting while bind keeps the authored value in a string Signal."
-      Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+      Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Grid columns:1 gap:5
           Editor:
             bind:articleContent
@@ -82,7 +82,7 @@ page EditorPage
           Flex wrap:true justify:"end" align:"center" gap:3
             Button variant:"ghost" scheme:"muted" size:"sm"
               "Save draft"
-            Button variant:"solid" scheme:"primary" size:"sm" iconEnd:"alt-arrow-right"
+            Button size:"sm" iconEnd:"alt-arrow-right"
               "Publish article"
       Code:
         language:"dowe"
@@ -176,7 +176,7 @@ page EditorPage
         Text size:"sm" color:"muted"
           "Dowe owns toolbar commands, keyboard shortcuts, editor state, and generated target behavior without executing user-authored JavaScript."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "VALUE"
@@ -184,7 +184,7 @@ page EditorPage
               "String binding"
             Text size:"sm" color:"muted"
               "bind reads and writes one string Signal while value provides deterministic initial content."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "COMMANDS"
@@ -192,7 +192,7 @@ page EditorPage
               "Generated toolbar"
             Text size:"sm" color:"muted"
               "Formatting, lists, headings, alignment, insertion, history, and clearing remain Dowe-owned."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "TARGETS"

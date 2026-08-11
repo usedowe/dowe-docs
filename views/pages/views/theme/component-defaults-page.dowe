@@ -2,28 +2,43 @@ page ComponentDefaultsPage
   const componentSlots:
     value:[
       {
+        slot:"Button / IconButton"
+        scope:"Text actions and icon-only actions"
+        props:"variant, scheme, radius/rounded, size, shadow, shadowColor, border, borderColor"
+      },
+      {
         slot:"Card"
         scope:"Card surfaces and card-assigned components"
         props:"variant, scheme, radius/rounded, size, shadow, shadowColor, border, borderColor"
       },
       {
-        slot:"Button"
-        scope:"Button and button-assigned actions"
+        slot:"Drawer / Toast"
+        scope:"Overlay surfaces and feedback"
         props:"variant, scheme, radius/rounded, size, shadow, shadowColor, border, borderColor"
       },
       {
-        slot:"Avatar"
-        scope:"Avatar and AvatarGroup"
+        slot:"Section / Accordion"
+        scope:"Page bands and disclosure surfaces"
         props:"variant, scheme, radius/rounded, size, shadow, shadowColor, border, borderColor"
       },
       {
-        slot:"Chip"
-        scope:"Chip"
+        slot:"Tabs"
+        scope:"Tab lists and related panels"
         props:"variant, scheme, radius/rounded, size, shadow, shadowColor, border, borderColor"
       },
       {
-        slot:"Ui"
-        scope:"Shared controls, fields, bars, navigation, overlays, and UI surfaces"
+        slot:"Checkbox / Input / Date / Password / Select / Pin"
+        scope:"Form controls and fields"
+        props:"variant, scheme, radius/rounded, size, shadow, shadowColor, border, borderColor"
+      },
+      {
+        slot:"AppBar / Footer / Modal / Dropdown / Tooltip"
+        scope:"Shell bars, dialogs, menus, and hints"
+        props:"variant, scheme, radius/rounded, size, shadow, shadowColor, border, borderColor"
+      },
+      {
+        slot:"Avatar / Chip / Ui"
+        scope:"Existing shared visual defaults"
         props:"variant, scheme, radius/rounded, size, shadow, shadowColor, border, borderColor"
       },
       {
@@ -121,8 +136,9 @@ page ComponentDefaultsPage
           theme
             fonts default:"manrope" install:["manrope", "syne"]
             design defaultTheme:"light"
-              Card variant:"outlined" scheme:"surface" rounded:"md" shadow:"xs"
-              Button variant:"solid" scheme:"primary" rounded:"md" size:"md"
+              Button variant:"outlined"
+              Input
+              Card rounded:"lg"
               Avatar variant:"soft" scheme:"secondary" rounded:"full" size:"md"
               Chip variant:"soft" scheme:"secondary" rounded:"full" size:"sm"
               Ui variant:"outlined" scheme:"surface" rounded:"md" size:"md"
@@ -131,7 +147,7 @@ page ComponentDefaultsPage
               theme name:"light"
         """
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "STATIC VALUES"
@@ -139,7 +155,7 @@ page ComponentDefaultsPage
               "No Signals or responsive maps"
             Text size:"sm" color:"muted"
               "Theme defaults are quoted static values or the supported border integer."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "ONE SLOT"
@@ -147,7 +163,7 @@ page ComponentDefaultsPage
               "Declare each slot once"
             Text size:"sm" color:"muted"
               "Duplicate defaults for the same slot and prop are rejected instead of silently replacing one another."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "TARGET NEUTRAL"
@@ -161,9 +177,9 @@ page ComponentDefaultsPage
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "SLOTS"
         Title size:"3xl" weight:"black"
-          "Seven configurable component families"
+          "Dedicated component defaults"
         Text size:"sm" color:"muted"
-          "Ui provides shared policy for controls and surfaces that do not have a more specific slot. Text and Title remain independent typography slots."
+          "Dedicated slots cover controls, fields, surfaces, bars, overlays, and page structure. Ui remains available for shared policy, while Text and Title stay independent typography slots."
       Table:
         data:componentSlots
         variant:"soft"
@@ -205,7 +221,7 @@ page ComponentDefaultsPage
         Text size:"sm" color:"muted"
           "Resolution happens per prop. One explicit value does not disable the remaining values from the slot."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+        Card variant:"soft" scheme:"primary" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold"
               "1 · INSTANCE"
@@ -213,7 +229,7 @@ page ComponentDefaultsPage
               "Explicit component prop"
             Text size:"sm"
               "Card scheme:\"success\" changes only this Card and has the highest priority."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "2 · THEME.DOWE"
@@ -221,7 +237,7 @@ page ComponentDefaultsPage
               "Applicable design slot"
             Text size:"sm" color:"muted"
               "The Card slot still supplies its omitted variant, rounded, and shadow values."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "3 · BUILT IN"
@@ -238,7 +254,7 @@ page ComponentDefaultsPage
         content:"""
           theme
             design defaultTheme:"light"
-              Card variant:"outlined" scheme:"surface" rounded:"md" shadow:"xs"
+              Card variant:"outlined" shadow:"xs"
               theme name:"light"
 
           Card scheme:"success"
@@ -253,19 +269,19 @@ page ComponentDefaultsPage
         Title size:"3xl" weight:"black"
           "Keep themes semantic and views structural"
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+        Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:2
             Title size:"lg" weight:"bold"
               "Named themes own colors"
             Text size:"sm" color:"muted"
               "A named theme changes semantic color values. It does not declare radius, size, shadow, border, or component variant."
-        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+        Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:2
             Title size:"lg" weight:"bold"
               "Defaults do not add props"
             Text size:"sm" color:"muted"
               "theme.dowe cannot create components or expand their catalogs. Unsupported slot and prop combinations fail validation."
-        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+        Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:2
             Title size:"lg" weight:"bold"
               "Local differences stay local"

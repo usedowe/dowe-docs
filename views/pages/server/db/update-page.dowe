@@ -1,20 +1,28 @@
 page DatabaseUpdatePage
+  const updateRows:
+    value:[
+      {
+        rule:"Equality filters"
+        guidance:"where identifies records by declared equality fields. Keep ownership fields such as id on the server side."
+      },
+      {
+        rule:"Patch only"
+        guidance:"value contains the permitted fields to change. Request values do not choose Database configuration."
+      },
+    ]
   Section id:"database-update-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "SERVER / DATABASE / WRITE"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Update"
+      Text size:"lg" color:"muted"
+        "Update applies a patch to records selected by a static table and equality filter, then returns a change result through its query binding."
+  Section id:"database-update-example" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "SERVER / DATABASE / WRITE"
-        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
-          "Update"
-        Text size:"lg" color:"muted"
-          "Update applies a patch to records selected by a static table and equality filter, then returns a change result through its query binding."
-      Button href:"/docs/server/db/delete" variant:"ghost" scheme:"muted" size:"sm"
-        "Delete records"
-  Section id:"database-update-example" p:{ xs:5 md:7 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "PATCH"
+          "1 / PATCH"
         Title size:"3xl" weight:"black"
           "Filter by authority, then return fresh data"
         Text size:"sm" color:"muted"
@@ -32,15 +40,13 @@ page DatabaseUpdatePage
             query blog db:db.read table:"blogs" where:{ id:req.params.id } required:true
             return json:{ ok:true changed:updated data:blog }
         """
-  Section id:"database-update-safety" py:{ xs:7 md:10 }
-    Grid columns:{ xs:1 md:2 } gap:4
-      Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-        Title size:"lg" weight:"bold"
-          "Equality filters"
-        Text size:"sm" color:"muted"
-          "where identifies records by declared equality fields. Keep ownership fields such as id on the server side."
-      Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-        Title size:"lg" weight:"bold"
-          "Patch only"
-        Text size:"sm" color:"muted"
-          "value contains the permitted fields to change. Request values do not choose Database configuration."
+      Table:
+        data:updateRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"rule" label:"Rule" width:"2fr"
+        column field:"guidance" label:"Guidance" width:"5fr"

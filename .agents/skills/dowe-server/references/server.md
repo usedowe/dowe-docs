@@ -13,6 +13,7 @@
 | `seeder Bootstrap` | Importable seed data | Declares static inserts applied once by fingerprint |
 | `cache appCache provider:"dowe" ...` | Reusable Cache connection | Imported config binding or server action connection |
 | `vector appVector provider:"dowe" ...` | Reusable Vector connection | Imported config binding or server action connection |
+| `queue appQueue provider:"dowe|rabbitmq" ...` | Reusable Queue connection | Server-only direct publication to an existing queue |
 
 Handlers call service functions. `req` is implicit inside every HTTP handler, so route parameters,
 request metadata, middleware context, and the typed JSON declaration can use `req` directly.
@@ -177,3 +178,22 @@ opaque token or trust client-provided Cache values.
 Connections and operation results stay server-only. Return serializable values, never connections,
 secrets, complete provider URLs, authorization headers, encryption keys, or process metadata that
 the client does not need.
+
+### Queue publication
+
+Queue connections accept `host`, `port`, `account`, `secret`, and `vhost` as literals or server-only
+environment references. Add the names to `.env.example`, keep development values in ignored `.env`,
+and keep deploy values in `.env.live`, `.env.stage`, or `.env.uat`.
+
+```text
+queue appQueue provider:"dowe" host:env.QUEUE_HOST port:env.QUEUE_PORT account:env.QUEUE_USER secret:env.QUEUE_PASSWORD vhost:env.QUEUE_VHOST
+msg sent conn:appQueue.publish queue:"notifications" payload:{ userId:"123" event:"user_created" }
+return json:{ ok:sent.ok messageId:sent.id }
+```
+
+During `dowe dev`, only `vhost` selects persistent local Dowe storage. Production resolves the
+authored provider and full connection; RabbitMQ uses `vhost` as its AMQP virtual host. The target
+queue must already be provisioned by the CLI or Rust provider API. Direct `msg ... publish` does not
+declare or bind topology and does not retry after an ambiguous response. The result is exactly
+`{ ok, id }`. Consume, subscribe, ACK, and NACK remain streaming Rust provider APIs with
+session-bound receipts, not finite source statements.

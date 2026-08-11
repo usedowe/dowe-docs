@@ -51,9 +51,9 @@ page CheckboxPage
           "Bind one boolean value"
         Text size:"sm" color:"muted"
           "bind connects the checkbox to a boolean Signal. Tapping the control updates that value without executing user JavaScript."
-      Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+      Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Grid columns:1 gap:4
-          Checkbox bind:notificationsEnabled label:"Send me release notifications" name:"release-notifications" scheme:"primary"
+          Checkbox bind:notificationsEnabled label:"Send me release notifications" name:"release-notifications"
           Text size:"sm" color:"muted"
             "Use a boolean Signal whenever another part of the view needs the same opt-in state."
       Code:
@@ -65,7 +65,7 @@ page CheckboxPage
         content:"""
           signal notificationsEnabled value:true
 
-          Checkbox bind:notificationsEnabled label:"Send me release notifications" name:"release-notifications" scheme:"primary"
+          Checkbox bind:notificationsEnabled label:"Send me release notifications" name:"release-notifications"
         """
   Section id:"checkbox-schemes" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
@@ -77,7 +77,7 @@ page CheckboxPage
         Text size:"sm" color:"muted"
           "The selected state uses the chosen scheme while the unchecked square stays neutral and legible."
       Grid columns:{ xs:1 md:2 } gap:5
-        Checkbox checked:true label:"Primary" scheme:"primary"
+        Checkbox checked:true label:"Primary"
         Checkbox checked:true label:"Secondary" scheme:"secondary"
         Checkbox checked:true label:"Tertiary" scheme:"tertiary"
         Checkbox checked:true label:"Muted" scheme:"muted"
@@ -92,7 +92,7 @@ page CheckboxPage
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Checkbox checked:true label:"Primary" scheme:"primary"
+          Checkbox checked:true label:"Primary"
           Checkbox checked:true label:"Success" scheme:"success"
           Checkbox checked:true label:"Danger" scheme:"danger"
         """
@@ -107,7 +107,7 @@ page CheckboxPage
           "Use checked for a fixed initial state. disabled preserves the state visibly while preventing interaction."
       Grid columns:{ xs:1 md:2 } gap:5
         Checkbox checked:true label:"Enabled and checked" scheme:"success"
-        Checkbox checked:false label:"Enabled and unchecked" scheme:"primary"
+        Checkbox checked:false label:"Enabled and unchecked"
         Checkbox checked:true disabled:true label:"Disabled and checked" scheme:"muted"
         Checkbox checked:false disabled:true label:"Disabled and unchecked" scheme:"muted"
       Code:
@@ -118,7 +118,7 @@ page CheckboxPage
         copiedLabel:"Copied"
         content:"""
           Checkbox checked:true label:"Enabled and checked" scheme:"success"
-          Checkbox checked:false label:"Enabled and unchecked" scheme:"primary"
+          Checkbox checked:false label:"Enabled and unchecked"
           Checkbox checked:true disabled:true label:"Disabled and checked" scheme:"muted"
           Checkbox checked:false disabled:true label:"Disabled and unchecked" scheme:"muted"
         """
@@ -132,7 +132,7 @@ page CheckboxPage
         Text size:"sm" color:"muted"
           "Dowe lowers the same boolean field model to a square, softly rounded checkbox on web, iOS, and Android."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "BINDING"
@@ -140,7 +140,7 @@ page CheckboxPage
               "Boolean only"
             Text size:"sm" color:"muted"
               "bind accepts a bool Signal path and writes true or false when the user changes the control."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "ACCESSIBILITY"
@@ -148,7 +148,7 @@ page CheckboxPage
               "Label the choice"
             Text size:"sm" color:"muted"
               "Provide label text so the visible choice and its control stay understandable together."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "TARGETS"

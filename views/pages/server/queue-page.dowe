@@ -1,20 +1,48 @@
 page QueuePage
+  const queueTopologyRows:
+    value:[
+      { rule:"Competing consumers" meaning:"Subscriptions on one queue share deliveries. One active delivery is not duplicated to another consumer on that queue." },
+      { rule:"Pub/sub copies" meaning:"Two queues bound to the same pattern each receive an independent copy of the published message." },
+      { rule:"Durable topology" meaning:"Declared queues, bindings, and ready messages persist in the provider namespace, protected by an exclusive .lock." },
+    ]
+  const queueDeliveryRows:
+    value:[
+      { decision:"ACK" meaning:"Removes the delivery permanently after the consumer has processed the message." },
+      { decision:"NACK with requeue" meaning:"Puts the message at the front and marks it redelivered:true." },
+      { decision:"NACK without requeue" meaning:"Discards the delivery instead of making it available again." },
+      { decision:"Close or restart" meaning:"Requeues every persisted delivery still waiting for a decision." },
+    ]
+  const queueProviderRows:
+    value:[
+      { provider:"Dowe" contract:"Authenticated WebSocket, durable storage below .dowe/queue, and authoritative declare, bind, publish, and topology operations." },
+      { provider:"RabbitMQ" contract:"Durable namespaced topic exchange, publisher confirms, and streaming consumers whose ACK/NACK stays on the same AMQP channel." },
+    ]
+  const queueApplicationRows:
+    value:[
+      { environment:"Local development" guidance:"dowe dev uses persistent local storage below .dowe/queue/<vhost> and resolves only vhost. It does not contact the authored provider." },
+      { environment:"Production" guidance:"Production resolves provider, host, port, account, secret, and vhost. RabbitMQ uses vhost as its AMQP virtual host and requires TLS outside loopback." },
+      { environment:"Publish boundary" guidance:"msg publish targets a queue already declared by the CLI or provider API. It does not declare, bind, reinterpret, or retry after an ambiguous response." },
+    ]
+  const queueCliRows:
+    value:[
+      { area:"Lifecycle" commands:"start, create-account, init, and list set up the service and namespace." },
+      { area:"Topology" commands:"inspect, declare, and bind review and change durable topology." },
+      { area:"Messages" commands:"publish sends JSON and purge removes only ready messages from one queue." },
+      { area:"Retry rule" commands:"Only inspect may retry automatically. Mutating commands and receipt decisions are not retried after an ambiguous response." },
+    ]
   Section id:"queue-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "SERVER / QUEUE"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Deliver durable work"
+      Text size:"lg" color:"muted"
+        "Queue provides durable work queues and topic pub/sub with explicit delivery decisions. The same Rust contract serves local Dowe storage, the maintained service, and RabbitMQ connections."
+  Section id:"queue-topology" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "SERVER / QUEUE"
-        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
-          "Queue"
-        Text size:"lg" color:"muted"
-          "Durable work queues and topic pub/sub with explicit delivery guarantees, authenticated sessions, and one Rust provider contract."
-      Button href:"/docs/server" variant:"ghost" scheme:"muted" size:"sm"
-        "Server overview"
-  Section id:"queue-topology" p:{ xs:5 md:7 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "TOPOLOGY"
+          "1 / TOPOLOGY"
         Title size:"3xl" weight:"black"
           "Bindings decide where a message goes"
         Text size:"sm" color:"muted"
@@ -33,85 +61,68 @@ page QueuePage
           dowe queue bind jobs email-notifications orders.*
           dowe queue publish jobs orders.created '{"id":"order-42"}'
         """
-      Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "Competing consumers"
-          Text size:"sm" color:"muted"
-            "Two subscriptions on one queue share deliveries; one active delivery is not duplicated."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "Pub/sub copies"
-          Text size:"sm" color:"muted"
-            "Two queues bound to the same pattern each receive an independent copy."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "Durable topology"
-          Text size:"sm" color:"muted"
-            "Declared queues, bindings, and ready messages persist in the Dowe provider namespace, protected by an exclusive .lock."
+      Table:
+        data:queueTopologyRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"rule" label:"Rule" width:"2fr"
+        column field:"meaning" label:"What happens" width:"5fr"
       Text size:"sm" color:"muted"
         "A live service, second server, and local CLI cannot directly own the same namespace concurrently. Lock acquisition fails closed; use the authenticated service protocol for a namespace owned by a running service."
   Section id:"queue-delivery" py:{ xs:7 md:10 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "DELIVERY"
+          "2 / DELIVERY"
         Title size:"3xl" weight:"black"
           "At-least-once, session-bound decisions"
         Text size:"sm" color:"muted"
           "Each subscription keeps its own streaming session. An opaque receipt can be acknowledged or rejected only once and only on that session."
-      Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "ACK"
-          Text size:"sm" color:"muted"
-            "ACK removes the delivery permanently after the consumer has processed the message."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "NACK"
-          Text size:"sm" color:"muted"
-            "NACK with requeue puts the message at the front with redelivered:true; NACK without requeue discards it."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "Close and restart"
-          Text size:"sm" color:"muted"
-            "Closing a subscription or restarting Dowe Queue requeues every persisted delivery still awaiting a decision."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "Current guarantee"
-          Text size:"sm" color:"muted"
-            "Delivery is at-least-once. Exactly-once and visibility timeouts are not part of this release."
+      Table:
+        data:queueDeliveryRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"decision" label:"Decision" width:"2fr"
+        column field:"meaning" label:"Effect" width:"5fr"
+      Alert type:"warning" message:"Delivery is at-least-once. Exactly-once delivery and visibility timeouts are not part of this release."
   Section id:"queue-providers" p:{ xs:5 md:7 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "PROVIDERS"
+          "3 / PROVIDERS"
         Title size:"3xl" weight:"black"
           "One Rust contract, two transports"
         Text size:"sm" color:"muted"
           "The provider API and CLI share administration, publication, and subscription semantics without exposing transport details to callers."
-      Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "Dowe"
-          Text size:"sm" color:"muted"
-            "The maintained service uses an authenticated WebSocket and durable storage below .dowe/queue. Declare/bind creation, publish destinations, and inspected topology are authoritative."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "RabbitMQ"
-          Text size:"sm" color:"muted"
-            "The Rust adapter uses a durable namespaced topic exchange, publisher confirms, and a streaming consumer whose ACK/NACK stays on the same AMQP channel. AMQP reports unknown/None creation, destinations, and topology."
+      Table:
+        data:queueProviderRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"provider" label:"Provider" width:"2fr"
+        column field:"contract" label:"What it owns" width:"5fr"
       Text size:"sm" color:"muted"
         "Remote Dowe Queue and RabbitMQ connections require TLS. Loopback Dowe connections may use ws://; remote Dowe connections use wss:// with Rustls/WebPKI certificate roots."
   Section id:"queue-service" py:{ xs:7 md:10 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "DOWE QUEUE"
+          "4 / DOWE QUEUE"
         Title size:"3xl" weight:"black"
           "Run the maintained service"
         Text size:"sm" color:"muted"
-          "The host is intentionally small: it reserves one authenticated WebSocket path, takes exclusive ownership of each opened namespace, and leaves Queue operations to the shared Rust crate."
+          "The host reserves one authenticated WebSocket path, takes exclusive ownership of each opened namespace, and leaves Queue operations to the shared Rust crate."
       Code:
         language:"dowe"
         variant:"soft"
@@ -137,10 +148,10 @@ page QueuePage
           dowe queue inspect jobs
         """
   Section id:"queue-application" py:{ xs:7 md:10 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "SERVER-ONLY APPLICATION API"
+          "5 / SERVER-ONLY APPLICATION API"
         Title size:"3xl" weight:"black"
           "Publish to an existing queue"
         Text size:"sm" color:"muted"
@@ -159,53 +170,41 @@ page QueuePage
         """
       Text size:"sm" color:"muted"
         "Declare QUEUE_HOST, QUEUE_PORT, QUEUE_USER, QUEUE_PASSWORD, and QUEUE_VHOST in the root .env.example with empty or placeholder values. Use ignored .env values for development and .env.live, .env.stage, or .env.uat values for deploys; never expose secrets to Views."
-      Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "Local development"
-          Text size:"sm" color:"muted"
-            "dowe dev uses persistent local Dowe storage below .dowe/queue/<vhost> and resolves only vhost. It does not contact the authored provider."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "Production providers"
-          Text size:"sm" color:"muted"
-            "Production resolves provider, host, port, account, secret, and vhost. RabbitMQ uses vhost as its AMQP virtual host and requires TLS outside loopback."
-      Text size:"sm" color:"muted"
-        "msg publish targets a queue that was already declared by the CLI or Rust provider API. It does not declare or bind a queue, reinterpret the name as a topic, or retry after an ambiguous response. The result is exactly { ok, id } and can be returned as shown."
+      Table:
+        data:queueApplicationRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"environment" label:"Boundary" width:"2fr"
+        column field:"guidance" label:"Rule" width:"5fr"
   Section id:"queue-cli" p:{ xs:5 md:7 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "CLI"
+          "6 / CLI"
         Title size:"3xl" weight:"black"
           "Inspect and administer local namespaces"
         Text size:"sm" color:"muted"
           "The root command calls the same Rust implementation used by runtime and IPC. Direct local commands fail closed when a live service owns the namespace lock."
-      Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "Lifecycle"
-          Text size:"sm" color:"muted"
-            "Use start, create-account, init, and list for service and namespace setup."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "Topology"
-          Text size:"sm" color:"muted"
-            "Use inspect, declare, and bind to review and change durable topology."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "Messages"
-          Text size:"sm" color:"muted"
-            "Use publish to send JSON and purge to remove only ready messages from one queue."
-      Text size:"sm" color:"muted"
-        "Automatic Dowe client retry is read-only: only inspect may retry. Declare, bind, publish, purge, and ACK/NACK receipt decisions are not retried after an ambiguous response loss because they may already have committed."
+      Table:
+        data:queueCliRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"area" label:"Area" width:"2fr"
+        column field:"commands" label:"Use" width:"5fr"
   Section id:"queue-boundary" py:{ xs:7 md:10 }
     Grid columns:1 gap:4
       Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-        "CURRENT SUPPORT"
+        "7 / CURRENT SUPPORT"
       Title size:"3xl" weight:"black"
         "Finite publication, streaming consumption"
       Text size:"sm" color:"muted"
-        "Dowe Source Format supports queue service, server-only Queue connections, and direct msg publish. Source-level consume, subscribe, ACK, and NACK remain streaming Rust provider APIs rather than finite handler statements. Use the Rust provider API for subscriptions and session-bound receipts; secrets, receipts, and payloads remain server-only. RabbitMQ topology management would require a future explicit management authority."
-      Text size:"sm" color:"muted"
-        "The initial contract also excludes arbitrary AMQP exchange types, priorities, TTL, dead-lettering, exactly-once delivery, visibility timeouts, and transparent subscription reconnection. RabbitMQ integration tests are opt-in and do not require an external broker for the focused suite."
+        "Dowe Source Format supports queue service, server-only Queue connections, and direct msg publish. Source-level consume, subscribe, ACK, and NACK remain streaming Rust provider APIs rather than finite handler statements. Use the Rust provider API for subscriptions and session-bound receipts; secrets, receipts, and payloads remain server-only."
+      Alert type:"info" message:"The initial contract excludes arbitrary AMQP exchange types, priorities, TTL, dead-lettering, exactly-once delivery, visibility timeouts, and transparent subscription reconnection. RabbitMQ topology management requires an explicit management authority."

@@ -83,7 +83,7 @@ page CanvasInputPage
         y:180
         radius:24
         fill:"primary"
-        stroke:"onPrimary"
+        stroke:"primaryText"
         strokeWidth:4
         bind:{ x:"pointer.x" y:"pointer.y" }
       },
@@ -92,7 +92,7 @@ page CanvasInputPage
         x:320
         y:180
         radius:7
-        fill:"onPrimary"
+        fill:"primaryText"
         bind:{ x:"pointer.x" y:"pointer.y" }
       },
       {
@@ -100,7 +100,7 @@ page CanvasInputPage
         x:320
         y:42
         text:"Touch, click, or press a key"
-        fill:"onSurface"
+        fill:"surfaceText"
         size:20
         align:"center"
         bind:{ text:"key.key" }
@@ -267,5 +267,5 @@ page CanvasInputPage
       Flex justify:"space-between" align:"center" wrap:true gap:3
         Button href:"/docs/views/canvas/composition" variant:"ghost" scheme:"muted" iconStart:"alt-arrow-left"
           "Composition"
-        Button href:"/docs/views/canvas/overview" variant:"solid" scheme:"primary" iconEnd:"home"
+        Button href:"/docs/views/canvas/overview" iconEnd:"home"
           "Back to overview"

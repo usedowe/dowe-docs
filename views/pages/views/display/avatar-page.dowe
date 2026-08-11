@@ -31,7 +31,7 @@ page AvatarPage
           "Profiles with clear fallbacks"
         Text size:"sm" color:"muted"
           "Use a packaged asset or an HTTPS image. Android loads both through its cached native image pipeline; when loading fails, Dowe falls back to initials resolved from name and then alt."
-      Card variant:"outlined" scheme:"surface" p:{ xs:6 md:8 } rounded:"md" border:1
+      Card variant:"outlined" p:{ xs:6 md:8 } border:1
         Flex wrap:true justify:"center" align:"center" gap:6
           Avatar src:"https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=160&q=80" name:"Nora Kim" alt:"Portrait of Nora Kim" size:"xl" status:"online"
           Avatar src:"https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=160&q=80" name:"Leo Martin" alt:"Portrait of Leo Martin" size:"lg" status:"busy" bordered:true

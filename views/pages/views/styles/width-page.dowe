@@ -64,11 +64,11 @@ page WidthPage
           copyLabel:"Copy Dowe"
           copiedLabel:"Copied"
           content:"""
-            Button minW:40 scheme:"primary"
+            Button minW:40
               "Continue"
           """
       Flex direction:"column" gap:4 align:"start"
-        Button minW:40 scheme:"primary"
+        Button minW:40
           "Continue"
         Button minW:64 variant:"soft" scheme:"secondary"
           "Create workspace"

@@ -37,13 +37,13 @@ page ToggleGroupPage
           "Switch a view mode"
         Text size:"sm" color:"muted"
           "The selected value is shared with the page Signal, so the control and its downstream preview stay on one source-of-truth path."
-      Card variant:"outlined" scheme:"surface" rounded:"md" border:1 p:{ xs:5 md:7 }
+      Card variant:"outlined" border:1 p:{ xs:5 md:7 }
         Grid columns:1 gap:4
           ToggleGroup value:mode variant:"soft" scheme:"muted" size:"md" wide:true ariaLabel:"View mode"
             item id:"map" label:"Map" icon:"file"
             item id:"list" label:"List" icon:"search"
             item id:"stats" label:"Stats" icon:"settings"
-          Card variant:"soft" scheme:"primary" p:4 rounded:"md"
+          Card variant:"soft" scheme:"primary" p:4
             Text size:"sm" weight:"bold"
               "Active mode"
             Text size:"lg" weight:"black"
@@ -71,7 +71,7 @@ page ToggleGroupPage
         Text size:"sm" color:"muted"
           "Use horizontal groups for compact filters and vertical groups when the labels need more room."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" color:"muted"
               "FILTERS"
@@ -81,7 +81,7 @@ page ToggleGroupPage
               item id:"all" label:"All"
               item id:"unread" label:"Unread"
               item id:"saved" label:"Saved"
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" color:"muted"
               "ORIENTATION"
@@ -91,7 +91,7 @@ page ToggleGroupPage
               item id:"overview" label:"Overview" icon:"file"
               item id:"activity" label:"Activity" icon:"search"
               item id:"settings" label:"Settings" icon:"settings"
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" color:"muted"
               "DISABLED"
@@ -119,7 +119,7 @@ page ToggleGroupPage
         """
   Section id:"toggle-group-contract" p:{ xs:5 md:7 }
     Grid columns:{ xs:1 md:2 } gap:4
-      Card variant:"outlined" scheme:"surface" rounded:"md" border:1 p:5
+      Card variant:"outlined" border:1 p:5
         Grid columns:1 gap:2
           Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
             "STRUCTURE"
@@ -127,7 +127,7 @@ page ToggleGroupPage
             "Items are explicit"
           Text size:"sm" color:"muted"
             "Every item requires a stable id and a visible label. Icons are optional and use validated Solar names."
-      Card variant:"outlined" scheme:"surface" rounded:"md" border:1 p:5
+      Card variant:"outlined" border:1 p:5
         Grid columns:1 gap:2
           Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
             "ACCESSIBILITY"
@@ -157,7 +157,7 @@ page ToggleGroupPage
         column field:"defaultValue" label:"Default" width:"1fr"
   Section id:"toggle-group-next" p:{ xs:5 md:7 }
     Flex wrap:true justify:"between" gap:4
-      Button href:"/docs/views/control/record" variant:"outlined" scheme:"primary" size:"md" rounded:"full"
+      Button href:"/docs/views/control/record" variant:"outlined" rounded:"full"
         "Previous Record"
-      Button href:"/docs/views/display/accordion" variant:"solid" scheme:"primary" size:"md" rounded:"full"
+      Button href:"/docs/views/display/accordion" rounded:"full"
         "Next Accordion"

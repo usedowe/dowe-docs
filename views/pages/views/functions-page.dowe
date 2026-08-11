@@ -21,13 +21,13 @@ page FunctionsPage
           "Name a state transition"
         Text size:"sm" color:"muted"
           "A function contains ordered request, branch, state, feedback, and internal redirect statements."
-      Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+      Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Grid columns:1 gap:4
-          Button onClick:togglePanel scheme:"primary"
+          Button onClick:togglePanel
             "Toggle panel"
           Button onClick:openViews variant:"soft" scheme:"secondary"
             "Open Views overview"
-          Card show:panelOpen variant:"soft" scheme:"info" p:4 rounded:"md"
+          Card show:panelOpen variant:"soft" scheme:"info" p:4
             Text
               "The Button dispatches togglePanel, which updates this page Signal."
       Code:

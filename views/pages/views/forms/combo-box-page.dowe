@@ -83,7 +83,7 @@ page ComboBoxPage
           comboOption value:"editor" label:"Editor" description:"Create, update, and publish workspace content." icon:"edit"
           comboOption value:"viewer" label:"Viewer" description:"Read workspace content without making changes." icon:"search"
           comboOption value:"guest" label:"Guest" description:"Review shared links with limited access." disabled:true icon:"dismiss"
-        Card variant:"soft" scheme:"surface" p:{ xs:5 md:7 } rounded:"md"
+        Card variant:"soft" p:{ xs:5 md:7 }
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
               "SEARCHABLE SINGLE CHOICE"
@@ -170,7 +170,7 @@ page ComboBoxPage
         Text size:"sm" color:"muted"
           "Dowe owns the trigger, search row, option state, and popover placement instead of delegating the contract to a platform-specific menu."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "BINDING"
@@ -178,7 +178,7 @@ page ComboBoxPage
               "String only"
             Text size:"sm" color:"muted"
               "bind reads and writes the selected option value through a string Signal path."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "OPTIONS"
@@ -186,7 +186,7 @@ page ComboBoxPage
               "Direct children"
             Text size:"sm" color:"muted"
               "Each comboOption needs a unique value and label, with optional description, icon, image, or disabled state."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "TARGETS"

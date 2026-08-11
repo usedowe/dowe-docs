@@ -8,7 +8,7 @@ page FooterPreviewPage
       Text size:"lg" color:"muted"
         "Every routed preview reuses this page while its layout owns the Footer variation."
       Flex wrap:true gap:3
-        Button href:"/blocks/footer" variant:"solid" scheme:"primary" rounded:"full"
+        Button href:"/blocks/footer" rounded:"full"
           "Browse all Footers"
         Button href:"/docs/views/layout/footer" variant:"outlined" scheme:"muted" rounded:"full"
           "View component reference"

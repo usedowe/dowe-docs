@@ -1,6 +1,25 @@
 import { listIconCategories, listIcons } from "@/server/handlers/icons"
+import { listExampleBlogs, createExampleBlog, updateExampleBlog, deleteExampleBlog } from "@/server/handlers/example-crud"
+import { registerExampleUser, loginExampleUser, getExampleSession, logoutExampleUser } from "@/server/handlers/example-auth"
+import publishExampleEvent from "@/server/handlers/example-queue"
+import runExampleUtilities from "@/server/handlers/example-utilities"
+import requireExampleAuth from "@/server/middlewares/example-auth"
 
 endpoints ApiRoutes
   group path:"/api/icons"
     get path:"/categories" handler:listIconCategories
     get path:"/:category/:style/:search/:page" handler:listIcons
+  group path:"/api/examples/auth"
+    post path:"/register" handler:registerExampleUser
+    post path:"/login" handler:loginExampleUser
+    get path:"/session" handler:getExampleSession middleware:[requireExampleAuth]
+    post path:"/logout" handler:logoutExampleUser middleware:[requireExampleAuth]
+  group path:"/api/examples/blogs"
+    get path:"" handler:listExampleBlogs
+    post path:"" handler:createExampleBlog middleware:[requireExampleAuth]
+    patch path:"/:id" handler:updateExampleBlog middleware:[requireExampleAuth]
+    delete path:"/:id" handler:deleteExampleBlog middleware:[requireExampleAuth]
+  group path:"/api/examples/queue"
+    post path:"" handler:publishExampleEvent
+  group path:"/api/examples/utilities"
+    post path:"" handler:runExampleUtilities

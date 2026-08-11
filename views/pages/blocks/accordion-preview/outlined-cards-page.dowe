@@ -3,7 +3,7 @@ page OutlinedAccordionPage
     { id:"structure" text:"A clear structure keeps the question easy to scan and the answer focused on one useful idea." },
     { id:"portability" text:"Portable Dowe components preserve the same disclosure behavior across every supported target." },
   ]
-  Section id:"outlined-accordion" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:14 } minH:"vh-0"
+  Section id:"outlined-accordion" bg:"background" color:"backgroundText" boxed:true py:{ xs:8 md:14 } minH:"vh-0"
     Grid columns:1 gap:{ xs:8 md:12 }
       Flex direction:"column" align:"center" gap:3
         Title size:{ xs:"3xl" md:"5xl" } weight:"black"

@@ -15,9 +15,9 @@ page PricesPage
             "01 · FEATURE CARDS"
           Title size:"2xl" weight:"black"
             "Plan summaries above detailed feature lists"
-        Button href:"/blocks/pricing-preview/feature-cards" variant:"soft" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/pricing-preview/feature-cards" variant:"soft" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe src:"/blocks/pricing-preview/feature-cards" title:"Feature cards pricing preview" loading:"lazy" sandbox:"scripts same-origin"
@@ -62,7 +62,7 @@ page PricesPage
                 },
               ]
 
-              Section id:"feature-cards-pricing" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:12 }
+              Section id:"feature-cards-pricing" bg:"background" color:"backgroundText" boxed:true py:{ xs:8 md:12 }
                 Grid columns:1 gap:{ xs:8 md:12 }
                   Flex direction:"column" align:"center" gap:3
                     Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
@@ -83,31 +83,31 @@ page PricesPage
                                 "{plan.price}"
                               Text color:"muted"
                                 "Billed monthly"
-                              Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" w:"full"
+                              Button size:"lg" rounded:"full" w:"full"
                                 "Get started"
                           Grid columns:1 gap:3 p:{ xs:6 md:7 }
                             Flex align:"center" gap:3
-                              Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                              Icon name:"check-circle-bold" fill:"muted" w:5 h:5
                               Text size:"sm" weight:"bold"
                                 "{plan.featureOne}"
                             Flex align:"center" gap:3
-                              Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                              Icon name:"check-circle-bold" fill:"muted" w:5 h:5
                               Text size:"sm" weight:"bold"
                                 "{plan.featureTwo}"
                             Flex align:"center" gap:3
-                              Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                              Icon name:"check-circle-bold" fill:"muted" w:5 h:5
                               Text size:"sm" weight:"bold"
                                 "{plan.featureThree}"
                             Flex align:"center" gap:3
-                              Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                              Icon name:"check-circle-bold" fill:"muted" w:5 h:5
                               Text size:"sm" weight:"bold"
                                 "{plan.featureFour}"
                             Flex align:"center" gap:3
-                              Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                              Icon name:"check-circle-bold" fill:"muted" w:5 h:5
                               Text size:"sm" weight:"bold"
                                 "{plan.featureFive}"
             """
-  Section id:"media-cards" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
+  Section id:"media-cards" p:{ xs:5 md:7 } bg:"softPrimary" color:"softPrimaryText"
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -115,9 +115,9 @@ page PricesPage
             "02 · MEDIA CARDS"
           Title size:"2xl" weight:"black"
             "Visual placeholders introduce each plan"
-        Button href:"/blocks/pricing-preview/media-cards" variant:"solid" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/pricing-preview/media-cards" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe src:"/blocks/pricing-preview/media-cards" title:"Media cards pricing preview" loading:"lazy" sandbox:"scripts same-origin"
@@ -150,7 +150,7 @@ page PricesPage
                 },
               ]
 
-              Section id:"media-cards-pricing" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:12 }
+              Section id:"media-cards-pricing" bg:"background" color:"backgroundText" boxed:true py:{ xs:8 md:12 }
                 Grid columns:1 gap:{ xs:8 md:12 }
                   Flex direction:"column" align:"center" gap:3
                     Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
@@ -166,14 +166,14 @@ page PricesPage
                           Flex direction:"column" align:"center" gap:4
                             Box bg:"softMuted" rounded:"full" w:24 h:24
                               Flex align:"center" justify:"center" w:"full" h:"full"
-                                Icon name:"gallery" style:"bold-duotone" fill:"muted" w:12 h:12
+                                Icon name:"gallery-bold-duotone" fill:"muted" w:12 h:12
                             Title size:"3xl" weight:"black"
                               "{plan.price}"
                             Text size:"sm" weight:"bold" spacing:"widest" color:"muted"
                               "{plan.name}"
                             Text color:"muted"
                               "{plan.description}"
-                          Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" w:"full"
+                          Button size:"lg" rounded:"full" w:"full"
                             "Get started"
             """
   Section id:"split-plans" p:{ xs:5 md:7 }
@@ -184,9 +184,9 @@ page PricesPage
             "03 · SPLIT PLANS"
           Title size:"2xl" weight:"black"
             "A focused starter card beside an expanded enterprise offer"
-        Button href:"/blocks/pricing-preview/split-plans" variant:"soft" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/pricing-preview/split-plans" variant:"soft" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe src:"/blocks/pricing-preview/split-plans" title:"Split plans pricing preview" loading:"lazy" sandbox:"scripts same-origin"
@@ -215,12 +215,12 @@ page PricesPage
                 { id:"integrations" label:"All integrations included" },
               ]
 
-              Section id:"split-plans-pricing" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:12 }
+              Section id:"split-plans-pricing" bg:"background" color:"backgroundText" boxed:true py:{ xs:8 md:12 }
                 Grid columns:{ xs:1 md:"2fr 3fr" } gap:6 align:"stretch"
                   Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 }
                     Grid columns:1 gap:5
                       Flex justify:"between" align:"center"
-                        Icon name:"gallery" style:"bold-duotone" fill:"muted" w:12 h:12
+                        Icon name:"gallery-bold-duotone" fill:"muted" w:12 h:12
                         Box bg:"softMuted" rounded:"full" p:3
                           Text size:"sm" weight:"bold"
                             "$99/mo"
@@ -229,16 +229,16 @@ page PricesPage
                       Grid columns:1 gap:3
                         each in:basicFeatures as:feature key:feature.id
                           Flex align:"center" gap:3
-                            Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                            Icon name:"check-circle-bold" fill:"muted" w:5 h:5
                             Text size:"sm" weight:"bold"
                               "{feature.label}"
-                      Button variant:"solid" scheme:"primary" size:"lg" rounded:"full"
+                      Button size:"lg" rounded:"full"
                         "Get started"
-                  Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 }
+                  Card scheme:"muted" rounded:"xl" p:{ xs:6 md:8 }
                     Grid columns:1 gap:5
                       Flex justify:"between" align:"center"
-                        Icon name:"gallery" style:"bold-duotone" fill:"onMuted" w:12 h:12
-                        Box bg:"surface" color:"onSurface" rounded:"full" p:3
+                        Icon name:"gallery-bold-duotone" fill:"mutedText" w:12 h:12
+                        Box bg:"surface" color:"surfaceText" rounded:"full" p:3
                           Text size:"sm" weight:"bold"
                             "$399/mo"
                       Title size:"3xl" weight:"black"
@@ -246,13 +246,13 @@ page PricesPage
                       Grid columns:{ xs:1 md:2 } gap:3
                         each in:enterpriseFeatures as:feature key:feature.id
                           Flex align:"center" gap:3
-                            Icon name:"check-circle" style:"bold" fill:"onMuted" w:5 h:5
+                            Icon name:"check-circle-bold" fill:"mutedText" w:5 h:5
                             Text size:"sm" weight:"bold"
                               "{feature.label}"
-                      Button variant:"solid" scheme:"secondary" size:"lg" rounded:"full"
+                      Button scheme:"secondary" size:"lg" rounded:"full"
                         "Get started"
             """
-  Section id:"minimal-columns" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
+  Section id:"minimal-columns" p:{ xs:5 md:7 } bg:"softPrimary" color:"softPrimaryText"
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -260,9 +260,9 @@ page PricesPage
             "04 · MINIMAL COLUMNS"
           Title size:"2xl" weight:"black"
             "Three quiet columns with one elevated recommendation"
-        Button href:"/blocks/pricing-preview/minimal-columns" variant:"solid" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/pricing-preview/minimal-columns" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe src:"/blocks/pricing-preview/minimal-columns" title:"Minimal columns pricing preview" loading:"lazy" sandbox:"scripts same-origin"
@@ -310,7 +310,7 @@ page PricesPage
                 },
               ]
 
-              Section id:"minimal-columns-pricing" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:14 }
+              Section id:"minimal-columns-pricing" bg:"background" color:"backgroundText" boxed:true py:{ xs:8 md:14 }
                 Grid columns:{ xs:1 md:3 } gap:{ xs:5 md:0 } align:"stretch"
                   each in:plans as:plan key:plan.id
                     Card variant:"ghost" scheme:"background" rounded:"xl" p:{ xs:6 md:8 } minH:96 show:plan.standard
@@ -323,22 +323,22 @@ page PricesPage
                               "{plan.price}"
                           Grid columns:1 gap:3
                             Flex align:"center" gap:3
-                              Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                              Icon name:"check-circle-bold" fill:"muted" w:5 h:5
                               Text size:"sm" weight:"bold"
                                 "{plan.featureOne}"
                             Flex align:"center" gap:3
-                              Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                              Icon name:"check-circle-bold" fill:"muted" w:5 h:5
                               Text size:"sm" weight:"bold"
                                 "{plan.featureTwo}"
                             Flex align:"center" gap:3
-                              Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                              Icon name:"check-circle-bold" fill:"muted" w:5 h:5
                               Text size:"sm" weight:"bold"
                                 "{plan.featureThree}"
                             Flex align:"center" gap:3
-                              Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                              Icon name:"check-circle-bold" fill:"muted" w:5 h:5
                               Text size:"sm" weight:"bold"
                                 "{plan.featureFour}"
-                        Button variant:"solid" scheme:"primary" size:"lg" rounded:"full"
+                        Button size:"lg" rounded:"full"
                           "Get started"
                     Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:96 show:plan.popular
                       Flex direction:"column" justify:"between" gap:8 minH:80
@@ -351,22 +351,22 @@ page PricesPage
                             "{plan.price}"
                         Grid columns:1 gap:3
                           Flex align:"center" gap:3
-                            Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                            Icon name:"check-circle-bold" fill:"muted" w:5 h:5
                             Text size:"sm" weight:"bold"
                               "{plan.featureOne}"
                           Flex align:"center" gap:3
-                            Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                            Icon name:"check-circle-bold" fill:"muted" w:5 h:5
                             Text size:"sm" weight:"bold"
                               "{plan.featureTwo}"
                           Flex align:"center" gap:3
-                            Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                            Icon name:"check-circle-bold" fill:"muted" w:5 h:5
                             Text size:"sm" weight:"bold"
                               "{plan.featureThree}"
                           Flex align:"center" gap:3
-                            Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                            Icon name:"check-circle-bold" fill:"muted" w:5 h:5
                             Text size:"sm" weight:"bold"
                               "{plan.featureFour}"
-                        Button variant:"solid" scheme:"primary" size:"lg" rounded:"full"
+                        Button size:"lg" rounded:"full"
                           "Get started"
             """
   Section id:"billing-toggle" p:{ xs:5 md:7 }
@@ -377,9 +377,9 @@ page PricesPage
             "05 · BILLING TOGGLE"
           Title size:"2xl" weight:"black"
             "Interactive monthly and annual pricing"
-        Button href:"/blocks/pricing-preview/billing-toggle" variant:"soft" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/pricing-preview/billing-toggle" variant:"soft" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe src:"/blocks/pricing-preview/billing-toggle" title:"Billing toggle pricing preview" loading:"lazy" sandbox:"scripts same-origin"
@@ -432,7 +432,7 @@ page PricesPage
                 set monthly value:false
                 set annual value:true
 
-              Section id:"billing-toggle-pricing" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:12 }
+              Section id:"billing-toggle-pricing" bg:"background" color:"backgroundText" boxed:true py:{ xs:8 md:12 }
                 Grid columns:1 gap:{ xs:7 md:10 }
                   Flex direction:"column" align:"center" gap:3
                     Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
@@ -440,13 +440,13 @@ page PricesPage
                     Title size:{ xs:"4xl" md:"6xl" } weight:"black"
                       "Affordable pricing plans"
                   Flex align:"center" justify:"center" gap:2
-                    Button variant:"solid" scheme:"primary" rounded:"full" show:monthly onClick:showMonthly
+                    Button rounded:"full" show:monthly onClick:showMonthly
                       "Monthly plan"
-                    Button variant:"outlined" scheme:"primary" rounded:"full" show:annual onClick:showMonthly
+                    Button variant:"outlined" rounded:"full" show:annual onClick:showMonthly
                       "Monthly plan"
-                    Button variant:"outlined" scheme:"primary" rounded:"full" show:monthly onClick:showAnnual
+                    Button variant:"outlined" rounded:"full" show:monthly onClick:showAnnual
                       "Annual plan"
-                    Button variant:"solid" scheme:"primary" rounded:"full" show:annual onClick:showAnnual
+                    Button rounded:"full" show:annual onClick:showAnnual
                       "Annual plan"
                   Grid columns:{ xs:1 md:3 } gap:5 align:"stretch"
                     each in:plans as:plan key:plan.id
@@ -460,21 +460,21 @@ page PricesPage
                             Title size:"4xl" weight:"black" show:annual
                               "{plan.annualPrice}"
                           Flex align:"center" gap:3
-                            Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                            Icon name:"check-circle-bold" fill:"muted" w:5 h:5
                             Text size:"sm" weight:"bold"
                               "{plan.featureOne}"
                           Flex align:"center" gap:3
-                            Icon name:"check-circle" style:"bold" fill:"muted" w:5 h:5
+                            Icon name:"check-circle-bold" fill:"muted" w:5 h:5
                             Text size:"sm" weight:"bold"
                               "{plan.featureTwo}"
-                          Button variant:"solid" scheme:"primary" size:"lg" rounded:"full"
+                          Button size:"lg" rounded:"full"
                             "Get started"
-                      Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:6 md:7 } show:plan.popular
+                      Card scheme:"muted" rounded:"xl" p:{ xs:6 md:7 } show:plan.popular
                         Grid columns:1 gap:5
                           Flex justify:"between" align:"center"
                             Title size:"xl" weight:"black"
                               "{plan.name}"
-                            Box bg:"surface" color:"onSurface" rounded:"full" p:2
+                            Box bg:"surface" color:"surfaceText" rounded:"full" p:2
                               Text size:"xs" weight:"bold"
                                 "Popular"
                           Flex align:"end" gap:2
@@ -483,17 +483,17 @@ page PricesPage
                             Title size:"4xl" weight:"black" show:annual
                               "{plan.annualPrice}"
                           Flex align:"center" gap:3
-                            Icon name:"check-circle" style:"bold" fill:"onMuted" w:5 h:5
+                            Icon name:"check-circle-bold" fill:"mutedText" w:5 h:5
                             Text size:"sm" weight:"bold"
                               "{plan.featureOne}"
                           Flex align:"center" gap:3
-                            Icon name:"check-circle" style:"bold" fill:"onMuted" w:5 h:5
+                            Icon name:"check-circle-bold" fill:"mutedText" w:5 h:5
                             Text size:"sm" weight:"bold"
                               "{plan.featureTwo}"
-                          Button variant:"solid" scheme:"secondary" size:"lg" rounded:"full"
+                          Button scheme:"secondary" size:"lg" rounded:"full"
                             "Get started"
             """
-  Section id:"comparison-table" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
+  Section id:"comparison-table" p:{ xs:5 md:7 } bg:"softPrimary" color:"softPrimaryText"
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -501,9 +501,9 @@ page PricesPage
             "06 · COMPARISON TABLE"
           Title size:"2xl" weight:"black"
             "A plan matrix that becomes a swipeable mobile comparison"
-        Button href:"/blocks/pricing-preview/comparison-table" variant:"solid" scheme:"primary" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/pricing-preview/comparison-table" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe src:"/blocks/pricing-preview/comparison-table" title:"Comparison table pricing preview" loading:"lazy" sandbox:"scripts same-origin"
@@ -537,7 +537,7 @@ page PricesPage
                 },
               ]
 
-              Section id:"comparison-table-pricing" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:12 }
+              Section id:"comparison-table-pricing" bg:"background" color:"backgroundText" boxed:true py:{ xs:8 md:12 }
                 Grid columns:1 gap:{ xs:8 md:12 }
                   Flex direction:"column" align:"center" gap:3
                     Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
@@ -554,7 +554,7 @@ page PricesPage
                             "{plan.price}"
                           Title size:"xl" weight:"black"
                             "{plan.name}"
-                          Button variant:"solid" scheme:"primary" rounded:"full" w:"full"
+                          Button rounded:"full" w:"full"
                             "Get started"
                     each in:featureRows as:row key:row.id
                       Grid columns:"2fr 1fr 1fr 1fr" gap:0 align:"center" border:1 borderColor:"muted"
@@ -571,7 +571,7 @@ page PricesPage
                       Grid columns:1 gap:5
                         Title size:"2xl" weight:"black"
                           "Basic"
-                        Button variant:"solid" scheme:"primary" rounded:"full" w:"full"
+                        Button rounded:"full" w:"full"
                           "Get started"
                         Text color:"muted"
                           "Number of users · 1 user"
@@ -579,7 +579,7 @@ page PricesPage
                       Grid columns:1 gap:5
                         Title size:"2xl" weight:"black"
                           "Growth"
-                        Button variant:"solid" scheme:"primary" rounded:"full" w:"full"
+                        Button rounded:"full" w:"full"
                           "Get started"
                         Text color:"muted"
                           "Number of users · 5 users"
@@ -587,7 +587,7 @@ page PricesPage
                       Grid columns:1 gap:5
                         Title size:"2xl" weight:"black"
                           "Enterprise"
-                        Button variant:"solid" scheme:"primary" rounded:"full" w:"full"
+                        Button rounded:"full" w:"full"
                           "Get started"
                         Text color:"muted"
                           "Number of users · Unlimited"

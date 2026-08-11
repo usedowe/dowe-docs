@@ -68,7 +68,7 @@ page ScaffoldPage
             signal openDrawer value:false
             Scaffold boxed:true
               appBar
-                AppBar variant:"soft" scheme:"surface" position:"fixed" bordered:true
+                AppBar variant:"soft" position:"fixed" bordered:true
                   start
                     IconButton label:"Open navigation" variant:"ghost" show:{ xs:true md:false } onClick:{ set:openDrawer value:!openDrawer } icon:"menu-dots"
                     Text weight:"bold"
@@ -76,7 +76,7 @@ page ScaffoldPage
               start
                 Sidebar show:{ xs:false md:true } variant:"soft" scheme:"surface"
                   body
-                    SideNav variant:"ghost" scheme:"muted" size:"sm" wide:true
+                    SideNav size:"sm" wide:true
                       item label:"Overview" href:"/docs"
               main
                 children
@@ -87,9 +87,9 @@ page ScaffoldPage
                   tab href:"/docs/views/layout/scaffold" label:"Scaffold"
                     Icon name:"layers"
               overlays
-                Drawer open:openDrawer position:"start" variant:"soft" scheme:"surface" show:{ xs:true md:false }
+                Drawer open:openDrawer position:"start" variant:"soft" show:{ xs:true md:false }
                   body
-                    SideNav variant:"ghost" scheme:"muted" size:"sm" wide:true
+                    SideNav size:"sm" wide:true
                       item label:"Overview" href:"/docs"
         """
   Section id:"scaffold-splash" p:{ xs:5 md:7 }

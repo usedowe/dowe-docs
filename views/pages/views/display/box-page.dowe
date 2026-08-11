@@ -51,20 +51,20 @@ page BoxPage
           copyLabel:"Copy Dowe"
           copiedLabel:"Copied"
           content:"""
-            Box bg:"softInfo" color:"onSoftInfo" p:5 rounded:"lg"
+            Box bg:"softInfo" color:"softInfoText" p:5 rounded:"lg"
               Title size:"xl"
                 "Inherited title"
               Text size:"sm"
-                "This copy uses onSoftInfo."
+                "This copy uses softInfoText."
               Text size:"sm" color:"danger"
                 "This child overrides the parent."
           """
-      Box bg:"softInfo" color:"onSoftInfo" p:5 rounded:"lg"
+      Box bg:"softInfo" color:"softInfoText" p:5 rounded:"lg"
         Grid columns:1 gap:2
           Title size:"xl" weight:"black"
             "Inherited title"
           Text size:"sm"
-            "This copy uses onSoftInfo."
+            "This copy uses softInfoText."
           Text size:"sm" color:"danger"
             "This child overrides the parent."
   Section id:"box-positioning" p:{ xs:5 md:7 }
@@ -76,10 +76,10 @@ page BoxPage
           "Layer real components over a visual stage"
         Text size:"sm" color:"muted"
           "A relative Box stays in normal flow and becomes the reference plane for direct absolute Box children."
-      Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+      Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Box position:"relative" bg:"softInfo" rounded:"lg" minH:64
           Box position:"absolute" top:{ xs:4 md:6 } right:{ xs:4 md:6 }
-            Card variant:"solid" scheme:"surface" p:4 rounded:"lg" shadow:"lg"
+            Card p:4 rounded:"lg" shadow:"lg"
               Grid columns:1 gap:1
                 Title size:"2xl" weight:"black"
                   "36k+"
@@ -97,7 +97,7 @@ page BoxPage
         content:"""
           Box position:"relative" cover:"/assets/hero.jpg" minH:"vh-32" rounded:"xl"
             Box position:"absolute" top:{ xs:4 md:6 } right:{ xs:4 md:6 }
-              Card variant:"solid" scheme:"surface" p:4
+              Card p:4
                 Text weight:"bold"
                   "Audience proof"
             Box position:"absolute" bottom:{ xs:4 md:6 } left:{ xs:4 md:6 }
@@ -121,7 +121,7 @@ page BoxPage
         copiedLabel:"Copied"
         content:"""
           Box position:"fixed" right:4 bottom:4
-            Card variant:"solid" scheme:"surface" p:4 shadow:"lg"
+            Card p:4 shadow:"lg"
               Text weight:"bold"
                 "Persistent action"
         """

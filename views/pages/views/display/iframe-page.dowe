@@ -59,14 +59,14 @@ page IframePage
         Text size:"sm" color:"muted"
           "Loading, allow, and sandbox are static source props. Their values are checked before generation and mapped to HTML, WKWebView, and Android WebView behavior."
       Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+        Card variant:"outlined" p:{ xs:5 md:7 } border:1
           Grid columns:1 gap:4
             Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
               "INTERACTIVE MEDIA"
             Iframe src:"/examples/scaffold" title:"Scaffold application preview" loading:"eager" allow:"fullscreen; autoplay; picture-in-picture" sandbox:"scripts same-origin forms" allowFullscreen:true h:80 rounded:"md" border:1
             Text size:"sm" color:"muted"
               "Use allow and allowFullscreen only when the embedded document needs them."
-        Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+        Card variant:"outlined" p:{ xs:5 md:7 } border:1
           Grid columns:1 gap:4
             Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
               "STRICT EMBED"
@@ -79,7 +79,7 @@ page IframePage
       """
   Section id:"iframe-boundary" p:{ xs:5 md:7 }
     Grid columns:{ xs:1 md:3 } gap:4
-      Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+      Card variant:"soft" p:5
         Grid columns:1 gap:2
           Text size:"xs" weight:"bold" color:"muted"
             "SOURCE"
@@ -87,7 +87,7 @@ page IframePage
             "HTTPS or internal"
           Text size:"sm" color:"muted"
             "Remote sources must be HTTPS. Local routes must begin with exactly one slash."
-      Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+      Card variant:"soft" p:5
         Grid columns:1 gap:2
           Text size:"xs" weight:"bold" color:"muted"
             "ACCESSIBILITY"
@@ -95,7 +95,7 @@ page IframePage
             "Title is required"
           Text size:"sm" color:"muted"
             "The quoted title labels the embedded document on web and native targets."
-      Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+      Card variant:"soft" p:5
         Grid columns:1 gap:2
           Text size:"xs" weight:"bold" color:"muted"
             "LIMITS"

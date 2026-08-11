@@ -84,7 +84,7 @@ page ColorPage
           scheme:"primary"
           size:"lg"
           name:"brand-color"
-        Card variant:"soft" scheme:"surface" p:{ xs:5 md:7 } rounded:"md"
+        Card variant:"soft" p:{ xs:5 md:7 }
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
               "CURRENT VALUE"
@@ -171,7 +171,7 @@ page ColorPage
         Text size:"sm" color:"muted"
           "Dowe lowers the same anchored panel, saturation and brightness plane, hue slider, preview, formats, labels, and feedback to web, SwiftUI, and Compose. A floating label begins after the leading swatch so both remain readable."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "BINDING"
@@ -179,7 +179,7 @@ page ColorPage
               "String Signal"
             Text size:"sm" color:"muted"
               "bind reads and writes one uppercase #RRGGBB string continuously while the picker moves."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "FORMATS"
@@ -187,7 +187,7 @@ page ColorPage
               "Opt-in details"
             Text size:"sm" color:"muted"
               "showHex, showRgb, showCmyk, and showOklch add deterministic rows inside the anchored panel."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "VALIDATION"

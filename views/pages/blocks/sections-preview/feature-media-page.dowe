@@ -11,19 +11,19 @@ page FeatureMediaSectionPage
       description:"Fast prototypes make important assumptions visible before implementation begins."
     },
   ]
-  Section id:"feature-media-section" bg:"background" color:"onBackground" boxed:true p:{ xs:6 md:12 }
+  Section id:"feature-media-section" bg:"background" color:"backgroundText" boxed:true p:{ xs:6 md:12 }
     Grid columns:{ xs:1 md:"4fr 7fr" } gap:{ xs:10 md:16 } align:"center" minH:"vh-0"
       Grid columns:1 gap:{ xs:8 md:12 }
         each in:features as:feature key:feature.id
           Flex direction:"column" align:{ xs:"center" md:"start" } gap:3
             Box bg:"softMuted" rounded:"full" w:12 h:12 p:2
-              Icon name:"gallery" style:"bold-duotone" fill:"muted" w:7 h:7
+              Icon name:"gallery-bold-duotone" fill:"muted" w:7 h:7
             Title size:"xl" weight:"black"
               "{feature.title}"
             Text color:"muted"
               "{feature.description}"
       Box bg:"softMuted" rounded:"xl" p:8 minH:{ xs:72 md:96 }
         Flex direction:"column" align:"center" justify:"center" gap:3 minH:{ xs:56 md:80 }
-          Icon name:"gallery" style:"bold-duotone" fill:"muted" w:16 h:16
+          Icon name:"gallery-bold-duotone" fill:"muted" w:16 h:16
           Text size:"sm" color:"muted"
             "Image placeholder"

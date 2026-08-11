@@ -18,11 +18,11 @@ page StorePage
           "Shared preference"
         Text size:"sm" color:"muted"
           "This page imports a persistent Store. Its value is shared across routes and restored by target-local storage after restart."
-      Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+      Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Grid columns:1 gap:4
           Text size:"lg" weight:"bold"
             "Application preference"
-          Button onClick:{ set:docsPreferences.compactExamples value:!docsPreferences.compactExamples } scheme:"primary"
+          Button onClick:{ set:docsPreferences.compactExamples value:!docsPreferences.compactExamples }
             "Toggle preference"
           Text show:docsPreferences.compactExamples size:"sm" color:"muted"
             "Compact mode is enabled. Another page that imports this Store reads the same value."
@@ -43,7 +43,7 @@ page StorePage
         """
   Section id:"store-guidance" py:{ xs:7 md:10 }
     Grid columns:{ xs:1 md:2 } gap:4
-      Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+      Card variant:"soft" p:5
         Grid columns:1 gap:2
           Title size:"lg" weight:"bold"
             "One declaration"
@@ -51,7 +51,7 @@ page StorePage
             "A Store module owns its initial value, type, persistence policy, and storage identity. Consumers import it; they never redeclare it."
           Text size:"sm" color:"muted"
             "When persisted data is malformed or no longer matches the declared initial shape, Dowe restores the initial value instead of hydrating incomplete state."
-      Card variant:"soft" scheme:"warning" p:5 rounded:"md"
+      Card variant:"soft" scheme:"warning" p:5
         Grid columns:1 gap:2
           Title size:"lg" weight:"bold"
             "Keep secrets server-side"

@@ -3,7 +3,7 @@ page NumberedListAccordionPage
     { id:"sequence" text:"Large sequence labels make long FAQ collections easier to scan and discuss with a team." },
     { id:"interaction" text:"Only the answer changes height; the numbered reading order remains stable throughout the interaction." },
   ]
-  Section id:"numbered-list-accordion" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:14 } minH:"vh-0"
+  Section id:"numbered-list-accordion" bg:"background" color:"backgroundText" boxed:true py:{ xs:8 md:14 } minH:"vh-0"
     Grid columns:1 gap:{ xs:8 md:10 }
       Flex direction:"column" align:{ xs:"center" md:"start" } gap:3
         Title size:{ xs:"3xl" md:"5xl" } weight:"black"
@@ -11,7 +11,7 @@ page NumberedListAccordionPage
         Text size:"lg" color:"muted"
           "A numbered disclosure list gives every question a memorable position in the sequence."
       Divider scheme:"muted"
-      Accordion variant:"ghost" scheme:"surface" rounded:"xs" w:"full"
+      Accordion scheme:"surface" rounded:"xs" w:"full"
         item id:"numbered-reusable" label:"01 · What makes a reusable website block effective?" defaultOpen:true
           Grid columns:1 gap:2
             each in:answerLines as:line key:line.id

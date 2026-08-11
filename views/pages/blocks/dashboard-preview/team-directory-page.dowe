@@ -33,11 +33,11 @@ page DashboardTeamDirectoryPage
             "Search, scan status, and move through a real paginated directory."
         Button variant:"outlined" scheme:"muted" size:"sm" iconStart:"download-minimalistic"
           "Export"
-      Card variant:"soft" scheme:"surface" rounded:"lg" p:{ xs:4 md:6 } border:1
+      Card variant:"soft" rounded:"lg" p:{ xs:4 md:6 } border:1
         Grid columns:1 gap:4
           Flex direction:{ xs:"column" sm:"row" } justify:"between" align:{ xs:"stretch" sm:"end" } gap:3
-            Input bind:search label:"Search" placeholder:"Search people" iconStart:"magnifier" variant:"outlined" scheme:"muted" w:{ xs:"full" sm:80 }
-            Button variant:"solid" scheme:"primary" size:"md" iconStart:"filter"
+            Input bind:search label:"Search" placeholder:"Search people" iconStart:"magnifier" scheme:"muted" w:{ xs:"full" sm:80 }
+            Button iconStart:"filter"
               "Filter"
           Grid columns:1 gap:0
             Grid columns:{ xs:"1fr auto" md:"2fr 1fr 1fr 1fr auto" } gap:3 align:"center" p:3 border:1 borderColor:"muted"

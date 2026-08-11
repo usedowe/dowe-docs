@@ -63,7 +63,7 @@ page DashboardOverviewPage
           "Export"
       Grid columns:{ xs:1 sm:2 lg:4 } gap:4
         each in:metrics as:metric key:metric.id
-          Card variant:"soft" scheme:"surface" rounded:"lg" p:5 border:1
+          Card variant:"soft" rounded:"lg" p:5 border:1
             Grid columns:1 gap:2
               Text size:"xs" color:"muted"
                 "{metric.label}"
@@ -75,7 +75,7 @@ page DashboardOverviewPage
                 Text size:"xs" color:"muted"
                   "vs last month"
       Grid columns:{ xs:1 lg:"2fr 1fr" } gap:4
-        Card variant:"soft" scheme:"surface" rounded:"lg" p:{ xs:4 md:6 } border:1
+        Card variant:"soft" rounded:"lg" p:{ xs:4 md:6 } border:1
           Grid columns:1 gap:4
             Flex justify:"between" align:"center" gap:3
               Grid columns:1 gap:1
@@ -86,7 +86,7 @@ page DashboardOverviewPage
               Chip variant:"soft" scheme:"muted"
                 "Updated"
             LineChart data:trend variant:"soft" scheme:"surface" size:"lg" palette:"ocean" curve:"smooth" showGradientFill:true hideGrid:true rounded:"md"
-        Card variant:"soft" scheme:"surface" rounded:"lg" p:{ xs:4 md:6 } border:1
+        Card variant:"soft" rounded:"lg" p:{ xs:4 md:6 } border:1
           Grid columns:1 gap:4
             Grid columns:1 gap:1
               Title size:"lg" weight:"bold"
@@ -95,7 +95,7 @@ page DashboardOverviewPage
                 "Current allocation across teams"
             ArcChart data:allocation variant:"soft" scheme:"surface" size:"md" palette:"ocean" legendPosition:"bottom" centerText:"Active" centerValue:"100%" thickness:18 gap:4 hideValues:true rounded:"md"
       Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"soft" scheme:"surface" rounded:"lg" p:{ xs:4 md:6 } border:1
+        Card variant:"soft" rounded:"lg" p:{ xs:4 md:6 } border:1
           Grid columns:1 gap:4
             Flex justify:"between" align:"center"
               Title size:"lg" weight:"bold"
@@ -105,17 +105,17 @@ page DashboardOverviewPage
               each in:countries as:country key:country.id
                 Flex justify:"between" align:"center" p:2
                   Flex align:"center" gap:2
-                    Icon name:"global" style:"linear" fill:"muted" w:5 h:5
+                    Icon name:"global" fill:"muted" w:5 h:5
                     Text size:"sm"
                       "{country.label}"
                   Text size:"sm" weight:"bold"
                     "{country.value}"
-        Card variant:"soft" scheme:"surface" rounded:"lg" p:{ xs:4 md:6 } border:1
+        Card variant:"soft" rounded:"lg" p:{ xs:4 md:6 } border:1
           Grid columns:1 gap:4
             Flex justify:"between" align:"center"
               Title size:"lg" weight:"bold"
                 "Recent activity"
-              Button variant:"ghost" scheme:"primary" size:"sm"
+              Button variant:"ghost" size:"sm"
                 "View all"
             Grid columns:1 gap:3
               each in:activity as:item key:item.id

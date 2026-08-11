@@ -75,14 +75,14 @@ page CommandPage
           "Search a real workspace palette"
         Text size:"sm" color:"muted"
           "Open the palette and filter across navigation, workspace actions, and account commands. Every item can navigate or invoke a named view function."
-      Card variant:"outlined" scheme:"surface" p:{ xs:6 md:10 } rounded:"md" border:1
+      Card variant:"outlined" p:{ xs:6 md:10 } border:1
         Grid columns:1 gap:4
           Flex wrap:true justify:"center" gap:3
-            Button onClick:openCommand variant:"solid" scheme:"primary" iconStart:"command"
+            Button onClick:openCommand iconStart:"command"
               "Open command menu"
             Text size:"sm" color:"muted"
               "Shortcut: ⌘ / Ctrl + K"
-          Card variant:"soft" scheme:"info" p:4 rounded:"md"
+          Card variant:"soft" scheme:"info" p:4
             Text size:"sm" color:"muted"
               "{commandStatus}"
       Command open:commandOpen placeholder:"Search the workspace" emptyText:"No matching workspace actions" closeText:"to close" navigateText:"Move" selectText:"Run" toggleText:"Change section" shortcut:"k" scheme:"surface" showFooter:true
@@ -128,7 +128,7 @@ page CommandPage
         Text size:"sm" color:"muted"
           "Command owns the searchable surface. item entries provide actions, while group entries add visual sections without changing the selection model."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "ITEM"
@@ -136,7 +136,7 @@ page CommandPage
               "One direct action"
             Text size:"sm" color:"muted"
               "Use href for portable navigation, history for back or forward, or onClick for a declared view function."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "GROUP"
@@ -144,7 +144,7 @@ page CommandPage
               "A labeled collection"
             Text size:"sm" color:"muted"
               "Group entries keep related actions together and are filtered with the same query as direct items."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "ITEM STATE"
@@ -178,7 +178,7 @@ page CommandPage
         Text size:"sm" color:"muted"
           "Command renders the authored labels for closing, navigating, selecting, and toggling. shortcut is a single ASCII key used by the global launcher unless it is disabled."
       Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+        Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" color:"muted"
               "VISIBLE FOOTER"
@@ -186,9 +186,9 @@ page CommandPage
               "Teach the controls"
             Text size:"sm" color:"muted"
               "showFooter:true keeps the localized command hints visible at the bottom of the palette."
-            Button onClick:openCommand variant:"soft" scheme:"primary" size:"sm"
+            Button onClick:openCommand variant:"soft" size:"sm"
               "Open with hints"
-        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+        Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" color:"muted"
               "COMPACT MODE"
@@ -225,19 +225,19 @@ page CommandPage
         Text size:"sm" color:"muted"
           "variant changes the palette surface while scheme controls its design family. The entries and keyboard contract remain the same."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"sm" weight:"bold"
               "Solid muted"
             Text size:"sm" color:"muted"
               "Good for an application-wide launcher."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"sm" weight:"bold"
               "Soft surface"
             Text size:"sm" color:"muted"
               "Useful when the palette belongs to a calm workspace shell."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"sm" weight:"bold"
               "Outlined info"

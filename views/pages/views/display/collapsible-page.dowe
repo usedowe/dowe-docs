@@ -34,7 +34,7 @@ page CollapsiblePage
           "Reveal implementation notes"
         Text size:"sm" color:"muted"
           "The header, Icon arrow, content region, open state, and scheme-derived colors are generated from one target-neutral component contract."
-      Card variant:"outlined" scheme:"surface" rounded:"md" border:1 p:{ xs:5 md:7 }
+      Card variant:"outlined" border:1 p:{ xs:5 md:7 }
         Grid columns:1 gap:4
           Collapsible label:"Route details" defaultOpen:true variant:"soft" scheme:"surface" rounded:"md"
             Grid columns:1 gap:3 p:2
@@ -72,16 +72,16 @@ page CollapsiblePage
         Text size:"sm" color:"muted"
           "Use several focused Collapsible regions when the page has independent topics, and reserve disabled for a real unavailable state."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" color:"muted"
               "OPEN BY DEFAULT"
             Title size:"lg" weight:"black"
               "Primary explanation"
             Collapsible label:"Why this matters" defaultOpen:true variant:"solid" scheme:"primary" rounded:"md"
-              Text size:"sm" color:"onPrimary"
+              Text size:"sm" color:"primaryText"
                 "Lead with the one explanation that helps the user make the next decision."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" color:"muted"
               "QUIET DETAIL"
@@ -90,7 +90,7 @@ page CollapsiblePage
             Collapsible label:"Implementation note" variant:"ghost" scheme:"muted" rounded:"md"
               Text size:"sm" color:"muted"
                 "Ghost treatment keeps a low-priority note available without competing with the main content."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" color:"muted"
               "UNAVAILABLE"
@@ -107,7 +107,7 @@ page CollapsiblePage
         copiedLabel:"Copied"
         content:"""
           Collapsible label:"Why this matters" defaultOpen:true variant:"solid" scheme:"primary"
-            Text size:"sm" color:"onPrimary"
+            Text size:"sm" color:"primaryText"
               "Lead with the explanation that helps the next decision."
 
           Collapsible label:"Implementation note" variant:"ghost" scheme:"muted"
@@ -120,7 +120,7 @@ page CollapsiblePage
         """
   Section id:"collapsible-contract" p:{ xs:5 md:7 }
     Grid columns:{ xs:1 md:2 } gap:4
-      Card variant:"outlined" scheme:"surface" rounded:"md" border:1 p:5
+      Card variant:"outlined" border:1 p:5
         Grid columns:1 gap:2
           Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
             "CHILDREN"
@@ -128,7 +128,7 @@ page CollapsiblePage
             "Normal Dowe views"
           Text size:"sm" color:"muted"
             "Use Text, Grid, Flex, Button, Badge, and other supported views inside the body."
-      Card variant:"outlined" scheme:"surface" rounded:"md" border:1 p:5
+      Card variant:"outlined" border:1 p:5
         Grid columns:1 gap:2
           Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
             "STATE"
@@ -158,7 +158,7 @@ page CollapsiblePage
         column field:"defaultValue" label:"Default" width:"1fr"
   Section id:"collapsible-next" p:{ xs:5 md:7 }
     Flex wrap:true justify:"between" gap:4
-      Button href:"/docs/views/display/badge" variant:"outlined" scheme:"primary" size:"md" rounded:"full"
+      Button href:"/docs/views/display/badge" variant:"outlined" rounded:"full"
         "Previous Badge"
-      Button href:"/docs/views/display/countdown" variant:"solid" scheme:"primary" size:"md" rounded:"full"
+      Button href:"/docs/views/display/countdown" rounded:"full"
         "Next Countdown"

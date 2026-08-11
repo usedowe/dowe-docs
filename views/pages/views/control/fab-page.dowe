@@ -108,7 +108,7 @@ page FabPage
           "Open the page actions"
         Text size:"sm" color:"muted"
           "Use the fixed FAB in the lower-right corner. It stays outside the scrolling page flow, and its trigger expands an ordered list of direct fabAction children."
-      Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+      Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Grid columns:1 gap:3
           Title size:"lg" weight:"bold"
             "One trigger, focused choices"
@@ -135,7 +135,7 @@ page FabPage
         Text size:"sm" color:"muted"
           "position chooses a viewport corner. fixed keeps the action available during scrolling; offsetX and offsetY use the Dowe spacing scale."
       Grid columns:{ xs:1 md:2 } gap:5
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "BOTTOM-RIGHT"
@@ -143,7 +143,7 @@ page FabPage
               "Default placement"
             Text size:"sm" color:"muted"
               "Use the default corner for a primary action that should remain available without competing with page content."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "TOP-LEFT"
@@ -170,7 +170,7 @@ page FabPage
         Text size:"sm" color:"muted"
           "Fab supports solid and soft variants, every action scheme, and five square control sizes. Expanded actions use fully tappable intrinsic-width capsules, while the complete trigger circle accepts input and rotates its plus into a dismiss mark on web, Android, and iOS."
       Grid columns:{ xs:1 md:2 } gap:5
-        Card variant:"outlined" scheme:"surface" p:5 rounded:"md"
+        Card variant:"outlined" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "SOLID"
@@ -178,7 +178,7 @@ page FabPage
               "Strong primary action"
             Text size:"sm" color:"muted"
               "Use solid when the action is the clearest next step in the current screen."
-        Card variant:"outlined" scheme:"surface" p:5 rounded:"md"
+        Card variant:"outlined" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "SOFT"
@@ -205,7 +205,7 @@ page FabPage
         Text size:"sm" color:"muted"
           "Fab accepts zero or more direct fabAction children. Each action needs a static label plus href or onClick."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "STRUCTURE"
@@ -213,7 +213,7 @@ page FabPage
               "Ordered actions"
             Text size:"sm" color:"muted"
               "Keep fabAction nodes directly inside Fab. Other child components are rejected."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "NAVIGATION"
@@ -221,7 +221,7 @@ page FabPage
               "Routes or HTTPS"
             Text size:"sm" color:"muted"
               "href follows the shared Dowe navigation policy for internal paths and HTTPS URLs."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "TARGETS"

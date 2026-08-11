@@ -45,7 +45,7 @@ page ToggleThemePage
           "Switch the current appearance"
         Text size:"sm" color:"muted"
           "The sun and moon icon describe the next action. Every ToggleTheme control reflects the same persisted preference."
-      Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+      Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Flex gap:4 align:"center" justify:"between"
           Grid columns:1 gap:1
             Title size:"lg" weight:"bold"
@@ -74,22 +74,22 @@ page ToggleThemePage
         Text size:"sm" color:"muted"
           "variant, scheme, and size follow the portable Button visual contract while keeping the control icon-only."
       Grid columns:{ xs:2 md:4 } gap:5
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:3 align:"center"
             ToggleTheme variant:"solid" scheme:"primary" size:"md"
             Text size:"sm" color:"muted"
               "Solid"
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:3 align:"center"
             ToggleTheme variant:"soft" scheme:"secondary" size:"md"
             Text size:"sm" color:"muted"
               "Soft"
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:3 align:"center"
             ToggleTheme variant:"outlined" scheme:"tertiary" size:"md"
             Text size:"sm" color:"muted"
               "Outlined"
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:3 align:"center"
             ToggleTheme variant:"ghost" scheme:"muted" size:"md"
             Text size:"sm" color:"muted"
@@ -104,7 +104,7 @@ page ToggleThemePage
         Text size:"sm" color:"muted"
           "ToggleTheme is deliberately limited to light and dark. Use SelectTheme when your theme catalog has additional named palettes."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "PERSISTENCE"
@@ -112,7 +112,7 @@ page ToggleThemePage
               "One shared preference"
             Text size:"sm" color:"muted"
               "The selected theme is stored as theme-preference and restored before the next view mounts."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "ACCESSIBILITY"
@@ -120,7 +120,7 @@ page ToggleThemePage
               "Next-action labels"
             Text size:"sm" color:"muted"
               "The accessible label names the next mode, rather than repeating the active one."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "TARGETS"

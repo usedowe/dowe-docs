@@ -19,7 +19,7 @@ page SplitMediaTestimonialsPage
       role:"Product Lead at Northstar Studio"
     }
   }
-  Section id:"split-media-testimonials" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:14 } minH:"vh-0"
+  Section id:"split-media-testimonials" bg:"background" color:"backgroundText" boxed:true py:{ xs:8 md:14 } minH:"vh-0"
     Grid columns:1 gap:{ xs:8 md:10 }
       Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
         Grid columns:1 gap:3
@@ -29,11 +29,11 @@ page SplitMediaTestimonialsPage
             "A flexible testimonial story with a prominent media placeholder and clear attribution."
       Carousel variant:"controls" scheme:"primary" hideIndicators:true gap:4
         slide id:"john"
-          Card variant:"soft" scheme:"surface" rounded:"xl"
+          Card variant:"soft" rounded:"xl"
             Grid columns:{ xs:1 md:"4fr 5fr" } minH:96
               Box bg:"softMuted" minH:{ xs:64 md:96 } p:8
                 Flex align:"center" justify:"center" minH:{ xs:48 md:80 }
-                  Icon name:"gallery" style:"bold-duotone" fill:"muted" w:20 h:20
+                  Icon name:"gallery-bold-duotone" fill:"muted" w:20 h:20
               Flex direction:"column" align:"start" justify:"center" gap:5 p:{ xs:7 md:12 }
                 Title size:{ xs:"2xl" md:"3xl" } weight:"black"
                   "{testimonials.john.title}"
@@ -45,11 +45,11 @@ page SplitMediaTestimonialsPage
                   Text color:"muted"
                     "{testimonials.john.role}"
         slide id:"sophie"
-          Card variant:"soft" scheme:"surface" rounded:"xl"
+          Card variant:"soft" rounded:"xl"
             Grid columns:{ xs:1 md:"4fr 5fr" } minH:96
               Box bg:"softMuted" minH:{ xs:64 md:96 } p:8
                 Flex align:"center" justify:"center" minH:{ xs:48 md:80 }
-                  Icon name:"gallery" style:"bold-duotone" fill:"muted" w:20 h:20
+                  Icon name:"gallery-bold-duotone" fill:"muted" w:20 h:20
               Flex direction:"column" align:"start" justify:"center" gap:5 p:{ xs:7 md:12 }
                 Title size:{ xs:"2xl" md:"3xl" } weight:"black"
                   "{testimonials.sophie.title}"
@@ -61,11 +61,11 @@ page SplitMediaTestimonialsPage
                   Text color:"muted"
                     "{testimonials.sophie.role}"
         slide id:"andy"
-          Card variant:"soft" scheme:"surface" rounded:"xl"
+          Card variant:"soft" rounded:"xl"
             Grid columns:{ xs:1 md:"4fr 5fr" } minH:96
               Box bg:"softMuted" minH:{ xs:64 md:96 } p:8
                 Flex align:"center" justify:"center" minH:{ xs:48 md:80 }
-                  Icon name:"gallery" style:"bold-duotone" fill:"muted" w:20 h:20
+                  Icon name:"gallery-bold-duotone" fill:"muted" w:20 h:20
               Flex direction:"column" align:"start" justify:"center" gap:5 p:{ xs:7 md:12 }
                 Title size:{ xs:"2xl" md:"3xl" } weight:"black"
                   "{testimonials.andy.title}"

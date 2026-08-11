@@ -32,7 +32,7 @@ page DashboardTaskBoardPage
             "Plan the next release"
           Text size:"sm" color:"muted"
             "A neutral kanban surface keeps priorities visible across every target."
-        Button variant:"solid" scheme:"primary" size:"sm" iconStart:"add-circle"
+        Button size:"sm" iconStart:"add-circle"
           "Add task"
       Grid columns:{ xs:1 md:3 } gap:4 align:"start"
         Box bg:"softMuted" rounded:"lg" p:3 border:1
@@ -46,11 +46,11 @@ page DashboardTaskBoardPage
               IconButton icon:"menu-dots" label:"Open backlog actions" variant:"ghost" scheme:"muted" size:"sm"
             Grid columns:1 gap:3
               each in:backlogTasks as:task key:task.id
-                Card variant:"soft" scheme:"surface" rounded:"md" p:4 border:1
+                Card variant:"soft" p:4 border:1
                   Grid columns:1 gap:3
                     Box bg:"softMuted" rounded:"sm" minH:16 p:3
                       Flex direction:"column" align:"center" justify:"center" gap:1 minH:10
-                        Icon name:"gallery" style:"bold-duotone" fill:"muted" w:6 h:6
+                        Icon name:"gallery-bold-duotone" fill:"muted" w:6 h:6
                         Text size:"xs" color:"muted"
                           "Media placeholder"
                     Flex justify:"between" align:"start" gap:2
@@ -77,11 +77,11 @@ page DashboardTaskBoardPage
               IconButton icon:"menu-dots" label:"Open progress actions" variant:"ghost" scheme:"muted" size:"sm"
             Grid columns:1 gap:3
               each in:progressTasks as:task key:task.id
-                Card variant:"soft" scheme:"surface" rounded:"md" p:4 border:1
+                Card variant:"soft" p:4 border:1
                   Grid columns:1 gap:3
                     Box bg:"softMuted" rounded:"sm" minH:16 p:3
                       Flex direction:"column" align:"center" justify:"center" gap:1 minH:10
-                        Icon name:"gallery" style:"bold-duotone" fill:"muted" w:6 h:6
+                        Icon name:"gallery-bold-duotone" fill:"muted" w:6 h:6
                         Text size:"xs" color:"muted"
                           "Media placeholder"
                     Flex justify:"between" align:"start" gap:2
@@ -108,11 +108,11 @@ page DashboardTaskBoardPage
               IconButton icon:"menu-dots" label:"Open review actions" variant:"ghost" scheme:"muted" size:"sm"
             Grid columns:1 gap:3
               each in:reviewTasks as:task key:task.id
-                Card variant:"soft" scheme:"surface" rounded:"md" p:4 border:1
+                Card variant:"soft" p:4 border:1
                   Grid columns:1 gap:3
                     Box bg:"softMuted" rounded:"sm" minH:16 p:3
                       Flex direction:"column" align:"center" justify:"center" gap:1 minH:10
-                        Icon name:"gallery" style:"bold-duotone" fill:"muted" w:6 h:6
+                        Icon name:"gallery-bold-duotone" fill:"muted" w:6 h:6
                         Text size:"xs" color:"muted"
                           "Media placeholder"
                     Flex justify:"between" align:"start" gap:2

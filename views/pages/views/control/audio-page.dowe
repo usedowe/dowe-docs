@@ -35,15 +35,15 @@ page AudioPage
         Text size:"sm" color:"muted"
           "Keep the source stable while changing the subtitle, avatar, variant, and scheme to match the surrounding product surface."
       Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"outlined" scheme:"surface" rounded:"md" border:1 p:{ xs:5 md:7 }
+        Card variant:"outlined" border:1 p:{ xs:5 md:7 }
           Grid columns:1 gap:4
             Audio src:"https://cdn.pixabay.com/audio/2022/04/25/audio_5d61b5204f.mp3" subtitle:"Product walkthrough · 02:18" avatarSrc:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=96&q=80" variant:"soft" scheme:"primary" rounded:"lg"
             Text size:"xs" color:"muted"
               "Soft player with an author avatar and a descriptive subtitle."
-        Card variant:"solid" scheme:"muted" rounded:"md" p:{ xs:5 md:7 }
+        Card scheme:"muted" p:{ xs:5 md:7 }
           Grid columns:1 gap:4
             Audio src:"https://cdn.pixabay.com/audio/2022/04/25/audio_5d61b5204f.mp3" subtitle:"Release notes · 04:42" variant:"solid" scheme:"info" rounded:"lg"
-            Text size:"xs" color:"onMuted"
+            Text size:"xs" color:"mutedText"
               "Solid player when media should anchor a dark or high-contrast panel."
       Code:
         language:"dowe"
@@ -65,7 +65,7 @@ page AudioPage
         Text size:"sm" color:"muted"
           "Pair the player with metadata and a clear next action. The component owns playback controls; the surrounding Dowe source owns the page composition."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "EPISODE"
@@ -74,7 +74,7 @@ page AudioPage
             Text size:"sm" color:"muted"
               "Subtitle gives users context before they press play."
             Audio src:"https://cdn.pixabay.com/audio/2022/04/25/audio_5d61b5204f.mp3" subtitle:"12 min · Design team" variant:"soft" scheme:"secondary"
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "AUTHOR"
@@ -83,7 +83,7 @@ page AudioPage
             Text size:"sm" color:"muted"
               "avatarSrc makes the source owner visible without adding a second avatar tree."
             Audio src:"https://cdn.pixabay.com/audio/2022/04/25/audio_5d61b5204f.mp3" subtitle:"Maya Chen · 06 min" avatarSrc:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=96&q=80" variant:"soft" scheme:"success"
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "STATUS"
@@ -114,7 +114,7 @@ page AudioPage
         column field:"defaultValue" label:"Default" width:"1fr"
   Section id:"audio-next" p:{ xs:5 md:7 }
     Flex wrap:true justify:"between" gap:4
-      Button href:"/docs/views/control/video" variant:"outlined" scheme:"primary" size:"md" rounded:"full"
+      Button href:"/docs/views/control/video" variant:"outlined" rounded:"full"
         "Previous Video"
-      Button href:"/docs/views/control/record" variant:"solid" scheme:"primary" size:"md" rounded:"full"
+      Button href:"/docs/views/control/record" rounded:"full"
         "Next Record"

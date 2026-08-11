@@ -36,7 +36,7 @@ page AvatarGroupPage
           "Show a live project roster"
         Text size:"sm" color:"muted"
           "Use items when the collection already lives in page state. max keeps the header compact without throwing away the complete source array."
-      Card variant:"outlined" scheme:"surface" rounded:"md" border:1 p:{ xs:5 md:7 }
+      Card variant:"outlined" border:1 p:{ xs:5 md:7 }
         Grid columns:1 gap:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
@@ -71,7 +71,7 @@ page AvatarGroupPage
         Text size:"sm" color:"muted"
           "Stacked groups communicate membership; inline groups work better inside metadata rows and compact headers."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" color:"muted"
               "STACKED"
@@ -82,7 +82,7 @@ page AvatarGroupPage
               item name:"Grace" alt:"Grace Hopper"
               item name:"Linus" alt:"Linus Torvalds"
               item name:"Margaret" alt:"Margaret Hamilton"
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" color:"muted"
               "INLINE"
@@ -92,7 +92,7 @@ page AvatarGroupPage
               item name:"Maya" alt:"Maya Chen"
               item name:"Leo" alt:"Leo Martin"
               item name:"Dowe" alt:"Dowe Agent"
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" color:"muted"
               "AUTO FIT"
@@ -119,7 +119,7 @@ page AvatarGroupPage
         """
   Section id:"avatar-group-contract" p:{ xs:5 md:7 }
     Grid columns:{ xs:1 md:2 } gap:4
-      Card variant:"outlined" scheme:"surface" rounded:"md" border:1 p:5
+      Card variant:"outlined" border:1 p:5
         Grid columns:1 gap:2
           Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
             "FALLBACKS"
@@ -127,7 +127,7 @@ page AvatarGroupPage
             "Image, then initials"
           Text size:"sm" color:"muted"
             "A valid HTTPS or packaged local src wins first; without it, name and alt keep the identity recognizable on every target."
-      Card variant:"outlined" scheme:"surface" rounded:"md" border:1 p:5
+      Card variant:"outlined" border:1 p:5
         Grid columns:1 gap:2
           Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
             "INTERACTION"
@@ -157,7 +157,7 @@ page AvatarGroupPage
         column field:"defaultValue" label:"Default" width:"1fr"
   Section id:"avatar-group-next" p:{ xs:5 md:7 }
     Flex wrap:true justify:"between" gap:4
-      Button href:"/docs/views/display/avatar" variant:"outlined" scheme:"primary" size:"md" rounded:"full"
+      Button href:"/docs/views/display/avatar" variant:"outlined" rounded:"full"
         "Previous Avatar"
-      Button href:"/docs/views/display/badge" variant:"solid" scheme:"primary" size:"md" rounded:"full"
+      Button href:"/docs/views/display/badge" rounded:"full"
         "Next Badge"

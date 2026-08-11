@@ -18,12 +18,11 @@ page ScaffoldsPage
         Button:
           href:"/blocks/scaffold-preview/app-footer"
           variant:"soft"
-          scheme:"primary"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"app-footer-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe:
@@ -73,7 +72,7 @@ page ScaffoldsPage
                           Text weight:"bold"
                             "Drawer"
             """
-  Section id:"inset-sidebar" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
+  Section id:"inset-sidebar" p:{ xs:5 md:7 } bg:"softPrimary" color:"softPrimaryText"
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -83,13 +82,11 @@ page ScaffoldsPage
             "A dashboard sidebar between full-width bars"
         Button:
           href:"/blocks/scaffold-preview/inset-sidebar"
-          variant:"solid"
-          scheme:"primary"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"inset-sidebar-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe:
@@ -161,7 +158,7 @@ page ScaffoldsPage
           rounded:"full"
           iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"full-height-sidebar-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe:
@@ -222,7 +219,7 @@ page ScaffoldsPage
                           Text weight:"bold"
                             "Drawer"
             """
-  Section id:"rail-bottom-bar" p:{ xs:5 md:7 } bg:"softTertiary" color:"onSoftTertiary"
+  Section id:"rail-bottom-bar" p:{ xs:5 md:7 } bg:"softTertiary" color:"softTertiaryText"
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -232,13 +229,12 @@ page ScaffoldsPage
             "A desktop rail that yields to mobile bottom navigation"
         Button:
           href:"/blocks/scaffold-preview/rail-bottom-bar"
-          variant:"solid"
           scheme:"tertiary"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"rail-bottom-bar-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe:
@@ -258,7 +254,7 @@ page ScaffoldsPage
                 Scaffold minH:"vh-0"
                   start
                     Box minH:"vh-0" w:16 bg:"softTertiary" show:{ xs:false md:true }
-                      RailNav variant:"soft" scheme:"tertiary" size:"md" showLabels:true minH:"vh-0"
+                      RailNav variant:"soft" scheme:"tertiary" showLabels:true minH:"vh-0"
                         item label:"Rail" href:"/" icon:"widget-4"
                   main
                     Flex direction:"column" minH:{ xs:"vh-16" md:"vh-0" } justify:"between"

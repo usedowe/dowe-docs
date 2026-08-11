@@ -187,27 +187,21 @@ page IconButtonPage
           bind:schemeChoice
           label:"Scheme"
           placeholder:"Choose a scheme"
-          variant:"outlined"
-          scheme:"primary"
           each in:schemeOptions as:option key:option.id
             Option value:option.value label:option.label
         Select:
           bind:variantChoice
           label:"Variant"
           placeholder:"Choose a variant"
-          variant:"outlined"
-          scheme:"primary"
           each in:variantOptions as:option key:option.id
             Option value:option.value label:option.label
         Select:
           bind:sizeChoice
           label:"Size"
           placeholder:"Choose a size"
-          variant:"outlined"
-          scheme:"primary"
           each in:sizeOptions as:option key:option.id
             Option value:option.value label:option.label
-      Card variant:"outlined" scheme:"surface" p:{ xs:6 md:10 } rounded:"md" border:1
+      Card variant:"outlined" p:{ xs:6 md:10 } border:1
         Flex justify:"center" align:"center" gap:3
           IconButton:
             icon:"settings"
@@ -241,21 +235,21 @@ page IconButtonPage
         Text size:"sm" color:"muted"
           "The full square is interactive on web, iOS, and Android. The icon is visual content inside the button, not a smaller tap target."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"outlined" scheme:"surface" p:5 rounded:"md"
+        Card variant:"outlined" p:5
           Grid columns:1 gap:3
             IconButton icon:"settings" label:"Open settings"
             Title size:"lg" weight:"bold"
               "Required icon"
             Text size:"sm" color:"muted"
               "Use a quoted Solar name. The linear icon inherits the control foreground."
-        Card variant:"outlined" scheme:"surface" p:5 rounded:"md"
+        Card variant:"outlined" p:5
           Grid columns:1 gap:3
             IconButton icon:"info-circle" label:"Read accessibility guidance" variant:"soft"
             Title size:"lg" weight:"bold"
               "Accessible label"
             Text size:"sm" color:"muted"
               "Use a short, non-empty action label, such as Open settings or Delete item."
-        Card variant:"outlined" scheme:"surface" p:5 rounded:"md"
+        Card variant:"outlined" p:5
           Grid columns:1 gap:3
             IconButton icon:"alt-arrow-right" label:"Open next page" variant:"outlined"
             Title size:"lg" weight:"bold"
@@ -277,7 +271,7 @@ page IconButtonPage
             "Solid"
           Flex wrap:true justify:"center" align:"center" gap:3
             each in:schemeOptions as:scheme key:scheme.id
-              IconButton icon:"settings" label:"Open settings" variant:"solid" scheme:scheme.value
+              IconButton icon:"settings" label:"Open settings" scheme:scheme.value
         Grid columns:1 gap:3
           Text size:"sm" weight:"bold"
             "Soft"
@@ -314,7 +308,7 @@ page IconButtonPage
       Flex wrap:true justify:"center" align:"center" gap:3
         IconButton icon:"settings" label:"Open settings in extra small size" size:"xs"
         IconButton icon:"settings" label:"Open settings in small size" size:"sm"
-        IconButton icon:"settings" label:"Open settings in medium size" size:"md"
+        IconButton icon:"settings" label:"Open settings in medium size"
         IconButton icon:"settings" label:"Open settings in large size" size:"lg"
         IconButton icon:"settings" label:"Open settings in extra large size" size:"xl"
   Section id:"icon-button-props" p:{ xs:5 md:7 }

@@ -1,0 +1,20 @@
+import { listExampleBlogsRepository, createExampleBlogRepository, updateExampleBlogRepository, deleteExampleBlogRepository } from "@/server/repositories/example-crud-repository"
+
+fn listExampleBlogsService
+  listExampleBlogsRepository blogs
+  return value:blogs
+
+fn createExampleBlogService params:{ title:string content:string ownerId:string }
+  createExampleBlogRepository created args:{ title:args.title content:args.content ownerId:args.ownerId }
+  listExampleBlogsRepository blogs
+  return value:{ created:created blogs:blogs }
+
+fn updateExampleBlogService params:{ id:string ownerId:string title:string content:string }
+  updateExampleBlogRepository updated args:{ id:args.id ownerId:args.ownerId title:args.title content:args.content }
+  listExampleBlogsRepository blogs
+  return value:{ changed:updated.changed blogs:blogs }
+
+fn deleteExampleBlogService params:{ id:string ownerId:string }
+  deleteExampleBlogRepository deleted args:{ id:args.id ownerId:args.ownerId }
+  listExampleBlogsRepository blogs
+  return value:{ deleted:deleted blogs:blogs }

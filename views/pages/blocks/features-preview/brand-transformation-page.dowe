@@ -22,7 +22,7 @@ page BrandTransformationFeaturesPage
         description:"Create a durable content system across channels, formats, and customer stages."
       },
     ]
-  Section id:"brand-transformation-features" bg:"surface" color:"onSurface" boxed:true py:{ xs:8 md:12 }
+  Section id:"brand-transformation-features" bg:"surface" color:"surfaceText" boxed:true py:{ xs:8 md:12 }
     Grid columns:{ xs:1 md:"5fr 7fr" } gap:{ xs:10 md:16 } align:"center"
       Flex direction:"column" gap:6
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
@@ -36,10 +36,10 @@ page BrandTransformationFeaturesPage
       Box bg:"softMuted" p:{ xs:5 md:8 }
         Grid columns:{ xs:1 sm:2 } gap:5
           each in:brandCapabilities as:capability key:capability.id
-            Card variant:"solid" scheme:"surface" rounded:"lg" shadow:"md" p:6 minH:56
+            Card rounded:"lg" shadow:"md" p:6 minH:56
               Flex direction:"column" gap:4
                 Box bg:"softPrimary" rounded:"full" w:14 h:14 p:2
-                  Icon name:"stars" style:"line-duotone" fill:"primary" w:10 h:10
+                  Icon name:"stars-line-duotone" fill:"primary" w:10 h:10
                 Title size:"lg" weight:"black"
                   "{capability.title}"
                 Text color:"muted"

@@ -4,7 +4,7 @@ page CarouselHeroPage
     delivery:{ eyebrow:"DELIVERY" title:"A clear path from first idea to launch" }
     support:{ eyebrow:"SUPPORT" title:"Practical expertise for every next step" }
   }
-  Section id:"carousel-hero" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:12 }
+  Section id:"carousel-hero" bg:"background" color:"backgroundText" boxed:true py:{ xs:8 md:12 }
     Carousel variant:"dots" scheme:"primary" indicatorType:"dot" gap:4 minH:"vh-16"
       slide id:"strategy"
         Flex direction:"column" align:"center" justify:"center" gap:5 minH:"vh-32"
@@ -15,9 +15,9 @@ page CarouselHeroPage
           Text size:"lg" color:"muted"
             "Use a portable Carousel when the hero needs several focused messages with native controls and indicators."
           Flex direction:{ xs:"column" sm:"row" } align:"center" justify:"center" gap:3
-            Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" iconEnd:"arrow-right"
+            Button size:"lg" rounded:"full" iconEnd:"arrow-right"
               "Get started"
-            Button variant:"outlined" scheme:"primary" size:"lg" rounded:"full"
+            Button variant:"outlined" size:"lg" rounded:"full"
               "Talk to sales"
       slide id:"delivery"
         Flex direction:"column" align:"center" justify:"center" gap:5 minH:"vh-32"
@@ -28,9 +28,9 @@ page CarouselHeroPage
           Text size:"lg" color:"muted"
             "Use a portable Carousel when the hero needs several focused messages with native controls and indicators."
           Flex direction:{ xs:"column" sm:"row" } align:"center" justify:"center" gap:3
-            Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" iconEnd:"arrow-right"
+            Button size:"lg" rounded:"full" iconEnd:"arrow-right"
               "Get started"
-            Button variant:"outlined" scheme:"primary" size:"lg" rounded:"full"
+            Button variant:"outlined" size:"lg" rounded:"full"
               "Talk to sales"
       slide id:"support"
         Flex direction:"column" align:"center" justify:"center" gap:5 minH:"vh-32"
@@ -41,7 +41,7 @@ page CarouselHeroPage
           Text size:"lg" color:"muted"
             "Use a portable Carousel when the hero needs several focused messages with native controls and indicators."
           Flex direction:{ xs:"column" sm:"row" } align:"center" justify:"center" gap:3
-            Button variant:"solid" scheme:"primary" size:"lg" rounded:"full" iconEnd:"arrow-right"
+            Button size:"lg" rounded:"full" iconEnd:"arrow-right"
               "Get started"
-            Button variant:"outlined" scheme:"primary" size:"lg" rounded:"full"
+            Button variant:"outlined" size:"lg" rounded:"full"
               "Talk to sales"

@@ -1,0 +1,8 @@
+import { ExamplesDb, ExamplesCache } from "@/server/config/examples"
+
+middleware requireExampleAuth
+  bearer token value:req.header.Authorization
+  session verified cache:ExamplesCache database:ExamplesDb token:token maxAge:2592000
+  if verified.valid
+    next context:{ auth:{ subject:verified.userId session:verified.id authorization:req.header.Authorization token:token } }
+  return status:401 json:{ ok:false error:"Unauthorized" }

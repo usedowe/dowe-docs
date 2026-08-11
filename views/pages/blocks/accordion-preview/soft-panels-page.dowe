@@ -3,7 +3,7 @@ page SoftPanelsAccordionPage
     { id:"surface" text:"Soft surfaces group each question without making the page feel heavy or visually crowded." },
     { id:"source" text:"The complete composition remains ordinary Dowe source built from portable layout and display components." },
   ]
-  Section id:"soft-panels-accordion" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:14 } minH:"vh-0"
+  Section id:"soft-panels-accordion" bg:"background" color:"backgroundText" boxed:true py:{ xs:8 md:14 } minH:"vh-0"
     Grid columns:1 gap:{ xs:8 md:12 }
       Flex direction:"column" align:{ xs:"center" md:"start" } gap:3
         Title size:{ xs:"3xl" md:"5xl" } weight:"black"

@@ -10,6 +10,29 @@ or function bindings. Event props reference a named view `fn`. Common visual pro
 size, visibility, semantic color, border, radius, and shadow are accepted only where the component
 contract declares them.
 
+## Minimal component props
+
+Start every component with no visual props. The compiler supplies built-in defaults, then applies
+the matching `design` slot from `theme.dowe`; generated source should not repeat either layer.
+Keep only props that change the default, bind reactively, provide required content or accessibility,
+control layout or behavior, or are needed to demonstrate a deliberate variant.
+
+```text
+Button w:"full"
+  "Log in"
+
+Input bind:email label:"Email"
+
+Card p:5
+```
+
+These declarations are equivalent to spelling out the default `Button` solid/primary/md visual
+contract, the default outlined/primary control contract, and the default surface/solid/md Card
+contract. The minimal Tabs form is `Tabs` (or `Tabs position:"top"` when documenting orientation),
+which resolves to pills/primary. A non-default decision remains explicit, for example
+`Button variant:"outlined"`, `Tabs variant:"line"`, or `Card shadow:"lg"`. Prefer one intentional
+prop over a complete restatement of the component's default style.
+
 ## Layout and text
 
 | Component | Use and essential contract |
@@ -108,15 +131,15 @@ rows-driven, but its text follows the same typography scale.
 | `Canvas` | Custom drawing or pointer surface for visuals that semantic components cannot express; keep its commands and data target-neutral. |
 | `Audio` | Portable audio playback for a supported static source with Dowe-owned playback behavior. |
 | `Image` | Portable original media whose quoted `src` is a project asset path such as `/assets/images/hero.jpg` or an HTTPS URL, with `alt` text (empty marks it decorative), `aspect` (`horizontal`, `vertical`, `square`, `auto`), `objectFit`, `scheme`, and `rounded`. An unavailable source keeps the styled frame as a placeholder without crashing, so authoring the final path first and adding the file later is the canonical placeholder workflow. Never rebuild a photograph with `Svg` or `Canvas`, and never use the design reference or a crop from it to flatten UI into an image asset. |
-| `Icon` | Bundled vector selected by quoted `name`: Solar names, `country-flags:<ISO code>`, animated `svg-spinners:<name>`, or brand-colored `svg-logos:<name>`. Solar supports six styles; namespaced catalogs use `linear`. |
+| `Icon` | Bundled vector selected by quoted `name`: Solar variant names, `country-flags:<ISO code>`, animated `svg-spinners:<name>`, or brand-colored `svg-logos:<name>`. A plain Solar name is linear; append `-broken`, `-outline`, `-bold`, `-line-duotone`, or `-bold-duotone` for another variant. |
 | `Svg` | Portable vector using either quoted `viewBox` plus direct `Path` children, or runtime `data:<reference>` with no static paths. |
 | `Path` | Context-only Svg path with quoted `d`, paint, optional `fillRule:"nonzero|evenodd"`, and optional matrix transform. Use `evenodd` to preserve holes in compound paths. |
 
 `Icon name` is always a static quoted value; it cannot bind an `each` item or Signal path, so a
 collection with distinct icons uses explicit sibling declarations. Names must exist in the bundled
-Solar catalog for the selected style and diagnostics reject unknown names: for example
-`magnifier` is valid but `search` is not. Standalone icons accept `fill:<color token>`, `w`, `h`,
-and optional `style`.
+catalog and diagnostics reject unknown names: for example `magnifier` and
+`magnifier-bold-duotone` are valid but `search` is not. Standalone icons accept
+`fill:<color token>`, `stroke:<color token>`, `w`, and `h`; `style` is not an Icon prop.
 
 Iframe and remote media do not bypass server embedding, authentication, cookie, transport, or
 platform security policy. They never authorize user-authored JavaScript or native host bridges.

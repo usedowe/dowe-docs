@@ -90,11 +90,11 @@ page DropdownPage
           "A contextual workspace menu"
         Text size:"sm" color:"muted"
           "The trigger owns the interaction while scheme styles only the floating option list. Open the menu to inspect its header, entries, divider, and footer."
-      Card variant:"outlined" scheme:"surface" p:{ xs:6 md:10 } rounded:"md" border:1
+      Card variant:"outlined" p:{ xs:6 md:10 } border:1
         Flex justify:"center" align:"center"
           Dropdown scheme:"primary"
             trigger
-              Button variant:"soft" scheme:"primary" iconEnd:"alt-arrow-down"
+              Button variant:"soft" iconEnd:"alt-arrow-down"
                 "Workspace"
             header
               Grid columns:1 gap:1 p:2
@@ -110,7 +110,7 @@ page DropdownPage
             divider
             item label:"Billing" description:"Available to workspace owners" disabled:true
             footer
-              Button href:"/docs/views" variant:"ghost" scheme:"primary" size:"sm" w:"full"
+              Button href:"/docs/views" variant:"ghost" size:"sm" w:"full"
                 "View all views"
       Code:
         language:"dowe"
@@ -121,7 +121,7 @@ page DropdownPage
         content:"""
           Dropdown scheme:"primary"
             trigger
-              Button variant:"soft" scheme:"primary" iconEnd:"alt-arrow-down"
+              Button variant:"soft" iconEnd:"alt-arrow-down"
                 "Workspace"
             header
               Text weight:"bold"
@@ -131,7 +131,7 @@ page DropdownPage
             divider
             item label:"Billing" disabled:true
             footer
-              Button href:"/docs/views" variant:"ghost" scheme:"primary" size:"sm"
+              Button href:"/docs/views" variant:"ghost" size:"sm"
                 "View all views"
         """
   Section id:"dropdown-structure" py:{ xs:7 md:10 }
@@ -144,7 +144,7 @@ page DropdownPage
         Text size:"sm" color:"muted"
           "Each dropdown has one trigger and one or more item entries. Header and footer are optional view regions; divider is a prop-free separator."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "TRIGGER"
@@ -152,7 +152,7 @@ page DropdownPage
               "Required region"
             Text size:"sm" color:"muted"
               "Put any supported view tree in trigger. Its own Button or custom content controls the popover."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "ENTRIES"
@@ -160,7 +160,7 @@ page DropdownPage
               "Actionable items"
             Text size:"sm" color:"muted"
               "Every item needs a label and can add a description, navigation, action, disabled state, or one SVG icon."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "SELECTION"
@@ -178,7 +178,7 @@ page DropdownPage
         Text size:"sm" color:"muted"
           "Use href for navigation or onClick for a declared view action. Item descriptions help people distinguish related destinations without making the menu hard to scan."
       Grid columns:{ xs:1 md:2 } gap:5
-        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+        Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:3
             Text size:"sm" weight:"bold"
               "Document navigation"
@@ -189,7 +189,7 @@ page DropdownPage
               item label:"View catalog" description:"Start with every available component" href:"/docs/views"
               item label:"Buttons" description:"Explore the action control" href:"/docs/views/control/button"
               item label:"Inputs" description:"Review form input patterns" href:"/docs/views/form/input"
-        Card variant:"outlined" scheme:"surface" p:5 rounded:"md" border:1
+        Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:3
             Text size:"sm" weight:"bold"
               "Optional SVG icon"
@@ -214,7 +214,7 @@ page DropdownPage
       Flex wrap:true justify:"center" align:"center" gap:3
         Dropdown scheme:"primary"
           trigger
-            Button variant:"outlined" scheme:"primary" size:"sm" iconEnd:"alt-arrow-down"
+            Button variant:"outlined" size:"sm" iconEnd:"alt-arrow-down"
               "Primary"
           item label:"Primary menu" href:"/docs/views"
         Dropdown scheme:"secondary"
@@ -252,14 +252,14 @@ page DropdownPage
             Button variant:"outlined" scheme:"danger" size:"sm" iconEnd:"alt-arrow-down"
               "Danger"
           item label:"Danger menu" href:"/docs/views"
-        Dropdown scheme:"surface"
+        Dropdown
           trigger
-            Button variant:"outlined" scheme:"primary" size:"sm" iconEnd:"alt-arrow-down"
+            Button variant:"outlined" size:"sm" iconEnd:"alt-arrow-down"
               "Surface"
           item label:"Surface menu" href:"/docs/views"
         Dropdown scheme:"background"
           trigger
-            Button variant:"outlined" scheme:"primary" size:"sm" iconEnd:"alt-arrow-down"
+            Button variant:"outlined" size:"sm" iconEnd:"alt-arrow-down"
               "Background"
           item label:"Background menu" href:"/docs/views"
   Section id:"dropdown-targets" p:{ xs:5 md:7 }
@@ -272,7 +272,7 @@ page DropdownPage
         Text size:"sm" color:"muted"
           "Dowe preserves the same trigger and item model across targets while each generated application owns the floating surface."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "WEB"
@@ -280,7 +280,7 @@ page DropdownPage
               "Anchored popover"
             Text size:"sm" color:"muted"
               "The generated runtime positions the menu against its trigger and keeps it above nearby page content."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "ANDROID"
@@ -288,7 +288,7 @@ page DropdownPage
               "Dowe popup list"
             Text size:"sm" color:"muted"
               "Generated Compose uses a Dowe-owned popup list rather than a platform picker or inline layout."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "IOS"

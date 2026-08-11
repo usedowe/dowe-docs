@@ -1,20 +1,37 @@
 page KvPage
+  const cacheModelRows:
+    value:[
+      { part:"Connection" meaning:"cache appCache keeps provider, endpoint, account, secret, and Cache name server-only." },
+      { part:"Operation" meaning:"kv saved conn binds get, set, delete, keys, or clear output for later statements." },
+      { part:"Boundary" meaning:"Responses may include values, never Cache handles or credentials." },
+    ]
+  const cacheProviderRows:
+    value:[
+      { provider:"kv" guidance:"Connects to Cloudflare KV over HTTPS. account is the account ID and name is the namespace ID." },
+      { provider:"redis" guidance:"Uses native Redis with ACL credentials and isolates keys under the logical name." },
+      { provider:"dowe" guidance:"Uses one authenticated shared WebSocket connection to Dowe Cache." },
+    ]
+  const cacheOperationRows:
+    value:[
+      { operation:"get" guidance:"Returns JSON data or null." },
+      { operation:"set" guidance:"Stores JSON and returns ok plus the key." },
+      { operation:"delete" guidance:"Returns whether a value was deleted." },
+      { operation:"keys" guidance:"Lists sorted keys with an optional prefix." },
+      { operation:"clear" guidance:"Clears the selected Cache name." },
+    ]
   Section id:"cache-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "SERVER / CACHE"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Cache"
+      Text size:"lg" color:"muted"
+        "One server-only key-value contract for Cloudflare KV, Redis, and Dowe Cache, with a fast persistent local engine during dowe dev."
+  Section id:"cache-mental-model" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "SERVER / CACHE"
-        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
-          "Cache"
-        Text size:"lg" color:"muted"
-          "One server-only key-value contract for Cloudflare KV, Redis, and Dowe Cache, with a fast persistent local engine during dowe dev."
-      Button href:"/docs/server/db" variant:"ghost" scheme:"muted" size:"sm"
-        "Database documentation"
-  Section id:"cache-mental-model" p:{ xs:5 md:7 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "MENTAL MODEL"
+          "1 / MENTAL MODEL"
         Title size:"3xl" weight:"black"
           "Declare Cache, operate with kv"
         Text size:"sm" color:"muted"
@@ -32,61 +49,40 @@ page KvPage
             kv value conn:appCache.get key:"appointment:1" required:true
             return json:{ ok:saved.ok data:value }
         """
-      Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "CONNECTION"
-            Title size:"lg" weight:"bold"
-              "cache appCache"
-            Text size:"sm" color:"muted"
-              "Keeps provider, endpoint, account, secret, and Cache name server-only."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "OPERATION"
-            Title size:"lg" weight:"bold"
-              "kv saved conn"
-            Text size:"sm" color:"muted"
-              "Binds get, set, delete, keys, or clear output for later statements."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "BOUNDARY"
-            Title size:"lg" weight:"bold"
-              "Server only"
-            Text size:"sm" color:"muted"
-              "Responses may include values, never Cache handles or credentials."
+      Table:
+        data:cacheModelRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"part" label:"Part" width:"2fr"
+        column field:"meaning" label:"Contract" width:"5fr"
   Section id:"cache-providers" py:{ xs:7 md:10 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "PROVIDERS"
+          "2 / PROVIDERS"
         Title size:"3xl" weight:"black"
           "Choose the production adapter"
         Text size:"sm" color:"muted"
           "Every provider uses the same required props. Store credential names in .env.example and values in .env or the process environment."
-      Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "kv"
-          Text size:"sm" color:"muted"
-            "Connects to Cloudflare KV over HTTPS. account is the account ID and name is the namespace ID."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "redis"
-          Text size:"sm" color:"muted"
-            "Uses native Redis with ACL credentials and isolates keys under the logical name."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "dowe"
-          Text size:"sm" color:"muted"
-            "Uses one authenticated shared WebSocket connection to Dowe Cache."
+      Table:
+        data:cacheProviderRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"provider" label:"Provider" width:"2fr"
+        column field:"guidance" label:"Connection" width:"5fr"
   Section id:"cache-operations" p:{ xs:5 md:7 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "OPERATIONS"
+          "3 / OPERATIONS"
         Title size:"3xl" weight:"black"
           "Read, write, list, and clear"
         Text size:"sm" color:"muted"
@@ -104,41 +100,24 @@ page KvPage
           kv keys conn:appCache.keys prefix:"appointment:"
           kv cleared conn:appCache.clear
         """
-      Grid columns:{ xs:1 md:2 lg:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "get"
-          Text size:"sm" color:"muted"
-            "Returns JSON data or null."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "set"
-          Text size:"sm" color:"muted"
-            "Stores JSON and returns ok plus the key."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "delete"
-          Text size:"sm" color:"muted"
-            "Returns whether a value was deleted."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "keys"
-          Text size:"sm" color:"muted"
-            "Lists sorted keys with an optional prefix."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "clear"
-          Text size:"sm" color:"muted"
-            "Clears the selected Cache name."
+      Table:
+        data:cacheOperationRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"operation" label:"Operation" width:"2fr"
+        column field:"guidance" label:"Result" width:"5fr"
   Section id:"cache-development" py:{ xs:7 md:10 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "DOWE DEV"
-        Title size:"3xl" weight:"black"
-          "Local without Wrangler"
-        Text size:"sm" color:"muted"
-          "During dowe dev, all providers resolve only name and use the persistent Dowe engine at .dowe/kv. Host and credentials are not resolved, no remote provider starts, and no auxiliary port is opened."
+    Grid columns:1 gap:4
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "4 / DOWE DEV"
+      Title size:"3xl" weight:"black"
+        "Local without Wrangler"
+      Text size:"sm" color:"muted"
+        "During dowe dev, all providers resolve only name and use the persistent Dowe engine at .dowe/kv. Host and credentials are not resolved, no remote provider starts, and no auxiliary port is opened."
       Code:
         language:"dowe"
         variant:"soft"
@@ -147,14 +126,13 @@ page KvPage
         copiedLabel:"Copied"
         content:".dowe/kv/<resolved-name>"
   Section id:"cache-service" p:{ xs:5 md:7 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "DOWE CACHE"
-        Title size:"3xl" weight:"black"
-          "Run the authenticated service"
-        Text size:"sm" color:"muted"
-          "The Dowe provider authenticates before the WebSocket upgrade. Administrators create Cache names and accounts through dowe cache create-account."
+    Grid columns:1 gap:4
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "5 / DOWE CACHE"
+      Title size:"3xl" weight:"black"
+        "Run the authenticated service"
+      Text size:"sm" color:"muted"
+        "The Dowe provider authenticates before the WebSocket upgrade. Administrators create Cache names and accounts through dowe cache create-account."
       Code:
         language:"dowe"
         variant:"soft"

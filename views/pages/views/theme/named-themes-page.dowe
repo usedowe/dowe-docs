@@ -7,7 +7,11 @@ page NamedThemesPage
       },
       {
         group:"Content"
-        tokens:"onPrimary, onSecondary, onTertiary, onMuted, onBackground, onSurface, onSuccess, onInfo, onWarning, onDanger"
+        tokens:"primaryText, secondaryText, tertiaryText, mutedText, backgroundText, surfaceText, successText, infoText, warningText, dangerText"
+      },
+      {
+        group:"Titles"
+        tokens:"primaryTitle, secondaryTitle, tertiaryTitle, mutedTitle, backgroundTitle, surfaceTitle, successTitle, infoTitle, warningTitle, dangerTitle"
       },
       {
         group:"Soft"
@@ -15,7 +19,11 @@ page NamedThemesPage
       },
       {
         group:"Soft content"
-        tokens:"onSoftPrimary, onSoftSecondary, onSoftTertiary, onSoftMuted, onSoftSuccess, onSoftInfo, onSoftWarning, onSoftDanger"
+        tokens:"softPrimaryText, softSecondaryText, softTertiaryText, softMutedText, softSuccessText, softInfoText, softWarningText, softDangerText"
+      },
+      {
+        group:"Soft titles"
+        tokens:"softPrimaryTitle, softSecondaryTitle, softTertiaryTitle, softMutedTitle, softSuccessTitle, softInfoTitle, softWarningTitle, softDangerTitle"
       },
     ]
   Section id:"named-themes-introduction" py:{ xs:6 md:10 }
@@ -48,19 +56,25 @@ page NamedThemesPage
             fonts default:"inter" install:["inter"]
             design defaultTheme:"light"
               theme name:"light"
-                colors primary:"#1F3A5F" onPrimary:"#FFFFFF"
-                colors background:"#FFFFFF" onBackground:"#17263A"
-                colors surface:"#F7F9FC" onSurface:"#17263A"
+                colors:
+                  primary color:"#1F3A5F" text:"#FFFFFF" title:"#FFFFFE"
+                  happy color:"#176C75" text:"#FFFFFE" title:"#FFFFFE"
+                  softHappy color:"#D9F3F1" text:"#124D53" title:"#124D53"
+                  background color:"#FFFFFF" text:"#17263A" title:"#17263E"
+                  surface color:"#F7F9FC" text:"#17263A" title:"#17263E"
+                  softPrimary color:"#CCFBF3" text:"#073B35" title:"#073B35"
               theme name:"dark"
-                colors primary:"#6BC670" onPrimary:"#0E2513"
-                colors background:"#0F1721" onBackground:"#F4F7FB"
-                colors surface:"#182331" onSurface:"#F4F7FB"
+                colors:
+                  primary color:"#6BC670" text:"#0E2513" title:"#0E2513"
+                  background color:"#0F1721" text:"#F4F7FB" title:"#F4F7FB"
+                  surface color:"#182331" text:"#F4F7FB" title:"#F4F7FB"
               theme name:"brand" extends:"light"
-                colors primary:"#007565" onPrimary:"#FFFFFF"
-                colors softPrimary:"#CCFBF3" onSoftPrimary:"#073B35"
+                colors:
+                  primary color:"#007565" text:"#FFFFFF" title:"#FFFFFF"
+                  softPrimary color:"#CCFBF3" text:"#073B35" title:"#073B35"
         """
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "DEFAULT THEME"
@@ -68,7 +82,7 @@ page NamedThemesPage
               "Controls the first render"
             Text size:"sm" color:"muted"
               "The normalized default is active in initial HTML and native output before a stored theme preference is applied."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "NAMED CATALOG"
@@ -76,7 +90,7 @@ page NamedThemesPage
               "Available to every target"
             Text size:"sm" color:"muted"
               "Every resolved name is emitted deterministically and becomes an option for SelectTheme."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "INHERITANCE"
@@ -104,22 +118,39 @@ page NamedThemesPage
         column field:"group" label:"Group" width:"1fr"
         column field:"tokens" label:"Tokens" width:"4fr"
       Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"solid" scheme:"primary" p:5 rounded:"md"
+        Card scheme:"primary" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
               "BASE + ON"
             Title size:"xl" weight:"black"
               "Strong semantic surfaces"
             Text size:"sm"
-              "solid uses a base family such as primary with its matching content role such as onPrimary."
-        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
+              "solid uses primary for the fill, primaryText for ordinary content, and primaryTitle for Title or semantic headers."
+        Card variant:"soft" scheme:"primary" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
-              "SOFT + ON SOFT"
+              "SOFT CONTENT ROLES"
             Title size:"xl" weight:"black"
               "Lower visual emphasis"
             Text size:"sm"
-              "soft uses softPrimary with onSoftPrimary while preserving the same semantic family."
+              "soft uses softPrimary with softPrimaryText for content and softPrimaryTitle for titles."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card scheme:"happy" p:5
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" spacing:"widest"
+              "CUSTOM FAMILY"
+            Title size:"xl" weight:"black"
+              "Project-defined semantics"
+            Text size:"sm"
+              "Card scheme happy resolves happy, happyText, and happyTitle from theme.dowe."
+        Card variant:"soft" scheme:"happy" p:5
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" spacing:"widest"
+              "OPTIONAL SOFT FAMILY"
+            Title size:"xl" weight:"black"
+              "Declared, never derived"
+            Text size:"sm"
+              "variant soft uses softHappy only when that complete family is declared."
   Section id:"named-themes-resolution" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
@@ -130,19 +161,19 @@ page NamedThemesPage
         Text size:"sm" color:"muted"
           "Named themes own semantic colors. Radius, border, shadow, size, and variant defaults belong to component slots directly under design."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Title size:"lg" weight:"bold"
               "Views stay semantic"
             Text size:"sm" color:"muted"
               "Use scheme:\"primary\", bg:\"surface\", or color:\"muted\" instead of copying hexadecimal values into pages."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Title size:"lg" weight:"bold"
               "Parents resolve first"
             Text size:"sm" color:"muted"
               "Dowe rejects missing parents and inheritance cycles before any target artifacts are generated."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Title size:"lg" weight:"bold"
               "Every result is complete"
@@ -161,7 +192,7 @@ page NamedThemesPage
         SelectTheme label:"Documentation theme" placeholder:"Choose a theme" variant:"outlined" scheme:"surface"
         ToggleTheme variant:"soft" scheme:"secondary" size:"md"
       Flex gap:3 wrap:true
-        Button variant:"soft" scheme:"primary" href:"/docs/views/multi-theme/select-theme"
+        Button variant:"soft" href:"/docs/views/multi-theme/select-theme"
           "SelectTheme docs"
         Button variant:"soft" scheme:"secondary" href:"/docs/views/multi-theme/toggle-theme"
           "ToggleTheme docs"
@@ -173,19 +204,19 @@ page NamedThemesPage
         Title size:"3xl" weight:"black"
           "Invalid theme graphs stop compilation"
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"danger" p:5 rounded:"md"
+        Card variant:"soft" scheme:"danger" p:5
           Grid columns:1 gap:2
             Title size:"lg" weight:"bold"
               "Names and defaults"
             Text size:"sm"
               "Names start with a lowercase letter and use lowercase letters, numbers, and hyphens. Names must be unique, and defaultTheme must resolve."
-        Card variant:"soft" scheme:"warning" p:5 rounded:"md"
+        Card variant:"soft" scheme:"warning" p:5
           Grid columns:1 gap:2
             Title size:"lg" weight:"bold"
               "Colors"
             Text size:"sm"
               "Unknown roles, non-hex values, and incomplete resolved themes are rejected with source locations."
-        Card variant:"soft" scheme:"info" p:5 rounded:"md"
+        Card variant:"soft" scheme:"info" p:5
           Grid columns:1 gap:2
             Title size:"lg" weight:"bold"
               "Inheritance"

@@ -1,20 +1,70 @@
 page DatabaseTransactionsPage
+  const transactionGuaranteeRows:
+    value:[
+      {
+        guarantee:"Atomic commit"
+        guidance:"A conflict or invalid later insert rejects the entire transaction. No earlier staged insert becomes visible or remains as a partial commit."
+      },
+      {
+        guarantee:"Durable WAL"
+        guidance:"Each transaction has a framed payload, SHA-256 checksum, commit marker, and disk sync. Recovery ignores an incomplete tail and rejects committed corruption."
+      },
+      {
+        guarantee:"Snapshot and conflicts"
+        guidance:"MVCC keeps transaction reads on their starting version. A write to a record changed after that version fails with TransactionConflict."
+      },
+      {
+        guarantee:"Concurrent group commit"
+        guidance:"Concurrent commits may share one disk sync, while retaining separate WAL frames, results, conflict checks, and transaction versions."
+      },
+      {
+        guarantee:"Live secondary indexes"
+        guidance:"Secondary indexes update in commit order and rebuild from the compacted snapshot plus WAL during recovery, without a full index rewrite per insert."
+      },
+    ]
+  const transactionScopeRows:
+    value:[
+      {
+        area:"Local and remote"
+        guidance:"Development uses the embedded engine. Production provider:dowe sends the transaction over the authenticated WebSocket protocol."
+      },
+      {
+        area:"Insert stage"
+        guidance:"The current Dowe Source Format transaction body accepts insert children. Update, delete, and custom SQL do not participate in this transaction form."
+      },
+      {
+        area:"Provider boundary"
+        guidance:"PostgreSQL and D1 handles reject db:<handle>.tx during compilation. Their individual operations still use their provider adapters."
+      },
+    ]
+  const transactionOperationRows:
+    value:[
+      {
+        operation:"Rollback"
+        guidance:"rollback discards every staged insert without writing a WAL frame. An empty transaction also performs no write."
+      },
+      {
+        operation:"Lost response"
+        guidance:"Write requests are never retried automatically. If a connection drops after the server commits but before the response arrives, reconcile with a client-supplied ULID or another business idempotency key before retrying."
+      },
+      {
+        operation:"At-rest boundary"
+        guidance:"Unix storage uses private directory and file modes. WAL checksums detect corruption but do not encrypt records; sensitive deployments still need an encrypted volume and operating-system access controls."
+      },
+    ]
   Section id:"database-transactions-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "SERVER / DATABASE / TRANSACTIONS"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Transactions"
+      Text size:"lg" color:"muted"
+        "A Dowe Database transaction commits all staged inserts through one checksummed WAL boundary. Local development and the remote Dowe provider share the same atomic commit path."
+  Section id:"database-transactions-example" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "SERVER / DATABASE / TRANSACTIONS"
-        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
-          "Transactions"
-        Text size:"lg" color:"muted"
-          "A Dowe Database transaction commits all staged inserts through one checksummed WAL boundary. Local development and the remote Dowe provider share the same atomic commit path."
-      Button href:"/docs/server/db" variant:"ghost" scheme:"muted" size:"sm"
-        "Database overview"
-  Section id:"database-transactions-example" p:{ xs:5 md:7 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "TRANSACTION"
+          "1 / TRANSACTION"
         Title size:"3xl" weight:"black"
           "Stage inserts, then publish one result"
         Text size:"sm" color:"muted"
@@ -35,75 +85,52 @@ page DatabaseTransactionsPage
             return json:{ ok:true data:result }
         """
   Section id:"database-transactions-guarantees" py:{ xs:7 md:10 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "GUARANTEES"
+          "2 / GUARANTEES"
         Title size:"3xl" weight:"black"
           "Durable before visible"
-      Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"soft" scheme:"primary" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "Atomic commit"
-          Text size:"sm" color:"muted"
-            "A conflict or invalid later insert rejects the entire transaction. No earlier staged insert becomes visible or remains as a partial commit."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "Durable WAL"
-          Text size:"sm" color:"muted"
-            "Each transaction has a framed payload, SHA-256 checksum, commit marker, and disk sync. Recovery ignores an incomplete tail and rejects committed corruption."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "Snapshot and conflicts"
-          Text size:"sm" color:"muted"
-            "MVCC keeps transaction reads on their starting version. A write to a record changed after that version fails with TransactionConflict."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "Concurrent group commit"
-          Text size:"sm" color:"muted"
-            "Concurrent commits may share one disk sync, while retaining separate WAL frames, results, conflict checks, and transaction versions."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "Live secondary indexes"
-          Text size:"sm" color:"muted"
-            "Secondary indexes update in commit order and rebuild from the compacted snapshot plus WAL during recovery, without a full index rewrite per insert."
+      Table:
+        data:transactionGuaranteeRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"guarantee" label:"Guarantee" width:"2fr"
+        column field:"guidance" label:"What it means" width:"5fr"
   Section id:"database-transactions-scope" p:{ xs:5 md:7 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "SCOPE AND OPERATIONS"
+          "3 / SCOPE AND OPERATIONS"
         Title size:"3xl" weight:"black"
           "Use Dowe provider handles"
-      Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "Local and remote"
-          Text size:"sm" color:"muted"
-            "Development uses the embedded engine. Production provider:dowe sends the transaction over the authenticated WebSocket protocol."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "Insert stage"
-          Text size:"sm" color:"muted"
-            "The current Dowe Source Format transaction body accepts insert children. Update, delete, and custom SQL do not participate in this transaction form."
-        Card variant:"soft" scheme:"warning" p:5 rounded:"md"
-          Title size:"lg" weight:"bold"
-            "Provider boundary"
-          Text size:"sm" color:"muted"
-            "PostgreSQL and D1 handles reject db:<handle>.tx during compilation. Their individual operations still use their provider adapters."
+      Table:
+        data:transactionScopeRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"area" label:"Area" width:"2fr"
+        column field:"guidance" label:"Boundary" width:"5fr"
   Section id:"database-transactions-operations" py:{ xs:7 md:10 }
-    Grid columns:{ xs:1 md:2 } gap:4
-      Card variant:"soft" scheme:"surface" p:5 rounded:"md"
-        Title size:"lg" weight:"bold"
-          "Rollback"
-        Text size:"sm" color:"muted"
-          "rollback discards every staged insert without writing a WAL frame. An empty transaction also performs no write."
-      Card variant:"soft" scheme:"warning" p:5 rounded:"md"
-        Title size:"lg" weight:"bold"
-          "Lost response"
-        Text size:"sm" color:"muted"
-          "Write requests are never retried automatically. If a connection drops after the server commits but before the response arrives, reconcile with a client-supplied ULID or another business idempotency key before retrying."
-      Card variant:"soft" scheme:"warning" p:5 rounded:"md"
-        Title size:"lg" weight:"bold"
-          "At-rest boundary"
-        Text size:"sm" color:"muted"
-          "Unix storage uses private directory and file modes. WAL checksums detect corruption but do not encrypt records; sensitive deployments still need an encrypted volume and operating-system access controls."
+    Grid columns:1 gap:4
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "4 / SAFETY"
+      Title size:"3xl" weight:"black"
+        "Handle retries and storage deliberately"
+      Table:
+        data:transactionOperationRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"operation" label:"Concern" width:"2fr"
+        column field:"guidance" label:"Rule" width:"5fr"

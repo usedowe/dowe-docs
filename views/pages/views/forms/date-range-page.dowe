@@ -82,7 +82,7 @@ page DateRangePage
           scheme:"primary"
           size:"lg"
           name:"release-window"
-        Card variant:"soft" scheme:"surface" p:{ xs:5 md:7 } rounded:"md"
+        Card variant:"soft" p:{ xs:5 md:7 }
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
               "TWO VALUES"
@@ -151,7 +151,7 @@ page DateRangePage
         Text size:"sm" color:"muted"
           "Dowe keeps the start and end values separate in source while rendering a coordinated range surface on every target."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "BINDING"
@@ -159,7 +159,7 @@ page DateRangePage
               "Two string Signals"
             Text size:"sm" color:"muted"
               "start and end accept string Signal paths and preserve their own YYYY-MM-DD values."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "VALIDATION"
@@ -167,7 +167,7 @@ page DateRangePage
               "One bounded interval"
             Text size:"sm" color:"muted"
               "min and max constrain the selectable calendar window; invalid date literals are rejected by the compiler."
-        Card variant:"soft" scheme:"surface" p:5 rounded:"md"
+        Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
               "TARGETS"

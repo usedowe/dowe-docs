@@ -1,0 +1,15 @@
+handler runExampleUtilities
+  const body value:req.json
+  str normalized source:"trim" value:body.text
+  str slug source:"lower" value:normalized
+  str slugged source:"replace" value:slug from:" " to:"-"
+  parse number source:"int" value:body.number fallback:0
+  sort ordered source:"desc" values:body.values
+  math total source:"sum" values:ordered
+  math average source:"average" values:ordered
+  list count source:"count" values:ordered
+  list first source:"first" values:ordered
+  url encoded source:"encode" value:slugged
+  json summary source:"merge" left:{ slug:slugged } right:{ count:count }
+  date timestamp source:"now"
+  return json:{ ok:true data:{ normalized:normalized slug:slugged number:number ordered:ordered total:total average:average count:count first:first encoded:encoded summary:summary timestamp:timestamp } }

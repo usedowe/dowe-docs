@@ -1,0 +1,6 @@
+import ExampleSessionState from "@/views/types/example-session"
+
+store exampleSession:
+  type:ExampleSessionState
+  persistent:true
+  value:{ authenticated:false guest:true authorization:"" token:"" user:{ id:"" name:"" email:"" } }

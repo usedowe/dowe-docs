@@ -57,7 +57,7 @@ page GridPage
           "Create equal tracks"
         Text size:"sm" color:"muted"
           "A positive integer creates that many equal columns. Gap separates rows and columns."
-      Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+      Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Grid columns:3 gap:4
           Box bg:"success" color:"surface" p:4 rounded:"sm"
             Text
@@ -95,7 +95,7 @@ page GridPage
           "Adapt the structure by width"
         Text size:"sm" color:"muted"
           "Responsive columns select the highest matching breakpoint while the viewport narrows or widens, without requiring a reload."
-      Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+      Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Grid columns:{ xs:1 sm:2 md:3 } gap:4
           Box bg:"success" color:"surface" p:4 rounded:"sm"
             Text
@@ -123,13 +123,13 @@ page GridPage
         copiedLabel:"Copied"
         content:"""
           Grid columns:{ xs:1 sm:2 md:3 } gap:4
-            Card variant:"outlined" scheme:"surface"
+            Card variant:"outlined"
               Text
                 "First card"
-            Card variant:"outlined" scheme:"surface"
+            Card variant:"outlined"
               Text
                 "Second card"
-            Card variant:"outlined" scheme:"surface"
+            Card variant:"outlined"
               Text
                 "Third card"
         """
@@ -142,7 +142,7 @@ page GridPage
           "Span multiple tracks"
         Text size:"sm" color:"muted"
           "Direct Box and Card children can span columns or rows while the parent Grid keeps ownership of the structure."
-      Card variant:"outlined" scheme:"surface" p:{ xs:5 md:7 } rounded:"md" border:1
+      Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Grid columns:3 gap:4
           Box colSpan:2 bg:"primary" color:"surface" p:4 rounded:"sm"
             Text

@@ -18,12 +18,11 @@ page FootersPage
         Button:
           href:"/blocks/footer-preview/navigation"
           variant:"soft"
-          scheme:"primary"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"navigation-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe:
@@ -39,46 +38,46 @@ page FootersPage
             copyLabel:"Copy Footer"
             copiedLabel:"Copied"
             content:"""
-              Footer variant:"solid" scheme:"muted" boxed:true py:{ xs:7 md:5 }
+              Footer scheme:"muted" boxed:true py:{ xs:7 md:5 }
                 top
                   Flex justify:"center" show:{ xs:true md:false }
-                    Text size:"xs" color:"onMuted"
+                    Text size:"xs" color:"mutedText"
                       "CompanyName @ 202X. All rights reserved."
                 center
                   Flex direction:"row" align:"center" justify:"between" gap:8 w:"full" show:{ xs:false md:true }
-                    Text size:"xs" color:"onMuted"
+                    Text size:"xs" color:"mutedText"
                       "CompanyName @ 202X. All rights reserved."
                     Flex wrap:true justify:"center" gap:1
-                      Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                      Button href:"/" scheme:"muted" size:"sm"
                         "Eleven"
-                      Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                      Button href:"/" scheme:"muted" size:"sm"
                         "Twelve"
-                      Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                      Button href:"/" scheme:"muted" size:"sm"
                         "Thirteen"
-                      Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                      Button href:"/" scheme:"muted" size:"sm"
                         "Fourteen"
-                      Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                      Button href:"/" scheme:"muted" size:"sm"
                         "Fifteen"
                     Flex align:"center" justify:"center" gap:1
-                      IconButton icon:"play-circle" label:"YouTube" href:"https://youtube.com" variant:"solid" scheme:"muted"
-                      IconButton icon:"users-group-rounded" label:"Facebook" href:"https://facebook.com" variant:"solid" scheme:"muted"
-                      IconButton icon:"chat-square" label:"Twitter" href:"https://twitter.com" variant:"solid" scheme:"muted"
-                      IconButton icon:"camera" label:"Instagram" href:"https://instagram.com" variant:"solid" scheme:"muted"
-                      IconButton icon:"link-circle" label:"LinkedIn" href:"https://linkedin.com" variant:"solid" scheme:"muted"
+                      IconButton icon:"play-circle" label:"YouTube" href:"https://youtube.com" scheme:"muted"
+                      IconButton icon:"users-group-rounded" label:"Facebook" href:"https://facebook.com" scheme:"muted"
+                      IconButton icon:"chat-square" label:"Twitter" href:"https://twitter.com" scheme:"muted"
+                      IconButton icon:"camera" label:"Instagram" href:"https://instagram.com" scheme:"muted"
+                      IconButton icon:"link-circle" label:"LinkedIn" href:"https://linkedin.com" scheme:"muted"
                   Flex wrap:true justify:"center" gap:1 show:{ xs:true md:false }
-                    Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                    Button href:"/" scheme:"muted" size:"sm"
                       "Eleven"
-                    Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                    Button href:"/" scheme:"muted" size:"sm"
                       "Twelve"
-                    Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                    Button href:"/" scheme:"muted" size:"sm"
                       "Thirteen"
                 bottom
                   Flex align:"center" justify:"center" gap:1 show:{ xs:true md:false }
-                    IconButton icon:"play-circle" label:"YouTube" href:"https://youtube.com" variant:"solid" scheme:"muted"
-                    IconButton icon:"camera" label:"Instagram" href:"https://instagram.com" variant:"solid" scheme:"muted"
-                    IconButton icon:"link-circle" label:"LinkedIn" href:"https://linkedin.com" variant:"solid" scheme:"muted"
+                    IconButton icon:"play-circle" label:"YouTube" href:"https://youtube.com" scheme:"muted"
+                    IconButton icon:"camera" label:"Instagram" href:"https://instagram.com" scheme:"muted"
+                    IconButton icon:"link-circle" label:"LinkedIn" href:"https://linkedin.com" scheme:"muted"
             """
-  Section id:"social" p:{ xs:5 md:7 } bg:"softMuted" color:"onSoftMuted"
+  Section id:"social" p:{ xs:5 md:7 } bg:"softMuted" color:"softMutedText"
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -88,13 +87,12 @@ page FootersPage
             "A compact legal and social split"
         Button:
           href:"/blocks/footer-preview/social"
-          variant:"solid"
           scheme:"muted"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"social-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe:
@@ -110,28 +108,28 @@ page FootersPage
             copyLabel:"Copy Footer"
             copiedLabel:"Copied"
             content:"""
-              Footer variant:"solid" scheme:"muted" boxed:true py:{ xs:6 md:3 }
+              Footer scheme:"muted" boxed:true py:{ xs:6 md:3 }
                 top
                   Flex justify:"center" show:{ xs:true md:false }
-                    Text size:"xs" color:"onMuted"
+                    Text size:"xs" color:"mutedText"
                       "CompanyName @ 202X. All rights reserved."
                 center
                   Flex direction:"row" align:"center" justify:"between" gap:8 w:"full" show:{ xs:false md:true }
-                    Text size:"xs" color:"onMuted"
+                    Text size:"xs" color:"mutedText"
                       "CompanyName @ 202X. All rights reserved."
                     Flex align:"center" justify:"center" gap:1
-                      IconButton icon:"play-circle" label:"YouTube" href:"https://youtube.com" variant:"solid" scheme:"muted"
-                      IconButton icon:"users-group-rounded" label:"Facebook" href:"https://facebook.com" variant:"solid" scheme:"muted"
-                      IconButton icon:"chat-square" label:"Twitter" href:"https://twitter.com" variant:"solid" scheme:"muted"
-                      IconButton icon:"camera" label:"Instagram" href:"https://instagram.com" variant:"solid" scheme:"muted"
-                      IconButton icon:"link-circle" label:"LinkedIn" href:"https://linkedin.com" variant:"solid" scheme:"muted"
+                      IconButton icon:"play-circle" label:"YouTube" href:"https://youtube.com" scheme:"muted"
+                      IconButton icon:"users-group-rounded" label:"Facebook" href:"https://facebook.com" scheme:"muted"
+                      IconButton icon:"chat-square" label:"Twitter" href:"https://twitter.com" scheme:"muted"
+                      IconButton icon:"camera" label:"Instagram" href:"https://instagram.com" scheme:"muted"
+                      IconButton icon:"link-circle" label:"LinkedIn" href:"https://linkedin.com" scheme:"muted"
                 bottom
                   Flex align:"center" justify:"center" gap:1 show:{ xs:true md:false }
-                    IconButton icon:"play-circle" label:"YouTube" href:"https://youtube.com" variant:"solid" scheme:"muted"
-                    IconButton icon:"users-group-rounded" label:"Facebook" href:"https://facebook.com" variant:"solid" scheme:"muted"
-                    IconButton icon:"chat-square" label:"Twitter" href:"https://twitter.com" variant:"solid" scheme:"muted"
-                    IconButton icon:"camera" label:"Instagram" href:"https://instagram.com" variant:"solid" scheme:"muted"
-                    IconButton icon:"link-circle" label:"LinkedIn" href:"https://linkedin.com" variant:"solid" scheme:"muted"
+                    IconButton icon:"play-circle" label:"YouTube" href:"https://youtube.com" scheme:"muted"
+                    IconButton icon:"users-group-rounded" label:"Facebook" href:"https://facebook.com" scheme:"muted"
+                    IconButton icon:"chat-square" label:"Twitter" href:"https://twitter.com" scheme:"muted"
+                    IconButton icon:"camera" label:"Instagram" href:"https://instagram.com" scheme:"muted"
+                    IconButton icon:"link-circle" label:"LinkedIn" href:"https://linkedin.com" scheme:"muted"
             """
   Section id:"legal" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
@@ -144,12 +142,11 @@ page FootersPage
         Button:
           href:"/blocks/footer-preview/legal"
           variant:"soft"
-          scheme:"primary"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"legal-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe:
@@ -165,18 +162,18 @@ page FootersPage
             copyLabel:"Copy Footer"
             copiedLabel:"Copied"
             content:"""
-              Footer variant:"solid" scheme:"muted" boxed:true py:4
+              Footer scheme:"muted" boxed:true py:4
                 top
                   Divider show:{ xs:true md:false }
                 center
-                  Text size:"xs" color:"onMuted" show:{ xs:false md:true }
+                  Text size:"xs" color:"mutedText" show:{ xs:false md:true }
                     "CompanyName @ 202X. All rights reserved."
-                  Text size:"xs" color:"onMuted" show:{ xs:true md:false }
+                  Text size:"xs" color:"mutedText" show:{ xs:true md:false }
                     "CompanyName @ 202X. All rights reserved."
                 bottom
                   Divider show:{ xs:true md:false }
             """
-  Section id:"brand" p:{ xs:5 md:7 } bg:"softPrimary" color:"onSoftPrimary"
+  Section id:"brand" p:{ xs:5 md:7 } bg:"softPrimary" color:"softPrimaryText"
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -186,13 +183,11 @@ page FootersPage
             "Centered identity with balanced navigation"
         Button:
           href:"/blocks/footer-preview/brand"
-          variant:"solid"
-          scheme:"primary"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"brand-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe:
@@ -208,48 +203,48 @@ page FootersPage
             copyLabel:"Copy Footer"
             copiedLabel:"Copied"
             content:"""
-              Footer variant:"solid" scheme:"muted" boxed:true py:{ xs:8 md:6 }
+              Footer scheme:"muted" boxed:true py:{ xs:8 md:6 }
                 top
                   Grid columns:1 gap:5 w:"full"
                     Grid columns:3 align:"center" show:{ xs:false md:true }
                       Flex justify:"start" wrap:true gap:1
-                        Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                        Button href:"/" scheme:"muted" size:"sm"
                           "Eleven"
-                        Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                        Button href:"/" scheme:"muted" size:"sm"
                           "Twelve"
-                        Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                        Button href:"/" scheme:"muted" size:"sm"
                           "Thirteen"
                       Flex justify:"center"
                         Brand href:"/" label:"WebbyFrames home"
                           Flex align:"center" gap:2
-                            Icon name:"widget-5" style:"linear" fill:"onMuted" w:7 h:7
+                            Icon name:"widget-5" fill:"mutedText" w:7 h:7
                             Flex direction:"column" align:"center"
-                              Text size:"lg" weight:"black" color:"onMuted"
+                              Text size:"lg" weight:"black" color:"mutedText"
                                 "WebbyFrames"
-                              Text size:"xs" color:"onMuted"
+                              Text size:"xs" color:"mutedText"
                                 "for Figma"
                       Flex justify:"end" gap:1
-                        IconButton icon:"play-circle" label:"YouTube" href:"https://youtube.com" variant:"solid" scheme:"muted"
-                        IconButton icon:"camera" label:"Instagram" href:"https://instagram.com" variant:"solid" scheme:"muted"
-                        IconButton icon:"link-circle" label:"LinkedIn" href:"https://linkedin.com" variant:"solid" scheme:"muted"
+                        IconButton icon:"play-circle" label:"YouTube" href:"https://youtube.com" scheme:"muted"
+                        IconButton icon:"camera" label:"Instagram" href:"https://instagram.com" scheme:"muted"
+                        IconButton icon:"link-circle" label:"LinkedIn" href:"https://linkedin.com" scheme:"muted"
                     Flex direction:"column" align:"center" gap:4 show:{ xs:true md:false }
                       Brand href:"/" label:"WebbyFrames home"
                         Flex align:"center" gap:2
-                          Icon name:"widget-5" style:"linear" fill:"onMuted" w:7 h:7
-                          Text size:"lg" weight:"black" color:"onMuted"
+                          Icon name:"widget-5" fill:"mutedText" w:7 h:7
+                          Text size:"lg" weight:"black" color:"mutedText"
                             "WebbyFrames"
                       Flex justify:"center" wrap:true gap:1
-                        Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                        Button href:"/" scheme:"muted" size:"sm"
                           "Eleven"
-                        Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                        Button href:"/" scheme:"muted" size:"sm"
                           "Twelve"
-                        Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                        Button href:"/" scheme:"muted" size:"sm"
                           "Thirteen"
                 center
-                  Text size:"xs" color:"onMuted" show:{ xs:false md:true }
+                  Text size:"xs" color:"mutedText" show:{ xs:false md:true }
                     "CompanyName @ 202X. All rights reserved."
                 bottom
-                  Text size:"xs" color:"onMuted" show:{ xs:true md:false }
+                  Text size:"xs" color:"mutedText" show:{ xs:true md:false }
                     "CompanyName @ 202X. All rights reserved."
             """
   Section id:"two-row" p:{ xs:5 md:7 }
@@ -263,12 +258,11 @@ page FootersPage
         Button:
           href:"/blocks/footer-preview/two-row"
           variant:"soft"
-          scheme:"primary"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"two-row-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe:
@@ -284,57 +278,57 @@ page FootersPage
             copyLabel:"Copy Footer"
             copiedLabel:"Copied"
             content:"""
-              Footer variant:"solid" scheme:"muted" boxed:true py:{ xs:8 md:7 }
+              Footer scheme:"muted" boxed:true py:{ xs:8 md:7 }
                 top
                   Grid columns:1 gap:5 w:"full" show:{ xs:false md:true }
                     Flex direction:{ xs:"column" md:"row" } align:"center" justify:"between" gap:5
                       Brand href:"/" label:"WebbyFrames home"
                         Flex align:"center" gap:2
-                          Icon name:"widget-5" style:"linear" fill:"onMuted" w:7 h:7
-                          Text size:"lg" weight:"black" color:"onMuted"
+                          Icon name:"widget-5" fill:"mutedText" w:7 h:7
+                          Text size:"lg" weight:"black" color:"mutedText"
                             "WebbyFrames"
                       Flex wrap:true justify:"center" gap:1
-                        Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                        Button href:"/" scheme:"muted" size:"sm"
                           "Eleven"
-                        Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                        Button href:"/" scheme:"muted" size:"sm"
                           "Twelve"
-                        Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                        Button href:"/" scheme:"muted" size:"sm"
                           "Thirteen"
-                        Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                        Button href:"/" scheme:"muted" size:"sm"
                           "Fourteen"
-                        Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                        Button href:"/" scheme:"muted" size:"sm"
                           "Fifteen"
-                        Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                        Button href:"/" scheme:"muted" size:"sm"
                           "Sixteen"
                     Divider
                     Flex direction:{ xs:"column" md:"row" } align:"center" justify:"between" gap:4
-                      Text size:"xs" color:"onMuted"
+                      Text size:"xs" color:"mutedText"
                         "CompanyName @ 202X. All rights reserved."
                       Flex align:"center" gap:1
-                        IconButton icon:"play-circle" label:"YouTube" href:"https://youtube.com" variant:"solid" scheme:"muted"
-                        IconButton icon:"users-group-rounded" label:"Facebook" href:"https://facebook.com" variant:"solid" scheme:"muted"
-                        IconButton icon:"chat-square" label:"Twitter" href:"https://twitter.com" variant:"solid" scheme:"muted"
-                        IconButton icon:"camera" label:"Instagram" href:"https://instagram.com" variant:"solid" scheme:"muted"
-                        IconButton icon:"link-circle" label:"LinkedIn" href:"https://linkedin.com" variant:"solid" scheme:"muted"
+                        IconButton icon:"play-circle" label:"YouTube" href:"https://youtube.com" scheme:"muted"
+                        IconButton icon:"users-group-rounded" label:"Facebook" href:"https://facebook.com" scheme:"muted"
+                        IconButton icon:"chat-square" label:"Twitter" href:"https://twitter.com" scheme:"muted"
+                        IconButton icon:"camera" label:"Instagram" href:"https://instagram.com" scheme:"muted"
+                        IconButton icon:"link-circle" label:"LinkedIn" href:"https://linkedin.com" scheme:"muted"
                 center
                   Flex direction:"column" align:"center" gap:4 show:{ xs:true md:false }
                     Brand href:"/" label:"WebbyFrames home"
                       Flex align:"center" gap:2
-                        Icon name:"widget-5" style:"linear" fill:"onMuted" w:7 h:7
-                        Text size:"lg" weight:"black" color:"onMuted"
+                        Icon name:"widget-5" fill:"mutedText" w:7 h:7
+                        Text size:"lg" weight:"black" color:"mutedText"
                           "WebbyFrames"
                     Flex wrap:true justify:"center" gap:1
-                      Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                      Button href:"/" scheme:"muted" size:"sm"
                         "Eleven"
-                      Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                      Button href:"/" scheme:"muted" size:"sm"
                         "Twelve"
-                      Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                      Button href:"/" scheme:"muted" size:"sm"
                         "Thirteen"
                 bottom
-                  Text size:"xs" color:"onMuted" show:{ xs:true md:false }
+                  Text size:"xs" color:"mutedText" show:{ xs:true md:false }
                     "CompanyName @ 202X. All rights reserved."
             """
-  Section id:"newsletter" p:{ xs:5 md:7 } bg:"softMuted" color:"onSoftMuted"
+  Section id:"newsletter" p:{ xs:5 md:7 } bg:"softMuted" color:"softMutedText"
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -344,13 +338,12 @@ page FootersPage
             "A complete product directory and signup"
         Button:
           href:"/blocks/footer-preview/newsletter"
-          variant:"solid"
           scheme:"muted"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
           "Open full page"
-      Tabs variant:"line" scheme:"primary" position:"top" w:"full"
+      Tabs variant:"line" position:"top" w:"full"
         tab id:"newsletter-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe:
@@ -366,93 +359,93 @@ page FootersPage
             copyLabel:"Copy Footer"
             copiedLabel:"Copied"
             content:"""
-              Footer variant:"solid" scheme:"muted" boxed:true py:{ xs:7 md:6 }
+              Footer scheme:"muted" boxed:true py:{ xs:7 md:6 }
                 top
                   Grid columns:1 gap:6 w:"full" show:{ xs:false md:true }
                     Flex direction:{ xs:"column" md:"row" } align:"center" justify:"between" gap:5
                       Brand href:"/" label:"WebbyFrames home"
                         Flex align:"center" gap:2
-                          Icon name:"widget-5" style:"linear" fill:"onMuted" w:7 h:7
-                          Text size:"lg" weight:"black" color:"onMuted"
+                          Icon name:"widget-5" fill:"mutedText" w:7 h:7
+                          Text size:"lg" weight:"black" color:"mutedText"
                             "WebbyFrames"
                       Grid columns:"1fr auto" w:"full" gap:2
                         Input placeholder:"Enter your email to get the latest news..." iconStart:"letter"
-                        Button variant:"solid" scheme:"primary"
+                        Button
                           "Subscribe"
                     Divider
                     Flex direction:{ xs:"column" md:"row" } justify:"between" gap:{ xs:7 md:8 } w:"full"
                       Flex direction:"column" align:"start" gap:2
-                        Text weight:"bold" color:"onMuted"
+                        Text weight:"bold" color:"mutedText"
                           "Column One"
-                        Text size:"sm" color:"onMuted"
+                        Text size:"sm" color:"mutedText"
                           "Twenty One"
-                        Text size:"sm" color:"onMuted"
+                        Text size:"sm" color:"mutedText"
                           "Thirty Two"
-                        Text size:"sm" color:"onMuted"
+                        Text size:"sm" color:"mutedText"
                           "Fourty Three"
-                        Text size:"sm" color:"onMuted"
+                        Text size:"sm" color:"mutedText"
                           "Fifty Four"
                       Flex direction:"column" align:"start" gap:2
-                        Text weight:"bold" color:"onMuted"
+                        Text weight:"bold" color:"mutedText"
                           "Column Two"
-                        Text size:"sm" color:"onMuted"
+                        Text size:"sm" color:"mutedText"
                           "Sixty Five"
-                        Text size:"sm" color:"onMuted"
+                        Text size:"sm" color:"mutedText"
                           "Seventy Six"
-                        Text size:"sm" color:"onMuted"
+                        Text size:"sm" color:"mutedText"
                           "Eighty Seven"
-                        Text size:"sm" color:"onMuted"
+                        Text size:"sm" color:"mutedText"
                           "Ninety Eight"
                       Flex direction:"column" align:"start" gap:2
-                        Text weight:"bold" color:"onMuted"
+                        Text weight:"bold" color:"mutedText"
                           "Column Three"
-                        Text size:"sm" color:"onMuted"
+                        Text size:"sm" color:"mutedText"
                           "One Two"
-                        Text size:"sm" color:"onMuted"
+                        Text size:"sm" color:"mutedText"
                           "Three Four"
-                        Text size:"sm" color:"onMuted"
+                        Text size:"sm" color:"mutedText"
                           "Five Six"
-                        Text size:"sm" color:"onMuted"
+                        Text size:"sm" color:"mutedText"
                           "Seven Eight"
                       Flex direction:"column" align:"start" gap:4
-                        Text weight:"bold" color:"onMuted"
+                        Text weight:"bold" color:"mutedText"
                           "Column Four"
                         Flex wrap:true gap:2
-                          Button variant:"solid" scheme:"primary" size:"sm" iconStart:"smartphone"
+                          Button size:"sm" iconStart:"smartphone"
                             "App Store"
-                          Button variant:"solid" scheme:"primary" size:"sm" iconStart:"play"
+                          Button size:"sm" iconStart:"play"
                             "Google Play"
-                        Text weight:"bold" color:"onMuted"
+                        Text weight:"bold" color:"mutedText"
                           "Join Us"
                         Flex align:"center" gap:1
-                          IconButton icon:"play-circle" label:"YouTube" href:"https://youtube.com" variant:"solid" scheme:"muted"
-                          IconButton icon:"users-group-rounded" label:"Facebook" href:"https://facebook.com" variant:"solid" scheme:"muted"
-                          IconButton icon:"chat-square" label:"Twitter" href:"https://twitter.com" variant:"solid" scheme:"muted"
-                          IconButton icon:"camera" label:"Instagram" href:"https://instagram.com" variant:"solid" scheme:"muted"
-                          IconButton icon:"link-circle" label:"LinkedIn" href:"https://linkedin.com" variant:"solid" scheme:"muted"
+                          IconButton icon:"play-circle" label:"YouTube" href:"https://youtube.com" scheme:"muted"
+                          IconButton icon:"users-group-rounded" label:"Facebook" href:"https://facebook.com" scheme:"muted"
+                          IconButton icon:"chat-square" label:"Twitter" href:"https://twitter.com" scheme:"muted"
+                          IconButton icon:"camera" label:"Instagram" href:"https://instagram.com" scheme:"muted"
+                          IconButton icon:"link-circle" label:"LinkedIn" href:"https://linkedin.com" scheme:"muted"
                     Divider
                     Flex direction:{ xs:"column" md:"row" } align:{ xs:"start" md:"center" } justify:"between" gap:4
-                      Text size:"xs" color:"onMuted"
+                      Text size:"xs" color:"mutedText"
                         "CompanyName @ 202X. All rights reserved."
                       Flex wrap:true gap:1
-                        Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                        Button href:"/" scheme:"muted" size:"sm"
                           "Eleven"
-                        Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                        Button href:"/" scheme:"muted" size:"sm"
                           "Twelve"
-                        Button href:"/" variant:"solid" scheme:"muted" size:"sm"
+                        Button href:"/" scheme:"muted" size:"sm"
                           "Thirteen"
                 center
                   Grid columns:1 gap:4 w:"full" show:{ xs:true md:false }
                     Brand href:"/" label:"WebbyFrames home"
                       Flex align:"center" gap:2
-                        Icon name:"widget-5" style:"linear" fill:"onMuted" w:7 h:7
-                        Text size:"lg" weight:"black" color:"onMuted"
+                        Icon name:"widget-5" fill:"mutedText" w:7 h:7
+                        Text size:"lg" weight:"black" color:"mutedText"
                           "WebbyFrames"
                     Grid columns:1 gap:2
                       Input placeholder:"Enter your email to get the latest news..." iconStart:"letter"
-                      Button variant:"solid" scheme:"primary"
+                      Button
                         "Subscribe"
                 bottom
-                  Text size:"xs" color:"onMuted" show:{ xs:true md:false }
+                  Text size:"xs" color:"mutedText" show:{ xs:true md:false }
                     "CompanyName @ 202X. All rights reserved."
             """

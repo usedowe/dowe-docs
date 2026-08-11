@@ -8,7 +8,7 @@ page AppBarPreviewPage
       Text size:"lg" color:"muted"
         "Every routed preview reuses this page while its layout owns the AppBar variation."
       Flex wrap:true gap:3
-        Button href:"/blocks/appbar" variant:"solid" scheme:"primary" rounded:"full"
+        Button href:"/blocks/appbar" rounded:"full"
           "Browse all AppBars"
         Button href:"/docs/views/layout/appbar" variant:"outlined" scheme:"muted" rounded:"full"
           "View component reference"

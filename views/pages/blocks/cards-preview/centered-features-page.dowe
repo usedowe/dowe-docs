@@ -32,7 +32,7 @@ page CenteredFeatureCardsPage
         description:"Give every collaborator the access they need and nothing they do not."
       },
     ]
-  Section id:"centered-feature-cards" bg:"background" color:"onBackground" boxed:true py:{ xs:8 md:12 } minH:"vh-0"
+  Section id:"centered-feature-cards" bg:"background" color:"backgroundText" boxed:true py:{ xs:8 md:12 } minH:"vh-0"
     Grid columns:1 gap:{ xs:8 md:12 }
       Flex direction:"column" align:"center" gap:3
         Title size:{ xs:"3xl" md:"5xl" } weight:"black"
@@ -44,7 +44,7 @@ page CenteredFeatureCardsPage
           Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:64
             Flex direction:"column" align:"center" justify:"center" gap:4 minH:48
               Box bg:"softMuted" rounded:"lg" p:3
-                Icon name:"gallery" style:"bold-duotone" fill:"muted" w:9 h:9
+                Icon name:"gallery-bold-duotone" fill:"muted" w:9 h:9
               Title size:"xl" weight:"black"
                 "{feature.title}"
               Text color:"muted"

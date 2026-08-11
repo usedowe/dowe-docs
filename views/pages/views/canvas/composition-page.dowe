@@ -52,7 +52,7 @@ page CanvasCompositionPage
         x:320
         y:220
         text:"PORTABLE COMPOSITION"
-        fill:"onSurface"
+        fill:"surfaceText"
         size:28
         align:"center"
       },
@@ -180,7 +180,7 @@ page CanvasCompositionPage
             { type:"rect" x:0 y:0 width:640 height:360 fill:"background" },
             { type:"rect" x:40 y:34 width:560 height:292 radius:28 fill:"surface" rotation:-2 },
             { type:"image" src:"/assets/logo.svg" x:235 y:66 width:170 height:104 fit:"contain" },
-            { type:"text" x:320 y:220 text:"PORTABLE COMPOSITION" fill:"onSurface" size:28 align:"center" },
+            { type:"text" x:320 y:220 text:"PORTABLE COMPOSITION" fill:"surfaceText" size:28 align:"center" },
           ]
 
           Canvas scene:composition viewWidth:640 viewHeight:360 autoplay:false label:"Layered brand composition" w:"full" h:96
@@ -214,5 +214,5 @@ page CanvasCompositionPage
       Flex justify:"space-between" align:"center" wrap:true gap:3
         Button href:"/docs/views/canvas/infographic" variant:"ghost" scheme:"muted" iconStart:"alt-arrow-left"
           "Infographic"
-        Button href:"/docs/views/canvas/input" variant:"solid" scheme:"primary" iconEnd:"alt-arrow-right"
+        Button href:"/docs/views/canvas/input" iconEnd:"alt-arrow-right"
           "Add input"

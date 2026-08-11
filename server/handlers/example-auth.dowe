@@ -1,0 +1,22 @@
+import registerExampleUserService from "@/server/services/example-auth-service"
+import loginExampleUserService from "@/server/services/example-auth-service"
+import getExampleSessionUserService from "@/server/services/example-auth-service"
+import logoutExampleUserService from "@/server/services/example-auth-service"
+
+handler registerExampleUser
+  const body value:req.json
+  registerExampleUserService result args:{ name:body.name email:body.email password:body.password }
+  return status:201 json:{ ok:true data:result }
+
+handler loginExampleUser
+  const body value:req.json
+  loginExampleUserService result args:{ email:body.email password:body.password }
+  return json:{ ok:true data:result }
+
+handler getExampleSession
+  getExampleSessionUserService result args:{ subject:req.context.auth.subject authorization:req.context.auth.authorization token:req.context.auth.token session:req.context.auth.session }
+  return json:{ ok:true data:result }
+
+handler logoutExampleUser
+  logoutExampleUserService result args:{ session:req.context.auth.session }
+  return json:{ ok:true data:result }
