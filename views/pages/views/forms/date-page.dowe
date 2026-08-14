@@ -42,6 +42,11 @@ page DatePage
         type:"string"
         defaultValue:"—"
       },
+      {
+        prop:"validate"
+        type:"direct child"
+        defaultValue:"—"
+      },
     ]
   Section id:"date-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
@@ -71,6 +76,8 @@ page DatePage
           helpText:"Choose a date in the next release window."
           size:"lg"
           name:"launch-date"
+          validate rule:"required" message:"Choose a launch date."
+          validate rule:"date" message:"Choose a valid calendar date."
         Card variant:"soft" p:{ xs:5 md:7 }
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
@@ -91,6 +98,8 @@ page DatePage
           signal launchDate value:"2026-08-15"
 
           Date bind:launchDate label:"Launch date" labelFloating:true min:"2026-08-01" max:"2026-12-31" helpText:"Choose a date in the next release window." size:"lg" name:"launch-date"
+            validate rule:"required" message:"Choose a launch date."
+            validate rule:"date" message:"Choose a valid calendar date."
         """
   Section id:"date-bounds" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
@@ -134,6 +143,8 @@ page DatePage
         Date value:"2026-08-10" label:"Small" labelFloating:true size:"sm"
         Date value:"2026-08-10" label:"Medium" labelFloating:true
         Date value:"2026-08-10" label:"Large" labelFloating:true size:"lg"
+      Text size:"sm" color:"muted"
+        "Closing an empty calendar or choosing a date marks the control as touched. Rule feedback then updates after every selection."
   Section id:"date-contract" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2

@@ -68,6 +68,16 @@ page InputPage
         type:"Solar icon name"
         defaultValue:"—"
       },
+      {
+        prop:"helpText / errorText"
+        type:"string"
+        defaultValue:"—"
+      },
+      {
+        prop:"validate"
+        type:"direct child"
+        defaultValue:"—"
+      },
     ]
   Section id:"input-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
@@ -101,7 +111,10 @@ page InputPage
           placeholder:"Enter a workspace name"
           labelFloating:true
           iconStart:"pen"
+          helpText:"Use at least three characters."
           w:"full"
+          validate rule:"required" message:"Workspace name is required."
+          validate rule:"min:3" message:"Use at least three characters."
       Code:
         language:"dowe"
         variant:"soft"
@@ -111,7 +124,9 @@ page InputPage
         content:"""
           signal fieldValue value:""
 
-          Input bind:fieldValue label:"Workspace name" placeholder:"Enter a workspace name" labelFloating:true iconStart:"pen" w:"full"
+          Input bind:fieldValue label:"Workspace name" placeholder:"Enter a workspace name" labelFloating:true iconStart:"pen" helpText:"Use at least three characters." w:"full"
+            validate rule:"required" message:"Workspace name is required."
+            validate rule:"min:3" message:"Use at least three characters."
         """
   Section id:"input-labels" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
@@ -192,6 +207,26 @@ page InputPage
       Grid columns:1 gap:5
         Input label:"Search" placeholder:"Search documentation" scheme:"info" iconStart:"magnifier" w:"full"
         Input label:"Project" placeholder:"dowe-app" labelFloating:true variant:"soft" scheme:"success" iconStart:"folder" iconEnd:"check-circle" w:"full"
+  Section id:"input-validation" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "VALIDATION"
+        Title size:"3xl" weight:"black"
+          "Validate after the first interaction"
+        Text size:"sm" color:"muted"
+          "Direct validate children run in source order. The first failing message replaces helpText after blur, and later edits refresh it immediately."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Input bind:form.email label:"Email" helpText:"Use your work address."
+            validate rule:"required" message:"Email is required."
+            validate rule:"email" message:"Enter a valid email address."
+        """
   Section id:"input-contract" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2

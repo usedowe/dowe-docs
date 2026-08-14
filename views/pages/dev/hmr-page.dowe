@@ -44,7 +44,11 @@ page HmrPage
     value:[
       {
         state:"Route and compatible state"
-        guidance:"Targets keep the active route when it still exists. Web also restores compatible Signal values and bound control state after hydration."
+        guidance:"Targets keep the active route when a compatible module replaces the current one inside the active process. Web also restores compatible Signal values and bound control state after hydration."
+      },
+      {
+        state:"Mobile process relaunch"
+        guidance:"Android and iOS mount the cached native module at the generated initial route with a new navigation stack. A valid incoming deep link can select another declared launch route."
       },
       {
         state:"Failed rebuild"

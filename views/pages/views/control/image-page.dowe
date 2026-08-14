@@ -29,7 +29,7 @@ page ImagePage
       {
         prop:"hideControls"
         type:"boolean"
-        defaultValue:"false"
+        defaultValue:"true"
       },
       {
         prop:"variant"
@@ -226,7 +226,7 @@ page ImagePage
         Title size:"3xl" weight:"black"
           "Keep image actions intentional"
         Text size:"sm" color:"muted"
-          "Web images expose download and fullscreen actions by default. Set hideControls when the image should remain a passive visual, and use eager loading only for imagery needed immediately."
+          "Web images hide download and fullscreen actions by default. Set hideControls:false when the image should expose both actions, and use eager loading only for imagery needed immediately."
         Text size:"sm" color:"muted"
           "Android reuses bounded native memory and HTTPS disk caches. During a cold load it shows the theme's neutral surface and fades in the bitmap, avoiding a flash of the authored scheme color."
       Grid columns:1 gap:4
@@ -237,10 +237,11 @@ page ImagePage
             aspect:"horizontal"
             objectFit:"cover"
             loading:"eager"
+            hideControls:false
             scheme:"primary"
             rounded:"lg"
           Text size:"sm" weight:"bold"
-            "Default actions · eager"
+            "Enabled actions · eager"
         Grid columns:1 gap:2
           Image:
             src:"https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80"
@@ -248,18 +249,17 @@ page ImagePage
             aspect:"horizontal"
             objectFit:"cover"
             loading:"lazy"
-            hideControls:true
             scheme:"tertiary"
             rounded:"lg"
           Text size:"sm" weight:"bold"
-            "Passive image · lazy"
+            "Default passive image · lazy"
       Code:
         language:"dowe"
         variant:"soft"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
-        content:"Image src:\"/assets/hero.jpg\" alt:\"Team at a workshop\" loading:\"eager\" hideControls:true"
+        content:"Image src:\"/assets/hero.jpg\" alt:\"Team at a workshop\" loading:\"eager\" hideControls:false"
   Section id:"image-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2

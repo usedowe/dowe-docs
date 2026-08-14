@@ -57,6 +57,11 @@ page PhonePage
         type:"string"
         defaultValue:"—"
       },
+      {
+        prop:"validate"
+        type:"direct child"
+        defaultValue:"—"
+      },
     ]
   Section id:"phone-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
@@ -93,6 +98,8 @@ page PhonePage
             scheme:"primary"
             size:"lg"
             name:"mobile-phone"
+            validate rule:"required" message:"Enter a mobile phone number."
+            validate rule:"phone" message:"Enter a valid phone number."
           Grid columns:1 gap:4
             Text size:"sm" color:"muted"
               "bind stores only local-number digits so applications can validate and format them independently."
@@ -108,6 +115,8 @@ page PhonePage
           signal contactPhone value:""
 
           Phone bind:contactPhone country:"CO" dialCodeName:"contactDialCode" priorityCountries:"CO,US,MX,BR,ES" label:"Mobile phone" placeholder:"300 123 4567" searchPlaceholder:"Search country or dial code" emptyText:"No country matches this search" loadingText:"Loading countries" helpText:"Choose the country first, then enter digits for the local number." variant:"outlined" scheme:"primary" size:"lg" name:"mobile-phone"
+            validate rule:"required" message:"Enter a mobile phone number."
+            validate rule:"phone" message:"Enter a valid phone number."
         """
   Section id:"phone-regions" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
@@ -185,6 +194,8 @@ page PhonePage
           name:"verified-phone"
       Text size:"sm" color:"muted"
         "The base heights are 32, 40, and 48; labelFloating adds 8 logical units without changing the country trigger."
+      Text size:"sm" color:"muted"
+        "Phone validates the bound local-number string after blur or country-popover close; the first failing message belongs to the combined control."
       Flex wrap:true justify:"center" align:"center" gap:4
         Phone country:"CO" label:"Small" labelFloating:true variant:"soft" scheme:"primary" size:"sm"
         Phone country:"CO" label:"Medium" labelFloating:true variant:"soft" scheme:"primary" size:"md"

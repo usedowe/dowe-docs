@@ -53,7 +53,7 @@ page GesturesPage
         Title size:"3xl" weight:"black"
           "Preset values by input type"
         Text size:"sm" color:"muted"
-          "gesture is a static quoted preset. Its default is none. When transition is omitted, each target uses its baseline gesture timing; author a transition preset when named timing matters."
+          "gesture is a static quoted preset. Its default is none, except Button, IconButton, and Fab, whose primary trigger scales its complete surface to 0.94 during every press and restores it afterward, including consecutive Android taps and controls with a Dowe shadow. Use gesture:\"none\" to opt out. When transition is omitted, each target uses its baseline gesture timing; author a transition preset when named timing matters."
       Table:
         data:gesturePresets
         variant:"soft"

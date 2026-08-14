@@ -13,25 +13,33 @@ page SignupSplitAuthPage
       Flex:
         direction:"column"
         justify:"center"
+        align:"center"
         p:{ xs:6 md:12 }
         minH:{ xs:"vh-40" md:"vh-0" }
-        Grid columns:{ xs:1 md:3 } align:"center"
-          Box show:{ xs:false md:true }
-          Grid columns:1 gap:5
+        Flex:
+          align:"center"
+          justify:"center"
+          w:"full"
+          Grid columns:1 gap:5 w:"full" maxW:96
             Grid columns:1 gap:2
               Title size:"3xl" weight:"black"
                 "Sign up"
               Text size:"sm" color:"muted"
                 "Create an account and start building."
             Grid columns:2 gap:3
-              Input bind:form.firstName label:"First name" placeholder:"First name" variant:"soft" scheme:"success" w:"full"
-              Input bind:form.lastName label:"Last name" placeholder:"Last name" variant:"soft" scheme:"success" w:"full"
-            Input bind:form.email label:"Email address" placeholder:"you@example.com" variant:"soft" scheme:"success" w:"full"
+              Input bind:form.firstName label:"First name" placeholder:"First name" helpText:"Use the name shown on your account." variant:"soft" scheme:"success" w:"full"
+                validate rule:"required" message:"Enter your first name."
+              Input bind:form.lastName label:"Last name" placeholder:"Last name" helpText:"Use the name shown on your account." variant:"soft" scheme:"success" w:"full"
+                validate rule:"required" message:"Enter your last name."
+            Input bind:form.email label:"Email address" placeholder:"you@example.com" helpText:"Use an email address you can access." variant:"soft" scheme:"success" w:"full"
+              validate rule:"required" message:"Enter your email address."
+              validate rule:"email" message:"Enter a valid email address."
             Password bind:form.password label:"Password" placeholder:"Create a password" hideStrength:false variant:"soft" scheme:"success" w:"full"
             Checkbox bind:form.accepted label:"I agree to the terms and privacy policy." scheme:"success"
+              validate rule:"required" message:"Accept the terms and privacy policy to continue."
             Button scheme:"success" w:"full"
               "Create account"
-            Grid columns:{ xs:1 sm:2 } gap:3
+            Grid columns:{ xs:1 lg:2 } gap:2
               Button variant:"outlined" scheme:"success" size:"sm" iconStart:"global" w:"full"
                 "Continue with Google"
               Button variant:"outlined" scheme:"success" size:"sm" iconStart:"smartphone" w:"full"
@@ -39,4 +47,3 @@ page SignupSplitAuthPage
             Divider
             Button href:"/blocks/auth-preview/login-split" variant:"ghost" scheme:"success" size:"sm"
               "Already have an account? Log in"
-          Box show:{ xs:false md:true }

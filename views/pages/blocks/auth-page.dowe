@@ -46,8 +46,8 @@ page AuthPage
                     Flex direction:"column" justify:"center" align:"center" minH:{ xs:40 md:"vh-0" }
                       Box bg:"surface" rounded:"full" p:{ xs:5 md:9 } shadow:"xl" shadowColor:"muted"
                         Icon name:"shield-user-bold-duotone" fill:"primary" w:{ xs:16 md:24 } h:{ xs:16 md:24 }
-                  Flex direction:"column" justify:"center" p:{ xs:6 md:12 } minH:{ xs:"vh-40" md:"vh-0" }
-                    Grid columns:1 gap:5
+                  Flex direction:"column" justify:"center" align:"center" p:{ xs:6 md:12 } minH:{ xs:"vh-40" md:"vh-0" }
+                    Grid columns:1 gap:5 w:"full" maxW:96
                       Grid columns:1 gap:2
                         Title size:"3xl" weight:"black"
                           "Log in"
@@ -61,7 +61,7 @@ page AuthPage
                           "Forgot password?"
                       Button w:"full"
                         "Log in"
-                      Grid columns:{ xs:1 sm:2 } gap:3
+                      Grid columns:{ xs:1 lg:2 } gap:2
                         Button variant:"outlined" size:"sm" iconStart:"global" w:"full"
                           "Continue with Google"
                         Button variant:"outlined" size:"sm" iconStart:"smartphone" w:"full"
@@ -105,8 +105,8 @@ page AuthPage
                   Box show:{ xs:true md:false } bg:"softTertiary" color:"tertiary" minH:40 p:6
                     Flex direction:"column" justify:"center" align:"center" minH:40
                       Icon name:"lock-password-bold-duotone" fill:"tertiary" w:16 h:16
-                  Flex direction:"column" justify:"center" p:{ xs:6 md:12 } minH:{ xs:"vh-40" md:"vh-0" }
-                    Grid columns:1 gap:5
+                  Flex direction:"column" justify:"center" align:"center" p:{ xs:6 md:12 } minH:{ xs:"vh-40" md:"vh-0" }
+                    Grid columns:1 gap:5 w:"full" maxW:96
                       Title size:"3xl" weight:"black"
                         "Log in"
                       Input bind:form.email label:"Email address" placeholder:"you@example.com" variant:"soft" scheme:"tertiary" w:"full"
@@ -269,8 +269,8 @@ page AuthPage
                   Box bg:"softSecondary" color:"success" minH:{ xs:40 md:"vh-0" } p:{ xs:6 md:12 }
                     Flex direction:"column" justify:"center" align:"center" minH:{ xs:40 md:"vh-0" }
                       Icon name:"user-plus-rounded-bold-duotone" fill:"success" w:{ xs:16 md:24 } h:{ xs:16 md:24 }
-                  Flex direction:"column" justify:"center" p:{ xs:6 md:12 } minH:{ xs:"vh-40" md:"vh-0" }
-                    Grid columns:1 gap:5
+                  Flex direction:"column" justify:"center" align:"center" p:{ xs:6 md:12 } minH:{ xs:"vh-40" md:"vh-0" }
+                    Grid columns:1 gap:5 w:"full" maxW:96
                       Title size:"3xl" weight:"black"
                         "Sign up"
                       Grid columns:2 gap:3
@@ -281,7 +281,7 @@ page AuthPage
                       Checkbox bind:form.accepted label:"I agree to the terms and privacy policy." scheme:"success"
                       Button scheme:"success" w:"full"
                         "Create account"
-                      Grid columns:{ xs:1 sm:2 } gap:3
+                      Grid columns:{ xs:1 lg:2 } gap:2
                         Button variant:"outlined" scheme:"success" size:"sm" iconStart:"global" w:"full"
                           "Continue with Google"
                         Button variant:"outlined" scheme:"success" size:"sm" iconStart:"smartphone" w:"full"
@@ -325,8 +325,8 @@ page AuthPage
                   Box show:{ xs:true md:false } bg:"softInfo" color:"info" minH:40 p:6
                     Flex direction:"column" justify:"center" align:"center" minH:40
                       Icon name:"user-check-rounded-bold-duotone" fill:"info" w:16 h:16
-                  Flex direction:"column" justify:"center" p:{ xs:6 md:12 } minH:{ xs:"vh-40" md:"vh-0" }
-                    Grid columns:1 gap:5
+                  Flex direction:"column" justify:"center" align:"center" p:{ xs:6 md:12 } minH:{ xs:"vh-40" md:"vh-0" }
+                    Grid columns:1 gap:5 w:"full" maxW:96
                       Title size:"3xl" weight:"black"
                         "Sign up"
                       Grid columns:2 gap:3

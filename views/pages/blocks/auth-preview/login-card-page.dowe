@@ -12,7 +12,9 @@ page LoginCardAuthPage
             Text size:"sm" color:"muted"
               "Please log in to continue."
           Grid columns:1 gap:4
-            Input bind:form.email label:"Email address" placeholder:"you@example.com" variant:"soft" w:"full"
+            Input bind:form.email label:"Email address" placeholder:"you@example.com" helpText:"Use the email associated with your account." variant:"soft" w:"full"
+              validate rule:"required" message:"Enter your email address."
+              validate rule:"email" message:"Enter a valid email address."
             Password bind:form.password label:"Password" placeholder:"Enter your password" hideStrength:true variant:"soft" w:"full"
             Flex justify:"between" align:"center" gap:2
               Checkbox bind:form.remember label:"Remember me"

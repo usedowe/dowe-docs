@@ -169,6 +169,8 @@ page FabPage
           "A compact, intentional trigger"
         Text size:"sm" color:"muted"
           "Fab supports solid and soft variants, every action scheme, and five square control sizes. Expanded actions use fully tappable intrinsic-width capsules, while the complete trigger circle accepts input and rotates its plus into a dismiss mark on web, Android, and iOS."
+        Text size:"sm" color:"muted"
+          "The primary Fab trigger scales to 0.94 while pressed on web, iOS, and Android. Use gesture:\"none\" to disable the feedback."
       Grid columns:1 gap:5
         Card variant:"outlined" p:5
           Grid columns:1 gap:2

@@ -72,6 +72,7 @@ component ViewsNavigation
       item label:"Phone" href:"/docs/views/form/phone" icon:"user-circle"
       item label:"Pin" href:"/docs/views/form/pin" icon:"key"
       item label:"Select" href:"/docs/views/form/select" icon:"list-down"
+      item label:"Signal validation" href:"/docs/views/form/signal-validation" icon:"checklist"
       item label:"Slider" href:"/docs/views/form/slider" icon:"slider-horizontal"
       item label:"Toggle" href:"/docs/views/form/toggle" icon:"power"
     submenu label:"Layout" icon:"widget-4"

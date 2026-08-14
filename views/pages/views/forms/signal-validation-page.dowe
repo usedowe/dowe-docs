@@ -1,0 +1,82 @@
+page SignalValidationPage
+  signal formLogin value:{ email:"" accepted:false }
+
+  fn submit
+    validate formLogin
+    request result method:"POST" route:"/api/auth/login" body:formLogin
+
+  Section id:"signal-validation-introduction" py:{ xs:6 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "FORM STATE"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Signal validation"
+        Text size:"lg" color:"muted"
+          "Coordinate validated controls with derived Signal state. No visual Form component is required."
+        Text size:"sm" color:"muted"
+          "isValid, isInvalid, errors, and touched are read-only views over the same bound values."
+
+  Section id:"signal-validation-playground" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PLAYGROUND"
+        Title size:"3xl" weight:"black"
+          "Disable the action until every field passes"
+        Text size:"sm" color:"muted"
+          "The button reads formLogin.isInvalid. The submit function calls validate formLogin before its request."
+      Grid columns:1 gap:4
+        Input bind:formLogin.email label:"Email" placeholder:"name@example.com" helpText:"Use a work address." w:"full"
+          validate rule:"required" message:"Email is required."
+          validate rule:"email" message:"Enter a valid email."
+        Checkbox bind:formLogin.accepted label:"Accept the terms" helpText:"Required to continue."
+          validate rule:"required" message:"Accept the terms to continue."
+        Button disabled:formLogin.isInvalid onClick:submit scheme:"primary"
+          "Submit"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          signal formLogin value:{ email:"" accepted:false }
+
+          Input bind:formLogin.email label:"Email"
+            validate rule:"required" message:"Email is required."
+            validate rule:"email" message:"Enter a valid email."
+
+          Checkbox bind:formLogin.accepted label:"Accept the terms"
+            validate rule:"required" message:"Accept the terms to continue."
+
+          Button disabled:formLogin.isInvalid onClick:submit
+            "Submit"
+
+          fn submit
+            validate formLogin
+            request result method:"POST" route:"/api/auth/login" body:formLogin
+        """
+
+  Section id:"signal-validation-contract" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "DERIVED STATE"
+        Title size:"3xl" weight:"black"
+          "One source of truth"
+        Text size:"sm" color:"muted"
+          "The compiler groups validate children by their Signal root. Derived fields never enter persistence or request bodies, and the same rules run on web, Android, and iOS."
+      Grid columns:1 gap:3
+        Text size:"sm" weight:"bold"
+          "formLogin.isValid / formLogin.isInvalid"
+        Text size:"sm" color:"muted"
+          "Use these booleans for disabled actions, visibility, or a summary state."
+        Text size:"sm" weight:"bold"
+          "formLogin.errors.email"
+        Text size:"sm" color:"muted"
+          "Reads the first failing message for a field."
+        Text size:"sm" weight:"bold"
+          "formLogin.touched.email"
+        Text size:"sm" color:"muted"
+          "Tracks interaction and becomes true for every registered field after validate formLogin."

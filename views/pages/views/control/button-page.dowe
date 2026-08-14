@@ -431,26 +431,19 @@ page ButtonPage
           "On web, desktop, Android, and iOS, Button labels stay on one line and keep their control height in narrow layouts. Let the surrounding Flex wrap or change direction when the row no longer fits."
         Text size:"sm" color:"muted"
           "On web, iOS, and Android, the full rendered Button surface is interactive, including its padding, label, and optional icons."
-      Grid columns:1 gap:4
-        Select:
-          bind:schemeChoice
-          label:"Scheme"
-          placeholder:"Choose a scheme"
+        Text size:"sm" color:"muted"
+          "Button gives visible press feedback by scaling its full surface to 0.94 while active on web, iOS, and Android. Use gesture:\"none\" to disable it."
+      Grid columns:{ xs:2 md:4 } gap:4
+        Select bind:schemeChoice label:"Scheme" placeholder:"Choose a scheme"
           each in:schemeOptions as:option key:option.id
             Option value:option.value label:option.label
-        Select:
-          bind:variantChoice
-          label:"Variant"
-          placeholder:"Choose a variant"
+        Select bind:variantChoice label:"Variant" placeholder:"Choose a variant"
           each in:variantOptions as:option key:option.id
             Option value:option.value label:option.label
-        Select:
-          bind:sizeChoice
-          label:"Size"
-          placeholder:"Choose a size"
+        Select bind:sizeChoice label:"Size" placeholder:"Choose a size"
           each in:sizeOptions as:option key:option.id
             Option value:option.value label:option.label
-      Grid columns:1 gap:4
+      Grid columns:{ xs:2 md:4 } gap:4
         Checkbox bind:startIconEnabled label:"Start icon"
         Checkbox bind:endIconEnabled label:"End icon"
         Checkbox bind:loadingChoice label:"Loading"

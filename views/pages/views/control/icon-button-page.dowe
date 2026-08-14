@@ -322,6 +322,8 @@ page IconButtonPage
           "IconButton also accepts common spacing, sizing, visibility, and accessibility props."
         Text size:"sm" color:"muted"
           "Explicit width and height override the dimensions derived from size."
+        Text size:"sm" color:"muted"
+          "IconButton gives visible press feedback by scaling its full square surface to 0.94 while active on web, iOS, and Android. Use gesture:\"none\" to disable it."
       Table:
         data:iconButtonProps
         variant:"soft"

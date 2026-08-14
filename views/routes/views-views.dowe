@@ -34,6 +34,7 @@ import ImageCropperPage from "@/views/pages/views/forms/image-cropper-page"
 import PasswordPage from "@/views/pages/views/forms/password-page"
 import PhonePage from "@/views/pages/views/forms/phone-page"
 import PinPage from "@/views/pages/views/forms/pin-page"
+import SignalValidationPage from "@/views/pages/views/forms/signal-validation-page"
 import AlertPage from "@/views/pages/views/display/alert-page"
 import AvatarPage from "@/views/pages/views/display/avatar-page"
 import AvatarGroupPage from "@/views/pages/views/display/avatar-group-page"
@@ -169,6 +170,7 @@ views ViewsViews
     route path:"form/password" page:PasswordPage
     route path:"form/phone" page:PhonePage
     route path:"form/pin" page:PinPage
+    route path:"form/signal-validation" page:SignalValidationPage
     route path:"multi-theme/toggle-theme" page:ToggleThemePage
     route path:"multi-theme/select-theme" page:SelectThemePage
     route path:"theme/fonts" page:FontsPage

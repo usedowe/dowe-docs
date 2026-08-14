@@ -47,6 +47,11 @@ page PinPage
         type:"string"
         defaultValue:"—"
       },
+      {
+        prop:"validate"
+        type:"direct child"
+        defaultValue:"—"
+      },
     ]
   Section id:"pin-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
@@ -83,6 +88,10 @@ page PinPage
             helpText:"The code expires in ten minutes. You can paste all six digits at once."
             size:"lg"
             name:"transfer-code"
+            validate rule:"required" message:"Enter the verification code."
+            validate rule:"min:6" message:"Enter all six digits."
+            validate rule:"max:6" message:"Enter only six digits."
+            validate rule:"numeric" message:"Use digits only."
           Flex wrap:true justify:"end" align:"center" gap:3
             Button variant:"ghost" scheme:"muted" size:"sm"
               "Send another code"
@@ -98,6 +107,10 @@ page PinPage
           signal verificationCode value:""
 
           Pin bind:verificationCode length:6 type:"number" label:"Verification code" helpText:"The code expires in ten minutes. You can paste all six digits at once." size:"lg" name:"transfer-code"
+            validate rule:"required" message:"Enter the verification code."
+            validate rule:"min:6" message:"Enter all six digits."
+            validate rule:"max:6" message:"Enter only six digits."
+            validate rule:"numeric" message:"Use digits only."
         """
   Section id:"pin-modes" py:{ xs:7 md:10 }
     Grid columns:1 gap:6

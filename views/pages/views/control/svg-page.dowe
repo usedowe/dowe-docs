@@ -127,7 +127,7 @@ page SvgPage
           "Convert vector source in the view"
         Text size:"sm" color:"muted"
           "Paste SVG XML, run the view function, and copy the generated Svg and Path declarations."
-      Grid columns:1 gap:5
+      Grid columns:{ xs:1 md:2 } gap:5
         Grid columns:1 gap:3
           Textarea:
             bind:svgSource
