@@ -43,7 +43,7 @@ page DragDropPage
       },
     ]
   Section id:"drag-drop-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "FORM"
@@ -100,7 +100,7 @@ page DragDropPage
           "Use one list or several lanes"
         Text size:"sm" color:"muted"
           "Direct dragItem children create one list. dragGroup children create independent lanes. Do not mix both child shapes in one DragDrop."
-      Grid columns:{ xs:1 md:2 } gap:5
+      Grid columns:1 gap:5
         DragDrop emptyText:"Drop unassigned work here" direction:"vertical" variant:"soft" scheme:"success" size:"md"
           dragItem id:"draft" label:"Draft brief" description:"Needs a first review."
           dragItem id:"feedback" label:"Collect feedback" description:"Waiting on product input."
@@ -136,7 +136,7 @@ page DragDropPage
           "Make movement and constraints visible"
         Text size:"sm" color:"muted"
           "Empty text, disabled items, and size communicate whether a board is ready for movement or only showing a static plan."
-      Grid columns:{ xs:1 md:2 } gap:5
+      Grid columns:1 gap:5
         DragDrop emptyText:"Nothing is queued yet" direction:"vertical" variant:"outlined" scheme:"info" size:"sm"
         DragDrop emptyText:"No transfers allowed" direction:"horizontal" allowGroupTransfer:false variant:"solid" scheme:"warning" size:"lg"
           dragGroup id:"today" title:"Today"
@@ -152,7 +152,7 @@ page DragDropPage
           "A deterministic movement model"
         Text size:"sm" color:"muted"
           "Dowe lowers authored item IDs, lane structure, drag direction, and disabled state to shared target-neutral data."
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"

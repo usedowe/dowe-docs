@@ -97,6 +97,7 @@ import SelectThemePage from "@/views/pages/views/multi-theme/select-theme-page"
 import FontsPage from "@/views/pages/views/theme/fonts-page"
 import NamedThemesPage from "@/views/pages/views/theme/named-themes-page"
 import ComponentDefaultsPage from "@/views/pages/views/theme/component-defaults-page"
+import ColorsPage from "@/views/pages/views/theme/colors-page"
 import SignalsPage from "@/views/pages/views/signals-page"
 import StorePage from "@/views/pages/views/store-page"
 import FunctionsPage from "@/views/pages/views/functions-page"
@@ -173,6 +174,7 @@ views ViewsViews
     route path:"theme/fonts" page:FontsPage
     route path:"theme/named-themes" page:NamedThemesPage
     route path:"theme/component-defaults" page:ComponentDefaultsPage
+    route path:"theme/colors" page:ColorsPage
     route path:"display/alert" page:AlertPage
     route path:"display/avatar" page:AvatarPage
     route path:"display/avatar-group" page:AvatarGroupPage

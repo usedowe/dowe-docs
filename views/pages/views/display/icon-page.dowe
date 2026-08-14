@@ -390,7 +390,7 @@ page IconPage
     else
       set hasError value:true
   Section id:"icon-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "DISPLAY"
@@ -412,7 +412,7 @@ page IconPage
           "One component, namespaced sources"
         Text size:"sm" color:"muted"
           "Plain names resolve Solar. Country flags, SVG Spinners, and SVG Logos use explicit namespaces so completions and diagnostics stay deterministic."
-      Grid columns:{ xs:1 md:2 xl:4 } gap:4
+      Grid columns:{ xs:1 md:2 lg:4 } gap:{ xs:3 md:4 }
         Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:3
             Icon name:"layers-line-duotone" fill:"primary" w:9 h:9
@@ -458,63 +458,63 @@ page IconPage
           "Choose a lower-case SVG Logos file stem with the svg-logos: namespace. Only referenced logos enter generated output."
         Text size:"sm" color:"muted"
           "Web and desktop preserve the validated original SVG. Native targets draw shared normalized paths with deterministic solid fallbacks for complex paints."
-      Grid columns:{ xs:2 sm:3 md:4 xl:6 } gap:4
-        Card variant:"soft" p:5
+      Grid columns:{ xs:2 sm:3 md:4 lg:6 } gap:{ xs:3 md:4 }
+        Card variant:"soft" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-logos:github-icon" w:10 h:10
             Text size:"xs" weight:"bold"
               "github-icon"
-        Card variant:"soft" p:5
+        Card variant:"soft" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-logos:openai" w:10 h:10
             Text size:"xs" weight:"bold"
               "openai"
-        Card variant:"soft" p:5
+        Card variant:"soft" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-logos:anthropic-icon" w:10 h:10
             Text size:"xs" weight:"bold"
               "anthropic-icon"
-        Card variant:"soft" p:5
+        Card variant:"soft" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-logos:cloudflare-workers" w:10 h:10
             Text size:"xs" weight:"bold"
               "cloudflare-workers"
-        Card variant:"soft" p:5
+        Card variant:"soft" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-logos:rust" w:10 h:10
             Text size:"xs" weight:"bold"
               "rust"
-        Card variant:"soft" p:5
+        Card variant:"soft" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-logos:apple" w:10 h:10
             Text size:"xs" weight:"bold"
               "apple"
-        Card variant:"soft" p:5
+        Card variant:"soft" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-logos:google" w:10 h:10
             Text size:"xs" weight:"bold"
               "google"
-        Card variant:"soft" p:5
+        Card variant:"soft" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-logos:docker" w:10 h:10
             Text size:"xs" weight:"bold"
               "docker"
-        Card variant:"soft" p:5
+        Card variant:"soft" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-logos:figma" w:10 h:10
             Text size:"xs" weight:"bold"
               "figma"
-        Card variant:"soft" p:5
+        Card variant:"soft" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-logos:model-context-protocol-icon" w:10 h:10
             Text size:"xs" weight:"bold"
               "model-context-protocol-icon"
-        Card variant:"soft" p:5
+        Card variant:"soft" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-logos:vercel-icon" w:10 h:10
             Text size:"xs" weight:"bold"
               "vercel-icon"
-        Card variant:"soft" p:5
+        Card variant:"soft" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-logos:vite-icon" w:10 h:10
             Text size:"xs" weight:"bold"
@@ -551,74 +551,78 @@ page IconPage
           database IconDb provider:"dowe" host:env.DOWE_HOST port:env.DOWE_PORT account:env.DOWE_ACCOUNT secret:env.DOWE_SECRET name:"dowe-docs-icons" entities:[IconCategories, Icons] seeders:[IconCatalog]
         """
       Card variant:"outlined" p:{ xs:4 md:6 } border:1
-        Grid columns:{ xs:1 lg:"256px 1fr" } gap:7 align:"start"
-          SideNav scheme:"primary" size:"sm" wide:true
-            item label:"Arrows" status:"67" onClick:selectArrows
-            item label:"Arrows Action" status:"58" onClick:selectArrowsAction
-            item label:"Astronomy" status:"32" onClick:selectAstronomy
-            item label:"Building" status:"7" onClick:selectBuilding
-            item label:"Business" status:"19" onClick:selectBusiness
-            item label:"Call" status:"21" onClick:selectCall
-            item label:"Devices" status:"89" onClick:selectDevices
-            item label:"Faces" status:"21" onClick:selectFaces
-            item label:"Files" status:"15" onClick:selectFiles
-            item label:"Folders" status:"14" onClick:selectFolders
-            item label:"Food" status:"18" onClick:selectFood
-            item label:"Hands" status:"5" onClick:selectHands
-            item label:"Home" status:"35" onClick:selectHome
-            item label:"IT" status:"31" onClick:selectIt
-            item label:"Like" status:"17" onClick:selectLike
-            item label:"List" status:"28" onClick:selectList
-            item label:"Map" status:"37" onClick:selectMap
-            item label:"Medicine" status:"32" onClick:selectMedicine
-            item label:"Messages" status:"48" onClick:selectMessages
-            item label:"Money" status:"35" onClick:selectMoney
-            item label:"Nature" status:"9" onClick:selectNature
-            item label:"Notes" status:"23" onClick:selectNotes
-            item label:"Notifications" status:"7" onClick:selectNotifications
-            item label:"Parts" status:"19" onClick:selectParts
-            item label:"School" status:"29" onClick:selectSchool
-            item label:"Search" status:"12" onClick:selectSearch
-            item label:"Security" status:"46" onClick:selectSecurity
-            item label:"Settings" status:"15" onClick:selectSettings
-            item label:"Shopping" status:"27" onClick:selectShopping
-            item label:"Sports" status:"41" onClick:selectSports
-            item label:"Text Formatting" status:"33" onClick:selectTextFormatting
-            item label:"Time" status:"27" onClick:selectTime
-            item label:"Tools" status:"29" onClick:selectTools
-            item label:"UI" status:"139" onClick:selectUi
-            item label:"Users" status:"22" onClick:selectUsers
-            item label:"Video" status:"103" onClick:selectVideo
-            item label:"Weather" status:"36" onClick:selectWeather
-          Grid columns:1 gap:6
-            Grid columns:{ xs:1 md:"1fr auto auto" } gap:3 align:"end"
-              Input bind:search label:"Search" placeholder:"Icon name"
-              Select:
-                bind:style
-                label:"Style"
-                placeholder:"Choose a style"
-                each in:styleOptions as:option key:option.id
-                  Option value:option.value label:option.label
-              Button onClick:applyFilters iconStart:"magnifier"
-                "Apply"
-            Flex wrap:true justify:"between" align:"center" gap:4
-              Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-                "{category}"
-              Button onClick:loadIcons variant:"ghost" scheme:"muted" size:"sm" iconStart:"restart"
-                "Refresh"
-            Text show:loading size:"sm" color:"muted"
-              "Loading SVG geometry from Dowe Database…"
-            Alert type:"error" message:"The icon catalog could not be loaded." visible:hasError variant:"soft" scheme:"danger"
-            Grid columns:{ xs:2 sm:3 md:4 xl:6 } gap:4
-              each in:icons as:icon key:icon.key
-                Card variant:"soft" p:4
-                  Flex direction:"column" gap:3 align:"center"
-                    Svg data:icon.svg color:"primary" w:12 h:12
-                    Text size:"xs" color:"muted"
-                      "{icon.name}"
-            Text show:{ when:total lte:0 } size:"sm" color:"muted"
-              "No icons match the current filters."
-            Pagination bind:page total:total pageSize:60 onChange:loadIcons variant:"ghost" scheme:"primary" size:"sm" ariaLabel:"Icon catalog pages"
+        Grid columns:{ xs:1 md:4 } gap:{ xs:4 md:6 } align:"start"
+          Box colSpan:{ xs:1 md:1 }
+            Sidebar variant:"soft" scheme:"surface" p:{ xs:3 md:4 } w:"full"
+              body
+                SideNav scheme:"primary" size:"sm" wide:true
+                  item label:"Arrows" status:"67" onClick:selectArrows
+                  item label:"Arrows Action" status:"58" onClick:selectArrowsAction
+                  item label:"Astronomy" status:"32" onClick:selectAstronomy
+                  item label:"Building" status:"7" onClick:selectBuilding
+                  item label:"Business" status:"19" onClick:selectBusiness
+                  item label:"Call" status:"21" onClick:selectCall
+                  item label:"Devices" status:"89" onClick:selectDevices
+                  item label:"Faces" status:"21" onClick:selectFaces
+                  item label:"Files" status:"15" onClick:selectFiles
+                  item label:"Folders" status:"14" onClick:selectFolders
+                  item label:"Food" status:"18" onClick:selectFood
+                  item label:"Hands" status:"5" onClick:selectHands
+                  item label:"Home" status:"35" onClick:selectHome
+                  item label:"IT" status:"31" onClick:selectIt
+                  item label:"Like" status:"17" onClick:selectLike
+                  item label:"List" status:"28" onClick:selectList
+                  item label:"Map" status:"37" onClick:selectMap
+                  item label:"Medicine" status:"32" onClick:selectMedicine
+                  item label:"Messages" status:"48" onClick:selectMessages
+                  item label:"Money" status:"35" onClick:selectMoney
+                  item label:"Nature" status:"9" onClick:selectNature
+                  item label:"Notes" status:"23" onClick:selectNotes
+                  item label:"Notifications" status:"7" onClick:selectNotifications
+                  item label:"Parts" status:"19" onClick:selectParts
+                  item label:"School" status:"29" onClick:selectSchool
+                  item label:"Search" status:"12" onClick:selectSearch
+                  item label:"Security" status:"46" onClick:selectSecurity
+                  item label:"Settings" status:"15" onClick:selectSettings
+                  item label:"Shopping" status:"27" onClick:selectShopping
+                  item label:"Sports" status:"41" onClick:selectSports
+                  item label:"Text Formatting" status:"33" onClick:selectTextFormatting
+                  item label:"Time" status:"27" onClick:selectTime
+                  item label:"Tools" status:"29" onClick:selectTools
+                  item label:"UI" status:"139" onClick:selectUi
+                  item label:"Users" status:"22" onClick:selectUsers
+                  item label:"Video" status:"103" onClick:selectVideo
+                  item label:"Weather" status:"36" onClick:selectWeather
+          Box colSpan:{ xs:1 md:3 }
+            Grid columns:1 gap:6
+              Grid columns:{ xs:1 md:3 } gap:{ xs:3 md:4 } align:"end"
+                Input bind:search label:"Search" placeholder:"Icon name"
+                Select:
+                  bind:style
+                  label:"Style"
+                  placeholder:"Choose a style"
+                  each in:styleOptions as:option key:option.id
+                    Option value:option.value label:option.label
+                Button w:"full" onClick:applyFilters iconStart:"magnifier"
+                  "Apply"
+              Flex wrap:true justify:"between" align:"center" gap:4
+                Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+                  "{category}"
+                Button onClick:loadIcons variant:"ghost" scheme:"muted" size:"sm" iconStart:"restart"
+                  "Refresh"
+              Text show:loading size:"sm" color:"muted"
+                "Loading SVG geometry from Dowe Database…"
+              Alert type:"error" message:"The icon catalog could not be loaded." visible:hasError variant:"soft" scheme:"danger"
+              Grid columns:{ xs:2 sm:3 md:4 lg:6 } gap:{ xs:3 md:4 }
+                each in:icons as:icon key:icon.key
+                  Card variant:"soft" p:4
+                    Flex direction:"column" gap:3 align:"center"
+                      Svg data:icon.svg color:"primary" w:12 h:12
+                      Text size:"xs" color:"muted"
+                        "{icon.name}"
+              Text show:{ when:total lte:0 } size:"sm" color:"muted"
+                "No icons match the current filters."
+              Pagination bind:page total:total pageSize:60 onChange:loadIcons variant:"ghost" scheme:"primary" size:"sm" ariaLabel:"Icon catalog pages"
       Alert type:"info" message:"Runtime Svg accepts normalized Dowe vector data only. The renderer validates every viewBox, path, paint, opacity, stroke, and transform before drawing it." variant:"soft" scheme:"info"
   Section id:"icon-styles" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
@@ -629,7 +633,7 @@ page IconPage
           "Six variants, canonical names"
         Text size:"sm" color:"muted"
           "The base name selects linear; other variants append a suffix. Duotone geometry preserves its authored secondary opacity."
-      Grid columns:{ xs:2 md:3 lg:6 } gap:4
+      Grid columns:{ xs:2 sm:3 md:6 } gap:{ xs:3 md:4 }
         Flex direction:"column" gap:3 align:"center"
           Icon name:"alt-arrow-right-broken" fill:"primary" stroke:"primary" w:10 h:10
           Text size:"xs" weight:"bold"
@@ -674,43 +678,43 @@ page IconPage
           "Choose a spinner by visual rhythm"
         Text size:"sm" color:"muted"
           "Web and desktop preserve validated upstream CSS. Android and iOS draw the same portable fallback paths with native continuous motion."
-      Grid columns:{ xs:2 md:4 } gap:4
-        Card variant:"soft" p:5
+      Grid columns:{ xs:2 sm:3 md:4 } gap:{ xs:3 md:4 }
+        Card variant:"soft" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-spinners:90-ring" fill:"primary" w:9 h:9
             Text size:"xs" weight:"bold"
               "90-ring"
-        Card variant:"soft" p:5
+        Card variant:"soft" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-spinners:3-dots-bounce" fill:"secondary" w:9 h:9
             Text size:"xs" weight:"bold"
               "3-dots-bounce"
-        Card variant:"soft" p:5
+        Card variant:"soft" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-spinners:bars-scale-middle" fill:"tertiary" w:9 h:9
             Text size:"xs" weight:"bold"
               "bars-scale-middle"
-        Card variant:"soft" p:5
+        Card variant:"soft" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-spinners:blocks-wave" fill:"success" w:9 h:9
             Text size:"xs" weight:"bold"
               "blocks-wave"
-        Card variant:"soft" p:5
+        Card variant:"soft" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-spinners:pulse-rings-3" fill:"warning" w:9 h:9
             Text size:"xs" weight:"bold"
               "pulse-rings-3"
-        Card variant:"soft" p:5
+        Card variant:"soft" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-spinners:bouncing-ball" fill:"danger" w:9 h:9
             Text size:"xs" weight:"bold"
               "bouncing-ball"
-        Card variant:"soft" p:5
+        Card variant:"soft" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-spinners:wifi-fade" fill:"info" w:9 h:9
             Text size:"xs" weight:"bold"
               "wifi-fade"
-        Card variant:"soft" p:5
+        Card variant:"soft" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-spinners:wind-toy" fill:"primary" w:9 h:9
             Text size:"xs" weight:"bold"

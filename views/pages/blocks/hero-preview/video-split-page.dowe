@@ -1,6 +1,6 @@
 page VideoSplitHeroPage
   Section id:"video-split-hero" bg:"background" color:"backgroundText" boxed:true py:{ xs:8 md:12 }
-    Grid columns:{ xs:1 md:"5fr 4fr" } gap:{ xs:8 md:14 } align:"center" minH:"vh-16"
+    Grid columns:{ xs:1 md:2 } gap:{ xs:8 md:14 } align:"center" minH:"vh-16"
       Flex direction:"column" align:"start" justify:"center" gap:5
         Title size:{ xs:"4xl" md:"6xl" } weight:"black"
           "A dedicated team to grow your company"

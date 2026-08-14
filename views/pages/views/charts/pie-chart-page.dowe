@@ -30,14 +30,14 @@ page PieChartPage
       { prop:"emptyLabel, loading" type:"string, boolean" defaultValue:"No data available, false" },
     ]
   Section id:"pie-chart-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "CHARTS"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "PieChart"
         Text size:"lg" color:"muted"
-          "Proportional categorical data with accessible labels, optional donut mode, and a centered summary."
+          "Proportional categorical data with accessible labels, optional donut mode, and a centered summary. Every example reads from a typed Signal and adapts its chart and legend to the available width."
       Card variant:"soft" scheme:"warning" p:5 rounded:"lg" minW:56
         Grid columns:1 gap:1
           Text size:"xs" weight:"bold" spacing:"widest"
@@ -54,7 +54,7 @@ page PieChartPage
         Title size:"3xl" weight:"black"
           "Show the share of a whole"
         Text size:"sm" color:"muted"
-          "PieChart reads label and value from one typed Signal. Keep the legend visible when neighboring slices use similar proportions."
+          "PieChart reads label and value from one typed Signal. The square viewport stays centered, while a side legend moves below the chart when the available width is narrow. Android uses a high-contrast surface badge for centerLabel and centerValue so summaries stay readable over the slices."
       PieChart:
         data:mix
         variant:"soft"
@@ -76,6 +76,36 @@ page PieChartPage
 
         PieChart data:mix variant:"soft" scheme:"surface" size:"lg" palette:"ocean" legendPosition:"right" startAngle:-90 padAngle:3 showGlow:true
       """
+  Section id:"pie-chart-responsive" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "RESPONSIVE SIGNALS"
+        Title size:"3xl" weight:"black"
+          "The same Signal, every target"
+        Text size:"sm" color:"muted"
+          "Web, iOS, and Android observe the same data path. When the Signal changes, slices, totals, center values, and legends recalculate together."
+      Grid columns:{ xs:1 md:2 } gap:4
+        PieChart:
+          data:mix
+          variant:"soft"
+          scheme:"surface"
+          size:"lg"
+          palette:"ocean"
+          legendPosition:"right"
+          hidePercentages:true
+        PieChart:
+          data:delivery
+          variant:"outlined"
+          scheme:"success"
+          size:"lg"
+          palette:"forest"
+          legendPosition:"bottom"
+          hideValues:true
+      Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+        PieChart data:mix palette:"ocean" legendPosition:"right" hidePercentages:true
+        PieChart data:delivery palette:"forest" legendPosition:"bottom" hideValues:true
+      """
   Section id:"pie-chart-donut" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
@@ -85,7 +115,7 @@ page PieChartPage
           "Make a centered KPI from distribution data"
         Text size:"sm" color:"muted"
           "donut creates an open center. donutWidth controls the ring weight, while hideLabels and hideValues let the center and legend carry the explanation."
-      Grid columns:{ xs:1 md:2 } gap:4
+      Grid columns:1 gap:4
         PieChart:
           data:delivery
           variant:"outlined"
@@ -129,7 +159,7 @@ page PieChartPage
           "Choose the smallest complete explanation"
         Text size:"sm" color:"muted"
           "Hide labels only when the legend or nearby copy names the slices. Empty and loading states remain explicit and portable."
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         PieChart data:mix variant:"solid" scheme:"surface" size:"md" hideLabels:true hideValues:true hidePercentages:true legendPosition:"bottom"
         PieChart data:mix variant:"soft" scheme:"info" size:"md" loading:true centerLabel:"Loading" centerValue:"—"
         PieChart data:emptySlices variant:"outlined" scheme:"warning" size:"md" emptyLabel:"No distribution yet"

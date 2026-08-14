@@ -1,18 +1,20 @@
 component ServerNavigation
   SideNav variant:"solid" p:4
     item label:"Overview" href:"/docs/server" icon:"home"
-    item label:"Background jobs" href:"/docs/server/background-jobs" icon:"chart-2"
     item label:"Cache" href:"/docs/server/kv" icon:"key"
-    item label:"Cloud control plane" href:"/docs/server/cloud-control-plane" icon:"server"
+    item label:"Cron" href:"/docs/server/background-jobs" icon:"clock-circle"
     item label:"Crypto" href:"/docs/server/crypto" icon:"lock"
     submenu label:"Database" icon:"server-square" open:true
       item label:"Database" href:"/docs/server/db" icon:"database"
       item label:"Entities" href:"/docs/server/db/entities" icon:"documents"
+      item label:"Relations" href:"/docs/server/db/relations" icon:"link"
       item label:"Select and read" href:"/docs/server/db/select" icon:"magnifier"
       item label:"Insert" href:"/docs/server/db/insert" icon:"document-add"
       item label:"Update" href:"/docs/server/db/update" icon:"pen-new-square"
       item label:"Delete" href:"/docs/server/db/delete" icon:"trash-bin-trash"
       item label:"Transactions" href:"/docs/server/db/transactions" icon:"transfer-horizontal"
+      item label:"Migrations" href:"/docs/server/db/migrations" icon:"document-add"
+      item label:"Seeders" href:"/docs/server/db/seeders" icon:"database"
     item label:"File Storage" href:"/docs/server/file-storage" icon:"database"
     item label:"HTTP routes" href:"/docs/server/router/http" icon:"route"
     item label:"JWT" href:"/docs/server/jwt" icon:"settings"

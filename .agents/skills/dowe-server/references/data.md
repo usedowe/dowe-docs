@@ -35,7 +35,9 @@ entity Users
 ```
 
 Seeders contain static entity inserts. The compiler validates entity references and field names and
-assigns each seeder a deterministic fingerprint, so it runs once per database.
+assigns each seeder a deterministic fingerprint, so it runs once per database. Normal `dowe dev`
+does not load or apply seeder modules; run `dowe database seeders` to compile the complete seeder
+set and populate the local embedded databases under `.dowe/db`.
 
 ```text
 seeder Bootstrap
@@ -50,9 +52,58 @@ import Blog from "@/server/entities/blog-entity"
 database appDb provider:"dowe" host:env.DATABASE_HOST port:env.DATABASE_PORT account:env.DATABASE_ACCOUNT secret:env.DATABASE_SECRET name:env.DATABASE_NAME entities:[Blog] seeders:[]
 ```
 
+## Relations
+
+Dowe models relations explicitly with identifier fields and server queries. There is no automatic
+ORM relationship graph, `belongsTo` or `hasMany` helper, `references` prop, foreign-key declaration,
+or cascade action in the current entity contract.
+
+Use a scalar field containing the related record id, and index it when the field is used for
+filtering or joining:
+
+```text
+entity Users
+  id:string primary:true
+  name:string required:true
+
+entity Posts
+  id:string primary:true
+  authorId:string required:true index:true
+  title:string required:true
+
+entity Profiles
+  id:string primary:true
+  userId:string required:true unique:true index:true
+  bio:string
+```
+
+These shapes represent one-to-many (`Posts.authorId` to `Users.id`) and one-to-one
+(`Profiles.userId` to `Users.id`). The `unique:true` constraint limits one profile per user, but
+the server still owns the check that the related user exists.
+
+For many-to-many data, create a join entity with one indexed field for each side:
+
+```text
+entity UserRoles
+  id:string primary:true
+  userId:string required:true index:true
+  roleId:string required:true index:true
+```
+
+Query related records with the supported SQL-like `query` operation and bound parameters:
+
+```text
+query rows conn:appDb.query sql:"SELECT posts.id, posts.title, users.name AS authorName FROM posts JOIN users ON posts.authorId = users.id WHERE posts.authorId = ?1" params:[req.params.userId]
+```
+
+`JOIN` results are ordinary server data. Validate parent existence, authorization, cleanup, and
+duplicate join rows in server repositories or services; Database does not infer those rules from
+field names. Composite unique constraints are not part of the current entity contract, so a
+many-to-many membership needs an explicit server-side duplicate check.
+
 ## Database queries
 
-Every Database operation uses `query <binding> db:<handle>.<operation>`.
+Every Database operation uses `query <binding> conn:<handle>.<operation>`.
 
 | Operation | Props |
 | --- | --- |
@@ -68,7 +119,7 @@ Every Database operation uses `query <binding> db:<handle>.<operation>`.
 import appDb from "@/server/config/database"
 
 fn createBlogRepository params:{ title:string content:string }
-  query created db:appDb.insert table:"blogs" value:{ title:args.title content:args.content }
+  query created conn:appDb.insert table:"blogs" value:{ title:args.title content:args.content }
   return value:created
 ```
 
@@ -81,24 +132,24 @@ Use Cloudflare's account and Database identifiers for D1:
 database appDb provider:"d1" account:env.ACCOUNT_ID secret:env.CLOUDFLARE_API_TOKEN name:env.DATABASE_ID entities:[Blog] seeders:[Bootstrap]
 ```
 
-D1 supports compound equality filters but not `db:<handle>.tx`. Keep account, token, and Database ID
+D1 supports compound equality filters but not `conn:<handle>.tx`. Keep account, token, and Database ID
 in server-only environment variables. Bind request values separately from SQL when a query needs
 custom filtering or pagination:
 
 ```text
-query rows db:appDb.query sql:"SELECT id, name FROM icons WHERE category = ?1 LIMIT 60 OFFSET ((CAST(?2 AS INTEGER) - 1) * 60)" params:[req.params.category, req.params.page]
+query rows conn:appDb.query sql:"SELECT id, name FROM icons WHERE category = ?1 LIMIT 60 OFFSET ((CAST(?2 AS INTEGER) - 1) * 60)" params:[req.params.category, req.params.page]
 ```
 
 Do not interpolate a request reference into `sql`. The runtime binds query parameters using the
 selected provider's native placeholder rules.
 
-`db:<handle>.tx` is supported by local development storage and remote `provider:"dowe"` handles.
+`conn:<handle>.tx` is supported by local development storage and remote `provider:"dowe"` handles.
 It stages literal `insert` children and ends with `commit` or `rollback`:
 
 ```text
-query result db:appDb.tx
-  query delivery db:appDb.insert table:"sms_deliveries" value:{ recipient:args.recipient status:"queued" }
-  query outbox db:appDb.insert table:"sms_outbox" value:{ recipient:args.recipient status:"pending" }
+query result conn:appDb.tx
+  query delivery conn:appDb.insert table:"sms_deliveries" value:{ recipient:args.recipient status:"queued" }
+  query outbox conn:appDb.insert table:"sms_outbox" value:{ recipient:args.recipient status:"pending" }
   commit value:delivery
 ```
 
@@ -110,8 +161,9 @@ the caller may retry.
 
 During `dowe dev`, Dowe uses its embedded persistent Database under `.dowe/db/<name>` for every
 provider and resolves only `name`; it does not start Wrangler or contact the authored provider.
-`dowe deploy` generates SQL migration artifacts for Postgres and D1, and production applies pending
-migrations and seeders before the server starts listening.
+`dowe database seeders` is the explicit local data bootstrap command. `dowe deploy` generates SQL
+migration artifacts for Postgres and D1, and production applies pending migrations and seeders
+before the server starts listening.
 
 ## Cache KV operations
 

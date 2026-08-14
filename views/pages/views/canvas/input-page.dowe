@@ -140,7 +140,7 @@ page CanvasInputPage
   fn captureMotion
     set motion source:item
   Section id:"canvas-input-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "CANVAS · INPUT"
@@ -183,7 +183,7 @@ page CanvasInputPage
         rounded:"lg"
         border:1
         shadow:"md"
-      Grid columns:{ xs:1 md:3 } gap:3
+      Grid columns:1 gap:3
         Card variant:"soft" scheme:"primary" p:4 rounded:"lg"
           Grid columns:1 gap:1
             Text size:"sm" weight:"bold"
@@ -245,7 +245,7 @@ page CanvasInputPage
           "LIFECYCLE AND PERMISSIONS"
         Title size:"3xl" weight:"black"
           "Input stays scoped to the active Canvas"
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Card variant:"soft" scheme:"primary" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Title size:"xl" weight:"black"

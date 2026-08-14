@@ -1,0 +1,63 @@
+type ProjectRow
+  id:string
+  project:string
+  owner:string
+  team:string
+  progress:string
+  updated:string
+  status:string
+
+page ProjectStatusTablePage
+  signal projects type:ProjectRow[] value:[
+    {
+      id:"project-website"
+      project:"Marketing website"
+      owner:"Maya Ortiz"
+      team:"Design · 4"
+      progress:"82%"
+      updated:"2h ago"
+      status:"On track"
+    },
+    {
+      id:"project-mobile"
+      project:"Mobile onboarding"
+      owner:"Kai Bennett"
+      team:"Product · 6"
+      progress:"64%"
+      updated:"Yesterday"
+      status:"Review"
+    },
+    {
+      id:"project-api"
+      project:"Public API v2"
+      owner:"Leo Martin"
+      team:"Platform · 8"
+      progress:"38%"
+      updated:"Mar 07"
+      status:"At risk"
+    },
+  ]
+  Section id:"project-status" bg:"background" color:"backgroundText" boxed:true minH:"vh-0" p:{ xs:6 md:12 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PORTFOLIO"
+        Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+          "Project status"
+        Text size:"lg" color:"muted"
+          "Use explicit columns to keep ownership, progress, and risk visible as work changes."
+      Table:
+        data:projects
+        variant:"outlined"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        bordered:true
+        dividers:true
+        rounded:"md"
+        column field:"project" label:"Project" width:"1.6fr"
+        column field:"owner" label:"Owner" width:"1.2fr"
+        column field:"team" label:"Team" width:"1fr"
+        column field:"progress" label:"Progress" align:"end" width:"0.8fr"
+        column field:"updated" label:"Updated" align:"end" width:"1fr"
+        column field:"status" label:"Status" align:"end" width:"1fr"

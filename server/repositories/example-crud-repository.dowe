@@ -1,19 +1,19 @@
 import { ExamplesDb } from "@/server/config/examples"
 
 fn listExampleBlogsRepository
-  query blogs db:ExamplesDb.list table:"example_blogs"
+  query blogs conn:ExamplesDb.list table:"example_blogs"
   return value:blogs
 
 fn createExampleBlogRepository params:{ title:string content:string ownerId:string }
   date now source:"now"
-  query created db:ExamplesDb.insert table:"example_blogs" value:{ title:args.title content:args.content ownerId:args.ownerId createdAt:now updatedAt:now } required:["title", "content", "ownerId"]
+  query created conn:ExamplesDb.insert table:"example_blogs" value:{ title:args.title content:args.content ownerId:args.ownerId createdAt:now updatedAt:now } required:["title", "content", "ownerId"]
   return value:created
 
 fn updateExampleBlogRepository params:{ id:string ownerId:string title:string content:string }
   date now source:"now"
-  query updated db:ExamplesDb.update table:"example_blogs" where:{ id:args.id ownerId:args.ownerId } value:{ title:args.title content:args.content updatedAt:now } required:true
+  query updated conn:ExamplesDb.update table:"example_blogs" where:{ id:args.id ownerId:args.ownerId } value:{ title:args.title content:args.content updatedAt:now } required:true
   return value:updated
 
 fn deleteExampleBlogRepository params:{ id:string ownerId:string }
-  query deleted db:ExamplesDb.delete table:"example_blogs" where:{ id:args.id ownerId:args.ownerId } required:true
+  query deleted conn:ExamplesDb.delete table:"example_blogs" where:{ id:args.id ownerId:args.ownerId } required:true
   return value:deleted

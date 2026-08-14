@@ -40,7 +40,7 @@ page DashboardTeamDirectoryPage
             Button iconStart:"filter"
               "Filter"
           Grid columns:1 gap:0
-            Grid columns:{ xs:"1fr auto" md:"2fr 1fr 1fr 1fr auto" } gap:3 align:"center" p:3 border:1 borderColor:"muted"
+            Grid columns:{ xs:2 md:5 } gap:3 align:"center" p:3 border:1 borderColor:"muted"
               Text size:"xs" weight:"bold"
                 "Member"
               Text size:"xs" weight:"bold" show:{ xs:false md:true }
@@ -51,7 +51,7 @@ page DashboardTeamDirectoryPage
                 "Status"
               Box
             each in:members as:member key:member.id
-              Grid columns:{ xs:"1fr auto" md:"2fr 1fr 1fr 1fr auto" } gap:3 align:"center" p:3 border:1 borderColor:"muted"
+              Grid columns:{ xs:2 md:5 } gap:3 align:"center" p:3 border:1 borderColor:"muted"
                 Flex align:"center" gap:3
                   Avatar name:"Team member" alt:"Team member avatar placeholder" size:"md" variant:"soft" scheme:"primary"
                   Grid columns:1 gap:1

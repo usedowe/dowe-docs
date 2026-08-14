@@ -34,9 +34,11 @@ page BoxPage
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Box"
       Text size:"lg" color:"muted"
-        "Box is a neutral visual wrapper for local styling, media stages, and portable positioned overlays."
+        "Box is an advanced neutral layer primitive for media stages, portable positioned overlays, and fixed viewport content."
+      Text size:"sm" color:"muted"
+        "Start normal page composition with Section, Grid, Flex, Card, media, and controls. Add Box only when those owners cannot express the required layer geometry."
   Section id:"box-foreground" p:{ xs:5 md:7 }
-    Grid columns:{ xs:1 md:2 } gap:5 align:"center"
+    Grid columns:1 gap:5 align:"center"
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "FOREGROUND INHERITANCE"
@@ -126,7 +128,7 @@ page BoxPage
                 "Persistent action"
         """
   Section id:"box-contract" p:{ xs:5 md:7 }
-    Grid columns:{ xs:1 md:3 } gap:4
+    Grid columns:1 gap:4
       Card variant:"soft" scheme:"info" p:5
         Grid columns:1 gap:2
           Text weight:"bold"

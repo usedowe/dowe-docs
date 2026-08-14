@@ -75,7 +75,7 @@ page SelectPage
       },
     ]
   Section id:"select-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "FORM"
@@ -140,7 +140,7 @@ page SelectPage
           "Fixed or floating"
         Text size:"sm" color:"muted"
           "A fixed label stays above the trigger. A floating label rests inside an empty control, activates when the list opens, and stays active after a choice is made. Its active origin matches the selected text and is not moved by the trailing arrow."
-      Grid columns:{ xs:1 md:2 } gap:5
+      Grid columns:1 gap:5
         Select label:"Role" placeholder:"Choose a role" w:"full"
           Option value:"admin" label:"Administrator"
           Option value:"editor" label:"Editor"
@@ -178,7 +178,7 @@ page SelectPage
           "The same trigger height everywhere"
         Text size:"sm" color:"muted"
           "Small, medium, and large triggers are 32, 40, and 48 logical units, and their selected text scales through body sm, md, and lg. A floating label adds exactly 8 units."
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Select label:"Small" placeholder:"32 + 8" labelFloating:true size:"sm" w:"full"
           Option value:"small" label:"Small option"
         Select label:"Medium" placeholder:"40 + 8" labelFloating:true w:"full"
@@ -194,7 +194,7 @@ page SelectPage
           "Four control surfaces"
         Text size:"sm" color:"muted"
           "Variant changes the trigger treatment while the option list, arrow, labels, and single-choice behavior stay consistent."
-      Grid columns:{ xs:1 md:2 } gap:5
+      Grid columns:1 gap:5
         Select label:"Solid" placeholder:"Choose a role" variant:"solid" w:"full"
           Option value:"admin" label:"Administrator"
         Select label:"Soft" placeholder:"Choose a role" variant:"soft" w:"full"
@@ -212,7 +212,7 @@ page SelectPage
           "Every semantic family"
         Text size:"sm" color:"muted"
           "Outlined controls keep a neutral resting border while scheme controls their foreground, focus, and selected-option accent."
-      Grid columns:{ xs:1 md:2 } gap:5
+      Grid columns:1 gap:5
         Select label:"Primary" placeholder:"Choose" w:"full"
           Option value:"primary" label:"Primary"
         Select label:"Secondary" placeholder:"Choose" scheme:"secondary" w:"full"
@@ -238,7 +238,7 @@ page SelectPage
           "One authored list, every target"
         Text size:"sm" color:"muted"
           "Dowe owns the trigger and option popover instead of delegating selection to platform-native menus, pickers, or spinners."
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"

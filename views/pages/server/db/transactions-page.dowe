@@ -6,27 +6,27 @@ page DatabaseTransactionsPage
         guidance:"A conflict or invalid later insert rejects the entire transaction. No earlier staged insert becomes visible or remains as a partial commit."
       },
       {
-        guarantee:"Durable WAL"
-        guidance:"Each transaction has a framed payload, SHA-256 checksum, commit marker, and disk sync. Recovery ignores an incomplete tail and rejects committed corruption."
+        guarantee:"Dowe WAL"
+        guidance:"Dowe local and remote transactions use a framed payload, SHA-256 checksum, commit marker, and disk sync before publishing records."
       },
       {
-        guarantee:"Snapshot and conflicts"
-        guidance:"MVCC keeps transaction reads on their starting version. A write to a record changed after that version fails with TransactionConflict."
+        guarantee:"PostgreSQL transaction"
+        guidance:"PostgreSQL stages every insert on one native transaction and commits only after every statement succeeds."
       },
       {
-        guarantee:"Concurrent group commit"
-        guidance:"Concurrent commits may share one disk sync, while retaining separate WAL frames, results, conflict checks, and transaction versions."
+        guarantee:"D1 atomic batch"
+        guidance:"D1 sends every prepared insert in one batch; a failed statement rolls back the complete sequence."
       },
       {
-        guarantee:"Live secondary indexes"
-        guidance:"Secondary indexes update in commit order and rebuild from the compacted snapshot plus WAL during recovery, without a full index rewrite per insert."
+        guarantee:"Provider values"
+        guidance:"Every provider returns the committed records as JSON-compatible values, including D1 bool and json entity decoding."
       },
     ]
   const transactionScopeRows:
     value:[
       {
         area:"Local and remote"
-        guidance:"Development uses the embedded engine. Production provider:dowe sends the transaction over the authenticated WebSocket protocol."
+        guidance:"Development uses the embedded engine. Production uses a native PostgreSQL transaction, one D1 atomic batch, or the authenticated Dowe WebSocket transaction."
       },
       {
         area:"Insert stage"
@@ -34,7 +34,7 @@ page DatabaseTransactionsPage
       },
       {
         area:"Provider boundary"
-        guidance:"PostgreSQL and D1 handles reject db:<handle>.tx during compilation. Their individual operations still use their provider adapters."
+        guidance:"PostgreSQL, D1, and Dowe handles accept the same conn:<handle>.tx source form and return the selected inserted record after commit."
       },
     ]
   const transactionOperationRows:
@@ -59,7 +59,7 @@ page DatabaseTransactionsPage
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Transactions"
       Text size:"lg" color:"muted"
-        "A Dowe Database transaction commits all staged inserts through one checksummed WAL boundary. Local development and the remote Dowe provider share the same atomic commit path."
+        "A Database transaction commits staged inserts through one provider-owned atomic boundary: a Dowe WAL frame, a PostgreSQL transaction, or a D1 atomic batch."
   Section id:"database-transactions-example" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
@@ -68,7 +68,7 @@ page DatabaseTransactionsPage
         Title size:"3xl" weight:"black"
           "Stage inserts, then publish one result"
         Text size:"sm" color:"muted"
-          "query result db:db.tx opens the transaction. Every nested insert is validated before the WAL frame is written. commit value:room returns the selected inserted record after the durable commit succeeds."
+          "query result conn:db.tx opens the transaction. Every nested insert is validated before the provider commit. commit value:room returns the selected inserted record after the atomic commit succeeds; rollback discards every staged insert and returns null."
       Code:
         language:"dowe"
         variant:"soft"
@@ -78,9 +78,9 @@ page DatabaseTransactionsPage
         content:"""
           handler seedClinicData
             database db provider:"dowe" host:env.DOWE_HOST port:env.DOWE_PORT account:env.DOWE_USER secret:env.DOWE_PASSWORD name:"clinic"
-            query result db:db.tx
-              query room db:db.insert table:"rooms" value:{ name:"Room 1" status:"available" }
-              query doctor db:db.insert table:"staff" value:{ name:"Ada" role:"doctor" }
+            query result conn:db.tx
+              query room conn:db.insert table:"rooms" value:{ name:"Room 1" status:"available" }
+              query doctor conn:db.insert table:"staff" value:{ name:"Ada" role:"doctor" }
               commit value:room
             return json:{ ok:true data:result }
         """
@@ -90,7 +90,7 @@ page DatabaseTransactionsPage
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "2 / GUARANTEES"
         Title size:"3xl" weight:"black"
-          "Durable before visible"
+          "One atomic boundary per provider"
       Table:
         data:transactionGuaranteeRows
         variant:"soft"
@@ -107,7 +107,7 @@ page DatabaseTransactionsPage
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "3 / SCOPE AND OPERATIONS"
         Title size:"3xl" weight:"black"
-          "Use Dowe provider handles"
+          "Use the same transaction source with every provider"
       Table:
         data:transactionScopeRows
         variant:"soft"

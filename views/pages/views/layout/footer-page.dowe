@@ -48,7 +48,7 @@ page FooterPage
       },
     ]
   Section id:"footer-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "LAYOUT"
@@ -124,7 +124,7 @@ page FooterPage
           "Five regions, one responsive contract"
         Text size:"sm" color:"muted"
           "top and bottom span the shared inner container around the central start, center, and end row. A missing region reserves no artificial space."
-      Grid columns:{ xs:1 md:5 } gap:4
+      Grid columns:1 gap:4
         Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
@@ -190,7 +190,7 @@ page FooterPage
           "Surface, contrast, and containment"
         Text size:"sm" color:"muted"
           "variant controls the surface treatment, scheme chooses the design family, and bordered, blurred, and boxed refine the shell without changing its regions."
-      Grid columns:{ xs:1 md:2 } gap:4
+      Grid columns:1 gap:4
         Footer bordered:true
           start
             Text size:"sm" weight:"bold"

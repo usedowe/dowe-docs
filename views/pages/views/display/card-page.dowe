@@ -48,7 +48,7 @@ page CardPage
       },
     ]
   Section id:"card-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "DISPLAY"
@@ -73,7 +73,7 @@ page CardPage
           "Four levels of emphasis"
         Text size:"sm" color:"muted"
           "Use scheme for semantic color and variant for visual weight. Cards also accept structural background and surface schemes."
-      Grid columns:{ xs:1 md:2 } gap:4
+      Grid columns:1 gap:4
         Card scheme:"primary" minH:32
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
@@ -121,7 +121,7 @@ page CardPage
                 "The card preserves the surface while adding a semantic boundary."
         """
   Section id:"card-foreground" py:{ xs:7 md:10 }
-    Grid columns:{ xs:1 md:2 } gap:5 align:"center"
+    Grid columns:1 gap:5 align:"center"
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "CONTENT COLOR"
@@ -161,7 +161,7 @@ page CardPage
           "Keep content readable over imagery"
         Text size:"sm" color:"muted"
           "cover supplies the base image, overlay adds contrast, and children remain above both layers in every target."
-      Grid columns:{ xs:1 md:2 } gap:4
+      Grid columns:1 gap:4
         Card cover:"https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" overlay:0.62 rounded:"lg" minH:72
           Flex direction:"column" justify:"end" gap:2 minH:60
             Text size:"xs" weight:"bold" spacing:"widest"
@@ -245,7 +245,7 @@ page CardPage
           "Reveal a card with a portable preset"
         Text size:"sm" color:"muted"
           "animation is resolved by Dowe rather than a target-specific runtime. Choose a preset that supports the surrounding content hierarchy."
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Card variant:"soft" scheme:"primary" animation:"fadeIn"
           Grid columns:1 gap:1
             Text size:"xs" weight:"bold" spacing:"widest"

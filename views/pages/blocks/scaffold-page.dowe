@@ -72,7 +72,7 @@ page ScaffoldsPage
                           Text weight:"bold"
                             "Drawer"
             """
-  Section id:"inset-sidebar" p:{ xs:5 md:7 } bg:"softPrimary" color:"softPrimaryText"
+  Section id:"inset-sidebar" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -219,7 +219,7 @@ page ScaffoldsPage
                           Text weight:"bold"
                             "Drawer"
             """
-  Section id:"rail-bottom-bar" p:{ xs:5 md:7 } bg:"softTertiary" color:"softTertiaryText"
+  Section id:"rail-bottom-bar" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2

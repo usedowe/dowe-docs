@@ -16,6 +16,11 @@ page DatabasePage
         example:"Server only"
         guidance:"Views receive response data, never a Database handle or its credentials."
       },
+      {
+        part:"CLI"
+        example:"dowe database"
+        guidance:"In an interactive terminal, shows every Database command, including migrate and seeders, then asks for required arguments."
+      },
     ]
   const databaseOperationRows:
     value:[
@@ -41,13 +46,28 @@ page DatabasePage
       },
       {
         operation:"transactions"
-        purpose:"Stage Dowe inserts atomically"
+        purpose:"Stage inserts atomically on every provider"
         href:"/docs/server/db/transactions"
+      },
+      {
+        operation:"migrations"
+        purpose:"Maintain append-only entity schema history"
+        href:"/docs/server/db/migrations"
       },
       {
         operation:"entities"
         purpose:"Define SQL provider schema contracts"
         href:"/docs/server/db/entities"
+      },
+      {
+        operation:"relations"
+        purpose:"Connect records with IDs and joins"
+        href:"/docs/server/db/relations"
+      },
+      {
+        operation:"seeders"
+        purpose:"Load static records deterministically"
+        href:"/docs/server/db/seeders"
       },
     ]
   const databaseProviderRows:
@@ -73,7 +93,7 @@ page DatabasePage
       },
       {
         part:"seeders"
-        guidance:"List static seeder bindings in execution order. A changed fingerprint is a new seeder run; a restart does not duplicate rows."
+        guidance:"List static seeder bindings in execution order. A changed fingerprint is a new seeder run; use dowe database seeders to populate local development data explicitly."
       },
       {
         part:"server-only"
@@ -106,7 +126,7 @@ page DatabasePage
         content:"""
           handler getBlog
             database db1 provider:"dowe" host:env.DOWE_HOST port:env.DOWE_PORT account:env.DOWE_USER secret:env.DOWE_PASSWORD name:"content"
-            query blog db:db1.read table:"blogs" where:{ id:req.params.id } required:true
+            query blog conn:db1.read table:"blogs" where:{ id:req.params.id } required:true
             return json:{ ok:true data:blog }
         """
       Table:
@@ -177,7 +197,7 @@ page DatabasePage
               name:env.POSTGRES_DATABASE
               entities:[Users, Blogs]
               seeders:[Bootstrap]
-            query blogs db:appDb.list table:"blogs"
+            query blogs conn:appDb.list table:"blogs"
           """
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" color:"muted"
@@ -195,7 +215,7 @@ page DatabasePage
               name:env.DATABASE_ID
               entities:[Users, Blogs]
               seeders:[Bootstrap]
-            query blogs db:appDb.list table:"blogs"
+            query blogs conn:appDb.list table:"blogs"
           """
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" color:"muted"
@@ -215,7 +235,7 @@ page DatabasePage
               name:env.DOWE_DATABASE
               entities:[Users, Blogs]
               seeders:[Bootstrap]
-            query blogs db:appDb.list table:"blogs"
+            query blogs conn:appDb.list table:"blogs"
           """
   Section id:"database-schema" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
@@ -225,7 +245,7 @@ page DatabasePage
         Title size:"3xl" weight:"black"
           "Describe shape once, seed it deterministically"
         Text size:"sm" color:"muted"
-          "entity and seeder are importable server bindings. Postgres and D1 use the selected entities to generate migration SQL; Dowe Database remains schema-less. Seeders run once per database and fingerprint."
+          "entity and seeder are importable server bindings. Run dowe database migrate after entity changes: Postgres and D1 append provider SQL, while Dowe records a dynamic no-SQL head. Production applies pending migrations and seeders automatically; local development applies seeders with dowe database seeders."
       Code:
         language:"dowe"
         variant:"soft"
@@ -263,9 +283,9 @@ page DatabasePage
       Title size:"3xl" weight:"black"
         "The same source behaves predictably in both environments"
       Text size:"sm" color:"muted"
-        "During dowe dev, all three providers use the embedded local Database under .dowe/db/<name> and resolve only name. No account, secret, external network, Wrangler process, or second D1 port is used."
+        "During dowe dev, all three providers use the embedded local Database under .dowe/db/<name> and resolve only name. Seeders are not loaded or executed automatically; run dowe database seeders when local records are needed. No account, secret, external network, Wrangler process, or second D1 port is used."
       Text size:"sm" color:"muted"
-        "During production, Dowe resolves the full provider connection, applies Postgres or D1 migrations, runs pending seeders, and only then starts accepting traffic. Dowe Database uses authenticated WebSocket operations and does not require SQL migrations."
+        "During production, Dowe validates the maintained migration graph, applies pending Postgres or D1 nodes atomically, runs pending seeders atomically, and only then starts accepting traffic. Dowe Database uses authenticated WebSocket operations and does not require SQL migrations."
       Code:
         language:"dowe"
         variant:"soft"
@@ -273,6 +293,6 @@ page DatabasePage
         copyLabel:"Copy query"
         copiedLabel:"Copied"
         content:"""
-          query appointments db:appDb.list table:"appointments"
-          query appointment db:appDb.read table:"appointments" where:{ id:req.params.id } required:true
+          query appointments conn:appDb.list table:"appointments"
+          query appointment conn:appDb.read table:"appointments" where:{ id:req.params.id } required:true
         """

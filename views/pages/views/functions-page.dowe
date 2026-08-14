@@ -1,4 +1,11 @@
 page FunctionsPage
+  const functionModelRows:
+    value:[
+      { part:"Declaration" meaning:"fn gives a named workflow a target-neutral identity." },
+      { part:"Body" meaning:"Statements run in order and can request, branch, update Signals, show feedback, or redirect." },
+      { part:"Dispatch" meaning:"An event prop such as onClick names the function that owns the transition." },
+      { part:"Ownership" meaning:"The page or layout owns its Signals; fn coordinates them but does not create a second state model." },
+    ]
   signal panelOpen value:false
   fn togglePanel
     set panelOpen value:!panelOpen
@@ -48,3 +55,13 @@ page FunctionsPage
           fn finish
             redirect path:"/docs/views"
         """
+      Table:
+        data:functionModelRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"part" label:"Part" width:"2fr"
+        column field:"meaning" label:"Responsibility" width:"5fr"

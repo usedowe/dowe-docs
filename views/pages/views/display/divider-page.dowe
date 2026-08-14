@@ -7,7 +7,7 @@ page DividerPage
       { prop:"spacing, sizing, rounded, border" type:"common style props" defaultValue:"—" },
     ]
   Section id:"divider-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "DISPLAY"
@@ -73,7 +73,7 @@ page DividerPage
               "STATUS"
             Text weight:"bold"
               "Synchronized"
-      Grid columns:{ xs:1 md:2 } gap:4
+      Grid columns:1 gap:4
         Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" color:"muted"
@@ -100,7 +100,7 @@ page DividerPage
                 "Danger"
               Divider orientation:"vertical" scheme:"danger" h:8
   Section id:"divider-contract" p:{ xs:5 md:7 }
-    Grid columns:{ xs:1 md:3 } gap:4
+    Grid columns:1 gap:4
       Card variant:"soft" p:5
         Grid columns:1 gap:2
           Text size:"xs" weight:"bold" color:"muted"

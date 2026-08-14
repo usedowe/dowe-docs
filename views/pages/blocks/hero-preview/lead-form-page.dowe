@@ -13,7 +13,7 @@ page LeadFormHeroPage
     { id:"role" label:"Role" },
   ]
   Section id:"lead-form-hero" bg:"background" color:"backgroundText" boxed:true py:{ xs:8 md:12 }
-    Grid columns:{ xs:1 md:"5fr 4fr" } gap:{ xs:8 md:14 } align:"center"
+    Grid columns:{ xs:1 md:2 } gap:{ xs:8 md:14 } align:"center"
       Flex direction:"column" align:"start" gap:5
         Title size:{ xs:"4xl" md:"6xl" } weight:"black"
           "A dedicated team to grow your company"

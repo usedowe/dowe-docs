@@ -101,7 +101,7 @@ page ComponentDefaultsPage
       },
     ]
   Section id:"component-defaults-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "THEME.DOWE"
@@ -146,7 +146,7 @@ page ComponentDefaultsPage
               Title font:"syne"
               theme name:"light"
         """
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
@@ -220,7 +220,7 @@ page ComponentDefaultsPage
           "Defaults fill gaps without erasing intent"
         Text size:"sm" color:"muted"
           "Resolution happens per prop. One explicit value does not disable the remaining values from the slot."
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Card variant:"soft" scheme:"primary" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold"
@@ -268,7 +268,7 @@ page ComponentDefaultsPage
           "BOUNDARIES"
         Title size:"3xl" weight:"black"
           "Keep themes semantic and views structural"
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:2
             Title size:"lg" weight:"bold"

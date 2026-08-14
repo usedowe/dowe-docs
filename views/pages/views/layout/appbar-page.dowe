@@ -92,7 +92,7 @@ page AppBarPage
           "Place the bar in a Scaffold"
         Text color:"muted"
           "Scaffold owns shell placement. AppBar owns the horizontal content regions and their visual surface. boxed:true keeps that surface full width while centering its inner content at 96rem on web or 1536 logical units on Android and iOS."
-      Alert type:"info" variant:"soft" scheme:"info" message:"AppBar stays visually flat on web, Android, and iOS unless you declare border, bordered:true, or floating:true. Sticky and fixed placement does not add an implicit divider, elevation, or shadow."
+      Alert type:"info" variant:"soft" scheme:"info" message:"AppBar stays visually flat on web, Android, and iOS unless you declare border, bordered:true, or floating:true. A sticky floating AppBar placed directly in Scaffold appBar overlays the web and desktop main body so page content remains visible beneath its surface. Sticky and fixed placement does not add an implicit divider, elevation, or shadow."
       Code:
         language:"dowe"
         variant:"soft"

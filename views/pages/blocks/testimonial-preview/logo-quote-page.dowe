@@ -24,7 +24,7 @@ page LogoQuoteTestimonialsPage
         Icon name:"svg-logos:youtube" w:{ xs:24 md:32 } h:10
       Carousel variant:"controls" scheme:"primary" hideIndicators:true gap:4
         slide id:"matt"
-          Grid columns:{ xs:1 md:"1fr 4fr 1fr" } align:"center" minH:{ xs:72 md:80 }
+          Grid columns:{ xs:1 md:3 } align:"center" minH:{ xs:72 md:80 }
             Box show:{ xs:false md:true }
             Flex direction:"column" align:"center" justify:"center" gap:7
               Title size:{ xs:"2xl" md:"4xl" } weight:"black"
@@ -39,7 +39,7 @@ page LogoQuoteTestimonialsPage
                     "{testimonials.matt.role}"
             Box show:{ xs:false md:true }
         slide id:"sophie"
-          Grid columns:{ xs:1 md:"1fr 4fr 1fr" } align:"center" minH:{ xs:72 md:80 }
+          Grid columns:{ xs:1 md:3 } align:"center" minH:{ xs:72 md:80 }
             Box show:{ xs:false md:true }
             Flex direction:"column" align:"center" justify:"center" gap:7
               Title size:{ xs:"2xl" md:"4xl" } weight:"black"
@@ -54,7 +54,7 @@ page LogoQuoteTestimonialsPage
                     "{testimonials.sophie.role}"
             Box show:{ xs:false md:true }
         slide id:"john"
-          Grid columns:{ xs:1 md:"1fr 4fr 1fr" } align:"center" minH:{ xs:72 md:80 }
+          Grid columns:{ xs:1 md:3 } align:"center" minH:{ xs:72 md:80 }
             Box show:{ xs:false md:true }
             Flex direction:"column" align:"center" justify:"center" gap:7
               Title size:{ xs:"2xl" md:"4xl" } weight:"black"

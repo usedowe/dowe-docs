@@ -1,7 +1,7 @@
 page ContactSplitPanelDuplicatePage
   signal form value:{ name:"" email:"" phone:"" company:"" message:"" }
   Section id:"contact-split-panel-duplicate" bg:"background" color:"backgroundText" p:0 minH:"vh-0"
-    Grid columns:{ xs:1 md:"5fr 7fr" } gap:0 minH:"vh-0"
+    Grid columns:{ xs:1 md:2 } gap:0 minH:"vh-0"
       Box p:{ xs:5 md:10 }
         Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:6 md:10 }
           Grid columns:1 gap:5

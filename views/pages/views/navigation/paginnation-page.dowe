@@ -50,7 +50,7 @@ page PaginationPage
   fn describePageChange
     set pageChange value:"The selected page was written to the bound Signal before this function ran."
   Section id:"pagination-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "NAVIGATION"
@@ -67,7 +67,7 @@ page PaginationPage
           "Bind a one-based page"
         Text size:"sm" color:"muted"
           "The bound Signal receives the selected page. Pagination never requests, sorts, or slices records itself; keep that work in the declared function and its server endpoint."
-      Grid columns:{ xs:1 md:2 } gap:6 align:"start"
+      Grid columns:1 gap:6 align:"start"
         Card variant:"outlined" p:{ xs:5 md:8 } border:1
           Grid columns:1 gap:4
             Title size:"lg" weight:"bold"
@@ -108,7 +108,7 @@ page PaginationPage
           "Choose a control treatment"
         Text size:"sm" color:"muted"
           "Variants change the treatment only. Every variant keeps the same selected-page binding and function dispatch contract."
-      Grid columns:{ xs:1 md:2 } gap:5
+      Grid columns:1 gap:5
         Card variant:"soft" p:5
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
@@ -130,7 +130,7 @@ page PaginationPage
               "Ghost"
             Pagination bind:ghostPage total:50 pageSize:10 onChange:describePageChange variant:"ghost" scheme:"primary" size:"sm"
   Section id:"pagination-behavior" p:{ xs:5 md:7 }
-    Grid columns:{ xs:1 md:2 } gap:6 align:"start"
+    Grid columns:1 gap:6 align:"start"
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "BEHAVIOR"
@@ -149,7 +149,7 @@ page PaginationPage
           Text size:"sm" color:"muted"
             "Pagination requires bind, total, pageSize, and onChange. It has no visual children. Page numbers begin at 1, and generated targets clamp selections to the available range."
   Section id:"pagination-accessibility" py:{ xs:7 md:10 }
-    Grid columns:{ xs:1 md:2 } gap:6 align:"start"
+    Grid columns:1 gap:6 align:"start"
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "ACCESSIBILITY"

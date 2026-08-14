@@ -55,7 +55,7 @@ page BackgroundJobsPage
           import appDb from "@/server/config/database"
 
           fn compactAudit params:{ retentionDays:number }
-            query removed db:appDb.delete table:"audit_events" where:{ olderThanDays:args.retentionDays }
+            query removed conn:appDb.delete table:"audit_events" where:{ olderThanDays:args.retentionDays }
             return value:{ removed:removed }
         """
       Table:
@@ -76,7 +76,7 @@ page BackgroundJobsPage
         Title size:"3xl" weight:"black"
           "Attach cron directly to server.init"
         Text size:"sm" color:"muted"
-          "Import the function in main.dowe and register it under server.init. The schedule uses five UTC fields, and args must be static JSON because init has no request-local scope."
+          "Import the function in main.dowe and register it under server.init with the explicit fn prop. Cron creates no result binding, the schedule uses five UTC fields, and args must be static JSON because init has no request-local scope."
       Code:
         language:"dowe"
         variant:"soft"
@@ -89,7 +89,7 @@ page BackgroundJobsPage
           main
             server port:8080
               init
-                cron compactAudit schedule:"0 3 * * *" args:{ retentionDays:30 }
+                cron fn:compactAudit schedule:"0 3 * * *" args:{ retentionDays:30 }
         """
       Table:
         data:cronRows

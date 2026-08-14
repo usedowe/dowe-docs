@@ -49,7 +49,7 @@ page EditorPage
       },
     ]
   Section id:"editor-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "FORM"
@@ -104,7 +104,7 @@ page EditorPage
           "Match the editing surface to the task"
         Text size:"sm" color:"muted"
           "A compact editor keeps short responses focused. A read-only editor preserves the same content surface for review."
-      Grid columns:{ xs:1 md:2 } gap:5
+      Grid columns:1 gap:5
         Editor:
           value:"Thanks for the detailed report. I reproduced the issue and added it to the next release."
           label:"Support reply"
@@ -146,7 +146,7 @@ page EditorPage
           "Keep constraints close to the content"
         Text size:"sm" color:"muted"
           "Use errorText for actionable validation and disabled when the complete editing workflow is unavailable."
-      Grid columns:{ xs:1 md:2 } gap:5
+      Grid columns:1 gap:5
         Editor:
           label:"Incident update"
           placeholder:"Add the customer-facing update"
@@ -175,7 +175,7 @@ page EditorPage
           "One command model across targets"
         Text size:"sm" color:"muted"
           "Dowe owns toolbar commands, keyboard shortcuts, editor state, and generated target behavior without executing user-authored JavaScript."
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"

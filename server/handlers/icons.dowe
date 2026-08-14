@@ -1,11 +1,11 @@
 import IconDb from "@/server/config/database"
 
 handler listIconCategories
-  query categories db:IconDb.query sql:"SELECT slug, label, count FROM icon_categories ORDER BY positionKey"
+  query categories conn:IconDb.query sql:"SELECT slug, label, count FROM icon_categories ORDER BY positionKey"
   return json:{ ok:true data:categories }
 
 handler listIcons
-  query icons db:IconDb.query sql:"SELECT key, name, category, style, svg FROM icons WHERE category = ?1 ORDER BY name" params:[req.params.category]
+  query icons conn:IconDb.query sql:"SELECT key, name, category, style, svg FROM icons WHERE category = ?1 ORDER BY name" params:[req.params.category]
   list styled source:"filterEquals" values:icons field:"style" value:req.params.style
   str search source:"replace" value:req.params.search from:"q-" to:""
   list filtered source:"filterContains" values:styled field:"name" value:search

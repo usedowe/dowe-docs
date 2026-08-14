@@ -1,6 +1,13 @@
 import docsPreferences from "@/views/store/docs-preferences"
 
 page StorePage
+  const storeGuidanceRows:
+    value:[
+      { rule:"One declaration" guidance:"A Store module owns its initial value, type, persistence policy, and storage identity. Consumers import it; they never redeclare it." },
+      { rule:"Persistence" guidance:"Malformed or outdated persisted data restores the declared initial shape instead of hydrating incomplete state." },
+      { rule:"Shared scope" guidance:"Imported pages and layouts read the same Store value across routes." },
+      { rule:"Security" guidance:"Persistent Stores use device-local convenience storage. Keep server secrets and credentials in server modules." },
+    ]
   Section id:"store-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
       Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
@@ -42,18 +49,14 @@ page StorePage
               "Toggle preference"
         """
   Section id:"store-guidance" py:{ xs:7 md:10 }
-    Grid columns:{ xs:1 md:2 } gap:4
-      Card variant:"soft" p:5
-        Grid columns:1 gap:2
-          Title size:"lg" weight:"bold"
-            "One declaration"
-          Text size:"sm" color:"muted"
-            "A Store module owns its initial value, type, persistence policy, and storage identity. Consumers import it; they never redeclare it."
-          Text size:"sm" color:"muted"
-            "When persisted data is malformed or no longer matches the declared initial shape, Dowe restores the initial value instead of hydrating incomplete state."
-      Card variant:"soft" scheme:"warning" p:5
-        Grid columns:1 gap:2
-          Title size:"lg" weight:"bold"
-            "Keep secrets server-side"
-          Text size:"sm" color:"muted"
-            "Persistent Stores use device-local convenience storage. Do not place server secrets or credentials in a View Store."
+    Grid columns:1 gap:4
+      Table:
+        data:storeGuidanceRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"rule" label:"Rule" width:"2fr"
+        column field:"guidance" label:"How to apply it" width:"5fr"

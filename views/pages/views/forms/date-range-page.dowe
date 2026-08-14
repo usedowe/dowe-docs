@@ -50,7 +50,7 @@ page DateRangePage
       },
     ]
   Section id:"date-range-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "FORM"
@@ -67,7 +67,7 @@ page DateRangePage
           "Plan a release window"
         Text size:"sm" color:"muted"
           "Choose the start and end in the custom calendar dropdown; separate YYYY-MM-DD values are written while min and max constrain both sides to the planning quarter."
-      Grid columns:{ xs:1 md:2 } gap:4
+      Grid columns:1 gap:4
         DateRange:
           start:startDate
           end:endDate
@@ -113,7 +113,7 @@ page DateRangePage
           "One interval, different workflows"
         Text size:"sm" color:"muted"
           "The same range contract supports travel, reporting, and availability flows without changing the component semantics."
-      Grid columns:{ xs:1 md:2 } gap:5
+      Grid columns:1 gap:5
         DateRange startValue:"2026-09-10" endValue:"2026-09-17" label:"Trip dates" placeholder:"Select a trip" helpText:"Seven nights, including the departure day." variant:"soft" scheme:"info" size:"md" name:"trip-dates"
         DateRange startValue:"2026-10-01" endValue:"2026-10-31" label:"Report period" placeholder:"Select a month" variant:"line" scheme:"secondary" size:"sm" name:"report-period"
         DateRange startValue:"2026-11-05" endValue:"2026-11-08" label:"Availability" placeholder:"Select open dates" min:"2026-11-01" max:"2026-12-31" variant:"solid" scheme:"success" size:"md" name:"availability"
@@ -138,7 +138,7 @@ page DateRangePage
           "Keep both boundaries understandable"
         Text size:"sm" color:"muted"
           "helpText and errorText apply to the interval. Sizes map to 32, 40, and 48 logical units; labelFloating adds 8 while the range stays one field."
-      Grid columns:{ xs:1 md:2 } gap:5
+      Grid columns:1 gap:5
         DateRange startValue:"2026-08-05" endValue:"2026-08-12" label:"Small range" labelFloating:true helpText:"Compact range for a filter bar." variant:"outlined" scheme:"primary" size:"sm" name:"small-range"
         DateRange startValue:"2026-08-05" endValue:"2026-08-12" label:"Large range" labelFloating:true errorText:"Choose an end date after the start date." variant:"outlined" scheme:"danger" size:"lg" name:"large-range"
   Section id:"date-range-contract" py:{ xs:7 md:10 }
@@ -150,7 +150,7 @@ page DateRangePage
           "A coordinated date pair"
         Text size:"sm" color:"muted"
           "Dowe keeps the start and end values separate in source while rendering a coordinated range surface on every target."
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"

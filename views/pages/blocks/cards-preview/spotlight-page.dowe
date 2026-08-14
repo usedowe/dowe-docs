@@ -5,7 +5,7 @@ page SpotlightCardsPage
       { id:"users" title:"Multiple users" },
     ]
   Section id:"spotlight-cards" bg:"background" color:"backgroundText" boxed:true py:{ xs:8 md:12 } minH:"vh-0"
-    Grid columns:{ xs:1 md:"2fr 1fr 1fr" } gap:5 align:"stretch"
+    Grid columns:{ xs:1 md:3 } gap:5 align:"stretch"
       Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:7 md:10 } minH:80
         Flex direction:"column" align:"center" justify:"center" gap:5 minH:64
           Text size:"xs" weight:"bold" spacing:"widest" color:"muted"

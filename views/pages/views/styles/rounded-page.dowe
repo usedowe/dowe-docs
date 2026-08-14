@@ -8,7 +8,7 @@ page RoundedPage
       },
     ]
   Section id:"rounded-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Flex direction:"column" gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "STYLES"
@@ -25,7 +25,7 @@ page RoundedPage
           "Six corner shapes"
         Text size:"sm" color:"muted"
           "Use a larger token for softer corners, or full for pills and circular surfaces."
-      Grid columns:{ xs:2 md:3 lg:6 } gap:4
+      Grid columns:1 gap:4
         Flex direction:"column" gap:3 align:"center"
           Box bg:"softPrimary" border:1 borderColor:"primary" rounded:"xs" w:"full" h:24
           Text size:"sm" weight:"bold"
@@ -59,7 +59,7 @@ page RoundedPage
           "Use the same shape language"
         Text size:"sm" color:"muted"
           "Apply rounded directly to containers, controls, media, and other compatible components."
-      Grid columns:{ xs:1 md:3 } gap:5
+      Grid columns:1 gap:5
         Card variant:"soft" scheme:"primary" rounded:"sm" p:6
           Flex direction:"column" gap:2
             Title size:"lg" weight:"bold"
@@ -76,7 +76,7 @@ page RoundedPage
           Text size:"sm" color:"muted"
             "Equal dimensions form a circle."
   Section id:"rounded-responsive" p:{ xs:5 md:7 }
-    Grid columns:{ xs:1 md:2 } gap:6 align:"center"
+    Grid columns:1 gap:6 align:"center"
       Flex direction:"column" gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "RESPONSIVE"

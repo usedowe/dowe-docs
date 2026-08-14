@@ -82,7 +82,7 @@ page StorePage
                           Button variant:"outlined" size:"sm" rounded:"full"
                             "Add to basket"
           """
-  Section id:"product-detail" p:{ xs:5 md:7 } bg:"softMuted" color:"softMutedText"
+  Section id:"product-detail" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -109,7 +109,7 @@ page StorePage
               const thumbnails value:[{ id:"view-1" }, { id:"view-2" }, { id:"view-3" }]
               const stars value:[{ id:"star-1" }, { id:"star-2" }, { id:"star-3" }, { id:"star-4" }, { id:"star-5" }]
               Section id:"store-product-detail" bg:"background" color:"backgroundText" boxed:true py:{ xs:6 md:10 } minH:"vh-0"
-                Grid columns:{ xs:1 md:"5fr 4fr" } gap:{ xs:8 md:12 } align:"start"
+                Grid columns:{ xs:1 md:2 } gap:{ xs:8 md:12 } align:"start"
                   Grid columns:1 gap:4
                     Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:6 md:10 } minH:{ xs:64 md:96 }
                       Flex align:"center" justify:"center" minH:{ xs:52 md:80 }
@@ -183,7 +183,7 @@ page StorePage
                   { id:"item-2" name:"Lorem ipsum" option:"Lorem ipsum | 128G" quantity:"1" price:"$99.99" },
                 ]
               Section id:"store-shopping-cart" bg:"background" color:"backgroundText" boxed:true py:{ xs:6 md:10 } minH:"vh-0"
-                Grid columns:{ xs:1 md:"1fr auto" } gap:{ xs:6 md:10 } align:"start"
+                Grid columns:{ xs:1 md:2 } gap:{ xs:6 md:10 } align:"start"
                   Card show:{ xs:true md:false } variant:"ghost" p:0
                     Grid columns:1 gap:4
                       Title size:"2xl" weight:"black"
@@ -195,7 +195,7 @@ page StorePage
                   Grid columns:1 gap:5
                     each in:items as:item key:item.id
                       Grid columns:1 gap:5
-                        Grid columns:{ xs:"auto 1fr" md:"auto 1fr auto auto" } gap:{ xs:4 md:6 } align:"center"
+                        Grid columns:{ xs:2 md:4 } gap:{ xs:4 md:6 } align:"center"
                           Card variant:"soft" scheme:"muted" rounded:"xl" p:4 w:{ xs:32 md:36 } minH:{ xs:32 md:36 }
                             Flex align:"center" justify:"center" minH:{ xs:24 md:28 }
                               Icon name:"gallery-bold-duotone" fill:"muted" w:8 h:8

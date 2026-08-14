@@ -74,7 +74,7 @@ page DashboardOverviewPage
                   "{metric.change}"
                 Text size:"xs" color:"muted"
                   "vs last month"
-      Grid columns:{ xs:1 lg:"2fr 1fr" } gap:4
+      Grid columns:{ xs:1 lg:2 } gap:4
         Card variant:"soft" rounded:"lg" p:{ xs:4 md:6 } border:1
           Grid columns:1 gap:4
             Flex justify:"between" align:"center" gap:3

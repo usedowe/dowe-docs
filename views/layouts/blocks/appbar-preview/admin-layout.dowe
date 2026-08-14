@@ -7,7 +7,7 @@ layout AppBarAdminLayout
             Flex align:"center" gap:3
               Icon name:"widget-5-bold" fill:"primary" w:8 h:8
               Text size:"xl" weight:"black"
-                "Vuexy"
+                "Dowe"
         end
           Flex align:"center" gap:2
             IconButton icon:"magnifier" label:"Search" variant:"ghost" scheme:"muted" size:"sm"

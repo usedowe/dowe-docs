@@ -150,8 +150,9 @@ composition by adding more font families or using the maximum Title size in ever
 Every action and status family is a child of `colors:` with `color`, `text`, and `title` props, plus
 the corresponding grouped soft family. `background` and `surface` are structural triples.
 A filled component supplies its resolved text role to normal descendants and its title role to
-`Title`. Buttons use the text role for their label. Semantic headers such as `SideNav` headers use
-the title role. An explicit descendant `color` remains the local override.
+`Title`. Buttons use the text role for their label. The transparent `SideNav` header is an
+exception: it uses the visible base color of its `scheme` so its content remains readable. An
+explicit descendant `color` remains the local override.
 
 ## Component defaults
 
@@ -178,6 +179,11 @@ When no `design` entry configures a component, use these built-in defaults:
 These built-in defaults add no `border` or `shadow`. Resolve each property independently in this
 order: explicit component prop, matching `design` slot, then the built-in component default. This
 contract is defined by `/specs/features/00149-normalize-view-component-defaults`.
+
+The `Toast` `variant` default also applies to the lowercase global `toast` statement used inside a
+View `fn` or `init`, even though that statement does not create a `Toast` node in the visual tree.
+Use `Toast variant:"soft"` for a project-wide global feedback surface; an explicit `variant` on a
+statement still wins, and the built-in fallback is `solid`.
 
 Code generation should omit resolved defaults from View source. Prefer `Button "Log in"` or
 `Button w:"full" "Log in"` over repeating `variant:"solid" scheme:"primary" size:"md"`, and

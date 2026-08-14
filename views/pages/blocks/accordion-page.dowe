@@ -71,7 +71,7 @@ page AccordionsPage
                           Text color:"muted"
                             "{line.text}"
             """
-  Section id:"minimal-lines" p:{ xs:5 md:7 } bg:"softPrimary" color:"softPrimaryText"
+  Section id:"minimal-lines" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -200,7 +200,7 @@ page AccordionsPage
                           Text color:"muted"
                             "{line.text}"
             """
-  Section id:"split-grid" p:{ xs:5 md:7 } bg:"softPrimary" color:"softPrimaryText"
+  Section id:"split-grid" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2

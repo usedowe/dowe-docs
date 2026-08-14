@@ -14,7 +14,7 @@ layout FooterNewsletterLayout
                     "WebbyFrames"
                   Text size:"xs" color:"mutedText"
                     "for Figma"
-            Grid columns:"1fr auto" w:"full" gap:2
+            Grid columns:2 w:"full" gap:2
               Input placeholder:"Enter your email to get the latest news..." iconStart:"letter"
               Button
                 "Subscribe"

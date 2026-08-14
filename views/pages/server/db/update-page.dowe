@@ -36,8 +36,8 @@ page DatabaseUpdatePage
         content:"""
           handler updateBlog
             database db provider:"dowe" host:env.DOWE_HOST port:env.DOWE_PORT account:env.DOWE_USER secret:env.DOWE_PASSWORD name:"content"
-            query updated db:db.update table:"blogs" where:{ id:req.params.id } value:{ title:req.body.title content:req.body.content updatedAt:now } required:true
-            query blog db:db.read table:"blogs" where:{ id:req.params.id } required:true
+            query updated conn:db.update table:"blogs" where:{ id:req.params.id } value:{ title:req.body.title content:req.body.content updatedAt:now } required:true
+            query blog conn:db.read table:"blogs" where:{ id:req.params.id } required:true
             return json:{ ok:true changed:updated data:blog }
         """
       Table:

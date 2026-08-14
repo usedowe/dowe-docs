@@ -36,7 +36,7 @@ page DatabaseDeletePage
         content:"""
           handler deleteBlog
             database db provider:"dowe" host:env.DOWE_HOST port:env.DOWE_PORT account:env.DOWE_USER secret:env.DOWE_PASSWORD name:"content"
-            query deleted db:db.delete table:"blogs" where:{ id:req.params.id ownerId:req.context.auth.subject } required:true
+            query deleted conn:db.delete table:"blogs" where:{ id:req.params.id ownerId:req.context.auth.subject } required:true
             return json:{ ok:true changed:deleted.changed }
         """
       Table:

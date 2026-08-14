@@ -70,7 +70,7 @@ page InputPage
       },
     ]
   Section id:"input-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "FORM"
@@ -87,7 +87,7 @@ page InputPage
           "Edit one shared value"
         Text size:"sm" color:"muted"
           "The Select and Input bind to the same string Signal. Choose a preset, then continue editing it directly in the field."
-      Grid columns:{ xs:1 md:2 } gap:4
+      Grid columns:1 gap:4
         Select:
           bind:fieldValue
           label:"Preset value"
@@ -122,7 +122,7 @@ page InputPage
           "Fixed or floating"
         Text size:"sm" color:"muted"
           "A fixed label stays above the field. A floating label lives in the control surface and activates with focus or a value."
-      Grid columns:{ xs:1 md:2 } gap:5
+      Grid columns:1 gap:5
         Input label:"Email" placeholder:"name@example.com" w:"full"
         Input label:"Email" placeholder:"name@example.com" labelFloating:true w:"full"
       Code:
@@ -144,7 +144,7 @@ page InputPage
           "Four control surfaces"
         Text size:"sm" color:"muted"
           "Variant changes the container treatment while keeping the same normalized field geometry."
-      Grid columns:{ xs:1 md:2 } gap:5
+      Grid columns:1 gap:5
         Input variant:"solid" label:"Solid" placeholder:"Solid input" w:"full"
         Input variant:"soft" label:"Soft" placeholder:"Soft input" w:"full"
         Input label:"Outlined" placeholder:"Outlined input" w:"full"
@@ -158,7 +158,7 @@ page InputPage
           "Every semantic family"
         Text size:"sm" color:"muted"
           "Outlined fields use a neutral resting border and preserve the selected scheme for foreground and focus feedback."
-      Grid columns:{ xs:1 md:2 } gap:5
+      Grid columns:1 gap:5
         Input label:"Primary" placeholder:"Enter a value" w:"full"
         Input scheme:"secondary" label:"Secondary" placeholder:"Enter a value" w:"full"
         Input scheme:"tertiary" label:"Tertiary" placeholder:"Enter a value" w:"full"
@@ -176,7 +176,7 @@ page InputPage
           "One scale on every target"
         Text size:"sm" color:"muted"
           "Small, medium, and large controls are 32, 40, and 48 logical units, and their value text scales through body sm, md, and lg. A floating label adds 8 units without changing the selected size, including when the controls share a stretching Grid or Flex row on web."
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Input label:"Small" placeholder:"32 + 8" labelFloating:true size:"sm" w:"full"
         Input label:"Medium" placeholder:"40 + 8" labelFloating:true w:"full"
         Input label:"Large" placeholder:"48 + 8" labelFloating:true size:"lg" w:"full"
@@ -189,7 +189,7 @@ page InputPage
           "Context inside the field"
         Text size:"sm" color:"muted"
           "Input resolves Solar icons at compile time. Floating-label fields hide them while empty and unfocused, then reveal them after focus or a value moves the label above the editable row. The active label begins after iconStart and its gap, aligned with the editable text."
-      Grid columns:{ xs:1 md:2 } gap:5
+      Grid columns:1 gap:5
         Input label:"Search" placeholder:"Search documentation" scheme:"info" iconStart:"magnifier" w:"full"
         Input label:"Project" placeholder:"dowe-app" labelFloating:true variant:"soft" scheme:"success" iconStart:"folder" iconEnd:"check-circle" w:"full"
   Section id:"input-contract" py:{ xs:7 md:10 }
@@ -201,7 +201,9 @@ page InputPage
           "One native contract"
         Text size:"sm" color:"muted"
           "Input uses native editable controls on web, iOS, and Android while Dowe keeps height, inset, typography, radius, binding, and focus color aligned."
-      Grid columns:{ xs:1 md:3 } gap:4
+        Text size:"sm" color:"muted"
+          "On web, saved email and password values keep the field's inherited color and transparent background instead of activating browser autofill styling."
+      Grid columns:1 gap:4
         Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"

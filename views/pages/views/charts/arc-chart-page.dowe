@@ -29,7 +29,7 @@ page ArcChartPage
       { prop:"emptyLabel, loading, hideLegend" type:"string, boolean, boolean" defaultValue:"No data, false, false" },
     ]
   Section id:"arc-chart-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "CHARTS"
@@ -53,7 +53,7 @@ page ArcChartPage
         Title size:"3xl" weight:"black"
           "Show a readable allocation"
         Text size:"sm" color:"muted"
-          "ArcChart reads label and value from a Signal array. Use legendPosition and showInlineLabels together when the chart must remain understandable at a glance."
+          "ArcChart reads label and value from a Signal array. Use an optional max per item for progress arcs, and combine legendPosition with showInlineLabels when the chart must remain understandable at a glance. Android keeps chart labels readable with a high-contrast surface badge."
       ArcChart:
         data:allocation
         variant:"soft"
@@ -85,7 +85,7 @@ page ArcChartPage
           "Turn the arc into a progress signal"
         Text size:"sm" color:"muted"
           "startAngle and endAngle create a deliberate gauge-like sweep. Keep the center value explicit so the percentage never depends on reading the graphic alone."
-      Grid columns:{ xs:1 md:2 } gap:4
+      Grid columns:{ xs:1 md:2 } gap:4 align:"center"
         ArcChart:
           data:progress
           variant:"outlined"
@@ -129,7 +129,7 @@ page ArcChartPage
           "Loading and empty data stay thematic"
         Text size:"sm" color:"muted"
           "Use loading for an in-flight data request and emptyLabel for a valid empty Signal. Both states preserve the chart surface and accessibility context."
-      Grid columns:{ xs:1 md:2 } gap:4
+      Grid columns:1 gap:4
         ArcChart data:allocation variant:"soft" scheme:"info" size:"md" loading:true centerText:"Syncing" centerValue:"—"
         ArcChart data:emptySlices variant:"outlined" scheme:"warning" size:"md" emptyLabel:"No allocation yet" centerText:"Empty" centerValue:"0"
   Section id:"arc-chart-props" py:{ xs:7 md:10 }

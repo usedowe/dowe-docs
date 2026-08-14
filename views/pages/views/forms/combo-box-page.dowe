@@ -49,7 +49,7 @@ page ComboBoxPage
       },
     ]
   Section id:"combo-box-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "FORM"
@@ -66,7 +66,7 @@ page ComboBoxPage
           "Search a role catalog"
         Text size:"sm" color:"muted"
           "Type to narrow the static option list, choose a role, and clear it when the workflow needs an explicit empty state."
-      Grid columns:{ xs:1 md:2 } gap:4
+      Grid columns:1 gap:4
         ComboBox:
           bind:selectedRole
           label:"Workspace role"
@@ -117,7 +117,7 @@ page ComboBoxPage
           "Tune the control to its context"
         Text size:"sm" color:"muted"
           "The searchable behavior stays constant while sm, md, and lg map to 32, 40, and 48 logical units. labelFloating adds 8 on every target."
-      Grid columns:{ xs:1 md:2 } gap:5
+      Grid columns:1 gap:5
         ComboBox value:"design" label:"Soft field" placeholder:"Choose a team" variant:"soft" scheme:"secondary" size:"sm" name:"soft-team"
           comboOption value:"design" label:"Design" description:"Tokens and visual systems." icon:"edit"
           comboOption value:"platform" label:"Platform" description:"Shared runtime foundations." icon:"settings"
@@ -147,7 +147,7 @@ page ComboBoxPage
           "Empty, unavailable, and guided"
         Text size:"sm" color:"muted"
           "Use feedback text to explain the catalog, disabled to preserve a visible choice, and custom loading copy for remote-looking flows."
-      Grid columns:{ xs:1 md:2 } gap:5
+      Grid columns:1 gap:5
         ComboBox label:"No matching project" placeholder:"Search projects" searchPlaceholder:"Search projects" emptyText:"Nothing matches this query" helpText:"Try a project key or team name." variant:"outlined" scheme:"info" name:"project"
           comboOption value:"dowe" label:"Dowe" description:"Compiler and runtime." icon:"file"
         ComboBox value:"billing" label:"Billing domain" placeholder:"Choose a domain" disabled:true errorText:"This catalog is unavailable for your workspace." variant:"soft" scheme:"muted" name:"billing"
@@ -169,7 +169,7 @@ page ComboBoxPage
           "One authored catalog, every target"
         Text size:"sm" color:"muted"
           "Dowe owns the trigger, search row, option state, and popover placement instead of delegating the contract to a platform-specific menu."
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"

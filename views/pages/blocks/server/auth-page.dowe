@@ -206,7 +206,7 @@ page ServerAuthBlockPage
             content:"""
               fn createExampleSessionRepository params:{ userId:string }
                 id session source:"ulid"
-                query created db:ExamplesDb.insert table:"sessions" value:{ id:session userId:args.userId createdAt:now } required:["id", "userId"]
+                query created conn:ExamplesDb.insert table:"sessions" value:{ id:session userId:args.userId createdAt:now } required:["id", "userId"]
                 str sessionKey source:"join" values:["session", session] delimiter:":"
                 kv cached conn:ExamplesCache.set key:sessionKey value:{ id:session userId:args.userId }
                 return value:{ id:session userId:args.userId }

@@ -17,6 +17,10 @@ Keep every new frontend module under `views/`; only root `main.dowe` and `theme.
    composition map with ordered bands, region ownership, exact built-ins, collection owners,
    responsive evidence, states, accessibility, theme decisions, assets, and reusable-component
    candidates before authoring source.
+   For block-driven work based on Dowe's documented UI patterns, read
+   `references/blocks/index.json` first. Select at most five candidates, then combine one primary
+   block with at most one supporting pattern; use the family composition rules and variant tags as
+   design guidance, not as permission to copy documentation gallery wrappers.
 3. Before writing source, state one visual-direction sentence and choose at most three recurring
    motifs from the evidence: for example orbital geometry, luminous data surfaces, editorial
    typography, translucent panels, or technical linework. Map each retained band to a distinct
@@ -100,6 +104,7 @@ Open the primary resource first. Load another only when the task crosses its con
 | --- | --- |
 | Routes, layouts, pages, state, functions, requests, repeated views, or i18n | `references/views.md` |
 | Exact screenshot, mockup, or UI-reference reconstruction | `references/reference-ui.md` |
+| Dowe documentation block patterns and variant selection | `references/blocks/index.json` |
 | New screen, shell ownership, reusable fragments, container choice, hero, or landing composition | `references/composition.md` |
 | Built-in component selection, children, bindings, interaction, or portability | `references/components.md` |
 | Colors, variants, responsive props, typography, sizing, visibility, overlay, or motion | `references/styles.md` |

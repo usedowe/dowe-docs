@@ -294,8 +294,10 @@ the promise rather than compete with it.
 
 Use `Section boxed:true` when the background or cover is full bleed but the hero content aligns to
 the page rails. Give the Section a stable `id` when navigation links target it. Use responsive
-column templates and gaps to preserve the design's real proportions; equal `1fr 1fr` columns are
-not a default when the reference clearly gives copy, media, or a form more space.
+numeric column counts and gaps to preserve a portable structure. Grid columns are equal-width
+tracks from `1` through `12`; track templates such as `fr` and `px` are not portable Grid values.
+When a composition needs different visual weight, use nested containers or explicit Dowe scale
+widths on the relevant content instead of a target-specific track template.
 
 Prefer one responsive `Title size:{ xs:"4xl" md:"6xl" }` when natural wrapping is acceptable.
 When specific line breaks are part of the composition, author separate compact and wide headline
@@ -320,7 +322,7 @@ different heights; do not scatter empty Boxes through ordinary stacks.
 
 ```text
 Section id:"hero" background:"aurora" boxed:true py:{ xs:8 md:12 }
-  Grid columns:{ xs:1 md:"5fr 6fr" } gap:{ xs:8 md:16 } align:"center"
+  Grid columns:{ xs:1 md:2 } gap:{ xs:8 md:16 } align:"center"
     Flex direction:"column" align:"start" gap:6
       Title size:{ xs:"4xl" md:"6xl" } weight:"black"
         "Turn useful ideas into durable growth"

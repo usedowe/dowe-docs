@@ -96,7 +96,7 @@ page CardsPage
               Card variant:"solid" scheme:"background" rounded:"lg" w:64 minH:72 p:{ xs:6 md:10 }
                 Flex align:"center" justify:"center" minH:56
                   Grid columns:1 gap:6 w:64
-                    Grid columns:"56px 1fr" gap:4 align:"center"
+                    Grid columns:2 gap:4 align:"center"
                       Box bg:"softMuted" rounded:"full" w:14 h:14
                       Grid columns:1 gap:1
                         Title font:"system" size:"lg" weight:"medium"
@@ -116,7 +116,7 @@ page CardsPage
               Card variant:"solid" scheme:"background" rounded:"lg" w:64 minH:72 p:{ xs:6 md:10 }
                 Flex align:"center" justify:"center" minH:56
                   Grid columns:1 gap:6 w:64
-                    Grid columns:"56px 1fr" gap:4 align:"center"
+                    Grid columns:2 gap:4 align:"center"
                       Box bg:"softMuted" rounded:"full" w:14 h:14
                       Grid columns:1 gap:1
                         Title font:"system" size:"lg" weight:"medium"

@@ -23,7 +23,7 @@ page SelectThemePage
       },
     ]
   Section id:"select-theme-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "MULTI THEME"
@@ -41,7 +41,7 @@ page SelectThemePage
         Text size:"sm" color:"muted"
           "The options come from the complete themes example catalog. Do not author Option children or a binding for this component."
       Card variant:"outlined" p:{ xs:5 md:7 } border:1
-        Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+        Grid columns:1 gap:5
           Grid columns:1 gap:1
             Title size:"lg" weight:"bold"
               "17-theme catalog"
@@ -97,7 +97,7 @@ page SelectThemePage
               theme name:"palette-16" extends:"dark"
               theme name:"palette-17" extends:"light"
         """
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
@@ -144,7 +144,7 @@ page SelectThemePage
           "One catalog, every target"
         Text size:"sm" color:"muted"
           "SelectTheme reuses Select's field, popover, focus behavior, and accessibility surface; it adds only automatic options and the theme preference side effect."
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"

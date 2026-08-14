@@ -99,7 +99,7 @@ page HerosPage
                             Button variant:"ghost" w:"full"
                               "{item.label}"
             """
-  Section id:"video-split" p:{ xs:5 md:7 } bg:"softPrimary" color:"softPrimaryText"
+  Section id:"video-split" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -122,7 +122,7 @@ page HerosPage
             copiedLabel:"Copied"
             content:"""
               Section id:"video-split-hero" bg:"background" color:"backgroundText" boxed:true py:{ xs:8 md:12 }
-                Grid columns:{ xs:1 md:"5fr 4fr" } gap:{ xs:8 md:14 } align:"center" minH:"vh-16"
+                Grid columns:{ xs:1 md:2 } gap:{ xs:8 md:14 } align:"center" minH:"vh-16"
                   Flex direction:"column" align:"start" justify:"center" gap:5
                     Title size:{ xs:"4xl" md:"6xl" } weight:"black"
                       "A dedicated team to grow your company"
@@ -223,7 +223,7 @@ page HerosPage
               ]
 
               Section id:"lead-form-hero" bg:"background" color:"backgroundText" boxed:true py:{ xs:8 md:12 }
-                Grid columns:{ xs:1 md:"5fr 4fr" } gap:{ xs:8 md:14 } align:"center"
+                Grid columns:{ xs:1 md:2 } gap:{ xs:8 md:14 } align:"center"
                   Flex direction:"column" align:"start" gap:5
                     Title size:{ xs:"4xl" md:"6xl" } weight:"black"
                       "A dedicated team to grow your company"
@@ -290,7 +290,7 @@ page HerosPage
                             Button variant:"ghost" w:"full"
                               "{item.label}"
             """
-  Section id:"media-card" p:{ xs:5 md:7 } bg:"softPrimary" color:"softPrimaryText"
+  Section id:"media-card" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -400,7 +400,7 @@ page HerosPage
               signal searchQuery value:""
 
               Section id:"search-hero" bg:"background" color:"backgroundText" boxed:true py:{ xs:10 md:16 }
-                Grid columns:{ xs:1 md:"1fr 3fr 1fr" } align:"center" minH:"vh-32"
+                Grid columns:{ xs:1 md:3 } align:"center" minH:"vh-32"
                   Box show:{ xs:false md:true }
                   Flex direction:"column" align:"center" justify:"center" gap:6
                     Title size:{ xs:"4xl" md:"6xl" } weight:"black"
@@ -464,7 +464,7 @@ page HerosPage
                             Button variant:"ghost" w:"full"
                               "{item.label}"
             """
-  Section id:"full-bleed" p:{ xs:5 md:7 } bg:"softPrimary" color:"softPrimaryText"
+  Section id:"full-bleed" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -487,7 +487,7 @@ page HerosPage
             copiedLabel:"Copied"
             content:"""
               Section id:"full-bleed-hero" bg:"muted" color:"mutedText" boxed:true py:{ xs:10 md:14 }
-                Grid columns:{ xs:1 md:"5fr 4fr" } gap:{ xs:10 md:14 } align:"center" minH:"vh-16"
+                Grid columns:{ xs:1 md:2 } gap:{ xs:10 md:14 } align:"center" minH:"vh-16"
                   Flex direction:"column" align:"start" justify:"center" gap:5
                     Title size:{ xs:"4xl" md:"6xl" } weight:"black"
                       "A dedicated team to grow your company"

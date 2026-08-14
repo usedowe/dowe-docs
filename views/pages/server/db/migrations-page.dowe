@@ -1,0 +1,101 @@
+page DatabaseMigrationsPage
+  const migrationArtifactRows:
+    value:[
+      {
+        artifact:"migrations/database.graph.json"
+        purpose:"Stores one append-only history and current head for every Database binding."
+      },
+      {
+        artifact:"migrations/<binding>/<sequence>_<fingerprint>.sql"
+        purpose:"Stores immutable PostgreSQL or D1 SQL for one graph node."
+      },
+      {
+        artifact:"Dynamic Dowe node"
+        purpose:"Tracks entity history without SQL because Dowe Database remains schema-less."
+      },
+    ]
+  const migrationChangeRows:
+    value:[
+      {
+        change:"New entity"
+        result:"Appends a table creation node."
+      },
+      {
+        change:"New optional field"
+        result:"Appends an additive column node."
+      },
+      {
+        change:"New unique or index constraint"
+        result:"Appends an immutable index node."
+      },
+      {
+        change:"Drop, implicit rename, type change, or unsafe required field"
+        result:"Stops without changing the graph and reports a destructive or ambiguous change."
+      },
+    ]
+  Section id:"database-migrations-introduction" py:{ xs:6 md:10 }
+    Grid columns:1 gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "SERVER / DATABASE / MIGRATIONS"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Migrations"
+      Text size:"lg" color:"muted"
+        "Dowe derives maintained migration history from entities. PostgreSQL and D1 receive immutable SQL nodes; Dowe Database records the same schema head without SQL."
+  Section id:"database-migrations-command" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "1 / GENERATE"
+        Title size:"3xl" weight:"black"
+          "Run one command after entity changes"
+        Text size:"sm" color:"muted"
+          "Run the command from the project root. It compiles entities without connecting to a provider, verifies every historical fingerprint, and appends only the new head. An unchanged schema causes no file writes."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy command"
+        copiedLabel:"Copied"
+        content:"dowe database migrate"
+      Table:
+        data:migrationArtifactRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"artifact" label:"Artifact" width:"3fr"
+        column field:"purpose" label:"Responsibility" width:"5fr"
+  Section id:"database-migrations-changes" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "2 / CHANGE POLICY"
+        Title size:"3xl" weight:"black"
+          "Append safe changes, reject destructive guesses"
+        Text size:"sm" color:"muted"
+          "The graph never infers a rename or rewrites history. Existing SQL is content-addressed and must remain unchanged."
+      Table:
+        data:migrationChangeRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"change" label:"Entity change" width:"3fr"
+        column field:"result" label:"Generator result" width:"5fr"
+  Section id:"database-migrations-production" p:{ xs:5 md:7 }
+    Grid columns:1 gap:4
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "3 / DEPLOYMENT"
+      Title size:"3xl" weight:"black"
+        "Apply pending nodes before seeders"
+      Text size:"sm" color:"muted"
+        "Deployment blocks when a PostgreSQL or D1 graph is missing, stale, reordered, or modified. Production applies each pending SQL node and its ledger fingerprint atomically, applies pending seeders next, and opens the listener only after both phases succeed."
+      Flex gap:3 wrap:true
+        Button href:"/docs/server/db/entities" variant:"soft" scheme:"muted" size:"sm" iconStart:"documents"
+          "Entities"
+        Button href:"/docs/server/db/seeders" variant:"soft" scheme:"muted" size:"sm" iconStart:"database"
+          "Seeders"

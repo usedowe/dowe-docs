@@ -43,7 +43,7 @@ page VideoPage
       },
     ]
   Section id:"video-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "CONTROL"
@@ -60,7 +60,7 @@ page VideoPage
           "Use one static HTTPS source"
         Text size:"sm" color:"muted"
           "Video accepts a regular media URL or an HLS .m3u8 manifest. Dowe disables platform chrome and draws accessible play, seek, time, mute, picture-in-picture, and fullscreen controls with bundled Solar icons."
-      Grid columns:{ xs:1 md:2 } gap:4
+      Grid columns:1 gap:4
         Grid columns:1 gap:3
           Video:
             src:"https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"
@@ -102,7 +102,7 @@ page VideoPage
           "Frame the same source for its context"
         Text size:"sm" color:"muted"
           "horizontal is 16 / 9, vertical is 9 / 16, and square is 1 / 1. Video content stays aspect-fit and centered on both axes while poster artwork covers the authored frame."
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Grid columns:1 gap:2
           Video:
             src:"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
@@ -146,7 +146,7 @@ page VideoPage
           "Style the player and keep controls portable"
         Text size:"sm" color:"muted"
           "variant and scheme style the player surface and poster container. Android isolates only the active video in the system picture-in-picture window and restores it inline on exit. iOS keeps its action visible while AVKit becomes ready; the native window still requires picture-in-picture support from the current device."
-      Grid columns:{ xs:1 md:2 } gap:4
+      Grid columns:1 gap:4
         Video:
           src:"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
           poster:"https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1200&q=80"

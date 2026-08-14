@@ -1,0 +1,63 @@
+type InvoiceRow
+  id:string
+  invoice:string
+  customer:string
+  issued:string
+  due:string
+  amount:string
+  status:string
+
+page InvoiceTablePage
+  signal invoices type:InvoiceRow[] value:[
+    {
+      id:"INV-1048"
+      invoice:"INV-1048"
+      customer:"Northstar Studio"
+      issued:"Mar 04, 2025"
+      due:"Mar 18, 2025"
+      amount:"$4,280"
+      status:"Paid"
+    },
+    {
+      id:"INV-1047"
+      invoice:"INV-1047"
+      customer:"Meridian Labs"
+      issued:"Mar 01, 2025"
+      due:"Mar 15, 2025"
+      amount:"$2,940"
+      status:"Pending"
+    },
+    {
+      id:"INV-1046"
+      invoice:"INV-1046"
+      customer:"Atlas Research"
+      issued:"Feb 22, 2025"
+      due:"Mar 08, 2025"
+      amount:"$1,860"
+      status:"Overdue"
+    },
+  ]
+  Section id:"invoice-ledger" bg:"background" color:"backgroundText" boxed:true minH:"vh-0" p:{ xs:6 md:12 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "FINANCE"
+        Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+          "Invoice ledger"
+        Text size:"lg" color:"muted"
+          "Keep the amount, due date, and payment state readable in one calm surface."
+      Table:
+        data:invoices
+        variant:"soft"
+        scheme:"surface"
+        size:"md"
+        striped:true
+        bordered:true
+        dividers:true
+        rounded:"md"
+        column field:"invoice" label:"Invoice" width:"0.9fr"
+        column field:"customer" label:"Customer" width:"1.5fr"
+        column field:"issued" label:"Issued" width:"1fr"
+        column field:"due" label:"Due" width:"1fr"
+        column field:"amount" label:"Amount" align:"end" width:"0.8fr"
+        column field:"status" label:"Status" align:"end" width:"0.9fr"

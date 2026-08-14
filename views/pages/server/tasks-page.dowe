@@ -46,7 +46,7 @@ page TasksPage
 
           handler createOrder
             const order value:req.json
-            task writeAudit args:{ orderId:order.id event:"order.created" }
+            task fn:writeAudit args:{ orderId:order.id event:"order.created" }
             return status:202 json:{ accepted:true }
         """
       Table:
@@ -81,7 +81,7 @@ page TasksPage
           handler forwardRequest
             request host source:"header" name:"Host"
             kv route conn:RouteCache.get key:host required:true
-            task emitTelemetry args:{ event:{ projectId:route.projectId status:0 method:"" path:"" latencyMs:0 bytesIn:0 bytesOut:0 custom:"edge" } } after:"headers"
+            task fn:emitTelemetry args:{ event:{ projectId:route.projectId status:0 method:"" path:"" latencyMs:0 bytesIn:0 bytesOut:0 custom:"edge" } } after:"headers"
             return reverse:route.url
         """
       Table:

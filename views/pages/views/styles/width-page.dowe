@@ -18,7 +18,7 @@ page WidthPage
       },
     ]
   Section id:"width-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Flex direction:"column" gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "STYLES"
@@ -49,7 +49,7 @@ page WidthPage
           Text size:"sm" color:"muted"
             "w:\"full\""
   Section id:"width-minimum" py:{ xs:7 md:10 }
-    Grid columns:{ xs:1 md:2 } gap:6 align:"center"
+    Grid columns:1 gap:6 align:"center"
       Flex direction:"column" gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "MINIMUM WIDTH"
@@ -73,7 +73,7 @@ page WidthPage
         Button minW:64 variant:"soft" scheme:"secondary"
           "Create workspace"
   Section id:"width-responsive" p:{ xs:5 md:7 }
-    Grid columns:{ xs:1 md:2 } gap:6 align:"center"
+    Grid columns:1 gap:6 align:"center"
       Flex direction:"column" gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "RESPONSIVE"
@@ -104,7 +104,7 @@ page WidthPage
           "Cap width without forcing it"
         Text size:"sm" color:"muted"
           "maxW sets an upper bound. Content may remain narrower, while w:\"full\" grows only until it reaches the limit."
-      Grid columns:{ xs:1 md:2 } gap:6 align:"center"
+      Grid columns:1 gap:6 align:"center"
         Code:
           language:"dowe"
           variant:"soft"

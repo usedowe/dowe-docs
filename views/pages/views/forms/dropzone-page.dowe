@@ -48,7 +48,7 @@ page DropzonePage
       },
     ]
   Section id:"dropzone-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "FORM"
@@ -98,7 +98,7 @@ page DropzonePage
           "Make the intake match the job"
         Text size:"sm" color:"muted"
           "accept, multiple, and maxSize describe the file contract before a user starts selecting files."
-      Grid columns:{ xs:1 md:2 } gap:5
+      Grid columns:1 gap:5
         Dropzone accept:"application/pdf" multiple:true maxSize:10485760 name:"research-files" label:"Research files" helpText:"PDF documents, up to 10 MB each." placeholder:"Drop reports or browse" variant:"soft" scheme:"info" size:"md"
         Dropzone accept:"text/csv" multiple:true maxSize:2097152 name:"data-files" label:"Data exports" helpText:"CSV files, up to 2 MB each." placeholder:"Drop CSV exports or browse" variant:"solid" scheme:"success" size:"md"
         Dropzone accept:"video/*" multiple:false maxSize:52428800 name:"demo-video" label:"Demo video" helpText:"One video, up to 50 MB." placeholder:"Drop a demo video or browse" variant:"ghost" scheme:"secondary" size:"sm"
@@ -122,7 +122,7 @@ page DropzonePage
           "Design for success and correction"
         Text size:"sm" color:"muted"
           "errorText keeps rejection feedback attached to the field, while disabled preserves the upload contract without accepting interaction."
-      Grid columns:{ xs:1 md:2 } gap:5
+      Grid columns:1 gap:5
         Dropzone accept:"image/*" multiple:true maxSize:1048576 label:"Asset library" errorText:"One file is larger than the 1 MB limit." placeholder:"Drop assets or browse" variant:"outlined" scheme:"danger" size:"md" name:"asset-library"
         Dropzone accept:"application/json" multiple:false disabled:true label:"Configuration snapshot" helpText:"Uploads are locked while the workspace is syncing." placeholder:"Upload unavailable" variant:"soft" scheme:"muted" size:"md" name:"configuration"
       Flex wrap:true justify:"center" align:"center" gap:3
@@ -138,7 +138,7 @@ page DropzonePage
           "One safe file surface"
         Text size:"sm" color:"muted"
           "Dowe owns file filtering, drag state, preview summaries, size rejection, and removal affordances in generated target code."
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"

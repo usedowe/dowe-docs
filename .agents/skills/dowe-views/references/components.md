@@ -40,7 +40,7 @@ prop over a complete restatement of the component's default style.
 | `Box` | Neutral wrapper for exceptional background, overlay, cover, local styling, or portable relative/absolute/fixed positioning. Prefer a semantic container when one exists. |
 | `Section` | Ordered page band and page-level vertical rhythm. A page begins with one or more sibling Sections; `boxed:true` constrains and centers only its generated inner body at `96rem` web or `1536` native. |
 | `Flex` | One-axis row or column using `direction`, `gap`, `align`, `justify`, and optional wrapping. |
-| `Grid` | Explicit or responsive tracks using `columns`, optional `rows`, `gap`, and alignment. |
+| `Grid` | Equal-width numeric column counts (1–12), optional numeric or `auto` rows, `gap`, and alignment. |
 | `Card` | One related semantic unit such as a form, metric, article, or profile. Avoid nesting Card inside Card. |
 | `Title` | One direct quoted visible-text child or one complete braced string binding. |
 | `Text` | One direct quoted visible-text child or one complete braced string binding. |
@@ -164,6 +164,18 @@ Every chart accepts `variant`, `scheme`, `size` (`sm` to `xl`), `palette` (`defa
 `ocean`, `sunset`, `forest`, `neon`), `legendPosition` (`top`, `right`, `bottom`, `left`, `none`),
 `emptyLabel`, `loading`, and `hideLegend`. Diagnostics reject missing, incompatible, or invalid
 negative data where the chart contract requires non-negative values.
+
+`ArcChart` optionally reads a positive `max` per category for independent progress arcs. It keeps
+the plot centered in a square responsive viewport on web, Android, and iOS; `right` and `left`
+legends stack below the plot when space is narrow. Its portable options are `centerText`,
+`centerValue`, `thickness`, `gap`, `startAngle`, `endAngle`, `showInlineLabels`, `hideValues`,
+and `showGlow`, and the same Signal update refreshes arcs, labels, center content, and legend.
+
+`PieChart` keeps its plot centered in a square responsive viewport. A `right` or `left` legend
+stacks below the plot when the available width is narrow, and web, Android, and iOS observe the
+same `data` Signal so slice geometry, totals, donut center content, and legend entries update
+together. Its portable options include `donut`, `donutWidth`, `centerLabel`, `centerValue`,
+`startAngle`, `padAngle`, `hideLabels`, `hideValues`, `hidePercentages`, and `showGlow`.
 
 Each `Candlestick` item provides `time` plus numeric `open`, `high`, `low`, and `close`. Optional
 props include `stream` for an SSE feed upserted by `time`, `upColor` and `downColor` tokens, and

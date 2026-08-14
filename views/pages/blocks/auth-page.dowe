@@ -67,7 +67,7 @@ page AuthPage
                         Button variant:"outlined" size:"sm" iconStart:"smartphone" w:"full"
                           "Continue with Apple"
             """
-  Section id:"login-reverse" p:{ xs:5 md:7 } bg:"softTertiary" color:"softTertiaryText"
+  Section id:"login-reverse" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -155,7 +155,7 @@ page AuthPage
               signal form value:{ email:"" password:"" remember:false }
 
               Section id:"login-card-auth" bg:"softMuted" boxed:true p:{ xs:5 md:10 } minH:"vh-0"
-                Grid columns:{ xs:1 md:"1fr 1fr 1fr" } align:"center" minH:"vh-0"
+                Grid columns:{ xs:1 md:3 } align:"center" minH:"vh-0"
                   Box show:{ xs:false md:true }
                   Card rounded:"xl" shadow:"xl" shadowColor:"muted" p:{ xs:6 md:8 }
                     Grid columns:1 gap:5
@@ -179,7 +179,7 @@ page AuthPage
                           "Twitter"
                   Box show:{ xs:false md:true }
             """
-  Section id:"forgot-password" p:{ xs:5 md:7 } bg:"softPrimary" color:"softPrimaryText"
+  Section id:"forgot-password" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -212,7 +212,7 @@ page AuthPage
               signal email value:""
 
               Section id:"forgot-password-auth" bg:"softMuted" boxed:true p:{ xs:5 md:10 } minH:"vh-0"
-                Grid columns:{ xs:1 md:"1fr 1fr 1fr" } align:"center" minH:"vh-0"
+                Grid columns:{ xs:1 md:3 } align:"center" minH:"vh-0"
                   Box show:{ xs:false md:true }
                   Card rounded:"xl" shadow:"xl" shadowColor:"muted" p:{ xs:6 md:8 }
                     Grid columns:1 gap:5
@@ -287,7 +287,7 @@ page AuthPage
                         Button variant:"outlined" scheme:"success" size:"sm" iconStart:"smartphone" w:"full"
                           "Continue with Apple"
             """
-  Section id:"signup-reverse" p:{ xs:5 md:7 } bg:"softInfo" color:"softInfoText"
+  Section id:"signup-reverse" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -375,7 +375,7 @@ page AuthPage
               signal form value:{ firstName:"" lastName:"" email:"" password:"" accepted:false }
 
               Section id:"signup-card-auth" bg:"softMuted" boxed:true p:{ xs:5 md:10 } minH:"vh-0"
-                Grid columns:{ xs:1 md:"1fr 1fr 1fr" } align:"center" minH:"vh-0"
+                Grid columns:{ xs:1 md:3 } align:"center" minH:"vh-0"
                   Box show:{ xs:false md:true }
                   Card rounded:"xl" shadow:"xl" shadowColor:"primary" p:{ xs:6 md:8 } border:1
                     Grid columns:1 gap:5

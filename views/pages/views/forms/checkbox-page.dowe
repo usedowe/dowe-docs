@@ -34,7 +34,7 @@ page CheckboxPage
       },
     ]
   Section id:"checkbox-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "FORM"
@@ -76,7 +76,7 @@ page CheckboxPage
           "Every semantic family"
         Text size:"sm" color:"muted"
           "The selected state uses the chosen scheme while the unchecked square stays neutral and legible."
-      Grid columns:{ xs:1 md:2 } gap:5
+      Grid columns:1 gap:5
         Checkbox checked:true label:"Primary"
         Checkbox checked:true label:"Secondary" scheme:"secondary"
         Checkbox checked:true label:"Tertiary" scheme:"tertiary"
@@ -105,7 +105,7 @@ page CheckboxPage
           "Checked, unchecked, and unavailable"
         Text size:"sm" color:"muted"
           "Use checked for a fixed initial state. disabled preserves the state visibly while preventing interaction."
-      Grid columns:{ xs:1 md:2 } gap:5
+      Grid columns:1 gap:5
         Checkbox checked:true label:"Enabled and checked" scheme:"success"
         Checkbox checked:false label:"Enabled and unchecked"
         Checkbox checked:true disabled:true label:"Disabled and checked" scheme:"muted"
@@ -131,7 +131,7 @@ page CheckboxPage
           "One boolean contract"
         Text size:"sm" color:"muted"
           "Dowe lowers the same boolean field model to a square, softly rounded checkbox on web, iOS, and Android."
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"

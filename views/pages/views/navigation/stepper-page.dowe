@@ -31,7 +31,7 @@ page StepperPage
       },
     ]
   Section id:"stepper-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "NAVIGATION"
@@ -51,7 +51,7 @@ page StepperPage
           "Direct step entries"
         Text size:"sm" color:"muted"
           "Stepper accepts only direct step entries. Each step owns a unique id, a visible label, and one or more view nodes for its panel. The first step starts active."
-      Grid columns:{ xs:1 md:2 } gap:6 align:"start"
+      Grid columns:1 gap:6 align:"start"
         Card variant:"outlined" p:{ xs:5 md:8 } border:1
           Stepper scheme:"primary" orientation:"horizontal"
             step id:"account" label:"Account"
@@ -127,7 +127,7 @@ page StepperPage
           "Horizontal or vertical"
         Text size:"sm" color:"muted"
           "Use horizontal for compact progress across a page. Use vertical when labels need more room or the workflow belongs beside its content."
-      Grid columns:{ xs:1 md:2 } gap:5 align:"start"
+      Grid columns:1 gap:5 align:"start"
         Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
@@ -165,7 +165,7 @@ page StepperPage
           "Semantic progress color"
         Text size:"sm" color:"muted"
           "scheme selects the numbered indicator and active label family consistently on web, Android, and iOS."
-      Grid columns:{ xs:1 md:2 } gap:5
+      Grid columns:1 gap:5
         Card variant:"soft" p:5
           Stepper scheme:"warning"
             step id:"warning-one" label:"Prepare"
@@ -184,7 +184,7 @@ page StepperPage
                 "Resolve the blocking issue"
       Alert type:"info" variant:"soft" scheme:"info" message:"Stepper uses scheme, not color, for its visual family."
   Section id:"stepper-accessibility" p:{ xs:5 md:7 }
-    Grid columns:{ xs:1 md:2 } gap:6 align:"start"
+    Grid columns:1 gap:6 align:"start"
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "ACCESSIBILITY"

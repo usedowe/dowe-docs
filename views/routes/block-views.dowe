@@ -52,6 +52,9 @@ import DashboardReportsPage from "@/views/pages/blocks/dashboard-preview/reports
 import DashboardSettingsPage from "@/views/pages/blocks/dashboard-preview/settings-page"
 import DashboardCompleteProfilePage from "@/views/pages/blocks/dashboard-preview/complete-profile-page"
 import DashboardTablePage from "@/views/pages/blocks/table-preview/team-directory-page"
+import InvoiceTablePage from "@/views/pages/blocks/table-preview/invoices-page"
+import ProjectStatusTablePage from "@/views/pages/blocks/table-preview/projects-page"
+import EmptyTablePage from "@/views/pages/blocks/table-preview/empty-state-page"
 import CenteredMediaHeroPage from "@/views/pages/blocks/hero-preview/centered-media-page"
 import VideoSplitHeroPage from "@/views/pages/blocks/hero-preview/video-split-page"
 import LeadFormHeroPage from "@/views/pages/blocks/hero-preview/lead-form-page"
@@ -244,6 +247,9 @@ views BlockViews
     route path:"video-features" page:VideoFeaturesSectionPage
   group path:"/blocks/table-preview" layout:BlankLayout
     route path:"team-directory" page:DashboardTablePage
+    route path:"invoices" page:InvoiceTablePage
+    route path:"projects" page:ProjectStatusTablePage
+    route path:"empty-state" page:EmptyTablePage
   group path:"/blocks/pricing-preview" layout:BlankLayout
     route path:"feature-cards" page:FeatureCardsPricingPage
     route path:"media-cards" page:MediaCardsPricingPage

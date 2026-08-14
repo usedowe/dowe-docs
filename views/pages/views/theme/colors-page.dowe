@@ -1,0 +1,415 @@
+page ColorsPage
+  const darkOverrides:
+    value:[
+      {
+        token:"primary"
+        fill:"#6BC670"
+        text:"#0E2513"
+        titleHex:"#0E2513"
+      },
+      {
+        token:"secondary"
+        fill:"#8EADD1"
+        text:"#13243A"
+        titleHex:"#13243A"
+      },
+      {
+        token:"tertiary"
+        fill:"#70C3A0"
+        text:"#0E251D"
+        titleHex:"#0E251D"
+      },
+      {
+        token:"muted"
+        fill:"#A6B1BF"
+        text:"#152131"
+        titleHex:"#152131"
+      },
+      {
+        token:"background"
+        fill:"#0F1721"
+        text:"#F4F7FB"
+        titleHex:"#F4F7FB"
+      },
+      {
+        token:"surface"
+        fill:"#182331"
+        text:"#F4F7FB"
+        titleHex:"#F4F7FB"
+      },
+      {
+        token:"softPrimary"
+        fill:"#1B3A25"
+        text:"#B7E8BA"
+        titleHex:"#B7E8BA"
+      },
+      {
+        token:"softSecondary"
+        fill:"#1F3A5F"
+        text:"#DDEAF7"
+        titleHex:"#DDEAF7"
+      },
+      {
+        token:"softTertiary"
+        fill:"#173B34"
+        text:"#A9E4CB"
+        titleHex:"#A9E4CB"
+      },
+      {
+        token:"softMuted"
+        fill:"#273342"
+        text:"#DCE4EC"
+        titleHex:"#DCE4EC"
+      },
+      {
+        token:"success"
+        fill:"#72D99F"
+        text:"#052E16"
+        titleHex:"#052E16"
+      },
+      {
+        token:"info"
+        fill:"#7DD3FC"
+        text:"#082F49"
+        titleHex:"#082F49"
+      },
+      {
+        token:"warning"
+        fill:"#F6D365"
+        text:"#422006"
+        titleHex:"#422006"
+      },
+      {
+        token:"danger"
+        fill:"#FF9DA9"
+        text:"#450A0A"
+        titleHex:"#450A0A"
+      },
+      {
+        token:"softSuccess"
+        fill:"#153D2A"
+        text:"#C9F7D8"
+        titleHex:"#C9F7D8"
+      },
+      {
+        token:"softInfo"
+        fill:"#12334A"
+        text:"#D3EFFF"
+        titleHex:"#D3EFFF"
+      },
+      {
+        token:"softWarning"
+        fill:"#49370E"
+        text:"#FFF0B8"
+        titleHex:"#FFF0B8"
+      },
+      {
+        token:"softDanger"
+        fill:"#4A1F28"
+        text:"#FFDCE2"
+        titleHex:"#FFDCE2"
+      },
+    ]
+  Section id:"colors-introduction" py:{ xs:6 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "THEME.DOWE"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Colors"
+        Text size:"lg" color:"muted"
+          "Inspect the semantic color system behind Dowe views. Every entry is a complete hexadecimal trio: fill color, ordinary text, and title text."
+      Flex direction:{ xs:"column" md:"row" } gap:3 align:{ xs:"stretch" md:"end" }
+        SelectTheme label:"Documentation theme" placeholder:"Choose a theme" variant:"outlined" scheme:"surface"
+        ToggleTheme variant:"soft" scheme:"secondary" size:"md"
+  Section id:"colors-palette" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "SEMANTIC PALETTE"
+        Title size:"3xl" weight:"black"
+          "One card for every color"
+        Text size:"sm" color:"muted"
+          "Cards use semantic schemes and follow the active theme. The hex labels document the light theme values in theme.dowe; solid cards preview base families and soft cards preview lower-emphasis counterparts."
+      Grid columns:{ xs:1 sm:2 lg:4 } gap:4
+        Card scheme:"primary" p:5 rounded:"lg"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" spacing:"widest"
+              "PRIMARY"
+            Title size:"lg" weight:"black"
+              "Primary"
+            Text size:"sm"
+              "fill: #1F3A5F"
+            Text size:"xs"
+              "text: #FFFFFF · title: #FFFFFE"
+        Card variant:"soft" scheme:"primary" p:5 rounded:"lg"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" spacing:"widest"
+              "SOFT PRIMARY"
+            Title size:"lg" weight:"black"
+              "Soft primary"
+            Text size:"sm"
+              "fill: #CCFBF3"
+            Text size:"xs"
+              "text: #073B35 · title: #073B35"
+        Card scheme:"secondary" p:5 rounded:"lg"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" spacing:"widest"
+              "SECONDARY"
+            Title size:"lg" weight:"black"
+              "Secondary"
+            Text size:"sm"
+              "fill: #6BC670"
+            Text size:"xs"
+              "text: #102A15 · title: #102A15"
+        Card variant:"soft" scheme:"secondary" p:5 rounded:"lg"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" spacing:"widest"
+              "SOFT SECONDARY"
+            Title size:"lg" weight:"black"
+              "Soft secondary"
+            Text size:"sm"
+              "fill: #E3F5E5"
+            Text size:"xs"
+              "text: #234B2A · title: #234B2A"
+        Card scheme:"tertiary" p:5 rounded:"lg"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" spacing:"widest"
+              "TERTIARY"
+            Title size:"lg" weight:"black"
+              "Tertiary"
+            Text size:"sm"
+              "fill: #3F7A8A"
+            Text size:"xs"
+              "text: #FFFFFF · title: #FFFFFF"
+        Card variant:"soft" scheme:"tertiary" p:5 rounded:"lg"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" spacing:"widest"
+              "SOFT TERTIARY"
+            Title size:"lg" weight:"black"
+              "Soft tertiary"
+            Text size:"sm"
+              "fill: #E5F1F3"
+            Text size:"xs"
+              "text: #244C57 · title: #244C57"
+        Card scheme:"happy" p:5 rounded:"lg"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" spacing:"widest"
+              "CUSTOM FAMILY"
+            Title size:"lg" weight:"black"
+              "Happy"
+            Text size:"sm"
+              "fill: #176C75"
+            Text size:"xs"
+              "text: #FFFFFE · title: #FFFFFE"
+        Card variant:"soft" scheme:"happy" p:5 rounded:"lg"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" spacing:"widest"
+              "CUSTOM SOFT FAMILY"
+            Title size:"lg" weight:"black"
+              "Soft happy"
+            Text size:"sm"
+              "fill: #D9F3F1"
+            Text size:"xs"
+              "text: #124D53 · title: #124D53"
+        Card scheme:"muted" p:5 rounded:"lg"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" spacing:"widest"
+              "MUTED"
+            Title size:"lg" weight:"black"
+              "Muted"
+            Text size:"sm"
+              "fill: #526274"
+            Text size:"xs"
+              "text: #FFFFFF · title: #FFFFFF"
+        Card variant:"soft" scheme:"muted" p:5 rounded:"lg"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" spacing:"widest"
+              "SOFT MUTED"
+            Title size:"lg" weight:"black"
+              "Soft muted"
+            Text size:"sm"
+              "fill: #E6EBF0"
+            Text size:"xs"
+              "text: #33465B · title: #33465B"
+        Card scheme:"background" p:5 rounded:"lg" border:1 borderColor:"muted"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" spacing:"widest"
+              "BACKGROUND"
+            Title size:"lg" weight:"black"
+              "Background"
+            Text size:"sm"
+              "fill: #FFFFFF"
+            Text size:"xs"
+              "text: #17263A · title: #17263E"
+        Card scheme:"surface" p:5 rounded:"lg" border:1 borderColor:"muted"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" spacing:"widest"
+              "SURFACE"
+            Title size:"lg" weight:"black"
+              "Surface"
+            Text size:"sm"
+              "fill: #F7F9FC"
+            Text size:"xs"
+              "text: #17263A · title: #17263E"
+        Card scheme:"success" p:5 rounded:"lg"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" spacing:"widest"
+              "SUCCESS"
+            Title size:"lg" weight:"black"
+              "Success"
+            Text size:"sm"
+              "fill: #2F7D43"
+            Text size:"xs"
+              "text: #FFFFFF · title: #FFFFFF"
+        Card variant:"soft" scheme:"success" p:5 rounded:"lg"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" spacing:"widest"
+              "SOFT SUCCESS"
+            Title size:"lg" weight:"black"
+              "Soft success"
+            Text size:"sm"
+              "fill: #E0F2E4"
+            Text size:"xs"
+              "text: #245D33 · title: #245D33"
+        Card scheme:"info" p:5 rounded:"lg"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" spacing:"widest"
+              "INFO"
+            Title size:"lg" weight:"black"
+              "Info"
+            Text size:"sm"
+              "fill: #2F6FA3"
+            Text size:"xs"
+              "text: #FFFFFF · title: #FFFFFF"
+        Card variant:"soft" scheme:"info" p:5 rounded:"lg"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" spacing:"widest"
+              "SOFT INFO"
+            Title size:"lg" weight:"black"
+              "Soft info"
+            Text size:"sm"
+              "fill: #E2EEF8"
+            Text size:"xs"
+              "text: #234F73 · title: #234F73"
+        Card scheme:"warning" p:5 rounded:"lg"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" spacing:"widest"
+              "WARNING"
+            Title size:"lg" weight:"black"
+              "Warning"
+            Text size:"sm"
+              "fill: #8A6300"
+            Text size:"xs"
+              "text: #FFFFFF · title: #FFFFFF"
+        Card variant:"soft" scheme:"warning" p:5 rounded:"lg"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" spacing:"widest"
+              "SOFT WARNING"
+            Title size:"lg" weight:"black"
+              "Soft warning"
+            Text size:"sm"
+              "fill: #F8EDCF"
+            Text size:"xs"
+              "text: #604600 · title: #604600"
+        Card scheme:"danger" p:5 rounded:"lg"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" spacing:"widest"
+              "DANGER"
+            Title size:"lg" weight:"black"
+              "Danger"
+            Text size:"sm"
+              "fill: #A33A46"
+            Text size:"xs"
+              "text: #FFFFFF · title: #FFFFFF"
+        Card variant:"soft" scheme:"danger" p:5 rounded:"lg"
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" spacing:"widest"
+              "SOFT DANGER"
+            Title size:"lg" weight:"black"
+              "Soft danger"
+            Text size:"sm"
+              "fill: #F7E3E6"
+            Text size:"xs"
+              "text: #7B2C36 · title: #7B2C36"
+  Section id:"colors-dark" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "DARK THEME OVERRIDES"
+        Title size:"3xl" weight:"black"
+          "The same roles, a different contrast relationship"
+        Text size:"sm" color:"muted"
+          "dark extends light and overrides only the values that need a darker canvas or stronger contrast. The custom happy family remains inherited from light."
+      Table:
+        data:darkOverrides
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"token" label:"Token" width:"1fr"
+        column field:"fill" label:"Color / fill" width:"2fr"
+        column field:"text" label:"Text" width:"2fr"
+        column field:"titleHex" label:"Title" width:"2fr"
+  Section id:"colors-contract" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "AUTHORING CONTRACT"
+        Title size:"3xl" weight:"black"
+          "Declare complete color triples"
+        Text size:"sm" color:"muted"
+          "The color property paints the surface, text styles ordinary content, and title styles Title descendants. Views consume semantic names instead of embedding hexadecimal values."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy color theme"
+        copiedLabel:"Copied"
+        content:"""
+          theme
+            design defaultTheme:"light"
+              theme name:"light"
+                colors:
+                  primary color:"#1F3A5F" text:"#FFFFFF" title:"#FFFFFE"
+                  softPrimary color:"#CCFBF3" text:"#073B35" title:"#073B35"
+                  happy color:"#176C75" text:"#FFFFFE" title:"#FFFFFE"
+
+          Card scheme:"primary"
+            Title
+              "A title uses the title role."
+            Text
+              "Body copy uses the text role."
+        """
+      Grid columns:1 gap:4
+        Card variant:"soft" scheme:"primary" p:5
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" spacing:"widest"
+              "SOLID"
+            Title size:"lg" weight:"bold"
+              "Base family"
+            Text size:"sm"
+              "scheme primary uses primary as its fill, primaryText for ordinary content, and primaryTitle for titles."
+        Card variant:"soft" scheme:"secondary" p:5
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" spacing:"widest"
+              "SOFT"
+            Title size:"lg" weight:"bold"
+              "Lower emphasis"
+            Text size:"sm"
+              "variant soft scheme primary resolves the separate softPrimary, softPrimaryText, and softPrimaryTitle trio."
+        Card variant:"soft" scheme:"info" p:5
+          Grid columns:1 gap:2
+            Text size:"xs" weight:"bold" spacing:"widest"
+              "CUSTOM"
+            Title size:"lg" weight:"bold"
+              "Project families"
+            Text size:"sm"
+              "happy is a custom semantic family. Add its complete color, text, and title values under colors."
+      Flex gap:3 wrap:true
+        Button variant:"soft" href:"/docs/views/theme/named-themes"
+          "Named themes docs"
+        Button variant:"soft" scheme:"secondary" href:"/docs/views/theme/component-defaults"
+          "Component defaults docs"

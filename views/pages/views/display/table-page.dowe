@@ -96,7 +96,7 @@ page TablePage
     },
   ]
   Section id:"table-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "DISPLAY"
@@ -189,7 +189,7 @@ page TablePage
           "Choose density and emphasis"
         Text size:"sm" color:"muted"
           "variant and scheme style the table surface, header, borders, stripes, and empty state. size adjusts header and cell typography together."
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Table:
           data:teamMembers
           variant:"solid"
@@ -273,7 +273,7 @@ page TablePage
           "PORTABLE CONTRACT"
         Title size:"3xl" weight:"black"
           "Semantic rows, native output"
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"

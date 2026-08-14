@@ -207,7 +207,7 @@ page CanvasOverviewPage
       },
     ]
   Section id:"canvas-overview-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "CANVAS"
@@ -270,7 +270,7 @@ page CanvasOverviewPage
           "MENTAL MODEL"
         Title size:"3xl" weight:"black"
           "Separate scene coordinates from layout"
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Card variant:"soft" scheme:"primary" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Title size:"xl" weight:"black"

@@ -1,4 +1,86 @@
+type InvoiceRow
+  id:string
+  invoice:string
+  customer:string
+  issued:string
+  due:string
+  amount:string
+  status:string
+
+type ProjectRow
+  id:string
+  project:string
+  owner:string
+  team:string
+  progress:string
+  updated:string
+  status:string
+
+type EmptyTableRow
+  name:string
+  owner:string
+  status:string
+
 page TablesPage
+  signal invoices type:InvoiceRow[] value:[
+    {
+      id:"INV-1048"
+      invoice:"INV-1048"
+      customer:"Northstar Studio"
+      issued:"Mar 04, 2025"
+      due:"Mar 18, 2025"
+      amount:"$4,280"
+      status:"Paid"
+    },
+    {
+      id:"INV-1047"
+      invoice:"INV-1047"
+      customer:"Meridian Labs"
+      issued:"Mar 01, 2025"
+      due:"Mar 15, 2025"
+      amount:"$2,940"
+      status:"Pending"
+    },
+    {
+      id:"INV-1046"
+      invoice:"INV-1046"
+      customer:"Atlas Research"
+      issued:"Feb 22, 2025"
+      due:"Mar 08, 2025"
+      amount:"$1,860"
+      status:"Overdue"
+    },
+  ]
+  signal projects type:ProjectRow[] value:[
+    {
+      id:"project-website"
+      project:"Marketing website"
+      owner:"Maya Ortiz"
+      team:"Design · 4"
+      progress:"82%"
+      updated:"2h ago"
+      status:"On track"
+    },
+    {
+      id:"project-mobile"
+      project:"Mobile onboarding"
+      owner:"Kai Bennett"
+      team:"Product · 6"
+      progress:"64%"
+      updated:"Yesterday"
+      status:"Review"
+    },
+    {
+      id:"project-api"
+      project:"Public API v2"
+      owner:"Leo Martin"
+      team:"Platform · 8"
+      progress:"38%"
+      updated:"Mar 07"
+      status:"At risk"
+    },
+  ]
+  signal emptyRows type:EmptyTableRow[] value:[]
   Section id:"tables" py:{ xs:6 md:10 }
     Grid columns:1 gap:4
       Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
@@ -6,7 +88,7 @@ page TablesPage
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Tables"
       Text size:"lg" color:"muted"
-        "A responsive team directory with Signals, mount-time initialization, reusable display components, and a backend-ready pagination flow."
+        "Four copy-ready table blocks for directories, finance, project tracking, and empty states—with neutral surfaces that keep data easy to scan."
   Section id:"team-directory" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
@@ -103,7 +185,7 @@ page TablesPage
                     set loadState value:0
                   else
                     set loadState value:0
-                Section id:"dashboard-table" bg:"softMuted" minH:"vh-0" p:{ xs:4 md:8 }
+                Section id:"dashboard-table" bg:"background" color:"backgroundText" minH:"vh-0" p:{ xs:4 md:8 }
                   Grid columns:1 gap:5
                     Title size:{ xs:"2xl" md:"4xl" } weight:"black"
                       "Dashboard"
@@ -121,7 +203,7 @@ page TablesPage
                               Skeleton variant:"rounded" h:12 w:"full"
                           Grid show:{ when:loadState lt:1 }
                             Grid columns:1 gap:0
-                              Grid columns:{ xs:"24px 1fr 32px" md:"24px 2fr 1fr 2fr 1fr auto 32px" } gap:3 align:"center" p:3 border:1 borderColor:"muted"
+                              Grid columns:{ xs:3 md:7 } gap:3 align:"center" p:3 border:1 borderColor:"muted"
                                 Box w:4 h:4 rounded:"xs" border:1
                                 Flex align:"center" gap:1
                                   Text size:"xs" weight:"bold"
@@ -137,7 +219,7 @@ page TablesPage
                                   "Status"
                                 Box
                               each in:members as:member key:member.id
-                                Grid columns:{ xs:"24px 1fr 32px" md:"24px 2fr 1fr 2fr 1fr auto 32px" } gap:3 align:"center" p:3 border:1 borderColor:"muted"
+                                Grid columns:{ xs:3 md:7 } gap:3 align:"center" p:3 border:1 borderColor:"muted"
                                   Box w:4 h:4 rounded:"xs" border:1
                                   Flex align:"center" gap:3
                                     Avatar alt:"Team member avatar" variant:"soft" scheme:"muted" size:"md"
@@ -170,4 +252,224 @@ page TablesPage
                       tab id:"team" label:"Team · 99+"
                         Text p:5 color:"muted"
                           "Team content"
+            """
+  Section id:"invoice-ledger" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "02 · INVOICE LEDGER"
+          Title size:"2xl" weight:"black"
+            "Amounts, due dates, and status in one scan"
+        Button:
+          href:"/blocks/table-preview/invoices"
+          variant:"soft"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Tabs variant:"line" position:"top" w:"full"
+        tab id:"invoice-ledger-preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe:
+              src:"/blocks/table-preview/invoices"
+              title:"Invoice ledger table preview"
+              loading:"lazy"
+              sandbox:"scripts same-origin"
+        tab id:"invoice-ledger-code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy invoice table"
+            copiedLabel:"Copied"
+            content:"""
+              type InvoiceRow
+                id:string
+                invoice:string
+                customer:string
+                issued:string
+                due:string
+                amount:string
+                status:string
+
+              page InvoiceTablePage
+                signal invoices type:InvoiceRow[] value:[
+                  {
+                    id:"INV-1048"
+                    invoice:"INV-1048"
+                    customer:"Northstar Studio"
+                    issued:"Mar 04, 2025"
+                    due:"Mar 18, 2025"
+                    amount:"$4,280"
+                    status:"Paid"
+                  },
+                  {
+                    id:"INV-1047"
+                    invoice:"INV-1047"
+                    customer:"Meridian Labs"
+                    issued:"Mar 01, 2025"
+                    due:"Mar 15, 2025"
+                    amount:"$2,940"
+                    status:"Pending"
+                  },
+                ]
+
+              Section id:"invoice-ledger" bg:"background" color:"backgroundText" boxed:true minH:"vh-0" p:{ xs:6 md:12 }
+                Grid columns:1 gap:6
+                  Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+                    "Invoice ledger"
+                  Table:
+                    data:invoices
+                    variant:"soft"
+                    scheme:"surface"
+                    size:"md"
+                    striped:true
+                    bordered:true
+                    dividers:true
+                    rounded:"md"
+                    column field:"invoice" label:"Invoice" width:"0.9fr"
+                    column field:"customer" label:"Customer" width:"1.5fr"
+                    column field:"issued" label:"Issued" width:"1fr"
+                    column field:"due" label:"Due" width:"1fr"
+                    column field:"amount" label:"Amount" align:"end" width:"0.8fr"
+                    column field:"status" label:"Status" align:"end" width:"0.9fr"
+            """
+  Section id:"project-status" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "03 · PROJECT STATUS"
+          Title size:"2xl" weight:"black"
+            "Progress snapshots for a working portfolio"
+        Button:
+          href:"/blocks/table-preview/projects"
+          variant:"soft"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Tabs variant:"line" position:"top" w:"full"
+        tab id:"project-status-preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe:
+              src:"/blocks/table-preview/projects"
+              title:"Project status table preview"
+              loading:"lazy"
+              sandbox:"scripts same-origin"
+        tab id:"project-status-code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy project table"
+            copiedLabel:"Copied"
+            content:"""
+              type ProjectRow
+                id:string
+                project:string
+                owner:string
+                team:string
+                progress:string
+                updated:string
+                status:string
+
+              page ProjectStatusTablePage
+                signal projects type:ProjectRow[] value:[
+                  {
+                    id:"project-website"
+                    project:"Marketing website"
+                    owner:"Maya Ortiz"
+                    team:"Design · 4"
+                    progress:"82%"
+                    updated:"2h ago"
+                    status:"On track"
+                  },
+                  {
+                    id:"project-mobile"
+                    project:"Mobile onboarding"
+                    owner:"Kai Bennett"
+                    team:"Product · 6"
+                    progress:"64%"
+                    updated:"Yesterday"
+                    status:"Review"
+                  },
+                ]
+
+              Section id:"project-status" bg:"background" color:"backgroundText" boxed:true minH:"vh-0" p:{ xs:6 md:12 }
+                Grid columns:1 gap:6
+                  Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+                    "Project status"
+                  Table:
+                    data:projects
+                    variant:"outlined"
+                    scheme:"surface"
+                    size:"sm"
+                    striped:true
+                    bordered:true
+                    dividers:true
+                    rounded:"md"
+                    column field:"project" label:"Project" width:"1.6fr"
+                    column field:"owner" label:"Owner" width:"1.2fr"
+                    column field:"team" label:"Team" width:"1fr"
+                    column field:"progress" label:"Progress" align:"end" width:"0.8fr"
+                    column field:"updated" label:"Updated" align:"end" width:"1fr"
+                    column field:"status" label:"Status" align:"end" width:"1fr"
+            """
+  Section id:"empty-table" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "04 · EMPTY STATE"
+          Title size:"2xl" weight:"black"
+            "Make an empty workspace feel intentional"
+        Button:
+          href:"/blocks/table-preview/empty-state"
+          variant:"soft"
+          size:"sm"
+          rounded:"full"
+          iconEnd:"arrow-right"
+          "Open full page"
+      Tabs variant:"line" position:"top" w:"full"
+        tab id:"empty-table-preview" label:"Preview"
+          Device device:"laptop" w:"full" rounded:"lg" border:1
+            Iframe:
+              src:"/blocks/table-preview/empty-state"
+              title:"Empty table state preview"
+              loading:"lazy"
+              sandbox:"scripts same-origin"
+        tab id:"empty-table-code" label:"Code"
+          Code:
+            language:"dowe"
+            variant:"soft"
+            scheme:"surface"
+            copyLabel:"Copy empty table"
+            copiedLabel:"Copied"
+            content:"""
+              type EmptyTableRow
+                name:string
+                owner:string
+                status:string
+
+              page EmptyTablePage
+                signal rows type:EmptyTableRow[] value:[]
+
+              Section id:"empty-table" bg:"background" color:"backgroundText" boxed:true minH:"vh-0" p:{ xs:6 md:12 }
+                Grid columns:1 gap:6
+                  Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+                    "Release queue"
+                  Table:
+                    data:rows
+                    variant:"soft"
+                    scheme:"surface"
+                    size:"md"
+                    bordered:true
+                    emptyTitle:"No releases yet"
+                    emptyDescription:"Create a release to start tracking the next deployment."
+                    rounded:"md"
+                    column field:"name" label:"Release" width:"1.5fr"
+                    column field:"owner" label:"Owner" width:"1fr"
+                    column field:"status" label:"Status" align:"end" width:"1fr"
             """

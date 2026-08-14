@@ -62,7 +62,7 @@ page AppBarsPage
                       "Let's Started"
                     IconButton icon:"hamburger-menu" label:"Open navigation" variant:"ghost" show:{ xs:true md:false }
             """
-  Section id:"creative" p:{ xs:5 md:7 } bg:"softDanger" color:"softDangerText"
+  Section id:"creative" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -164,7 +164,7 @@ page AppBarsPage
                   Button href:"/blocks/appbar-preview/floating-card" size:"sm" rounded:"full" show:{ xs:false sm:true }
                     "Get In Touch"
             """
-  Section id:"floating-card" p:{ xs:5 md:7 } bg:"softDanger" color:"softDangerText"
+  Section id:"floating-card" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -265,7 +265,7 @@ page AppBarsPage
                   Button href:"/blocks/appbar-preview/dashboard" size:"sm" rounded:"full" show:{ xs:false sm:true }
                     "Hire Me"
             """
-  Section id:"hosting" p:{ xs:5 md:7 } bg:"softPrimary" color:"softPrimaryText"
+  Section id:"hosting" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -377,7 +377,7 @@ page AppBarsPage
                         "Admin"
                     IconButton icon:"settings" label:"Open settings" variant:"ghost" scheme:"muted" size:"sm" show:{ xs:false md:true }
             """
-  Section id:"admin" p:{ xs:5 md:7 } bg:"softMuted" color:"softMutedText"
+  Section id:"admin" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2

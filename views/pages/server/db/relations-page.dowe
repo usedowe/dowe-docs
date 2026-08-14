@@ -1,0 +1,173 @@
+page DatabaseRelationsPage
+  const relationRows:
+    value:[
+      {
+        relation:"One-to-many"
+        pattern:"Posts.authorId -> Users.id"
+        guidance:"Store the parent id on the many-side record, add an index, and join or filter through a server query."
+      },
+      {
+        relation:"One-to-one"
+        pattern:"Profiles.userId -> Users.id"
+        guidance:"Store the parent id in a unique field so one parent can have at most one related record."
+      },
+      {
+        relation:"Many-to-many"
+        pattern:"UserRoles.userId + UserRoles.roleId"
+        guidance:"Create a join entity with one indexed field for each side, then query through both joins."
+      },
+    ]
+  const relationBoundaryRows:
+    value:[
+      {
+        boundary:"Entity fields"
+        behavior:"Use scalar fields such as authorId, userId, and roleId. Supported constraints are primary, required, unique, and index."
+      },
+      {
+        boundary:"Referential integrity"
+        behavior:"The current entity DSL does not declare foreign keys, references, cascade actions, or relation properties. Validate parent records in server code."
+      },
+      {
+        boundary:"Query execution"
+        behavior:"Use query with parameterized SQL-like expressions for JOIN, filtering, projection, and ordering."
+      },
+      {
+        boundary:"View boundary"
+        behavior:"Views request the response data they need; Database handles, entities, and credentials remain server-only."
+      },
+    ]
+  Section id:"database-relations-introduction" py:{ xs:6 md:10 }
+    Grid columns:1 gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "SERVER / DATABASE / RELATIONS"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Relations"
+      Text size:"lg" color:"muted"
+        "Dowe models relations explicitly with identifier fields and server queries. The current DSL does not add an automatic ORM graph, belongsTo helpers, or declarative foreign keys."
+  Section id:"database-relations-mental-model" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "1 / MENTAL MODEL"
+        Title size:"3xl" weight:"black"
+          "Store the link, then query the related records"
+        Text size:"sm" color:"muted"
+          "A relation is a normal field containing another record's id. Mark that field index:true when it is used for filtering or joining. The compiler validates the field type and constraints, while the server owns the relationship workflow."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy one-to-many model"
+        copiedLabel:"Copied"
+        content:"""
+          entity Users
+            id:string primary:true
+            name:string required:true
+
+          entity Posts
+            id:string primary:true
+            authorId:string required:true index:true
+            title:string required:true
+        """
+      Table:
+        data:relationRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"relation" label:"Pattern" width:"2fr"
+        column field:"pattern" label:"Identifier link" width:"2fr"
+        column field:"guidance" label:"Implementation" width:"5fr"
+  Section id:"database-relations-one-to-many" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "2 / ONE-TO-MANY"
+        Title size:"3xl" weight:"black"
+          "Keep the related id on the many side"
+        Text size:"sm" color:"muted"
+          "Each post stores its author's id. The index makes the common list-by-author path efficient, but it does not prove that the user exists. Check that authority in the server workflow before inserting or updating a post."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy one-to-many query"
+        copiedLabel:"Copied"
+        content:"""
+          handler listUserPosts
+            query rows conn:appDb.query sql:"SELECT posts.id, posts.title, users.name AS authorName FROM posts JOIN users ON posts.authorId = users.id WHERE posts.authorId = ?1" params:[req.params.userId]
+            return json:{ ok:true data:rows }
+        """
+      Text size:"sm" color:"muted"
+        "The query result is ordinary server data. Return only the projection required by the endpoint instead of exposing the Database handle to a View."
+  Section id:"database-relations-one-to-one" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "3 / ONE-TO-ONE"
+        Title size:"3xl" weight:"black"
+          "Use a unique parent id"
+        Text size:"sm" color:"muted"
+          "A unique userId allows one profile for each user. unique:true is a field constraint, so it prevents duplicate values for that column but does not create a foreign-key reference or cascade behavior."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy one-to-one model"
+        copiedLabel:"Copied"
+        content:"""
+          entity Profiles
+            id:string primary:true
+            userId:string required:true unique:true index:true
+            bio:string
+        """
+      Alert type:"info" message:"Use a server read before the write when the related user must exist. A unique field is the one-to-one limit; relationship existence remains application logic."
+  Section id:"database-relations-many-to-many" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "4 / MANY-TO-MANY"
+        Title size:"3xl" weight:"black"
+          "Create an explicit join entity"
+        Text size:"sm" color:"muted"
+          "For users and roles, UserRoles stores one userId and one roleId per membership. Index both fields for reverse lookups. The current entity contract does not provide composite unique constraints, so duplicate memberships need a server check."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy join entity"
+        copiedLabel:"Copied"
+        content:"""
+          entity UserRoles
+            id:string primary:true
+            userId:string required:true index:true
+            roleId:string required:true index:true
+
+          query rows conn:appDb.query sql:"SELECT users.name, roles.name AS roleName FROM users JOIN user_roles ON user_roles.userId = users.id JOIN roles ON user_roles.roleId = roles.id WHERE users.id = ?1" params:[req.params.userId]
+        """
+  Section id:"database-relations-boundaries" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "5 / CONTRACT BOUNDARIES"
+        Title size:"3xl" weight:"black"
+          "Know what Dowe enforces"
+        Text size:"sm" color:"muted"
+          "Relationships work across the shared Database providers through explicit fields and parameterized queries. The server remains responsible for authorization, existence checks, cleanup, and response shape."
+      Table:
+        data:relationBoundaryRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"boundary" label:"Boundary" width:"2fr"
+        column field:"behavior" label:"Current contract" width:"5fr"
+      Flex gap:3 wrap:true
+        Button href:"/docs/server/db/entities" variant:"soft" scheme:"muted" size:"sm" iconStart:"documents"
+          "Entity constraints"
+        Button href:"/docs/server/db/select" variant:"soft" scheme:"muted" size:"sm" iconStart:"magnifier"
+          "Select and join"

@@ -3,13 +3,13 @@ page DeployPage
     value:[
       {
         surface:"Server"
-        providers:"Dowe Cloud, Docker, SSH, or Cloudflare Worker"
-        guidance:"Dowe Cloud uploads a verified application binary. Docker creates a native Linux image. SSH installs one executable as a Debian or Ubuntu systemd service. Cloudflare Worker keeps Dowe-owned Wasm lowering. Use dowe login once or DOWE_CLOUD_TOKEN in CI."
+        providers:"Dowe Cloud (coming soon), Docker, SSH, or Cloudflare Worker"
+        guidance:"Selecting Dowe Cloud currently reports that deployment is coming soon and exits without compiling or publishing. Docker generates one standalone Linux application executable and copies it into Distroless. SSH installs one executable as a Debian or Ubuntu systemd service. Cloudflare Worker keeps Dowe-owned Wasm lowering."
       },
       {
         surface:"Web"
-        providers:"Dowe Cloud or Cloudflare Pages"
-        guidance:"Pages packages the generated web distribution and can publish it with Wrangler. Project assets stay available under /assets, including social images referenced only by SEO metadata."
+        providers:"Dowe Cloud (coming soon), Docker, or Cloudflare Pages"
+        guidance:"Selecting Dowe Cloud currently reports that deployment is coming soon and exits without compiling or publishing. Docker generates a standalone Linux Web application for SSR and web assets, including views-only projects; it ignores Server configuration. Pages packages the generated web distribution and can publish it with Wrangler. Project assets stay available under /assets, including social images referenced only by SEO metadata."
       },
     ]
   const deployEnvironmentRows:
@@ -65,6 +65,11 @@ page DeployPage
         guidance:"Dowe adds latest when the selected image name does not contain a tag."
       },
       {
+        concern:"Interactive preference"
+        defaultValue:"server/web: .dowe/dev/docker-deploy-<surface>.json"
+        guidance:"After confirmation, Server and Web remember registry and image independently for their next Docker menu. Explicit flags override these values; credentials are never stored."
+      },
+      {
         concern:"Platform"
         defaultValue:"linux/amd64"
         guidance:"The current native runtime and generated build command target Linux amd64."
@@ -73,23 +78,27 @@ page DeployPage
   const runtimeRows:
     value:[
       {
-        concern:"One native executable"
-        guidance:"The same dowe binary runs development commands and the production-only server subcommand."
+        concern:"Server executable"
+        guidance:"Server Docker appends the selected application to Dowe's packaged Linux runtime utility and starts /usr/local/bin/dowe-app without CLI arguments."
       },
       {
-        concern:"Immutable release archive"
-        guidance:"The Dockerfile downloads the versioned Linux archive and extracts dowe without requiring Dowe on the user machine."
+        concern:"Web executable"
+        guidance:"Web Docker uses the same packaged Linux utility to generate its own /usr/local/bin/dowe-app with surface metadata. Neither target downloads another CLI or requires Cargo, rustc, or a user Rust toolchain."
       },
     ]
   const sshRows:
     value:[
+      {
+        concern:"Preflight before upload"
+        guidance:"Dowe validates the local runtime, then checks the remote OS, amd64 architecture, systemd, user, and root or sudo privileges before starting scp. Failed preflight uploads no executable and changes no service."
+      },
       {
         concern:"Password or key"
         guidance:"OpenSSH owns password and key-passphrase prompts. Dowe stores neither and keeps normal host-key verification enabled."
       },
       {
         concern:"Debian or Ubuntu"
-        guidance:"The remote installer rejects other distributions, non-amd64 hosts, missing systemd, or accounts without sudo access."
+        guidance:"The remote installer rejects other distributions, non-amd64 hosts, or missing systemd. Root sessions install directly; non-root accounts require sudo access."
       },
       {
         concern:"Background service"
@@ -129,7 +138,7 @@ page DeployPage
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Dowe Deploy"
       Text size:"lg" color:"muted"
-        "Build native release artifacts, publish mobile apps, or deploy to Dowe Cloud, Docker, SSH, and Cloudflare."
+        "Build native release artifacts, publish mobile apps, or deploy to Docker, SSH, and Cloudflare. Dowe Cloud deployment is coming soon."
   Section id:"deploy-command" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
@@ -146,10 +155,8 @@ page DeployPage
         copyLabel:"Copy commands"
         copiedLabel:"Copied"
         content:"""
-          dowe login
           dowe deploy
-          dowe deploy server --target dowe --publish
-          dowe deploy web --target dowe --publish
+          dowe deploy web --target docker --registry ghcr.io/acme --image clinic-web
           dowe deploy server --target ssh --publish --host server.example.com --user deploy --key-file $HOME/.ssh/id_ed25519
           dowe deploy server --environment stage --target docker --registry ghcr.io/acme --image clinic
           dowe deploy --environment uat --target cloudflare --name clinic-api
@@ -247,7 +254,7 @@ page DeployPage
         Title size:"3xl" weight:"black"
           "Tag the image you intend to run"
         Text size:"sm" color:"muted"
-          "Interactive Docker asks for a registry and image name. docker.io and the project folder provide safe defaults."
+          "Interactive Docker asks for a registry and image name. docker.io and the project folder provide safe defaults, then Dowe remembers confirmed non-secret values separately for Server and Web."
       Table:
         data:dockerRows
         variant:"soft"
@@ -269,11 +276,11 @@ page DeployPage
           .dowe/dist/docker/
             Dockerfile
             deploy.json
-            app/
-              main.dowe
-              theme.dowe
-              .env.example
-              assets/
+            dowe-app
+          .dowe/dist/web/docker/
+            Dockerfile
+            deploy.json
+            dowe-app
         """
   Section id:"deploy-runtime" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
@@ -281,9 +288,9 @@ page DeployPage
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "6 / DISTROLESS / NONROOT"
         Title size:"3xl" weight:"black"
-          "Ship one Dowe binary, not the toolchain"
+          "Ship one Dowe application, not the toolchain"
         Text size:"sm" color:"muted"
-          "The final image contains the app and the Linux dowe executable. It does not contain Cargo, rustc, a shell, or Node.js."
+          "Server and Web each contain one standalone Linux application executable with their selected surface embedded. Neither image contains Cargo, rustc, a shell, or Node.js."
       Table:
         data:runtimeRows
         variant:"soft"
@@ -300,7 +307,7 @@ page DeployPage
         scheme:"surface"
         copyLabel:"Copy entrypoint"
         copiedLabel:"Copied"
-        content:"/usr/local/bin/dowe server --root /app --bind 0.0.0.0:8080"
+        content:"Server: /usr/local/bin/dowe-app\nWeb: /usr/local/bin/dowe-app"
   Section id:"deploy-ssh" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
@@ -345,9 +352,9 @@ page DeployPage
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "9 / CURRENT BOUNDARIES"
         Title size:"3xl" weight:"black"
-          "Four Server providers, one shared Dowe authority"
+          "Three active Server providers, one shared Dowe authority"
         Text size:"sm" color:"muted"
-          "Dowe Cloud, Docker, SSH, and Cloudflare continue through the shared deploy API used by CLI and IPC. The former Linux host package remains retired."
+          "Dowe Cloud remains visible as a future provider, while Docker, SSH, and Cloudflare are the active Server deploy targets. The former Linux host package remains retired."
       Table:
         data:deployBoundaryRows
         variant:"soft"

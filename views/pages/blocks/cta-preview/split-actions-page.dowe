@@ -4,7 +4,7 @@ page SplitActionsCtaPage
     { id:"sales" label:"Talk to sales" variant:"outlined" },
   ]
   Section id:"split-actions-cta" bg:"background" color:"backgroundText" boxed:true p:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"5fr 3fr" } gap:{ xs:6 md:12 } align:"center" minH:{ xs:72 md:56 }
+    Grid columns:{ xs:1 md:2 } gap:{ xs:6 md:12 } align:"center" minH:{ xs:72 md:56 }
       Flex direction:"column" align:{ xs:"center" md:"start" } justify:"center" gap:3
         Title size:{ xs:"3xl" md:"4xl" } weight:"black"
           "Create your account today and get started for free!"

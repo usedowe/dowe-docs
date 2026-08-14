@@ -91,7 +91,7 @@ page FabPage
       },
     ]
   Section id:"fab-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "CONTROL"
@@ -134,7 +134,7 @@ page FabPage
           "Pin the action to a corner"
         Text size:"sm" color:"muted"
           "position chooses a viewport corner. fixed keeps the action available during scrolling; offsetX and offsetY use the Dowe spacing scale."
-      Grid columns:{ xs:1 md:2 } gap:5
+      Grid columns:1 gap:5
         Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
@@ -169,7 +169,7 @@ page FabPage
           "A compact, intentional trigger"
         Text size:"sm" color:"muted"
           "Fab supports solid and soft variants, every action scheme, and five square control sizes. Expanded actions use fully tappable intrinsic-width capsules, while the complete trigger circle accepts input and rotates its plus into a dismiss mark on web, Android, and iOS."
-      Grid columns:{ xs:1 md:2 } gap:5
+      Grid columns:1 gap:5
         Card variant:"outlined" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
@@ -204,7 +204,7 @@ page FabPage
           "Direct actions only"
         Text size:"sm" color:"muted"
           "Fab accepts zero or more direct fabAction children. Each action needs a static label plus href or onClick."
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"

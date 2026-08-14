@@ -32,15 +32,15 @@ page DatabaseEntitiesPage
     value:[
       {
         provider:"PostgreSQL"
-        guidance:"Dowe generates deterministic CREATE TABLE and CREATE INDEX migration SQL and applies pending migrations before the production listener opens."
+        guidance:"dowe database migrate appends deterministic CREATE TABLE, ALTER TABLE, and CREATE INDEX SQL; production applies pending nodes before listening."
       },
       {
         provider:"Cloudflare D1"
-        guidance:"Dowe generates equivalent SQLite-compatible migration artifacts and applies them before seeders."
+        guidance:"The same command appends SQLite-compatible SQL, and production applies each node through one atomic D1 batch before seeders."
       },
       {
         provider:"Dowe Database"
-        guidance:"The local and remote Dowe engines stay dynamic. Entity metadata does not create a schema or reject undeclared record fields at runtime."
+        guidance:"The graph records a dynamic no-SQL head. Local and remote Dowe engines stay schema-less and do not reject undeclared record fields at runtime."
       },
     ]
   Section id:"database-entities-introduction" py:{ xs:6 md:10 }
@@ -182,4 +182,6 @@ page DatabaseEntitiesPage
         column field:"provider" label:"Provider" width:"2fr"
         column field:"guidance" label:"Entity effect" width:"5fr"
       Text size:"sm" color:"muted"
-        "A query still uses db:<handle>.<operation> and a table string. An entity is compile-time schema and migration authority for SQL providers, not a runtime Database handle and not a value exposed to Views."
+        "A query still uses conn:<handle>.<operation> and a table string. An entity is compile-time schema and migration authority for SQL providers, not a runtime Database handle and not a value exposed to Views."
+      Button href:"/docs/server/db/migrations" variant:"soft" scheme:"muted" size:"sm" iconStart:"document-add"
+        "Migration graph"

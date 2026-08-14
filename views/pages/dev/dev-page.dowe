@@ -32,12 +32,12 @@ page DevPage
       {
         targets:"Native startup"
         result:"Fail fast across targets"
-        guidance:"Android and iOS start in parallel. If one target fails, Dowe cancels pending native compiler commands, cleans up the session, and reports the first actionable error immediately."
+        guidance:"Android and iOS start in parallel. If one target fails, Dowe cancels pending native compiler trees, including descendants that create independent process groups, cleans up the session, and reports the first actionable error immediately."
       },
       {
         targets:"Cold native builds"
-        result:"Build once, reuse native units"
-        guidance:"Large Android pages are partitioned before javac. iOS opens its simulator host before the first Swift module finishes, then later runs reuse incremental native caches."
+        result:"Bound work, then reuse units"
+        guidance:"Large Android pages are partitioned before javac. iOS opens its simulator host before the first Swift module finishes, uses at most two one-primary Swift frontends, and reuses incremental native caches on later runs."
       },
     ]
   const devWatchRows:
@@ -48,7 +48,7 @@ page DevPage
       },
       {
         area:"Recoverable rebuilds"
-        guidance:"A failed rebuild reports diagnostics and keeps the development session available for the next correction."
+        guidance:"A failed rebuild reports the native compiler diagnostic, keeps the last valid module active, and does not repeat the same failed Swift compilation before waiting for the next correction."
       },
     ]
   Section id:"dev-introduction" py:{ xs:6 md:10 }

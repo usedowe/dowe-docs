@@ -137,10 +137,10 @@ page HmrPage
       Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
         "4 / CURRENT PERFORMANCE"
       Title size:"3xl" weight:"black"
-        "Expect some reloads to take time today"
+        "Rebuild only what the session needs"
       Text size:"sm" color:"muted"
-        "Hot reload is available now, but its current pipeline can feel slow, especially during a first native build, after a cache invalidation, or in a large project. Keep the session open so Dowe can reuse valid generated and native build units."
-      Alert type:"info" message:"The HMR pipeline is planned for a future refactor focused on faster invalidation, rebuild, publication, and application of changed modules. Reload duration depends on the selected target, toolchain state, and the size of the affected view graph."
+        "Development compilation emits artifacts only for selected targets. A route graph, layout, page, component, Store, theme, i18n, or icon save rebuilds selected views while retaining the active compiled server model."
+      Alert type:"info" message:"Changes to main.dowe, server modules, shared or unclassified modules, and environment files use a conservative full-project rebuild. First native builds and toolchain cache invalidations can still take longer than a warm view update."
       Button:
         href:"/docs/dev/dev#dev-watch"
         variant:"soft"

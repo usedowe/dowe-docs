@@ -40,8 +40,8 @@ page DatabaseSelectPage
         content:"""
           handler blogDetail
             database db provider:"dowe" host:env.DOWE_HOST port:env.DOWE_PORT account:env.DOWE_USER secret:env.DOWE_PASSWORD name:"content"
-            query blogs db:db.list table:"blogs"
-            query blog db:db.read table:"blogs" where:{ id:req.params.id } required:true
+            query blogs conn:db.list table:"blogs"
+            query blog conn:db.read table:"blogs" where:{ id:req.params.id } required:true
             return json:{ list:blogs selected:blog }
         """
       Table:
@@ -62,7 +62,7 @@ page DatabaseSelectPage
         Title size:"3xl" weight:"black"
           "Use query for a supported read expression"
         Text size:"sm" color:"muted"
-          "SQL-like input is a static, validated string. Do not interpolate values from body, params, query strings, or headers into SQL."
+          "SQL-like input is a static, validated string. The portable subset supports projections, AS aliases, multiple equality joins, equality filters joined by AND, ORDER BY, LIMIT, OFFSET, and ?N parameters. Do not interpolate values from body, params, query strings, or headers into SQL."
       Code:
         language:"dowe"
         variant:"soft"
@@ -72,6 +72,6 @@ page DatabaseSelectPage
         content:"""
           handler scheduledAppointments
             database db provider:"dowe" host:env.DOWE_HOST port:env.DOWE_PORT account:env.DOWE_USER secret:env.DOWE_PASSWORD name:"clinic"
-            query rows db:db.query sql:"select appointments.patientName, appointments.startsAt from appointments where status = \"scheduled\" order by startsAt"
+            query rows conn:db.query sql:"select appointments.patientName, appointments.startsAt from appointments where status = \"scheduled\" order by startsAt"
             return json:{ ok:true data:rows }
         """

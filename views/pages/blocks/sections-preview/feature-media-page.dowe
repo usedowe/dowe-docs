@@ -12,7 +12,7 @@ page FeatureMediaSectionPage
     },
   ]
   Section id:"feature-media-section" bg:"background" color:"backgroundText" boxed:true p:{ xs:6 md:12 }
-    Grid columns:{ xs:1 md:"4fr 7fr" } gap:{ xs:10 md:16 } align:"center" minH:"vh-0"
+    Grid columns:{ xs:1 md:2 } gap:{ xs:10 md:16 } align:"center" minH:"vh-0"
       Grid columns:1 gap:{ xs:8 md:12 }
         each in:features as:feature key:feature.id
           Flex direction:"column" align:{ xs:"center" md:"start" } gap:3

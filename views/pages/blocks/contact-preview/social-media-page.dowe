@@ -13,7 +13,7 @@ page ContactSocialMediaPage
           "Get in touch today"
         Text color:"muted"
           "Share your goals and our team will respond with practical next steps."
-      Grid columns:{ xs:1 md:"5fr 4fr" } gap:{ xs:8 md:12 } align:"center"
+      Grid columns:{ xs:1 md:2 } gap:{ xs:8 md:12 } align:"center"
         Grid columns:1 gap:4
           Grid columns:{ xs:1 sm:2 } gap:4
             Input bind:form.name label:"Name" placeholder:"John Carter" variant:"soft" scheme:"muted" w:"full"

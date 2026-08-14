@@ -77,7 +77,7 @@ page FootersPage
                     IconButton icon:"camera" label:"Instagram" href:"https://instagram.com" scheme:"muted"
                     IconButton icon:"link-circle" label:"LinkedIn" href:"https://linkedin.com" scheme:"muted"
             """
-  Section id:"social" p:{ xs:5 md:7 } bg:"softMuted" color:"softMutedText"
+  Section id:"social" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -173,7 +173,7 @@ page FootersPage
                 bottom
                   Divider show:{ xs:true md:false }
             """
-  Section id:"brand" p:{ xs:5 md:7 } bg:"softPrimary" color:"softPrimaryText"
+  Section id:"brand" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -328,7 +328,7 @@ page FootersPage
                   Text size:"xs" color:"mutedText" show:{ xs:true md:false }
                     "CompanyName @ 202X. All rights reserved."
             """
-  Section id:"newsletter" p:{ xs:5 md:7 } bg:"softMuted" color:"softMutedText"
+  Section id:"newsletter" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -368,7 +368,7 @@ page FootersPage
                           Icon name:"widget-5" fill:"mutedText" w:7 h:7
                           Text size:"lg" weight:"black" color:"mutedText"
                             "WebbyFrames"
-                      Grid columns:"1fr auto" w:"full" gap:2
+                      Grid columns:2 w:"full" gap:2
                         Input placeholder:"Enter your email to get the latest news..." iconStart:"letter"
                         Button
                           "Subscribe"

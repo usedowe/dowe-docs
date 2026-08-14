@@ -38,7 +38,7 @@ page MarqueePage
       },
     ]
   Section id:"marquee-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "DISPLAY"
@@ -102,7 +102,7 @@ page MarqueePage
           "Use the same child tree in different rails"
         Text size:"sm" color:"muted"
           "reverse changes travel direction. orientation changes the track axis. The child layout still owns its own alignment and gap."
-      Grid columns:{ xs:1 md:2 } gap:4
+      Grid columns:1 gap:4
         Card variant:"soft" p:{ xs:5 md:7 }
           Grid columns:1 gap:4
             Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
@@ -158,7 +158,7 @@ page MarqueePage
                 "Compile"
         """
   Section id:"marquee-guidance" p:{ xs:5 md:7 }
-    Grid columns:{ xs:1 md:3 } gap:4
+    Grid columns:1 gap:4
       Card variant:"outlined" p:5 border:1
         Grid columns:1 gap:2
           Text size:"xs" weight:"bold" color:"muted"

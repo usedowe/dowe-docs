@@ -8,7 +8,7 @@ page BannerPage
       { prop:"background, spacing, border, radius, shadow, show" type:"common layout props" defaultValue:"—" },
     ]
   Section id:"banner-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "DISPLAY"
@@ -36,7 +36,7 @@ page BannerPage
         border:1
         borderColor:"primary"
         shadow:"sm"
-        Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"center"
+        Grid columns:1 gap:5 align:"center"
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
               "DOWE PLATFORM"
@@ -62,7 +62,7 @@ page BannerPage
             color:"softPrimaryText"
             p:{ xs:5 md:8 }
             rounded:"lg"
-            Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"center"
+            Grid columns:{ xs:1 md:2 } gap:5 align:"center"
               Grid columns:1 gap:2
                 Title size:"3xl" weight:"black"
                   "AI can generate code. Dowe generates systems."
@@ -146,7 +146,7 @@ page BannerPage
           "One visual surface, one external destination"
         Text size:"sm" color:"muted"
           "Banner fixes external behavior so every target can preserve the same safe intent."
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
@@ -172,7 +172,7 @@ page BannerPage
             Text size:"sm" color:"muted"
               "Web opens a protected new tab. Android and iOS use the system browser."
   Section id:"banner-accessibility" p:{ xs:5 md:7 }
-    Grid columns:{ xs:1 md:2 } gap:4
+    Grid columns:1 gap:4
       Card variant:"outlined" p:5 border:1
         Grid columns:1 gap:2
           Text size:"xs" weight:"bold" color:"muted"

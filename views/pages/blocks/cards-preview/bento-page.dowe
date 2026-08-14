@@ -32,7 +32,7 @@ page BentoCardsPage
         Grid columns:1 gap:5
           each in:supportingFeatures as:feature key:feature.id
             Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:52
-              Grid columns:{ xs:1 sm:"3fr 2fr" } gap:5 align:"center"
+              Grid columns:{ xs:1 sm:2 } gap:5 align:"center"
                 Flex direction:"column" align:"start" gap:4
                   Title size:"xl" weight:"black"
                     "{feature.title}"

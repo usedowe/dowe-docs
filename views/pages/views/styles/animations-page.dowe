@@ -19,7 +19,7 @@ page AnimationsPage
         "Apply entrance motion to any styled component while preserving its authored transforms."
   Section id:"animations-presets" p:{ xs:5 md:8 }
     Flex direction:"column" gap:6
-      Grid columns:{ xs:1 md:"1fr auto" } gap:4 align:"end"
+      Grid columns:1 gap:4
         Flex direction:"column" gap:2
           Title size:"3xl" weight:"black"
             "Seven entrance presets"
@@ -27,7 +27,7 @@ page AnimationsPage
             "Entrance motion runs once when the page appears. Use Replay animations to remount this example and compare every preset."
         Button href:"/docs/views/style/animations" navigate:"replace" size:"sm"
           "Replay animations"
-      Grid columns:{ xs:2 md:3 } gap:5
+      Grid columns:1 gap:5
         Card variant:"soft" scheme:"primary" animation:"fadeIn" p:5
           Text weight:"bold"
             "fadeIn"

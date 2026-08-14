@@ -93,7 +93,7 @@ page ComparisonTablePricingPage
         Text size:"lg" color:"muted"
           "Compare capacity, analytics, and reporting access before choosing the right plan."
       Grid columns:1 gap:0 show:{ xs:false md:true }
-        Grid columns:"2fr 1fr 1fr 1fr" gap:0 align:"stretch"
+        Grid columns:4 gap:0 align:"stretch"
           Flex align:"end" p:4
             Title size:"xl" weight:"black"
               "Features"
@@ -115,7 +115,7 @@ page ComparisonTablePricingPage
                 Button rounded:"full" w:"full"
                   "Get started"
         each in:featureRows as:row key:row.id
-          Grid columns:"2fr 1fr 1fr 1fr" gap:0 align:"center" border:1 borderColor:"muted"
+          Grid columns:4 gap:0 align:"center" border:1 borderColor:"muted"
             Text p:4 color:"muted"
               "{row.label}"
             Flex align:"center" justify:"center" p:4
@@ -131,14 +131,14 @@ page ComparisonTablePricingPage
               Text show:row.values
                 "{row.enterpriseValue}"
               Icon name:"check-circle-bold" fill:"muted" w:6 h:6 show:row.enterpriseCheck
-        Grid columns:"2fr 1fr 1fr 1fr" gap:0 border:1 borderColor:"muted"
+        Grid columns:4 gap:0 border:1 borderColor:"muted"
           Title size:"xl" weight:"black" p:4
             "Reporting"
           Box
           Box bg:"softMuted"
           Box
         each in:reportingRows as:row key:row.id
-          Grid columns:"2fr 1fr 1fr 1fr" gap:0 align:"center" border:1 borderColor:"muted"
+          Grid columns:4 gap:0 align:"center" border:1 borderColor:"muted"
             Text p:4 color:"muted"
               "{row.label}"
             Box p:4

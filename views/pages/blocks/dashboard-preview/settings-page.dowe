@@ -21,7 +21,7 @@ page DashboardSettingsPage
           "Workspace preferences"
         Text size:"sm" color:"muted"
           "Keep identity, security, and notifications in one responsive form."
-      Grid columns:{ xs:1 lg:"280px 1fr" } gap:4 align:"start"
+      Grid columns:{ xs:1 lg:2 } gap:4 align:"start"
         Card variant:"soft" rounded:"lg" p:{ xs:5 md:6 } border:1
           Flex direction:"column" align:"center" gap:3
             Avatar name:"Jordan Lee" alt:"Jordan Lee profile photo placeholder" size:"xl" variant:"soft" scheme:"primary" bordered:true

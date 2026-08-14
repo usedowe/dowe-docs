@@ -45,7 +45,8 @@ family-colored content. Child-bearing variant surfaces pass their resolved foreg
 of their content regions unless the descendant declares `color`; for example, a soft muted Card
 supplies `softMutedText` to ordinary content and `softMutedTitle` to `Title`. AppBar or Footer
 supplies its content roles to `top`, `start`, `center`, `end`, and `bottom`. Button labels use the
-text role, while semantic headers such as `SideNav` headers use the title role.
+text role. Transparent `SideNav` headers use the visible base color of their `scheme`; an explicit
+icon color remains a local override.
 Native iOS rows explicitly restore the background foreground for inactive labels and descriptions
 so a muted scheme cannot make them disappear against the page background.
 
@@ -149,7 +150,7 @@ breakpoint.
 | Padding | `p`, `px`, `py`, `pl`, `pr`, `pt`, `pb` | Dowe numeric scale |
 | Size | `w`, `h`, `minW`, `minH`, `maxW`, `maxH` | Scale values, `full`; `h`, `minH`, and `maxH` also accept `vh-<scale>` |
 | Border | `rounded`, `border` | `xs`, `sm`, `md`, `lg`, `xl`, `full`; integers `1` to `4` |
-| Layout | `justify`, `align`, `gap`, `columns`, `rows` | Layout keywords, grid tracks, scale values, validated pixel gaps |
+| Layout | `justify`, `align`, `gap`, `columns`, `rows` | Layout keywords, numeric grid counts, scale values, validated pixel gaps |
 | Grid item | `colSpan`, `rowSpan` | Positive integers on direct `Box`, `Section`, or `Card` children of `Grid` |
 | Box position | `position`, `top`, `right`, `bottom`, `left` | Static position mode; responsive Dowe-scale offsets on absolute or fixed Box |
 | Media background | `cover`, `overlay` | Static asset path or `https://` URL; boolean, opacity number, RGBA, or linear gradient |
@@ -246,10 +247,12 @@ width unless `w` declares another dimension.
 `direction:{ xs:"column" md:"row" }`. `wrap:true` lets a resolved row continue on additional
 lines.
 
-`Grid` accepts `columns:3`, validated templates such as `columns:"200px 1fr 200px"` and
-`rows:"100px auto"`, `gap:"10px 20px"` as row gap then column gap, plus `justify` and `align` for
-cell alignment. `colSpan` and `rowSpan` are valid only on direct `Box`, `Section`, or `Card` grid
-children, and a span wider than a statically known column count fails compilation.
+`Grid` accepts an integer `columns` value from `1` through `12`, `rows:auto` or a positive integer,
+responsive count objects such as `columns:{ xs:1 md:3 }`, and `gap:"10px 20px"` as row gap then
+column gap. Track templates such as `fr`, `px`, percentages, or `auto` strings are rejected for
+`columns` and `rows` so the generated structure stays identical across web, iOS, and Android.
+`colSpan` and `rowSpan` are valid only on direct `Box`, `Section`, or `Card` grid children, and a
+span wider than a statically known column count fails compilation.
 
 ## Box positioning
 

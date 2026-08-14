@@ -8,7 +8,7 @@ page BadgePage
       { prop:"children" type:"one or more view children" defaultValue:"required" },
     ]
   Section id:"badge-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:6 align:"end"
+    Grid columns:1 gap:6
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "DISPLAY"
@@ -28,7 +28,7 @@ page BadgePage
           "Add context without covering the control"
         Text size:"sm" color:"muted"
           "Each example gets enough breathing room for the label to sit across the child’s corner on web, Android, and iOS."
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Card variant:"outlined" rounded:"lg" border:1 p:7 minH:36
           Flex direction:"column" align:"center" justify:"between" gap:6 minH:24
             Badge text:"3" scheme:"danger" position:"top-right"
@@ -85,7 +85,7 @@ page BadgePage
           "Choose one of four corners"
         Text size:"sm" color:"muted"
           "The center of the capsule anchors to the selected corner, so the label remains legible without shifting the wrapped view."
-      Grid columns:{ xs:1 sm:2 md:4 } gap:4
+      Grid columns:1 gap:4
         Card variant:"soft" scheme:"muted" p:7 rounded:"lg" minH:32
           Flex direction:"column" align:"center" justify:"center" gap:5 minH:20
             Badge text:"TL" scheme:"primary" position:"top-left"
@@ -123,7 +123,7 @@ page BadgePage
           "Keep the child primary"
         Text size:"sm" color:"muted"
           "A Badge should clarify an existing view, not become a second control or a paragraph of content."
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Card variant:"soft" scheme:"success" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
@@ -157,7 +157,7 @@ page BadgePage
           "One source, the same overlay"
         Text size:"sm" color:"muted"
           "Dowe lowers the same Badge tree into target-owned layout primitives while preserving label metrics, scheme, variant, and corner."
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Card variant:"outlined" rounded:"lg" border:1 p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest" color:"muted"

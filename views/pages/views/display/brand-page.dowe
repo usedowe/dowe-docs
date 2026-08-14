@@ -8,7 +8,7 @@ page BrandPage
       { prop:"spacing, border, radius, shadow, show" type:"common layout props" defaultValue:"—" },
     ]
   Section id:"brand-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "DISPLAY"
@@ -71,7 +71,7 @@ page BrandPage
           "Identity without action styling"
         Text size:"sm" color:"muted"
           "Brand owns an optional navigation boundary while its children own every visible pixel."
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
@@ -97,7 +97,7 @@ page BrandPage
             Text size:"sm" color:"muted"
               "Svg and Image are the usual children, but any valid view child is accepted. Brand adds no variant, scheme, padding, or control background."
   Section id:"brand-accessibility" p:{ xs:5 md:7 }
-    Grid columns:{ xs:1 md:2 } gap:4
+    Grid columns:1 gap:4
       Card variant:"outlined" p:5 border:1
         Grid columns:1 gap:2
           Text size:"xs" weight:"bold" color:"muted"

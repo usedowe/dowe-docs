@@ -55,7 +55,7 @@ page ColorPage
       },
     ]
   Section id:"color-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "FORM"
@@ -72,7 +72,7 @@ page ColorPage
           "Build a color token"
         Text size:"sm" color:"muted"
           "Open the field to adjust saturation, brightness, and hue. bind writes the canonical uppercase hex value continuously, while format rows stay opt-in."
-      Grid columns:{ xs:1 md:2 } gap:4
+      Grid columns:1 gap:4
         Color:
           bind:brandColor
           label:"Brand color"
@@ -114,7 +114,7 @@ page ColorPage
           "Expose the formats your workflow needs"
         Text size:"sm" color:"muted"
           "Hex is the stored value. RGB, CMYK, and OKLCH are computed from the same selected sRGB color for design tools and handoff."
-      Grid columns:{ xs:1 md:2 } gap:5
+      Grid columns:1 gap:5
         Color value:"#14b8a6" label:"Product accent" showHex:true showRgb:true showCmyk:true showOklch:true variant:"soft" scheme:"success" size:"md" name:"product-accent"
         Color value:"#a855f7" label:"Campaign highlight" showHex:true showOklch:true variant:"line" scheme:"secondary" size:"sm" name:"campaign-highlight"
       Code:
@@ -136,7 +136,7 @@ page ColorPage
           "Make feedback part of the field"
         Text size:"sm" color:"muted"
           "Use the same color picker contract for resting, validated, and corrective states."
-      Grid columns:{ xs:1 md:2 } gap:5
+      Grid columns:1 gap:5
         Color:
           bind:accentColor
           label:"Validated accent"
@@ -170,7 +170,7 @@ page ColorPage
           "One portable color model"
         Text size:"sm" color:"muted"
           "Dowe lowers the same anchored panel, saturation and brightness plane, hue slider, preview, formats, labels, and feedback to web, SwiftUI, and Compose. A floating label begins after the leading swatch so both remain readable."
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"

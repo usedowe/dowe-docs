@@ -253,7 +253,7 @@ page ServerPage
               import AppDb from "@/server/config/database"
 
               fn listBlogsRepository
-                query blogs db:AppDb.list table:"blogs"
+                query blogs conn:AppDb.list table:"blogs"
                 return value:blogs
             """
         Grid columns:1 gap:3

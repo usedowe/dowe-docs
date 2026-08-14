@@ -8,7 +8,7 @@ page SkeletonPage
       { prop:"show" type:"bool Signal or responsive visibility" defaultValue:"true" },
     ]
   Section id:"skeleton-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "DISPLAY"
@@ -33,7 +33,7 @@ page SkeletonPage
           "Compare placeholder shapes"
         Text size:"sm" color:"muted"
           "Choose a variant from the content geometry, then use animation to communicate whether the wait is active or intentionally static."
-      Grid columns:{ xs:1 md:4 } gap:4
+      Grid columns:1 gap:4
         Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" color:"muted"
@@ -75,7 +75,7 @@ page SkeletonPage
         Text size:"sm" color:"muted"
           "Skeleton works best when the loading tree preserves the same hierarchy as the eventual content: avatar, heading, metadata, and action region."
       Card variant:"soft" p:{ xs:5 md:8 }
-        Grid columns:{ xs:1 md:"auto 1fr auto" } gap:5 align:"center"
+        Grid columns:1 gap:5 align:"center"
           Skeleton variant:"circular" animation:"pulse" w:16 h:16 rounded:"full"
           Grid columns:1 gap:3
             Skeleton variant:"text" animation:"wave" w:20 h:6
@@ -84,7 +84,7 @@ page SkeletonPage
           Flex direction:"column" gap:3 align:"end"
             Skeleton variant:"rounded" animation:"wave" w:28 h:10 rounded:"full"
             Skeleton variant:"text" animation:"none" w:20 h:4
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" color:"muted"
@@ -108,7 +108,7 @@ page SkeletonPage
               "Use none when motion is not appropriate or the placeholder is a static frame."
       Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
         Card variant:"soft" p:8
-          Grid columns:{ xs:1 md:"auto 1fr auto" } gap:5 align:"center"
+          Grid columns:{ xs:1 md:3 } gap:5 align:"center"
             Skeleton variant:"circular" animation:"pulse" w:16 h:16 rounded:"full"
             Grid columns:1 gap:3
               Skeleton variant:"text" animation:"wave" w:20 h:6
@@ -116,7 +116,7 @@ page SkeletonPage
             Skeleton variant:"rounded" animation:"wave" w:28 h:10 rounded:"full"
       """
   Section id:"skeleton-guidance" p:{ xs:5 md:7 }
-    Grid columns:{ xs:1 md:3 } gap:4
+    Grid columns:1 gap:4
       Card variant:"soft" p:5
         Grid columns:1 gap:2
           Text size:"xs" weight:"bold" color:"muted"

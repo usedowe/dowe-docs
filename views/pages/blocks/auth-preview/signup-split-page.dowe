@@ -15,7 +15,7 @@ page SignupSplitAuthPage
         justify:"center"
         p:{ xs:6 md:12 }
         minH:{ xs:"vh-40" md:"vh-0" }
-        Grid columns:{ xs:1 md:"1fr 6fr 1fr" } align:"center"
+        Grid columns:{ xs:1 md:3 } align:"center"
           Box show:{ xs:false md:true }
           Grid columns:1 gap:5
             Grid columns:1 gap:2

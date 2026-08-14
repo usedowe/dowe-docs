@@ -410,7 +410,7 @@ page ButtonPage
       },
     ]
   Section id:"button-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "CONTROL"
@@ -431,7 +431,7 @@ page ButtonPage
           "On web, desktop, Android, and iOS, Button labels stay on one line and keep their control height in narrow layouts. Let the surrounding Flex wrap or change direction when the row no longer fits."
         Text size:"sm" color:"muted"
           "On web, iOS, and Android, the full rendered Button surface is interactive, including its padding, label, and optional icons."
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Select:
           bind:schemeChoice
           label:"Scheme"
@@ -450,7 +450,7 @@ page ButtonPage
           placeholder:"Choose a size"
           each in:sizeOptions as:option key:option.id
             Option value:option.value label:option.label
-      Grid columns:{ xs:1 md:2 } gap:4
+      Grid columns:1 gap:4
         Checkbox bind:startIconEnabled label:"Start icon"
         Checkbox bind:endIconEnabled label:"End icon"
         Checkbox bind:loadingChoice label:"Loading"

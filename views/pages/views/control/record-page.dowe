@@ -10,7 +10,7 @@ page RecordPage
       { prop:"actions" type:"onStart ... onConfirm" defaultValue:"—" },
     ]
   Section id:"record-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "CONTROL"
@@ -35,7 +35,7 @@ page RecordPage
           "Compare recording states"
         Text size:"sm" color:"muted"
           "The browser preview exposes the same start, pause, resume, stop, discard, and confirm state model that native targets render with their own controls."
-      Grid columns:{ xs:1 md:2 } gap:4
+      Grid columns:1 gap:4
         Card variant:"outlined" border:1 p:{ xs:5 md:7 }
           Grid columns:1 gap:4
             Record name:"voice-briefing" variant:"soft" scheme:"primary" maxDuration:90
@@ -65,7 +65,7 @@ page RecordPage
           "Record, review, then commit"
         Text size:"sm" color:"muted"
           "Keep the field name stable across targets so the generated runtime can associate a capture with the same form or workflow."
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"

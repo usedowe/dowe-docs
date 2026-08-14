@@ -73,7 +73,7 @@ page DropdownPage
       },
     ]
   Section id:"dropdown-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "OVERLAY"
@@ -143,7 +143,7 @@ page DropdownPage
           "A small, explicit menu tree"
         Text size:"sm" color:"muted"
           "Each dropdown has one trigger and one or more item entries. Header and footer are optional view regions; divider is a prop-free separator."
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
@@ -177,7 +177,7 @@ page DropdownPage
           "Navigation, actions, and descriptions"
         Text size:"sm" color:"muted"
           "Use href for navigation or onClick for a declared view action. Item descriptions help people distinguish related destinations without making the menu hard to scan."
-      Grid columns:{ xs:1 md:2 } gap:5
+      Grid columns:1 gap:5
         Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:3
             Text size:"sm" weight:"bold"
@@ -271,7 +271,7 @@ page DropdownPage
           "One authored menu, native-owned placement"
         Text size:"sm" color:"muted"
           "Dowe preserves the same trigger and item model across targets while each generated application owns the floating surface."
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"

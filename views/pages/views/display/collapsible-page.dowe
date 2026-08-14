@@ -9,7 +9,7 @@ page CollapsiblePage
       { prop:"children" type:"normal view tree" defaultValue:"required" },
     ]
   Section id:"collapsible-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "DISPLAY"
@@ -71,7 +71,7 @@ page CollapsiblePage
           "Model a detail hierarchy"
         Text size:"sm" color:"muted"
           "Use several focused Collapsible regions when the page has independent topics, and reserve disabled for a real unavailable state."
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Card variant:"soft" p:5
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" color:"muted"
@@ -119,7 +119,7 @@ page CollapsiblePage
               "Disabled communicates an unavailable body."
         """
   Section id:"collapsible-contract" p:{ xs:5 md:7 }
-    Grid columns:{ xs:1 md:2 } gap:4
+    Grid columns:1 gap:4
       Card variant:"outlined" border:1 p:5
         Grid columns:1 gap:2
           Text size:"xs" weight:"bold" spacing:"widest" color:"muted"

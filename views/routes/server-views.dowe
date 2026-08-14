@@ -19,11 +19,14 @@ import PasswordsPage from "@/views/pages/server/passwords-page"
 import CloudControlPlanePage from "@/views/pages/server/cloud-control-plane-page"
 import DatabasePage from "@/views/pages/server/db/db-page"
 import DatabaseEntitiesPage from "@/views/pages/server/db/entities-page"
+import DatabaseRelationsPage from "@/views/pages/server/db/relations-page"
 import DatabaseSelectPage from "@/views/pages/server/db/select-page"
 import DatabaseInsertPage from "@/views/pages/server/db/insert-page"
 import DatabaseUpdatePage from "@/views/pages/server/db/update-page"
 import DatabaseDeletePage from "@/views/pages/server/db/delete-page"
 import DatabaseTransactionsPage from "@/views/pages/server/db/transactions-page"
+import DatabaseMigrationsPage from "@/views/pages/server/db/migrations-page"
+import DatabaseSeedersPage from "@/views/pages/server/db/seeders-page"
 import RouterEndpointsPage from "@/views/pages/server/router/endpoints-page"
 import RouterHttpPage from "@/views/pages/server/router/http-page"
 import RouterWebSocketsPage from "@/views/pages/server/router/websockets-page"
@@ -49,11 +52,14 @@ views ServerViews
     route path:"passwords" page:PasswordsPage
     route path:"cloud-control-plane" page:CloudControlPlanePage
     route path:"db/entities" page:DatabaseEntitiesPage
+    route path:"db/relations" page:DatabaseRelationsPage
     route path:"db/select" page:DatabaseSelectPage
     route path:"db/insert" page:DatabaseInsertPage
     route path:"db/update" page:DatabaseUpdatePage
     route path:"db/delete" page:DatabaseDeletePage
     route path:"db/transactions" page:DatabaseTransactionsPage
+    route path:"db/migrations" page:DatabaseMigrationsPage
+    route path:"db/seeders" page:DatabaseSeedersPage
     route path:"router/endpoints" page:RouterEndpointsPage
     route path:"router/http" page:RouterHttpPage
     route path:"router/websockets" page:RouterWebSocketsPage

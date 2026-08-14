@@ -98,6 +98,7 @@ component ViewsNavigation
       item label:"Signals" href:"/docs/views/state/signals" icon:"pulse"
       item label:"Store" href:"/docs/views/state/store" icon:"diskette"
     submenu label:"Theme" icon:"palette"
+      item label:"Colors" href:"/docs/views/theme/colors" icon:"palette-2"
       item label:"Named themes" href:"/docs/views/theme/named-themes" icon:"palette-round"
       item label:"Component defaults" href:"/docs/views/theme/component-defaults" icon:"settings"
       item label:"Fonts" href:"/docs/views/theme/fonts" icon:"text-field"

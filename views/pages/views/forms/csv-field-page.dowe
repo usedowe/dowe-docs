@@ -53,7 +53,7 @@ page CsvFieldPage
       },
     ]
   Section id:"csv-field-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "FORM"
@@ -113,7 +113,7 @@ page CsvFieldPage
           "Shape the review step"
         Text size:"sm" color:"muted"
           "The field can show a short preview for quick imports or a larger page size for operational reviews."
-      Grid columns:{ xs:1 md:2 } gap:5
+      Grid columns:1 gap:5
         CsvField:
           buttonText:"Import product catalog"
           modalTitle:"Map catalog columns"
@@ -162,7 +162,7 @@ page CsvFieldPage
           "Keep the intake legible"
         Text size:"sm" color:"muted"
           "Use errorText for parse or mapping feedback and size to match the surrounding form density."
-      Grid columns:{ xs:1 md:2 } gap:5
+      Grid columns:1 gap:5
         CsvField buttonText:"Upload valid data" errorText:"The file is missing the required `email` header." variant:"outlined" scheme:"danger" size:"md"
           csvColumn name:"email" label:"Email"
         CsvField buttonText:"Upload a small sample" variant:"solid" scheme:"info" size:"sm" showPreview:true previewRows:2 previewPageSize:5
@@ -179,7 +179,7 @@ page CsvFieldPage
           "A local, reviewable import"
         Text size:"sm" color:"muted"
           "Web parses the selected CSV locally; native targets keep the same mapping and preview model while using target-owned picker hooks."
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"

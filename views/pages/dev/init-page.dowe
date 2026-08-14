@@ -24,7 +24,7 @@ page InitPage
       },
       {
         area:"Agents start with context"
-        guidance:"Init installs the project Agent Harness and four focused public authoring skills so coding agents can inspect the same Dowe contracts."
+        guidance:"Init installs the project Agent Harness and five focused public authoring skills, including domain modeling blueprints for business systems, so coding agents can inspect the same Dowe contracts."
       },
     ]
   const initSafetyRows:

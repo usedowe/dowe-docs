@@ -58,7 +58,7 @@ page CommandPage
   fn openSettings
     set commandStatus value:"Settings selected."
   Section id:"command-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "OVERLAY"
@@ -127,7 +127,7 @@ page CommandPage
           "Compose actions from simple entries"
         Text size:"sm" color:"muted"
           "Command owns the searchable surface. item entries provide actions, while group entries add visual sections without changing the selection model."
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
@@ -177,7 +177,7 @@ page CommandPage
           "Make the palette easy to learn"
         Text size:"sm" color:"muted"
           "Command renders the authored labels for closing, navigating, selecting, and toggling. shortcut is a single ASCII key used by the global launcher unless it is disabled."
-      Grid columns:{ xs:1 md:2 } gap:4
+      Grid columns:1 gap:4
         Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" color:"muted"
@@ -224,7 +224,7 @@ page CommandPage
           "Tune the palette to its shell"
         Text size:"sm" color:"muted"
           "variant changes the palette surface while scheme controls its design family. The entries and keyboard contract remain the same."
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"sm" weight:"bold"

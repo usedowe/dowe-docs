@@ -19,7 +19,7 @@ page ContactFooterFormPage
     },
   ]
   Section id:"contact-footer-form" bg:"softMuted" color:"softMutedText" p:0 minH:"vh-0"
-    Grid columns:{ xs:1 md:"5fr 4fr" } gap:{ xs:6 md:10 } align:"center" p:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:2 } gap:{ xs:6 md:10 } align:"center" p:{ xs:6 md:10 }
       Box p:8 minH:{ xs:48 md:72 }
         Flex direction:"column" align:"center" justify:"center" gap:3 minH:{ xs:40 md:64 }
           Icon name:"gallery-bold-duotone" fill:"muted" w:16 h:16

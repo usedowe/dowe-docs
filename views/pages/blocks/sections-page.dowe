@@ -59,7 +59,7 @@ page SectionsPage
                         Text size:"sm" color:"muted"
                           "Image placeholder"
             """
-  Section id:"media-benefits" p:{ xs:5 md:7 } bg:"softPrimary" color:"softPrimaryText"
+  Section id:"media-benefits" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -138,7 +138,7 @@ page SectionsPage
                 { id:"clarity" content:"Everyone can see how the finished product will work before launch." },
               ]
               Section id:"device-showcase-section" bg:"background" color:"backgroundText" boxed:true p:{ xs:6 md:12 }
-                Grid columns:{ xs:1 md:"5fr 7fr" } gap:{ xs:10 md:16 } align:"center" minH:"vh-0"
+                Grid columns:{ xs:1 md:2 } gap:{ xs:10 md:16 } align:"center" minH:"vh-0"
                   Flex direction:"column" align:{ xs:"center" md:"start" } gap:6
                     Title size:{ xs:"3xl" md:"5xl" } weight:"black"
                       "Boost your productivity with our to-do app"
@@ -155,7 +155,7 @@ page SectionsPage
                         Text size:"sm" color:"muted"
                           "Device placeholder"
             """
-  Section id:"feature-media" p:{ xs:5 md:7 } bg:"softMuted" color:"softMutedText"
+  Section id:"feature-media" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -182,7 +182,7 @@ page SectionsPage
                 { id:"two" title:"Feature two" description:"Fast prototypes expose assumptions before implementation begins." },
               ]
               Section id:"feature-media-section" bg:"background" color:"backgroundText" boxed:true p:{ xs:6 md:12 }
-                Grid columns:{ xs:1 md:"4fr 7fr" } gap:{ xs:10 md:16 } align:"center" minH:"vh-0"
+                Grid columns:{ xs:1 md:2 } gap:{ xs:10 md:16 } align:"center" minH:"vh-0"
                   Grid columns:1 gap:{ xs:8 md:12 }
                     each in:features as:feature key:feature.id
                       Flex direction:"column" align:{ xs:"center" md:"start" } gap:3
@@ -245,7 +245,7 @@ page SectionsPage
                       Text size:"sm" color:"muted"
                         "Image placeholder"
             """
-  Section id:"video-features" p:{ xs:5 md:7 } bg:"softPrimary" color:"softPrimaryText"
+  Section id:"video-features" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -272,7 +272,7 @@ page SectionsPage
                 { id:"two" title:"Feature two" description:"Concise milestones keep the team focused on what customers need next." },
               ]
               Section id:"video-features-section" bg:"background" color:"backgroundText" boxed:true p:{ xs:6 md:12 }
-                Grid columns:{ xs:1 md:"5fr 6fr" } gap:{ xs:10 md:16 } align:"center" minH:"vh-0"
+                Grid columns:{ xs:1 md:2 } gap:{ xs:10 md:16 } align:"center" minH:"vh-0"
                   Box show:{ xs:false md:true } bg:"softMuted" rounded:"xl" p:8 minH:96
                     Flex direction:"column" align:"center" justify:"center" gap:3 minH:80
                       Icon name:"play-circle-bold-duotone" fill:"muted" w:16 h:16
@@ -351,7 +351,7 @@ page SectionsPage
                           Text color:"muted"
                             "{feature.description}"
             """
-  Section id:"media-grid" p:{ xs:5 md:7 } bg:"softPrimary" color:"softPrimaryText"
+  Section id:"media-grid" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -467,7 +467,7 @@ page SectionsPage
                     Button rounded:"full" size:"lg"
                       "See more"
             """
-  Section id:"action-cards" p:{ xs:5 md:7 } bg:"softPrimary" color:"softPrimaryText"
+  Section id:"action-cards" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -581,7 +581,7 @@ page SectionsPage
                     Grid columns:1 gap:5
                       each in:supportingFeatures as:feature key:feature.id
                         Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:52
-                          Grid columns:{ xs:1 sm:"3fr 2fr" } gap:5 align:"center"
+                          Grid columns:{ xs:1 sm:2 } gap:5 align:"center"
                             Flex direction:"column" align:"start" gap:4
                               Title size:"xl" weight:"black"
                                 "{feature.title}"
@@ -592,7 +592,7 @@ page SectionsPage
                             Flex align:"center" justify:"center"
                               Icon name:"gallery-bold-duotone" fill:"muted" w:14 h:14
             """
-  Section id:"numbered" p:{ xs:5 md:7 } bg:"softPrimary" color:"softPrimaryText"
+  Section id:"numbered" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -684,7 +684,7 @@ page SectionsPage
                 { id:"users" title:"Multiple users" },
               ]
               Section id:"spotlight-cards" bg:"background" color:"backgroundText" boxed:true py:{ xs:8 md:12 }
-                Grid columns:{ xs:1 md:"2fr 1fr 1fr" } gap:5 align:"stretch"
+                Grid columns:{ xs:1 md:3 } gap:5 align:"stretch"
                   Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:7 md:10 } minH:80
                     Flex direction:"column" align:"center" justify:"center" gap:5 minH:64
                       Text size:"xs" weight:"bold" spacing:"widest" color:"muted"

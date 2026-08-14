@@ -44,7 +44,7 @@ page DatePage
       },
     ]
   Section id:"date-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "FORM"
@@ -61,7 +61,7 @@ page DatePage
           "Schedule a launch"
         Text size:"sm" color:"muted"
           "Open the custom calendar dropdown to write an ISO calendar date to launchDate while min and max keep the selection inside the release window."
-      Grid columns:{ xs:1 md:2 } gap:4
+      Grid columns:1 gap:4
         Date:
           bind:launchDate
           label:"Launch date"
@@ -101,7 +101,7 @@ page DatePage
           "Make valid dates obvious"
         Text size:"sm" color:"muted"
           "min and max define an inclusive calendar window. The visual surface can change without changing the value contract."
-      Grid columns:{ xs:1 md:2 } gap:5
+      Grid columns:1 gap:5
         Date value:"2026-09-01" label:"Outlined" min:"2026-01-01" max:"2026-12-31" scheme:"info" name:"outlined-date"
         Date value:"2026-09-01" label:"Soft" min:"2026-01-01" max:"2026-12-31" variant:"soft" scheme:"success" name:"soft-date"
         Date value:"2026-10-15" label:"Solid" min:"2026-09-01" max:"2026-12-31" variant:"solid" scheme:"warning" name:"solid-date"
@@ -127,7 +127,7 @@ page DatePage
           "Pair dates with useful context"
         Text size:"sm" color:"muted"
           "helpText guides selection and errorText reserves a correction path. Sizes map to 32, 40, and 48 logical units; labelFloating adds 8."
-      Grid columns:{ xs:1 md:2 } gap:5
+      Grid columns:1 gap:5
         Date value:"2026-12-05" label:"Billing date" helpText:"Invoices close on the fifth business day." scheme:"success" size:"sm" name:"billing-date"
         Date value:"2026-12-05" label:"Date needs review" errorText:"This date must fall after the contract start date." scheme:"danger" size:"lg" name:"review-date"
       Flex wrap:true justify:"center" align:"center" gap:3
@@ -143,7 +143,7 @@ page DatePage
           "One calendar-day contract"
         Text size:"sm" color:"muted"
           "Dowe lowers the same string value, bounds, label, and feedback model to web, SwiftUI, and Compose. The floating label stays aligned with the displayed date instead of the trailing calendar affordance."
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"

@@ -1,0 +1,28 @@
+type EmptyTableRow
+  name:string
+  owner:string
+  status:string
+
+page EmptyTablePage
+  signal rows type:EmptyTableRow[] value:[]
+  Section id:"empty-table" bg:"background" color:"backgroundText" boxed:true minH:"vh-0" p:{ xs:6 md:12 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "RELEASES"
+        Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+          "Release queue"
+        Text size:"lg" color:"muted"
+          "An empty table can still give the next action a clear, accessible home."
+      Table:
+        data:rows
+        variant:"soft"
+        scheme:"surface"
+        size:"md"
+        bordered:true
+        emptyTitle:"No releases yet"
+        emptyDescription:"Create a release to start tracking the next deployment."
+        rounded:"md"
+        column field:"name" label:"Release" width:"1.5fr"
+        column field:"owner" label:"Owner" width:"1fr"
+        column field:"status" label:"Status" align:"end" width:"1fr"

@@ -14,7 +14,7 @@ page ToastPage
       {
         prop:"variant"
         type:"solid | soft | outlined | ghost"
-        defaultValue:"solid"
+        defaultValue:"design Toast, then solid"
       },
       {
         prop:"scheme"
@@ -44,7 +44,7 @@ page ToastPage
   fn showGhostToast
     toast value:{ type:"error" title:"Ghost" message:"Transparent Card surface with danger content." visible:true } duration:6000 position:"top-right" variant:"ghost" scheme:"danger"
   Section id:"toast-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "OVERLAY"
@@ -61,6 +61,8 @@ page ToastPage
           "Send global feedback"
         Text size:"sm" color:"muted"
           "A lowercase toast statement replaces the current message in the generated global presenter. It does not require a Toast node in the page tree."
+        Text size:"sm" color:"muted"
+          "Set Toast variant in theme.dowe to style global toast statements by default. An explicit variant on a statement still wins."
       Card variant:"outlined" p:{ xs:6 md:10 } border:1
         Flex wrap:true justify:"center" gap:3
           Button onClick:showSuccessToast variant:"soft" scheme:"success"
@@ -78,8 +80,13 @@ page ToastPage
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
+          theme
+            design defaultTheme:"light"
+              Toast variant:"soft"
+              theme name:"light"
+
           fn saveChanges
-            toast value:{ type:"success" title:"Changes saved" message:"Your workspace is up to date." visible:true } duration:6000 position:"top-right" variant:"soft" scheme:"success"
+            toast value:{ type:"success" title:"Changes saved" message:"Your workspace is up to date." visible:true } duration:6000 position:"top-right" scheme:"success"
 
           Button onClick:saveChanges
             "Save changes"
@@ -93,7 +100,7 @@ page ToastPage
           "The Card surface contract"
         Text size:"sm" color:"muted"
           "Variant controls the surface treatment and scheme selects its design family. Outlined keeps a readable neutral Card surface with the selected family on its border."
-      Grid columns:{ xs:1 md:4 } gap:4
+      Grid columns:1 gap:4
         Card variant:"soft" p:5
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
@@ -135,7 +142,7 @@ page ToastPage
           "Dismiss it immediately or let it expire"
         Text size:"sm" color:"muted"
           "Every generated Toast includes the same portable SVG close control as Drawer. The surface is non-modal, so the page remains scrollable while the close control stays interactive. Duration closes the presenter automatically."
-      Grid columns:{ xs:1 md:2 } gap:5
+      Grid columns:1 gap:5
         Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:2
             Text size:"sm" weight:"bold"
@@ -157,7 +164,7 @@ page ToastPage
           "One presenter, target-owned output"
         Text size:"sm" color:"muted"
           "Dowe keeps the normalized feedback model shared while each generator owns the portable overlay implementation."
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"

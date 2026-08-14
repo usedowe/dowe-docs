@@ -40,7 +40,7 @@ page DatabaseInsertPage
         content:"""
           handler createBlog
             database db provider:"dowe" host:env.DOWE_HOST port:env.DOWE_PORT account:env.DOWE_USER secret:env.DOWE_PASSWORD name:"content"
-            query created db:db.insert table:"blogs" value:{ title:req.body.title content:req.body.content createdAt:now } required:["title", "content"]
+            query created conn:db.insert table:"blogs" value:{ title:req.body.title content:req.body.content createdAt:now } required:["title", "content"]
             return status:201 json:{ ok:true data:created }
         """
       Table:

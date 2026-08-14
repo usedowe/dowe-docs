@@ -110,7 +110,7 @@ page SvgPage
     set doweSvg source:parse.svg value:svgSource fallback:"" colors:"original" format:"source"
     set svgPreview source:parse.svg value:svgSource fallback:"" colors:"original" format:"data"
   Section id:"svg-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "CONTROL"
@@ -127,7 +127,7 @@ page SvgPage
           "Convert vector source in the view"
         Text size:"sm" color:"muted"
           "Paste SVG XML, run the view function, and copy the generated Svg and Path declarations."
-      Grid columns:{ xs:1 md:2 } gap:5
+      Grid columns:1 gap:5
         Grid columns:1 gap:3
           Textarea:
             bind:svgSource
@@ -186,7 +186,7 @@ page SvgPage
           "One surface, direct Path children"
         Text size:"sm" color:"muted"
           "Svg requires a viewBox and one or more direct Path children. Path is structural and cannot be used outside Svg."
-      Grid columns:{ xs:1 md:2 } gap:5
+      Grid columns:1 gap:5
         Table data:svgProps variant:"outlined" scheme:"surface" size:"sm"
           column field:"prop" label:"Svg prop"
           column field:"type" label:"Accepted value"

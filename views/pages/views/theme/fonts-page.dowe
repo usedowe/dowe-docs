@@ -63,7 +63,7 @@ page FontsPage
       },
     ]
   Section id:"fonts-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "THEME.DOWE"
@@ -102,7 +102,7 @@ page FontsPage
               Title font:"syne"
               theme name:"light"
         """
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
@@ -156,7 +156,7 @@ page FontsPage
           "Local choice, typography slot, project fallback"
         Text size:"sm" color:"muted"
           "Text and Title have independent design slots. A local font prop changes one instance without changing the rest of the application."
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Card variant:"soft" scheme:"primary" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold"
@@ -207,7 +207,7 @@ page FontsPage
           "Dowe computes the effective font set"
         Text size:"sm" color:"muted"
           "The effective set combines fonts.default, fonts.install, Text and Title design defaults, and font tokens used by reachable views."
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:2
             Title size:"lg" weight:"bold"

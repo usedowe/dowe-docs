@@ -10,7 +10,7 @@ page IframePage
       { prop:"w, h, rounded, border, show" type:"common layout props" defaultValue:"—" },
     ]
   Section id:"iframe-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "DISPLAY"
@@ -58,7 +58,7 @@ page IframePage
           "Choose the smallest capability set"
         Text size:"sm" color:"muted"
           "Loading, allow, and sandbox are static source props. Their values are checked before generation and mapped to HTML, WKWebView, and Android WebView behavior."
-      Grid columns:{ xs:1 md:2 } gap:4
+      Grid columns:1 gap:4
         Card variant:"outlined" p:{ xs:5 md:7 } border:1
           Grid columns:1 gap:4
             Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
@@ -78,7 +78,7 @@ page IframePage
         Iframe src:"/examples/appbar-two" title:"Strict internal preview" loading:"lazy" sandbox:""
       """
   Section id:"iframe-boundary" p:{ xs:5 md:7 }
-    Grid columns:{ xs:1 md:3 } gap:4
+    Grid columns:1 gap:4
       Card variant:"soft" p:5
         Grid columns:1 gap:2
           Text size:"xs" weight:"bold" color:"muted"

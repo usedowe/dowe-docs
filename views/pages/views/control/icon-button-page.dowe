@@ -165,7 +165,7 @@ page IconButtonPage
       },
     ]
   Section id:"icon-button-introduction" py:{ xs:6 md:10 }
-    Grid columns:{ xs:1 md:"1fr auto" } gap:5 align:"end"
+    Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "CONTROL"
@@ -182,7 +182,7 @@ page IconButtonPage
           "Configure an icon button"
         Text size:"sm" color:"muted"
           "Visual props update the preview. The icon name and accessible label remain static."
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Select:
           bind:schemeChoice
           label:"Scheme"
@@ -234,7 +234,7 @@ page IconButtonPage
           "IconButton has no children. Its hidden label describes the action."
         Text size:"sm" color:"muted"
           "The full square is interactive on web, iOS, and Android. The icon is visual content inside the button, not a smaller tap target."
-      Grid columns:{ xs:1 md:3 } gap:4
+      Grid columns:1 gap:4
         Card variant:"outlined" p:5
           Grid columns:1 gap:3
             IconButton icon:"settings" label:"Open settings"

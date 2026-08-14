@@ -107,7 +107,7 @@ page PricesPage
                               Text size:"sm" weight:"bold"
                                 "{plan.featureFive}"
             """
-  Section id:"media-cards" p:{ xs:5 md:7 } bg:"softPrimary" color:"softPrimaryText"
+  Section id:"media-cards" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -216,7 +216,7 @@ page PricesPage
               ]
 
               Section id:"split-plans-pricing" bg:"background" color:"backgroundText" boxed:true py:{ xs:8 md:12 }
-                Grid columns:{ xs:1 md:"2fr 3fr" } gap:6 align:"stretch"
+                Grid columns:{ xs:1 md:2 } gap:6 align:"stretch"
                   Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 }
                     Grid columns:1 gap:5
                       Flex justify:"between" align:"center"
@@ -252,7 +252,7 @@ page PricesPage
                       Button scheme:"secondary" size:"lg" rounded:"full"
                         "Get started"
             """
-  Section id:"minimal-columns" p:{ xs:5 md:7 } bg:"softPrimary" color:"softPrimaryText"
+  Section id:"minimal-columns" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -493,7 +493,7 @@ page PricesPage
                           Button scheme:"secondary" size:"lg" rounded:"full"
                             "Get started"
             """
-  Section id:"comparison-table" p:{ xs:5 md:7 } bg:"softPrimary" color:"softPrimaryText"
+  Section id:"comparison-table" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
@@ -545,7 +545,7 @@ page PricesPage
                     Title size:{ xs:"4xl" md:"6xl" } weight:"black"
                       "Affordable pricing plans"
                   Grid columns:1 gap:0 show:{ xs:false md:true }
-                    Grid columns:"2fr 1fr 1fr 1fr" gap:0 align:"stretch"
+                    Grid columns:4 gap:0 align:"stretch"
                       Title size:"xl" weight:"black" p:4
                         "Features"
                       each in:plans as:plan key:plan.id
@@ -557,7 +557,7 @@ page PricesPage
                           Button rounded:"full" w:"full"
                             "Get started"
                     each in:featureRows as:row key:row.id
-                      Grid columns:"2fr 1fr 1fr 1fr" gap:0 align:"center" border:1 borderColor:"muted"
+                      Grid columns:4 gap:0 align:"center" border:1 borderColor:"muted"
                         Text p:4 color:"muted"
                           "{row.label}"
                         Text p:4

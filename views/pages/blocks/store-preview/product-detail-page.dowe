@@ -21,7 +21,7 @@ page ProductDetailStorePage
       { id:"star-5" },
     ]
   Section id:"store-product-detail" bg:"background" color:"backgroundText" boxed:true py:{ xs:6 md:10 } minH:"vh-0"
-    Grid columns:{ xs:1 md:"5fr 4fr" } gap:{ xs:8 md:12 } align:"start"
+    Grid columns:{ xs:1 md:2 } gap:{ xs:8 md:12 } align:"start"
       Grid columns:1 gap:4
         Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:6 md:10 } minH:{ xs:64 md:96 }
           Flex align:"center" justify:"center" minH:{ xs:52 md:80 }
