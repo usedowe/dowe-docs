@@ -124,12 +124,12 @@ page DatabaseEntitiesPage
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "4 / MODULES AND DATABASE CONFIG"
         Title size:"3xl" weight:"black"
-          "Import the entity into one server-only handle"
+          "Group a bounded domain behind one module"
         Text size:"sm" color:"muted"
-          "Keep entity declarations under server/entities and import them into a shared Database config module. The entities list selects the migration contracts owned by that handle."
+          "Keep related declarations together under server/entities and import their named bindings into a shared Database config module. Prefer one focused plural file per bounded domain instead of one file per table. Keep isolated schemas separate and split modules when ownership, lifecycle, authorization, or size demands it."
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" color:"primary"
-          "server/entities/sms-delivery-entity.dowe"
+          "server/entities/sms-entities.dowe"
         Code:
           language:"dowe"
           variant:"soft"
@@ -140,6 +140,12 @@ page DatabaseEntitiesPage
             entity SmsDeliveries
               id:string primary:true
               recipient:string required:true index:true
+              status:string required:true index:true
+              createdAt:timestamp required:true
+
+            entity SmsDeliveryEvents
+              id:string primary:true
+              deliveryId:string required:true index:true
               status:string required:true index:true
               createdAt:timestamp required:true
           """
@@ -153,7 +159,7 @@ page DatabaseEntitiesPage
           copyLabel:"Copy Database config"
           copiedLabel:"Copied"
           content:"""
-            import SmsDeliveries from "@/server/entities/sms-delivery-entity"
+            import SmsDeliveries, SmsDeliveryEvents from "@/server/entities/sms-entities"
 
             database appDb provider:"postgres"
               host:env.POSTGRES_HOST
@@ -161,7 +167,7 @@ page DatabaseEntitiesPage
               account:env.POSTGRES_USER
               secret:env.POSTGRES_PASSWORD
               name:env.POSTGRES_DATABASE
-              entities:[SmsDeliveries]
+              entities:[SmsDeliveries, SmsDeliveryEvents]
               seeders:[]
           """
   Section id:"database-entities-provider-behavior" p:{ xs:5 md:7 }

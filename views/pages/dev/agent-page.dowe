@@ -66,7 +66,7 @@ page AgentPage
       },
       {
         area:"Domain modeling"
-        guidance:"dowe-domain-modeling turns a business description into modules, entities, relations, invariants, permissions, workflows, endpoints, seeders, and views before source generation."
+        guidance:"dowe-domain-modeling turns a business description into modules, groups related entities into focused bounded-domain files, then defines relations, invariants, permissions, workflows, endpoints, seeders, and views before source generation."
       },
     ]
   const starterRows:
