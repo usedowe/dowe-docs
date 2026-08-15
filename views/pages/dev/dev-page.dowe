@@ -50,6 +50,10 @@ page DevPage
         area:"Recoverable rebuilds"
         guidance:"A failed rebuild reports the native compiler diagnostic, keeps the last valid module active, and does not repeat the same failed Swift compilation before waiting for the next correction."
       },
+      {
+        area:"Terminal confirmation"
+        guidance:"Every valid rebuild prints INFO Hot reload completed (0 errors), while a failed rebuild prints ERROR Hot reload failed before its diagnostics."
+      },
     ]
   Section id:"dev-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3

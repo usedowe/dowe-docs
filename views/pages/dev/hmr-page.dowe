@@ -54,6 +54,10 @@ page HmrPage
         state:"Failed rebuild"
         guidance:"Compiler or native module failures report diagnostics, keep the previous valid module active, and leave watch available for the next save."
       },
+      {
+        state:"Terminal confirmation"
+        guidance:"A valid rebuild prints INFO Hot reload completed (0 errors). A failed rebuild prints ERROR Hot reload failed before its diagnostics."
+      },
     ]
   Section id:"hmr-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3

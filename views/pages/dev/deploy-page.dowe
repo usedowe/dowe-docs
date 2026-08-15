@@ -3,13 +3,13 @@ page DeployPage
     value:[
       {
         surface:"Server"
-        providers:"Dowe Cloud (coming soon), Docker, SSH, or Cloudflare Worker"
-        guidance:"Selecting Dowe Cloud currently reports that deployment is coming soon and exits without compiling or publishing. Docker generates one standalone Linux application executable and copies it into Distroless. SSH installs one executable as a Debian or Ubuntu systemd service. Cloudflare Worker keeps Dowe-owned Wasm lowering."
+        providers:"Dowe Cloud (coming soon), Docker, SSH, Cloudflare Worker, or Vercel"
+        guidance:"Selecting Dowe Cloud currently reports that deployment is coming soon and exits without compiling or publishing. Docker generates one standalone Linux application executable and copies it into Distroless. SSH installs one executable as a Debian or Ubuntu systemd service. Cloudflare Worker and Vercel use the supported Dowe-owned Wasm edge subset."
       },
       {
         surface:"Web"
-        providers:"Dowe Cloud (coming soon), Docker, or Cloudflare Pages"
-        guidance:"Selecting Dowe Cloud currently reports that deployment is coming soon and exits without compiling or publishing. Docker generates a standalone Linux Web application for SSR and web assets, including views-only projects; it ignores Server configuration. Pages packages the generated web distribution and can publish it with Wrangler. Project assets stay available under /assets, including social images referenced only by SEO metadata."
+        providers:"Dowe Cloud (coming soon), Docker, Cloudflare Pages, or Vercel"
+        guidance:"Selecting Dowe Cloud currently reports that deployment is coming soon and exits without compiling or publishing. Docker generates a standalone Linux Web application for SSR and web assets, including views-only projects; it ignores Server configuration. Pages and Vercel package the generated HTML, JavaScript, CSS, fonts, icons, and project assets without a Node project."
       },
     ]
   const deployEnvironmentRows:
@@ -138,7 +138,7 @@ page DeployPage
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Dowe Deploy"
       Text size:"lg" color:"muted"
-        "Build native release artifacts, publish mobile apps, or deploy to Docker, SSH, and Cloudflare. Dowe Cloud deployment is coming soon."
+        "Build native release artifacts, publish mobile apps, or deploy to Docker, SSH, Cloudflare, and Vercel. Dowe Cloud deployment is coming soon."
   Section id:"deploy-command" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
@@ -160,6 +160,8 @@ page DeployPage
           dowe deploy server --target ssh --publish --host server.example.com --user deploy --key-file $HOME/.ssh/id_ed25519
           dowe deploy server --environment stage --target docker --registry ghcr.io/acme --image clinic
           dowe deploy --environment uat --target cloudflare --name clinic-api
+          dowe deploy server --target vercel --name clinic-api --publish
+          dowe deploy web --target vercel --name clinic-web --publish
           dowe deploy web --environment live --name clinic-web --publish
           dowe deploy --target android --track internal --publish
           dowe deploy --target ios --publish
@@ -354,7 +356,7 @@ page DeployPage
         Title size:"3xl" weight:"black"
           "Three active Server providers, one shared Dowe authority"
         Text size:"sm" color:"muted"
-          "Dowe Cloud remains visible as a future provider, while Docker, SSH, and Cloudflare are the active Server deploy targets. The former Linux host package remains retired."
+          "Dowe Cloud remains visible as a future provider, while Docker, SSH, Cloudflare, and Vercel are the active Server deploy targets. The former Linux host package remains retired."
       Table:
         data:deployBoundaryRows
         variant:"soft"
