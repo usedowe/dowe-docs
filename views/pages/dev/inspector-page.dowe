@@ -1,0 +1,200 @@
+page InspectorPage
+  const inspectorActions:
+    value:[
+      {
+        step:"Enable"
+        action:"Click Dowe inspect or press Alt+Shift+D"
+        result:"The development overlay becomes active on the web page."
+      },
+      {
+        step:"Hover"
+        action:"Move across a marked element"
+        result:"The nearest authored view kind and source span appear beside it."
+      },
+      {
+        step:"Select"
+        action:"Click the element"
+        result:"The panel pins the path, inclusive lines, and component usage stack."
+      },
+      {
+        step:"Copy"
+        action:"Choose Copy agent context"
+        result:"The source reference is ready to paste into an agent task."
+      },
+      {
+        step:"Reposition"
+        action:"Drag the floating control with mouse or touch"
+        result:"Move the button away from the element underneath; its position is retained."
+      },
+    ]
+  const inspectorFields:
+    value:[
+      {
+        field:"Kind"
+        value:"Section, AppBar, Button, Title, Text, or another authored view node"
+        purpose:"Identifies the Dowe component represented by the element."
+      },
+      {
+        field:"Source"
+        value:"Project-relative .dowe path"
+        purpose:"Gives the agent a safe path without exposing an absolute workspace path."
+      },
+      {
+        field:"Lines"
+        value:"Inclusive start and end lines"
+        purpose:"Covers the declaration and its authored children when applicable."
+      },
+      {
+        field:"Usages"
+        value:"Imported component usage locations"
+        purpose:"Shows where the component is used when its definition is expanded."
+      },
+    ]
+  const inspectorTargets:
+    value:[
+      {
+        target:"dowe dev --target web"
+        behavior:"Inspector available"
+        artifacts:"DOM markers, development client, manifest, and selection state"
+      },
+      {
+        target:"dowe dev --target android or ios"
+        behavior:"Inspector unavailable"
+        artifacts:"Native development output has no web inspector surface"
+      },
+      {
+        target:"dowe deploy"
+        behavior:"Inspector removed"
+        artifacts:"No markers, script, manifest, or inspector endpoints"
+      },
+    ]
+  Section id:"inspector-introduction" py:{ xs:6 md:10 }
+    Grid columns:1 gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "DEVELOPMENT / WEB INSPECTOR"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Find the Dowe source behind any view"
+      Text size:"lg" color:"muted"
+        "Use the in-page inspector during dowe dev to connect a rendered web element to its authored component, source path, and exact lines without opening a browser extension."
+  Section id:"inspector-start" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "1 / START THE WEB INSPECTOR"
+        Title size:"3xl" weight:"black"
+          "Run the web development target"
+        Text size:"sm" color:"muted"
+          "The inspector is injected only by the Dowe development client when the selected targets include web. Its floating control starts in the lower-left corner, while deploy output and native targets do not receive it."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy commands"
+        copiedLabel:"Copied"
+        content:"""
+          dowe dev --target web
+          dowe dev --target server --target web
+          Alt+Shift+D
+        """
+      Alert type:"info" message:"The inspector does not require a Chrome extension. It is part of the existing same-origin Dowe development client and is available only on the local web development page."
+  Section id:"inspector-workflow" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "2 / INSPECTION WORKFLOW"
+        Title size:"3xl" weight:"black"
+          "From rendered element to agent context"
+        Text size:"sm" color:"muted"
+          "Enable the overlay, move across the page, and select the authored node you want to change. The floating toggle can be dragged whenever it covers the element you need to inspect."
+      Table:
+        data:inspectorActions
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"step" label:"Step" width:"1fr"
+        column field:"action" label:"Action" width:"3fr"
+        column field:"result" label:"Result" width:"5fr"
+  Section id:"inspector-metadata" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "3 / SOURCE METADATA"
+        Title size:"3xl" weight:"black"
+          "Read the declaration, not an implementation wrapper"
+        Text size:"sm" color:"muted"
+          "The manifest resolves opaque DOM identifiers to authored Dowe nodes. A Section, AppBar, Button, Title, or nested component keeps its own source identity even when the web renderer adds internal HTML."
+      Table:
+        data:inspectorFields
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"field" label:"Field" width:"1fr"
+        column field:"value" label:"Value" width:"3fr"
+        column field:"purpose" label:"Why it matters" width:"5fr"
+      Text size:"sm" color:"muted"
+        "Literal wrappers generated inside a Button inherit Button metadata. They are not reported as independent Text views, so later Section and Title mappings remain aligned with the source order."
+  Section id:"inspector-agent" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "4 / AGENT HANDOFF"
+        Title size:"3xl" weight:"black"
+          "Copy a precise change target"
+        Text size:"sm" color:"muted"
+          "After selecting a node, copy the generated context into your coding agent. It names the component, project-relative file, inclusive line span, and imported usage path when one exists."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy example"
+        copiedLabel:"Copied"
+        content:"""
+          Dowe source selected: Section at views/pages/home.dowe:36-48.
+          Usage: views/pages/home.dowe:12.
+          Modify this selected view node.
+        """
+      Button:
+        href:"/docs/dev/dev#dev-artifacts"
+        variant:"soft"
+        size:"sm"
+        rounded:"full"
+        iconStart:"code"
+        "Review Dowe Dev artifacts"
+  Section id:"inspector-contract" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "5 / TARGET CONTRACT"
+        Title size:"3xl" weight:"black"
+          "Development-only by construction"
+        Text size:"sm" color:"muted"
+          "The compiler, web generator, and runtime gate the inspector together. The normal shared source model remains unchanged for Android, iOS, desktop, and deploy builds."
+      Table:
+        data:inspectorTargets
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"target" label:"Command or target" width:"2fr"
+        column field:"behavior" label:"Inspector" width:"2fr"
+        column field:"artifacts" label:"Generated surface" width:"5fr"
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy development paths"
+        copiedLabel:"Copied"
+        content:"""
+          .dowe/web/inspector.json
+          .dowe/dev/inspector-selection.json
+          /_dowe/dev/inspector.json
+          /_dowe/dev/inspector-selection
+        """

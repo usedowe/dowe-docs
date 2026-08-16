@@ -4,6 +4,8 @@ page ChipPage
       { prop:"variant" type:"solid | soft | outlined | ghost" defaultValue:"soft" },
       { prop:"scheme" type:"primary | secondary | tertiary | muted | background | surface | success | info | warning | danger" defaultValue:"muted" },
       { prop:"size" type:"xs | sm | md | lg | xl" defaultValue:"md" },
+      { prop:"startIcon" type:"quoted Solar icon name" defaultValue:"—" },
+      { prop:"endIcon" type:"quoted Solar icon name" defaultValue:"—" },
       { prop:"onClose" type:"Action name" defaultValue:"—" },
       { prop:"onClick" type:"fn reference" defaultValue:"—" },
       { prop:"rotate, scale, translateX, translateY" type:"portable transform values" defaultValue:"—" },
@@ -92,12 +94,16 @@ page ChipPage
     Grid columns:1 gap:5
       Grid columns:1 gap:2
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-          "ICON REGIONS"
+          "ICON PROPS AND REGIONS"
         Title size:"3xl" weight:"black"
-          "Portable SVG at either edge"
+          "Solar icons or custom SVG"
         Text size:"sm" color:"muted"
-          "start and end each accept one Svg, keeping the same authored geometry across targets."
+          "Use startIcon or endIcon for a shared Solar icon. The icon scales with the Chip size and keeps the same order on web, Android, and iOS. Use the start and end regions when custom SVG geometry is required."
       Grid columns:{ xs:1 md:2 } gap:3
+        Chip variant:"soft" scheme:"info" startIcon:"settings"
+          "Settings"
+        Chip variant:"outlined" scheme:"success" endIcon:"magnifier"
+          "Search"
         Chip variant:"soft" scheme:"info"
           start
             Svg viewBox:"0 0 24 24" w:4 h:4
@@ -115,6 +121,11 @@ page ChipPage
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
+          Chip variant:"soft" scheme:"info" startIcon:"settings"
+            "Settings"
+          Chip variant:"outlined" scheme:"success" endIcon:"magnifier"
+            "Search"
+
           Chip variant:"soft" scheme:"info"
             start
               Svg viewBox:"0 0 24 24" w:4 h:4

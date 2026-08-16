@@ -11,3 +11,4 @@ component DevNavigation
     item label:"Hot Reload" href:"/docs/dev/hmr" icon:"restart"
     item label:"Project Icons" href:"/docs/dev/icons" icon:"gallery"
     item label:"Testing" href:"/docs/dev/tests" icon:"check-circle"
+    item label:"View Inspector" href:"/docs/dev/inspector" icon:"magnifier"
