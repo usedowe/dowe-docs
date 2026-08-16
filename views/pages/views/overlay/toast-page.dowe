@@ -100,7 +100,7 @@ page ToastPage
           "The Card surface contract"
         Text size:"sm" color:"muted"
           "Variant controls the surface treatment and scheme selects its design family. Outlined keeps a readable neutral Card surface with the selected family on its border."
-      Grid columns:1 gap:4
+      Grid columns:{ xs:2 md:4 } gap:4
         Card variant:"soft" p:5
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
@@ -142,7 +142,7 @@ page ToastPage
           "Dismiss it immediately or let it expire"
         Text size:"sm" color:"muted"
           "Every generated Toast includes the same portable SVG close control as Drawer. The surface is non-modal, so the page remains scrollable while the close control stays interactive. Duration closes the presenter automatically."
-      Grid columns:1 gap:5
+      Grid columns:{ xs:1 md:2 } gap:5
         Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:2
             Text size:"sm" weight:"bold"
@@ -164,7 +164,7 @@ page ToastPage
           "One presenter, target-owned output"
         Text size:"sm" color:"muted"
           "Dowe keeps the normalized feedback model shared while each generator owns the portable overlay implementation."
-      Grid columns:1 gap:4
+      Grid columns:{ xs:1 md:3 } gap:4
         Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"

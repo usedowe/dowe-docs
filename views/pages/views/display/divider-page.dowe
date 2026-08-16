@@ -73,7 +73,7 @@ page DividerPage
               "STATUS"
             Text weight:"bold"
               "Synchronized"
-      Grid columns:1 gap:4
+      Grid columns:{ xs:1 md:2 } gap:4
         Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" color:"muted"
@@ -100,31 +100,28 @@ page DividerPage
                 "Danger"
               Divider orientation:"vertical" scheme:"danger" h:8
   Section id:"divider-contract" p:{ xs:5 md:7 }
-    Grid columns:1 gap:4
-      Card variant:"soft" p:5
-        Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
-            "HORIZONTAL"
-          Title size:"lg" weight:"black"
-            "Width follows the parent"
-          Text size:"sm" color:"muted"
-            "Use the parent layout to define horizontal padding and gap."
-      Card variant:"soft" p:5
-        Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
-            "VERTICAL"
-          Title size:"lg" weight:"black"
-            "Height is intentional"
-          Text size:"sm" color:"muted"
-            "Set h when a vertical line sits beside content with no shared intrinsic height."
-      Card variant:"soft" p:5
-        Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
-            "PORTABLE"
-          Title size:"lg" weight:"black"
-            "No children"
-          Text size:"sm" color:"muted"
-            "Divider is a leaf component; it never owns content or an implicit spacer."
+    Grid columns:{ xs:1 md:3 } gap:4
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" color:"muted"
+          "HORIZONTAL"
+        Title size:"lg" weight:"black"
+          "Width follows the parent"
+        Text size:"sm" color:"muted"
+          "Use the parent layout to define horizontal padding and gap."
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" color:"muted"
+          "VERTICAL"
+        Title size:"lg" weight:"black"
+          "Height is intentional"
+        Text size:"sm" color:"muted"
+          "Set h when a vertical line sits beside content with no shared intrinsic height."
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" color:"muted"
+          "PORTABLE"
+        Title size:"lg" weight:"black"
+          "No children"
+        Text size:"sm" color:"muted"
+          "Divider is a leaf component; it never owns content or an implicit spacer."
   Section id:"divider-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2

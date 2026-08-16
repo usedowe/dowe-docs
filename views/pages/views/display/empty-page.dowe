@@ -14,6 +14,13 @@ page EmptyPage
       { prop:"onClick" type:"Action name" defaultValue:"—" },
       { prop:"variant, scheme" type:"solid | soft | outlined | ghost, Dowe family" defaultValue:"soft, primary" },
     ]
+  const emptyIcons:
+    value:[
+      { type:"playlist" icon:"playlist-bold-duotone" when:"Saved media, queues, or collections" },
+      { type:"result" icon:"magnifier-bold-duotone" when:"Searches, filters, or queries" },
+      { type:"data" icon:"database-bold-duotone" when:"Sources, records, or dashboards" },
+      { type:"template" icon:"widget-add-bold-duotone" when:"Starter surfaces and creation flows" },
+    ]
   Section id:"empty-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
@@ -22,7 +29,7 @@ page EmptyPage
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Empty"
         Text size:"lg" color:"muted"
-          "Empty gives a missing-data workflow a clear illustration, useful copy, and one explicit next action."
+          "Empty gives a missing-data workflow a semantic Solar bold-duotone icon, useful copy, and one explicit next action. Its type selects the icon from the shared Icon catalog, so web, Android, and iOS stay visually aligned."
       Empty type:"result" title:"No saved views" description:"Create a view to keep this workspace close at hand." actionLabel:"Create a view" variant:"soft" scheme:"primary" onClick:openTemplate
   Section id:"empty-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
@@ -30,10 +37,10 @@ page EmptyPage
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
-          "Match the illustration to the job"
+          "Match the state to the job"
         Text size:"sm" color:"muted"
-          "The type selects a portable illustration family. Keep the title and description specific, then choose either navigation or an action for the recovery path."
-      Grid columns:1 gap:4
+          "The type selects a portable icon family. Keep the title and description specific, then choose either navigation or an action for the recovery path. The icon is resolved internally; use Icon separately only when a surrounding layout needs an additional visual cue."
+      Grid columns:{ xs:1 md:2 } gap:4
         Card variant:"outlined" p:{ xs:5 md:7 } border:1
           Grid columns:1 gap:4
             Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
@@ -56,12 +63,29 @@ page EmptyPage
         Title size:"3xl" weight:"black"
           "Four states, one recovery pattern"
         Text size:"sm" color:"muted"
-          "Use the type as a semantic hint rather than a visual hack. The same action contract works for lists, search, datasets, and starter surfaces."
-      Grid columns:1 gap:4
+          "Use the type as a semantic hint rather than a visual hack. Empty maps each type to a bundled Icon name, while the same action contract works for lists, search, datasets, and starter surfaces."
+      Grid columns:{ xs:2 md:4 } gap:4
         Empty type:"playlist" title:"No playlist yet" description:"Save content to build a queue." actionLabel:"Add content" scheme:"primary" variant:"soft" onClick:openTemplate
         Empty type:"result" title:"No results" description:"Change the query and search again." actionLabel:"Search again" scheme:"info" variant:"soft" onClick:retrySearch
         Empty type:"data" title:"No data" description:"Connect a source to populate this view." actionLabel:"Connect source" scheme:"success" variant:"outlined" onClick:openTemplate
         Empty type:"template" title:"No template selected" description:"Pick a starting point for this page." actionLabel:"Choose template" scheme:"secondary" variant:"ghost" href:"/docs/views"
+      Card variant:"soft" p:{ xs:5 md:7 }
+        Grid columns:1 gap:4
+          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+            "SHARED ICON CATALOG"
+          Title size:"lg" weight:"black"
+            "Semantic mapping, target-native output"
+          Text size:"sm" color:"muted"
+            "Empty reuses the same validated Solar bold-duotone geometry as Icon. The mapping is part of the component contract, not a private illustration implementation."
+          Flex gap:4 align:"center"
+            Icon name:"playlist-bold-duotone" fill:"primary" w:8 h:8
+            Icon name:"magnifier-bold-duotone" fill:"info" w:8 h:8
+            Icon name:"database-bold-duotone" fill:"success" w:8 h:8
+            Icon name:"widget-add-bold-duotone" fill:"secondary" w:8 h:8
+          Table data:emptyIcons variant:"outlined" scheme:"surface" size:"sm" striped:true dividers:true rounded:"md"
+            column field:"type" label:"Type" width:"1fr"
+            column field:"icon" label:"Icon name" width:"2fr"
+            column field:"when" label:"Use for" width:"3fr"
       Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
         Empty type:"playlist" title:"No playlist yet" description:"Save content to build a queue." actionLabel:"Add content"
         Empty type:"result" title:"No results" description:"Change the query and search again." actionLabel:"Search again"
@@ -75,31 +99,28 @@ page EmptyPage
           "ADVANCED WORKFLOWS"
         Title size:"3xl" weight:"black"
           "Make the next step obvious"
-      Grid columns:1 gap:4
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "FILTERED COLLECTION"
-            Title size:"lg" weight:"black"
-              "Reset, do not dead-end"
-            Text size:"sm" color:"muted"
-              "Use onClick when the parent page owns a local reset or query mutation."
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "NEW SURFACE"
-            Title size:"lg" weight:"black"
-              "Navigate to a builder"
-            Text size:"sm" color:"muted"
-              "Use href when the recovery step is a route and does not need local state."
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "COPY"
-            Title size:"lg" weight:"black"
-              "Name the absence"
-            Text size:"sm" color:"muted"
-              "A specific title and description help people understand whether to wait, search, create, or connect."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "FILTERED COLLECTION"
+          Title size:"lg" weight:"black"
+            "Reset, do not dead-end"
+          Text size:"sm" color:"muted"
+            "Use onClick when the parent page owns a local reset or query mutation."
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "NEW SURFACE"
+          Title size:"lg" weight:"black"
+            "Navigate to a builder"
+          Text size:"sm" color:"muted"
+            "Use href when the recovery step is a route and does not need local state."
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "COPY"
+          Title size:"lg" weight:"black"
+            "Name the absence"
+          Text size:"sm" color:"muted"
+            "A specific title and description help people understand whether to wait, search, create, or connect."
   Section id:"empty-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2

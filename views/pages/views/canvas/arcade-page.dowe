@@ -118,7 +118,7 @@ page CanvasArcadePage
       },
     ]
   Section id:"canvas-arcade-introduction" py:{ xs:6 md:10 }
-    Grid columns:1 gap:5
+    Grid columns:{ xs:1 md:2 } gap:5 align:"center"
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "CANVAS · ARCADE"
@@ -179,7 +179,7 @@ page CanvasArcadePage
           "MOTION MODEL"
         Title size:"3xl" weight:"black"
           "Compose motion fields deliberately"
-      Grid columns:1 gap:4
+      Grid columns:{ xs:2 md:4 } gap:4
         Card variant:"soft" scheme:"primary" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Title size:"xl" weight:"black"

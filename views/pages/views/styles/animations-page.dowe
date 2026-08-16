@@ -27,7 +27,7 @@ page AnimationsPage
             "Entrance motion runs once when the page appears. Use Replay animations to remount this example and compare every preset."
         Button href:"/docs/views/style/animations" navigate:"replace" size:"sm"
           "Replay animations"
-      Grid columns:1 gap:5
+      Grid columns:{ xs:3 md:6 } gap:4
         Card variant:"soft" scheme:"primary" animation:"fadeIn" p:5
           Text weight:"bold"
             "fadeIn"

@@ -1,0 +1,184 @@
+page StandardLibraryPage
+  meta name:"title" content:"Dowe Views — Portable Standard Library"
+  meta name:"description" content:"Use Dowe's portable standard library from web, Android, and iOS views with one target-neutral syntax."
+  meta name:"canonical" content:"https://dowe.dev/docs/views/standard-library"
+  const catalogRows:
+    value:[
+      { namespace:"str" functions:"trim, lower, upper, length, contains, startsWith, endsWith, replace, split, join" },
+      { namespace:"math" functions:"add, sub, mul, div, round, floor, ceil, abs, min, max, sum, average" },
+      { namespace:"parse" functions:"int, float, bool, json, string, svg" },
+      { namespace:"url" functions:"encode, decode, parse, queryGet, querySet" },
+      { namespace:"csv" functions:"parse, stringify" },
+      { namespace:"sort" functions:"asc, desc, by" },
+      { namespace:"list" functions:"take, skip, first, last, count, filterEquals, filterContains, mapField, sumBy, averageBy" },
+      { namespace:"json" functions:"get, set, pick, omit, merge, stringify, parse" },
+      { namespace:"date" functions:"now, formatIso, addDays, diffDays" },
+    ]
+  const boundaryRows:
+    value:[
+      { boundary:"Web" behavior:"Dowe emits deterministic browser helpers without node_modules or eval." },
+      { boundary:"Android" behavior:"Compose and the development launcher evaluate the same lowered calls with Kotlin/Java helpers." },
+      { boundary:"iOS" behavior:"SwiftUI evaluates the same lowered calls with Swift helpers and ISO UTC dates." },
+      { boundary:"Inputs" behavior:"Invalid parsing returns fallback or null. CSV, JSON, sorting, and lists remain bounded and non-mutating." },
+      { boundary:"Server-only" behavior:"id.ulid and server capabilities are not available in views." },
+    ]
+  signal playground value:{
+    input:"  Portable views  "
+    page:"12"
+    search:""
+    csv:"name,score\nAda,10\nLin,7"
+    url:"/docs/views/standard-library?tab=portable"
+    date:"2026-08-16T12:00:00Z"
+    items:[
+      { id:"ada" name:"Ada" score:10 },
+      { id:"lin" name:"Lin" score:7 },
+      { id:"sam" name:"Sam" score:12 },
+    ]
+  }
+  signal normalized value:""
+  signal pageNumber value:null
+  signal pageLabel value:""
+  signal csvResult value:{ rows:[] columns:[] errors:[] truncated:false rowCount:0 }
+  signal csvRows value:[]
+  signal orderedItems value:[]
+  signal filteredItems value:[]
+  signal queryResult value:""
+  signal scoreTotal value:0
+  signal scoreLabel value:""
+  signal formattedDate value:""
+  signal jsonResult value:""
+  fn runStandardLibrary
+    set normalized source:str.trim value:playground.input
+    set pageNumber source:parse.int value:playground.page fallback:1
+    set pageLabel source:parse.string value:pageNumber
+    set csvResult source:csv.parse value:playground.csv delimiter:"," header:true maxRows:100 maxColumns:10
+    set csvRows source:json.get value:csvResult path:"rows" fallback:[]
+    set orderedItems source:sort.by values:playground.items field:"score" direction:"desc" nulls:"last"
+    set filteredItems source:list.filterContains values:playground.items field:"name" value:playground.search
+    set queryResult source:url.querySet value:playground.url name:"page" param:pageNumber
+    set scoreTotal source:list.sumBy values:playground.items field:"score"
+    set scoreLabel source:parse.string value:scoreTotal
+    set formattedDate source:date.formatIso value:playground.date
+    set jsonResult source:json.stringify value:playground.items pretty:true
+  Section id:"standard-library-introduction" py:{ xs:6 md:10 }
+    Grid columns:1 gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "VIEWS / STANDARD LIBRARY"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Compose portable view values"
+      Text size:"lg" color:"muted"
+        "The same namespaced standard-library calls can power Signals, actions, collections, and computed component data in web, Android, and iOS views."
+  Section id:"standard-library-mental-model" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "1 / SYNTAX"
+        Title size:"3xl" weight:"black"
+          "Name the target Signal and the function"
+        Text size:"sm" color:"muted"
+          "View library calls are pure values. set writes the result to a Signal, source names the canonical namespace and function, and every other prop is a named argument."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy declarations"
+        copiedLabel:"Copied"
+        content:"""
+          fn normalize
+            set normalized source:str.trim value:form.name
+            set page source:parse.int value:form.page fallback:1
+            set ordered source:sort.by values:items field:"score" direction:"desc" nulls:"last"
+            set total source:list.sumBy values:items field:"score"
+        """
+      Alert type:"info" message:"View functions use `set target source:namespace.function ...`. The compiler lowers the call once; web, Android, and iOS own only the final helper implementation." variant:"soft" scheme:"info"
+  Section id:"standard-library-playground" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "2 / CROSS-TARGET PLAYGROUND"
+        Title size:"3xl" weight:"black"
+          "Run one portable workflow"
+        Text size:"sm" color:"muted"
+          "This page exercises text normalization, safe parsing, CSV rows, stable sorting, list filtering, URL query construction, aggregation, JSON serialization, and ISO date formatting from one view action."
+      Card variant:"outlined" p:{ xs:5 md:7 } border:1
+        Grid columns:1 gap:4
+          Input bind:playground.input label:"Text to trim" placeholder:"Enter text"
+          Input bind:playground.page label:"Page number" placeholder:"12"
+          Input bind:playground.search label:"Filter item names" placeholder:"Ada"
+          Textarea bind:playground.csv label:"CSV text" rows:4
+          Button onClick:runStandardLibrary iconStart:"code"
+            "Run portable library"
+          Grid columns:{ xs:1 md:2 } gap:3
+            Box bg:"softMuted" rounded:"md" p:4
+              Text size:"xs" weight:"bold" color:"muted"
+                "Normalized text"
+              Text size:"lg" weight:"bold"
+                "{normalized}"
+            Box bg:"softMuted" rounded:"md" p:4
+              Text size:"xs" weight:"bold" color:"muted"
+                "Parsed page"
+              Text size:"lg" weight:"bold"
+                "{pageLabel}"
+            Box bg:"softMuted" rounded:"md" p:4
+              Text size:"xs" weight:"bold" color:"muted"
+                "Score total"
+              Text size:"lg" weight:"bold"
+                "{scoreLabel}"
+            Box bg:"softMuted" rounded:"md" p:4
+              Text size:"xs" weight:"bold" color:"muted"
+                "Canonical date"
+              Text size:"sm" weight:"bold"
+                "{formattedDate}"
+          Text size:"sm" color:"muted"
+            "{queryResult}"
+      Code template:true language:"javascript" variant:"soft" scheme:"surface" copyLabel:"Copy JSON" copiedLabel:"Copied" content:"{jsonResult}"
+  Section id:"standard-library-results" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "3 / REACTIVE RESULTS"
+        Title size:"3xl" weight:"black"
+          "Keep arrays immutable and inspectable"
+        Text size:"sm" color:"muted"
+          "sort and list return new logical arrays. Signals remain unchanged until an action assigns the result, so the same source collection can feed several views safely."
+      Grid columns:{ xs:1 md:2 } gap:4
+        Card variant:"soft" scheme:"surface" p:4
+          Text size:"xs" weight:"bold" color:"muted"
+            "Sorted items"
+          each in:orderedItems as:item key:item.id
+            Flex align:"center" justify:"between" gap:2
+              Text size:"sm"
+                "{item.name}"
+              Text size:"sm" color:"muted"
+                "{item.score}"
+        Card variant:"soft" scheme:"surface" p:4
+          Text size:"xs" weight:"bold" color:"muted"
+            "Filtered items"
+          each in:filteredItems as:item key:item.id
+            Text size:"sm"
+              "{item.name}"
+      Table data:csvRows variant:"soft" scheme:"surface" size:"sm" striped:true dividers:true rounded:"md"
+        column field:"name" label:"CSV name"
+        column field:"score" label:"CSV score"
+  Section id:"standard-library-catalog" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "4 / IMPLEMENTED CATALOG"
+        Title size:"3xl" weight:"black"
+          "Use the canonical namespaces"
+        Text size:"sm" color:"muted"
+          "The functions below match the current server catalog where the operation is portable. Optional arguments keep their documented defaults."
+      Table data:catalogRows variant:"soft" scheme:"surface" size:"sm" striped:true dividers:true rounded:"md"
+        column field:"namespace" label:"Namespace" width:"1fr"
+        column field:"functions" label:"Functions" width:"6fr"
+  Section id:"standard-library-boundaries" py:{ xs:7 md:10 }
+    Grid columns:1 gap:4
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "5 / TARGET CONTRACT"
+      Title size:"3xl" weight:"black"
+        "One lowered call, three native surfaces"
+      Table data:boundaryRows variant:"soft" scheme:"surface" size:"sm" striped:true dividers:true rounded:"md"
+        column field:"boundary" label:"Surface" width:"2fr"
+        column field:"behavior" label:"Contract" width:"5fr"
+      Alert type:"info" message:"The shared contract is defined by /specs/features/00068-add-portable-standard-library. `id.ulid`, server environment values, Store access, network, filesystem, and arbitrary callbacks stay outside views." variant:"soft" scheme:"info"

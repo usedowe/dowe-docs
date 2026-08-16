@@ -3,8 +3,8 @@ page AccordionPage
     value:[
       { prop:"item" type:"id, label, optional disabled/defaultOpen" defaultValue:"required" },
       { prop:"multiple" type:"boolean" defaultValue:"false" },
-      { prop:"variant" type:"solid | soft | outlined | ghost" defaultValue:"solid" },
-      { prop:"scheme" type:"primary | secondary | tertiary | muted | background | surface | success | info | warning | danger" defaultValue:"background" },
+      { prop:"variant" type:"solid | soft | outlined | ghost" defaultValue:"ghost" },
+      { prop:"scheme" type:"primary | secondary | tertiary | muted | background | surface | success | info | warning | danger" defaultValue:"design/theme" },
       { prop:"item children" type:"normal view tree" defaultValue:"required" },
     ]
   Section id:"accordion-introduction" py:{ xs:6 md:10 }
@@ -15,7 +15,7 @@ page AccordionPage
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Accordion"
         Text size:"lg" color:"muted"
-          "Accordion keeps item labels, disclosure state, scheme colors, spacing, motion, and the exact right-to-down submenu arrow shared with SideNav aligned across web, Android Compose, the Android development launcher, and iOS."
+          "Accordion keeps the same normalized state, disclosure geometry, and border treatment across web, Android Compose, the Android development launcher, and iOS. Ghost stays editorial and quiet by default; soft, outlined, and solid treatments make the variant-versus-scheme balance explicit when a surface needs more emphasis."
       Card variant:"soft" scheme:"primary" p:5 rounded:"lg" minW:56
         Grid columns:1 gap:1
           Text size:"xs" weight:"bold" spacing:"widest"
@@ -33,7 +33,7 @@ page AccordionPage
           "Build a release FAQ"
         Text size:"sm" color:"muted"
           "multiple:true lets readers compare answers without closing the panel they are already reading; multiple:false always keeps at most one item open."
-      Card variant:"outlined" border:1 p:{ xs:5 md:7 }
+      Card variant:"soft" scheme:"surface" p:{ xs:5 md:7 }
         Accordion multiple:true variant:"outlined" scheme:"surface" rounded:"md"
           item id:"source" label:"Where does the source run?" defaultOpen:true
             Grid columns:1 gap:2 p:2
@@ -74,7 +74,7 @@ page AccordionPage
           "Use the body as a real view tree"
         Text size:"sm" color:"muted"
           "Accordion items are not string-only slots. Use Grid, Flex, Text, Title, and actions to make each answer useful on its own."
-      Grid columns:1 gap:4
+      Grid columns:{ xs:1 md:3 } gap:4
         Card variant:"soft" p:5
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" color:"muted"
@@ -122,7 +122,7 @@ page AccordionPage
         Title size:"3xl" weight:"black"
           "Props"
         Text size:"sm" color:"muted"
-          "Accordion also accepts the applicable common spacing, sizing, border, visibility, and accessibility props."
+          "Accordion also accepts the applicable common spacing, sizing, border, visibility, and accessibility props. Ghost uses separators, soft uses a subtle item border, and solid or outlined use full item borders consistently on every target."
       Table:
         data:accordionProps
         variant:"soft"

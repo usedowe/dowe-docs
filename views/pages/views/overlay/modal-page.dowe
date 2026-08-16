@@ -132,7 +132,7 @@ page ModalPage
           "Body content with optional edges"
         Text size:"sm" color:"muted"
           "The body is required. Add header for a title or context, and footer for persistent actions that stay grouped at the bottom of the dialog."
-      Grid columns:1 gap:4
+      Grid columns:{ xs:1 md:3 } gap:4
         Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"
@@ -166,7 +166,7 @@ page ModalPage
           "Choose the available exit paths"
         Text size:"sm" color:"muted"
           "By default, the generated close control and a click on the overlay close the dialog. Keep a visible action in the footer when the task must make its exit explicit."
-      Grid columns:1 gap:5
+      Grid columns:{ xs:1 md:2 } gap:5
         Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:3
             Text size:"sm" weight:"bold"
@@ -269,7 +269,7 @@ page ModalPage
           "One dialog contract, target-owned presentation"
         Text size:"sm" color:"muted"
           "The same source stays signal-driven on every target while Dowe generates the appropriate overlay surface and close behavior."
-      Grid columns:1 gap:4
+      Grid columns:{ xs:1 md:3 } gap:4
         Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"

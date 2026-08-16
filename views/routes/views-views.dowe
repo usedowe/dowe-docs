@@ -3,6 +3,7 @@ import ViewsPage from "@/views/pages/views/views-page"
 import MetadataPage from "@/views/pages/views/metadata-page"
 import I18nPage from "@/views/pages/views/i18n-page"
 import AudioPage from "@/views/pages/views/control/audio-page"
+import CameraPage from "@/views/pages/views/control/camera-page"
 import ButtonPage from "@/views/pages/views/control/button-page"
 import CanvasOverviewPage from "@/views/pages/views/canvas/overview-page"
 import CanvasArcadePage from "@/views/pages/views/canvas/arcade-page"
@@ -89,6 +90,7 @@ import GesturesPage from "@/views/pages/views/styles/gestures-page"
 import EventsPage from "@/views/pages/views/styles/events-page"
 import VideoPage from "@/views/pages/views/control/video-page"
 import RecordPage from "@/views/pages/views/control/record-page"
+import MicrophonePage from "@/views/pages/views/control/microphone-page"
 import ToggleGroupPage from "@/views/pages/views/control/toggle-group-page"
 import CheckboxPage from "@/views/pages/views/forms/checkbox-page"
 import TogglePage from "@/views/pages/views/forms/toggle-page"
@@ -105,6 +107,7 @@ import FunctionsPage from "@/views/pages/views/functions-page"
 import EachPage from "@/views/pages/views/each-page"
 import ShowPage from "@/views/pages/views/show-page"
 import ParsePage from "@/views/pages/views/utilities/parse-page"
+import StandardLibraryPage from "@/views/pages/views/standard-library-page"
 views ViewsViews
   group path:"/docs/views" layout:ViewsLayout
     route path:"" page:ViewsPage
@@ -132,7 +135,9 @@ views ViewsViews
     route path:"logic/each" page:EachPage
     route path:"logic/show" page:ShowPage
     route path:"utility/parse" page:ParsePage
+    route path:"standard-library" page:StandardLibraryPage
     route path:"control/audio" page:AudioPage
+    route path:"control/camera" page:CameraPage
     route path:"control/button" page:ButtonPage
     route path:"canvas/overview" page:CanvasOverviewPage
     route path:"canvas/arcade" page:CanvasArcadePage
@@ -152,6 +157,7 @@ views ViewsViews
     route path:"control/image" page:ImagePage
     route path:"control/video" page:VideoPage
     route path:"control/record" page:RecordPage
+    route path:"control/microphone" page:MicrophonePage
     route path:"control/toggle-group" page:ToggleGroupPage
     route path:"form/input" page:InputPage
     route path:"form/checkbox" page:CheckboxPage

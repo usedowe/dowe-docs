@@ -1,0 +1,103 @@
+page CameraPage
+  const cameraProps:
+    value:[
+      { prop:"facing" type:"user | environment" defaultValue:"environment" },
+      { prop:"label" type:"string" defaultValue:"Camera" },
+      { prop:"disabled" type:"boolean" defaultValue:"false" },
+      { prop:"onStart" type:"function" defaultValue:"—" },
+      { prop:"onCapture" type:"function" defaultValue:"—" },
+      { prop:"onError" type:"function" defaultValue:"—" },
+      { prop:"variant" type:"solid | soft | outlined | ghost" defaultValue:"solid" },
+      { prop:"scheme" type:"primary | secondary | tertiary | muted | success | info | warning | danger" defaultValue:"primary" },
+    ]
+  signal cameraStatus value:"Ready"
+  fn cameraStart
+    set cameraStatus value:"Camera started"
+  fn cameraCapture
+    set cameraStatus value:"Photo captured"
+  fn cameraError
+    set cameraStatus value:"Camera unavailable"
+  Section id:"camera-introduction" py:{ xs:6 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "CONTROL"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Camera"
+        Text size:"lg" color:"muted"
+          "Camera captures one still photo from the device camera. Permission is requested only when the user starts capture, and the resulting local URL is delivered to the selected function."
+      Card variant:"soft" scheme:"success" p:5 rounded:"lg" minW:56
+        Grid columns:1 gap:1
+          Text size:"xs" weight:"bold" spacing:"widest"
+            "PORTABLE CAPTURE"
+          Title size:"xl" weight:"black"
+            "One photo contract, three targets"
+          Text size:"sm"
+            "The same start, capture, and error events are generated for web, iOS, and Android."
+  Section id:"camera-playground" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "PLAYGROUND"
+        Title size:"3xl" weight:"black"
+          "Start with an explicit user action"
+        Text size:"sm" color:"muted"
+          "The preview keeps the permission boundary visible. Dowe does not open the camera while the page is loading."
+      Card variant:"outlined" border:1 p:{ xs:5 md:7 }
+        Grid columns:1 gap:4
+          Camera facing:"user" label:"Take photo" onStart:cameraStart onCapture:cameraCapture onError:cameraError variant:"soft" scheme:"primary" rounded:"lg"
+          Text size:"sm" color:"muted"
+            "Status:"
+          Text size:"sm" color:"primary"
+            "Use the capture callback item in the surrounding workflow."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          fn cameraStart
+            set cameraStatus value:"Camera started"
+          fn cameraCapture
+            set cameraStatus value:"Photo captured"
+          Camera facing:"user" label:"Take photo" onStart:cameraStart onCapture:cameraCapture onError:cameraError
+        """
+  Section id:"camera-events" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "EVENTS"
+        Title size:"3xl" weight:"black"
+          "Use the item in fn"
+        Text size:"sm" color:"muted"
+          "onStart receives source, kind, and facing. onCapture also includes mimeType, url, width, and height. onError receives a stable source, kind, and error value."
+      Card variant:"soft" scheme:"surface" p:5
+        Text size:"sm"
+          "The URL is a browser object URL on web, a temporary file URL on iOS, and a cache URI on Android. Dowe does not upload the file automatically."
+  Section id:"camera-props" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Props"
+        Text size:"sm" color:"muted"
+          "Camera also accepts common spacing, sizing, border, visibility, and accessibility props."
+      Table:
+        data:cameraProps
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop" width:"1fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1fr"
+  Section id:"camera-next" p:{ xs:5 md:7 }
+    Flex wrap:true justify:"between" gap:4
+      Button href:"/docs/views/control/audio" variant:"outlined" rounded:"full"
+        "Previous Audio"
+      Button href:"/docs/views/control/microphone" rounded:"full"
+        "Next Microphone"

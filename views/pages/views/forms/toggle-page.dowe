@@ -90,7 +90,7 @@ page TogglePage
           "Every semantic family"
         Text size:"sm" color:"muted"
           "The active track and thumb use the selected scheme while the off state remains neutral and legible."
-      Grid columns:1 gap:5
+      Grid columns:{ xs:2 md:4 } gap:4
         Toggle checked:true label:"Primary" scheme:"primary"
         Toggle checked:true label:"Secondary" scheme:"secondary"
         Toggle checked:true label:"Tertiary" scheme:"tertiary"
@@ -119,7 +119,7 @@ page TogglePage
           "Make both states clear"
         Text size:"sm" color:"muted"
           "labelLeft appears before the switch and labelRight after it. The active side stays emphasized as the boolean value changes."
-      Grid columns:1 gap:5
+      Grid columns:{ xs:1 md:2 } gap:5
         Toggle:
           checked:false
           labelLeft:"Off"
@@ -153,7 +153,7 @@ page TogglePage
           "On, off, and unavailable"
         Text size:"sm" color:"muted"
           "Use checked for a fixed initial state. disabled keeps the value visible while preventing interaction."
-      Grid columns:1 gap:5
+      Grid columns:{ xs:2 md:4 } gap:4
         Toggle checked:true label:"Enabled and on" scheme:"success"
         Toggle checked:false label:"Enabled and off" scheme:"primary"
         Toggle checked:true disabled:true label:"Disabled and on" scheme:"muted"
@@ -179,31 +179,28 @@ page TogglePage
           "One boolean contract, every target"
         Text size:"sm" color:"muted"
           "Dowe lowers the same boolean switch to web, iOS, and Android, keeping labels, scheme, state, and disabled behavior aligned."
-      Grid columns:1 gap:4
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "BINDING"
-            Title size:"lg" weight:"bold"
-              "Boolean only"
-            Text size:"sm" color:"muted"
-              "bind accepts a bool Signal path and writes true or false when the user changes the switch."
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "STATE CONTEXT"
-            Title size:"lg" weight:"bold"
-              "Labels on both sides"
-            Text size:"sm" color:"muted"
-              "label, labelLeft, and labelRight explain the setting and both of its available states."
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "TARGETS"
-            Title size:"lg" weight:"bold"
-              "Portable switch"
-            Text size:"sm" color:"muted"
-              "Web, SwiftUI, and Compose render the same checked, unchecked, and disabled model."
+      Grid columns:{ xs:1 md:3 } gap:5
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "BINDING"
+          Title size:"lg" weight:"bold"
+            "Boolean only"
+          Text size:"sm" color:"muted"
+            "bind accepts a bool Signal path and writes true or false when the user changes the switch."
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "STATE CONTEXT"
+          Title size:"lg" weight:"bold"
+            "Labels on both sides"
+          Text size:"sm" color:"muted"
+            "label, labelLeft, and labelRight explain the setting and both of its available states."
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "TARGETS"
+          Title size:"lg" weight:"bold"
+            "Portable switch"
+          Text size:"sm" color:"muted"
+            "Web, SwiftUI, and Compose render the same checked, unchecked, and disabled model."
   Section id:"toggle-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2

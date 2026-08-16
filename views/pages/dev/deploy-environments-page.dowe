@@ -27,6 +27,10 @@ page DeployEnvironmentsPage
         area:"Provider isolation"
         guidance:"Cloudflare Pages uses stage.<project>.pages.dev and uat.<project>.pages.dev aliases, Workers use name suffixes, Vercel uses the custom deployment targets stage and uat, and Docker uses stage or uat default tags. Live keeps existing production destinations."
       },
+      {
+        area:"Variable propagation"
+        guidance:"Docker declares server-only names for runtime injection, SSH installs selected server values in a root-only EnvironmentFile, Cloudflare uses vars and secrets.required, and Vercel maps Live, Stage, and UAT to production, stage, and uat."
+      },
     ]
   Section id:"deploy-environments-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3

@@ -79,7 +79,7 @@ page BannerPage
           "Banners for different levels of emphasis"
         Text size:"sm" color:"muted"
           "Use common layout props to move from a compact announcement to an immersive campaign without changing the link contract."
-      Grid columns:1 gap:5
+      Grid columns:{ xs:1 md:2 } gap:5
         Banner:
           href:"https://dowe.dev/docs"
           label:"Read the Dowe documentation"
@@ -146,49 +146,44 @@ page BannerPage
           "One visual surface, one external destination"
         Text size:"sm" color:"muted"
           "Banner fixes external behavior so every target can preserve the same safe intent."
-      Grid columns:1 gap:4
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "DESTINATION"
-            Title size:"lg" weight:"black"
-              "HTTPS is required"
-            Text size:"sm" color:"muted"
-              "Internal paths, fragments, relative URLs, HTTP, and unsafe schemes fail before target generation."
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "CONTENT"
-            Title size:"lg" weight:"black"
-              "Children own the visuals"
-            Text size:"sm" color:"muted"
-              "Compose text, icons, images, Flex, and Grid freely. Banner adds no Button variant or control metrics."
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "TARGETS"
-            Title size:"lg" weight:"black"
-              "External by design"
-            Text size:"sm" color:"muted"
-              "Web opens a protected new tab. Android and iOS use the system browser."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "DESTINATION"
+          Title size:"lg" weight:"black"
+            "HTTPS is required"
+          Text size:"sm" color:"muted"
+            "Internal paths, fragments, relative URLs, HTTP, and unsafe schemes fail before target generation."
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "CONTENT"
+          Title size:"lg" weight:"black"
+            "Children own the visuals"
+          Text size:"sm" color:"muted"
+            "Compose text, icons, images, Flex, and Grid freely. Banner adds no Button variant or control metrics."
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "TARGETS"
+          Title size:"lg" weight:"black"
+            "External by design"
+          Text size:"sm" color:"muted"
+            "Web opens a protected new tab. Android and iOS use the system browser."
   Section id:"banner-accessibility" p:{ xs:5 md:7 }
-    Grid columns:1 gap:4
-      Card variant:"outlined" p:5 border:1
-        Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
-            "ACCESSIBILITY"
-          Title size:"xl" weight:"black"
-            "Name the complete link"
-          Text size:"sm" color:"muted"
-            "Use label when the visible tree does not produce one concise destination name for assistive technology."
-      Card variant:"outlined" p:5 border:1
-        Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
-            "COMPOSITION"
-          Title size:"xl" weight:"black"
-            "Avoid nested controls"
-          Text size:"sm" color:"muted"
-            "Do not place Button, IconButton, navigation items, or another interactive control inside a Banner."
+    Grid columns:{ xs:1 md:2 } gap:4
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" color:"muted"
+          "ACCESSIBILITY"
+        Title size:"xl" weight:"black"
+          "Name the complete link"
+        Text size:"sm" color:"muted"
+          "Use label when the visible tree does not produce one concise destination name for assistive technology."
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" color:"muted"
+          "COMPOSITION"
+        Title size:"xl" weight:"black"
+          "Avoid nested controls"
+        Text size:"sm" color:"muted"
+          "Do not place Button, IconButton, navigation items, or another interactive control inside a Banner."
   Section id:"banner-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2

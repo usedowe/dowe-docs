@@ -45,7 +45,7 @@ page ServerQueueBlockPage
           Text size:"xs" weight:"bold" color:"muted"
             "BEFORE YOU CLICK"
           Text size:"sm" color:"muted"
-            "Dowe direct publication targets an existing queue. Provision the local namespace and queue once, then this View can call the endpoint."
+            "Local development uses Dowe and targets an existing queue. On deploy, the same handler can select RabbitMQ, Cloudflare, or Vercel through its server-only connection; provision the remote queue before publishing."
           Code:
             language:"dowe"
             variant:"soft"

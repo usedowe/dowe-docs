@@ -35,7 +35,7 @@ page WidthPage
           "Scale values and full width"
         Text size:"sm" color:"muted"
           "Numeric values use the Dowe scale. The full token occupies the available parent width."
-      Flex direction:"column" gap:4
+      Grid columns:{ xs:1 md:3 } gap:4
         Flex direction:"column" gap:2
           Box bg:"softPrimary" rounded:"md" w:24 h:12
           Text size:"sm" color:"muted"
@@ -49,7 +49,7 @@ page WidthPage
           Text size:"sm" color:"muted"
             "w:\"full\""
   Section id:"width-minimum" py:{ xs:7 md:10 }
-    Grid columns:1 gap:6 align:"center"
+    Grid columns:{ xs:1 md:2 } gap:6 align:"center"
       Flex direction:"column" gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "MINIMUM WIDTH"
@@ -73,7 +73,7 @@ page WidthPage
         Button minW:64 variant:"soft" scheme:"secondary"
           "Create workspace"
   Section id:"width-responsive" p:{ xs:5 md:7 }
-    Grid columns:1 gap:6 align:"center"
+    Grid columns:{ xs:1 md:2 } gap:6 align:"center"
       Flex direction:"column" gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "RESPONSIVE"
@@ -104,7 +104,7 @@ page WidthPage
           "Cap width without forcing it"
         Text size:"sm" color:"muted"
           "maxW sets an upper bound. Content may remain narrower, while w:\"full\" grows only until it reaches the limit."
-      Grid columns:1 gap:6 align:"center"
+      Grid columns:{ xs:1 md:2 } gap:6 align:"center"
         Code:
           language:"dowe"
           variant:"soft"

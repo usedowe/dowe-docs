@@ -92,7 +92,7 @@ page MapPage
           "Tune the map to its context"
         Text size:"sm" color:"muted"
           "A map can be interactive for exploration or quiet and compact when it only confirms a stored location."
-      Grid columns:1 gap:4
+      Grid columns:{ xs:1 md:2 } gap:4
         Card variant:"outlined" p:{ xs:5 md:7 } border:1
           Grid columns:1 gap:4
             Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
@@ -121,23 +121,21 @@ page MapPage
           waypoint lat:4.69 lng:-74.08
       """
   Section id:"map-entries" p:{ xs:5 md:7 }
-    Grid columns:1 gap:4
-      Card variant:"soft" p:5
-        Grid columns:1 gap:3
-          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-            "MARKERS"
-          Title size:"2xl" weight:"black"
-            "Give every marker an id"
-          Text size:"sm" color:"muted"
-            "Markers require unique static ids plus latitude and longitude. label and popup provide accessible and contextual copy; onClick stays optional."
-      Card variant:"soft" p:5
-        Grid columns:1 gap:3
-          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-            "ROUTES"
-          Title size:"2xl" weight:"black"
-            "Declare all four endpoints"
-          Text size:"sm" color:"muted"
-            "A route is either absent or complete: routeStartLat, routeStartLng, routeEndLat, and routeEndLng must appear together."
+    Grid columns:{ xs:1 md:3 } gap:4
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "MARKERS"
+        Title size:"2xl" weight:"black"
+          "Give every marker an id"
+        Text size:"sm" color:"muted"
+          "Markers require unique static ids plus latitude and longitude. label and popup provide accessible and contextual copy; onClick stays optional."
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "ROUTES"
+        Title size:"2xl" weight:"black"
+          "Declare all four endpoints"
+        Text size:"sm" color:"muted"
+          "A route is either absent or complete: routeStartLat, routeStartLng, routeEndLat, and routeEndLng must appear together."
       Table data:markerProps variant:"soft" scheme:"surface" size:"sm" striped:true dividers:true rounded:"md"
         column field:"prop" label:"Marker prop" width:"1.2fr"
         column field:"type" label:"Type" width:"3fr"

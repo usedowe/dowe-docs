@@ -72,7 +72,7 @@ page ColorPage
           "Build a color token"
         Text size:"sm" color:"muted"
           "Open the field to adjust saturation, brightness, and hue. bind writes the canonical uppercase hex value continuously, while format rows stay opt-in."
-      Grid columns:1 gap:4
+      Grid columns:{ xs:1 md:2 } gap:4
         Color:
           bind:brandColor
           label:"Brand color"
@@ -114,7 +114,7 @@ page ColorPage
           "Expose the formats your workflow needs"
         Text size:"sm" color:"muted"
           "Hex is the stored value. RGB, CMYK, and OKLCH are computed from the same selected sRGB color for design tools and handoff."
-      Grid columns:1 gap:5
+      Grid columns:{ xs:1 md:2 } gap:5
         Color value:"#14b8a6" label:"Product accent" showHex:true showRgb:true showCmyk:true showOklch:true variant:"soft" scheme:"success" size:"md" name:"product-accent"
         Color value:"#a855f7" label:"Campaign highlight" showHex:true showOklch:true variant:"line" scheme:"secondary" size:"sm" name:"campaign-highlight"
       Code:
@@ -136,7 +136,7 @@ page ColorPage
           "Make feedback part of the field"
         Text size:"sm" color:"muted"
           "Use the same color picker contract for resting, validated, and corrective states."
-      Grid columns:1 gap:5
+      Grid columns:{ xs:1 md:2 } gap:5
         Color:
           bind:accentColor
           label:"Validated accent"
@@ -157,7 +157,7 @@ page ColorPage
           name:"review-color"
       Text size:"sm" color:"muted"
         "The base heights are 32, 40, and 48; labelFloating adds 8 logical units on every target."
-      Flex wrap:true justify:"center" align:"center" gap:3
+      Grid columns:{ xs:1 md:3 } gap:3
         Color value:"#0ea5e9" label:"Small" labelFloating:true variant:"outlined" scheme:"info" size:"sm"
         Color value:"#f59e0b" label:"Medium" labelFloating:true variant:"outlined" scheme:"warning" size:"md"
         Color value:"#22c55e" label:"Large" labelFloating:true variant:"outlined" scheme:"success" size:"lg"
@@ -170,31 +170,28 @@ page ColorPage
           "One portable color model"
         Text size:"sm" color:"muted"
           "Dowe lowers the same anchored panel, saturation and brightness plane, hue slider, preview, formats, labels, and feedback to web, SwiftUI, and Compose. A floating label begins after the leading swatch so both remain readable."
-      Grid columns:1 gap:4
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "BINDING"
-            Title size:"lg" weight:"bold"
-              "String Signal"
-            Text size:"sm" color:"muted"
-              "bind reads and writes one uppercase #RRGGBB string continuously while the picker moves."
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "FORMATS"
-            Title size:"lg" weight:"bold"
-              "Opt-in details"
-            Text size:"sm" color:"muted"
-              "showHex, showRgb, showCmyk, and showOklch add deterministic rows inside the anchored panel."
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "VALIDATION"
-            Title size:"lg" weight:"bold"
-              "Hex only"
-            Text size:"sm" color:"muted"
-              "value and Signal values use the #RRGGBB contract so every target starts from the same color."
+      Grid columns:{ xs:1 md:3 } gap:5
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "BINDING"
+          Title size:"lg" weight:"bold"
+            "String Signal"
+          Text size:"sm" color:"muted"
+            "bind reads and writes one uppercase #RRGGBB string continuously while the picker moves."
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "FORMATS"
+          Title size:"lg" weight:"bold"
+            "Opt-in details"
+          Text size:"sm" color:"muted"
+            "showHex, showRgb, showCmyk, and showOklch add deterministic rows inside the anchored panel."
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "VALIDATION"
+          Title size:"lg" weight:"bold"
+            "Hex only"
+          Text size:"sm" color:"muted"
+            "value and Signal values use the #RRGGBB contract so every target starts from the same color."
   Section id:"color-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2

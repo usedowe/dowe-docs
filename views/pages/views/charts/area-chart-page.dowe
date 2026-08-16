@@ -123,7 +123,7 @@ page AreaChartPage
           "Reduce noise deliberately"
         Text size:"sm" color:"muted"
           "Hide only the visual guides that are redundant for the context. Keep a legend or nearby copy when the fill colors carry meaning."
-      Grid columns:1 gap:4
+      Grid columns:{ xs:1 md:3 } gap:4
         AreaChart data:visits variant:"solid" scheme:"surface" size:"md" hideGrid:true hideXAxis:true hideYAxis:true hideLine:true fillOpacity:0.5
         AreaChart data:visits variant:"soft" scheme:"info" size:"md" showPoints:true hideGrid:true
         AreaChart data:emptyPoints variant:"outlined" scheme:"warning" size:"md" emptyLabel:"No visits yet"

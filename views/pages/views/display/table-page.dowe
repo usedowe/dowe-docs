@@ -189,7 +189,7 @@ page TablePage
           "Choose density and emphasis"
         Text size:"sm" color:"muted"
           "variant and scheme style the table surface, header, borders, stripes, and empty state. size adjusts header and cell typography together."
-      Grid columns:1 gap:4
+      Grid columns:{ xs:1 md:3 } gap:4
         Table:
           data:teamMembers
           variant:"solid"
@@ -273,31 +273,28 @@ page TablePage
           "PORTABLE CONTRACT"
         Title size:"3xl" weight:"black"
           "Semantic rows, native output"
-      Grid columns:1 gap:4
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "WEB AND DESKTOP"
-            Title size:"lg" weight:"bold"
-              "A real table"
-            Text size:"sm" color:"muted"
-              "Dowe emits semantic table markup inside a horizontal overflow container."
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "NATIVE"
-            Title size:"lg" weight:"bold"
-              "Readable rows"
-            Text size:"sm" color:"muted"
-              "SwiftUI and Compose render native headers, cells, and the same empty-state copy."
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "CURRENT SCOPE"
-            Title size:"lg" weight:"bold"
-              "Data display only"
-            Text size:"sm" color:"muted"
-              "Sorting, pagination, selection, search, and custom cells are not part of the current Table contract."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "WEB AND DESKTOP"
+          Title size:"lg" weight:"bold"
+            "A real table"
+          Text size:"sm" color:"muted"
+            "Dowe emits semantic table markup inside a horizontal overflow container."
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "NATIVE"
+          Title size:"lg" weight:"bold"
+            "Readable rows"
+          Text size:"sm" color:"muted"
+            "SwiftUI and Compose render native headers, cells, and the same empty-state copy."
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "CURRENT SCOPE"
+          Title size:"lg" weight:"bold"
+            "Data display only"
+          Text size:"sm" color:"muted"
+            "Sorting, pagination, selection, search, and custom cells are not part of the current Table contract."
   Section id:"table-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2

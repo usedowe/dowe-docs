@@ -16,7 +16,7 @@ page AudioPage
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Audio"
         Text size:"lg" color:"muted"
-          "Audio creates a portable player surface with an explicit source, optional identity, and the same visual contract on web, Android, and iOS."
+          "Audio creates a portable player surface with an explicit source, optional identity, and the same visual contract on web, Android, and iOS. The control and waveform are functional on every target."
       Card variant:"soft" scheme:"success" p:5 rounded:"lg" minW:56
         Grid columns:1 gap:1
           Text size:"xs" weight:"bold" spacing:"widest"
@@ -25,6 +25,37 @@ page AudioPage
             "One source, three targets"
           Text size:"sm"
             "Use an asset path for packaged media or an HTTPS URL for a remote preview."
+  Section id:"audio-interactions" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "INTERACTION CONTRACT"
+        Title size:"3xl" weight:"black"
+          "One control, one waveform, three targets"
+        Text size:"sm" color:"muted"
+          "Audio uses the target's native media player, while Dowe keeps the visual and interaction model aligned. The waveform is a stable 50-bar visualization, so the surface stays deterministic without browser-only audio analysis."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "PLAY"
+          Title size:"lg" weight:"black"
+            "Play and pause"
+          Text size:"sm" color:"muted"
+            "The circular control swaps between the bundled play and pause icons and updates its accessible label."
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "SEEK"
+          Title size:"lg" weight:"black"
+            "Touch the signal"
+          Text size:"sm" color:"muted"
+            "Click, touch, or drag across the 50 bars to seek. On web, Arrow keys move by a short step and Home/End jump to the boundaries."
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "STATUS"
+          Title size:"lg" weight:"black"
+            "Read remaining time"
+          Text size:"sm" color:"muted"
+            "The active bars, play/pause icon, accessible state, and footer update together. Remaining time uses m:ss while the optional subtitle and avatar keep the same 12/6 spacing contract."
   Section id:"audio-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
@@ -34,7 +65,7 @@ page AudioPage
           "Compare player treatments"
         Text size:"sm" color:"muted"
           "Keep the source stable while changing the subtitle, avatar, variant, and scheme to match the surrounding product surface."
-      Grid columns:1 gap:4
+      Grid columns:{ xs:1 md:2 } gap:4
         Card variant:"outlined" border:1 p:{ xs:5 md:7 }
           Grid columns:1 gap:4
             Audio src:"https://cdn.pixabay.com/audio/2022/04/25/audio_5d61b5204f.mp3" subtitle:"Product walkthrough · 02:18" avatarSrc:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=96&q=80" variant:"soft" scheme:"primary" rounded:"lg"
@@ -64,7 +95,7 @@ page AudioPage
           "Use Audio inside a content workflow"
         Text size:"sm" color:"muted"
           "Pair the player with metadata and a clear next action. The component owns playback controls; the surrounding Dowe source owns the page composition."
-      Grid columns:1 gap:4
+      Grid columns:{ xs:1 md:3 } gap:4
         Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"

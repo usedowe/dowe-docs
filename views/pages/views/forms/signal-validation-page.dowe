@@ -26,7 +26,7 @@ page SignalValidationPage
           "Disable the action until every field passes"
         Text size:"sm" color:"muted"
           "The button reads formLogin.isInvalid. The submit function calls validate formLogin before its request."
-      Grid columns:1 gap:4
+      Grid columns:{ xs:1 md:2 } gap:4
         Input bind:formLogin.email label:"Email" placeholder:"name@example.com" helpText:"Use a work address." w:"full"
           validate rule:"required" message:"Email is required."
           validate rule:"email" message:"Enter a valid email."

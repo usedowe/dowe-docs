@@ -65,7 +65,7 @@ page TooltipPage
           "Place the label around its child"
         Text size:"sm" color:"muted"
           "position selects the side of the child where the floating label appears. Use the side with the clearest available space."
-      Grid columns:1 gap:5
+      Grid columns:{ xs:2 md:4 } gap:5
         Card variant:"outlined" p:6 border:1
           Flex justify:"center"
             Tooltip label:"Top tooltip" position:"top"
@@ -110,7 +110,7 @@ page TooltipPage
           "Two surfaces, semantic schemes"
         Text size:"sm" color:"muted"
           "variant controls the tooltip surface. scheme chooses its design family independently from the child it describes."
-      Grid columns:1 gap:5
+      Grid columns:{ xs:1 md:2 } gap:5
         Card variant:"soft" p:6
           Grid columns:1 gap:3
             Text size:"sm" weight:"bold"
@@ -146,7 +146,7 @@ page TooltipPage
           "A pointer-first, portable contract"
         Text size:"sm" color:"muted"
           "The same source keeps its child content on every target. Only targets with hover or keyboard focus present the floating label."
-      Grid columns:1 gap:4
+      Grid columns:{ xs:1 md:3 } gap:4
         Card variant:"soft" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" color:"muted"

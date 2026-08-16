@@ -85,7 +85,7 @@ page CandlestickPage
           "Keep the latest market window"
         Text size:"sm" color:"muted"
           "stream connects to a Server-Sent Events endpoint. A candle with the latest time replaces the last point; a new time appends until maxPoints is reached."
-      Grid columns:1 gap:4
+      Grid columns:{ xs:1 md:2 } gap:4
         Candlestick:
           data:candles
           variant:"outlined"
@@ -117,7 +117,7 @@ page CandlestickPage
           "Make market context visible"
         Text size:"sm" color:"muted"
           "Use semantic colors for direction, a surface variant for emphasis, and explicit empty copy when a feed has not produced data yet."
-      Grid columns:1 gap:4
+      Grid columns:{ xs:1 md:3 } gap:4
         Candlestick data:candles variant:"solid" scheme:"surface" h:56 rounded:"sm" upColor:"success" downColor:"danger"
         Candlestick data:candles variant:"soft" scheme:"primary" h:56 rounded:"md" upColor:"primary" downColor:"secondary"
         Candlestick data:emptyCandles variant:"outlined" scheme:"warning" h:56 rounded:"md" emptyLabel:"No session data"

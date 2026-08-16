@@ -70,7 +70,7 @@ page AvatarGroupPage
           "Choose the right density"
         Text size:"sm" color:"muted"
           "Stacked groups communicate membership; inline groups work better inside metadata rows and compact headers."
-      Grid columns:1 gap:4
+      Grid columns:{ xs:1 md:3 } gap:4
         Card variant:"soft" p:5
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" color:"muted"
@@ -118,23 +118,21 @@ page AvatarGroupPage
             item name:"Dowe" alt:"Dowe Agent"
         """
   Section id:"avatar-group-contract" p:{ xs:5 md:7 }
-    Grid columns:1 gap:4
-      Card variant:"outlined" border:1 p:5
-        Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-            "FALLBACKS"
-          Title size:"xl" weight:"black"
-            "Image, then initials"
-          Text size:"sm" color:"muted"
-            "A valid HTTPS or packaged local src wins first; without it, name and alt keep the identity recognizable on every target."
-      Card variant:"outlined" border:1 p:5
-        Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-            "INTERACTION"
-          Title size:"xl" weight:"black"
-            "Items can navigate"
-          Text size:"sm" color:"muted"
-            "Static item entries also accept href, target, externalMode, and onClick when an identity should act as a link or action."
+    Grid columns:{ xs:1 md:2 } gap:4
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "FALLBACKS"
+        Title size:"xl" weight:"black"
+          "Image, then initials"
+        Text size:"sm" color:"muted"
+          "A valid HTTPS or packaged local src wins first; without it, name and alt keep the identity recognizable on every target."
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "INTERACTION"
+        Title size:"xl" weight:"black"
+          "Items can navigate"
+        Text size:"sm" color:"muted"
+          "Static item entries also accept href, target, externalMode, and onClick when an identity should act as a link or action."
   Section id:"avatar-group-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2

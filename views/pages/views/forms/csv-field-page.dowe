@@ -113,7 +113,7 @@ page CsvFieldPage
           "Shape the review step"
         Text size:"sm" color:"muted"
           "The field can show a short preview for quick imports or a larger page size for operational reviews."
-      Grid columns:1 gap:5
+      Grid columns:{ xs:1 md:2 } gap:5
         CsvField:
           buttonText:"Import product catalog"
           modalTitle:"Map catalog columns"
@@ -162,11 +162,11 @@ page CsvFieldPage
           "Keep the intake legible"
         Text size:"sm" color:"muted"
           "Use errorText for parse or mapping feedback and size to match the surrounding form density."
-      Grid columns:1 gap:5
+      Grid columns:{ xs:1 md:2 } gap:5
         CsvField buttonText:"Upload valid data" errorText:"The file is missing the required `email` header." variant:"outlined" scheme:"danger" size:"md"
           csvColumn name:"email" label:"Email"
         CsvField buttonText:"Upload a small sample" variant:"solid" scheme:"info" size:"sm" showPreview:true previewRows:2 previewPageSize:5
-      Flex wrap:true justify:"center" align:"center" gap:3
+      Grid columns:{ xs:1 md:3 } gap:3
         CsvField buttonText:"Extra small" variant:"soft" scheme:"secondary" size:"xs"
         CsvField buttonText:"Medium" variant:"soft" scheme:"secondary" size:"md"
         CsvField buttonText:"Large" variant:"soft" scheme:"secondary" size:"lg"
@@ -179,31 +179,28 @@ page CsvFieldPage
           "A local, reviewable import"
         Text size:"sm" color:"muted"
           "Web parses the selected CSV locally; native targets keep the same mapping and preview model while using target-owned picker hooks."
-      Grid columns:1 gap:4
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "COLUMNS"
-            Title size:"lg" weight:"bold"
-              "Explicit contract"
-            Text size:"sm" color:"muted"
-              "Each csvColumn declares a required output name and optional visible label."
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "PREVIEW"
-            Title size:"lg" weight:"bold"
-              "Bounded rows"
-            Text size:"sm" color:"muted"
-              "previewRows and previewPageSize keep review surfaces compact and predictable."
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "VALIDATION"
-            Title size:"lg" weight:"bold"
-              "Visible errors"
-            Text size:"sm" color:"muted"
-              "Delimiter detection, missing headers, and mapping issues stay inside the generated field flow."
+      Grid columns:{ xs:1 md:3 } gap:5
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "COLUMNS"
+          Title size:"lg" weight:"bold"
+            "Explicit contract"
+          Text size:"sm" color:"muted"
+            "Each csvColumn declares a required output name and optional visible label."
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "PREVIEW"
+          Title size:"lg" weight:"bold"
+            "Bounded rows"
+          Text size:"sm" color:"muted"
+            "previewRows and previewPageSize keep review surfaces compact and predictable."
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "VALIDATION"
+          Title size:"lg" weight:"bold"
+            "Visible errors"
+          Text size:"sm" color:"muted"
+            "Delimiter detection, missing headers, and mapping issues stay inside the generated field flow."
   Section id:"csv-field-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2

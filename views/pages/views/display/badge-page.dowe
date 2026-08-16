@@ -28,7 +28,7 @@ page BadgePage
           "Add context without covering the control"
         Text size:"sm" color:"muted"
           "Each example gets enough breathing room for the label to sit across the child’s corner on web, Android, and iOS."
-      Grid columns:1 gap:4
+      Grid columns:{ xs:1 md:3 } gap:4
         Card variant:"outlined" rounded:"lg" border:1 p:7 minH:36
           Flex direction:"column" align:"center" justify:"between" gap:6 minH:24
             Badge text:"3" scheme:"danger" position:"top-right"
@@ -85,7 +85,7 @@ page BadgePage
           "Choose one of four corners"
         Text size:"sm" color:"muted"
           "The center of the capsule anchors to the selected corner, so the label remains legible without shifting the wrapped view."
-      Grid columns:1 gap:4
+      Grid columns:{ xs:2 md:4 } gap:4
         Card variant:"soft" scheme:"muted" p:7 rounded:"lg" minH:32
           Flex direction:"column" align:"center" justify:"center" gap:5 minH:20
             Badge text:"TL" scheme:"primary" position:"top-left"
@@ -123,31 +123,28 @@ page BadgePage
           "Keep the child primary"
         Text size:"sm" color:"muted"
           "A Badge should clarify an existing view, not become a second control or a paragraph of content."
-      Grid columns:1 gap:4
-        Card variant:"soft" scheme:"success" p:5 rounded:"lg"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" spacing:"widest"
-              "DO"
-            Title size:"lg" weight:"black"
-              "Use semantic schemes"
-            Text size:"sm"
-              "Choose danger for attention, success for completion, and info for contextual labels."
-        Card variant:"soft" scheme:"info" p:5 rounded:"lg"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" spacing:"widest"
-              "DO"
-            Title size:"lg" weight:"black"
-              "Keep text compact"
-            Text size:"sm"
-              "Use a count, symbol, or short status word that can remain on one line."
-        Card variant:"soft" scheme:"warning" p:5 rounded:"lg"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" spacing:"widest"
-              "AVOID"
-            Title size:"lg" weight:"black"
-              "Do not hide the target"
-            Text size:"sm"
-              "Leave enough surrounding space for the capsule and keep essential content away from the chosen corner."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" spacing:"widest"
+            "DO"
+          Title size:"lg" weight:"black"
+            "Use semantic schemes"
+          Text size:"sm"
+            "Choose danger for attention, success for completion, and info for contextual labels."
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" spacing:"widest"
+            "DO"
+          Title size:"lg" weight:"black"
+            "Keep text compact"
+          Text size:"sm"
+            "Use a count, symbol, or short status word that can remain on one line."
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" spacing:"widest"
+            "AVOID"
+          Title size:"lg" weight:"black"
+            "Do not hide the target"
+          Text size:"sm"
+            "Leave enough surrounding space for the capsule and keep essential content away from the chosen corner."
   Section id:"badge-parity" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
@@ -157,31 +154,28 @@ page BadgePage
           "One source, the same overlay"
         Text size:"sm" color:"muted"
           "Dowe lowers the same Badge tree into target-owned layout primitives while preserving label metrics, scheme, variant, and corner."
-      Grid columns:1 gap:4
-        Card variant:"outlined" rounded:"lg" border:1 p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-              "WEB"
-            Title size:"lg" weight:"black"
-              "Positioned overlay"
-            Text size:"sm" color:"muted"
-              "The wrapper keeps the child’s intrinsic size and paints the capsule above its selected corner."
-        Card variant:"outlined" rounded:"lg" border:1 p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-              "ANDROID"
-            Title size:"lg" weight:"black"
-              "Compose Box overlay"
-            Text size:"sm" color:"muted"
-              "Jetpack Compose measures the child first, then offsets the capsule by half of its own size."
-        Card variant:"outlined" rounded:"lg" border:1 p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
-              "IOS"
-            Title size:"lg" weight:"black"
-              "SwiftUI aligned overlay"
-            Text size:"sm" color:"muted"
-              "SwiftUI aligns the capsule center to the same corner without changing the content frame."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+            "WEB"
+          Title size:"lg" weight:"black"
+            "Positioned overlay"
+          Text size:"sm" color:"muted"
+            "The wrapper keeps the child’s intrinsic size and paints the capsule above its selected corner."
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+            "ANDROID"
+          Title size:"lg" weight:"black"
+            "Compose Box overlay"
+          Text size:"sm" color:"muted"
+            "Jetpack Compose measures the child first, then offsets the capsule by half of its own size."
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+            "IOS"
+          Title size:"lg" weight:"black"
+            "SwiftUI aligned overlay"
+          Text size:"sm" color:"muted"
+            "SwiftUI aligns the capsule center to the same corner without changing the content frame."
   Section id:"badge-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2

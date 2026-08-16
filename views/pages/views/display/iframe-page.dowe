@@ -58,7 +58,7 @@ page IframePage
           "Choose the smallest capability set"
         Text size:"sm" color:"muted"
           "Loading, allow, and sandbox are static source props. Their values are checked before generation and mapped to HTML, WKWebView, and Android WebView behavior."
-      Grid columns:1 gap:4
+      Grid columns:{ xs:1 md:2 } gap:4
         Card variant:"outlined" p:{ xs:5 md:7 } border:1
           Grid columns:1 gap:4
             Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
@@ -78,31 +78,28 @@ page IframePage
         Iframe src:"/examples/appbar-two" title:"Strict internal preview" loading:"lazy" sandbox:""
       """
   Section id:"iframe-boundary" p:{ xs:5 md:7 }
-    Grid columns:1 gap:4
-      Card variant:"soft" p:5
-        Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
-            "SOURCE"
-          Title size:"lg" weight:"black"
-            "HTTPS or internal"
-          Text size:"sm" color:"muted"
-            "Remote sources must be HTTPS. Local routes must begin with exactly one slash."
-      Card variant:"soft" p:5
-        Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
-            "ACCESSIBILITY"
-          Title size:"lg" weight:"black"
-            "Title is required"
-          Text size:"sm" color:"muted"
-            "The quoted title labels the embedded document on web and native targets."
-      Card variant:"soft" p:5
-        Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
-            "LIMITS"
-          Title size:"lg" weight:"black"
-            "No hidden bridge"
-          Text size:"sm" color:"muted"
-            "Dowe does not inject headers, cookies, downloads, popups, or JavaScript-to-native bridges."
+    Grid columns:{ xs:1 md:3 } gap:4
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" color:"muted"
+          "SOURCE"
+        Title size:"lg" weight:"black"
+          "HTTPS or internal"
+        Text size:"sm" color:"muted"
+          "Remote sources must be HTTPS. Local routes must begin with exactly one slash."
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" color:"muted"
+          "ACCESSIBILITY"
+        Title size:"lg" weight:"black"
+          "Title is required"
+        Text size:"sm" color:"muted"
+          "The quoted title labels the embedded document on web and native targets."
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" color:"muted"
+          "LIMITS"
+        Title size:"lg" weight:"black"
+          "No hidden bridge"
+        Text size:"sm" color:"muted"
+          "Dowe does not inject headers, cookies, downloads, popups, or JavaScript-to-native bridges."
   Section id:"iframe-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2

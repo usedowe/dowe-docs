@@ -112,7 +112,7 @@ page CanvasParticlesPage
       },
     ]
   Section id:"canvas-particles-introduction" py:{ xs:6 md:10 }
-    Grid columns:1 gap:5
+    Grid columns:{ xs:1 md:2 } gap:5 align:"center"
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "CANVAS · PARTICLES"
@@ -173,7 +173,7 @@ page CanvasParticlesPage
           "TIMING"
         Title size:"3xl" weight:"black"
           "Animation honors user and app state"
-      Grid columns:1 gap:4
+      Grid columns:{ xs:1 md:3 } gap:4
         Card variant:"soft" scheme:"primary" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Title size:"xl" weight:"black"

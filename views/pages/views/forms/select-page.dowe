@@ -151,7 +151,7 @@ page SelectPage
           "Fixed or floating"
         Text size:"sm" color:"muted"
           "A fixed label stays above the trigger. A floating label rests inside an empty control, activates when the list opens, and stays active after a choice is made. Its active origin matches the selected text and is not moved by the trailing arrow."
-      Grid columns:1 gap:5
+      Grid columns:{ xs:1 md:3 } gap:4
         Select label:"Role" placeholder:"Choose a role" w:"full"
           Option value:"admin" label:"Administrator"
           Option value:"editor" label:"Editor"
@@ -189,7 +189,7 @@ page SelectPage
           "The same trigger height everywhere"
         Text size:"sm" color:"muted"
           "Small, medium, and large triggers are 32, 40, and 48 logical units, and their selected text scales through body sm, md, and lg. A floating label adds exactly 8 units."
-      Grid columns:1 gap:4
+      Grid columns:{ xs:1 md:3 } gap:4
         Select label:"Small" placeholder:"32 + 8" labelFloating:true size:"sm" w:"full"
           Option value:"small" label:"Small option"
         Select label:"Medium" placeholder:"40 + 8" labelFloating:true w:"full"
@@ -205,7 +205,7 @@ page SelectPage
           "Four control surfaces"
         Text size:"sm" color:"muted"
           "Variant changes the trigger treatment while the option list, arrow, labels, and single-choice behavior stay consistent."
-      Grid columns:1 gap:5
+      Grid columns:{ xs:1 md:3 } gap:4
         Select label:"Solid" placeholder:"Choose a role" variant:"solid" w:"full"
           Option value:"admin" label:"Administrator"
         Select label:"Soft" placeholder:"Choose a role" variant:"soft" w:"full"
@@ -223,7 +223,7 @@ page SelectPage
           "Every semantic family"
         Text size:"sm" color:"muted"
           "Outlined controls keep a neutral resting border while scheme controls their foreground, focus, and selected-option accent."
-      Grid columns:1 gap:5
+      Grid columns:{ xs:2 md:4 } gap:4
         Select label:"Primary" placeholder:"Choose" w:"full"
           Option value:"primary" label:"Primary"
         Select label:"Secondary" placeholder:"Choose" scheme:"secondary" w:"full"
@@ -249,31 +249,28 @@ page SelectPage
           "One authored list, every target"
         Text size:"sm" color:"muted"
           "Dowe owns the trigger and option popover instead of delegating selection to platform-native menus, pickers, or spinners."
-      Grid columns:1 gap:4
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "SINGLE CHOICE"
-            Title size:"lg" weight:"bold"
-              "String binding"
-            Text size:"sm" color:"muted"
-              "A selected Option writes its normalized string value to bind. Duplicate values are invalid."
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "STRUCTURE"
-            Title size:"lg" weight:"bold"
-              "Direct children"
-            Text size:"sm" color:"muted"
-              "Option is valid only as a direct Select child, with a non-empty label and optional description."
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "TARGETS"
-            Title size:"lg" weight:"bold"
-              "Adaptive popover"
-            Text size:"sm" color:"muted"
-              "Web positions the list by available space; iOS and Android keep it content-sized and scroll long catalogs."
+      Grid columns:{ xs:1 md:3 } gap:5
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "SINGLE CHOICE"
+          Title size:"lg" weight:"bold"
+            "String binding"
+          Text size:"sm" color:"muted"
+            "A selected Option writes its normalized string value to bind. Duplicate values are invalid."
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "STRUCTURE"
+          Title size:"lg" weight:"bold"
+            "Direct children"
+          Text size:"sm" color:"muted"
+            "Option is valid only as a direct Select child, with a non-empty label and optional description."
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "TARGETS"
+          Title size:"lg" weight:"bold"
+            "Adaptive popover"
+          Text size:"sm" color:"muted"
+            "Web positions the list by available space; iOS and Android keep it content-sized and scroll long catalogs."
   Section id:"select-validation" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2

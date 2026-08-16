@@ -100,7 +100,7 @@ page DragDropPage
           "Use one list or several lanes"
         Text size:"sm" color:"muted"
           "Direct dragItem children create one list. dragGroup children create independent lanes. Do not mix both child shapes in one DragDrop."
-      Grid columns:1 gap:5
+      Grid columns:{ xs:1 md:2 } gap:5
         DragDrop emptyText:"Drop unassigned work here" direction:"vertical" variant:"soft" scheme:"success" size:"md"
           dragItem id:"draft" label:"Draft brief" description:"Needs a first review."
           dragItem id:"feedback" label:"Collect feedback" description:"Waiting on product input."
@@ -136,7 +136,7 @@ page DragDropPage
           "Make movement and constraints visible"
         Text size:"sm" color:"muted"
           "Empty text, disabled items, and size communicate whether a board is ready for movement or only showing a static plan."
-      Grid columns:1 gap:5
+      Grid columns:{ xs:1 md:2 } gap:5
         DragDrop emptyText:"Nothing is queued yet" direction:"vertical" variant:"outlined" scheme:"info" size:"sm"
         DragDrop emptyText:"No transfers allowed" direction:"horizontal" allowGroupTransfer:false variant:"solid" scheme:"warning" size:"lg"
           dragGroup id:"today" title:"Today"
@@ -152,31 +152,28 @@ page DragDropPage
           "A deterministic movement model"
         Text size:"sm" color:"muted"
           "Dowe lowers authored item IDs, lane structure, drag direction, and disabled state to shared target-neutral data."
-      Grid columns:1 gap:4
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "STRUCTURE"
-            Title size:"lg" weight:"bold"
-              "Stable IDs"
-            Text size:"sm" color:"muted"
-              "Every dragItem and dragGroup needs a unique ID within the DragDrop tree."
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "TRANSFER"
-            Title size:"lg" weight:"bold"
-              "Explicit movement"
-            Text size:"sm" color:"muted"
-              "allowGroupTransfer controls cross-lane movement; direction controls the main arrangement."
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "TARGETS"
-            Title size:"lg" weight:"bold"
-              "Native drag affordances"
-            Text size:"sm" color:"muted"
-              "Web, SwiftUI, and Compose preserve handles, insertion feedback, empty lanes, and disabled states."
+      Grid columns:{ xs:1 md:3 } gap:5
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "STRUCTURE"
+          Title size:"lg" weight:"bold"
+            "Stable IDs"
+          Text size:"sm" color:"muted"
+            "Every dragItem and dragGroup needs a unique ID within the DragDrop tree."
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "TRANSFER"
+          Title size:"lg" weight:"bold"
+            "Explicit movement"
+          Text size:"sm" color:"muted"
+            "allowGroupTransfer controls cross-lane movement; direction controls the main arrangement."
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "TARGETS"
+          Title size:"lg" weight:"bold"
+            "Native drag affordances"
+          Text size:"sm" color:"muted"
+            "Web, SwiftUI, and Compose preserve handles, insertion feedback, empty lanes, and disabled states."
   Section id:"drag-drop-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2

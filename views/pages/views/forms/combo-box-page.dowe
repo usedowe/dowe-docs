@@ -56,7 +56,7 @@ page ComboBoxPage
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "ComboBox"
         Text size:"lg" color:"muted"
-          "ComboBox combines a searchable popover, static options, optional clearing, and a typed single-selection Signal. Its sm, md, and lg sizes scale both control height and displayed text on every target."
+          "ComboBox combines a searchable anchored popover, static options, optional clearing, and a typed single-selection Signal. Its sm, md, and lg sizes scale both control height and displayed text on every target."
   Section id:"combo-box-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
@@ -66,7 +66,7 @@ page ComboBoxPage
           "Search a role catalog"
         Text size:"sm" color:"muted"
           "Type to narrow the static option list, choose a role, and clear it when the workflow needs an explicit empty state."
-      Grid columns:1 gap:4
+      Grid columns:{ xs:1 md:2 } gap:4
         ComboBox:
           bind:selectedRole
           label:"Workspace role"
@@ -117,7 +117,7 @@ page ComboBoxPage
           "Tune the control to its context"
         Text size:"sm" color:"muted"
           "The searchable behavior stays constant while sm, md, and lg map to 32, 40, and 48 logical units. labelFloating adds 8 on every target."
-      Grid columns:1 gap:5
+      Grid columns:{ xs:1 md:3 } gap:4
         ComboBox value:"design" label:"Soft field" placeholder:"Choose a team" variant:"soft" scheme:"secondary" size:"sm" name:"soft-team"
           comboOption value:"design" label:"Design" description:"Tokens and visual systems." icon:"edit"
           comboOption value:"platform" label:"Platform" description:"Shared runtime foundations." icon:"settings"
@@ -147,13 +147,13 @@ page ComboBoxPage
           "Empty, unavailable, and guided"
         Text size:"sm" color:"muted"
           "Use feedback text to explain the catalog, disabled to preserve a visible choice, and custom loading copy for remote-looking flows."
-      Grid columns:1 gap:5
+      Grid columns:{ xs:1 md:2 } gap:5
         ComboBox label:"No matching project" placeholder:"Search projects" searchPlaceholder:"Search projects" emptyText:"Nothing matches this query" helpText:"Try a project key or team name." variant:"outlined" scheme:"info" name:"project"
           comboOption value:"dowe" label:"Dowe" description:"Compiler and runtime." icon:"file"
         ComboBox value:"billing" label:"Billing domain" placeholder:"Choose a domain" disabled:true errorText:"This catalog is unavailable for your workspace." variant:"soft" scheme:"muted" name:"billing"
           comboOption value:"billing" label:"Billing" description:"Plans and invoices." icon:"settings"
           comboOption value:"usage" label:"Usage" description:"Consumption and limits." icon:"search"
-      Flex wrap:true justify:"center" align:"center" gap:3
+      Grid columns:{ xs:1 md:3 } gap:3
         ComboBox value:"small" label:"Small" labelFloating:true variant:"outlined" scheme:"primary" size:"sm" name:"small-catalog"
           comboOption value:"small" label:"Small catalog"
         ComboBox value:"medium" label:"Medium" labelFloating:true variant:"outlined" scheme:"primary" size:"md" name:"medium-catalog"
@@ -169,31 +169,28 @@ page ComboBoxPage
           "One authored catalog, every target"
         Text size:"sm" color:"muted"
           "Dowe owns the trigger, search row, option state, and popover placement instead of delegating the contract to a platform-specific menu."
-      Grid columns:1 gap:4
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "BINDING"
-            Title size:"lg" weight:"bold"
-              "String only"
-            Text size:"sm" color:"muted"
-              "bind reads and writes the selected option value through a string Signal path."
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "OPTIONS"
-            Title size:"lg" weight:"bold"
-              "Direct children"
-            Text size:"sm" color:"muted"
-              "Each comboOption needs a unique value and label, with optional description, icon, image, or disabled state."
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "TARGETS"
-            Title size:"lg" weight:"bold"
-              "Adaptive popover"
-            Text size:"sm" color:"muted"
-              "Web, SwiftUI, and Compose preserve search, selection, disabled options, clear, and empty states."
+      Grid columns:{ xs:1 md:3 } gap:5
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "BINDING"
+          Title size:"lg" weight:"bold"
+            "String only"
+          Text size:"sm" color:"muted"
+            "bind reads and writes the selected option value through a string Signal path."
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "OPTIONS"
+          Title size:"lg" weight:"bold"
+            "Direct children"
+          Text size:"sm" color:"muted"
+            "Each comboOption needs a unique value and label, with optional description, icon, image, or disabled state."
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "TARGETS"
+          Title size:"lg" weight:"bold"
+            "Adaptive popover"
+          Text size:"sm" color:"muted"
+            "Web, SwiftUI, Compose, and the Android launcher preserve search, selection, disabled options, clear, empty, and loading states."
   Section id:"combo-box-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2

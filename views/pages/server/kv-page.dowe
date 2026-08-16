@@ -67,7 +67,7 @@ page KvPage
         Title size:"3xl" weight:"black"
           "Choose the production adapter"
         Text size:"sm" color:"muted"
-          "Every provider uses the same required props. Store credential names in .env.example and values in .env or the process environment."
+          "Every provider uses the same required props. provider may use env.CACHE_PROVIDER; store credential names in .env.example and values in .env or the process environment."
       Table:
         data:cacheProviderRows
         variant:"soft"
@@ -117,7 +117,7 @@ page KvPage
       Title size:"3xl" weight:"black"
         "Local without Wrangler"
       Text size:"sm" color:"muted"
-        "During dowe dev, all providers resolve only name and use the persistent Dowe engine at .dowe/kv. Host and credentials are not resolved, no remote provider starts, and no auxiliary port is opened."
+        "During dowe dev, all providers ignore the effective provider, resolve only name, and use the persistent Dowe engine at .dowe/kv. Host and credentials are not resolved, no remote provider starts, and no auxiliary port is opened."
       Code:
         language:"dowe"
         variant:"soft"

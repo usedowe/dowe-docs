@@ -103,7 +103,7 @@ page ShadowPage
           "Choose a shadow"
         Text size:"sm" color:"muted"
           "Use shadow for a progressive soft blur and shadowColor for a theme-aware tint. The generated snippet follows both selections."
-      Grid columns:1 gap:4
+      Grid columns:{ xs:1 md:2 } gap:4
         Select:
           bind:shadowSizeChoice
           label:"Shadow size"
@@ -136,7 +136,7 @@ page ShadowPage
           "One style contract"
         Text size:"sm" color:"muted"
           "Card, Button, Avatar, Chip, and Input use the same portable shadow scale and semantic color families."
-      Grid columns:1 gap:5
+      Grid columns:{ xs:2 md:5 } gap:4
         Flex direction:"column" gap:3 align:"center" p:6
           Text size:"xs" weight:"bold" color:"muted"
             "CARD"
@@ -184,7 +184,7 @@ page ShadowPage
           "SIZE SCALE"
         Title size:"3xl" weight:"black"
           "Five shadow levels"
-      Grid columns:1 gap:4
+      Grid columns:{ xs:2 md:5 } gap:4
         Card shadow:"xs" shadowColor:"muted" p:5
           Text weight:"bold"
             "xs"
@@ -207,7 +207,7 @@ page ShadowPage
           "SEMANTIC COLORS"
         Title size:"3xl" weight:"black"
           "Eight theme families"
-      Grid columns:1 gap:5
+      Grid columns:{ xs:2 md:4 } gap:4
         Button shadow:"md" shadowColor:"primary" variant:"soft"
           "Primary"
         Button shadow:"md" shadowColor:"secondary" variant:"soft" scheme:"secondary"

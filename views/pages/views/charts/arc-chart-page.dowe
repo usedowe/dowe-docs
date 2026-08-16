@@ -129,7 +129,7 @@ page ArcChartPage
           "Loading and empty data stay thematic"
         Text size:"sm" color:"muted"
           "Use loading for an in-flight data request and emptyLabel for a valid empty Signal. Both states preserve the chart surface and accessibility context."
-      Grid columns:1 gap:4
+      Grid columns:{ xs:1 md:2 } gap:4
         ArcChart data:allocation variant:"soft" scheme:"info" size:"md" loading:true centerText:"Syncing" centerValue:"—"
         ArcChart data:emptySlices variant:"outlined" scheme:"warning" size:"md" emptyLabel:"No allocation yet" centerText:"Empty" centerValue:"0"
   Section id:"arc-chart-props" py:{ xs:7 md:10 }

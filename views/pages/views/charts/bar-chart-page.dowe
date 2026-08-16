@@ -88,7 +88,7 @@ page BarChartPage
           "Layer a quarterly comparison"
         Text size:"sm" color:"muted"
           "Bar series contain a name and nested categorical data. Choose grouped for side-by-side comparison or stacked when the total matters more than each bar height."
-      Grid columns:1 gap:4
+      Grid columns:{ xs:1 md:2 } gap:4
         BarChart:
           series:quarterly
           variant:"outlined"
@@ -128,7 +128,7 @@ page BarChartPage
           "Tune emphasis without losing context"
         Text size:"sm" color:"muted"
           "hideGrid is useful for compact KPI panels. Keep axes and labels when the chart is the primary evidence for a decision."
-      Grid columns:1 gap:4
+      Grid columns:{ xs:1 md:3 } gap:4
         BarChart data:channels variant:"solid" scheme:"surface" size:"md" hideGrid:true showValues:true
         BarChart data:channels variant:"soft" scheme:"info" size:"md" palette:"neon" showValues:true
         BarChart data:emptyBars variant:"outlined" scheme:"warning" size:"md" emptyLabel:"No channel data"

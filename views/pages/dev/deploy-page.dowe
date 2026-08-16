@@ -22,6 +22,10 @@ page DeployPage
         area:"Server secrets"
         guidance:"Dotenv profiles are never copied into a package. Stage and UAT require the server-only DOWE_DEPLOY_ACCESS_PASSWORD; Live does not include that access middleware."
       },
+      {
+        area:"Provider mapping"
+        guidance:"Docker declares server names for runtime injection, SSH installs selected server values in a root-only systemd EnvironmentFile, Cloudflare separates vars from secrets.required, and Vercel maps Live, Stage, and UAT to production, stage, and uat."
+      },
     ]
   const nativeBuildRows:
     value:[
@@ -70,6 +74,11 @@ page DeployPage
         guidance:"After confirmation, Server and Web remember registry and image independently for their next Docker menu. Explicit flags override these values; credentials are never stored."
       },
       {
+        concern:"Target preference"
+        defaultValue:".dowe/dev/deploy-target-selection.json"
+        guidance:"The interactive menu remembers the last target independently for each environment and surface. Missing or unavailable values fall back to the first option; explicit --target runs do not use this file."
+      },
+      {
         concern:"Platform"
         defaultValue:"linux/amd64"
         guidance:"The current native runtime and generated build command target Linux amd64."
@@ -104,6 +113,10 @@ page DeployPage
         concern:"Background service"
         guidance:"systemctl enable --now starts the app immediately, enables boot startup, and restarts it after a failure."
       },
+      {
+        concern:"Runtime variables"
+        guidance:"On publish, selected server-only values excluding DOWE_DEPLOY_ACCESS_PASSWORD are installed as /etc/dowe/<service>.env with root ownership and mode 0600. Dry runs do not transfer them."
+      },
     ]
   const deployResultRows:
     value:[
@@ -124,7 +137,7 @@ page DeployPage
     value:[
       {
         area:"Secrets stay outside"
-        guidance:".env, .env.live, .env.stage, and .env.uat are never copied. Declare names in .env.example and provide runtime server values through the platform."
+        guidance:".env, .env.live, .env.stage, and .env.uat are never copied. Declare names in .env.example; Docker receives runtime values, and Cloudflare or Vercel secret stores require provider-side configuration."
       },
       {
         area:"Push stays explicit"

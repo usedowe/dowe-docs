@@ -115,7 +115,7 @@ page PieChartPage
           "Make a centered KPI from distribution data"
         Text size:"sm" color:"muted"
           "donut creates an open center. donutWidth controls the ring weight, while hideLabels and hideValues let the center and legend carry the explanation."
-      Grid columns:1 gap:4
+      Grid columns:{ xs:1 md:2 } gap:4
         PieChart:
           data:delivery
           variant:"outlined"
@@ -159,7 +159,7 @@ page PieChartPage
           "Choose the smallest complete explanation"
         Text size:"sm" color:"muted"
           "Hide labels only when the legend or nearby copy names the slices. Empty and loading states remain explicit and portable."
-      Grid columns:1 gap:4
+      Grid columns:{ xs:1 md:3 } gap:4
         PieChart data:mix variant:"solid" scheme:"surface" size:"md" hideLabels:true hideValues:true hidePercentages:true legendPosition:"bottom"
         PieChart data:mix variant:"soft" scheme:"info" size:"md" loading:true centerLabel:"Loading" centerValue:"—"
         PieChart data:emptySlices variant:"outlined" scheme:"warning" size:"md" emptyLabel:"No distribution yet"

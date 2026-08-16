@@ -27,7 +27,7 @@ page ChipPage
         Title size:"3xl" weight:"black"
           "Four levels of emphasis"
       Card variant:"outlined" p:{ xs:6 md:8 } border:1
-        Flex wrap:true justify:"center" align:"center" gap:3
+        Grid columns:{ xs:2 md:4 } gap:3
           Chip variant:"solid" scheme:"primary"
             "Solid"
           Chip variant:"soft" scheme:"success"
@@ -53,7 +53,7 @@ page ChipPage
           "SCHEMES"
         Title size:"3xl" weight:"black"
           "Semantic color families"
-      Flex wrap:true justify:"center" align:"center" gap:3
+      Grid columns:{ xs:4 md:8 } gap:3
         Chip variant:"soft" scheme:"primary"
           "Primary"
         Chip variant:"soft" scheme:"secondary"
@@ -77,7 +77,7 @@ page ChipPage
           "SIZES"
         Title size:"3xl" weight:"black"
           "Five compact densities"
-      Flex wrap:true justify:"center" align:"center" gap:3
+      Grid columns:{ xs:2 md:5 } gap:3
         Chip size:"xs" scheme:"primary"
           "Extra small"
         Chip size:"sm" scheme:"primary"
@@ -97,7 +97,7 @@ page ChipPage
           "Portable SVG at either edge"
         Text size:"sm" color:"muted"
           "start and end each accept one Svg, keeping the same authored geometry across targets."
-      Flex wrap:true justify:"center" align:"center" gap:3
+      Grid columns:{ xs:1 md:2 } gap:3
         Chip variant:"soft" scheme:"info"
           start
             Svg viewBox:"0 0 24 24" w:4 h:4

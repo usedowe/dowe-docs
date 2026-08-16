@@ -74,7 +74,7 @@ page SectionPage
           "Portable decorative bands"
         Text size:"sm" color:"muted"
           "Presets are theme-aware Dowe values generated consistently for web, Android, and iOS."
-      Grid columns:1 gap:4
+      Grid columns:{ xs:3 md:6 } gap:4
         Section background:"soft" rounded:"md" minH:32
           Grid columns:1 gap:2
             Title size:"xl"

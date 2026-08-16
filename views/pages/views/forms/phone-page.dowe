@@ -127,7 +127,7 @@ page PhonePage
           "Prioritize the countries that matter"
         Text size:"sm" color:"muted"
           "The selected country appears first, followed by priorityCountries and then the rest of the built-in catalog."
-      Grid columns:1 gap:5
+      Grid columns:{ xs:1 md:2 } gap:5
         Phone:
           value:"4155550136"
           country:"US"
@@ -171,8 +171,8 @@ page PhonePage
         Title size:"3xl" weight:"black"
           "Keep validation attached to the whole number"
         Text size:"sm" color:"muted"
-          "Error feedback belongs to the combined country and number control, while disabled preserves both values visibly."
-      Grid columns:1 gap:5
+          "Error feedback belongs to the combined country and number control, while disabled preserves both values visibly. Floating labels stay anchored over the local-number input rather than the country selector."
+      Grid columns:{ xs:1 md:2 } gap:5
         Phone:
           value:"123"
           country:"MX"
@@ -196,7 +196,7 @@ page PhonePage
         "The base heights are 32, 40, and 48; labelFloating adds 8 logical units without changing the country trigger."
       Text size:"sm" color:"muted"
         "Phone validates the bound local-number string after blur or country-popover close; the first failing message belongs to the combined control."
-      Flex wrap:true justify:"center" align:"center" gap:4
+      Grid columns:{ xs:1 md:3 } gap:4
         Phone country:"CO" label:"Small" labelFloating:true variant:"soft" scheme:"primary" size:"sm"
         Phone country:"CO" label:"Medium" labelFloating:true variant:"soft" scheme:"primary" size:"md"
         Phone country:"CO" label:"Large" labelFloating:true variant:"soft" scheme:"primary" size:"lg"
@@ -209,31 +209,28 @@ page PhonePage
           "One country catalog, portable selection"
         Text size:"sm" color:"muted"
           "Dowe owns country metadata, ordering, search, dial-code storage, selected state, and the shared circle-flags SVGs across generated targets."
-      Grid columns:1 gap:4
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "CATALOG"
-            Title size:"lg" weight:"bold"
-              "Searchable countries"
-            Text size:"sm" color:"muted"
-              "Country names, flags, and dial codes come from the deterministic Dowe-owned catalog."
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "VALUE"
-            Title size:"lg" weight:"bold"
-              "Digit-only local value"
-            Text size:"sm" color:"muted"
-              "bind owns local-number digits and dialCodeName identifies the generated companion form value."
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "TARGETS"
-            Title size:"lg" weight:"bold"
-              "Dowe popovers"
-            Text size:"sm" color:"muted"
-              "Web, SwiftUI, Compose, and the Android launcher use the Dowe anchored dropdown surface with matching inset, width, compact search, horizontal flag/name/dial rows, empty feedback, selection, and vector country flags."
+      Grid columns:{ xs:1 md:3 } gap:5
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "CATALOG"
+          Title size:"lg" weight:"bold"
+            "Searchable countries"
+          Text size:"sm" color:"muted"
+            "Country names, flags, and dial codes come from the deterministic Dowe-owned catalog."
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "VALUE"
+          Title size:"lg" weight:"bold"
+            "Digit-only local value"
+          Text size:"sm" color:"muted"
+            "bind owns local-number digits and dialCodeName identifies the generated companion form value."
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "TARGETS"
+          Title size:"lg" weight:"bold"
+            "Dowe popovers"
+          Text size:"sm" color:"muted"
+            "Web, SwiftUI, Compose, and the Android launcher use the Dowe anchored dropdown surface with matching inset, width, compact search, horizontal flag/name/dial rows, empty feedback, selection, and vector country flags."
   Section id:"phone-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2

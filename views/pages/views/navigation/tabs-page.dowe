@@ -55,7 +55,7 @@ page TabsPage
           "Tabs accepts only direct tab entries. Each entry has a unique id, a visible label, and one or more view nodes for its panel. The first entry starts active."
         Text size:"sm" color:"muted"
           "The tab list wraps its controls instead of stretching across the panel. If a horizontal list becomes wider than its container, it stays bounded and scrolls."
-      Grid columns:1 gap:6 align:"start"
+      Grid columns:{ xs:1 md:2 } gap:6 align:"start"
         Card variant:"outlined" p:{ xs:5 md:8 } border:1
           Tabs position:"top"
             tab id:"overview" label:"Overview"
@@ -103,7 +103,7 @@ page TabsPage
           "Five tab treatments"
         Text size:"sm" color:"muted"
           "Variant changes the tab list treatment without changing panel behavior or keyboard navigation."
-      Grid columns:1 gap:5
+      Grid columns:{ xs:1 md:2 } gap:5
         Card variant:"soft" p:5
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
@@ -168,7 +168,7 @@ page TabsPage
           "Place controls around the panel"
         Text size:"sm" color:"muted"
           "top and bottom use a horizontal tab list. start and end place a vertical list beside the panel on every generated target."
-      Grid columns:1 gap:5
+      Grid columns:{ xs:1 md:3 } gap:5
         Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"

@@ -128,25 +128,22 @@ page BoxPage
                 "Persistent action"
         """
   Section id:"box-contract" p:{ xs:5 md:7 }
-    Grid columns:1 gap:4
-      Card variant:"soft" scheme:"info" p:5
-        Grid columns:1 gap:2
-          Text weight:"bold"
-            "Direct ownership"
-          Text size:"sm" color:"muted"
-            "An absolute Box must be a direct child of a relative Box."
-      Card variant:"soft" scheme:"warning" p:5
-        Grid columns:1 gap:2
-          Text weight:"bold"
-            "One edge per axis"
-          Text size:"sm" color:"muted"
-            "Choose top or bottom, and left or right. Opposite offsets on one axis are rejected."
-      Card variant:"soft" scheme:"success" p:5
-        Grid columns:1 gap:2
-          Text weight:"bold"
-            "Source-order layers"
-          Text size:"sm" color:"muted"
-            "Later positioned siblings appear above earlier siblings on every target."
+    Grid columns:{ xs:1 md:3 } gap:4
+      Flex direction:"column" gap:2
+        Text weight:"bold"
+          "Direct ownership"
+        Text size:"sm" color:"muted"
+          "An absolute Box must be a direct child of a relative Box."
+      Flex direction:"column" gap:2
+        Text weight:"bold"
+          "One edge per axis"
+        Text size:"sm" color:"muted"
+          "Choose top or bottom, and left or right. Opposite offsets on one axis are rejected."
+      Flex direction:"column" gap:2
+        Text weight:"bold"
+          "Source-order layers"
+        Text size:"sm" color:"muted"
+          "Later positioned siblings appear above earlier siblings on every target."
   Section id:"box-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2

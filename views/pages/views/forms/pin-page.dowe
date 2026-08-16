@@ -121,7 +121,7 @@ page PinPage
           "Choose the right code contract"
         Text size:"sm" color:"muted"
           "Numeric codes suit one-time verification, password mode masks sensitive access keys, and text mode accepts alphanumeric recovery codes."
-      Grid columns:1 gap:5
+      Grid columns:{ xs:1 md:3 } gap:4
         Pin:
           value:"5821"
           length:4
@@ -172,7 +172,7 @@ page PinPage
           "Respond to the complete code"
         Text size:"sm" color:"muted"
           "Validation applies to the joined value, so feedback stays attached to the complete segmented control."
-      Grid columns:1 gap:5
+      Grid columns:{ xs:1 md:2 } gap:5
         Pin:
           value:"1840"
           length:6
@@ -189,7 +189,7 @@ page PinPage
           variant:"soft"
           scheme:"warning"
           name:"enrollment-key"
-      Flex wrap:true justify:"center" align:"center" gap:4
+      Grid columns:{ xs:1 md:3 } gap:4
         Pin length:4 type:"number" label:"Small" variant:"soft" size:"sm"
         Pin length:4 type:"number" label:"Medium" variant:"soft"
         Pin length:4 type:"number" label:"Large" variant:"soft" size:"lg"
@@ -202,31 +202,28 @@ page PinPage
           "Segmented input, one value"
         Text size:"sm" color:"muted"
           "Dowe coordinates entry across individual cells and exposes a single predictable value to the surrounding form."
-      Grid columns:1 gap:4
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "KEYBOARD"
-            Title size:"lg" weight:"bold"
-              "Managed focus"
-            Text size:"sm" color:"muted"
-              "Character entry advances focus and Backspace returns to the previous empty cell."
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "PASTE"
-            Title size:"lg" weight:"bold"
-              "Distributed input"
-            Text size:"sm" color:"muted"
-              "Pasting fills consecutive cells up to length and updates the joined value once."
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "TARGETS"
-            Title size:"lg" weight:"bold"
-              "Portable code entry"
-            Text size:"sm" color:"muted"
-              "Web, SwiftUI, Android Compose, and the Android launcher preserve cell count, type, focus, paste, feedback, 40/44/52-unit widths, 32/40/48-unit heights, and Input typography. Numeric entry uses a numeric keyboard without browser number spinners."
+      Grid columns:{ xs:1 md:3 } gap:5
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "KEYBOARD"
+          Title size:"lg" weight:"bold"
+            "Managed focus"
+          Text size:"sm" color:"muted"
+            "Character entry advances focus and Backspace returns to the previous empty cell."
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "PASTE"
+          Title size:"lg" weight:"bold"
+            "Distributed input"
+          Text size:"sm" color:"muted"
+            "Pasting fills consecutive cells up to length and updates the joined value once."
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "TARGETS"
+          Title size:"lg" weight:"bold"
+            "Portable code entry"
+          Text size:"sm" color:"muted"
+            "Web, SwiftUI, Android Compose, and the Android launcher preserve cell count, type, focus, paste, feedback, 40/44/52-unit widths, 32/40/48-unit heights, and Input typography. Numeric entry uses a numeric keyboard without browser number spinners."
   Section id:"pin-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2

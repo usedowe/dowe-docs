@@ -5,6 +5,7 @@ page ButtonPage
   signal startIconEnabled value:false
   signal endIconEnabled value:false
   signal loadingChoice value:false
+  signal disabledChoice value:false
   const schemeOptions:
     value:[
       {
@@ -389,6 +390,11 @@ page ButtonPage
         defaultValue:"false"
       },
       {
+        prop:"disabled"
+        type:"boolean Signal or View Store path"
+        defaultValue:"false"
+      },
+      {
         prop:"rounded"
         type:"xs | sm | md | lg | xl | full"
         defaultValue:"radius"
@@ -432,6 +438,8 @@ page ButtonPage
         Text size:"sm" color:"muted"
           "On web, iOS, and Android, the full rendered Button surface is interactive, including its padding, label, and optional icons."
         Text size:"sm" color:"muted"
+          "Button labels and icons are control content, not document text, so they cannot be selected on web, desktop, Android, or iOS."
+        Text size:"sm" color:"muted"
           "Button gives visible press feedback by scaling its full surface to 0.94 while active on web, iOS, and Android. Use gesture:\"none\" to disable it."
       Grid columns:{ xs:2 md:4 } gap:4
         Select bind:schemeChoice label:"Scheme" placeholder:"Choose a scheme"
@@ -447,6 +455,7 @@ page ButtonPage
         Checkbox bind:startIconEnabled label:"Start icon"
         Checkbox bind:endIconEnabled label:"End icon"
         Checkbox bind:loadingChoice label:"Loading"
+        Checkbox bind:disabledChoice label:"Disabled"
       Card variant:"outlined" p:{ xs:6 md:10 } border:1
         Flex justify:"center" align:"center" gap:3
           Button:
@@ -454,6 +463,7 @@ page ButtonPage
             scheme:schemeChoice
             size:sizeChoice
             loading:loadingChoice
+            disabled:disabledChoice
             iconStart:{ when:startIconEnabled value:"add-circle" }
             iconEnd:{ when:endIconEnabled value:"alt-arrow-right" }
             "Button label"
@@ -464,7 +474,7 @@ page ButtonPage
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Button variant:variantChoice scheme:schemeChoice size:sizeChoice loading:loadingChoice iconStart:{ when:startIconEnabled value:"add-circle" } iconEnd:{ when:endIconEnabled value:"alt-arrow-right" }
+          Button variant:variantChoice scheme:schemeChoice size:sizeChoice loading:loadingChoice disabled:disabledChoice iconStart:{ when:startIconEnabled value:"add-circle" } iconEnd:{ when:endIconEnabled value:"alt-arrow-right" }
             "Button label"
         """
       Grid columns:1 gap:2
@@ -472,6 +482,10 @@ page ButtonPage
           "Reactive loading"
         Text size:"sm" color:"muted"
           "Bind loading to a boolean Signal or View Store path. When it is true, Button shows the bundled svg-spinners:3-dots-move Icon, keeps the content footprint, marks the control busy, and prevents another action."
+        Title size:"xl" weight:"bold"
+          "Reactive disabled state"
+        Text size:"sm" color:"muted"
+          "Bind disabled to a boolean Signal or View Store path. When it is true, Button keeps its scheme and variant at 0.5 opacity, preserves its layout, and blocks click or navigation on web, desktop, Android, and iOS."
   Section id:"button-schemes" py:{ xs:7 md:10 }
     Flex direction:"column" gap:6
       Grid columns:1 gap:2
@@ -484,19 +498,19 @@ page ButtonPage
         Text size:"sm" color:"muted"
           "Each generated label uses the explicit braced text-binding form for its current item."
       Flex direction:"column" gap:3
-        Flex wrap:true justify:"center" align:"center" gap:3
+        Grid columns:{ xs:2 md:4 } gap:3
           each in:solidButtons as:button key:button.id
             Button variant:button.variant scheme:button.scheme
               "{button.label}"
-        Flex wrap:true justify:"center" align:"center" gap:3
+        Grid columns:{ xs:2 md:4 } gap:3
           each in:softButtons as:button key:button.id
             Button variant:button.variant scheme:button.scheme
               "{button.label}"
-        Flex wrap:true justify:"center" align:"center" gap:3
+        Grid columns:{ xs:2 md:4 } gap:3
           each in:outlinedButtons as:button key:button.id
             Button variant:button.variant scheme:button.scheme
               "{button.label}"
-        Flex wrap:true justify:"center" align:"center" gap:3
+        Grid columns:{ xs:2 md:4 } gap:3
           each in:ghostButtons as:button key:button.id
             Button variant:button.variant scheme:button.scheme
               "{button.label}"
@@ -507,7 +521,7 @@ page ButtonPage
           "VARIANTS AND SIZES"
         Title size:"3xl" weight:"black"
           "Five control densities"
-      Flex wrap:true justify:"center" align:"center" gap:3
+      Grid columns:{ xs:2 md:4 } gap:3
         each in:sizeButtons as:button key:button.id
           Button variant:button.variant size:button.size
             "{button.label}"

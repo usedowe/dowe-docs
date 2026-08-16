@@ -30,7 +30,7 @@ page BorderPage
           "Four border weights"
         Text size:"sm" color:"muted"
           "Border accepts integer values from 1 through 4 and preserves their visual progression on every target."
-      Grid columns:1 gap:5
+      Grid columns:{ xs:2 md:4 } gap:5
         Flex direction:"column" gap:3 align:"center"
           Box border:1 borderColor:"primary" rounded:"md" w:"full" h:24
           Text weight:"bold"
@@ -56,7 +56,7 @@ page BorderPage
           "Eight theme families"
         Text size:"sm" color:"muted"
           "borderColor resolves through the active theme instead of embedding a platform-specific color."
-      Grid columns:1 gap:4
+      Grid columns:{ xs:4 md:8 } gap:3
         Flex direction:"column" gap:2 align:"center"
           Box border:3 borderColor:"primary" rounded:"md" w:"full" h:16
           Text size:"sm"
@@ -90,7 +90,7 @@ page BorderPage
           Text size:"sm"
             "Danger"
   Section id:"border-composition" p:{ xs:5 md:7 }
-    Grid columns:1 gap:6 align:"center"
+    Grid columns:{ xs:1 md:2 } gap:6 align:"center"
       Flex direction:"column" gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "COMPOSITION"

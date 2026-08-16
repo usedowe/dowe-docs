@@ -16,11 +16,15 @@ page QueuePage
     value:[
       { provider:"Dowe" contract:"Authenticated WebSocket, durable storage below .dowe/queue, and authoritative declare, bind, publish, and topology operations." },
       { provider:"RabbitMQ" contract:"Durable namespaced topic exchange, publisher confirms, and streaming consumers whose ACK/NACK stays on the same AMQP channel." },
+      { provider:"Cloudflare" contract:"Cloudflare Worker Queue producer binding emitted by deploy. The Worker sends JSON through DOWE_QUEUE_<QUEUE_NAME>." },
+      { provider:"Vercel" contract:"Vercel Queues regional REST publication using the server deployment token and optional Vqs-Deployment-Id." },
     ]
   const queueApplicationRows:
     value:[
       { environment:"Local development" guidance:"dowe dev uses persistent local storage below .dowe/queue/<vhost> and resolves only vhost. It does not contact the authored provider." },
-      { environment:"Production" guidance:"Production resolves provider, host, port, account, secret, and vhost. RabbitMQ uses vhost as its AMQP virtual host and requires TLS outside loopback." },
+      { environment:"Deploy environments" guidance:"Deploy resolves the selected .env.live, .env.stage, or .env.uat values. Secrets remain deployment secrets and are not embedded in generated source." },
+      { environment:"Cloudflare" guidance:"The Worker deploy emits a DOWE_QUEUE_<QUEUE_NAME> producer binding. Cloudflare confirms acceptance without a provider message ID, so sent.id is a Dowe correlation ID." },
+      { environment:"Vercel" guidance:"The deploy calls the regional Queue API with the secret as a bearer token. A provider message ID is returned for 201; deferred 202 responses use a Dowe correlation ID." },
       { environment:"Publish boundary" guidance:"msg publish targets a queue already declared by the CLI or provider API. It does not declare, bind, reinterpret, or retry after an ambiguous response." },
     ]
   const queueCliRows:
@@ -37,7 +41,7 @@ page QueuePage
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Deliver durable work"
       Text size:"lg" color:"muted"
-        "Queue provides durable work queues and topic pub/sub with explicit delivery decisions. The same Rust contract serves local Dowe storage, the maintained service, and RabbitMQ connections."
+        "Queue provides durable work queues and topic pub/sub with explicit delivery decisions. The same server contract serves local Dowe storage, RabbitMQ, Cloudflare Worker bindings, and Vercel Queues."
   Section id:"queue-topology" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
@@ -99,9 +103,9 @@ page QueuePage
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "3 / PROVIDERS"
         Title size:"3xl" weight:"black"
-          "One Rust contract, two transports"
+          "One contract, four provider boundaries"
         Text size:"sm" color:"muted"
-          "The provider API and CLI share administration, publication, and subscription semantics without exposing transport details to callers."
+          "The provider API and CLI share local and native publication semantics while deploy adapters connect edge handlers to the selected provider."
       Table:
         data:queueProviderRows
         variant:"soft"
@@ -113,7 +117,7 @@ page QueuePage
         column field:"provider" label:"Provider" width:"2fr"
         column field:"contract" label:"What it owns" width:"5fr"
       Text size:"sm" color:"muted"
-        "Remote Dowe Queue and RabbitMQ connections require TLS. Loopback Dowe connections may use ws://; remote Dowe connections use wss:// with Rustls/WebPKI certificate roots."
+        "Remote Dowe Queue and RabbitMQ connections require TLS. Cloudflare uses the generated Worker binding; Vercel uses its regional HTTPS API."
   Section id:"queue-service" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
@@ -155,7 +159,7 @@ page QueuePage
         Title size:"3xl" weight:"black"
           "Publish to an existing queue"
         Text size:"sm" color:"muted"
-          "Server actions can select Dowe or RabbitMQ and publish JSON directly to a named queue. The connection, credentials, and payload stay on the server."
+          "Server actions can select Dowe, RabbitMQ, Cloudflare, or Vercel and publish JSON directly to a named queue. The connection, credentials, and payload stay on the server."
       Code:
         language:"dowe"
         variant:"soft"
@@ -169,7 +173,7 @@ page QueuePage
             return json:{ ok:sent.ok messageId:sent.id }
         """
       Text size:"sm" color:"muted"
-        "Declare QUEUE_HOST, QUEUE_PORT, QUEUE_USER, QUEUE_PASSWORD, and QUEUE_VHOST in the root .env.example with empty or placeholder values. Use ignored .env values for development and .env.live, .env.stage, or .env.uat values for deploys; never expose secrets to Views."
+        "Declare QUEUE_HOST, QUEUE_PORT, QUEUE_USER, QUEUE_PASSWORD, and QUEUE_VHOST in the root .env.example with empty or placeholder values. During dowe dev every provider uses local Dowe; deploys resolve the selected .env.live, .env.stage, or .env.uat values. Never expose secrets to Views."
       Table:
         data:queueApplicationRows
         variant:"soft"
@@ -206,5 +210,5 @@ page QueuePage
       Title size:"3xl" weight:"black"
         "Finite publication, streaming consumption"
       Text size:"sm" color:"muted"
-        "Dowe Source Format supports queue service, server-only Queue connections, and direct msg publish. Source-level consume, subscribe, ACK, and NACK remain streaming Rust provider APIs rather than finite handler statements. Use the Rust provider API for subscriptions and session-bound receipts; secrets, receipts, and payloads remain server-only."
-      Alert type:"info" message:"The initial contract excludes arbitrary AMQP exchange types, priorities, TTL, dead-lettering, exactly-once delivery, visibility timeouts, and transparent subscription reconnection. RabbitMQ topology management requires an explicit management authority."
+        "Dowe Source Format supports queue service, server-only Queue connections, and direct msg publish. Cloudflare and Vercel edge handlers support one static publication per handler; dynamic actions and source-level consume, subscribe, ACK, and NACK remain native Rust provider APIs. Secrets, receipts, and payloads remain server-only."
+      Alert type:"info" message:"Provision remote queues through the provider control plane before deployment. The contract excludes arbitrary AMQP exchange types, priorities, TTL, dead-lettering, exactly-once delivery, visibility timeouts, and transparent subscription reconnection."

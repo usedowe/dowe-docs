@@ -35,7 +35,7 @@ page HeightPage
           "Fixed heights from the scale"
         Text size:"sm" color:"muted"
           "Numeric values use the same logical scale on web, Android, and iOS."
-      Grid columns:1 gap:4
+      Grid columns:{ xs:1 md:3 } gap:4
         Flex direction:"column" gap:3
           Box bg:"softPrimary" rounded:"md" w:"full" h:16
           Text size:"sm" weight:"bold"
@@ -49,7 +49,7 @@ page HeightPage
           Text size:"sm" weight:"bold"
             "h:32"
   Section id:"height-full" py:{ xs:7 md:10 }
-    Grid columns:1 gap:6 align:"center"
+    Grid columns:{ xs:1 md:2 } gap:6 align:"center"
       Flex direction:"column" gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "FULL HEIGHT"
@@ -73,7 +73,7 @@ page HeightPage
             Text weight:"bold"
               "h:\"full\""
   Section id:"height-minimum" p:{ xs:5 md:7 }
-    Grid columns:1 gap:6 align:"center"
+    Grid columns:{ xs:1 md:2 } gap:6 align:"center"
       Flex direction:"column" gap:3
         Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
           "MINIMUM HEIGHT"
@@ -115,7 +115,7 @@ page HeightPage
           "Bound a surface without choosing overflow"
         Text size:"sm" color:"muted"
           "maxH sets an upper bound on the component. It does not add scrolling or clipping, so use a component that explicitly owns overflow when content may exceed the limit."
-      Grid columns:1 gap:6 align:"center"
+      Grid columns:{ xs:1 md:2 } gap:6 align:"center"
         Code:
           language:"dowe"
           variant:"soft"

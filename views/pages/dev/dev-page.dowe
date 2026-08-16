@@ -4,7 +4,7 @@ page DevPage
       {
         mode:"Interactive"
         action:"Choose targets once"
-        guidance:"The checkbox menu filters targets from main.dowe and the current host, then remembers the confirmed selection in .dowe/dev/target-selection.json."
+        guidance:"The checkbox menu filters targets from main.dowe and the current host, then remembers every selected target, including server when available, in .dowe/dev/target-selection.json."
       },
       {
         mode:"Automation"

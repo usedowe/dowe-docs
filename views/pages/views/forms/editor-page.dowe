@@ -104,7 +104,7 @@ page EditorPage
           "Match the editing surface to the task"
         Text size:"sm" color:"muted"
           "A compact editor keeps short responses focused. A read-only editor preserves the same content surface for review."
-      Grid columns:1 gap:5
+      Grid columns:{ xs:1 md:3 } gap:4
         Editor:
           value:"Thanks for the detailed report. I reproduced the issue and added it to the next release."
           label:"Support reply"
@@ -146,7 +146,7 @@ page EditorPage
           "Keep constraints close to the content"
         Text size:"sm" color:"muted"
           "Use errorText for actionable validation and disabled when the complete editing workflow is unavailable."
-      Grid columns:1 gap:5
+      Grid columns:{ xs:1 md:2 } gap:5
         Editor:
           label:"Incident update"
           placeholder:"Add the customer-facing update"
@@ -175,31 +175,28 @@ page EditorPage
           "One command model across targets"
         Text size:"sm" color:"muted"
           "Dowe owns toolbar commands, keyboard shortcuts, editor state, and generated target behavior without executing user-authored JavaScript."
-      Grid columns:1 gap:4
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "VALUE"
-            Title size:"lg" weight:"bold"
-              "String binding"
-            Text size:"sm" color:"muted"
-              "bind reads and writes one string Signal while value provides deterministic initial content."
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "COMMANDS"
-            Title size:"lg" weight:"bold"
-              "Generated toolbar"
-            Text size:"sm" color:"muted"
-              "Formatting, lists, headings, alignment, insertion, history, and clearing remain Dowe-owned."
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "TARGETS"
-            Title size:"lg" weight:"bold"
-              "Native editing"
-            Text size:"sm" color:"muted"
-              "Web, SwiftUI, and Compose preserve the toolbar, content surface, feedback, and read-only state."
+      Grid columns:{ xs:1 md:3 } gap:5
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "VALUE"
+          Title size:"lg" weight:"bold"
+            "String binding"
+          Text size:"sm" color:"muted"
+            "bind reads and writes one string Signal while value provides deterministic initial content."
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "COMMANDS"
+          Title size:"lg" weight:"bold"
+            "Generated toolbar"
+          Text size:"sm" color:"muted"
+            "Formatting, lists, headings, alignment, insertion, history, and clearing remain Dowe-owned."
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "TARGETS"
+          Title size:"lg" weight:"bold"
+            "Native editing"
+          Text size:"sm" color:"muted"
+            "Web, SwiftUI, and Compose preserve the toolbar, content surface, feedback, and read-only state."
   Section id:"editor-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2

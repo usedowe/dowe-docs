@@ -32,7 +32,7 @@ page AvatarPage
         Text size:"sm" color:"muted"
           "Use a packaged asset or an HTTPS image. Android loads both through its cached native image pipeline; when loading fails, Dowe falls back to initials resolved from name and then alt."
       Card variant:"outlined" p:{ xs:6 md:8 } border:1
-        Flex wrap:true justify:"center" align:"center" gap:6
+        Grid columns:{ xs:1 md:3 } gap:6
           Avatar src:"https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=160&q=80" name:"Nora Kim" alt:"Portrait of Nora Kim" size:"xl" status:"online"
           Avatar src:"https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=160&q=80" name:"Leo Martin" alt:"Portrait of Leo Martin" size:"lg" status:"busy" bordered:true
           Avatar src:"https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=160&q=80" name:"Amara Okafor" alt:"Portrait of Amara Okafor" size:"md" status:"away"
@@ -54,7 +54,7 @@ page AvatarPage
           "Initials stay recognizable"
         Text size:"sm" color:"muted"
           "Without src, Avatar renders initials from name. Variant and scheme keep the fallback aligned with the design system."
-      Flex wrap:true justify:"center" align:"center" gap:4
+      Grid columns:{ xs:2 md:5 } gap:4
         Avatar name:"Ada Lovelace" alt:"Ada Lovelace" variant:"solid" scheme:"primary" size:"xl"
         Avatar name:"Grace Hopper" alt:"Grace Hopper" variant:"soft" scheme:"secondary" size:"lg"
         Avatar name:"Linus Torvalds" alt:"Linus Torvalds" variant:"soft" scheme:"success" size:"md"

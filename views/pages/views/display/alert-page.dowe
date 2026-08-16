@@ -26,7 +26,7 @@ page AlertPage
           "Feedback users can scan"
         Text size:"sm" color:"muted"
           "Type defines meaning and derives the default scheme. Override scheme only when the product language requires it."
-      Grid columns:1 gap:3
+      Grid columns:{ xs:2 md:4 } gap:3
         Alert type:"success" message:"Your changes were saved successfully."
         Alert type:"error" message:"We could not save your changes. Review the fields and try again."
         Alert type:"info" message:"A newer version is available for this project."
@@ -50,7 +50,7 @@ page AlertPage
           "VARIANTS"
         Title size:"3xl" weight:"black"
           "Match the visual emphasis"
-      Grid columns:1 gap:3
+      Grid columns:{ xs:2 md:4 } gap:3
         Alert type:"info" message:"Solid feedback for high emphasis." variant:"solid"
         Alert type:"success" message:"Soft feedback for routine confirmation." variant:"soft"
         Alert type:"warning" message:"Outlined feedback preserves surrounding contrast." variant:"outlined"

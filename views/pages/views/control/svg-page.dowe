@@ -186,7 +186,7 @@ page SvgPage
           "One surface, direct Path children"
         Text size:"sm" color:"muted"
           "Svg requires a viewBox and one or more direct Path children. Path is structural and cannot be used outside Svg."
-      Grid columns:1 gap:5
+      Grid columns:{ xs:1 md:2 } gap:5
         Table data:svgProps variant:"outlined" scheme:"surface" size:"sm"
           column field:"prop" label:"Svg prop"
           column field:"type" label:"Accepted value"

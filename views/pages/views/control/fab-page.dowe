@@ -134,32 +134,30 @@ page FabPage
           "Pin the action to a corner"
         Text size:"sm" color:"muted"
           "position chooses a viewport corner. fixed keeps the action available during scrolling; offsetX and offsetY use the Dowe spacing scale."
-      Grid columns:1 gap:5
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "BOTTOM-RIGHT"
-            Title size:"lg" weight:"bold"
-              "Default placement"
-            Text size:"sm" color:"muted"
-              "Use the default corner for a primary action that should remain available without competing with page content."
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "TOP-LEFT"
-            Title size:"lg" weight:"bold"
-              "Explicit placement"
-            Text size:"sm" color:"muted"
-              "Choose another corner deliberately when it avoids navigation, media controls, or safe-area content."
-      Code:
-        language:"dowe"
-        variant:"soft"
-        scheme:"surface"
-        copyLabel:"Copy Dowe"
-        copiedLabel:"Copied"
-        content:"""
-          Fab position:"top-left" fixed:true offsetX:6 offsetY:6 icon:"settings" label:"Open settings"
-        """
+      Grid columns:{ xs:1 md:2 } gap:5
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "BOTTOM-RIGHT"
+          Title size:"lg" weight:"bold"
+            "Default placement"
+          Text size:"sm" color:"muted"
+            "Use the default corner for a primary action that should remain available without competing with page content."
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "TOP-LEFT"
+          Title size:"lg" weight:"bold"
+            "Explicit placement"
+          Text size:"sm" color:"muted"
+            "Choose another corner deliberately when it avoids navigation, media controls, or safe-area content."
+    Code:
+      language:"dowe"
+      variant:"soft"
+      scheme:"surface"
+      copyLabel:"Copy Dowe"
+      copiedLabel:"Copied"
+      content:"""
+        Fab position:"top-left" fixed:true offsetX:6 offsetY:6 icon:"settings" label:"Open settings"
+      """
   Section id:"fab-appearance" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
@@ -171,32 +169,30 @@ page FabPage
           "Fab supports solid and soft variants, every action scheme, and five square control sizes. Expanded actions use fully tappable intrinsic-width capsules, while the complete trigger circle accepts input and rotates its plus into a dismiss mark on web, Android, and iOS."
         Text size:"sm" color:"muted"
           "The primary Fab trigger scales to 0.94 while pressed on web, iOS, and Android. Use gesture:\"none\" to disable the feedback."
-      Grid columns:1 gap:5
-        Card variant:"outlined" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "SOLID"
-            Title size:"lg" weight:"bold"
-              "Strong primary action"
-            Text size:"sm" color:"muted"
-              "Use solid when the action is the clearest next step in the current screen."
-        Card variant:"outlined" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "SOFT"
-            Title size:"lg" weight:"bold"
-              "Lower visual emphasis"
-            Text size:"sm" color:"muted"
-              "Use soft when the action remains convenient but should defer to page content."
-      Code:
-        language:"dowe"
-        variant:"soft"
-        scheme:"surface"
-        copyLabel:"Copy Dowe"
-        copiedLabel:"Copied"
-        content:"""
-          Fab variant:"soft" scheme:"secondary" size:"md" icon:"edit" label:"Create note"
-        """
+      Grid columns:{ xs:1 md:2 } gap:5
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "SOLID"
+          Title size:"lg" weight:"bold"
+            "Strong primary action"
+          Text size:"sm" color:"muted"
+            "Use solid when the action is the clearest next step in the current screen."
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "SOFT"
+          Title size:"lg" weight:"bold"
+            "Lower visual emphasis"
+          Text size:"sm" color:"muted"
+            "Use soft when the action remains convenient but should defer to page content."
+    Code:
+      language:"dowe"
+      variant:"soft"
+      scheme:"surface"
+      copyLabel:"Copy Dowe"
+      copiedLabel:"Copied"
+      content:"""
+        Fab variant:"soft" scheme:"secondary" size:"md" icon:"edit" label:"Create note"
+      """
   Section id:"fab-contract" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
@@ -206,31 +202,28 @@ page FabPage
           "Direct actions only"
         Text size:"sm" color:"muted"
           "Fab accepts zero or more direct fabAction children. Each action needs a static label plus href or onClick."
-      Grid columns:1 gap:4
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "STRUCTURE"
-            Title size:"lg" weight:"bold"
-              "Ordered actions"
-            Text size:"sm" color:"muted"
-              "Keep fabAction nodes directly inside Fab. Other child components are rejected."
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "NAVIGATION"
-            Title size:"lg" weight:"bold"
-              "Routes or HTTPS"
-            Text size:"sm" color:"muted"
-              "href follows the shared Dowe navigation policy for internal paths and HTTPS URLs."
-        Card variant:"soft" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
-              "TARGETS"
-            Title size:"lg" weight:"bold"
-              "One source model"
-            Text size:"sm" color:"muted"
-              "Dowe lowers the trigger and action list to matching web, Android, and iOS controls."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "STRUCTURE"
+          Title size:"lg" weight:"bold"
+            "Ordered actions"
+          Text size:"sm" color:"muted"
+            "Keep fabAction nodes directly inside Fab. Other child components are rejected."
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "NAVIGATION"
+          Title size:"lg" weight:"bold"
+            "Routes or HTTPS"
+          Text size:"sm" color:"muted"
+            "href follows the shared Dowe navigation policy for internal paths and HTTPS URLs."
+        Flex direction:"column" gap:2
+          Text size:"xs" weight:"bold" color:"muted"
+            "TARGETS"
+          Title size:"lg" weight:"bold"
+            "One source model"
+          Text size:"sm" color:"muted"
+            "Dowe lowers the trigger and action list to matching web, Android, and iOS controls."
   Section id:"fab-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
