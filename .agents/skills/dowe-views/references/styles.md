@@ -148,7 +148,7 @@ breakpoint.
 | Group | Props | Values |
 | --- | --- | --- |
 | Padding | `p`, `px`, `py`, `pl`, `pr`, `pt`, `pb` | Dowe numeric scale |
-| Size | `w`, `h`, `minW`, `minH`, `maxW`, `maxH` | Scale values, `full`; `h`, `minH`, and `maxH` also accept `vh-<scale>` |
+| Size | `w`, `h`, `minW`, `minH`, `maxW`, `maxH` | `w`, `minW`, and `maxW` accept scale values, `full`, or container `sm` through `7xl`; `h`, `minH`, and `maxH` also accept `vh-<scale>` |
 | Border | `rounded`, `border` | `xs`, `sm`, `md`, `lg`, `xl`, `full`; integers `1` to `4` |
 | Layout | `justify`, `align`, `gap`, `columns`, `rows` | Layout keywords, numeric grid counts, scale values, validated pixel gaps |
 | Grid item | `colSpan`, `rowSpan` | Positive integers on direct `Box`, `Section`, or `Card` children of `Grid` |
@@ -165,6 +165,12 @@ target. The numeric scale is `0` to `4` in `0.5` steps, `4` to `12` in `1` steps
 `96`. One scale unit is `0.25rem` on web and `4` points or dp on native targets. `maxW` and `maxH`
 set upper bounds without forcing the component to occupy the limit. `h:"vh-16"`, `minH:"vh-16"`,
 and `maxH:"vh-16"` resolve against the viewport height minus the scale value.
+
+The width-only container values are `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`, `6xl`, and
+`7xl`. They represent `24rem` through `80rem` on web and the equivalent `384` through `1280`
+points/dp on native targets. Use `w:"sm"`, `minW:"md"`, or `maxW:{ xs:"full" md:"lg" }`.
+They are defined by `/specs/features/00175-add-container-width-values` and are not valid for
+`h`, `minH`, or `maxH`.
 
 ### Sizing, border, radius, and shadow compatibility
 
@@ -193,6 +199,7 @@ weight `600` with tight tracking; `Text` defaults to weight `400`. Both accept:
 
 | Prop | Values |
 | --- | --- |
+| `align` | `start`, `center`, `end`, `justify`, or responsive object |
 | `size` | `xs` through `9xl` |
 | `color`, `bg` | Design color tokens |
 | `weight` | `thin`, `extralight`, `light`, `regular`, `medium`, `semibold`, `bold`, `extrabold`, `black` |
@@ -200,9 +207,10 @@ weight `600` with tight tracking; `Text` defaults to weight `400`. Both accept:
 | `font` | Dowe font token, overriding the `theme.dowe` `Text` or `Title` default |
 | Common style props | `p*`, `w`, `h`, `minW`, `minH`, `maxW`, `maxH`, `rounded`, `border` |
 
-`Text` and `Title` have no text-alignment prop; `align` is rejected. Center or align text through
-the parent container: `Flex direction:"column" align:"center"` for centered stacks, or
-`Grid justify:"center"` for centered grid content.
+`align` is independent from `Flex.align` and `Grid.align`; it controls the text lines themselves
+and uses logical edges so `start` and `end` remain portable in RTL layouts. Use a multiline string
+child when a line boundary must be deterministic; use `maxW` when natural wrapping is acceptable.
+Both forms remain one semantic `Text` or `Title` node across targets.
 
 ## Button metrics and navigation
 

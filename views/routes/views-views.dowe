@@ -68,6 +68,7 @@ import TooltipPage from "@/views/pages/views/overlay/tooltip-page"
 import ToastPage from "@/views/pages/views/overlay/toast-page"
 import FlexPage from "@/views/pages/views/flex-page"
 import GridPage from "@/views/pages/views/grid-page"
+import TextPage from "@/views/pages/views/text-page"
 import NavMenuPage from "@/views/pages/views/navigation/navmenu-page"
 import SideNavPage from "@/views/pages/views/navigation/sidenav-page"
 import RailNavPage from "@/views/pages/views/navigation/railnav-page"
@@ -115,6 +116,8 @@ views ViewsViews
     route path:"i18n" page:I18nPage
     route path:"layout/flex" page:FlexPage
     route path:"layout/grid" page:GridPage
+    route path:"display/text" page:TextPage
+    route path:"display/title" page:TextPage
     route path:"layout/appbar" page:AppBarPage
     route path:"layout/footer" page:FooterPage
     route path:"layout/bottombar" page:BottomBarPage

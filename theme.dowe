@@ -1,5 +1,5 @@
 theme
-  fonts default:"manrope" install:["manrope", "syne"]
+  fonts default:"manrope" install:["manrope" "syne"]
   design defaultTheme:"light"
     Text font:"manrope"
     Title font:"manrope"

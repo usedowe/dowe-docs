@@ -86,7 +86,7 @@ page TestsPage
           test "release metadata"
             assert true value:true
             assert false value:false
-            assert equal actual:{ name:"dowe" channels:["stable", "canary"] } expected:{ name:"dowe" channels:["stable", "canary"] }
+            assert equal actual:{ name:"dowe" channels:["stable" "canary"] } expected:{ name:"dowe" channels:["stable" "canary"] }
         """
       Table:
         data:assertionRows

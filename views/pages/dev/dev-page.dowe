@@ -32,7 +32,12 @@ page DevPage
       {
         targets:"Native startup"
         result:"Fail fast across targets"
-        guidance:"Android and iOS start in parallel. If one target fails, Dowe cancels pending native compiler trees, including descendants that create independent process groups, cleans up the session, and reports the first actionable error immediately."
+        guidance:"The backend and Views listeners start as soon as shared web compilation is ready; native app generation then runs in parallel before Android and iOS start. Fonts and project resources are synchronized after each native app tree so Android resource classes and iOS bundles remain complete. If one target fails, Dowe cancels pending native compiler trees, including descendants that create independent process groups, cleans up the session, and reports the first actionable error immediately."
+      },
+      {
+        targets:"Dynamic icons"
+        result:"Reuse the validated catalog"
+        guidance:"Web, Android, and iOS share one runtime icon catalog per compilation. Android development shards escape each payload once before splitting Java literals, keeping large dynamic-icon projects responsive without changing rendered output."
       },
       {
         targets:"Cold native builds"

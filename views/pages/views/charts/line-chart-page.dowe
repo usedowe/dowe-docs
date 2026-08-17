@@ -8,31 +8,31 @@ type ChartSeries
 
 page LineChartPage
   signal revenue type:ChartPoint[] value:[
-    { x:1 y:38 },
-    { x:2 y:44 },
-    { x:3 y:41 },
-    { x:4 y:57 },
-    { x:5 y:63 },
-    { x:6 y:71 },
-    { x:7 y:68 },
-    { x:8 y:82 },
+    { x:1 y:38 }
+    { x:2 y:44 }
+    { x:3 y:41 }
+    { x:4 y:57 }
+    { x:5 y:63 }
+    { x:6 y:71 }
+    { x:7 y:68 }
+    { x:8 y:82 }
   ]
   signal products type:ChartSeries[] value:[
-    { name:"Core" data:[{ x:1 y:32 }, { x:2 y:38 }, { x:3 y:44 }, { x:4 y:51 }, { x:5 y:59 }] },
-    { name:"Teams" data:[{ x:1 y:18 }, { x:2 y:23 }, { x:3 y:21 }, { x:4 y:29 }, { x:5 y:36 }] },
+    { name:"Core" data:[{ x:1 y:32 } { x:2 y:38 } { x:3 y:44 } { x:4 y:51 } { x:5 y:59 }] }
+    { name:"Teams" data:[{ x:1 y:18 } { x:2 y:23 } { x:3 y:21 } { x:4 y:29 } { x:5 y:36 }] }
   ]
   signal emptyRevenue type:ChartPoint[] value:[]
   const lineProps:
     value:[
-      { prop:"data, series" type:"Signal array paths" defaultValue:"data required unless series is set" },
-      { prop:"variant, scheme" type:"solid | soft | outlined | ghost, Dowe family" defaultValue:"solid, surface" },
-      { prop:"size, palette" type:"chart size, chart palette" defaultValue:"md, default" },
-      { prop:"curve" type:"linear | smooth" defaultValue:"linear" },
-      { prop:"strokeWidth, pointRadius" type:"positive numbers" defaultValue:"2, 3" },
-      { prop:"hidePoints, hideGrid, hideXAxis, hideYAxis" type:"boolean" defaultValue:"false" },
-      { prop:"showGradientFill, showGlow" type:"boolean" defaultValue:"false" },
-      { prop:"legendPosition" type:"top | right | bottom | left | none" defaultValue:"bottom" },
-      { prop:"emptyLabel, loading, hideLegend" type:"string, boolean, boolean" defaultValue:"No data available, false, false" },
+      { prop:"data, series" type:"Signal array paths" defaultValue:"data required unless series is set" }
+      { prop:"variant, scheme" type:"solid | soft | outlined | ghost, Dowe family" defaultValue:"solid, surface" }
+      { prop:"size, palette" type:"chart size, chart palette" defaultValue:"md, default" }
+      { prop:"curve" type:"linear | smooth" defaultValue:"linear" }
+      { prop:"strokeWidth, pointRadius" type:"positive numbers" defaultValue:"2, 3" }
+      { prop:"hidePoints, hideGrid, hideXAxis, hideYAxis" type:"boolean" defaultValue:"false" }
+      { prop:"showGradientFill, showGlow" type:"boolean" defaultValue:"false" }
+      { prop:"legendPosition" type:"top | right | bottom | left | none" defaultValue:"bottom" }
+      { prop:"emptyLabel, loading, hideLegend" type:"string, boolean, boolean" defaultValue:"No data available, false, false" }
     ]
   Section id:"line-chart-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
@@ -78,7 +78,7 @@ page LineChartPage
           x:number
           y:number
 
-        signal revenue type:ChartPoint[] value:[{ x:1 y:38 }, { x:2 y:44 }, { x:3 y:41 }]
+        signal revenue type:ChartPoint[] value:[{ x:1 y:38 } { x:2 y:44 } { x:3 y:41 }]
 
         LineChart data:revenue variant:"soft" scheme:"surface" size:"lg" palette:"ocean" curve:"smooth" strokeWidth:3 pointRadius:4 showGradientFill:true
       """
@@ -106,7 +106,7 @@ page LineChartPage
         type ChartSeries
           name:string
           data:ChartPoint[]
-        signal products type:ChartSeries[] value:[{ name:"Core" data:[{ x:1 y:32 }, { x:2 y:38 }] }]
+        signal products type:ChartSeries[] value:[{ name:"Core" data:[{ x:1 y:32 } { x:2 y:38 }] }]
 
         LineChart series:products variant:"outlined" scheme:"primary" palette:"forest" curve:"linear" strokeWidth:2 hidePoints:true hideGrid:true legendPosition:"top"
       """

@@ -58,6 +58,7 @@ component ViewsNavigation
       item label:"Section" href:"/docs/views/display/section" icon:"ruler"
       item label:"Skeleton" href:"/docs/views/display/skeleton" icon:"layers-minimalistic"
       item label:"Table" href:"/docs/views/display/table" icon:"clipboard-list"
+      item label:"Text and Title" href:"/docs/views/display/text" icon:"text-field"
     submenu label:"Form" icon:"keyboard"
       item label:"Checkbox" href:"/docs/views/form/checkbox" icon:"check-circle"
       item label:"Color" href:"/docs/views/form/color" icon:"palette"

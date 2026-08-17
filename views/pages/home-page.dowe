@@ -1,70 +1,44 @@
 page HomePage
-  Section id:"workflow-platform-hero" boxed:true minH:"vh-0" py:{ xs:8 md:12 }
-    Flex direction:"column" align:"center" justify:"center" gap:0 minH:"vh-32"
-      Flex direction:"column" align:"center" gap:0 show:{ xs:false md:true }
-        Title size:"7xl" weight:"black"
-          "Full-stack development,"
-        Title size:"7xl" weight:"black"
-          "from one codebase"
-      Flex direction:"column" align:"center" gap:0 show:{ xs:true md:false }
-        Title size:"4xl" weight:"black"
-          "Full-stack development, from one codebase"
-      Box h:12
-      Grid columns:{ xs:1 md:1 } gap:3
-        Tabs variant:"line"
-          tab id:"hero-unix" label:"macOS / Linux"
-            Code:
-              language:"dowe"
-              variant:"solid"
-              scheme:"surface"
-              copyLabel:"Copy install command"
-              copiedLabel:"Copied"
-              content:"curl -fsSL https://get.dowe.dev/install | bash"
-          tab id:"hero-windows" label:"Windows"
-            Code:
-              language:"dowe"
-              variant:"solid"
-              scheme:"surface"
-              copyLabel:"Copy PowerShell command"
-              copiedLabel:"Copied"
-              content:"powershell -c \"irm https://get.dowe.dev/install.ps1 | iex\""
-      Box h:20
-      Flex wrap:true justify:"center" align:"center" gap:{ xs:8 md:24 }
-        Flex direction:"column" align:"center" gap:3
-          Flex align:"center" gap:3
-            Icon name:"route-bold-duotone" fill:"muted" w:10 h:10
+  Section id:"workflow-platform-hero" boxed:true center:true gap:10
+    Title size:"7xl" align:"center" maxW:"6xl"
+      """
+      Full-stack development,
+      from one codebase
+      """
+    Tabs variant:"line" w:"full" maxW:"4xl"
+      tab id:"hero-unix" label:"macOS / Linux"
+        Code:
+          language:"dowe"
+          variant:"solid"
+          scheme:"surface"
+          copyLabel:"Copy install command"
+          copiedLabel:"Copied"
+          content:"curl -fsSL https://get.dowe.dev/install | bash"
+      tab id:"hero-windows" label:"Windows"
+        Code:
+          language:"dowe"
+          variant:"solid"
+          scheme:"surface"
+          copyLabel:"Copy PowerShell command"
+          copiedLabel:"Copied"
+          content:"powershell -c \"irm https://get.dowe.dev/install.ps1 | iex\""
+    Grid columns:{ xs:2 md:3 lg:5 } gap:4
+      const platforms value:[
+        { icon:"route-bold-duotone" title:"server" text:"Routing and host capabilities" }
+        { icon:"global-bold-duotone" title:"web" text:"SSR plus route assets" }
+        { icon:"laptop-bold-duotone" title:"desktop" text:"Native Windows/Macos/Linux apps" }
+        { icon:"svg-logos:android-icon" title:"Android" text:"Native Jetpack Compose" }
+        { icon:"svg-logos:apple" title:"Ios" text:"Native SwiftUI" }
+      ]
+      each in:platforms as:platform key:platform.title
+        Flex gap:3 align:"center"
+          Icon name:platform.icon fill:"muted" w:12 h:12
+          Flex direction:"column"
             Text size:"3xl" weight:"black" color:"muted"
-              "Server"
-          Text size:"xs"
-            "Native routing and host capabilities."
-        Flex direction:"column" align:"center" gap:3
-          Flex align:"center" gap:3
-            Icon name:"global-bold-duotone" fill:"muted" w:10 h:10
-            Text size:"3xl" weight:"black" color:"muted"
-              "Web"
-          Text size:"xs"
-            "Initial SSR plus route assets."
-        Flex direction:"column" align:"center" gap:3
-          Flex align:"center" gap:3
-            Icon name:"laptop-bold-duotone" fill:"muted" w:10 h:10
-            Text size:"3xl" weight:"black" color:"muted"
-              "Desktop"
-          Text size:"xs"
-            "Local web output in native windows."
-        Flex direction:"column" align:"center" gap:3
-          Flex align:"center" gap:3
-            Icon name:"svg-logos:apple" w:10 h:10
-            Text size:"3xl" weight:"black" color:"muted"
-              "Ios"
-          Text size:"xs"
-            "Generated native SwiftUI."
-        Flex direction:"column" align:"center" gap:3
-          Flex align:"center" gap:3
-            Icon name:"svg-logos:android-icon" w:10 h:10
-            Text size:"3xl" weight:"black" color:"muted"
-              "Android"
-          Text size:"xs"
-            "Generated native Jetpack Compose."
+              "{platform.title}"
+            Text size:"xs"
+              "{platform.text}"
+
   Section boxed:true py:0
     Divider scheme:"muted"
   Section boxed:true px:{ xs:5 md:12 } py:{ xs:10 md:14 }

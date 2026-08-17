@@ -71,7 +71,7 @@ page VectorPage
         copyLabel:"Copy operations"
         copiedLabel:"Copied"
         content:"""
-          emb saved conn:appVector.upsert id:"article-1" vector:[0.12, 0.48, -0.2] metadata:{ kind:"article" }
+          emb saved conn:appVector.upsert id:"article-1" vector:[0.12 0.48 -0.2] metadata:{ kind:"article" }
           emb matches conn:appVector.search vector:req.body.vector limit:10 minScore:0.7 where:{ kind:"article" }
           emb article conn:appVector.read id:req.params.id required:true
           emb removed conn:appVector.delete id:req.params.id

@@ -193,7 +193,7 @@ page ServerAuthBlockPage
               fn loginExampleUserService params:{ email:string password:string }
                 findExampleUserRepository user args:{ email:args.email password:args.password }
                 createExampleSessionRepository session args:{ userId:user.id }
-                str authorization source:"join" values:["Bearer", session.id] delimiter:" "
+                str authorization source:"join" values:["Bearer" session.id] delimiter:" "
                 return value:{ authenticated:true guest:false authorization:authorization token:session.id user:{ id:user.id name:user.name email:user.email } }
             """
         tab id:"repository" label:"Repository"
@@ -206,8 +206,8 @@ page ServerAuthBlockPage
             content:"""
               fn createExampleSessionRepository params:{ userId:string }
                 id session source:"ulid"
-                query created conn:ExamplesDb.insert table:"sessions" value:{ id:session userId:args.userId createdAt:now } required:["id", "userId"]
-                str sessionKey source:"join" values:["session", session] delimiter:":"
+                query created conn:ExamplesDb.insert table:"sessions" value:{ id:session userId:args.userId createdAt:now } required:["id" "userId"]
+                str sessionKey source:"join" values:["session" session] delimiter:":"
                 kv cached conn:ExamplesCache.set key:sessionKey value:{ id:session userId:args.userId }
                 return value:{ id:session userId:args.userId }
             """
@@ -219,7 +219,7 @@ page ServerAuthBlockPage
             copyLabel:"Copy config"
             copiedLabel:"Copied"
             content:"""
-              database ExamplesDb provider:"dowe" host:env.DOWE_HOST port:env.DOWE_PORT account:env.DOWE_ACCOUNT secret:env.DOWE_SECRET name:"dowe-docs-examples" entities:[ExampleUsers, ExampleBlogs, Sessions] seeders:[]
+              database ExamplesDb provider:"dowe" host:env.DOWE_HOST port:env.DOWE_PORT account:env.DOWE_ACCOUNT secret:env.DOWE_SECRET name:"dowe-docs-examples" entities:[ExampleUsers ExampleBlogs Sessions] seeders:[]
               cache ExamplesCache provider:"dowe" host:env.CACHE_HOST port:env.CACHE_PORT account:env.CACHE_ACCOUNT secret:env.CACHE_SECRET name:"dowe-docs-examples"
             """
         tab id:"users-entity" label:"Users entity"
@@ -259,7 +259,7 @@ page ServerAuthBlockPage
             copiedLabel:"Copied"
             content:"""
               id session source:"ulid"
-              str authorization source:"join" values:["Bearer", session] delimiter:" "
+              str authorization source:"join" values:["Bearer" session] delimiter:" "
               kv cached conn:ExamplesCache.set key:sessionKey value:{ id:session userId:user.id }
               return value:{ authenticated:true guest:false authorization:authorization token:session }
             """

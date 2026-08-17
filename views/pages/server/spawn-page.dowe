@@ -66,7 +66,7 @@ page SpawnPage
         copiedLabel:"Copied"
         content:"""
           init
-            spawn encoder command:"ffmpeg" args:["-re","-i","input.mp4"] cwd:"/srv/media" background:true
+            spawn encoder command:"ffmpeg" args:["-re" "-i" "input.mp4"] cwd:"/srv/media" background:true
         """
       Table:
         data:spawnOptionRows

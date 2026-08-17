@@ -8,28 +8,28 @@ type BarSeries
 
 page BarChartPage
   signal channels type:ChartSlice[] value:[
-    { label:"Direct" value:46 },
-    { label:"Organic" value:34 },
-    { label:"Referral" value:22 },
-    { label:"Partner" value:18 },
-    { label:"Events" value:12 },
+    { label:"Direct" value:46 }
+    { label:"Organic" value:34 }
+    { label:"Referral" value:22 }
+    { label:"Partner" value:18 }
+    { label:"Events" value:12 }
   ]
   signal quarterly type:BarSeries[] value:[
-    { name:"New business" data:[{ label:"Q1" value:24 }, { label:"Q2" value:31 }, { label:"Q3" value:38 }, { label:"Q4" value:44 }] },
-    { name:"Expansion" data:[{ label:"Q1" value:14 }, { label:"Q2" value:19 }, { label:"Q3" value:24 }, { label:"Q4" value:29 }] },
+    { name:"New business" data:[{ label:"Q1" value:24 } { label:"Q2" value:31 } { label:"Q3" value:38 } { label:"Q4" value:44 }] }
+    { name:"Expansion" data:[{ label:"Q1" value:14 } { label:"Q2" value:19 } { label:"Q3" value:24 } { label:"Q4" value:29 }] }
   ]
   signal emptyBars type:ChartSlice[] value:[]
   const barProps:
     value:[
-      { prop:"data, series" type:"Signal array paths" defaultValue:"data required unless series is set" },
-      { prop:"variant, scheme" type:"solid | soft | outlined | ghost, Dowe family" defaultValue:"solid, surface" },
-      { prop:"size, palette" type:"chart size, chart palette" defaultValue:"md, default" },
-      { prop:"legendPosition" type:"top | right | bottom | left | none" defaultValue:"bottom" },
-      { prop:"grouped, stacked" type:"boolean" defaultValue:"false" },
-      { prop:"showValues, showGlow" type:"boolean" defaultValue:"false" },
-      { prop:"barRadius" type:"positive number" defaultValue:"—" },
-      { prop:"hideGrid" type:"boolean" defaultValue:"false" },
-      { prop:"emptyLabel, loading, hideLegend" type:"string, boolean, boolean" defaultValue:"No data available, false, false" },
+      { prop:"data, series" type:"Signal array paths" defaultValue:"data required unless series is set" }
+      { prop:"variant, scheme" type:"solid | soft | outlined | ghost, Dowe family" defaultValue:"solid, surface" }
+      { prop:"size, palette" type:"chart size, chart palette" defaultValue:"md, default" }
+      { prop:"legendPosition" type:"top | right | bottom | left | none" defaultValue:"bottom" }
+      { prop:"grouped, stacked" type:"boolean" defaultValue:"false" }
+      { prop:"showValues, showGlow" type:"boolean" defaultValue:"false" }
+      { prop:"barRadius" type:"positive number" defaultValue:"—" }
+      { prop:"hideGrid" type:"boolean" defaultValue:"false" }
+      { prop:"emptyLabel, loading, hideLegend" type:"string, boolean, boolean" defaultValue:"No data available, false, false" }
     ]
   Section id:"bar-chart-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5

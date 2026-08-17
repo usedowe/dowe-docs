@@ -167,7 +167,7 @@ page DatabaseEntitiesPage
               account:env.POSTGRES_USER
               secret:env.POSTGRES_PASSWORD
               name:env.POSTGRES_DATABASE
-              entities:[SmsDeliveries, SmsDeliveryEvents]
+              entities:[SmsDeliveries SmsDeliveryEvents]
               seeders:[]
           """
   Section id:"database-entities-provider-behavior" p:{ xs:5 md:7 }

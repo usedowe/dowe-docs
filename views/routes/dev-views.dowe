@@ -2,6 +2,7 @@ import DevLayout from "@/views/layouts/dev-layout"
 import InitPage from "@/views/pages/dev/init-page"
 import DevPage from "@/views/pages/dev/dev-page"
 import InspectorPage from "@/views/pages/dev/inspector-page"
+import ServerInspectorPage from "@/views/pages/dev/server-inspector-page"
 import HmrPage from "@/views/pages/dev/hmr-page"
 import BuildPage from "@/views/pages/dev/build-page"
 import DeployPage from "@/views/pages/dev/deploy-page"
@@ -11,12 +12,14 @@ import AgentPage from "@/views/pages/dev/agent-page"
 import TestsPage from "@/views/pages/dev/tests-page"
 import IconsPage from "@/views/pages/dev/icons-page"
 import ExtensionsPage from "@/views/pages/dev/editor-page"
+import SyntaxPage from "@/views/pages/dev/syntax-page"
 views DevViews
   group path:"/docs/dev" layout:DevLayout
     route path:"" page:InitPage
     route path:"init" page:InitPage
     route path:"dev" page:DevPage
     route path:"inspector" page:InspectorPage
+    route path:"server-inspector" page:ServerInspectorPage
     route path:"hmr" page:HmrPage
     route path:"build" page:BuildPage
     route path:"deploy" page:DeployPage
@@ -27,3 +30,4 @@ views DevViews
     route path:"icons" page:IconsPage
     route path:"editor" page:ExtensionsPage
     route path:"extensions" page:ExtensionsPage
+    route path:"syntax" page:SyntaxPage

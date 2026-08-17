@@ -4,12 +4,12 @@ page HmrPage
       {
         phase:"Watch"
         action:"Detect eligible saves"
-        guidance:"Dowe watches project inputs and their import graph while the development session remains open."
+        guidance:"Dowe receives native filesystem events and groups one editor save without rescanning the full project on a timer."
       },
       {
         phase:"Build"
-        action:"Publish complete modules"
-        guidance:"A new version becomes active only after its compiler and target artifacts finish successfully."
+        action:"Reuse valid modules"
+        guidance:"Page and layout edits reuse unchanged parsed modules, chunks, route documents, and the stable web runtime."
       },
       {
         phase:"Apply"
@@ -22,7 +22,7 @@ page HmrPage
       {
         target:"Web"
         behavior:"Replace the smallest safe boundary"
-        guidance:"A page edit replaces the page boundary when its layout is unchanged. Layout changes replace the application boundary, and an HMR failure can recover with a full browser reload."
+        guidance:"A page edit publishes its changed chunks and manifest, then replaces the page boundary without rebuilding or reloading unrelated routes."
       },
       {
         target:"Desktop"
@@ -37,7 +37,7 @@ page HmrPage
       {
         target:"iOS"
         behavior:"Load a new Swift module"
-        guidance:"After the simulator host is installed, later view updates load a new dylib and render with SwiftUI without running simctl install again."
+        guidance:"The simulator host opens before the initial dylib finishes. Without a cached module it shows a preparation indicator, then mounts the valid SwiftUI module; later updates do not run simctl install again."
       },
     ]
   const hmrStateRows:
@@ -139,6 +139,8 @@ page HmrPage
         column field:"state" label:"State" width:"2fr"
         column field:"guidance" label:"What happens" width:"5fr"
       Text size:"sm" color:"muted"
+        "Native module updates publish only after all generated target sources compile. If iOS compilation fails, the simulator keeps the last valid module and the next save can retry the build."
+      Text size:"sm" color:"muted"
         "Server changes use a successful backend restart rather than view HMR. Production builds do not include the HMR client, module server, or .dowe/dev dependency."
   Section id:"hmr-performance" py:{ xs:7 md:10 }
     Grid columns:1 gap:4
@@ -147,8 +149,8 @@ page HmrPage
       Title size:"3xl" weight:"black"
         "Rebuild only what the session needs"
       Text size:"sm" color:"muted"
-        "Development compilation emits artifacts only for selected targets. A route graph, layout, page, component, Store, theme, i18n, or icon save rebuilds selected views while retaining the active compiled server model."
-      Alert type:"info" message:"Changes to main.dowe, server modules, shared or unclassified modules, and environment files use a conservative full-project rebuild. First native builds and toolchain cache invalidations can still take longer than a warm view update."
+        "The first compile fills a development-session cache. Later page and layout saves reuse unchanged modules, while iOS keeps the complete dynamic Icon catalog in bounded Swift shards outside the shared route index."
+      Alert type:"info" message:"A save with identical generated output emits no browser update. Shared components, Stores, types, theme, i18n, environment, icons, deletes, and unknown paths keep a conservative invalidation path."
       Button:
         href:"/docs/dev/dev#dev-watch"
         variant:"soft"

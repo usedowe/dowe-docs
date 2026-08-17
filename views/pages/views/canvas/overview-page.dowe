@@ -256,7 +256,7 @@ page CanvasOverviewPage
           page ScenePage
             signal scene value:[
               { type:"rect" x:0 y:0 width:640 height:360 fill:"surface" },
-              { type:"polyline" points:[{ x:50 y:270 }, { x:355 y:125 }, { x:590 y:72 }] stroke:"primary" strokeWidth:8 },
+              { type:"polyline" points:[{ x:50 y:270 } { x:355 y:125 } { x:590 y:72 }] stroke:"primary" strokeWidth:8 }
               { type:"circle" x:355 y:125 radius:18 fill:"tertiary" motion:{ pulse:0.7 } },
               { type:"text" x:36 y:48 text:"RETAINED SCENE" fill:"surfaceText" size:24 },
             ]

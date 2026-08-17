@@ -2,6 +2,7 @@ page IconPage
   signal icons value:[]
   signal category value:"arrows"
   signal style value:"linear"
+  const selectedIcon value:"route-bold-duotone"
   signal search value:""
   signal page value:1
   signal total value:0
@@ -18,7 +19,7 @@ page IconPage
     ]
   const iconProps:
     value:[
-      { prop:"name" type:"Solar variant | country-flags:* | svg-spinners:* | svg-logos:*" defaultValue:"required" },
+      { prop:"name" type:"quoted catalog name | string Signal, constant, or each-item path" defaultValue:"required" },
       { prop:"fill" type:"currentColor | Dowe color token" defaultValue:"currentColor" },
       { prop:"stroke" type:"currentColor | Dowe color token" defaultValue:"currentColor" },
       { prop:"w, h" type:"common size props" defaultValue:"6" },
@@ -548,7 +549,7 @@ page IconPage
         copyLabel:"Copy command"
         copiedLabel:"Copied"
         content:"""
-          database IconDb provider:"dowe" host:env.DOWE_HOST port:env.DOWE_PORT account:env.DOWE_ACCOUNT secret:env.DOWE_SECRET name:"dowe-docs-icons" entities:[IconCategories, Icons] seeders:[IconCatalog]
+          database IconDb provider:"dowe" host:env.DOWE_HOST port:env.DOWE_PORT account:env.DOWE_ACCOUNT secret:env.DOWE_SECRET name:"dowe-docs-icons" entities:[IconCategories Icons] seeders:[IconCatalog]
         """
       Card variant:"outlined" p:{ xs:4 md:6 } border:1
         Grid columns:{ xs:1 md:4 } gap:{ xs:4 md:6 } align:"start"
@@ -724,9 +725,13 @@ page IconPage
       Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
         "AUTHORING CONTRACT"
       Title size:"3xl" weight:"black"
-        "Static selection, decorative semantics"
+        "Catalog selection, decorative semantics"
       Table data:iconProps variant:"outlined" scheme:"surface" size:"sm"
         column field:"prop" label:"Prop"
         column field:"type" label:"Accepted value"
         column field:"defaultValue" label:"Default"
+      Flex gap:4 align:"center"
+        Icon name:selectedIcon fill:"primary" w:10 h:10
+        Text size:"sm" color:"muted"
+          "A string Signal or each-item path can switch among the shared catalog; immutable const collections preload only their literal names, unrelated mutable lists do not expand the catalog, and invalid runtime values use the validated initial icon."
       Alert type:"info" message:"Icon is decorative. Pair a loading spinner with visible status text or an accessible labeled control. Reduced-motion preferences stop or suppress continuous motion." variant:"soft" scheme:"info"

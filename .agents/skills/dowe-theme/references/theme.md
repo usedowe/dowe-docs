@@ -5,7 +5,7 @@ and bundle metadata belong in `main.dowe`, not in `theme.dowe`.
 
 ```text
 theme
-  fonts default:"manrope" install:["manrope","inter"]
+  fonts default:"manrope" install:["manrope" "inter"]
   design defaultTheme:"light"
     Card variant:"outlined" scheme:"primary" radius:"xs" shadow:"xs"
     Button variant:"solid" scheme:"secondary" size:"md"

@@ -1,0 +1,128 @@
+page SyntaxPage
+  const syntaxRows:
+    value:[
+      { shape:"Scalar" syntax:"name:\"Dowe\" enabled:true count:2" meaning:"One string, boolean, number, null, or reference" }
+      { shape:"Object" syntax:"style:{ xs:\"compact\" md:\"wide\" }" meaning:"Named key:value entries separated by spaces" }
+      { shape:"Array" syntax:"methods:[\"GET\" \"POST\"]" meaning:"Ordered values separated by spaces" }
+    ]
+  const mistakeRows:
+    value:[
+      { mistake:"Using {} for a list" correction:"Use [] for ordered values and {} for keyed entries." }
+      { mistake:"Adding commas to new arrays" correction:"Write [\"GET\" \"POST\"]. Commas remain only as migration input." }
+      { mistake:"Leaving static strings bare" correction:"Quote strings such as \"GET\" and visible Text, Title, or Button copy." }
+      { mistake:"Calling server capabilities from views" correction:"Keep secrets and server operations in server modules." }
+    ]
+  Section id:"syntax-introduction" py:{ xs:6 md:10 }
+    Grid columns:1 gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "DEVELOPMENT / SOURCE FORMAT"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "Dowe syntax from the first line"
+      Text size:"lg" color:"muted"
+        "Dowe is a whitespace-oriented declarative language. Learn the three value shapes, then let the shared compiler and formatter keep source consistent across every target."
+  Section id:"syntax-shapes" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "1 / VALUE SHAPES"
+        Title size:"3xl" weight:"black"
+          "Choose the delimiter that matches the data"
+        Text size:"sm" color:"muted"
+          "A scalar is one value, an object gives values names, and an array keeps values in order. Responsive props are objects; imported route graphs and HTTP methods are arrays."
+      Table:
+        data:syntaxRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"shape" label:"Shape" width:"1fr"
+        column field:"syntax" label:"Example" width:"3fr"
+        column field:"meaning" label:"What it means" width:"4fr"
+  Section id:"syntax-arrays" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "2 / ARRAYS"
+        Title size:"3xl" weight:"black"
+          "Use spaces between ordered values"
+        Text size:"sm" color:"muted"
+          "The canonical array form has no commas. Empty arrays remain [], nested braces or brackets keep their contents together, and nested arrays support more than one dimension."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy array examples"
+        copiedLabel:"Copied"
+        content:"""
+          main
+            views:[HomeViews DocsViews]
+            server port:8081
+              cors methods:["GET" "POST" "PATCH" "DELETE"] headers:["Content-Type" "Authorization"]
+
+          const cards:
+            value:[
+              { title:"First card" tags:["new" "featured"] }
+              { title:"Second card" tags:["stable"] }
+            ]
+        """
+      Alert type:"info" message:"Existing comma-separated arrays remain accepted for migration. The formatter rewrites them to the whitespace form, so you can migrate files incrementally."
+  Section id:"syntax-objects" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "3 / OBJECTS AND PROPS"
+        Title size:"3xl" weight:"black"
+          "Use key:value pairs inside braces"
+        Text size:"sm" color:"muted"
+          "Objects also use spaces, but every entry has a key. Props use the same key:value shape and come before child nodes."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy object examples"
+        copiedLabel:"Copied"
+        content:"""
+          Grid columns:{ xs:1 lg:2 }
+            Button show:{ xs:false md:true } iconStart:{ when:isReady value:"check" }
+              "Continue"
+
+          Grid:
+            columns:{ xs:1 lg:3 }
+            gap:4
+            Text
+              "Three responsive columns"
+        """
+  Section id:"syntax-mistakes" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "4 / FIRST-PROJECT CHECKLIST"
+        Title size:"3xl" weight:"black"
+          "Avoid the mistakes that slow down a first project"
+        Text size:"sm" color:"muted"
+          "Run the compiler early. Diagnostics, formatting, and the editor integrations all share the same source contract."
+      Table:
+        data:mistakeRows
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"mistake" label:"Mistake" width:"2fr"
+        column field:"correction" label:"Correction" width:"5fr"
+  Section id:"syntax-next" p:{ xs:5 md:7 }
+    Grid columns:1 gap:4
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "5 / NEXT STEP"
+      Title size:"3xl" weight:"black"
+        "Start with the generated project"
+      Text size:"sm" color:"muted"
+        "dowe init creates a blank or CRUD project with the same syntax documented here. After initialization, run the formatter and then compile the server and web targets."
+      Flex gap:3 wrap:true
+        Button href:"/docs/dev" variant:"soft" size:"sm" rounded:"full" iconStart:"add-circle"
+          "Read Dowe Init"
+        Button href:"/docs/views" variant:"soft" size:"sm" rounded:"full" iconStart:"layers-minimalistic"
+          "Explore Views"

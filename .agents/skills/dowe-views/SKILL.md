@@ -79,8 +79,10 @@ Keep every new frontend module under `views/`; only root `main.dowe` and `theme.
     `references/styles.md` for the current default matrix and minimal-prop examples.
 17. Use Signals and View Stores for state, `fn` for event workflows, and one `init` for ordered
     mount-time work.
-18. Write static visible text as `"Blog title"` and dynamic visible text as one complete braced
-   binding such as `"{blog.title}"`.
+18. Write static visible text as `"Blog title"` or one multiline string for intentional line
+   breaks, and dynamic visible text as one complete braced binding such as `"{blog.title}"`.
+   Keep one semantic `Text` or `Title` node; use `maxW` for natural wrapping instead of duplicating
+   text nodes or adding `Flex` only to force a line boundary.
 19. Keep route groups one level: every `group` contains direct `route` declarations, never another
    `group`.
 20. Use `store name:` with one indented prop per line when Store props would make one long line.

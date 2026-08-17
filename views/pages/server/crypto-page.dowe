@@ -80,7 +80,7 @@ page CryptoPage
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          crypto encrypted encryption:"cencAesCtr" data:upstream key:env.MEDIA_KEY iv:sampleIv subsamples:[{ clear:5 encrypted:1024 }, { clear:0 encrypted:2048 }]
+          crypto encrypted encryption:"cencAesCtr" data:upstream key:env.MEDIA_KEY iv:sampleIv subsamples:[{ clear:5 encrypted:1024 } { clear:0 encrypted:2048 }]
           return bytes:encrypted contentType:"video/mp4"
         """
       Table:

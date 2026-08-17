@@ -198,7 +198,7 @@ page ServerCrudBlockPage
             content:"""
               fn createExampleBlogRepository params:{ title:string content:string ownerId:string }
                 date now source:"now"
-                query created conn:ExamplesDb.insert table:"example_blogs" value:{ title:args.title content:args.content ownerId:args.ownerId createdAt:now updatedAt:now } required:["title", "content", "ownerId"]
+                query created conn:ExamplesDb.insert table:"example_blogs" value:{ title:args.title content:args.content ownerId:args.ownerId createdAt:now updatedAt:now } required:["title" "content" "ownerId"]
                 return value:created
             """
         tab id:"config" label:"Config"

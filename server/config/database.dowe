@@ -9,5 +9,5 @@ database IconDb:
   account:env.DOWE_ACCOUNT
   secret:env.DOWE_SECRET
   name:"dowe-docs-icons"
-  entities:[IconCategories, Icons]
+  entities:[IconCategories Icons]
   seeders:[IconCatalog]

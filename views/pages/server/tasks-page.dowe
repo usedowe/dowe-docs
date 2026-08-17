@@ -113,7 +113,7 @@ page TasksPage
           handler createOrder
             const order value:req.json
             task args:{ orderId:order.id }
-              str auditKey source:"join" values:["order", args.orderId] delimiter:":"
+              str auditKey source:"join" values:["order" args.orderId] delimiter:":"
               log "queued audit" auditKey
             return status:202 json:{ accepted:true }
         """

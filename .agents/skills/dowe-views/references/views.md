@@ -166,6 +166,11 @@ and `Button` is one direct quoted child. Dynamic visible text uses one complete 
 required bare references; `in` names the array, `as` introduces the scoped item, and `key`
 identifies the item across updates.
 
+Declare immutable data with `const` directly in a page or layout, or directly inside a visual block
+above the `each` that uses it. Dowe hoists the nested declaration into the owning page or layout
+scope without adding a visual wrapper, preserving the container's direct children. Do not declare
+constants inside reusable `component` exports.
+
 ```text
 each in:blogs as:blog key:blog.id
   Card

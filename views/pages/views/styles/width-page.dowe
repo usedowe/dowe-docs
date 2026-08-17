@@ -3,19 +3,32 @@ page WidthPage
     value:[
       {
         prop:"w"
-        type:"Dowe scale | full | responsive"
+        type:"Dowe scale | container sm–7xl | full | responsive"
         defaultValue:"—"
       },
       {
         prop:"minW"
-        type:"Dowe scale | full | responsive"
+        type:"Dowe scale | container sm–7xl | full | responsive"
         defaultValue:"—"
       },
       {
         prop:"maxW"
-        type:"Dowe scale | full | responsive"
+        type:"Dowe scale | container sm–7xl | full | responsive"
         defaultValue:"—"
       },
+    ]
+  const containerWidths:
+    value:[
+      { name:"sm" size:"24rem / 384px" variable:"--container-sm" },
+      { name:"md" size:"28rem / 448px" variable:"--container-md" },
+      { name:"lg" size:"32rem / 512px" variable:"--container-lg" },
+      { name:"xl" size:"36rem / 576px" variable:"--container-xl" },
+      { name:"2xl" size:"42rem / 672px" variable:"--container-2xl" },
+      { name:"3xl" size:"48rem / 768px" variable:"--container-3xl" },
+      { name:"4xl" size:"56rem / 896px" variable:"--container-4xl" },
+      { name:"5xl" size:"64rem / 1024px" variable:"--container-5xl" },
+      { name:"6xl" size:"72rem / 1152px" variable:"--container-6xl" },
+      { name:"7xl" size:"80rem / 1280px" variable:"--container-7xl" },
     ]
   Section id:"width-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
@@ -35,19 +48,26 @@ page WidthPage
           "Scale values and full width"
         Text size:"sm" color:"muted"
           "Numeric values use the Dowe scale. The full token occupies the available parent width."
-      Grid columns:{ xs:1 md:3 } gap:4
-        Flex direction:"column" gap:2
-          Box bg:"softPrimary" rounded:"md" w:24 h:12
-          Text size:"sm" color:"muted"
-            "w:24"
-        Flex direction:"column" gap:2
-          Box bg:"softSecondary" rounded:"md" w:48 h:12
-          Text size:"sm" color:"muted"
-            "w:48"
-        Flex direction:"column" gap:2
-          Box bg:"softTertiary" rounded:"md" w:"full" h:12
-          Text size:"sm" color:"muted"
-            "w:\"full\""
+      Flex direction:"column" gap:2
+        Box bg:"softPrimary" rounded:"md" w:24 h:12
+        Text size:"sm" color:"muted"
+          "w:24"
+      Flex direction:"column" gap:2
+        Box bg:"softSecondary" rounded:"md" w:48 h:12
+        Text size:"sm" color:"muted"
+          "w:48"
+      Flex direction:"column" gap:2
+        Box bg:"softSecondary" rounded:"md" w:96 h:12
+        Text size:"sm" color:"muted"
+          "w:96"
+      Flex direction:"column" gap:2
+        Box bg:"softSecondary" rounded:"md" w:"xl" h:12
+        Text size:"sm" color:"muted"
+          "w:\"xl\""
+      Flex direction:"column" gap:2
+        Box bg:"softTertiary" rounded:"md" w:"full" h:12
+        Text size:"sm" color:"muted"
+          "w:\"full\""
   Section id:"width-minimum" py:{ xs:7 md:10 }
     Grid columns:{ xs:1 md:2 } gap:6 align:"center"
       Flex direction:"column" gap:3
@@ -72,6 +92,37 @@ page WidthPage
           "Continue"
         Button minW:64 variant:"soft" scheme:"secondary"
           "Create workspace"
+  Section id:"width-containers" py:{ xs:7 md:10 }
+    Flex direction:"column" gap:5
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          "CONTAINER VALUES"
+        Title size:"3xl" weight:"black"
+          "Use semantic widths"
+        Text size:"sm" color:"muted"
+          "The sm through 7xl values keep the same width across web, iOS, and Android. Use them with w, minW, and maxW."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Box w:"sm" minW:"md" maxW:{ xs:"full" md:"lg" }
+            Text
+              "Semantic container width"
+        """
+      Table:
+        data:containerWidths
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"name" label:"Value" width:"1fr"
+        column field:"size" label:"Measure" width:"2fr"
+        column field:"variable" label:"Web token" width:"2fr"
   Section id:"width-responsive" p:{ xs:5 md:7 }
     Grid columns:{ xs:1 md:2 } gap:6 align:"center"
       Flex direction:"column" gap:3

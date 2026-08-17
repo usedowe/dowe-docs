@@ -106,8 +106,8 @@ page StorePage
                   description:"A focused description introduces the product, its purpose, and the most useful details for a confident decision."
                   delivery:"Ships directly from our studio with tracked delivery."
                 }
-              const thumbnails value:[{ id:"view-1" }, { id:"view-2" }, { id:"view-3" }]
-              const stars value:[{ id:"star-1" }, { id:"star-2" }, { id:"star-3" }, { id:"star-4" }, { id:"star-5" }]
+              const thumbnails value:[{ id:"view-1" } { id:"view-2" } { id:"view-3" }]
+              const stars value:[{ id:"star-1" } { id:"star-2" } { id:"star-3" } { id:"star-4" } { id:"star-5" }]
               Section id:"store-product-detail" bg:"background" color:"backgroundText" boxed:true py:{ xs:6 md:10 } minH:"vh-0"
                 Grid columns:{ xs:1 md:2 } gap:{ xs:8 md:12 } align:"start"
                   Grid columns:1 gap:4

@@ -18,7 +18,10 @@ utility binding key:value
 
 The second word is a declared name or result binding. Later statements can import it, read it, or
 pass it as another prop. Either shape may have indented children when the utility allows them.
-Every prop uses `key:value`; arrays use `[]`, objects use `{}`, and static strings use double quotes.
+Every prop uses `key:value`; arrays use `[]` with whitespace-separated items, objects use `{}` with
+whitespace-separated `key:value` entries, and static strings use double quotes. Use `[value value]`
+for new arrays; comma-separated arrays remain accepted as a migration form and are canonicalized by
+the formatter.
 When props would make a declaration long, end the declaration header with `:` and put one prop on
 each indented line. Do not mix inline props with that header form. Props must precede children, and
 a child may open its own property suite at the next indentation level.

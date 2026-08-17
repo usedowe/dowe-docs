@@ -5,8 +5,16 @@ import ExamplesViews from "@/views/routes/examples-views"
 import DevViews from "@/views/routes/dev-views"
 import BlockViews from "@/views/routes/block-views"
 import ApiRoutes from "@/server/endpoints"
+import IconDb from "@/server/config/database"
 main
-  views:[HomeViews, ViewsViews, ServerViews, ExamplesViews, DevViews, BlockViews]
+  views:[HomeViews ViewsViews ServerViews ExamplesViews DevViews BlockViews]
   server port:8081
-    cors target:"server" devOrigins:true methods:["GET", "POST", "PATCH", "DELETE"] headers:["Content-Type", "Authorization"] credentials:false maxAge:600
+    cors:
+      target:"server"
+      devOrigins:true
+      methods:["GET" "POST" "PATCH" "DELETE"]
+      headers:["Content-Type" "Authorization"]
+      credentials:false
+      maxAge:600
     endpoints:ApiRoutes
+    databases:[IconDb]

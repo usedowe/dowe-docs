@@ -4,6 +4,8 @@ page SectionPage
       { prop:"id" type:"string" defaultValue:"—" },
       { prop:"background" type:"soft | aurora | sunrise | ocean | meadow | slate" defaultValue:"—" },
       { prop:"boxed" type:"boolean" defaultValue:"false" },
+      { prop:"center" type:"boolean | responsive boolean" defaultValue:"false" },
+      { prop:"gap" type:"scale | px | responsive gap" defaultValue:"0" },
       { prop:"cover" type:"asset path | https URL | responsive source" defaultValue:"—" },
       { prop:"overlay" type:"boolean | opacity | color | gradient" defaultValue:"—" },
       { prop:"p, px, py, pl, pr, pt, pb" type:"spacing scale | responsive scale" defaultValue:"px:{ xs:4 md:6 } · py:{ xs:10 md:16 }" },
@@ -18,7 +20,7 @@ page SectionPage
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Section"
       Text size:"lg" color:"muted"
-        "Section creates semantic page bands with responsive content spacing, optional boxed content, and portable visual layers."
+        "Section creates semantic page bands with responsive content spacing, optional boxed content, responsive child centering, explicit child gap, and portable visual layers."
   Section id:"section-model" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
@@ -27,7 +29,7 @@ page SectionPage
         Title size:"3xl" weight:"black"
           "One band, one generated content body"
         Text size:"sm" color:"muted"
-          "Dowe keeps backgrounds and covers on the outer semantic band while placing children in an internal content body with responsive padding. boxed:true centers and limits only that body."
+          "Dowe keeps backgrounds and covers on the outer semantic band while placing children in an internal content body with responsive padding. boxed:true centers and limits only that body; center:true centers direct children, center:{ xs:false md:true } changes that alignment by breakpoint, and gap:{ xs:2 md:4 } controls vertical rhythm between direct children."
       Code:
         language:"dowe"
         variant:"soft"
@@ -35,7 +37,7 @@ page SectionPage
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Section id:"product-overview" background:"soft" boxed:true
+          Section id:"product-overview" background:"soft" boxed:true center:{ xs:false md:true } gap:{ xs:2 md:4 }
             Grid columns:1 gap:3
               Title size:"3xl"
                 "A semantic product band"

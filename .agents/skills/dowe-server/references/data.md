@@ -137,7 +137,7 @@ in server-only environment variables. Bind request values separately from SQL wh
 custom filtering or pagination:
 
 ```text
-query rows conn:appDb.query sql:"SELECT id, name FROM icons WHERE category = ?1 LIMIT 60 OFFSET ((CAST(?2 AS INTEGER) - 1) * 60)" params:[req.params.category, req.params.page]
+query rows conn:appDb.query sql:"SELECT id, name FROM icons WHERE category = ?1 LIMIT 60 OFFSET ((CAST(?2 AS INTEGER) - 1) * 60)" params:[req.params.category req.params.page]
 ```
 
 Do not interpolate a request reference into `sql`. The runtime binds query parameters using the
@@ -186,7 +186,7 @@ import appCache from "@/server/config/data"
 
 fn createSessionRepository params:{ userId:string }
   id session source:"ulid"
-  str sessionKey source:"join" values:["session", session] delimiter:":"
+  str sessionKey source:"join" values:["session" session] delimiter:":"
   kv cached conn:appCache.set key:sessionKey value:{ id:session userId:args.userId }
   return value:{ id:session userId:args.userId }
 ```

@@ -2,6 +2,6 @@ import ExampleUsers from "@/server/entities/example-users-entity"
 import ExampleBlogs from "@/server/entities/example-blogs-entity"
 import Sessions from "@/server/entities/example-sessions-entity"
 
-database ExamplesDb provider:"dowe" host:env.DOWE_HOST port:env.DOWE_PORT account:env.DOWE_ACCOUNT secret:env.DOWE_SECRET name:"dowe-docs-examples" entities:[ExampleUsers, ExampleBlogs, Sessions] seeders:[]
+database ExamplesDb provider:"dowe" host:env.DOWE_HOST port:env.DOWE_PORT account:env.DOWE_ACCOUNT secret:env.DOWE_SECRET name:"dowe-docs-examples" entities:[ExampleUsers ExampleBlogs Sessions] seeders:[]
 cache ExamplesCache provider:"dowe" host:env.CACHE_HOST port:env.CACHE_PORT account:env.CACHE_ACCOUNT secret:env.CACHE_SECRET name:"dowe-docs-examples"
 queue ExamplesQueue provider:"dowe" host:env.QUEUE_HOST port:env.QUEUE_PORT account:env.QUEUE_ACCOUNT secret:env.QUEUE_SECRET vhost:env.QUEUE_VHOST

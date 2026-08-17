@@ -3,7 +3,7 @@ import { ExamplesDb, ExamplesCache } from "@/server/config/examples"
 fn createExampleUserRepository params:{ name:string email:string password:string }
   password hash source:"hash" value:args.password
   date now source:"now"
-  query user conn:ExamplesDb.insert table:"example_users" value:{ name:args.name email:args.email passwordHash:hash createdAt:now } required:["name", "email", "passwordHash"]
+  query user conn:ExamplesDb.insert table:"example_users" value:{ name:args.name email:args.email passwordHash:hash createdAt:now } required:["name" "email" "passwordHash"]
   return value:user
 
 fn findExampleUserRepository params:{ email:string password:string }
@@ -18,13 +18,13 @@ fn findExampleUserByIdRepository params:{ id:string }
 fn createExampleSessionRepository params:{ userId:string }
   id session source:"ulid"
   date now source:"now"
-  query created conn:ExamplesDb.insert table:"sessions" value:{ id:session userId:args.userId createdAt:now } required:["id", "userId"]
-  str sessionKey source:"join" values:["session", session] delimiter:":"
+  query created conn:ExamplesDb.insert table:"sessions" value:{ id:session userId:args.userId createdAt:now } required:["id" "userId"]
+  str sessionKey source:"join" values:["session" session] delimiter:":"
   kv cached conn:ExamplesCache.set key:sessionKey value:{ id:session userId:args.userId }
   return value:{ id:session userId:args.userId }
 
 fn deleteExampleSessionRepository params:{ id:string }
-  str sessionKey source:"join" values:["session", args.id] delimiter:":"
+  str sessionKey source:"join" values:["session" args.id] delimiter:":"
   kv removed conn:ExamplesCache.delete key:sessionKey
   query deleted conn:ExamplesDb.delete table:"sessions" where:{ id:args.id } required:false
   return value:deleted

@@ -68,6 +68,10 @@ page AgentPage
         area:"Domain modeling"
         guidance:"dowe-domain-modeling turns a business description into modules, groups related entities into focused bounded-domain files, then defines relations, invariants, permissions, workflows, endpoints, seeders, and views before source generation."
       },
+      {
+        area:"Fullstack requests"
+        guidance:"When a View calls a project-owned route, dowe-views loads dowe-server and traces method, path, input, response, UI states, Server owners, data impact, and security. The same task can update routes, handlers, repositories, entities, migrations, or Database behavior while keeping every server-only binding out of Views."
+      },
     ]
   const starterRows:
     value:[

@@ -38,15 +38,32 @@ prop over a complete restatement of the component's default style.
 | Component | Use and essential contract |
 | --- | --- |
 | `Box` | Neutral wrapper for exceptional background, overlay, cover, local styling, or portable relative/absolute/fixed positioning. Prefer a semantic container when one exists. |
-| `Section` | Ordered page band and page-level vertical rhythm. A page begins with one or more sibling Sections; `boxed:true` constrains and centers only its generated inner body at `96rem` web or `1536` native. |
+| `Section` | Ordered page band and page-level vertical rhythm. A page begins with one or more sibling Sections; `boxed:true` constrains and centers only its generated inner body at `96rem` web or `1536` native, `center:true` or `center:{ xs:false md:true }` centers direct children responsively, and `gap` controls vertical spacing between them with a default of `0`. |
 | `Flex` | One-axis row or column using `direction`, `gap`, `align`, `justify`, and optional wrapping. |
 | `Grid` | Equal-width numeric column counts (1–12), optional numeric or `auto` rows, `gap`, and alignment. |
 | `Card` | One related semantic unit such as a form, metric, article, or profile. Avoid nesting Card inside Card. |
-| `Title` | One direct quoted visible-text child or one complete braced string binding. |
-| `Text` | One direct quoted visible-text child or one complete braced string binding. |
+| `Title` | One direct quoted or multiline visible-text child or one complete braced string binding. |
+| `Text` | One direct quoted or multiline visible-text child or one complete braced string binding. |
 | `Divider` | Horizontal or vertical separator; choose `orientation` instead of drawing a border-only Box. |
 
 `Section boxed:true` keeps the outer band, background, cover, overlay, border, and anchor full width while limiting the generated content body to `96rem` on web and `1536` logical units on Android and iOS. It defaults to `false` and accepts a static boolean.
+
+`Section center:true` centers direct children horizontally inside the generated content body. It defaults to `false` and accepts a boolean or responsive boolean object such as `center:{ xs:false md:true }`; the same value lowers to web, Android, and iOS alignment behavior.
+
+`Section gap:3` adds vertical spacing between direct children. It defaults to `0`, accepts a Dowe scale or pixel value such as `gap:"8px"`, and supports responsive values such as `gap:{ xs:2 md:4 }`; the same value lowers to web, Android, and iOS spacing behavior.
+
+Use one multiline string child for an intentional hard line break:
+
+```text
+Title size:"7xl" align:"center" maxW:"6xl"
+  """
+  Full-stack development,
+  from one codebase
+  """
+```
+
+Use `maxW` for natural wrapping. Do not duplicate `Text` or `Title` nodes or add `Flex` only to
+force a line boundary.
 
 ## Application shells and navigation
 
@@ -131,13 +148,14 @@ rows-driven, but its text follows the same typography scale.
 | `Canvas` | Custom drawing or pointer surface for visuals that semantic components cannot express; keep its commands and data target-neutral. |
 | `Audio` | Portable audio playback for a supported static source with Dowe-owned playback behavior. |
 | `Image` | Portable original media whose quoted `src` is a project asset path such as `/assets/images/hero.jpg` or an HTTPS URL, with `alt` text (empty marks it decorative), `aspect` (`horizontal`, `vertical`, `square`, `auto`), `objectFit`, `scheme`, and `rounded`. An unavailable source keeps the styled frame as a placeholder without crashing, so authoring the final path first and adding the file later is the canonical placeholder workflow. Never rebuild a photograph with `Svg` or `Canvas`, and never use the design reference or a crop from it to flatten UI into an image asset. |
-| `Icon` | Bundled vector selected by quoted `name`: Solar variant names, `country-flags:<ISO code>`, animated `svg-spinners:<name>`, or brand-colored `svg-logos:<name>`. A plain Solar name is linear; append `-broken`, `-outline`, `-bold`, `-line-duotone`, or `-bold-duotone` for another variant. |
+| `Icon` | Bundled vector selected by quoted `name` or a string Signal, constant, or current `each` item path. Names use Solar variants, `country-flags:<ISO code>`, animated `svg-spinners:<name>`, or `svg-logos:<name>`. A plain Solar name is linear; append `-broken`, `-outline`, `-bold`, `-line-duotone`, or `-bold-duotone` for another variant. Web, native targets, and the Android development launcher update from the shared catalog; invalid runtime values fall back to the validated initial icon. |
 | `Svg` | Portable vector using either quoted `viewBox` plus direct `Path` children, or runtime `data:<reference>` with no static paths. |
 | `Path` | Context-only Svg path with quoted `d`, paint, optional `fillRule:"nonzero|evenodd"`, and optional matrix transform. Use `evenodd` to preserve holes in compound paths. |
 
-`Icon name` is always a static quoted value; it cannot bind an `each` item or Signal path, so a
-collection with distinct icons uses explicit sibling declarations. Names must exist in the bundled
-catalog and diagnostics reject unknown names: for example `magnifier` and
+`Icon name` accepts a quoted catalog value or a readable string path. A collection can bind its
+current item, and a Signal can change the selected catalog entry without rebuilding the view tree.
+Names must exist in the bundled catalog at their initial value and diagnostics reject unknown names:
+for example `magnifier` and
 `magnifier-bold-duotone` are valid but `search` is not. Standalone icons accept
 `fill:<color token>`, `stroke:<color token>`, `w`, and `h`; `style` is not an Icon prop.
 
@@ -159,7 +177,7 @@ platform security policy. They never authorize user-authored JavaScript or nativ
 Charts consume portable Signal data rather than a target-specific chart library. Category charts
 (`ArcChart`, `BarChart`, `PieChart`) read items with `label` and `value`. Point charts
 (`AreaChart`, `LineChart`) read items with numeric `x` and `y`, or a `series` Signal whose items
-contain `label` and `data:[{ x, y }]`. Optional item `color` fields must be Dowe color tokens.
+contain `label` and `data:[{ x y }]`. Optional item `color` fields must be Dowe color tokens.
 Every chart accepts `variant`, `scheme`, `size` (`sm` to `xl`), `palette` (`default`, `rainbow`,
 `ocean`, `sunset`, `forest`, `neon`), `legendPosition` (`top`, `right`, `bottom`, `left`, `none`),
 `emptyLabel`, `loading`, and `hideLegend`. Diagnostics reject missing, incompatible, or invalid

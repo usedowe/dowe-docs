@@ -12,3 +12,5 @@ component DevNavigation
     item label:"Project Icons" href:"/docs/dev/icons" icon:"gallery"
     item label:"Testing" href:"/docs/dev/tests" icon:"check-circle"
     item label:"View Inspector" href:"/docs/dev/inspector" icon:"magnifier"
+    item label:"Server Inspector" href:"/docs/dev/server-inspector" icon:"server"
+    item label:"Dowe Syntax" href:"/docs/dev/syntax" icon:"code"

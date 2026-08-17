@@ -55,7 +55,7 @@ binding. Server source never uses assignment syntax.
 
 Standard-library operations use
 `<namespace> <binding> source:"<function>" <props>`, such as
-`str authorization source:"join" values:["Bearer", session.id] delimiter:" "`.
+`str authorization source:"join" values:["Bearer" session.id] delimiter:" "`.
 Handlers and middleware use direct HTTP returns such as `return status:201 json:result` or
 `return text:"OK"`; reusable `fn` declarations use `return value:<value>`. Static route responses
 use `response <props>` without `return`. Never write `return response ...`, because the compiler

@@ -47,8 +47,8 @@ page SessionPage
         content:"""
           fn createSessionRepository params:{ userId:string }
             id session source:"ulid"
-            query created conn:appDb.insert table:"sessions" value:{ id:session userId:args.userId createdAt:now } required:["id", "userId"]
-            str sessionKey source:"join" values:["session", session] delimiter:":"
+            query created conn:appDb.insert table:"sessions" value:{ id:session userId:args.userId createdAt:now } required:["id" "userId"]
+            str sessionKey source:"join" values:["session" session] delimiter:":"
             kv cached conn:appCache.set key:sessionKey value:{ id:session userId:args.userId }
             return value:{ id:session userId:args.userId }
         """

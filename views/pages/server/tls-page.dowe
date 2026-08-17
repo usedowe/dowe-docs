@@ -44,7 +44,7 @@ page TlsPage
             server port:443
               tls:
                 mode:"acme"
-                domains:["example.com", "www.example.com"]
+                domains:["example.com" "www.example.com"]
                 email:"admin@example.com"
                 staging:false
         """
@@ -128,5 +128,5 @@ page TlsPage
             server port:8443
               tls:
                 mode:"local"
-                domains:["localhost", "app.localhost"]
+                domains:["localhost" "app.localhost"]
         """

@@ -151,7 +151,7 @@ page StandardLibraryPage
         copyLabel:"Copy math"
         copiedLabel:"Copied"
         content:"""
-          math total source:"sum" values:[1, 2, 3]
+          math total source:"sum" values:[1 2 3]
           math mean source:"average" values:body.scores
         """
       Text size:"xs" weight:"bold" color:"muted"

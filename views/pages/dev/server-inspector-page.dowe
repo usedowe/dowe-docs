@@ -1,0 +1,137 @@
+page ServerInspectorPage
+  const serverInspectorAreas:
+    value:[
+      {
+        area:"Endpoints"
+        detail:"Swagger-like HTTP explorer with source spans, typed inputs, and Try it"
+      },
+      {
+        area:"WebSockets"
+        detail:"Declared channels with connect, send, receive, and middleware context"
+      },
+      {
+        area:"Flow"
+        detail:"Compiler-resolved handlers, middleware, functions, and edges"
+      },
+      {
+        area:"Resources"
+        detail:"Database, Cache, Vector, Queue, entities, and service bindings"
+      },
+      {
+        area:"Runtime data"
+        detail:"Bounded read-only metadata from local development engines"
+      },
+    ]
+  const serverInspectorRules:
+    value:[
+      {
+        target:"dowe dev --target server"
+        result:"Dashboard available on the declared backend port"
+      },
+      {
+        target:"dowe dev --target web"
+        result:"Server dashboard is not mounted"
+      },
+      {
+        target:"dowe deploy"
+        result:"No dashboard routes, assets, or manifest"
+      },
+    ]
+  Section id:"server-inspector-introduction" py:{ xs:6 md:10 }
+    Grid columns:1 gap:3
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "DEVELOPMENT / SERVER INSPECTOR"
+      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        "See the server flow behind main.dowe"
+      Text size:"lg" color:"muted"
+        "Use the backend dashboard during dowe dev to move from an endpoint or WebSocket to its compiled flow, source span, entities, resources, jobs, and bounded local runtime state."
+      Text size:"sm" color:"muted"
+        "The sidebar follows Dowe's ghost navigation style: destinations sit directly on the page surface, while the active area uses one compact filled row."
+      Text size:"sm" color:"muted"
+        "Endpoint rows keep selection separate from compact source and Try it icons. Try it opens the request form in a modal so the route catalog stays visible and uncluttered."
+  Section id:"server-inspector-start" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "1 / OPEN THE DASHBOARD"
+      Title size:"3xl" weight:"black"
+        "Use the server target"
+      Text size:"sm" color:"muted"
+        "The dashboard uses the same backend listener as your authored routes; it does not create a second port or a production endpoint."
+      Text size:"sm" color:"muted"
+        "When web and server targets run together, the web inspector shows a server icon beside its view routes and opens this dashboard in a new tab."
+      Text size:"sm" color:"muted"
+        "View-only HMR rebuilds keep the backend inspector manifest and URL available while the web output updates."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy command"
+        copiedLabel:"Copied"
+        content:"""
+          dowe dev --target server
+          open http://127.0.0.1:8080/_dowe/dev/server/
+        """
+      Alert type:"info" message:"The URL uses server.port from main.dowe. Replace 8080 when the project declares another port."
+  Section id:"server-inspector-areas" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "2 / DASHBOARD AREAS"
+      Title size:"3xl" weight:"black"
+        "A compact map of the backend"
+      Table:
+        data:serverInspectorAreas
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"area" label:"Area" width:"1fr"
+        column field:"detail" label:"What it provides" width:"4fr"
+  Section id:"server-inspector-handoff" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "3 / AGENT HANDOFF"
+      Title size:"3xl" weight:"black"
+        "Copy an endpoint or source node"
+      Text size:"sm" color:"muted"
+        "Select an endpoint, WebSocket, handler, entity, or resource, copy its request or channel context, and give the agent the project-relative path plus inclusive lines. Source access is resolved from an opaque node ID and is capped to a small snippet."
+      Code:
+        language:"dowe"
+        variant:"soft"
+        scheme:"surface"
+        copyLabel:"Copy example"
+        copiedLabel:"Copied"
+        content:"""
+          POST /api/orders
+          Body: { name:string, total:number }
+          Try it: headers · search · body · response
+          Source: server/routes/orders.dowe:18-42
+          Flow: endpoint → createOrder → database:orders
+        """
+  Section id:"server-inspector-testing" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "4 / TRY THE SERVER"
+      Title size:"3xl" weight:"black"
+        "Test requests without leaving Dowe"
+      Text size:"sm" color:"muted"
+        "Endpoints expose compiler-derived path, search, header, middleware, and body metadata. Use Try it to execute the selected method through the shared development runtime and inspect a bounded status, response headers, and response body. WebSockets provide a same-origin client for connect, send, received messages, close events, and errors."
+  Section id:"server-inspector-safety" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        "5 / DEVELOPMENT BOUNDARY"
+      Title size:"3xl" weight:"black"
+        "Read-only and dev-only by contract"
+      Table:
+        data:serverInspectorRules
+        variant:"soft"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"target" label:"Target" width:"2fr"
+        column field:"result" label:"Behavior" width:"3fr"
+      Text size:"sm" color:"muted"
+        "The Data studio browses local Database tables and entities, Cache keys, Queue messages, and Vector metadata with bounded results. It is read-only, masks credentials and sensitive fields, and truncates large values."

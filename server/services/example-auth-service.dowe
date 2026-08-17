@@ -3,13 +3,13 @@ import { createExampleUserRepository, findExampleUserRepository, findExampleUser
 fn registerExampleUserService params:{ name:string email:string password:string }
   createExampleUserRepository user args:{ name:args.name email:args.email password:args.password }
   createExampleSessionRepository session args:{ userId:user.id }
-  str authorization source:"join" values:["Bearer", session.id] delimiter:" "
+  str authorization source:"join" values:["Bearer" session.id] delimiter:" "
   return value:{ authenticated:true guest:false authorization:authorization token:session.id user:{ id:user.id name:user.name email:user.email } }
 
 fn loginExampleUserService params:{ email:string password:string }
   findExampleUserRepository user args:{ email:args.email password:args.password }
   createExampleSessionRepository session args:{ userId:user.id }
-  str authorization source:"join" values:["Bearer", session.id] delimiter:" "
+  str authorization source:"join" values:["Bearer" session.id] delimiter:" "
   return value:{ authenticated:true guest:false authorization:authorization token:session.id user:{ id:user.id name:user.name email:user.email } }
 
 fn getExampleSessionUserService params:{ subject:string authorization:string token:string session:string }

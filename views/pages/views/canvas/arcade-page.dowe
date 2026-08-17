@@ -167,7 +167,7 @@ page CanvasArcadePage
           signal gameScene value:[
             { type:"circle" x:520 y:240 radius:3 fill:"backgroundText" motion:{ vx:-35 wrap:true } },
             { type:"circle" x:540 y:80 radius:28 fill:"danger" motion:{ vx:-54 rotation:24 wrap:true } },
-            { type:"polyline" points:[{ x:90 y:180 }, { x:38 y:210 }, { x:54 y:180 }, { x:38 y:150 }] closed:true fill:"primary" motion:{ pulse:0.7 } },
+            { type:"polyline" points:[{ x:90 y:180 } { x:38 y:210 } { x:54 y:180 } { x:38 y:150 }] closed:true fill:"primary" motion:{ pulse:0.7 } }
           ]
 
           Canvas scene:gameScene viewWidth:640 viewHeight:360 fps:60 autoplay:true label:"Animated orbit scene" w:"full" h:96

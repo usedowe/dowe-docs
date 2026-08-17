@@ -11,7 +11,7 @@ handler listIcons
   list filtered source:"filterContains" values:styled field:"name" value:search
   parse pageNumber source:"int" value:req.params.page fallback:1
   math pageIndex source:"sub" left:pageNumber right:1
-  math safePageIndex source:"max" values:[pageIndex, 0]
+  math safePageIndex source:"max" values:[pageIndex 0]
   math offset source:"mul" left:safePageIndex right:60
   list pageRows source:"skip" values:filtered count:offset
   list rows source:"take" values:pageRows count:60
