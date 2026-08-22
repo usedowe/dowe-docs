@@ -1,7 +1,7 @@
 layout AppBarCreativeLayout
   Scaffold
     appBar
-      AppBar variant:"soft" scheme:"danger" position:"sticky" boxed:true py:2 blurred:true
+      AppBar variant:"solid" scheme:"danger" position:"sticky" boxed:true py:2 blurred:true
         start
           Brand href:"/blocks/appbar" label:"Pekoo home"
             Flex align:"center" gap:2

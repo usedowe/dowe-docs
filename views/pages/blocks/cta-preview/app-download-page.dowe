@@ -13,7 +13,7 @@ page AppDownloadCtaPage
         Flex direction:"column" align:{ xs:"center" md:"start" } justify:"center" gap:5 minH:{ xs:64 md:80 }
           Title size:{ xs:"3xl" md:"4xl" } weight:"black"
             "Download our app for Android"
-          Text size:"lg" color:"muted"
+          Text size:"lg"
             "Take the same focused workflow with you across phones, tablets, and compatible devices."
           Button size:"lg" rounded:"full" iconStart:"play"
             "Download for Android"

@@ -6,10 +6,10 @@ layout ExamplesLayout
           Text weight:"bold"
             "Dowe"
         center
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Fixed AppBar"
         end
-          Button href:"/examples/appbar-two" variant:"soft" size:"sm"
+          Button href:"/examples/appbar-two" variant:"solid" size:"sm"
             "Floating example"
     main
       children

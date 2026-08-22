@@ -21,12 +21,12 @@ layout HomeLayout
   meta name:"twitter:site" content:"@usedowe"
   Scaffold
     appBar
-      AppBar variant:"soft" scheme:"background" boxed:true bordered:true position:"fixed"
+      AppBar variant:"solid" scheme:"background" boxed:true bordered:true position:"fixed"
         start
           Logo
         end
           NavMenu size:"lg"
-            item label:"Docs" href:"/docs/dev"
+            item label:"Docs" href:"/docs"
             item label:"Blocks" href:"/blocks/hero"
           Github
     main
@@ -42,13 +42,13 @@ layout HomeLayout
             icon:"svg-logos:x"
             label:"X"
             href:"https://x.com/usedowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"muted"
             size:"sm"
           IconButton:
             icon:"svg-logos:discord-icon"
             label:"Discord"
             href:"https://discord.gg/N2cww7sP5s"
-            variant:"soft"
+            variant:"solid"
             scheme:"muted"
             size:"sm"

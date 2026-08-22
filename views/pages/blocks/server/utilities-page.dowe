@@ -14,72 +14,72 @@ page ServerUtilitiesBlockPage
       set messageVisible value:true
   Section id:"server-utilities-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "SERVER BLOCK / UTILITIES"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Portable server utilities"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "One endpoint demonstrates string normalization, parsing, sorting, math, list operations, URL encoding, JSON merging, and timestamps without JavaScript or Node.js."
   Section id:"server-utilities-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
-      Card variant:"soft" scheme:"primary" p:{ xs:5 md:7 } rounded:"xl"
+      Card variant:"solid" scheme:"primary" p:{ xs:5 md:7 } rounded:"xl"
         Grid columns:1 gap:4
           Text size:"xs" weight:"bold" color:"primary"
             "LIVE VIEW + SERVER"
           Title size:"2xl" weight:"black"
             "Transform one request"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "The View owns editable input. The server owns normalization and computation, then returns serializable data for rendering."
           Text show:messageVisible size:"sm" color:"success"
             "{message}"
           Input bind:utilityForm.text label:"Text" placeholder:"Write a phrase" labelFloating:true w:"full"
           Input bind:utilityForm.number label:"Integer text" placeholder:"42" labelFloating:true w:"full"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Values used for sort, sum, average, first, and count: [3 10 5]"
           Button onClick:runUtilities iconStart:"code"
             "Run server utilities"
       Grid columns:{ xs:1 md:2 } gap:4
         Card variant:"outlined" p:5
           Grid columns:1 gap:3
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "NORMALIZED OUTPUT"
             Text size:"xl" weight:"black"
               "{result.normalized}"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Slug"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "{result.slug}"
-        Card variant:"soft" scheme:"success" p:5
+        Card variant:"solid" scheme:"success" p:5
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" color:"success"
               "COMPUTED OUTPUT"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "The response also includes total, average, count, first, encoded, summary, and timestamp."
             Text size:"sm" color:"success"
               "Total"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "{result.total}"
             Text size:"sm" color:"success"
               "Average"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "{result.average}"
             Text size:"sm" color:"success"
               "Count"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "{result.count}"
   Section id:"server-utilities-files" py:{ xs:7 md:10 }
     Grid columns:1 gap:4
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "SOURCE FILES"
       Title size:"3xl" weight:"black"
         "Capability-first, target-neutral code"
-      Text color:"muted"
+      Text
         "Each declaration names its namespace, result binding, source function, and inputs. The same server model executes in the Rust runtime."
       Tabs variant:"line" position:"top" w:"full"
         tab id:"view" label:"View"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy View"
             copiedLabel:"Copied"
@@ -97,7 +97,7 @@ page ServerUtilitiesBlockPage
         tab id:"handler" label:"Handler"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy handler"
             copiedLabel:"Copied"
@@ -121,7 +121,7 @@ page ServerUtilitiesBlockPage
         tab id:"catalog" label:"Catalog"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy catalog"
             copiedLabel:"Copied"

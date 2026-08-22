@@ -25,20 +25,20 @@ page TooltipPage
   Section id:"tooltip-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "OVERLAY"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Tooltip"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Tooltips reveal a short label near their child without taking space in the page layout."
   Section id:"tooltip-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "A label for a compact action"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Hover the action or move focus to it with the keyboard. The label stays out of the normal layout until it is needed."
       Card variant:"outlined" p:{ xs:6 md:10 } border:1
         Flex justify:"center" align:"center"
@@ -47,7 +47,7 @@ page TooltipPage
               "New project"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -59,11 +59,11 @@ page TooltipPage
   Section id:"tooltip-position" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "POSITION"
         Title size:"3xl" weight:"black"
           "Place the label around its child"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "position selects the side of the child where the floating label appears. Use the side with the clearest available space."
       Grid columns:{ xs:2 md:4 } gap:5
         Card variant:"outlined" p:6 border:1
@@ -88,7 +88,7 @@ page TooltipPage
                 "End"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -104,85 +104,85 @@ page TooltipPage
   Section id:"tooltip-appearance" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "APPEARANCE"
         Title size:"3xl" weight:"black"
           "Two surfaces, semantic schemes"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "variant controls the tooltip surface. scheme chooses its design family independently from the child it describes."
       Grid columns:{ xs:1 md:2 } gap:5
-        Card variant:"soft" p:6
+        Card variant:"solid" p:6
           Grid columns:1 gap:3
             Text size:"sm" weight:"bold"
               "Solid muted by default"
             Flex justify:"center"
               Tooltip label:"Saved to your workspace" scheme:"muted"
-                Button variant:"soft" scheme:"success" size:"sm" iconStart:"check-circle"
+                Button variant:"solid" scheme:"success" size:"sm" iconStart:"check-circle"
                   "Saved"
-        Card variant:"soft" p:6
+        Card variant:"solid" p:6
           Grid columns:1 gap:3
             Text size:"sm" weight:"bold"
               "Soft semantic context"
             Flex justify:"center"
-              Tooltip label:"This action cannot be undone" position:"bottom" variant:"soft" scheme:"danger"
-                Button variant:"soft" scheme:"danger" size:"sm" iconStart:"trash-bin-trash"
+              Tooltip label:"This action cannot be undone" position:"bottom" variant:"solid" scheme:"danger"
+                Button variant:"solid" scheme:"danger" size:"sm" iconStart:"trash-bin-trash"
                   "Delete"
       Flex wrap:true justify:"center" align:"center" gap:3
         Tooltip label:"Primary context" scheme:"primary"
           Button variant:"outlined" size:"sm"
             "Primary"
-        Tooltip label:"Info context" variant:"soft" scheme:"info"
+        Tooltip label:"Info context" variant:"solid" scheme:"info"
           Button variant:"outlined" scheme:"info" size:"sm"
             "Info"
-        Tooltip label:"Warning context" variant:"soft" scheme:"warning"
+        Tooltip label:"Warning context" variant:"solid" scheme:"warning"
           Button variant:"outlined" scheme:"warning" size:"sm"
             "Warning"
   Section id:"tooltip-targets" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "TARGET BEHAVIOR"
         Title size:"3xl" weight:"black"
           "A pointer-first, portable contract"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The same source keeps its child content on every target. Only targets with hover or keyboard focus present the floating label."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "WEB"
             Title size:"lg" weight:"bold"
               "Hover and focus label"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Dowe positions the label beside the child when it is hovered or receives keyboard focus."
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "DESKTOP"
             Title size:"lg" weight:"bold"
               "Same focused affordance"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Desktop reuses the web presentation so compact controls remain understandable with a pointer or keyboard."
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "ANDROID AND IOS"
             Title size:"lg" weight:"bold"
               "Child content only"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Touch targets render the child without a persistent tooltip because they do not expose hover."
   Section id:"tooltip-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Tooltip accepts one or more normal view children and the applicable common spacing, sizing, visibility, and accessibility props."
       Table:
         data:tooltipProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

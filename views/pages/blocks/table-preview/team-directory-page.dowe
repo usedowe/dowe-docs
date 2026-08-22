@@ -179,7 +179,7 @@ page DashboardTablePage
                     Flex align:"center" gap:3
                       Avatar:
                         alt:"Team member avatar"
-                        variant:"soft"
+                        variant:"solid"
                         scheme:"muted"
                         size:"md"
                         icon
@@ -188,7 +188,7 @@ page DashboardTablePage
                       Grid columns:1 gap:0
                         Text size:"sm" weight:"bold"
                           "{member.name}"
-                        Text size:"xs" color:"muted"
+                        Text size:"xs"
                           "{member.role}"
                     Text size:"sm" show:{ xs:false md:true }
                       "{member.company}"
@@ -196,7 +196,7 @@ page DashboardTablePage
                       "{member.email}"
                     Text size:"sm" show:{ xs:false md:true }
                       "{member.location}"
-                    Box bg:"softMuted" rounded:"full" px:3 py:1 show:{ xs:false md:true }
+                    Box bg:"muted" rounded:"full" px:3 py:1 show:{ xs:false md:true }
                       Text size:"xs"
                         "{member.status}"
                     IconButton:
@@ -216,11 +216,11 @@ page DashboardTablePage
                     size:"sm"
                     ariaLabel:"Team directory pages"
         tab id:"overview" label:"Overview"
-          Text p:5 color:"muted"
+          Text p:5
             "Overview content"
         tab id:"tasks" label:"Tasks · 7"
-          Text p:5 color:"muted"
+          Text p:5
             "Task content"
         tab id:"team" label:"Team · 99+"
-          Text p:5 color:"muted"
+          Text p:5
             "Team content"

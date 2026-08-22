@@ -1,12 +1,12 @@
 layout BottomBarLayout
   Scaffold
     appBar
-      AppBar variant:"soft" position:"fixed" boxed:true bordered:true
+      AppBar variant:"solid" position:"fixed" boxed:true bordered:true
         start
           Text weight:"bold"
             "Dowe"
         center
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "BottomBar shell"
         end
           Button href:"/examples/scaffold" variant:"ghost" size:"sm"
@@ -14,7 +14,7 @@ layout BottomBarLayout
     main
       children
     bottomBar
-      BottomBar variant:"soft" scheme:"surface" bordered:true blurred:true boxed:true floating:true
+      BottomBar variant:"solid" scheme:"surface" bordered:true blurred:true boxed:true floating:true
         tab href:"/" label:"Home"
           Icon name:"home"
         tab href:"/docs/views" label:"Search"

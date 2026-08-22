@@ -44,7 +44,7 @@ page MinimalColumnsPricingPage
               Flex justify:"between" align:"center"
                 Title size:"3xl" weight:"black"
                   "{plan.name}"
-                Title size:"xl" weight:"bold" color:"muted"
+                Title size:"xl" weight:"bold"
                   "{plan.price}"
               Grid columns:1 gap:3
                 Flex align:"center" gap:3
@@ -66,17 +66,17 @@ page MinimalColumnsPricingPage
             Grid columns:1 gap:3
               Button size:"lg" rounded:"full"
                 "Get started"
-              Text size:"sm" color:"muted"
+              Text size:"sm"
                 "Includes a free trial with no setup fee."
         Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:{ xs:96 md:"vh-24" } show:plan.popular
           Flex direction:"column" justify:"between" gap:8 minH:{ xs:80 md:"vh-40" }
             Grid columns:1 gap:5
-              Text size:"sm" color:"muted"
+              Text size:"sm"
                 "Popular"
               Flex justify:"between" align:"center"
                 Title size:"3xl" weight:"black"
                   "{plan.name}"
-                Title size:"xl" weight:"bold" color:"muted"
+                Title size:"xl" weight:"bold"
                   "{plan.price}"
               Grid columns:1 gap:3
                 Flex align:"center" gap:3
@@ -98,5 +98,5 @@ page MinimalColumnsPricingPage
             Grid columns:1 gap:3
               Button size:"lg" rounded:"full"
                 "Get started"
-              Text size:"sm" color:"muted"
+              Text size:"sm"
                 "Includes a free trial with no setup fee."

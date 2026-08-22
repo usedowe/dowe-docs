@@ -31,24 +31,24 @@ page CloudControlPlanePage
     ]
   Section id:"cloud-control-plane-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "SERVER / DOWE CLOUD"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Publish a balanced control plane"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "The /dash administrator owns Registry and Runtime inventory, active round-robin pools, and host routes sent to Dowe Proxy."
   Section id:"cloud-control-plane-model" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "1 / INVENTORY MODEL"
         Title size:"3xl" weight:"black"
           "Separate artifacts, runtimes, pools, and routes"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Each resource has one responsibility. The dashboard validates inventory and publishes the route; Proxy reads only its local Dowe Cache while serving a request."
       Table:
         data:controlPlaneRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -59,15 +59,15 @@ page CloudControlPlanePage
   Section id:"cloud-control-plane-request" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "2 / REQUEST PATH"
         Title size:"3xl" weight:"black"
           "Cloud configures; Proxy serves"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Dowe Cloud validates inventory and publishes through the protected Proxy API. Dowe Proxy reads only its local Dowe Cache for each request and never waits for the dashboard or Database."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -79,7 +79,7 @@ page CloudControlPlanePage
         """
       Table:
         data:fallbackRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

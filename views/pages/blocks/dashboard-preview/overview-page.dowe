@@ -49,53 +49,53 @@ page DashboardOverviewPage
     { x:7 y:68 },
     { x:8 y:82 },
   ]
-  Section id:"dashboard-overview" bg:"softMuted" minH:"vh-0" p:{ xs:4 md:8 }
+  Section id:"dashboard-overview" bg:"muted" minH:"vh-0" p:{ xs:4 md:8 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:{ xs:"start" md:"center" } gap:3
         Grid columns:1 gap:1
-          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          Text size:"xs" weight:"bold" spacing:"widest"
             "OVERVIEW"
           Title size:{ xs:"2xl" md:"4xl" } weight:"black"
             "Good morning, Jordan"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Here is the latest view of your workspace activity."
         Button variant:"outlined" scheme:"muted" size:"sm" iconStart:"download-minimalistic"
           "Export"
       Grid columns:{ xs:1 sm:2 lg:4 } gap:4
         each in:metrics as:metric key:metric.id
-          Card variant:"soft" rounded:"lg" p:5 border:1
+          Card variant:"solid" rounded:"lg" p:5 border:1
             Grid columns:1 gap:2
-              Text size:"xs" color:"muted"
+              Text size:"xs"
                 "{metric.label}"
               Title size:"2xl" weight:"black"
                 "{metric.value}"
               Flex align:"center" gap:2
-                Chip variant:"soft" scheme:"success"
+                Chip variant:"solid" scheme:"success"
                   "{metric.change}"
-                Text size:"xs" color:"muted"
+                Text size:"xs"
                   "vs last month"
       Grid columns:{ xs:1 lg:2 } gap:4
-        Card variant:"soft" rounded:"lg" p:{ xs:4 md:6 } border:1
+        Card variant:"solid" rounded:"lg" p:{ xs:4 md:6 } border:1
           Grid columns:1 gap:4
             Flex justify:"between" align:"center" gap:3
               Grid columns:1 gap:1
                 Title size:"lg" weight:"bold"
                   "Revenue trend"
-                Text size:"xs" color:"muted"
+                Text size:"xs"
                   "Last eight reporting periods"
-              Chip variant:"soft" scheme:"muted"
+              Chip variant:"solid" scheme:"muted"
                 "Updated"
-            LineChart data:trend variant:"soft" scheme:"surface" size:"lg" palette:"ocean" curve:"smooth" showGradientFill:true hideGrid:true rounded:"md"
-        Card variant:"soft" rounded:"lg" p:{ xs:4 md:6 } border:1
+            LineChart data:trend variant:"solid" scheme:"surface" size:"lg" palette:"ocean" curve:"smooth" showGradientFill:true hideGrid:true rounded:"md"
+        Card variant:"solid" rounded:"lg" p:{ xs:4 md:6 } border:1
           Grid columns:1 gap:4
             Grid columns:1 gap:1
               Title size:"lg" weight:"bold"
                 "Workload mix"
-              Text size:"xs" color:"muted"
+              Text size:"xs"
                 "Current allocation across teams"
-            ArcChart data:allocation variant:"soft" scheme:"surface" size:"md" palette:"ocean" legendPosition:"bottom" centerText:"Active" centerValue:"100%" thickness:18 gap:4 hideValues:true rounded:"md"
+            ArcChart data:allocation variant:"solid" scheme:"surface" size:"md" palette:"ocean" legendPosition:"bottom" centerText:"Active" centerValue:"100%" thickness:18 gap:4 hideValues:true rounded:"md"
       Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"soft" rounded:"lg" p:{ xs:4 md:6 } border:1
+        Card variant:"solid" rounded:"lg" p:{ xs:4 md:6 } border:1
           Grid columns:1 gap:4
             Flex justify:"between" align:"center"
               Title size:"lg" weight:"bold"
@@ -110,7 +110,7 @@ page DashboardOverviewPage
                       "{country.label}"
                   Text size:"sm" weight:"bold"
                     "{country.value}"
-        Card variant:"soft" rounded:"lg" p:{ xs:4 md:6 } border:1
+        Card variant:"solid" rounded:"lg" p:{ xs:4 md:6 } border:1
           Grid columns:1 gap:4
             Flex justify:"between" align:"center"
               Title size:"lg" weight:"bold"
@@ -120,11 +120,11 @@ page DashboardOverviewPage
             Grid columns:1 gap:3
               each in:activity as:item key:item.id
                 Flex align:"center" gap:3
-                  Avatar name:"Team member" alt:"Team member avatar placeholder" size:"sm" variant:"soft" scheme:"primary"
+                  Avatar name:"Team member" alt:"Team member avatar placeholder" size:"sm" variant:"solid" scheme:"primary"
                   Grid columns:1 gap:1
                     Text size:"sm" weight:"bold"
                       "{item.name}"
-                    Text size:"xs" color:"muted"
+                    Text size:"xs"
                       "{item.action}"
-                    Text size:"xs" color:"muted"
+                    Text size:"xs"
                       "{item.time}"

@@ -1,44 +1,77 @@
 page HomePage
-  Section id:"workflow-platform-hero" boxed:true center:true gap:10
-    Title size:"7xl" align:"center" maxW:"6xl"
-      """
-      Full-stack development,
-      from one codebase
-      """
-    Tabs variant:"line" w:"full" maxW:"4xl"
-      tab id:"hero-unix" label:"macOS / Linux"
-        Code:
-          language:"dowe"
-          variant:"solid"
-          scheme:"surface"
-          copyLabel:"Copy install command"
-          copiedLabel:"Copied"
-          content:"curl -fsSL https://get.dowe.dev/install | bash"
-      tab id:"hero-windows" label:"Windows"
-        Code:
-          language:"dowe"
-          variant:"solid"
-          scheme:"surface"
-          copyLabel:"Copy PowerShell command"
-          copiedLabel:"Copied"
-          content:"powershell -c \"irm https://get.dowe.dev/install.ps1 | iex\""
-    Grid columns:{ xs:2 md:3 lg:5 } gap:4
-      const platforms value:[
-        { icon:"route-bold-duotone" title:"server" text:"Routing and host capabilities" }
-        { icon:"global-bold-duotone" title:"web" text:"SSR plus route assets" }
-        { icon:"laptop-bold-duotone" title:"desktop" text:"Native Windows/Macos/Linux apps" }
-        { icon:"svg-logos:android-icon" title:"Android" text:"Native Jetpack Compose" }
-        { icon:"svg-logos:apple" title:"Ios" text:"Native SwiftUI" }
-      ]
+  Section id:"workflow-platform-hero" boxed:true centerX:true gap:10
+    Flex direction:"column" align:"center" gap:5
+      Chip scheme:"muted"
+        "ONE SOURCE · EVERY SURFACE"
+      Title size:"5xl" weight:"black" align:"center" maxW:"6xl" spacing:"tighter"
+        """
+        Full-stack development,
+        from one codebase.
+        """
+      Text size:{ xs:"md" md:"lg" } align:"center" maxW:"2xl"
+        "Build the product once. Dowe turns one source graph into a complete, native experience everywhere your users are."
+    Card:
+      w:"full"
+      maxW:"4xl"
+      p:{ xs:3 md:5 }
+      variant:"solid"
+      scheme:"surface"
+      rounded:"xl"
+      shadow:"lg"
+      shadowColor:"primary"
+      Tabs variant:"line" scheme:"primary" w:"full"
+        tab id:"hero-unix" label:"macOS / Linux"
+          Code:
+            language:"dowe"
+            copyLabel:"Copy install command"
+            copiedLabel:"Copied"
+            content:"curl -fsSL https://get.dowe.dev/install | bash"
+        tab id:"hero-windows" label:"Windows"
+          Code:
+            language:"dowe"
+            copyLabel:"Copy PowerShell command"
+            copiedLabel:"Copied"
+            content:"powershell -c \"irm https://get.dowe.dev/install.ps1 | iex\""
+  Section id:"platforms-support" scheme:"muted" boxed:true centerX:true gap:10
+    Title align:"center" size:"lg"
+      "COMPILE TO YOUR ENTIRE PRODUCT SURFACE"
+    Grid columns:{ xs:1 md:3 } gap:4
+      const platforms:
+        value:[
+          {
+            icon:"route-bold-duotone"
+            title:"server"
+            text:"Routing and host capabilities"
+          }
+          {
+            icon:"global-bold-duotone"
+            title:"web"
+            text:"SSR plus route assets"
+          }
+          {
+            icon:"laptop-bold-duotone"
+            title:"desktop"
+            text:"Native Windows/Macos/Linux apps"
+          }
+          {
+            icon:"svg-logos:android-icon"
+            title:"Android"
+            text:"Native Jetpack Compose"
+          }
+          {
+            icon:"svg-logos:apple"
+            title:"Ios"
+            text:"Native SwiftUI"
+          }
+        ]
       each in:platforms as:platform key:platform.title
-        Flex gap:3 align:"center"
-          Icon name:platform.icon fill:"muted" w:12 h:12
-          Flex direction:"column"
-            Text size:"3xl" weight:"black" color:"muted"
+        Card rounded:"lg" shadow:"sm" maxW:"sm"
+          Icon name:platform.icon fill:"primary" w:12 h:12
+          Flex direction:"column" gap:1
+            Text size:"lg" weight:"black"
               "{platform.title}"
             Text size:"xs"
               "{platform.text}"
-
   Section boxed:true py:0
     Divider scheme:"muted"
   Section boxed:true px:{ xs:5 md:12 } py:{ xs:10 md:14 }
@@ -49,26 +82,29 @@ page HomePage
         Title size:{ xs:"3xl" md:"5xl" } weight:"black"
           "The tradeoffs are explicit."
       Grid columns:1 gap:0
-        Grid columns:1 gap:3 py:5
-          Title size:"xl" weight:"black"
-            "Do I need a separate codebase for every target?"
-          Text size:"sm" color:"muted"
-            "No. One Dowe source graph can drive server, web, desktop, Android, and iOS outputs."
-        Divider scheme:"muted"
-        Grid columns:1 gap:3 py:5
-          Title size:"xl" weight:"black"
-            "Are Android and iOS apps WebViews?"
-          Text size:"sm" color:"muted"
-            "No. Dowe generates native Jetpack Compose and SwiftUI components with UI/UX parity across web, Android, and iOS."
-        Divider scheme:"muted"
-        Grid columns:1 gap:3 py:5
-          Title size:"xl" weight:"black"
-            "Can I add arbitrary JavaScript packages?"
-          Text size:"sm" color:"muted"
-            "No. Dowe capabilities come through checked contracts instead of a node_modules application layer."
-        Divider scheme:"muted"
-        Grid columns:1 gap:3 py:5
-          Title size:"xl" weight:"black"
-            "Am I limited to predefined layouts?"
-          Text size:"sm" color:"muted"
-            "No. Compose routes, layouts, pages, sections, grids, state, and handlers within Dowe's checked contracts."
+        const questions:
+          value:[
+            {
+              title:"Do I need a separate codebase for every target?"
+              text:"No. One Dowe source graph can drive server, web, desktop, Android, and iOS outputs."
+            }
+            {
+              title:"Are Android and iOS apps WebViews?"
+              text:"No. Dowe generates native Jetpack Compose and SwiftUI components with UI/UX parity across web, Android, and iOS."
+            }
+            {
+              title:"Can I add arbitrary JavaScript packages?"
+              text:"Yes. Dowe supports npm packages and can be extended to support other package managers."
+            }
+            {
+              title:"Can I add arbitrary Android libraries?"
+              text:"Yes. Dowe supports Gradle dependencies and can be extended to support other package managers."
+            }
+          ]
+        each in:questions as:question key:question.title
+          Grid columns:1 gap:3 py:5
+            Title size:"xl"
+              "{question.title}"
+            Text size:"sm"
+              "{question.text}"
+          Divider scheme:"muted"

@@ -54,15 +54,15 @@ page ServerCrudBlockPage
       set message value:"The blog could not be deleted."
   Section id:"server-crud-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "SERVER BLOCK / CRUD"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Database-backed CRUD"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "A real endpoint graph, layered server modules, and a View form that reads, creates, updates, and deletes records."
   Section id:"server-crud-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
-      Card variant:"soft" scheme:"primary" p:{ xs:5 md:7 } rounded:"xl"
+      Card variant:"solid" scheme:"primary" p:{ xs:5 md:7 } rounded:"xl"
         Grid columns:1 gap:4
           Flex justify:"between" align:"center" gap:3 wrap:true
             Grid columns:1 gap:1
@@ -70,18 +70,18 @@ page ServerCrudBlockPage
                 "LIVE VIEW + SERVER"
               Title size:"2xl" weight:"black"
                 "Edit the example collection"
-            Chip show:exampleSession.authenticated variant:"soft" scheme:"success" size:"sm"
+            Chip show:exampleSession.authenticated variant:"solid" scheme:"success" size:"sm"
               "AUTHENTICATED"
-            Chip show:exampleSession.guest variant:"soft" scheme:"warning" size:"sm"
+            Chip show:exampleSession.guest variant:"solid" scheme:"warning" size:"sm"
               "GUEST"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "This page calls /api/examples/blogs. Use the Auth block first if you want to write data."
           Text show:exampleSession.authenticated size:"sm" color:"info"
             "{message}"
           Grid columns:{ xs:1 md:2 } gap:4
             Card variant:"outlined" p:4
               Grid columns:1 gap:3
-                Text size:"xs" weight:"bold" color:"muted"
+                Text size:"xs" weight:"bold"
                   "CREATE"
                 Input bind:form.title label:"Title" placeholder:"A useful server example" labelFloating:true w:"full"
                 Textarea bind:form.content label:"Content" placeholder:"Write a short entry" rows:5 labelFloating:true w:"full"
@@ -91,7 +91,7 @@ page ServerCrudBlockPage
                   "Authenticate to enable writes."
             Card variant:"outlined" p:4
               Grid columns:1 gap:3
-                Text size:"xs" weight:"bold" color:"muted"
+                Text size:"xs" weight:"bold"
                   "UPDATE"
                 Input bind:editForm.id label:"Blog id" placeholder:"Paste an id from the table" labelFloating:true w:"full"
                 Input bind:editForm.title label:"New title" placeholder:"Updated title" labelFloating:true w:"full"
@@ -103,13 +103,13 @@ page ServerCrudBlockPage
               Flex justify:"between" align:"center" gap:3 wrap:true
                 Title size:"xl" weight:"black"
                   "Records"
-                Button onClick:loadBlogs variant:"soft" size:"sm" iconStart:"restart"
+                Button onClick:loadBlogs variant:"solid" size:"sm" iconStart:"restart"
                   "Refresh"
               Table data:blogs variant:"ghost" scheme:"surface" size:"sm" dividers:true emptyTitle:"No blogs yet" emptyDescription:"Create the first record from the form above."
                 column field:"id" label:"Id" width:"2fr"
                 column field:"title" label:"Title" width:"2fr"
                 column field:"ownerId" label:"Owner" width:"2fr"
-              Text show:exampleSession.authenticated size:"sm" color:"muted"
+              Text show:exampleSession.authenticated size:"sm"
                 "Delete uses the same authenticated session and the id from the table."
               Flex gap:3 wrap:true
                 Input bind:editForm.id placeholder:"Blog id to delete" label:"Delete by id" labelFloating:true w:"full"
@@ -117,17 +117,17 @@ page ServerCrudBlockPage
                   "Delete"
   Section id:"server-crud-files" py:{ xs:7 md:10 }
     Grid columns:1 gap:4
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "SOURCE FILES"
       Title size:"3xl" weight:"black"
         "Every tab is a real project file"
-      Text color:"muted"
+      Text
         "The preview above calls the same handlers shown below. Database access remains in the repository, while Views only see JSON responses."
       Tabs variant:"line" position:"top" w:"full"
         tab id:"view" label:"View"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy View"
             copiedLabel:"Copied"
@@ -148,7 +148,7 @@ page ServerCrudBlockPage
         tab id:"endpoints" label:"Endpoints"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy endpoints"
             copiedLabel:"Copied"
@@ -163,7 +163,7 @@ page ServerCrudBlockPage
         tab id:"handler" label:"Handler"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy handler"
             copiedLabel:"Copied"
@@ -178,7 +178,7 @@ page ServerCrudBlockPage
         tab id:"service" label:"Service"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy service"
             copiedLabel:"Copied"
@@ -191,7 +191,7 @@ page ServerCrudBlockPage
         tab id:"repository" label:"Repository"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy repository"
             copiedLabel:"Copied"
@@ -204,7 +204,7 @@ page ServerCrudBlockPage
         tab id:"config" label:"Config"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy config"
             copiedLabel:"Copied"
@@ -216,7 +216,7 @@ page ServerCrudBlockPage
         tab id:"entity" label:"Entity"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy entity"
             copiedLabel:"Copied"
@@ -233,5 +233,5 @@ page ServerCrudBlockPage
     Section minH:"vh-0"
       Flex direction:"column" align:"center" justify:"center" gap:3 h:"full"
         Icon name:"svg-spinners:3-dots-bounce" fill:"primary" w:10 h:10
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Loading Database records"

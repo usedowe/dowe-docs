@@ -12,22 +12,22 @@ page DashboardCompleteProfilePage
       { id:"bogota" value:"bogota" label:"Bogota (GMT-5)" },
       { id:"berlin" value:"berlin" label:"Berlin (GMT+1)" },
     ]
-  Section id:"dashboard-complete-profile" bg:"softMuted" minH:"vh-0" p:{ xs:4 md:8 }
+  Section id:"dashboard-complete-profile" bg:"muted" minH:"vh-0" p:{ xs:4 md:8 }
     Grid columns:1 gap:5
       Grid columns:1 gap:1
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "COMPLETE PROFILE"
         Title size:{ xs:"2xl" md:"4xl" } weight:"black"
           "A focused setup flow"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use the portable Stepper to collect only the details the workspace needs."
-      Card variant:"soft" rounded:"lg" p:{ xs:4 md:8 } border:1
+      Card variant:"solid" rounded:"lg" p:{ xs:4 md:8 } border:1
         Stepper scheme:"primary" orientation:"horizontal"
           step id:"identity" label:"Identity"
             Grid columns:1 gap:4 p:{ xs:2 md:4 }
               Flex direction:"column" align:"center" gap:3
-                Avatar name:"Profile" alt:"Profile photo placeholder" size:"xl" variant:"soft" scheme:"primary" bordered:true
-                Text size:"xs" color:"muted"
+                Avatar name:"Profile" alt:"Profile photo placeholder" size:"xl" variant:"solid" scheme:"primary" bordered:true
+                Text size:"xs"
                   "Photo placeholder"
               Input bind:profile.name label:"Display name" placeholder:"How should we call you?" scheme:"muted" w:"full"
               Input bind:profile.email label:"Email address" placeholder:"you@example.com" scheme:"muted" w:"full"
@@ -42,10 +42,10 @@ page DashboardCompleteProfilePage
               Password bind:profile.password label:"Create a password" placeholder:"Use a secure password" hideStrength:false scheme:"muted" w:"full"
           step id:"finish" label:"Finish"
             Grid columns:1 gap:4 p:{ xs:2 md:4 }
-              Avatar name:"Profile" alt:"Profile photo placeholder" size:"lg" variant:"soft" scheme:"primary"
+              Avatar name:"Profile" alt:"Profile photo placeholder" size:"lg" variant:"solid" scheme:"primary"
               Title size:"lg" weight:"bold"
                 "Ready to continue"
-              Text size:"sm" color:"muted"
+              Text size:"sm"
                 "Review your details, then enter the workspace."
               Flex direction:{ xs:"column" sm:"row" } justify:"between" gap:3
                 Button variant:"ghost" scheme:"muted"

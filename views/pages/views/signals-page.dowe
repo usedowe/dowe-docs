@@ -10,20 +10,20 @@ page SignalsPage
   signal detailsVisible value:false
   Section id:"signals-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "STATE"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Signals"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "A Signal is reactive state owned by one page or layout instance. Update it and every compatible binding refreshes."
   Section id:"signals-example" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "INTERACTIVE EXAMPLE"
         Title size:"3xl" weight:"black"
           "Local counter and visibility"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "This counter and its details panel reset when this page instance is recreated."
       Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Grid columns:1 gap:4
@@ -34,13 +34,13 @@ page SignalsPage
               "Add one"
             Button onClick:{ set:detailsVisible value:!detailsVisible } variant:"outlined"
               "Toggle details"
-          Text show:detailsVisible size:"sm" color:"muted"
+          Text show:detailsVisible size:"sm"
             "The show prop reads the same boolean Signal and removes this text from layout while false."
           Text show:{ when:count gt:0 } size:"sm" color:"success"
             "The counter is greater than zero."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -60,7 +60,7 @@ page SignalsPage
     Grid columns:1 gap:4
       Table:
         data:signalGuidanceRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

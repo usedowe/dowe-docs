@@ -52,11 +52,11 @@ page BillingTogglePricingPage
   Section id:"billing-toggle-pricing" bg:"background" color:"backgroundText" boxed:true minH:"vh-0" py:{ xs:8 md:12 }
     Grid columns:1 gap:{ xs:7 md:10 }
       Flex direction:"column" align:"center" gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PRICING"
         Title size:{ xs:"4xl" md:"6xl" } weight:"black"
           "Affordable pricing plans"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Switch the billing period and choose the plan that matches your current pace."
       Flex align:"center" justify:"center" gap:2
         Button size:"sm" rounded:"full" show:monthly onClick:showMonthly
@@ -79,11 +79,11 @@ page BillingTogglePricingPage
                     "{plan.monthlyPrice}"
                   Title size:"4xl" weight:"black" show:annual
                     "{plan.annualPrice}"
-                  Text color:"muted" show:monthly
+                  Text show:monthly
                     "/month"
-                  Text color:"muted" show:annual
+                  Text show:annual
                     "/year"
-                Text color:"muted"
+                Text
                   "A flexible plan with transparent capacity and support."
                 Divider orientation:"horizontal" scheme:"muted"
                 Grid columns:1 gap:3

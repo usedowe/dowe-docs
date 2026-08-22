@@ -9,13 +9,13 @@ page DividerPage
   Section id:"divider-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "DISPLAY"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Divider"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Divider creates an intentional visual boundary without adding hidden layout or spacing assumptions."
-      Card variant:"soft" scheme:"muted" p:5 rounded:"lg" minW:56
+      Card variant:"solid" scheme:"muted" p:5 rounded:"lg" minW:56
         Grid columns:1 gap:1
           Text size:"xs" weight:"bold" spacing:"widest"
             "ONE LINE, TWO AXES"
@@ -26,66 +26,66 @@ page DividerPage
   Section id:"divider-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "Compare orientation and scheme"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Horizontal lines fill the available width. Vertical lines fill the authored height, so pair them with an explicit h when the surrounding content has no intrinsic height."
       Card variant:"outlined" p:{ xs:6 md:9 } border:1
         Grid columns:1 gap:5
           Text weight:"bold"
             "Horizontal content boundary"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "The divider separates two semantic bands while the Grid owns the gap around them."
           Divider orientation:"horizontal" scheme:"primary"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Continue with the next section of the workflow."
-      Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+      Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
         Divider orientation:"horizontal" scheme:"primary"
         Divider orientation:"vertical" scheme:"secondary" h:12
       """
   Section id:"divider-layouts" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "ADVANCED LAYOUTS"
         Title size:"3xl" weight:"black"
           "Compose a split toolbar"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Divider is deliberately neutral: parent Flex or Grid owns alignment, spacing, and responsive behavior."
-      Card variant:"soft" p:{ xs:5 md:7 }
+      Card variant:"solid" p:{ xs:5 md:7 }
         Flex direction:{ xs:"column" md:"row" } align:"center" gap:4
           Flex direction:"column" gap:1
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "FILTER"
             Text weight:"bold"
               "All records"
           Divider orientation:"vertical" scheme:"muted" h:12
           Flex direction:"column" gap:1
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "SORT"
             Text weight:"bold"
               "Recently updated"
           Divider orientation:"vertical" scheme:"secondary" h:12
           Flex direction:"column" gap:1
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "STATUS"
             Text weight:"bold"
               "Synchronized"
       Grid columns:{ xs:1 md:2 } gap:4
         Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:3
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "SECTION RHYTHM"
             Title size:"lg" weight:"black"
               "Explicit boundaries"
             Divider scheme:"muted"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Use the page Section and Grid gap for rhythm, then place Divider only where the line itself carries meaning."
         Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:3
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "TOKEN COLORS"
             Title size:"lg" weight:"black"
               "Semantic emphasis"
@@ -102,36 +102,36 @@ page DividerPage
   Section id:"divider-contract" p:{ xs:5 md:7 }
     Grid columns:{ xs:1 md:3 } gap:4
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" color:"muted"
+        Text size:"xs" weight:"bold"
           "HORIZONTAL"
         Title size:"lg" weight:"black"
           "Width follows the parent"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use the parent layout to define horizontal padding and gap."
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" color:"muted"
+        Text size:"xs" weight:"bold"
           "VERTICAL"
         Title size:"lg" weight:"black"
           "Height is intentional"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Set h when a vertical line sits beside content with no shared intrinsic height."
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" color:"muted"
+        Text size:"xs" weight:"bold"
           "PORTABLE"
         Title size:"lg" weight:"black"
           "No children"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Divider is a leaf component; it never owns content or an implicit spacer."
   Section id:"divider-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Divider also accepts common identity, spacing, sizing, visibility, radius, border, and accessibility props."
-      Table data:dividerProps variant:"soft" scheme:"surface" size:"sm" striped:true dividers:true rounded:"md"
+      Table data:dividerProps variant:"solid" scheme:"surface" size:"sm" striped:true dividers:true rounded:"md"
         column field:"prop" label:"Prop" width:"1.2fr"
         column field:"type" label:"Type" width:"3fr"
         column field:"defaultValue" label:"Default" width:"1.2fr"

@@ -25,13 +25,13 @@ page SoftCardsTestimonialsPage
       Flex direction:"column" align:"center" gap:3
         Title size:{ xs:"3xl" md:"5xl" } weight:"black"
           "What our clients say"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Short stories from collaborators who found clarity, momentum, and a better way forward."
       Grid columns:{ xs:1 md:3 } gap:5
         each in:testimonials as:testimonial key:testimonial.id
-          Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:7 md:9 } minH:64
+          Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:7 md:9 } minH:64
             Flex direction:"column" justify:"between" gap:7 minH:52
-              Text size:"lg" color:"muted"
+              Text size:"lg"
                 "{testimonial.quote}"
               Flex align:"center" gap:4
                 Box bg:"surface" rounded:"full" w:14 h:14 p:3
@@ -39,5 +39,5 @@ page SoftCardsTestimonialsPage
                 Grid columns:1 gap:1
                   Text weight:"bold"
                     "{testimonial.name}"
-                  Text color:"muted"
+                  Text
                     "{testimonial.role}"

@@ -61,24 +61,24 @@ page HmrPage
     ]
   Section id:"hmr-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "DEVELOPMENT / HOT MODULE RELOAD"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Hot reload across targets"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Keep dowe dev running while Dowe rebuilds changed views and publishes the latest valid module to each selected development target."
   Section id:"hmr-start" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "1 / AUTOMATIC IN DEVELOPMENT"
         Title size:"3xl" weight:"black"
           "Save source and let the active session update"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "HMR starts automatically for supported targets selected by dowe dev. There is no application-level HMR import, configuration file, or JavaScript development server to add."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy HMR commands"
         copiedLabel:"Copied"
@@ -90,7 +90,7 @@ page HmrPage
         """
       Table:
         data:hmrProcessRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -102,15 +102,15 @@ page HmrPage
   Section id:"hmr-targets" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "2 / TARGET BEHAVIOR"
         Title size:"3xl" weight:"black"
           "Keep the renderer native to each platform"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "HMR changes development delivery, not the rendering model. Dowe does not execute authored source in the browser or replace native views with a WebView."
       Table:
         data:hmrTargetRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -122,15 +122,15 @@ page HmrPage
   Section id:"hmr-state" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "3 / STATE AND RECOVERY"
         Title size:"3xl" weight:"black"
           "Keep the last valid experience active"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Dowe preserves useful development context when the new module remains compatible and avoids replacing a working module with incomplete output."
       Table:
         data:hmrStateRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -138,22 +138,24 @@ page HmrPage
         rounded:"md"
         column field:"state" label:"State" width:"2fr"
         column field:"guidance" label:"What happens" width:"5fr"
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "Native module updates publish only after all generated target sources compile. If iOS compilation fails, the simulator keeps the last valid module and the next save can retry the build."
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "Server changes use a successful backend restart rather than view HMR. Production builds do not include the HMR client, module server, or .dowe/dev dependency."
   Section id:"hmr-performance" py:{ xs:7 md:10 }
     Grid columns:1 gap:4
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "4 / CURRENT PERFORMANCE"
       Title size:"3xl" weight:"black"
         "Rebuild only what the session needs"
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "The first compile fills a development-session cache. Later page and layout saves reuse unchanged modules, while iOS keeps the complete dynamic Icon catalog in bounded Swift shards outside the shared route index."
+      Text size:"sm"
+        "Web publication keeps safe router and design stylesheet names during incremental preparation, so a transient incomplete page state does not turn the .dowe/web directory into a file target."
       Alert type:"info" message:"A save with identical generated output emits no browser update. Shared components, Stores, types, theme, i18n, environment, icons, deletes, and unknown paths keep a conservative invalidation path."
       Button:
         href:"/docs/dev/dev#dev-watch"
-        variant:"soft"
+        variant:"solid"
         size:"sm"
         rounded:"full"
         iconStart:"restart"

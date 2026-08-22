@@ -2,7 +2,7 @@ layout ScaffoldAppFooterLayout
   signal openDrawer value:false
   Scaffold minH:"vh-0"
     appBar
-      AppBar variant:"soft" scheme:"primary" bordered:true
+      AppBar variant:"solid" scheme:"primary" bordered:true
         start
           IconButton:
             show:{ xs:true md:false }
@@ -16,7 +16,7 @@ layout ScaffoldAppFooterLayout
     main
       children
     bottomBar
-      Footer variant:"soft" scheme:"muted" bordered:true
+      Footer variant:"solid" scheme:"muted" bordered:true
         center
           Text weight:"bold"
             "Footer"
@@ -24,7 +24,7 @@ layout ScaffoldAppFooterLayout
       Drawer:
         open:openDrawer
         position:"start"
-        variant:"soft"
+        variant:"solid"
         scheme:"tertiary"
         show:{ xs:true md:false }
         body

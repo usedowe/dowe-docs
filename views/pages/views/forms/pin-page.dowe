@@ -56,29 +56,29 @@ page PinPage
   Section id:"pin-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "FORM"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Pin"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Pin coordinates segmented entry, focus movement, paste distribution, masking, and one joined string value."
   Section id:"pin-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "Verify a high-value action"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Enter or paste a six-digit code. Focus advances per character, Backspace returns to the previous empty field, and Android keeps every cell inside narrow containers."
       Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Grid columns:1 gap:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+            Text size:"xs" weight:"bold" spacing:"widest"
               "TRANSFER VERIFICATION"
             Title size:"2xl" weight:"black"
               "Confirm the security code"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "A six-digit code was sent to the verified contact method."
           Pin:
             bind:verificationCode
@@ -99,7 +99,7 @@ page PinPage
               "Verify transfer"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -115,11 +115,11 @@ page PinPage
   Section id:"pin-modes" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "ENTRY MODES"
         Title size:"3xl" weight:"black"
           "Choose the right code contract"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Numeric codes suit one-time verification, password mode masks sensitive access keys, and text mode accepts alphanumeric recovery codes."
       Grid columns:{ xs:1 md:3 } gap:4
         Pin:
@@ -128,7 +128,7 @@ page PinPage
           type:"number"
           label:"Device code"
           helpText:"Short numeric pairing code."
-          variant:"soft"
+          variant:"solid"
           scheme:"info"
           size:"sm"
           name:"device-code"
@@ -152,12 +152,12 @@ page PinPage
           name:"recovery-key"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Pin value:"5821" length:4 type:"number" label:"Device code" variant:"soft" scheme:"info" size:"sm"
+          Pin value:"5821" length:4 type:"number" label:"Device code" variant:"solid" scheme:"info" size:"sm"
 
           Pin value:"749205" length:6 type:"password" label:"Vault PIN" variant:"solid" scheme:"secondary"
 
@@ -166,11 +166,11 @@ page PinPage
   Section id:"pin-states" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "VALIDATION AND SCALE"
         Title size:"3xl" weight:"black"
           "Respond to the complete code"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Validation applies to the joined value, so feedback stays attached to the complete segmented control."
       Grid columns:{ xs:1 md:2 } gap:5
         Pin:
@@ -186,56 +186,56 @@ page PinPage
           type:"text"
           label:"Enrollment key"
           helpText:"Paste the complete eight-character key from the enrollment screen."
-          variant:"soft"
+          variant:"solid"
           scheme:"warning"
           name:"enrollment-key"
       Grid columns:{ xs:1 md:3 } gap:4
-        Pin length:4 type:"number" label:"Small" variant:"soft" size:"sm"
-        Pin length:4 type:"number" label:"Medium" variant:"soft"
-        Pin length:4 type:"number" label:"Large" variant:"soft" size:"lg"
+        Pin length:4 type:"number" label:"Small" variant:"solid" size:"sm"
+        Pin length:4 type:"number" label:"Medium" variant:"solid"
+        Pin length:4 type:"number" label:"Large" variant:"solid" size:"lg"
   Section id:"pin-contract" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "BEHAVIOR"
         Title size:"3xl" weight:"black"
           "Segmented input, one value"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Dowe coordinates entry across individual cells and exposes a single predictable value to the surrounding form."
       Grid columns:{ xs:1 md:3 } gap:5
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "KEYBOARD"
           Title size:"lg" weight:"bold"
             "Managed focus"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Character entry advances focus and Backspace returns to the previous empty cell."
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "PASTE"
           Title size:"lg" weight:"bold"
             "Distributed input"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Pasting fills consecutive cells up to length and updates the joined value once."
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "TARGETS"
           Title size:"lg" weight:"bold"
             "Portable code entry"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Web, SwiftUI, Android Compose, and the Android launcher preserve cell count, type, focus, paste, feedback, 40/44/52-unit widths, 32/40/48-unit heights, and Input typography. Numeric entry uses a numeric keyboard without browser number spinners."
   Section id:"pin-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Pin also accepts the applicable common spacing, sizing, visibility, accessibility, and shadow props."
       Table:
         data:pinProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

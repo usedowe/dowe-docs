@@ -30,19 +30,19 @@ page CustomerCentricFeaturesPage
       Title size:"4xl" weight:"black" show:{ xs:true md:false }
         "Build a customer-centric marketing strategy"
       Box h:4
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Connect every customer touchpoint with a clear, measurable workflow."
       Box h:{ xs:8 md:14 }
       Grid columns:{ xs:1 md:3 } gap:5 w:"full"
         each in:customerBenefits as:benefit key:benefit.id
-          Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:5 md:6 } minH:80
+          Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:5 md:6 } minH:80
             Flex direction:"column" gap:4 minH:64
-              Box bg:"softPrimary" rounded:"full" w:14 h:14 p:2
+              Box bg:"muted" rounded:"full" w:14 h:14 p:2
                 Icon name:"route-line-duotone" fill:"primary" w:10 h:10
               Grid columns:1 gap:2 minH:20
                 Title size:"lg" weight:"black"
                   "{benefit.title}"
-                Text color:"muted"
+                Text
                   "{benefit.description}"
               Box h:2
               Box bg:"surface" rounded:"lg" p:4 shadow:"sm" minH:28
@@ -52,8 +52,8 @@ page CustomerCentricFeaturesPage
                     Text weight:"bold"
                       "{benefit.preview}"
                   Grid columns:3 gap:2
-                    Box h:8 bg:"softMuted" rounded:"sm"
-                    Box h:8 bg:"softPrimary" rounded:"sm"
-                    Box h:8 bg:"softMuted" rounded:"sm"
+                    Box h:8 bg:"muted" rounded:"sm"
+                    Box h:8 bg:"muted" rounded:"sm"
+                    Box h:8 bg:"muted" rounded:"sm"
                   Flex justify:"end"
                     Icon name:"cursor-bold" fill:"surfaceText" w:7 h:7

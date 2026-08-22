@@ -10,23 +10,23 @@ page BadgePage
   Section id:"badge-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "DISPLAY"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Badge"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Badge adds a compact count or status to a child without changing the child’s measured size or interaction."
       Flex direction:"column" align:"center" justify:"center" p:6 minW:32 minH:24
-        Badge text:"Live" scheme:"success" variant:"soft" position:"top-right"
+        Badge text:"Live" scheme:"success" variant:"solid" position:"top-right"
           Avatar name:"Dowe" size:"xl" scheme:"primary" bordered:true
   Section id:"badge-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "Add context without covering the control"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Each example gets enough breathing room for the label to sit across the child’s corner on web, Android, and iOS."
       Grid columns:{ xs:1 md:3 } gap:4
         Card variant:"outlined" rounded:"lg" border:1 p:7 minH:36
@@ -34,33 +34,33 @@ page BadgePage
             Badge text:"3" scheme:"danger" position:"top-right"
               Avatar name:"Ada" size:"xl" scheme:"secondary" bordered:true
             Grid columns:1 gap:1
-              Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+              Text size:"xs" weight:"bold" spacing:"widest"
                 "COUNT"
-              Text size:"sm" color:"muted"
+              Text size:"sm"
                 "Keep numeric alerts short."
         Card variant:"outlined" rounded:"lg" border:1 p:7 minH:36
           Flex direction:"column" align:"center" justify:"between" gap:6 minH:24
-            Badge text:"New" scheme:"success" variant:"soft" position:"bottom-right"
-              Button variant:"soft" iconStart:"inbox"
+            Badge text:"New" scheme:"success" variant:"solid" position:"bottom-right"
+              Button variant:"solid" iconStart:"inbox"
                 "Inbox"
             Grid columns:1 gap:1
-              Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+              Text size:"xs" weight:"bold" spacing:"widest"
                 "STATUS"
-              Text size:"sm" color:"muted"
+              Text size:"sm"
                 "Use soft for quiet metadata."
         Card variant:"outlined" rounded:"lg" border:1 p:7 minH:36
           Flex direction:"column" align:"center" justify:"between" gap:6 minH:24
-            Badge text:"Beta" scheme:"info" variant:"soft" position:"top-left"
+            Badge text:"Beta" scheme:"info" variant:"solid" position:"top-left"
               Button scheme:"muted" size:"lg"
                 "Command"
             Grid columns:1 gap:1
-              Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+              Text size:"xs" weight:"bold" spacing:"widest"
                 "LABEL"
-              Text size:"sm" color:"muted"
+              Text size:"sm"
                 "Prefer one short word."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -68,60 +68,60 @@ page BadgePage
           Badge text:"3" scheme:"danger" position:"top-right"
             Avatar name:"Ada" size:"xl" scheme:"secondary" bordered:true
 
-          Badge text:"New" scheme:"success" variant:"soft" position:"bottom-right"
-            Button variant:"soft" iconStart:"inbox"
+          Badge text:"New" scheme:"success" variant:"solid" position:"bottom-right"
+            Button variant:"solid" iconStart:"inbox"
               "Inbox"
 
-          Badge text:"Beta" scheme:"info" variant:"soft" position:"top-left"
+          Badge text:"Beta" scheme:"info" variant:"solid" position:"top-left"
             Button scheme:"muted" size:"lg"
               "Command"
         """
   Section id:"badge-positions" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "POSITION"
         Title size:"3xl" weight:"black"
           "Choose one of four corners"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The center of the capsule anchors to the selected corner, so the label remains legible without shifting the wrapped view."
       Grid columns:{ xs:2 md:4 } gap:4
-        Card variant:"soft" scheme:"muted" p:7 rounded:"lg" minH:32
+        Card variant:"solid" scheme:"muted" p:7 rounded:"lg" minH:32
           Flex direction:"column" align:"center" justify:"center" gap:5 minH:20
             Badge text:"TL" scheme:"primary" position:"top-left"
-              Button variant:"soft" scheme:"muted"
+              Button variant:"solid" scheme:"muted"
                 "Target"
             Text size:"xs" weight:"bold"
               "TOP LEFT"
-        Card variant:"soft" scheme:"muted" p:7 rounded:"lg" minH:32
+        Card variant:"solid" scheme:"muted" p:7 rounded:"lg" minH:32
           Flex direction:"column" align:"center" justify:"center" gap:5 minH:20
             Badge text:"TR" scheme:"secondary" position:"top-right"
-              Button variant:"soft" scheme:"muted"
+              Button variant:"solid" scheme:"muted"
                 "Target"
             Text size:"xs" weight:"bold"
               "TOP RIGHT"
-        Card variant:"soft" scheme:"muted" p:7 rounded:"lg" minH:32
+        Card variant:"solid" scheme:"muted" p:7 rounded:"lg" minH:32
           Flex direction:"column" align:"center" justify:"center" gap:5 minH:20
             Badge text:"BL" scheme:"tertiary" position:"bottom-left"
-              Button variant:"soft" scheme:"muted"
+              Button variant:"solid" scheme:"muted"
                 "Target"
             Text size:"xs" weight:"bold"
               "BOTTOM LEFT"
-        Card variant:"soft" scheme:"muted" p:7 rounded:"lg" minH:32
+        Card variant:"solid" scheme:"muted" p:7 rounded:"lg" minH:32
           Flex direction:"column" align:"center" justify:"center" gap:5 minH:20
             Badge text:"BR" scheme:"danger" position:"bottom-right"
-              Button variant:"soft" scheme:"muted"
+              Button variant:"solid" scheme:"muted"
                 "Target"
             Text size:"xs" weight:"bold"
               "BOTTOM RIGHT"
   Section id:"badge-guidance" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "USAGE"
         Title size:"3xl" weight:"black"
           "Keep the child primary"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "A Badge should clarify an existing view, not become a second control or a paragraph of content."
       Grid columns:{ xs:1 md:3 } gap:4
         Flex direction:"column" gap:2
@@ -148,46 +148,46 @@ page BadgePage
   Section id:"badge-parity" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "TARGET PARITY"
         Title size:"3xl" weight:"black"
           "One source, the same overlay"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Dowe lowers the same Badge tree into target-owned layout primitives while preserving label metrics, scheme, variant, and corner."
       Grid columns:{ xs:1 md:3 } gap:4
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          Text size:"xs" weight:"bold" spacing:"widest"
             "WEB"
           Title size:"lg" weight:"black"
             "Positioned overlay"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "The wrapper keeps the child’s intrinsic size and paints the capsule above its selected corner."
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          Text size:"xs" weight:"bold" spacing:"widest"
             "ANDROID"
           Title size:"lg" weight:"black"
             "Compose Box overlay"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Jetpack Compose measures the child first, then offsets the capsule by half of its own size."
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          Text size:"xs" weight:"bold" spacing:"widest"
             "IOS"
           Title size:"lg" weight:"black"
             "SwiftUI aligned overlay"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "SwiftUI aligns the capsule center to the same corner without changing the content frame."
   Section id:"badge-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Badge also accepts the applicable common spacing, sizing, visibility, and accessibility props on its wrapper."
       Table:
         data:badgeProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

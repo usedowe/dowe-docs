@@ -21,20 +21,20 @@ page ShowPage
     ]
   Section id:"show-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "LOGIC / VISIBILITY"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Control visibility with show"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "The common show prop controls whether a visible component renders and participates in layout. Use a static boolean, a responsive map, or a reactive condition that Dowe can evaluate from page state."
   Section id:"show-example" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "1 / LIVE EXAMPLE"
         Title size:"3xl" weight:"black"
           "Combine boolean and numeric conditions"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "When a condition is false, the associated component takes no space in the layout. Toggle the boolean Signal to reveal text, then add items until the numeric condition becomes true."
         Alert type:"info" message:"show decides whether the component renders. The component's own props and children remain unchanged when the condition becomes true again."
       Grid columns:1 gap:4
@@ -43,14 +43,14 @@ page ShowPage
             "Toggle details"
           Button onClick:{ set:itemCount add:1 } variant:"outlined"
             "Add item"
-        Text show:detailsVisible size:"sm" color:"muted"
+        Text show:detailsVisible size:"sm"
           "This message follows a boolean Signal."
-        Card show:{ when:itemCount gte:3 } variant:"soft" scheme:"success" p:4
+        Card show:{ when:itemCount gte:3 } variant:"solid" scheme:"success" p:4
           Text
             "You added at least three items."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -68,15 +68,15 @@ page ShowPage
   Section id:"show-forms" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "2 / CHOOSE THE FORM"
         Title size:{ xs:"2xl" md:"4xl" } weight:"black"
           "Use the condition that matches the owner"
-        Text color:"muted"
+        Text
           "Keep visibility close to the component it controls. A static rule belongs in the view tree, a breakpoint rule belongs in responsive props, and a reactive rule reads state owned by the page or layout."
       Table:
         data:showFormsRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

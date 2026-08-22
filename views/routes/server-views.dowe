@@ -1,5 +1,5 @@
 import ServerPage from "@/views/pages/server/server-page"
-import ServerLayout from "@/views/layouts/server-layout"
+import DocsLayout from "@/views/layouts/docs-layout"
 import TlsPage from "@/views/pages/server/tls-page"
 import KvPage from "@/views/pages/server/kv-page"
 import VectorPage from "@/views/pages/server/vector-page"
@@ -31,7 +31,7 @@ import RouterEndpointsPage from "@/views/pages/server/router/endpoints-page"
 import RouterHttpPage from "@/views/pages/server/router/http-page"
 import RouterWebSocketsPage from "@/views/pages/server/router/websockets-page"
 views ServerViews
-  group path:"/docs/server" layout:ServerLayout
+  group path:"/docs/server" layout:DocsLayout
     route path:"" page:ServerPage
     route path:"tls" page:TlsPage
     route path:"db" page:DatabasePage

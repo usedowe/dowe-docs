@@ -45,20 +45,20 @@ page VideoPage
   Section id:"video-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "CONTROL"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Video"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Video plays one portable HTTPS media source with the same Dowe-drawn controls on web, Android, and iOS."
   Section id:"video-source" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "SOURCE AND PLAYBACK"
         Title size:"3xl" weight:"black"
           "Use one static HTTPS source"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Video accepts a regular media URL or an HLS .m3u8 manifest. Dowe disables platform chrome and draws accessible play, seek, time, mute, picture-in-picture, and fullscreen controls with bundled Solar icons."
       Grid columns:{ xs:1 md:2 } gap:4
         Grid columns:1 gap:3
@@ -71,24 +71,24 @@ page VideoPage
           Grid columns:1 gap:1
             Title size:"xl" weight:"black"
               "HTTP Live Streaming"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Use an HTTPS .m3u8 manifest for HLS playback. Web prefers native HLS and loads its fallback only when required."
         Grid columns:1 gap:3
           Video:
             src:"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
             poster:"https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1200&q=80"
             autoplay:false
-            variant:"soft"
+            variant:"solid"
             scheme:"primary"
             rounded:"lg"
           Grid columns:1 gap:1
             Title size:"xl" weight:"black"
               "Ordinary media"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Use an HTTPS media URL for a single video. poster supplies artwork while the player is waiting to start."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -96,11 +96,11 @@ page VideoPage
   Section id:"video-aspect" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "ASPECT RATIO"
         Title size:"3xl" weight:"black"
           "Frame the same source for its context"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "horizontal is 16 / 9, vertical is 9 / 16, and square is 1 / 1. Video content stays aspect-fit and centered on both axes while poster artwork covers the authored frame."
       Grid columns:{ xs:1 md:3 } gap:4
         Grid columns:1 gap:2
@@ -132,7 +132,7 @@ page VideoPage
             "square · 1 / 1"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -140,11 +140,11 @@ page VideoPage
   Section id:"video-surface" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "SURFACE"
         Title size:"3xl" weight:"black"
           "Style the player and keep controls portable"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "variant and scheme style the player surface and poster container. Android isolates only the active video in the system picture-in-picture window and restores it inline on exit. iOS keeps its action visible while AVKit becomes ready; the native window still requires picture-in-picture support from the current device."
       Grid columns:{ xs:1 md:2 } gap:4
         Video:
@@ -156,12 +156,12 @@ page VideoPage
         Video:
           src:"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
           poster:"https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1200&q=80"
-          variant:"soft"
+          variant:"solid"
           scheme:"info"
           rounded:"full"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -169,15 +169,15 @@ page VideoPage
   Section id:"video-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Video also accepts applicable common spacing, sizing, border, visibility, and accessibility props."
       Table:
         data:videoProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

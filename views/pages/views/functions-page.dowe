@@ -13,33 +13,33 @@ page FunctionsPage
     redirect path:"/docs/views"
   Section id:"functions-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "LOGIC"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Functions"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Use fn to name target-neutral reactive behavior and dispatch it from a component event."
   Section id:"functions-example" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "INTERACTIVE EXAMPLE"
         Title size:"3xl" weight:"black"
           "Name a state transition"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "A function contains ordered request, branch, state, feedback, and internal redirect statements."
       Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Grid columns:1 gap:4
           Button onClick:togglePanel
             "Toggle panel"
-          Button onClick:openViews variant:"soft" scheme:"secondary"
+          Button onClick:openViews variant:"solid" scheme:"secondary"
             "Open Views overview"
-          Card show:panelOpen variant:"soft" scheme:"info" p:4
+          Card show:panelOpen variant:"solid" scheme:"info" p:4
             Text
               "The Button dispatches togglePanel, which updates this page Signal."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -57,7 +57,7 @@ page FunctionsPage
         """
       Table:
         data:functionModelRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

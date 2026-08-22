@@ -86,11 +86,11 @@ page ComparisonTablePricingPage
   Section id:"comparison-table-pricing" bg:"background" color:"backgroundText" boxed:true minH:"vh-0" py:{ xs:8 md:12 }
     Grid columns:1 gap:{ xs:8 md:12 }
       Flex direction:"column" align:"center" gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PRICING"
         Title size:{ xs:"4xl" md:"6xl" } weight:"black"
           "Affordable pricing plans"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Compare capacity, analytics, and reporting access before choosing the right plan."
       Grid columns:1 gap:0 show:{ xs:false md:true }
         Grid columns:4 gap:0 align:"stretch"
@@ -98,9 +98,9 @@ page ComparisonTablePricingPage
             Title size:"xl" weight:"black"
               "Features"
           each in:plans as:plan key:plan.id
-            Box p:5 bg:"softMuted" show:plan.featured
+            Box p:5 bg:"muted" show:plan.featured
               Flex direction:"column" align:"center" gap:3
-                Text color:"muted"
+                Text
                   "{plan.price}"
                 Title size:"xl" weight:"black"
                   "{plan.name}"
@@ -108,7 +108,7 @@ page ComparisonTablePricingPage
                   "Get started"
             Box p:5 show:plan.standard
               Flex direction:"column" align:"center" gap:3
-                Text color:"muted"
+                Text
                   "{plan.price}"
                 Title size:"xl" weight:"black"
                   "{plan.name}"
@@ -116,13 +116,13 @@ page ComparisonTablePricingPage
                   "Get started"
         each in:featureRows as:row key:row.id
           Grid columns:4 gap:0 align:"center" border:1 borderColor:"muted"
-            Text p:4 color:"muted"
+            Text p:4
               "{row.label}"
             Flex align:"center" justify:"center" p:4
               Text show:row.values
                 "{row.basicValue}"
               Icon name:"check-circle-bold" fill:"muted" w:6 h:6 show:row.basicCheck
-            Box p:4 bg:"softMuted"
+            Box p:4 bg:"muted"
               Flex align:"center" justify:"center" w:"full" h:"full"
                 Text show:row.values
                   "{row.growthValue}"
@@ -135,14 +135,14 @@ page ComparisonTablePricingPage
           Title size:"xl" weight:"black" p:4
             "Reporting"
           Box
-          Box bg:"softMuted"
+          Box bg:"muted"
           Box
         each in:reportingRows as:row key:row.id
           Grid columns:4 gap:0 align:"center" border:1 borderColor:"muted"
-            Text p:4 color:"muted"
+            Text p:4
               "{row.label}"
             Box p:4
-            Box p:4 bg:"softMuted"
+            Box p:4 bg:"muted"
               Flex align:"center" justify:"center" w:"full" h:"full"
                 Icon name:"check-circle-bold" fill:"muted" w:6 h:6 show:row.growthCheck
             Flex align:"center" justify:"center" p:4
@@ -151,7 +151,7 @@ page ComparisonTablePricingPage
         slide id:"basic"
           Grid columns:1 gap:6
             Flex direction:"column" align:"center" gap:3
-              Text color:"muted"
+              Text
                 "$99.00"
               Title size:"2xl" weight:"black"
                 "Basic"
@@ -161,14 +161,14 @@ page ComparisonTablePricingPage
               "Features"
             each in:basicMobileFeatures as:feature key:feature.id
               Flex justify:"between" align:"center" gap:4 p:4 border:1 borderColor:"muted"
-                Text color:"muted"
+                Text
                   "{feature.label}"
                 Text weight:"bold"
                   "{feature.value}"
         slide id:"growth"
           Grid columns:1 gap:6
             Flex direction:"column" align:"center" gap:3
-              Text color:"muted"
+              Text
                 "$199.00"
               Title size:"2xl" weight:"black"
                 "Growth"
@@ -178,14 +178,14 @@ page ComparisonTablePricingPage
               "Features"
             each in:growthMobileFeatures as:feature key:feature.id
               Flex justify:"between" align:"center" gap:4 p:4 border:1 borderColor:"muted"
-                Text color:"muted"
+                Text
                   "{feature.label}"
                 Text weight:"bold"
                   "{feature.value}"
         slide id:"enterprise"
           Grid columns:1 gap:6
             Flex direction:"column" align:"center" gap:3
-              Text color:"muted"
+              Text
                 "$399.00"
               Title size:"2xl" weight:"black"
                 "Enterprise"
@@ -195,7 +195,7 @@ page ComparisonTablePricingPage
               "Features"
             each in:enterpriseMobileFeatures as:feature key:feature.id
               Flex justify:"between" align:"center" gap:4 p:4 border:1 borderColor:"muted"
-                Text color:"muted"
+                Text
                   "{feature.label}"
                 Text weight:"bold"
                   "{feature.value}"

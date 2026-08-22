@@ -22,109 +22,109 @@ page DashboardTaskBoardPage
       { id:"task-6" title:"Approve Q2 report" meta:"Finance · 1d" owner:"Sofia Silva" status:"Review" },
       { id:"task-7" title:"Sign off release checklist" meta:"Ops · 2d" owner:"Noah Williams" status:"Review" },
     ]
-  Section id:"dashboard-task-board" bg:"softMuted" minH:"vh-0" p:{ xs:4 md:8 }
+  Section id:"dashboard-task-board" bg:"muted" minH:"vh-0" p:{ xs:4 md:8 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:{ xs:"start" md:"center" } gap:3
         Grid columns:1 gap:1
-          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          Text size:"xs" weight:"bold" spacing:"widest"
             "TASK BOARD"
           Title size:{ xs:"2xl" md:"4xl" } weight:"black"
             "Plan the next release"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "A neutral kanban surface keeps priorities visible across every target."
         Button size:"sm" iconStart:"add-circle"
           "Add task"
       Grid columns:{ xs:1 md:3 } gap:4 align:"start"
-        Box bg:"softMuted" rounded:"lg" p:3 border:1
+        Box bg:"muted" rounded:"lg" p:3 border:1
           Grid columns:1 gap:3
             Flex justify:"between" align:"center" px:1
               Flex align:"center" gap:2
                 Text size:"sm" weight:"bold"
                   "Backlog"
-                Chip variant:"soft" scheme:"muted"
+                Chip variant:"solid" scheme:"muted"
                   "3"
               IconButton icon:"menu-dots" label:"Open backlog actions" variant:"ghost" scheme:"muted" size:"sm"
             Grid columns:1 gap:3
               each in:backlogTasks as:task key:task.id
-                Card variant:"soft" p:4 border:1
+                Card variant:"solid" p:4 border:1
                   Grid columns:1 gap:3
-                    Box bg:"softMuted" rounded:"sm" minH:16 p:3
+                    Box bg:"muted" rounded:"sm" minH:16 p:3
                       Flex direction:"column" align:"center" justify:"center" gap:1 minH:10
                         Icon name:"gallery-bold-duotone" fill:"muted" w:6 h:6
-                        Text size:"xs" color:"muted"
+                        Text size:"xs"
                           "Media placeholder"
                     Flex justify:"between" align:"start" gap:2
                       Title size:"sm" weight:"bold"
                         "{task.title}"
                       IconButton icon:"menu-dots" label:"Open task actions" variant:"ghost" scheme:"muted" size:"sm"
-                    Text size:"xs" color:"muted"
+                    Text size:"xs"
                       "{task.meta}"
                     Flex justify:"between" align:"center" gap:2
                       Flex align:"center" gap:2
-                        Avatar name:"Task owner" alt:"Task owner avatar placeholder" size:"sm" variant:"soft" scheme:"primary"
-                        Text size:"xs" color:"muted"
+                        Avatar name:"Task owner" alt:"Task owner avatar placeholder" size:"sm" variant:"solid" scheme:"primary"
+                        Text size:"xs"
                           "{task.owner}"
-                      Chip variant:"soft" scheme:"muted"
+                      Chip variant:"solid" scheme:"muted"
                         "{task.status}"
-        Box bg:"softMuted" rounded:"lg" p:3 border:1
+        Box bg:"muted" rounded:"lg" p:3 border:1
           Grid columns:1 gap:3
             Flex justify:"between" align:"center" px:1
               Flex align:"center" gap:2
                 Text size:"sm" weight:"bold"
                   "In progress"
-                Chip variant:"soft" scheme:"muted"
+                Chip variant:"solid" scheme:"muted"
                   "2"
               IconButton icon:"menu-dots" label:"Open progress actions" variant:"ghost" scheme:"muted" size:"sm"
             Grid columns:1 gap:3
               each in:progressTasks as:task key:task.id
-                Card variant:"soft" p:4 border:1
+                Card variant:"solid" p:4 border:1
                   Grid columns:1 gap:3
-                    Box bg:"softMuted" rounded:"sm" minH:16 p:3
+                    Box bg:"muted" rounded:"sm" minH:16 p:3
                       Flex direction:"column" align:"center" justify:"center" gap:1 minH:10
                         Icon name:"gallery-bold-duotone" fill:"muted" w:6 h:6
-                        Text size:"xs" color:"muted"
+                        Text size:"xs"
                           "Media placeholder"
                     Flex justify:"between" align:"start" gap:2
                       Title size:"sm" weight:"bold"
                         "{task.title}"
                       IconButton icon:"menu-dots" label:"Open task actions" variant:"ghost" scheme:"muted" size:"sm"
-                    Text size:"xs" color:"muted"
+                    Text size:"xs"
                       "{task.meta}"
                     Flex justify:"between" align:"center" gap:2
                       Flex align:"center" gap:2
-                        Avatar name:"Task owner" alt:"Task owner avatar placeholder" size:"sm" variant:"soft" scheme:"primary"
-                        Text size:"xs" color:"muted"
+                        Avatar name:"Task owner" alt:"Task owner avatar placeholder" size:"sm" variant:"solid" scheme:"primary"
+                        Text size:"xs"
                           "{task.owner}"
-                      Chip variant:"soft" scheme:"muted"
+                      Chip variant:"solid" scheme:"muted"
                         "{task.status}"
-        Box bg:"softMuted" rounded:"lg" p:3 border:1
+        Box bg:"muted" rounded:"lg" p:3 border:1
           Grid columns:1 gap:3
             Flex justify:"between" align:"center" px:1
               Flex align:"center" gap:2
                 Text size:"sm" weight:"bold"
                   "Review"
-                Chip variant:"soft" scheme:"muted"
+                Chip variant:"solid" scheme:"muted"
                   "2"
               IconButton icon:"menu-dots" label:"Open review actions" variant:"ghost" scheme:"muted" size:"sm"
             Grid columns:1 gap:3
               each in:reviewTasks as:task key:task.id
-                Card variant:"soft" p:4 border:1
+                Card variant:"solid" p:4 border:1
                   Grid columns:1 gap:3
-                    Box bg:"softMuted" rounded:"sm" minH:16 p:3
+                    Box bg:"muted" rounded:"sm" minH:16 p:3
                       Flex direction:"column" align:"center" justify:"center" gap:1 minH:10
                         Icon name:"gallery-bold-duotone" fill:"muted" w:6 h:6
-                        Text size:"xs" color:"muted"
+                        Text size:"xs"
                           "Media placeholder"
                     Flex justify:"between" align:"start" gap:2
                       Title size:"sm" weight:"bold"
                         "{task.title}"
                       IconButton icon:"menu-dots" label:"Open task actions" variant:"ghost" scheme:"muted" size:"sm"
-                    Text size:"xs" color:"muted"
+                    Text size:"xs"
                       "{task.meta}"
                     Flex justify:"between" align:"center" gap:2
                       Flex align:"center" gap:2
-                        Avatar name:"Task owner" alt:"Task owner avatar placeholder" size:"sm" variant:"soft" scheme:"primary"
-                        Text size:"xs" color:"muted"
+                        Avatar name:"Task owner" alt:"Task owner avatar placeholder" size:"sm" variant:"solid" scheme:"primary"
+                        Text size:"xs"
                           "{task.owner}"
-                      Chip variant:"soft" scheme:"muted"
+                      Chip variant:"solid" scheme:"muted"
                         "{task.status}"

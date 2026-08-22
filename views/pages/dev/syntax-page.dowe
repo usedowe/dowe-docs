@@ -14,24 +14,24 @@ page SyntaxPage
     ]
   Section id:"syntax-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "DEVELOPMENT / SOURCE FORMAT"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Dowe syntax from the first line"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Dowe is a whitespace-oriented declarative language. Learn the three value shapes, then let the shared compiler and formatter keep source consistent across every target."
   Section id:"syntax-shapes" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "1 / VALUE SHAPES"
         Title size:"3xl" weight:"black"
           "Choose the delimiter that matches the data"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "A scalar is one value, an object gives values names, and an array keeps values in order. Responsive props are objects; imported route graphs and HTTP methods are arrays."
       Table:
         data:syntaxRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -43,15 +43,15 @@ page SyntaxPage
   Section id:"syntax-arrays" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "2 / ARRAYS"
         Title size:"3xl" weight:"black"
           "Use spaces between ordered values"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The canonical array form has no commas. Empty arrays remain [], nested braces or brackets keep their contents together, and nested arrays support more than one dimension."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy array examples"
         copiedLabel:"Copied"
@@ -71,15 +71,15 @@ page SyntaxPage
   Section id:"syntax-objects" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "3 / OBJECTS AND PROPS"
         Title size:"3xl" weight:"black"
           "Use key:value pairs inside braces"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Objects also use spaces, but every entry has a key. Props use the same key:value shape and come before child nodes."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy object examples"
         copiedLabel:"Copied"
@@ -97,15 +97,15 @@ page SyntaxPage
   Section id:"syntax-mistakes" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "4 / FIRST-PROJECT CHECKLIST"
         Title size:"3xl" weight:"black"
           "Avoid the mistakes that slow down a first project"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Run the compiler early. Diagnostics, formatting, and the editor integrations all share the same source contract."
       Table:
         data:mistakeRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -115,14 +115,14 @@ page SyntaxPage
         column field:"correction" label:"Correction" width:"5fr"
   Section id:"syntax-next" p:{ xs:5 md:7 }
     Grid columns:1 gap:4
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "5 / NEXT STEP"
       Title size:"3xl" weight:"black"
         "Start with the generated project"
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "dowe init creates a blank or CRUD project with the same syntax documented here. After initialization, run the formatter and then compile the server and web targets."
       Flex gap:3 wrap:true
-        Button href:"/docs/dev" variant:"soft" size:"sm" rounded:"full" iconStart:"add-circle"
+        Button href:"/docs/dev" variant:"solid" size:"sm" rounded:"full" iconStart:"add-circle"
           "Read Dowe Init"
-        Button href:"/docs/views" variant:"soft" size:"sm" rounded:"full" iconStart:"layers-minimalistic"
+        Button href:"/docs/views" variant:"solid" size:"sm" rounded:"full" iconStart:"layers-minimalistic"
           "Explore Views"

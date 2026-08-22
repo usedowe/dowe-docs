@@ -4,19 +4,19 @@ page ContactInfoMediaPage
     { id:"phone" emailIcon:false phoneIcon:true addressIcon:false value:"(123) 456 – 789" },
     { id:"address" emailIcon:false phoneIcon:false addressIcon:true value:"794 Mcallister St · San Francisco, 94102" },
   ]
-  Section id:"contact-info-media" bg:"softMuted" color:"softMutedText" boxed:true p:{ xs:6 md:12 }
+  Section id:"contact-info-media" bg:"muted" color:"mutedText" boxed:true p:{ xs:6 md:12 }
     Grid columns:{ xs:1 md:2 } gap:{ xs:8 md:14 } align:"center" minH:"vh-0"
       Box rounded:"xl" p:8 minH:{ xs:64 md:96 }
         Flex direction:"column" align:"center" justify:"center" gap:3 minH:{ xs:48 md:80 }
           Icon name:"gallery-bold-duotone" fill:"muted" w:16 h:16
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Image placeholder"
       Card rounded:"xl" p:{ xs:6 md:9 }
         Grid columns:1 gap:5
           Grid columns:1 gap:2
             Title size:{ xs:"3xl" md:"4xl" } weight:"black"
               "Contact us"
-            Text color:"muted"
+            Text
               "Prototypes may also be exempted from some requirements that will apply to the final product."
           Grid columns:1 gap:3
             each in:contactDetails as:detail key:detail.id
@@ -24,5 +24,5 @@ page ContactInfoMediaPage
                 Icon name:"letter" fill:"muted" w:5 h:5 show:detail.emailIcon
                 Icon name:"phone-calling" fill:"muted" w:5 h:5 show:detail.phoneIcon
                 Icon name:"map-point" fill:"muted" w:5 h:5 show:detail.addressIcon
-                Text color:"muted"
+                Text
                   "{detail.value}"

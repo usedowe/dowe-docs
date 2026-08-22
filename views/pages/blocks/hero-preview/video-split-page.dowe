@@ -4,7 +4,7 @@ page VideoSplitHeroPage
       Flex direction:"column" align:"start" justify:"center" gap:5
         Title size:{ xs:"4xl" md:"6xl" } weight:"black"
           "A dedicated team to grow your company"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Introduce the offer with a short message, paired calls to action, and a product story visitors can play when they are ready."
         Flex direction:{ xs:"column" sm:"row" } align:"center" gap:3
           Button size:"lg" rounded:"full" iconEnd:"arrow-right"
@@ -15,6 +15,6 @@ page VideoSplitHeroPage
         src:"https://example.com/video.mp4"
         aspect:"horizontal"
         autoplay:false
-        variant:"soft"
+        variant:"solid"
         scheme:"muted"
         rounded:"xl"

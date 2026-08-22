@@ -55,20 +55,20 @@ page CsvFieldPage
   Section id:"csv-field-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "FORM"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "CsvField"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "CsvField turns a local CSV selection into a guided column-mapping and preview workflow with deterministic copy."
   Section id:"csv-field-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "Import a contact list"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Choose a CSV, map the required output columns, review a compact preview, and confirm the import only after the mapping is valid."
       Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Grid columns:1 gap:5
@@ -90,11 +90,11 @@ page CsvFieldPage
             csvColumn name:"email" label:"Email address"
             csvColumn name:"name" label:"Full name"
             csvColumn name:"company" label:"Company"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Required mappings are explicit, so a missing header becomes a visible correction instead of a silent column shift."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -107,11 +107,11 @@ page CsvFieldPage
   Section id:"csv-field-preview" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PREVIEW AND MAPPING"
         Title size:"3xl" weight:"black"
           "Shape the review step"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The field can show a short preview for quick imports or a larger page size for operational reviews."
       Grid columns:{ xs:1 md:2 } gap:5
         CsvField:
@@ -123,7 +123,7 @@ page CsvFieldPage
           previewRows:3
           previewPageSize:12
           multiple:true
-          variant:"soft"
+          variant:"solid"
           scheme:"success"
           size:"md"
           csvColumn name:"sku" label:"SKU"
@@ -141,12 +141,12 @@ page CsvFieldPage
           size:"sm"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          CsvField buttonText:"Import product catalog" modalTitle:"Map catalog columns" instructions:"Map the source headers to the product contract." previewTitle:"Product rows" showPreview:true previewRows:3 previewPageSize:12 multiple:true variant:"soft" scheme:"success" size:"md"
+          CsvField buttonText:"Import product catalog" modalTitle:"Map catalog columns" instructions:"Map the source headers to the product contract." previewTitle:"Product rows" showPreview:true previewRows:3 previewPageSize:12 multiple:true variant:"solid" scheme:"success" size:"md"
             csvColumn name:"sku" label:"SKU"
             csvColumn name:"title" label:"Product title"
             csvColumn name:"price" label:"Unit price"
@@ -156,63 +156,63 @@ page CsvFieldPage
   Section id:"csv-field-states" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "STATES AND SCALE"
         Title size:"3xl" weight:"black"
           "Keep the intake legible"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use errorText for parse or mapping feedback and size to match the surrounding form density."
       Grid columns:{ xs:1 md:2 } gap:5
         CsvField buttonText:"Upload valid data" errorText:"The file is missing the required `email` header." variant:"outlined" scheme:"danger" size:"md"
           csvColumn name:"email" label:"Email"
         CsvField buttonText:"Upload a small sample" variant:"solid" scheme:"info" size:"sm" showPreview:true previewRows:2 previewPageSize:5
       Grid columns:{ xs:1 md:3 } gap:3
-        CsvField buttonText:"Extra small" variant:"soft" scheme:"secondary" size:"xs"
-        CsvField buttonText:"Medium" variant:"soft" scheme:"secondary" size:"md"
-        CsvField buttonText:"Large" variant:"soft" scheme:"secondary" size:"lg"
+        CsvField buttonText:"Extra small" variant:"solid" scheme:"secondary" size:"xs"
+        CsvField buttonText:"Medium" variant:"solid" scheme:"secondary" size:"md"
+        CsvField buttonText:"Large" variant:"solid" scheme:"secondary" size:"lg"
   Section id:"csv-field-contract" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "BEHAVIOR"
         Title size:"3xl" weight:"black"
           "A local, reviewable import"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Web parses the selected CSV locally; native targets keep the same mapping and preview model while using target-owned picker hooks."
       Grid columns:{ xs:1 md:3 } gap:5
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "COLUMNS"
           Title size:"lg" weight:"bold"
             "Explicit contract"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Each csvColumn declares a required output name and optional visible label."
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "PREVIEW"
           Title size:"lg" weight:"bold"
             "Bounded rows"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "previewRows and previewPageSize keep review surfaces compact and predictable."
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "VALIDATION"
           Title size:"lg" weight:"bold"
             "Visible errors"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Delimiter detection, missing headers, and mapping issues stay inside the generated field flow."
   Section id:"csv-field-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "CsvField also accepts the applicable common spacing, sizing, typography, visibility, accessibility, and shadow props."
       Table:
         data:csvFieldProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

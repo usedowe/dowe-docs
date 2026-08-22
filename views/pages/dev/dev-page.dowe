@@ -62,24 +62,24 @@ page DevPage
     ]
   Section id:"dev-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "DEVELOPMENT / CLI"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Dowe Dev"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Compile the current project, start the targets you choose, and keep development artifacts inside the disposable .dowe directory."
   Section id:"dev-command" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "1 / ONE DEVELOPMENT ENTRYPOINT"
         Title size:"3xl" weight:"black"
           "Start the project from its root"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Run Dowe from the directory that contains main.dowe. In a terminal, dowe dev opens the target selector; explicit flags make the same workflow deterministic for scripts and CI."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy commands"
         copiedLabel:"Copied"
@@ -92,7 +92,7 @@ page DevPage
         """
       Table:
         data:devCommandRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -104,15 +104,15 @@ page DevPage
   Section id:"dev-targets" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "2 / TARGET PIPELINE"
         Title size:"3xl" weight:"black"
           "One source model, several targets"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The shared Dowe compiler reads the project model once and prepares the selected target pipelines. A fullstack project commonly starts the server and web targets together."
       Table:
         data:devTargetRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -123,15 +123,15 @@ page DevPage
         column field:"guidance" label:"What happens" width:"5fr"
   Section id:"dev-artifacts" p:{ xs:5 md:7 }
     Grid columns:1 gap:4
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "3 / DISPOSABLE DEVELOPMENT OUTPUT"
       Title size:"3xl" weight:"black"
         "Inspect generated support without owning it"
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "Dowe writes generated development output below .dowe, including target manifests, route data, fonts, icon copies, and type-checking support. Keep project source in main.dowe, theme.dowe, views, and server; do not edit generated files."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy structure"
         copiedLabel:"Copied"
@@ -144,15 +144,15 @@ page DevPage
             types/
             tsconfig.json
         """
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "Dowe does not require Node.js, node_modules, Tailwind, or a JavaScript application runtime to compile source or run the Dowe-owned development server."
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "Web output uses a content-addressed router and design core plus route-selected style and runtime capabilities. Navigation loads missing CSS before replacing content, keeps active styles attached, and retires obsolete route chunks without an unstyled frame."
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "In dowe dev --target web, enable the in-page Dowe inspector to hover or select a Section, AppBar, or component and see its project-relative source path and inclusive lines. Drag the floating inspector control away from the component when needed. Generated text wrappers inherit their parent component identity, keeping Section, Title, and component mappings precise. The inspector manifest and selection state stay under .dowe and are never emitted by dowe deploy."
       Button:
         href:"/docs/dev/inspector"
-        variant:"soft"
+        variant:"solid"
         size:"sm"
         rounded:"full"
         iconStart:"magnifier"
@@ -160,15 +160,15 @@ page DevPage
   Section id:"dev-watch" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "4 / WATCH AND RELOAD"
         Title size:"3xl" weight:"black"
           "Keep the session open while source changes"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The development session watches project inputs, runs the shared rebuild pipeline, and reports successful or failed rebuilds. Web changes reload the browser; server changes restart the backend when the new build succeeds."
       Table:
         data:devWatchRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -178,7 +178,7 @@ page DevPage
         column field:"guidance" label:"What to remember" width:"5fr"
       Button:
         href:"/docs/dev/hmr"
-        variant:"soft"
+        variant:"solid"
         size:"sm"
         rounded:"full"
         iconStart:"restart"

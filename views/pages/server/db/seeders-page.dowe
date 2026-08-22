@@ -61,24 +61,24 @@ page DatabaseSeedersPage
     ]
   Section id:"database-seeders-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "SERVER / DATABASE / SEEDERS"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Seeders"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Seeders load static application data through the same Database contract used by PostgreSQL, Cloudflare D1, and Dowe Database. They are versioned source bindings, validated by the compiler, and applied once per content fingerprint and database."
   Section id:"database-seeders-mental-model" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "1 / MENTAL MODEL"
         Title size:"3xl" weight:"black"
           "Declare data, register it, then choose when to apply it"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "A seeder is not a request handler and does not open its own connection. It imports the entity bindings it fills, declares static insert values, and is attached to a server-only Database configuration."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -99,7 +99,7 @@ page DatabaseSeedersPage
         """
       Table:
         data:seederModelRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -111,18 +111,18 @@ page DatabaseSeedersPage
   Section id:"database-seeders-icon-catalog" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "2 / DOCUMENTATION CASE"
         Title size:"3xl" weight:"black"
           "Seed the Solar icon catalog"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The documentation application keeps its runtime icon catalog in server/seeders/icon-catalog-seeder.dowe. The module imports the category and icon entities, inserts all 37 categories before their 7,476 icon variants, and exports one IconCatalog binding."
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" color:"muted"
+        Text size:"xs" weight:"bold"
           "server/seeders/icon-catalog-seeder.dowe"
         Code:
           language:"dowe"
-          variant:"soft"
+          variant:"solid"
           scheme:"surface"
           copyLabel:"Copy seeder shape"
           copiedLabel:"Copied"
@@ -135,11 +135,11 @@ page DatabaseSeedersPage
               insert entity:IconCategories value:{ slug:"arrows-action" label:"Arrows Action" position:1 positionKey:"001" count:58 }
               insert entity:Icons value:{ key:"solar:bold:alt-arrow-down" name:"alt-arrow-down" category:"arrows" style:"bold" svg:{ viewBox:"0 0 24 24" paths:[] } }
           """
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The source continues with the remaining category rows and normalized SVG JSON records. The stable key such as solar:bold:alt-arrow-down is application data; Dowe may generate a separate physical id for the stored record."
       Table:
         data:seederRulesRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -150,15 +150,15 @@ page DatabaseSeedersPage
   Section id:"database-seeders-registration" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "3 / SERVER CONFIGURATION"
         Title size:"3xl" weight:"black"
           "Register the seeder with its entities"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Keep the seeder module separate from the Database config, then import both into the server-only handle. The order in seeders:[...] is the execution order; when a seeder depends on records from another seeder, register the prerequisite first."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy config"
         copiedLabel:"Copied"
@@ -177,11 +177,11 @@ page DatabaseSeedersPage
             entities:[IconCategories Icons]
             seeders:[IconCatalog]
         """
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "Connection properties stay in server configuration. Handlers import IconDb and query the generated records; pages request only the category or icon data they need."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy main registration"
         copiedLabel:"Copied"
@@ -192,27 +192,27 @@ page DatabaseSeedersPage
             server port:8081
               databases:[IconDb]
         """
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "The explicit main.server registry lets dowe database seeders discover IconDb without duplicating its provider, entities, or credentials."
   Section id:"database-seeders-execution" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "4 / EXECUTION"
         Title size:"3xl" weight:"black"
           "Separate fast development from explicit data loading"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Normal dowe dev avoids loading large seeder modules during type discovery, server validation, or inspector generation on every initial compile or hot reload. When local records are required, run the explicit command from the project root; it prepares every declared local Database and applies only pending seeders."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy command"
         copiedLabel:"Copied"
         content:"dowe database seeders"
       Table:
         data:seederBehaviorRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -221,7 +221,7 @@ page DatabaseSeedersPage
         column field:"environment" label:"Context" width:"2fr"
         column field:"behavior" label:"Behavior" width:"5fr"
         column field:"command" label:"Command" width:"2fr"
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "Local execution never contacts the authored PostgreSQL, D1, or remote Dowe provider. In production, run dowe database migrate before deployment; pending graph nodes run first, each pending seeder and its ledger record run atomically next, and the listener opens only after both succeed."
-      Button href:"/docs/server/db" variant:"soft" scheme:"muted" size:"sm" iconStart:"database"
+      Button href:"/docs/server/db" variant:"solid" scheme:"muted" size:"sm" iconStart:"database"
         "Database connection docs"

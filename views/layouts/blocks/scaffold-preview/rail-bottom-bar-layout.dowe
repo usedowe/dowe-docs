@@ -5,16 +5,16 @@ layout ScaffoldRailBottomBarLayout
         show:{ xs:false md:true }
         minH:"vh-0"
         w:16
-        bg:"softTertiary"
+        bg:"muted"
         RailNav:
-          variant:"soft"
+          variant:"solid"
           scheme:"tertiary"
           showLabels:true
           minH:"vh-0"
           item label:"Rail" href:"/blocks/scaffold-preview/rail-bottom-bar" icon:"widget-4"
     main
       Flex direction:"column" minH:{ xs:"vh-16" md:"vh-0" } justify:"between"
-        AppBar variant:"soft" scheme:"primary" bordered:true
+        AppBar variant:"solid" scheme:"primary" bordered:true
           start
             IconButton:
               show:{ xs:true md:false }
@@ -26,6 +26,6 @@ layout ScaffoldRailBottomBarLayout
               "AppBar"
         children
     bottomBar
-      BottomBar show:{ xs:true md:false } variant:"soft" scheme:"primary" bordered:true
+      BottomBar show:{ xs:true md:false } variant:"solid" scheme:"primary" bordered:true
         tab href:"/blocks/scaffold-preview/rail-bottom-bar" label:"BottomBar"
           Icon name:"home"

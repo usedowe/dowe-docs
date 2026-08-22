@@ -54,24 +54,24 @@ page DatabaseTransactionsPage
     ]
   Section id:"database-transactions-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "SERVER / DATABASE / TRANSACTIONS"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Transactions"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "A Database transaction commits staged inserts through one provider-owned atomic boundary: a Dowe WAL frame, a PostgreSQL transaction, or a D1 atomic batch."
   Section id:"database-transactions-example" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "1 / TRANSACTION"
         Title size:"3xl" weight:"black"
           "Stage inserts, then publish one result"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "query result conn:db.tx opens the transaction. Every nested insert is validated before the provider commit. commit value:room returns the selected inserted record after the atomic commit succeeds; rollback discards every staged insert and returns null."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -87,13 +87,13 @@ page DatabaseTransactionsPage
   Section id:"database-transactions-guarantees" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "2 / GUARANTEES"
         Title size:"3xl" weight:"black"
           "One atomic boundary per provider"
       Table:
         data:transactionGuaranteeRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -104,13 +104,13 @@ page DatabaseTransactionsPage
   Section id:"database-transactions-scope" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "3 / SCOPE AND OPERATIONS"
         Title size:"3xl" weight:"black"
           "Use the same transaction source with every provider"
       Table:
         data:transactionScopeRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -120,13 +120,13 @@ page DatabaseTransactionsPage
         column field:"guidance" label:"Boundary" width:"5fr"
   Section id:"database-transactions-operations" py:{ xs:7 md:10 }
     Grid columns:1 gap:4
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "4 / SAFETY"
       Title size:"3xl" weight:"black"
         "Handle retries and storage deliberately"
       Table:
         data:transactionOperationRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

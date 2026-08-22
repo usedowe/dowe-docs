@@ -67,36 +67,36 @@ page AlertDialogPage
   Section id:"alert-dialog-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "OVERLAY"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "AlertDialog"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "AlertDialog gives consequential actions a Card-resolved neutral panel and portable Button actions owned by one bool Signal."
   Section id:"alert-dialog-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "Confirm a destructive action"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The panel stays neutral while variant follows Card, scheme colors the solid confirm Button, and cancel uses an outlined muted Button on every target."
       Card variant:"outlined" p:{ xs:6 md:10 } border:1
         Grid columns:1 gap:4
           Flex wrap:true justify:"center" gap:3
             Button onClick:openDeleteDialog scheme:"danger" iconStart:"trash-bin-trash"
               "Delete project"
-            Button onClick:openArchiveDialog variant:"soft" scheme:"warning" iconStart:"archive"
+            Button onClick:openArchiveDialog variant:"solid" scheme:"warning" iconStart:"archive"
               "Archive project"
-          Card variant:"soft" scheme:"info" p:4
-            Text size:"sm" color:"muted"
+          Card variant:"solid" scheme:"info" p:4
+            Text size:"sm"
               "{dialogStatus}"
       AlertDialog open:deleteDialogOpen title:"Delete Northstar project?" description:"All generated previews, settings, and project history will be removed. This cannot be undone." confirmText:"Delete project" cancelText:"Keep project" onConfirm:confirmDeleteDialog onCancel:closeDeleteDialog scheme:"danger"
-      AlertDialog open:archiveDialogOpen title:"Archive Northstar project?" description:"The project will leave the active workspace but its history can be restored later." confirmText:"Archive project" cancelText:"Keep active" onConfirm:confirmArchiveDialog onCancel:closeArchiveDialog variant:"soft" scheme:"warning"
+      AlertDialog open:archiveDialogOpen title:"Archive Northstar project?" description:"The project will leave the active workspace but its history can be restored later." confirmText:"Archive project" cancelText:"Keep active" onConfirm:confirmArchiveDialog onCancel:closeArchiveDialog variant:"solid" scheme:"warning"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -120,106 +120,106 @@ page AlertDialogPage
   Section id:"alert-dialog-decisions" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "DECISION FLOWS"
         Title size:"3xl" weight:"black"
           "Make the decision visible"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use the same primitive for destructive removal, an in-progress publish, or a reversible archive. The copy and scheme should match the consequence, not the component name."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:3
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "DESTRUCTIVE"
             Title size:"lg" weight:"bold"
               "Delete"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Name the scope of the deletion and keep the confirm action danger-colored."
             Button onClick:openDeleteDialog variant:"outlined" scheme:"danger" size:"sm"
               "Review deletion"
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:3
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "IN PROGRESS"
             Title size:"lg" weight:"bold"
               "Publish"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "A static loading state keeps the confirmation surface visible while work is completing."
             Button onClick:openPublishDialog variant:"outlined" scheme:"success" size:"sm"
               "Open publish state"
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:3
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "REVERSIBLE"
             Title size:"lg" weight:"bold"
               "Archive"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Use a softer warning scheme when the action removes content from the active view but keeps history."
             Button onClick:openArchiveDialog variant:"outlined" scheme:"warning" size:"sm"
               "Review archive"
-      AlertDialog open:publishDialogOpen title:"Publish current workspace?" description:"The generated site will become the active preview for everyone with access to this project." confirmText:"Publishing..." cancelText:"Cancel" onConfirm:closePublishDialog onCancel:closePublishDialog variant:"soft" scheme:"success" loading:true
+      AlertDialog open:publishDialogOpen title:"Publish current workspace?" description:"The generated site will become the active preview for everyone with access to this project." confirmText:"Publishing..." cancelText:"Cancel" onConfirm:closePublishDialog onCancel:closePublishDialog variant:"solid" scheme:"success" loading:true
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          AlertDialog open:publishDialogOpen title:"Publish current workspace?" description:"The generated site will become the active preview." confirmText:"Publishing..." cancelText:"Cancel" onConfirm:closePublishDialog onCancel:closePublishDialog variant:"soft" scheme:"success" loading:true
+          AlertDialog open:publishDialogOpen title:"Publish current workspace?" description:"The generated site will become the active preview." confirmText:"Publishing..." cancelText:"Cancel" onConfirm:closePublishDialog onCancel:closePublishDialog variant:"solid" scheme:"success" loading:true
         """
   Section id:"alert-dialog-behavior" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "BEHAVIOR"
         Title size:"3xl" weight:"black"
           "A small contract with strong defaults"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "AlertDialog requires an open bool Signal. Its generated actions use the declared labels and invoke the corresponding functions after the user makes a choice."
       Grid columns:{ xs:1 md:3 } gap:4
         Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "1 · OPEN"
             Title size:"lg" weight:"bold"
               "Own visibility"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Bind open to a bool Signal path and set it from a named view function."
         Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "2 · DECIDE"
             Title size:"lg" weight:"bold"
               "Describe consequence"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "title and description explain the decision before the generated actions appear."
         Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "3 · RESOLVE"
             Title size:"lg" weight:"bold"
               "Handle both exits"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Use onConfirm and onCancel to update state, close the dialog, or continue a workflow."
-      Alert type:"warning" variant:"soft" scheme:"warning" message:"AlertDialog has no arbitrary children. Put task-specific content in the surrounding page or use Modal when the dialog needs a custom body."
+      Alert type:"warning" variant:"solid" scheme:"warning" message:"AlertDialog has no arbitrary children. Put task-specific content in the surrounding page or use Modal when the dialog needs a custom body."
   Section id:"alert-dialog-schemes" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "VISUAL EMPHASIS"
         Title size:"3xl" weight:"black"
           "The panel remains neutral"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "scheme is applied to the generated solid confirm Button with its matching on-color. The panel remains neutral and the cancel Button remains outlined muted."
       Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:3
             Text size:"sm" weight:"bold"
               "Danger confirmation"
             Flex justify:"center"
               Button onClick:openDeleteDialog scheme:"danger" size:"sm" iconStart:"trash-bin-trash"
                 "Open danger dialog"
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:3
             Text size:"sm" weight:"bold"
               "Success confirmation"
@@ -228,61 +228,61 @@ page AlertDialogPage
                 "Open success dialog"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
           AlertDialog open:deleteOpen scheme:"danger" title:"Delete project?" description:"This cannot be undone." confirmText:"Delete" cancelText:"Cancel" onConfirm:deleteProject onCancel:closeDelete
 
-          AlertDialog open:publishOpen variant:"soft" scheme:"success" title:"Publish changes?" description:"The preview will become active." confirmText:"Publish" cancelText:"Cancel" onConfirm:publish onCancel:closePublish
+          AlertDialog open:publishOpen variant:"solid" scheme:"success" title:"Publish changes?" description:"The preview will become active." confirmText:"Publish" cancelText:"Cancel" onConfirm:publish onCancel:closePublish
         """
   Section id:"alert-dialog-targets" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "TARGET PARITY"
         Title size:"3xl" weight:"black"
           "One decision surface on every target"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Web, Android Compose, the Android development launcher, and iOS use the same Card panel rules and medium Button metrics."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "PANEL"
             Title size:"lg" weight:"bold"
               "Neutral Card surface"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "variant controls the neutral surface weight, including the same outlined border behavior as Card."
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "CANCEL"
             Title size:"lg" weight:"bold"
               "Outlined muted Button"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "The generated cancel action keeps the same medium height, padding, radius, and muted border."
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "CONFIRM"
             Title size:"lg" weight:"bold"
               "Solid semantic Button"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "The generated confirm action uses scheme for its fill and the matching on-color for readable text."
   Section id:"alert-dialog-props" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "AlertDialog also accepts applicable common spacing, sizing, visibility, border, radius, typography, and accessibility props."
       Table:
         data:alertDialogProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

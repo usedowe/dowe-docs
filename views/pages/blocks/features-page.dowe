@@ -1,23 +1,23 @@
 page FeaturesPage
   Section id:"features" py:{ xs:6 md:10 }
     Grid columns:1 gap:4
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "COPY-READY BLOCKS"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Features"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Five polished feature sections with responsive layouts, portable visuals, and copy-ready Dowe source."
   Section id:"customer-centric" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "01 · CUSTOMER JOURNEY"
           Title size:"2xl" weight:"black"
             "Three product benefits with interface illustrations"
         Button:
           href:"/blocks/features-preview/customer-centric"
-          variant:"soft"
+          variant:"solid"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
@@ -33,7 +33,7 @@ page FeaturesPage
         tab id:"customer-centric-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy features"
             copiedLabel:"Copied"
@@ -69,19 +69,19 @@ page FeaturesPage
                   Title size:"4xl" weight:"black" show:{ xs:true md:false }
                     "Build a customer-centric marketing strategy"
                   Box h:4
-                  Text size:"lg" color:"muted"
+                  Text size:"lg"
                     "Connect every customer touchpoint with a clear, measurable workflow."
                   Box h:{ xs:8 md:14 }
                   Grid columns:{ xs:1 md:3 } gap:5 w:"full"
                     each in:customerBenefits as:benefit key:benefit.id
-                      Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:5 md:6 } minH:80
+                      Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:5 md:6 } minH:80
                         Flex direction:"column" gap:4 minH:64
-                          Box bg:"softPrimary" rounded:"full" w:14 h:14 p:2
+                          Box bg:"muted" rounded:"full" w:14 h:14 p:2
                             Icon name:"route-line-duotone" fill:"primary" w:10 h:10
                           Grid columns:1 gap:2 minH:20
                             Title size:"lg" weight:"black"
                               "{benefit.title}"
-                            Text color:"muted"
+                            Text
                               "{benefit.description}"
                           Box h:2
                           Box bg:"surface" rounded:"lg" p:4 shadow:"sm" minH:28
@@ -91,9 +91,9 @@ page FeaturesPage
                                 Text weight:"bold"
                                   "{benefit.preview}"
                               Grid columns:3 gap:2
-                                Box h:8 bg:"softMuted" rounded:"sm"
-                                Box h:8 bg:"softPrimary" rounded:"sm"
-                                Box h:8 bg:"softMuted" rounded:"sm"
+                                Box h:8 bg:"muted" rounded:"sm"
+                                Box h:8 bg:"muted" rounded:"sm"
+                                Box h:8 bg:"muted" rounded:"sm"
                               Flex justify:"end"
                                 Icon name:"cursor-bold" fill:"surfaceText" w:7 h:7
             """
@@ -101,7 +101,7 @@ page FeaturesPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "02 · SERVICE MATRIX"
           Title size:"2xl" weight:"black"
             "Six capabilities in a clean two-column rhythm"
@@ -122,7 +122,7 @@ page FeaturesPage
         tab id:"marketing-services-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy features"
             copiedLabel:"Copied"
@@ -170,30 +170,30 @@ page FeaturesPage
                         "results for your business"
                     Title size:"4xl" weight:"black" show:{ xs:true md:false }
                       "Digital marketing that drives results for your business"
-                    Text size:"lg" color:"muted"
+                    Text size:"lg"
                       "Focused capabilities for building demand, learning faster, and growing with confidence."
                   Grid columns:{ xs:1 md:2 } gap:{ xs:7 md:10 }
                     each in:marketingServices as:service key:service.id
                       Flex align:"start" gap:4 minH:28
-                        Box bg:"softPrimary" rounded:"full" p:3
+                        Box bg:"muted" rounded:"full" p:3
                           Icon name:"graph-new-up-line-duotone" fill:"primary" w:10 h:10
                         Grid columns:1 gap:2
                           Title size:"lg" weight:"black"
                             "{service.title}"
-                          Text color:"muted"
+                          Text
                             "{service.description}"
             """
   Section id:"brand-transformation" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "03 · BRAND TRANSFORMATION"
           Title size:"2xl" weight:"black"
             "Editorial copy beside a four-card capability grid"
         Button:
           href:"/blocks/features-preview/brand-transformation"
-          variant:"soft"
+          variant:"solid"
           scheme:"info"
           size:"sm"
           rounded:"full"
@@ -210,7 +210,7 @@ page FeaturesPage
         tab id:"brand-transformation-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy features"
             copiedLabel:"Copied"
@@ -241,31 +241,31 @@ page FeaturesPage
               Section id:"brand-transformation-features" bg:"surface" color:"surfaceText" boxed:true py:{ xs:8 md:12 }
                 Grid columns:{ xs:1 md:2 } gap:{ xs:10 md:16 } align:"center"
                   Flex direction:"column" gap:6
-                    Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+                    Text size:"xs" weight:"bold" spacing:"widest"
                       "ENDLESS POSSIBILITIES"
                     Title size:{ xs:"4xl" md:"6xl" } weight:"black"
                       "Transforming your brand in the digital world"
-                    Text color:"muted"
+                    Text
                       "Bring strategy, design, and technology together to build a brand people understand and trust."
-                    Text color:"muted"
+                    Text
                       "Move from isolated campaigns to a connected system that helps your team learn, adapt, and grow."
-                  Box bg:"softMuted" p:{ xs:5 md:8 }
+                  Box bg:"muted" p:{ xs:5 md:8 }
                     Grid columns:{ xs:1 sm:2 } gap:5
                       each in:brandCapabilities as:capability key:capability.id
                         Card rounded:"lg" shadow:"md" p:6 minH:56
                           Flex direction:"column" gap:4
-                            Box bg:"softPrimary" rounded:"full" w:14 h:14 p:2
+                            Box bg:"muted" rounded:"full" w:14 h:14 p:2
                               Icon name:"stars-line-duotone" fill:"primary" w:10 h:10
                             Title size:"lg" weight:"black"
                               "{capability.title}"
-                            Text color:"muted"
+                            Text
                               "{capability.description}"
             """
   Section id:"online-solutions" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "04 · ONLINE SOLUTIONS"
           Title size:"2xl" weight:"black"
             "The capability grid reversed for a new reading flow"
@@ -286,7 +286,7 @@ page FeaturesPage
         tab id:"online-solutions-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy features"
             copiedLabel:"Copied"
@@ -316,38 +316,38 @@ page FeaturesPage
                 ]
               Section id:"online-solutions-features" bg:"surface" color:"surfaceText" boxed:true py:{ xs:8 md:12 }
                 Grid columns:{ xs:1 md:2 } gap:{ xs:10 md:16 } align:"center"
-                  Box bg:"softMuted" p:{ xs:5 md:8 }
+                  Box bg:"muted" p:{ xs:5 md:8 }
                     Grid columns:{ xs:1 sm:2 } gap:5
                       each in:onlineCapabilities as:capability key:capability.id
                         Card rounded:"lg" shadow:"md" p:6 minH:56
                           Flex direction:"column" gap:4
-                            Box bg:"softPrimary" rounded:"full" w:14 h:14 p:2
+                            Box bg:"muted" rounded:"full" w:14 h:14 p:2
                               Icon name:"stars-line-duotone" fill:"primary" w:10 h:10
                             Title size:"lg" weight:"black"
                               "{capability.title}"
-                            Text color:"muted"
+                            Text
                               "{capability.description}"
                   Flex direction:"column" gap:6
-                    Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+                    Text size:"xs" weight:"bold" spacing:"widest"
                       "ONE-STOP SOLUTIONS"
                     Title size:{ xs:"4xl" md:"6xl" } weight:"black"
                       "Cutting-edge solutions for your online business"
-                    Text color:"muted"
+                    Text
                       "Bring strategy, design, and technology together to build a business customers understand and trust."
-                    Text color:"muted"
+                    Text
                       "Move from isolated tools to a connected system that helps your team learn, adapt, and grow."
             """
   Section id:"complete-solutions" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "05 · COMPLETE SOLUTIONS"
           Title size:"2xl" weight:"black"
             "Three visual product capabilities with supporting copy"
         Button:
           href:"/blocks/features-preview/complete-solutions"
-          variant:"soft"
+          variant:"solid"
           scheme:"warning"
           size:"sm"
           rounded:"full"
@@ -364,7 +364,7 @@ page FeaturesPage
         tab id:"complete-solutions-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy features"
             copiedLabel:"Copied"
@@ -395,12 +395,12 @@ page FeaturesPage
                   Flex direction:"column" align:"center" gap:3
                     Title size:{ xs:"4xl" md:"6xl" } weight:"black"
                       "The Complete Solutions"
-                    Text size:"lg" color:"muted"
+                    Text size:"lg"
                       "Everything your team needs to create, organize, and optimize digital experiences."
                   Grid columns:{ xs:1 md:3 } gap:6
                     each in:completeSolutions as:solution key:solution.id
                       Flex direction:"column" align:"center" gap:5
-                        Box bg:"softMuted" rounded:"lg" p:6 w:"full" h:52
+                        Box bg:"muted" rounded:"lg" p:6 w:"full" h:52
                           Box bg:"surface" rounded:"lg" p:4 shadow:"sm" minH:40
                             Grid columns:1 gap:4
                               Flex align:"center" justify:"between"
@@ -412,14 +412,14 @@ page FeaturesPage
                                   Icon name:"pen-new-square" fill:"muted" w:5 h:5
                                   Icon name:"add-circle" fill:"muted" w:5 h:5
                               Grid columns:3 gap:2
-                                Box bg:"softMuted" rounded:"md" minH:16
-                                Box bg:"softWarning" rounded:"md" minH:16
-                                Box bg:"softMuted" rounded:"md" minH:16
+                                Box bg:"muted" rounded:"md" minH:16
+                                Box bg:"muted" rounded:"md" minH:16
+                                Box bg:"muted" rounded:"md" minH:16
                               Flex justify:"end"
                                 Icon name:"cursor-bold" fill:"surfaceText" w:7 h:7
                         Grid columns:1 gap:2 minH:20
                           Title size:"lg" weight:"black"
                             "{solution.title}"
-                          Text color:"muted"
+                          Text
                             "{solution.description}"
             """

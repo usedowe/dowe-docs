@@ -4,7 +4,7 @@ page InsetPanelCtaPage
     { id:"sales" label:"Talk to sales" variant:"outlined" },
   ]
   Section id:"inset-panel-cta" bg:"background" color:"backgroundText" boxed:true p:{ xs:5 md:12 }
-    Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:7 md:14 } minH:{ xs:80 md:96 }
+    Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:7 md:14 } minH:{ xs:80 md:96 }
       Flex direction:"column" align:"center" justify:"center" gap:6 minH:{ xs:64 md:72 }
         Flex direction:"column" align:"center" gap:3 maxW:96
           Title size:{ xs:"3xl" md:"6xl" } weight:"black"

@@ -38,25 +38,25 @@ page ColorsPage
         titleHex:"#F4F7FB"
       },
       {
-        token:"softPrimary"
+        token:"muted"
         fill:"#1B3A25"
         text:"#B7E8BA"
         titleHex:"#B7E8BA"
       },
       {
-        token:"softSecondary"
+        token:"muted"
         fill:"#1F3A5F"
         text:"#DDEAF7"
         titleHex:"#DDEAF7"
       },
       {
-        token:"softTertiary"
+        token:"muted"
         fill:"#173B34"
         text:"#A9E4CB"
         titleHex:"#A9E4CB"
       },
       {
-        token:"softMuted"
+        token:"muted"
         fill:"#273342"
         text:"#DCE4EC"
         titleHex:"#DCE4EC"
@@ -86,25 +86,25 @@ page ColorsPage
         titleHex:"#450A0A"
       },
       {
-        token:"softSuccess"
+        token:"muted"
         fill:"#153D2A"
         text:"#C9F7D8"
         titleHex:"#C9F7D8"
       },
       {
-        token:"softInfo"
+        token:"muted"
         fill:"#12334A"
         text:"#D3EFFF"
         titleHex:"#D3EFFF"
       },
       {
-        token:"softWarning"
+        token:"muted"
         fill:"#49370E"
         text:"#FFF0B8"
         titleHex:"#FFF0B8"
       },
       {
-        token:"softDanger"
+        token:"muted"
         fill:"#4A1F28"
         text:"#FFDCE2"
         titleHex:"#FFDCE2"
@@ -113,23 +113,23 @@ page ColorsPage
   Section id:"colors-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "THEME.DOWE"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Colors"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Inspect the semantic color system behind Dowe views. Every entry is a complete hexadecimal trio: fill color, ordinary text, and title text."
       Flex direction:{ xs:"column" md:"row" } gap:3 align:{ xs:"stretch" md:"end" }
         SelectTheme label:"Documentation theme" placeholder:"Choose a theme" variant:"outlined" scheme:"surface"
-        ToggleTheme variant:"soft" scheme:"secondary" size:"md"
+        ToggleTheme variant:"solid" scheme:"secondary" size:"md"
   Section id:"colors-palette" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "SEMANTIC PALETTE"
         Title size:"3xl" weight:"black"
           "One card for every color"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Cards use semantic schemes and follow the active theme. The hex labels document the light theme values in theme.dowe; solid cards preview base families and soft cards preview lower-emphasis counterparts."
       Grid columns:{ xs:1 sm:2 lg:4 } gap:4
         Card scheme:"primary" p:5 rounded:"lg"
@@ -142,7 +142,7 @@ page ColorsPage
               "fill: #1F3A5F"
             Text size:"xs"
               "text: #FFFFFF · title: #FFFFFE"
-        Card variant:"soft" scheme:"primary" p:5 rounded:"lg"
+        Card variant:"solid" scheme:"primary" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
               "SOFT PRIMARY"
@@ -162,7 +162,7 @@ page ColorsPage
               "fill: #6BC670"
             Text size:"xs"
               "text: #102A15 · title: #102A15"
-        Card variant:"soft" scheme:"secondary" p:5 rounded:"lg"
+        Card variant:"solid" scheme:"secondary" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
               "SOFT SECONDARY"
@@ -182,7 +182,7 @@ page ColorsPage
               "fill: #3F7A8A"
             Text size:"xs"
               "text: #FFFFFF · title: #FFFFFF"
-        Card variant:"soft" scheme:"tertiary" p:5 rounded:"lg"
+        Card variant:"solid" scheme:"tertiary" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
               "SOFT TERTIARY"
@@ -202,7 +202,7 @@ page ColorsPage
               "fill: #176C75"
             Text size:"xs"
               "text: #FFFFFE · title: #FFFFFE"
-        Card variant:"soft" scheme:"happy" p:5 rounded:"lg"
+        Card variant:"solid" scheme:"happy" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
               "CUSTOM SOFT FAMILY"
@@ -222,7 +222,7 @@ page ColorsPage
               "fill: #526274"
             Text size:"xs"
               "text: #FFFFFF · title: #FFFFFF"
-        Card variant:"soft" scheme:"muted" p:5 rounded:"lg"
+        Card variant:"solid" scheme:"muted" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
               "SOFT MUTED"
@@ -262,7 +262,7 @@ page ColorsPage
               "fill: #2F7D43"
             Text size:"xs"
               "text: #FFFFFF · title: #FFFFFF"
-        Card variant:"soft" scheme:"success" p:5 rounded:"lg"
+        Card variant:"solid" scheme:"success" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
               "SOFT SUCCESS"
@@ -282,7 +282,7 @@ page ColorsPage
               "fill: #2F6FA3"
             Text size:"xs"
               "text: #FFFFFF · title: #FFFFFF"
-        Card variant:"soft" scheme:"info" p:5 rounded:"lg"
+        Card variant:"solid" scheme:"info" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
               "SOFT INFO"
@@ -302,7 +302,7 @@ page ColorsPage
               "fill: #8A6300"
             Text size:"xs"
               "text: #FFFFFF · title: #FFFFFF"
-        Card variant:"soft" scheme:"warning" p:5 rounded:"lg"
+        Card variant:"solid" scheme:"warning" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
               "SOFT WARNING"
@@ -322,7 +322,7 @@ page ColorsPage
               "fill: #A33A46"
             Text size:"xs"
               "text: #FFFFFF · title: #FFFFFF"
-        Card variant:"soft" scheme:"danger" p:5 rounded:"lg"
+        Card variant:"solid" scheme:"danger" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
               "SOFT DANGER"
@@ -335,15 +335,15 @@ page ColorsPage
   Section id:"colors-dark" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "DARK THEME OVERRIDES"
         Title size:"3xl" weight:"black"
           "The same roles, a different contrast relationship"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "dark extends light and overrides only the values that need a darker canvas or stronger contrast. The custom happy family remains inherited from light."
       Table:
         data:darkOverrides
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -356,15 +356,15 @@ page ColorsPage
   Section id:"colors-contract" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "AUTHORING CONTRACT"
         Title size:"3xl" weight:"black"
           "Declare complete color triples"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The color property paints the surface, text styles ordinary content, and title styles Title descendants. Views consume semantic names instead of embedding hexadecimal values."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy color theme"
         copiedLabel:"Copied"
@@ -373,7 +373,7 @@ page ColorsPage
             design defaultTheme:"light"
               theme name:"light"
                 colors:
-                  primary color:"#1F3A5F" text:"#FFFFFF" title:"#FFFFFE"
+                  primary color:"#1F3A5F" text:"#EAF2F8" title:"#FFFFFF"
                   softPrimary color:"#CCFBF3" text:"#073B35" title:"#073B35"
                   happy color:"#176C75" text:"#FFFFFE" title:"#FFFFFE"
 
@@ -384,7 +384,7 @@ page ColorsPage
               "Body copy uses the text role."
         """
       Grid columns:1 gap:4
-        Card variant:"soft" scheme:"primary" p:5
+        Card variant:"solid" scheme:"primary" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
               "SOLID"
@@ -392,7 +392,7 @@ page ColorsPage
               "Base family"
             Text size:"sm"
               "scheme primary uses primary as its fill, primaryText for ordinary content, and primaryTitle for titles."
-        Card variant:"soft" scheme:"secondary" p:5
+        Card variant:"solid" scheme:"secondary" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
               "SOFT"
@@ -400,7 +400,7 @@ page ColorsPage
               "Lower emphasis"
             Text size:"sm"
               "variant soft scheme primary resolves the separate softPrimary, softPrimaryText, and softPrimaryTitle trio."
-        Card variant:"soft" scheme:"info" p:5
+        Card variant:"solid" scheme:"info" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
               "CUSTOM"
@@ -409,7 +409,7 @@ page ColorsPage
             Text size:"sm"
               "happy is a custom semantic family. Add its complete color, text, and title values under colors."
       Flex gap:3 wrap:true
-        Button variant:"soft" href:"/docs/views/theme/named-themes"
+        Button variant:"solid" href:"/docs/views/theme/named-themes"
           "Named themes docs"
-        Button variant:"soft" scheme:"secondary" href:"/docs/views/theme/component-defaults"
+        Button variant:"solid" scheme:"secondary" href:"/docs/views/theme/component-defaults"
           "Component defaults docs"

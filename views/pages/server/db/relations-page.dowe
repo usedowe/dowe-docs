@@ -38,24 +38,24 @@ page DatabaseRelationsPage
     ]
   Section id:"database-relations-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "SERVER / DATABASE / RELATIONS"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Relations"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Dowe models relations explicitly with identifier fields and server queries. The current DSL does not add an automatic ORM graph, belongsTo helpers, or declarative foreign keys."
   Section id:"database-relations-mental-model" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "1 / MENTAL MODEL"
         Title size:"3xl" weight:"black"
           "Store the link, then query the related records"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "A relation is a normal field containing another record's id. Mark that field index:true when it is used for filtering or joining. The compiler validates the field type and constraints, while the server owns the relationship workflow."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy one-to-many model"
         copiedLabel:"Copied"
@@ -71,7 +71,7 @@ page DatabaseRelationsPage
         """
       Table:
         data:relationRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -83,15 +83,15 @@ page DatabaseRelationsPage
   Section id:"database-relations-one-to-many" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "2 / ONE-TO-MANY"
         Title size:"3xl" weight:"black"
           "Keep the related id on the many side"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Each post stores its author's id. The index makes the common list-by-author path efficient, but it does not prove that the user exists. Check that authority in the server workflow before inserting or updating a post."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy one-to-many query"
         copiedLabel:"Copied"
@@ -100,20 +100,20 @@ page DatabaseRelationsPage
             query rows conn:appDb.query sql:"SELECT posts.id, posts.title, users.name AS authorName FROM posts JOIN users ON posts.authorId = users.id WHERE posts.authorId = ?1" params:[req.params.userId]
             return json:{ ok:true data:rows }
         """
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "The query result is ordinary server data. Return only the projection required by the endpoint instead of exposing the Database handle to a View."
   Section id:"database-relations-one-to-one" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "3 / ONE-TO-ONE"
         Title size:"3xl" weight:"black"
           "Use a unique parent id"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "A unique userId allows one profile for each user. unique:true is a field constraint, so it prevents duplicate values for that column but does not create a foreign-key reference or cascade behavior."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy one-to-one model"
         copiedLabel:"Copied"
@@ -127,15 +127,15 @@ page DatabaseRelationsPage
   Section id:"database-relations-many-to-many" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "4 / MANY-TO-MANY"
         Title size:"3xl" weight:"black"
           "Create an explicit join entity"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "For users and roles, UserRoles stores one userId and one roleId per membership. Index both fields for reverse lookups. The current entity contract does not provide composite unique constraints, so duplicate memberships need a server check."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy join entity"
         copiedLabel:"Copied"
@@ -150,15 +150,15 @@ page DatabaseRelationsPage
   Section id:"database-relations-boundaries" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "5 / CONTRACT BOUNDARIES"
         Title size:"3xl" weight:"black"
           "Know what Dowe enforces"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Relationships work across the shared Database providers through explicit fields and parameterized queries. The server remains responsible for authorization, existence checks, cleanup, and response shape."
       Table:
         data:relationBoundaryRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -167,7 +167,7 @@ page DatabaseRelationsPage
         column field:"boundary" label:"Boundary" width:"2fr"
         column field:"behavior" label:"Current contract" width:"5fr"
       Flex gap:3 wrap:true
-        Button href:"/docs/server/db/entities" variant:"soft" scheme:"muted" size:"sm" iconStart:"documents"
+        Button href:"/docs/server/db/entities" variant:"solid" scheme:"muted" size:"sm" iconStart:"documents"
           "Entity constraints"
-        Button href:"/docs/server/db/select" variant:"soft" scheme:"muted" size:"sm" iconStart:"magnifier"
+        Button href:"/docs/server/db/select" variant:"solid" scheme:"muted" size:"sm" iconStart:"magnifier"
           "Select and join"

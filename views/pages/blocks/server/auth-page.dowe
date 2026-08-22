@@ -35,15 +35,15 @@ page ServerAuthBlockPage
       set message value:"The session could not be revoked."
   Section id:"server-auth-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "SERVER BLOCK / AUTH"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Auth state shared with Views"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Register and login create an opaque ULID session, persist it in Database, cache it for fast validation, and update one shared View Store."
   Section id:"server-auth-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
-      Card variant:"soft" scheme:"primary" p:{ xs:5 md:7 } rounded:"xl"
+      Card variant:"solid" scheme:"primary" p:{ xs:5 md:7 } rounded:"xl"
         Grid columns:1 gap:4
           Flex justify:"between" align:"center" gap:3 wrap:true
             Grid columns:1 gap:1
@@ -51,25 +51,25 @@ page ServerAuthBlockPage
                 "LIVE SESSION"
               Title size:"2xl" weight:"black"
                 "One auth state, two sides"
-            Chip show:exampleSession.authenticated variant:"soft" scheme:"success" size:"sm"
+            Chip show:exampleSession.authenticated variant:"solid" scheme:"success" size:"sm"
               "SIGNED IN"
-            Chip show:exampleSession.guest variant:"soft" scheme:"warning" size:"sm"
+            Chip show:exampleSession.guest variant:"solid" scheme:"warning" size:"sm"
               "GUEST"
-          Text show:exampleSession.guest size:"sm" color:"muted"
+          Text show:exampleSession.guest size:"sm"
             "Create an account or sign in. The CRUD block reads this same Store and enables its protected actions."
           Flex show:exampleSession.authenticated direction:"column" gap:1
             Text size:"sm" color:"success"
               "Authenticated as"
             Text size:"sm" color:"success"
               "{exampleSession.user.name}"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Open CRUD to create, update, and delete with this session."
           Text show:exampleSession.authenticated size:"sm" color:"info"
             "{message}"
           Grid columns:{ xs:1 md:2 } gap:4
             Card variant:"outlined" p:4
               Grid columns:1 gap:3
-                Text size:"xs" weight:"bold" color:"muted"
+                Text size:"xs" weight:"bold"
                   "REGISTER"
                 Input bind:registerForm.name label:"Name" placeholder:"Ada Lovelace" labelFloating:true w:"full"
                 Input bind:registerForm.email label:"Email" placeholder:"ada@example.com" labelFloating:true w:"full"
@@ -78,7 +78,7 @@ page ServerAuthBlockPage
                   "Create account"
             Card variant:"outlined" p:4
               Grid columns:1 gap:3
-                Text size:"xs" weight:"bold" color:"muted"
+                Text size:"xs" weight:"bold"
                   "LOGIN"
                 Input bind:loginForm.email label:"Email" placeholder:"ada@example.com" labelFloating:true w:"full"
                 Password bind:loginForm.password label:"Password" placeholder:"Your password" labelFloating:true hideStrength:true w:"full"
@@ -88,17 +88,17 @@ page ServerAuthBlockPage
             "Log out and revoke session"
   Section id:"server-auth-files" py:{ xs:7 md:10 }
     Grid columns:1 gap:4
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "SOURCE FILES"
       Title size:"3xl" weight:"black"
         "Cache-aside auth without client secrets"
-      Text color:"muted"
+      Text
         "The token carries only a ULID. Middleware verifies it through Cache first and Database second; the View Store contains display state and the bearer value, never provider credentials."
       Tabs variant:"line" position:"top" w:"full"
         tab id:"view" label:"View"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy View"
             copiedLabel:"Copied"
@@ -118,7 +118,7 @@ page ServerAuthBlockPage
         tab id:"store" label:"Store"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy store"
             copiedLabel:"Copied"
@@ -133,7 +133,7 @@ page ServerAuthBlockPage
         tab id:"types" label:"Types"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy types"
             copiedLabel:"Copied"
@@ -153,7 +153,7 @@ page ServerAuthBlockPage
         tab id:"middleware" label:"Middleware"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy middleware"
             copiedLabel:"Copied"
@@ -168,7 +168,7 @@ page ServerAuthBlockPage
         tab id:"handler" label:"Handler"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy handlers"
             copiedLabel:"Copied"
@@ -185,7 +185,7 @@ page ServerAuthBlockPage
         tab id:"service" label:"Service"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy service"
             copiedLabel:"Copied"
@@ -199,7 +199,7 @@ page ServerAuthBlockPage
         tab id:"repository" label:"Repository"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy repository"
             copiedLabel:"Copied"
@@ -214,7 +214,7 @@ page ServerAuthBlockPage
         tab id:"config" label:"Config"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy config"
             copiedLabel:"Copied"
@@ -225,7 +225,7 @@ page ServerAuthBlockPage
         tab id:"users-entity" label:"Users entity"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy users entity"
             copiedLabel:"Copied"
@@ -240,7 +240,7 @@ page ServerAuthBlockPage
         tab id:"sessions-entity" label:"Sessions entity"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy sessions entity"
             copiedLabel:"Copied"
@@ -253,7 +253,7 @@ page ServerAuthBlockPage
         tab id:"session-contract" label:"Session contract"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy session"
             copiedLabel:"Copied"

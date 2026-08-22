@@ -32,7 +32,7 @@ page ProductCatalogStorePage
       Grid columns:{ xs:2 md:4 } gap:{ xs:4 md:6 }
         each in:products as:product key:product.id
           Grid columns:1 gap:3
-            Card variant:"soft" scheme:"muted" rounded:"xl" p:3 minH:{ xs:40 md:56 }
+            Card variant:"solid" scheme:"muted" rounded:"xl" p:3 minH:{ xs:40 md:56 }
               Flex direction:"column" justify:"between" minH:{ xs:32 md:48 }
                 Flex justify:"end"
                   IconButton icon:"heart" label:"Save product" scheme:"muted" size:"xs" rounded:"full"
@@ -44,7 +44,7 @@ page ProductCatalogStorePage
                   "{product.name}"
                 Text size:"sm" weight:"black"
                   "{product.price}"
-              Text size:"xs" color:"muted"
+              Text size:"xs"
                 "{product.description}"
               Flex align:"center" gap:1
                 Icon name:"star-bold" fill:"backgroundText" w:4 h:4
@@ -52,7 +52,7 @@ page ProductCatalogStorePage
                 Icon name:"star-bold" fill:"backgroundText" w:4 h:4
                 Icon name:"star-bold" fill:"backgroundText" w:4 h:4
                 Icon name:"star-bold" fill:"backgroundText" w:4 h:4
-                Text size:"xs" color:"muted"
+                Text size:"xs"
                   "(261)"
               Button variant:"outlined" size:"sm" rounded:"full"
                 "Add to basket"

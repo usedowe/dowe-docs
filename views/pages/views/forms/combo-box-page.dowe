@@ -51,20 +51,20 @@ page ComboBoxPage
   Section id:"combo-box-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "FORM"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "ComboBox"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "ComboBox combines a searchable anchored popover, static options, optional clearing, and a typed single-selection Signal. Its sm, md, and lg sizes scale both control height and displayed text on every target."
   Section id:"combo-box-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "Search a role catalog"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Type to narrow the static option list, choose a role, and clear it when the workflow needs an explicit empty state."
       Grid columns:{ xs:1 md:2 } gap:4
         ComboBox:
@@ -83,19 +83,19 @@ page ComboBoxPage
           comboOption value:"editor" label:"Editor" description:"Create, update, and publish workspace content." icon:"edit"
           comboOption value:"viewer" label:"Viewer" description:"Read workspace content without making changes." icon:"search"
           comboOption value:"guest" label:"Guest" description:"Review shared links with limited access." disabled:true icon:"dismiss"
-        Card variant:"soft" p:{ xs:5 md:7 }
+        Card variant:"solid" p:{ xs:5 md:7 }
           Grid columns:1 gap:3
-            Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+            Text size:"xs" weight:"bold" spacing:"widest"
               "SEARCHABLE SINGLE CHOICE"
             Title size:"2xl" weight:"black"
               "Rich option context"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Descriptions and Solar icons help people distinguish similar options before they commit a value."
             Text size:"sm" weight:"bold" color:"primary"
               "Clearable + disabled option"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -111,14 +111,14 @@ page ComboBoxPage
   Section id:"combo-box-variants" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "SURFACES AND SIZES"
         Title size:"3xl" weight:"black"
           "Tune the control to its context"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The searchable behavior stays constant while sm, md, and lg map to 32, 40, and 48 logical units. labelFloating adds 8 on every target."
       Grid columns:{ xs:1 md:3 } gap:4
-        ComboBox value:"design" label:"Soft field" placeholder:"Choose a team" variant:"soft" scheme:"secondary" size:"sm" name:"soft-team"
+        ComboBox value:"design" label:"Soft field" placeholder:"Choose a team" variant:"solid" scheme:"secondary" size:"sm" name:"soft-team"
           comboOption value:"design" label:"Design" description:"Tokens and visual systems." icon:"edit"
           comboOption value:"platform" label:"Platform" description:"Shared runtime foundations." icon:"settings"
         ComboBox value:"growth" label:"Line field" placeholder:"Choose a team" variant:"line" scheme:"success" size:"md" name:"line-team"
@@ -129,28 +129,28 @@ page ComboBoxPage
           comboOption value:"compliance" label:"Compliance" description:"Controls and evidence." icon:"file"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          ComboBox value:"design" label:"Soft field" placeholder:"Choose a team" variant:"soft" scheme:"secondary" size:"sm"
+          ComboBox value:"design" label:"Soft field" placeholder:"Choose a team" variant:"solid" scheme:"secondary" size:"sm"
             comboOption value:"design" label:"Design" description:"Tokens and visual systems." icon:"edit"
             comboOption value:"platform" label:"Platform" description:"Shared runtime foundations." icon:"settings"
         """
   Section id:"combo-box-states" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "STATES"
         Title size:"3xl" weight:"black"
           "Empty, unavailable, and guided"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use feedback text to explain the catalog, disabled to preserve a visible choice, and custom loading copy for remote-looking flows."
       Grid columns:{ xs:1 md:2 } gap:5
         ComboBox label:"No matching project" placeholder:"Search projects" searchPlaceholder:"Search projects" emptyText:"Nothing matches this query" helpText:"Try a project key or team name." variant:"outlined" scheme:"info" name:"project"
           comboOption value:"dowe" label:"Dowe" description:"Compiler and runtime." icon:"file"
-        ComboBox value:"billing" label:"Billing domain" placeholder:"Choose a domain" disabled:true errorText:"This catalog is unavailable for your workspace." variant:"soft" scheme:"muted" name:"billing"
+        ComboBox value:"billing" label:"Billing domain" placeholder:"Choose a domain" disabled:true errorText:"This catalog is unavailable for your workspace." variant:"solid" scheme:"muted" name:"billing"
           comboOption value:"billing" label:"Billing" description:"Plans and invoices." icon:"settings"
           comboOption value:"usage" label:"Usage" description:"Consumption and limits." icon:"search"
       Grid columns:{ xs:1 md:3 } gap:3
@@ -163,46 +163,46 @@ page ComboBoxPage
   Section id:"combo-box-contract" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "BEHAVIOR"
         Title size:"3xl" weight:"black"
           "One authored catalog, every target"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Dowe owns the trigger, search row, option state, and popover placement instead of delegating the contract to a platform-specific menu."
       Grid columns:{ xs:1 md:3 } gap:5
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "BINDING"
           Title size:"lg" weight:"bold"
             "String only"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "bind reads and writes the selected option value through a string Signal path."
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "OPTIONS"
           Title size:"lg" weight:"bold"
             "Direct children"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Each comboOption needs a unique value and label, with optional description, icon, image, or disabled state."
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "TARGETS"
           Title size:"lg" weight:"bold"
             "Adaptive popover"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Web, SwiftUI, Compose, and the Android launcher preserve search, selection, disabled options, clear, empty, and loading states."
   Section id:"combo-box-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "ComboBox also accepts the applicable common spacing, sizing, typography, visibility, accessibility, and shadow props."
       Table:
         data:comboBoxProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

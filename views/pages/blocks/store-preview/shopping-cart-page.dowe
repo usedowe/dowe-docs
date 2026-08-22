@@ -19,17 +19,17 @@ page ShoppingCartStorePage
         each in:items as:item key:item.id
           Grid columns:1 gap:5
             Grid columns:{ xs:2 md:4 } gap:{ xs:4 md:6 } align:"center"
-              Card variant:"soft" scheme:"muted" rounded:"xl" p:4 w:{ xs:32 md:36 } minH:{ xs:32 md:36 }
+              Card variant:"solid" scheme:"muted" rounded:"xl" p:4 w:{ xs:32 md:36 } minH:{ xs:32 md:36 }
                 Flex align:"center" justify:"center" minH:{ xs:24 md:28 }
                   Icon name:"gallery-bold-duotone" fill:"muted" w:8 h:8
               Grid columns:1 gap:1
                 Title size:{ xs:"lg" md:"2xl" } weight:"black"
                   "{item.name}"
-                Text size:{ xs:"sm" md:"lg" } color:"muted"
+                Text size:{ xs:"sm" md:"lg" }
                   "{item.option}"
               Flex align:"center" gap:2
                 IconButton icon:"heart" label:"Save item" variant:"ghost" scheme:"muted" rounded:"full"
-                Box bg:"softMuted" rounded:"full" p:1
+                Box bg:"muted" rounded:"full" p:1
                   Flex align:"center" gap:2
                     Button variant:"ghost" scheme:"muted" size:"sm" rounded:"full"
                       "−"
@@ -44,14 +44,14 @@ page ShoppingCartStorePage
             Divider
         Grid show:{ xs:false md:true } columns:1 gap:4
           Flex justify:"between"
-            Text size:"lg" color:"muted"
+            Text size:"lg"
               "Subtotal"
-            Text size:"lg" color:"muted"
+            Text size:"lg"
               "$199.89"
           Flex justify:"between"
-            Text color:"muted"
+            Text
               "Tax"
-            Text color:"muted"
+            Text
               "(20%) $39.98"
           Divider
           Flex justify:"between"

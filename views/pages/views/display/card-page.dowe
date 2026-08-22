@@ -27,6 +27,11 @@ page CardPage
         defaultValue:"—"
       },
       {
+        prop:"flex"
+        type:"initial | auto | none | 1 | responsive object"
+        defaultValue:"initial"
+      },
+      {
         prop:"p, px, py, pl, pr, pt, pb"
         type:"spacing scale | responsive scale"
         defaultValue:"p:{ xs:4 lg:5 }"
@@ -50,13 +55,13 @@ page CardPage
   Section id:"card-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "DISPLAY"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Card"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Cards group related information into one portable visual unit with a clear semantic boundary."
-      Card variant:"soft" scheme:"success" p:5 rounded:"lg" minW:56
+      Card variant:"solid" scheme:"success" p:5 rounded:"lg" minW:56
         Grid columns:1 gap:1
           Text size:"xs" weight:"bold" spacing:"widest"
             "PORTABLE SURFACE"
@@ -67,11 +72,11 @@ page CardPage
   Section id:"card-variants" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "VARIANTS AND SCHEMES"
         Title size:"3xl" weight:"black"
           "Four levels of emphasis"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use scheme for semantic color and variant for visual weight. Cards also accept structural background and surface schemes."
       Grid columns:{ xs:2 md:4 } gap:4
         Card scheme:"primary" minH:32
@@ -82,7 +87,7 @@ page CardPage
               "Primary decision"
             Text size:"sm"
               "Use the strongest emphasis for a featured summary or decisive callout."
-        Card variant:"soft" scheme:"success" minH:32
+        Card variant:"solid" scheme:"success" minH:32
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
               "SOFT"
@@ -108,7 +113,7 @@ page CardPage
               "Use a transparent card when hierarchy comes from placement rather than fill."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -123,20 +128,20 @@ page CardPage
   Section id:"card-foreground" py:{ xs:7 md:10 }
     Grid columns:1 gap:5 align:"center"
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "CONTENT COLOR"
         Title size:"3xl" weight:"black"
           "Scheme flows through the card"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Card resolves one foreground from variant and scheme. Descendant text inherits it unless that child declares color explicitly."
         Code:
           language:"dowe"
-          variant:"soft"
+          variant:"solid"
           scheme:"surface"
           copyLabel:"Copy Dowe"
           copiedLabel:"Copied"
           content:"""
-            Card variant:"soft" scheme:"muted"
+            Card variant:"solid" scheme:"muted"
               Title size:"xl"
                 "Uses softMutedText"
               Text size:"sm"
@@ -144,7 +149,7 @@ page CardPage
               Text size:"sm" color:"warning"
                 "This child is intentionally different."
           """
-      Card variant:"soft" scheme:"muted" rounded:"lg"
+      Card variant:"solid" scheme:"muted" rounded:"lg"
         Grid columns:1 gap:2
           Title size:"xl" weight:"black"
             "Uses softMutedText"
@@ -155,11 +160,11 @@ page CardPage
   Section id:"card-cover" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "COVER AND OVERLAY"
         Title size:"3xl" weight:"black"
           "Keep content readable over imagery"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "cover supplies the base image, overlay adds contrast, and children remain above both layers in every target."
       Grid columns:{ xs:1 md:2 } gap:4
         Card cover:"https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" overlay:0.62 rounded:"lg" minH:72
@@ -173,17 +178,17 @@ page CardPage
         Card variant:"outlined" rounded:"lg" minH:72
           Flex direction:"column" justify:"between" gap:3 minH:60
             Grid columns:1 gap:2
-              Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+              Text size:"xs" weight:"bold" spacing:"widest"
                 "THREE LAYERS"
               Title size:"2xl" weight:"black"
                 "Image, overlay, content"
-              Text size:"sm" color:"muted"
+              Text size:"sm"
                 "The component owns the layered surface so page layout stays simple."
-            Button variant:"soft" size:"sm" rounded:"full"
+            Button variant:"solid" size:"sm" rounded:"full"
               "Open project"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -198,22 +203,22 @@ page CardPage
   Section id:"card-layout" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "SPACING AND PLACEMENT"
         Title size:"3xl" weight:"black"
           "Defaults that adapt, structure that stays explicit"
-        Text size:"sm" color:"muted"
-          "Cards default to p:{ xs:4 lg:5 } and add no gap between children. Use Grid or Flex inside the card, and use spans only as a direct Grid child."
+        Text size:"sm"
+          "Cards default to p:{ xs:4 lg:5 } and add no gap between children. Their direct children use a vertical flex parent, so a child layout can use flex:1 when the Card has a bounded height. Use Grid or Flex inside the card, and use spans only as a direct Grid child."
       Grid columns:{ xs:1 md:3 } gap:4
         Card variant:"outlined"
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+            Text size:"xs" weight:"bold" spacing:"widest"
               "DEFAULT PADDING"
             Title size:"xl" weight:"black"
               "Responsive by default"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "The compact and large-screen padding values are supplied automatically."
-        Card variant:"soft" scheme:"info" p:{ xs:5 md:7 } colSpan:{ xs:1 md:2 }
+        Card variant:"solid" scheme:"info" p:{ xs:5 md:7 } colSpan:{ xs:1 md:2 }
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
               "EXPLICIT PADDING AND SPAN"
@@ -223,7 +228,7 @@ page CardPage
               "p replaces the default padding and colSpan expands this card across two desktop tracks."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -232,33 +237,33 @@ page CardPage
             Card variant:"outlined"
               Text
                 "Uses default responsive padding."
-            Card variant:"soft" scheme:"info" p:{ xs:5 md:7 } colSpan:{ xs:1 md:2 }
+            Card variant:"solid" scheme:"info" p:{ xs:5 md:7 } colSpan:{ xs:1 md:2 }
               Text
                 "Overrides padding and spans two desktop columns."
         """
   Section id:"card-animation" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "MOTION"
         Title size:"3xl" weight:"black"
           "Reveal a card with a portable preset"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "animation is resolved by Dowe rather than a target-specific runtime. Choose a preset that supports the surrounding content hierarchy."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"primary" animation:"fadeIn"
+        Card variant:"solid" scheme:"primary" animation:"fadeIn"
           Grid columns:1 gap:1
             Text size:"xs" weight:"bold" spacing:"widest"
               "FADE IN"
             Text size:"sm"
               "A quiet appearance for supporting content."
-        Card variant:"soft" scheme:"secondary" animation:"slideUp"
+        Card variant:"solid" scheme:"secondary" animation:"slideUp"
           Grid columns:1 gap:1
             Text size:"xs" weight:"bold" spacing:"widest"
               "SLIDE UP"
             Text size:"sm"
               "A directional entrance for sequential content."
-        Card variant:"soft" scheme:"tertiary" animation:"scaleIn"
+        Card variant:"solid" scheme:"tertiary" animation:"scaleIn"
           Grid columns:1 gap:1
             Text size:"xs" weight:"bold" spacing:"widest"
               "SCALE IN"
@@ -266,27 +271,27 @@ page CardPage
               "A focused reveal for a featured visual unit."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Card variant:"soft" scheme:"secondary" animation:"slideUp"
+          Card variant:"solid" scheme:"secondary" animation:"slideUp"
             Text
               "This card enters with the portable slideUp preset."
         """
   Section id:"card-props" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Card also accepts applicable common sizing, border, shadow, font, visibility, and container style props."
       Table:
         data:cardProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

@@ -15,20 +15,20 @@ page BorderPage
   Section id:"border-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Flex direction:"column" gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "STYLES"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Border"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Define portable border thickness and tint it with a semantic family from the active theme."
   Section id:"border-scale" p:{ xs:5 md:7 }
     Flex direction:"column" gap:6
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "WIDTH SCALE"
         Title size:"3xl" weight:"black"
           "Four border weights"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Border accepts integer values from 1 through 4 and preserves their visual progression on every target."
       Grid columns:{ xs:2 md:4 } gap:5
         Flex direction:"column" gap:3 align:"center"
@@ -50,11 +50,11 @@ page BorderPage
   Section id:"border-colors" py:{ xs:7 md:10 }
     Flex direction:"column" gap:6
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "SEMANTIC COLORS"
         Title size:"3xl" weight:"black"
           "Eight theme families"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "borderColor resolves through the active theme instead of embedding a platform-specific color."
       Grid columns:{ xs:4 md:8 } gap:3
         Flex direction:"column" gap:2 align:"center"
@@ -92,15 +92,15 @@ page BorderPage
   Section id:"border-composition" p:{ xs:5 md:7 }
     Grid columns:{ xs:1 md:2 } gap:6 align:"center"
       Flex direction:"column" gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "COMPOSITION"
         Title size:"3xl" weight:"black"
           "Combine thickness, color, and radius"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Border controls thickness, borderColor chooses the theme family, and rounded shapes the corners."
         Code:
           language:"dowe"
-          variant:"soft"
+          variant:"solid"
           scheme:"surface"
           copyLabel:"Copy Dowe"
           copiedLabel:"Copied"
@@ -112,20 +112,20 @@ page BorderPage
         Flex direction:"column" gap:2
           Title size:"lg" weight:"bold"
             "Validated surface"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "All three props are normalized before target generation."
   Section id:"border-responsive" py:{ xs:7 md:10 }
     Flex direction:"column" gap:5
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "RESPONSIVE"
         Title size:"3xl" weight:"black"
           "Increase emphasis on wider screens"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Border thickness accepts the same responsive breakpoint object used by other common visual props."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -139,15 +139,15 @@ page BorderPage
   Section id:"border-props" py:{ xs:7 md:10 }
     Flex direction:"column" gap:5
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "borderColor alone does not draw a border. Declare border whenever the outline must be visible."
       Table:
         data:borderProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -158,32 +158,32 @@ page BorderPage
         column field:"defaultValue" label:"Default" width:"1fr"
   Section id:"border-compatibility" py:{ xs:7 md:10 }
     Flex direction:"column" gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "COMPATIBILITY"
       Title size:"3xl" weight:"black"
         "Available on styled components"
       Text weight:"bold"
         "Layout and shell"
-      Text color:"muted"
+      Text
         "Box, Section, Flex, Grid, AppBar, Footer, BottomBar, Sidebar, Scaffold, and Drawer."
       Text weight:"bold"
         "Navigation"
-      Text color:"muted"
+      Text
         "NavMenu, SideNav, RailNav, Tabs, and Stepper."
       Text weight:"bold"
         "Content and display"
-      Text color:"muted"
+      Text
         "Text, Title, Code, Video, Iframe, Device, Canvas, Table, Divider, Brand, Banner, Alert, Icon, Avatar, AvatarGroup, Badge, Chip, Skeleton, Card, Empty, Marquee, TypeWriter, RichText, Collapsible, Countdown, Map, Audio, Image, Accordion, Carousel, and ChatBox."
       Text weight:"bold"
         "Charts"
-      Text color:"muted"
+      Text
         "Candlestick, ArcChart, AreaChart, BarChart, LineChart, and PieChart."
       Text weight:"bold"
         "Controls and forms"
-      Text color:"muted"
+      Text
         "Input, Select, Button, IconButton, ToggleTheme, SelectTheme, Fab, Slider, Dropzone, ComboBox, CsvField, DragDrop, Editor, ImageCropper, Password, Phone, Pin, Textarea, Record, ToggleGroup, Checkbox, Color, Date, DateRange, RadioGroup, and Toggle."
       Text weight:"bold"
         "Overlays"
-      Text color:"muted"
+      Text
         "Modal, AlertDialog, Tooltip, Toast, Dropdown, and Command."
-      Alert type:"warning" variant:"soft" scheme:"warning" message:"Not available on Splash, Svg, Path, or context-only entries such as Option, fabAction, comboOption, csvColumn, dragGroup, dragItem, tab, step, and region entries."
+      Alert type:"warning" variant:"solid" scheme:"warning" message:"Not available on Splash, Svg, Path, or context-only entries such as Option, fabAction, comboOption, csvColumn, dragGroup, dragItem, tab, step, and region entries."

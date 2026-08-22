@@ -3,102 +3,129 @@ page HeightPage
     value:[
       {
         prop:"h"
-        type:"Dowe scale | full | vh-<scale> | responsive"
+        type:"Dowe scale | full | auto | vh-<scale> | responsive"
         defaultValue:"—"
       },
       {
         prop:"minH"
-        type:"Dowe scale | full | vh-<scale> | responsive"
+        type:"Dowe scale | full | auto | vh-<scale> | responsive"
         defaultValue:"—"
       },
       {
         prop:"maxH"
-        type:"Dowe scale | full | vh-<scale> | responsive"
+        type:"Dowe scale | full | auto | vh-<scale> | responsive"
         defaultValue:"—"
       },
     ]
   Section id:"height-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Flex direction:"column" gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "STYLES"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Height"
-        Text size:"lg" color:"muted"
-          "Control fixed, minimum, maximum, full, and viewport-aware heights with portable Dowe values."
+        Text size:"lg"
+          "Control fixed, automatic, minimum, maximum, full, and viewport-aware heights with portable Dowe values."
   Section id:"height-values" p:{ xs:5 md:7 }
     Flex direction:"column" gap:6
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "HEIGHT VALUES"
         Title size:"3xl" weight:"black"
           "Fixed heights from the scale"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Numeric values use the same logical scale on web, Android, and iOS."
       Grid columns:{ xs:1 md:3 } gap:4
         Flex direction:"column" gap:3
-          Box bg:"softPrimary" rounded:"md" w:"full" h:16
+          Box bg:"muted" rounded:"md" w:"full" h:16
           Text size:"sm" weight:"bold"
             "h:16"
         Flex direction:"column" gap:3
-          Box bg:"softSecondary" rounded:"md" w:"full" h:24
+          Box bg:"muted" rounded:"md" w:"full" h:24
           Text size:"sm" weight:"bold"
             "h:24"
         Flex direction:"column" gap:3
-          Box bg:"softTertiary" rounded:"md" w:"full" h:32
+          Box bg:"muted" rounded:"md" w:"full" h:32
           Text size:"sm" weight:"bold"
             "h:32"
   Section id:"height-full" py:{ xs:7 md:10 }
     Grid columns:{ xs:1 md:2 } gap:6 align:"center"
       Flex direction:"column" gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "FULL HEIGHT"
         Title size:"3xl" weight:"black"
           "Fill the available parent height"
-        Text size:"sm" color:"muted"
-          "The full token follows the height made available by the containing layout."
+        Text size:"sm"
+          "The full token follows a definite height made available by the containing layout; it does not create viewport height. Use auto in h, minH, or maxH to return to content-driven behavior at a breakpoint."
         Code:
           language:"dowe"
-          variant:"soft"
+          variant:"solid"
           scheme:"surface"
           copyLabel:"Copy Dowe"
           copiedLabel:"Copied"
           content:"""
-            Box h:40
-              Box h:"full" bg:"softPrimary"
+            Section minH:"vh-0"
+              Grid columns:{ xs:1 md:2 } h:{ xs:"auto" md:"full" }
+                Box bg:"muted"
           """
-      Box h:40 border:1 borderColor:"muted" rounded:"lg" p:3
-        Box h:"full" bg:"softPrimary" rounded:"md"
-          Flex h:"full" align:"center" justify:"center"
-            Text weight:"bold"
-              "h:\"full\""
+        Box h:40 border:1 borderColor:"muted" rounded:"lg" p:3
+          Box h:"full" bg:"muted" rounded:"md"
+            Flex h:"full" align:"center" justify:"center"
+              Text weight:"bold"
+                "h:\"full\""
+  Section id:"height-section-body" p:{ xs:5 md:7 }
+    Grid columns:{ xs:1 md:2 } gap:6 align:"center"
+      Flex direction:"column" gap:3
+        Text size:"xs" weight:"bold" spacing:"widest"
+          "SECTION CONTENT HEIGHT"
+        Title size:"3xl" weight:"black"
+          "Fill the padded Section body"
+        Text size:"sm"
+          "When Section declares h or minH, a direct Grid, Flex, or Box using h:\"full\" or minH:\"full\" fills the inner height after Section padding."
+        Code:
+          language:"dowe"
+          variant:"solid"
+          scheme:"surface"
+          copyLabel:"Copy Dowe"
+          copiedLabel:"Copied"
+          content:"""
+            Section minH:"vh-0"
+              Grid columns:{ xs:1 md:2 } minH:"full"
+                Box
+                  Text
+                    "Panel fills the Section body"
+          """
+      Box minH:40 border:1 borderColor:"muted" rounded:"lg" p:3
+        Grid columns:2 minH:"full" gap:3
+          Box bg:"muted" rounded:"md"
+          Box bg:"muted" rounded:"md"
   Section id:"height-minimum" p:{ xs:5 md:7 }
     Grid columns:{ xs:1 md:2 } gap:6 align:"center"
       Flex direction:"column" gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "MINIMUM HEIGHT"
         Title size:"3xl" weight:"black"
           "Reserve space without clipping content"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "minH sets a lower bound and still allows the component to grow with its children."
-      Card minH:32 variant:"soft" scheme:"secondary" rounded:"lg" p:6
+      Card minH:32 variant:"solid" scheme:"secondary" rounded:"lg" p:6
         Flex direction:"column" gap:2 justify:"center" minH:20
           Title size:"lg" weight:"bold"
             "Flexible content"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "This card is at least scale 32 high and can grow when more content is added."
   Section id:"height-viewport" py:{ xs:7 md:10 }
     Flex direction:"column" gap:5
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "VIEWPORT HEIGHT"
         Title size:"3xl" weight:"black"
           "Subtract a known scale value"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "h, minH, and maxH accept vh-<scale> when a manual surface must reserve viewport space. Scaffold already handles its fixed AppBar inset."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -109,16 +136,16 @@ page HeightPage
   Section id:"height-maximum" p:{ xs:5 md:7 }
     Flex direction:"column" gap:5
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "MAXIMUM HEIGHT"
         Title size:"3xl" weight:"black"
           "Bound a surface without choosing overflow"
-        Text size:"sm" color:"muted"
-          "maxH sets an upper bound on the component. It does not add scrolling or clipping, so use a component that explicitly owns overflow when content may exceed the limit."
+        Text size:"sm"
+          "maxH sets an upper bound on the component. auto removes an authored bound and full caps it to the available parent height without forcing that height. Neither form adds scrolling or clipping."
       Grid columns:{ xs:1 md:2 } gap:6 align:"center"
         Code:
           language:"dowe"
-          variant:"soft"
+          variant:"solid"
           scheme:"surface"
           copyLabel:"Copy Dowe"
           copiedLabel:"Copied"
@@ -126,22 +153,22 @@ page HeightPage
             Card maxH:{ xs:"vh-16" md:48 } p:6
               Text "Height-limited content"
           """
-        Card maxH:48 variant:"soft" scheme:"success" rounded:"lg" p:6
+        Card maxH:48 variant:"solid" scheme:"success" rounded:"lg" p:6
           Flex direction:"column" gap:2
             Title size:"lg" weight:"bold"
               "Maximum height"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "The card can stay shorter, but it cannot grow past scale 48."
   Section id:"height-props" py:{ xs:7 md:10 }
     Flex direction:"column" gap:5
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Supported props"
       Table:
         data:heightProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -152,32 +179,36 @@ page HeightPage
         column field:"defaultValue" label:"Default" width:"1fr"
   Section id:"height-compatibility" py:{ xs:7 md:10 }
     Flex direction:"column" gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "COMPATIBILITY"
       Title size:"3xl" weight:"black"
         "Available on styled components"
       Text weight:"bold"
         "Layout and shell"
-      Text color:"muted"
+      Text
         "Box, Section, Flex, Grid, AppBar, Footer, BottomBar, Sidebar, Scaffold, and Drawer."
       Text weight:"bold"
         "Navigation"
-      Text color:"muted"
+      Text
         "NavMenu, SideNav, RailNav, Tabs, and Stepper."
       Text weight:"bold"
         "Content and display"
-      Text color:"muted"
+      Text
         "Text, Title, Code, Video, Iframe, Device, Canvas, Table, Divider, Brand, Banner, Alert, Icon, Avatar, AvatarGroup, Badge, Chip, Skeleton, Card, Empty, Marquee, TypeWriter, RichText, Collapsible, Countdown, Map, Audio, Image, Accordion, Carousel, and ChatBox."
       Text weight:"bold"
         "Charts"
-      Text color:"muted"
+      Text
         "Candlestick, ArcChart, AreaChart, BarChart, LineChart, and PieChart."
       Text weight:"bold"
         "Controls and forms"
-      Text color:"muted"
+      Text
         "Input, Select, Button, IconButton, ToggleTheme, SelectTheme, Fab, Slider, Dropzone, ComboBox, CsvField, DragDrop, Editor, ImageCropper, Password, Phone, Pin, Textarea, Record, ToggleGroup, Checkbox, Color, Date, DateRange, RadioGroup, and Toggle."
       Text weight:"bold"
         "Overlays"
-      Text color:"muted"
+      Text
         "Modal, AlertDialog, Tooltip, Toast, Dropdown, and Command."
-      Alert type:"info" variant:"soft" scheme:"info" message:"Svg supports h, but not minH or maxH. Splash, Path, and context-only entries such as Option, fabAction, comboOption, csvColumn, dragGroup, dragItem, tab, step, and region entries do not accept these height props."
+      Alert:
+        type:"info"
+        variant:"solid"
+        scheme:"info"
+        message:"Svg supports h, but not minH or maxH. Splash, Path, and context-only entries such as Option, fabAction, comboOption, csvColumn, dragGroup, dragItem, tab, step, and region entries do not accept these height props."

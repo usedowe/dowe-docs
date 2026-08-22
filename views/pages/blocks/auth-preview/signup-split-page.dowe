@@ -3,7 +3,7 @@ page SignupSplitAuthPage
   Section id:"signup-split-auth" p:0 minH:"vh-0"
     Grid columns:{ xs:1 md:2 } gap:0 minH:"vh-0"
       Box:
-        bg:"softSecondary"
+        bg:"muted"
         color:"success"
         minH:{ xs:40 md:"vh-0" }
         p:{ xs:6 md:12 }
@@ -24,17 +24,17 @@ page SignupSplitAuthPage
             Grid columns:1 gap:2
               Title size:"3xl" weight:"black"
                 "Sign up"
-              Text size:"sm" color:"muted"
+              Text size:"sm"
                 "Create an account and start building."
             Grid columns:2 gap:3
-              Input bind:form.firstName label:"First name" placeholder:"First name" helpText:"Use the name shown on your account." variant:"soft" scheme:"success" w:"full"
+              Input bind:form.firstName label:"First name" placeholder:"First name" helpText:"Use the name shown on your account." variant:"solid" scheme:"success" w:"full"
                 validate rule:"required" message:"Enter your first name."
-              Input bind:form.lastName label:"Last name" placeholder:"Last name" helpText:"Use the name shown on your account." variant:"soft" scheme:"success" w:"full"
+              Input bind:form.lastName label:"Last name" placeholder:"Last name" helpText:"Use the name shown on your account." variant:"solid" scheme:"success" w:"full"
                 validate rule:"required" message:"Enter your last name."
-            Input bind:form.email label:"Email address" placeholder:"you@example.com" helpText:"Use an email address you can access." variant:"soft" scheme:"success" w:"full"
+            Input bind:form.email label:"Email address" placeholder:"you@example.com" helpText:"Use an email address you can access." variant:"solid" scheme:"success" w:"full"
               validate rule:"required" message:"Enter your email address."
               validate rule:"email" message:"Enter a valid email address."
-            Password bind:form.password label:"Password" placeholder:"Create a password" hideStrength:false variant:"soft" scheme:"success" w:"full"
+            Password bind:form.password label:"Password" placeholder:"Create a password" hideStrength:false variant:"solid" scheme:"success" w:"full"
             Checkbox bind:form.accepted label:"I agree to the terms and privacy policy." scheme:"success"
               validate rule:"required" message:"Accept the terms and privacy policy to continue."
             Button scheme:"success" w:"full"

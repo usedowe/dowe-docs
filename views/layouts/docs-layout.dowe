@@ -1,0 +1,60 @@
+import DevNavigation from "@/views/components/dev-navigation"
+import ServerNavigation from "@/views/components/server-navigation"
+import ViewsNavigation from "@/views/components/views-navigation"
+import Logo from "@/views/components/logo"
+import Github from "@/views/components/github"
+layout DocsLayout
+  meta name:"title" content:"Dowe Documentation"
+  meta:
+    name:"description"
+    content:"Learn Dowe development, views, server features, and web generation."
+  meta name:"og:image" content:"https://dowe.dev/icons/web/icon-512x512.png"
+  meta name:"og:image:alt" content:"Dowe logo"
+  meta name:"og:type" content:"website"
+  meta name:"og:site_name" content:"Dowe"
+  meta name:"twitter:card" content:"summary_large_image"
+  meta name:"twitter:image" content:"https://dowe.dev/icons/web/icon-512x512.png"
+  meta name:"twitter:image:alt" content:"Dowe logo"
+  signal openDrawer value:false
+  signal activeSection value:"views"
+  Scaffold boxed:true
+    appBar
+      AppBar variant:"solid" scheme:"background" boxed:true bordered:true position:"fixed"
+        start
+          IconButton:
+            show:{ xs:true md:false }
+            label:"menu"
+            variant:"ghost"
+            onClick:{ set:openDrawer value:!openDrawer }
+            icon:"hamburger-menu"
+          Logo
+        center
+          NavMenu show:{ xs:false md:true } size:"lg"
+            item label:"Docs" href:"/docs"
+            item label:"Blocks" href:"/blocks/hero"
+        end
+          Github
+    start
+      Sidebar show:{ xs:false md:true } w:72
+        header
+          ToggleGroup bind:activeSection size:"sm" wide:true ariaLabel:"Documentation section"
+            item id:"dev" label:"Dev"
+            item id:"views" label:"Views"
+            item id:"server" label:"Server"
+        body
+          DevNavigation show:{ when:activeSection eq:"dev" }
+          ViewsNavigation show:{ when:activeSection eq:"views" }
+          ServerNavigation show:{ when:activeSection eq:"server" }
+    main
+      children
+    overlays
+      Drawer open:openDrawer
+        header px:4 py:2
+          ToggleGroup bind:activeSection size:"sm" wide:true ariaLabel:"Documentation section"
+            item id:"dev" label:"Dev"
+            item id:"views" label:"Views"
+            item id:"server" label:"Server"
+        body
+          DevNavigation show:{ when:activeSection eq:"dev" }
+          ViewsNavigation show:{ when:activeSection eq:"views" }
+          ServerNavigation show:{ when:activeSection eq:"server" }

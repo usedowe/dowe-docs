@@ -1,21 +1,21 @@
 page HerosPage
   Section id:"heros" py:{ xs:6 md:10 }
     Grid columns:1 gap:4
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "COPY-READY BLOCKS"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Hero"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Seven generic wireframe heroes built from real Dowe components, responsive layouts, and media placeholders."
   Section id:"centered-media" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "01 · CENTERED + LAYERED MEDIA"
           Title size:"2xl" weight:"black"
             "Centered conversion copy above two neutral media placeholders"
-        Button href:"/blocks/hero-preview/centered-media" variant:"soft" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/hero-preview/centered-media" variant:"solid" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
       Tabs variant:"line" position:"top" w:"full"
         tab id:"preview" label:"Preview"
@@ -24,7 +24,7 @@ page HerosPage
         tab id:"hero-code" label:"Hero Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy hero"
             copiedLabel:"Copied"
@@ -39,7 +39,7 @@ page HerosPage
                   Flex direction:"column" align:"center" gap:5
                     Title size:{ xs:"4xl" md:"6xl" } weight:"black"
                       "A dedicated team to grow your company"
-                    Text size:"lg" color:"muted"
+                    Text size:"lg"
                       "A flexible headline, concise supporting copy, and two clear actions for a broad range of products and services."
                     Flex direction:{ xs:"column" sm:"row" } align:"center" justify:"center" gap:3
                       Button size:"lg" rounded:"full" iconEnd:"arrow-right"
@@ -48,16 +48,16 @@ page HerosPage
                         "Talk to sales"
                   Grid columns:{ xs:1 md:2 } gap:{ xs:4 md:0 } align:"center"
                     each in:mediaFrames as:frame key:frame.id
-                      Card variant:"soft" scheme:"muted" rounded:"xl" minH:{ xs:56 md:80 } p:8
+                      Card variant:"solid" scheme:"muted" rounded:"xl" minH:{ xs:56 md:80 } p:8
                         Flex direction:"column" align:"center" justify:"center" gap:3 minH:{ xs:40 md:64 }
                           Icon name:"gallery-bold-duotone" fill:"muted" w:16 h:16
-                          Text size:"sm" color:"muted"
+                          Text size:"sm"
                             "{frame.label}"
             """
         tab id:"layout-code" label:"Layout Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy layout"
             copiedLabel:"Copied"
@@ -103,7 +103,7 @@ page HerosPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "02 · VIDEO SPLIT"
           Title size:"2xl" weight:"black"
             "Focused copy paired with a portable Video placeholder"
@@ -116,7 +116,7 @@ page HerosPage
         tab id:"hero-code" label:"Hero Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy hero"
             copiedLabel:"Copied"
@@ -126,7 +126,7 @@ page HerosPage
                   Flex direction:"column" align:"start" justify:"center" gap:5
                     Title size:{ xs:"4xl" md:"6xl" } weight:"black"
                       "A dedicated team to grow your company"
-                    Text size:"lg" color:"muted"
+                    Text size:"lg"
                       "Introduce the offer with a short message, paired calls to action, and a product story visitors can play when they are ready."
                     Flex direction:{ xs:"column" sm:"row" } align:"center" gap:3
                       Button size:"lg" rounded:"full" iconEnd:"arrow-right"
@@ -137,14 +137,14 @@ page HerosPage
                     src:"https://example.com/video.mp4"
                     aspect:"horizontal"
                     autoplay:false
-                    variant:"soft"
+                    variant:"solid"
                     scheme:"muted"
                     rounded:"xl"
             """
         tab id:"layout-code" label:"Layout Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy layout"
             copiedLabel:"Copied"
@@ -190,11 +190,11 @@ page HerosPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "03 · LEAD FORM"
           Title size:"2xl" weight:"black"
             "Benefits and a compact form generated from reusable data"
-        Button href:"/blocks/hero-preview/lead-form" variant:"soft" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/hero-preview/lead-form" variant:"solid" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
       Tabs variant:"line" position:"top" w:"full"
         tab id:"preview" label:"Preview"
@@ -203,7 +203,7 @@ page HerosPage
         tab id:"hero-code" label:"Hero Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy hero"
             copiedLabel:"Copied"
@@ -227,7 +227,7 @@ page HerosPage
                   Flex direction:"column" align:"start" gap:5
                     Title size:{ xs:"4xl" md:"6xl" } weight:"black"
                       "A dedicated team to grow your company"
-                    Text size:"lg" color:"muted"
+                    Text size:"lg"
                       "Set expectations before asking for contact details, then keep the form focused on information the team can act on."
                     Grid columns:1 gap:3
                       each in:benefits as:benefit key:benefit.id
@@ -235,7 +235,7 @@ page HerosPage
                           Icon name:"check-circle-bold" fill:"primary" w:6 h:6
                           Text weight:"bold"
                             "{benefit.label}"
-                  Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:5 md:8 }
+                  Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:5 md:8 }
                     Grid columns:{ xs:1 sm:2 } gap:4
                       each in:formFields as:field key:field.id
                         Grid columns:1 gap:2
@@ -248,7 +248,7 @@ page HerosPage
         tab id:"layout-code" label:"Layout Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy layout"
             copiedLabel:"Copied"
@@ -294,7 +294,7 @@ page HerosPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "04 · MEDIA CARD"
           Title size:"2xl" weight:"black"
             "A self-contained hero card with a neutral image placeholder"
@@ -307,18 +307,18 @@ page HerosPage
         tab id:"hero-code" label:"Hero Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy hero"
             copiedLabel:"Copied"
             content:"""
               Section id:"media-card-hero" bg:"background" color:"backgroundText" boxed:true py:{ xs:6 md:10 }
-                Card variant:"soft" scheme:"muted" rounded:"xl" minH:"vh-16" p:{ xs:7 md:14 }
+                Card variant:"solid" scheme:"muted" rounded:"xl" minH:"vh-16" p:{ xs:7 md:14 }
                   Grid columns:1 gap:{ xs:10 md:14 } minH:"vh-16"
                     Flex direction:"column" align:"center" justify:"center" gap:5
                       Title size:{ xs:"4xl" md:"6xl" } weight:"black"
                         "A dedicated team to grow your company"
-                      Text size:"lg" color:"muted"
+                      Text size:"lg"
                         "Place a focused message over a generous media surface while keeping the example independent from a specific brand or image."
                       Flex direction:{ xs:"column" sm:"row" } align:"center" justify:"center" gap:3
                         Button size:"lg" rounded:"full" iconEnd:"arrow-right"
@@ -327,13 +327,13 @@ page HerosPage
                           "Talk to sales"
                     Flex direction:"column" align:"center" justify:"center" gap:3 minH:{ xs:44 md:64 }
                       Icon name:"gallery-bold-duotone" fill:"muted" w:16 h:16
-                      Text size:"sm" color:"muted"
+                      Text size:"sm"
                         "Image placeholder"
             """
         tab id:"layout-code" label:"Layout Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy layout"
             copiedLabel:"Copied"
@@ -379,11 +379,11 @@ page HerosPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "05 · SEARCH FIRST"
           Title size:"2xl" weight:"black"
             "A minimal hero centered around one searchable action"
-        Button href:"/blocks/hero-preview/search" variant:"soft" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/hero-preview/search" variant:"solid" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
       Tabs variant:"line" position:"top" w:"full"
         tab id:"preview" label:"Preview"
@@ -392,7 +392,7 @@ page HerosPage
         tab id:"hero-code" label:"Hero Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy hero"
             copiedLabel:"Copied"
@@ -405,7 +405,7 @@ page HerosPage
                   Flex direction:"column" align:"center" justify:"center" gap:6
                     Title size:{ xs:"4xl" md:"6xl" } weight:"black"
                       "A dedicated team to grow your company"
-                    Text size:"lg" color:"muted"
+                    Text size:"lg"
                       "Lead visitors directly to the content, service, or resource they already have in mind."
                     Input:
                       bind:searchQuery
@@ -413,7 +413,7 @@ page HerosPage
                       labelFloating:true
                       placeholder:"Search for..."
                       iconStart:"magnifier"
-                      variant:"soft"
+                      variant:"solid"
                       scheme:"muted"
                       rounded:"full"
                       w:"full"
@@ -422,7 +422,7 @@ page HerosPage
         tab id:"layout-code" label:"Layout Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy layout"
             copiedLabel:"Copied"
@@ -468,7 +468,7 @@ page HerosPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "06 · FULL BLEED"
           Title size:"2xl" weight:"black"
             "A high-contrast canvas with content and media balanced side by side"
@@ -481,7 +481,7 @@ page HerosPage
         tab id:"hero-code" label:"Hero Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy hero"
             copiedLabel:"Copied"
@@ -506,7 +506,7 @@ page HerosPage
         tab id:"layout-code" label:"Layout Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy layout"
             copiedLabel:"Copied"
@@ -552,11 +552,11 @@ page HerosPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "07 · CAROUSEL"
           Title size:"2xl" weight:"black"
             "Several generic hero messages inside one native Carousel"
-        Button href:"/blocks/hero-preview/carousel" variant:"soft" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/hero-preview/carousel" variant:"solid" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
       Tabs variant:"line" position:"top" w:"full"
         tab id:"preview" label:"Preview"
@@ -565,7 +565,7 @@ page HerosPage
         tab id:"hero-code" label:"Hero Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy hero"
             copiedLabel:"Copied"
@@ -584,7 +584,7 @@ page HerosPage
                         "{slideContent.strategy.eyebrow}"
                       Title size:{ xs:"4xl" md:"6xl" } weight:"black"
                         "{slideContent.strategy.title}"
-                      Text size:"lg" color:"muted"
+                      Text size:"lg"
                         "Use a portable Carousel when the hero needs several focused messages with native controls and indicators."
                       Flex direction:{ xs:"column" sm:"row" } align:"center" justify:"center" gap:3
                         Button size:"lg" rounded:"full" iconEnd:"arrow-right"
@@ -597,7 +597,7 @@ page HerosPage
                         "{slideContent.delivery.eyebrow}"
                       Title size:{ xs:"4xl" md:"6xl" } weight:"black"
                         "{slideContent.delivery.title}"
-                      Text size:"lg" color:"muted"
+                      Text size:"lg"
                         "Use a portable Carousel when the hero needs several focused messages with native controls and indicators."
                       Flex direction:{ xs:"column" sm:"row" } align:"center" justify:"center" gap:3
                         Button size:"lg" rounded:"full" iconEnd:"arrow-right"
@@ -610,7 +610,7 @@ page HerosPage
                         "{slideContent.support.eyebrow}"
                       Title size:{ xs:"4xl" md:"6xl" } weight:"black"
                         "{slideContent.support.title}"
-                      Text size:"lg" color:"muted"
+                      Text size:"lg"
                         "Use a portable Carousel when the hero needs several focused messages with native controls and indicators."
                       Flex direction:{ xs:"column" sm:"row" } align:"center" justify:"center" gap:3
                         Button size:"lg" rounded:"full" iconEnd:"arrow-right"
@@ -621,7 +621,7 @@ page HerosPage
         tab id:"layout-code" label:"Layout Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy layout"
             copiedLabel:"Copied"

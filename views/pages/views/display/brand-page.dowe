@@ -10,11 +10,11 @@ page BrandPage
   Section id:"brand-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "DISPLAY"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Brand"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Brand presents a logo or identity mark with optional home navigation, explicit dimensions, and no Button chrome."
       Brand href:"/" label:"Dowe home" w:32 h:8
         Svg viewBox:"0 0 128 32" w:"full" h:"full"
@@ -25,16 +25,16 @@ page BrandPage
   Section id:"brand-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "Give the identity its own interaction surface"
-        Text size:"sm" color:"muted"
-          "Set href when the mark should return home. Brand remains intrinsic unless w or h defines its rendered frame."
+        Text size:"sm"
+          "Set href when the mark should return home. Brand remains intrinsic unless w or h defines its rendered frame; with only one dimension, the other stays automatic and native Svg children preserve their viewBox ratio."
       Card variant:"outlined" p:{ xs:6 md:9 } border:1
         Flex direction:{ xs:"column" md:"row" } justify:"center" align:"center" gap:10
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "NAVIGATES HOME"
             Brand href:"/" label:"Dowe home" w:32 h:8
               Svg viewBox:"0 0 128 32" w:"full" h:"full"
@@ -43,14 +43,14 @@ page BrandPage
                 Path d:"M65 9H73L77 21L81 9H88L92 21L96 9H104L96 30H88L84 19L80 30H72L65 9Z" fill:"primary"
                 Path d:"M105 9H126V15H113V17H124V22H113V24H126V30H105V9Z" fill:"secondary"
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "STATIC MARK"
             Brand label:"Dowe symbol" w:8 h:8
               Svg viewBox:"0 0 32 32" w:"full" h:"full"
                 Path d:"M2 2H18C27 2 32 7 32 16C32 25 27 30 18 30H2V2ZM10 9V23H17C21 23 24 21 24 16C24 11 21 9 17 9H10Z" fill:"primary"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -65,60 +65,60 @@ page BrandPage
   Section id:"brand-contract" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "CONTRACT"
         Title size:"3xl" weight:"black"
           "Identity without action styling"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Brand owns an optional navigation boundary while its children own every visible pixel."
       Grid columns:{ xs:1 md:3 } gap:4
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "NAVIGATION"
           Title size:"lg" weight:"black"
             "href is optional"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Without href the mark is a static identity group. With href the full authored frame becomes interactive."
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "DIMENSIONS"
           Title size:"lg" weight:"black"
             "w and h match Box"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Use common scalar or responsive size values to control the logo frame on every target."
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "VISUALS"
           Title size:"lg" weight:"black"
             "Children stay in control"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Svg and Image are the usual children, but any valid view child is accepted. Brand adds no variant, scheme, padding, or control background."
   Section id:"brand-accessibility" p:{ xs:5 md:7 }
     Grid columns:{ xs:1 md:2 } gap:4
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" color:"muted"
+        Text size:"xs" weight:"bold"
           "ACCESSIBILITY"
         Title size:"xl" weight:"black"
           "Label the identity"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use label when an Svg has no independent text alternative or when the whole navigable mark needs one concise name."
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" color:"muted"
+        Text size:"xs" weight:"bold"
           "APP BARS"
         Title size:"xl" weight:"black"
           "Place Brand in start"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "A Brand in an AppBar start region provides the familiar route home without making a logo look like a text button."
   Section id:"brand-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Brand accepts common identity, visibility, font, spacing, sizing, radius, border, and shadow props."
-      Table data:brandProps variant:"soft" scheme:"surface" size:"sm" striped:true dividers:true rounded:"md"
+      Table data:brandProps variant:"solid" scheme:"surface" size:"sm" striped:true dividers:true rounded:"md"
         column field:"prop" label:"Prop" width:"1.2fr"
         column field:"type" label:"Type" width:"3fr"
         column field:"defaultValue" label:"Default" width:"1.2fr"

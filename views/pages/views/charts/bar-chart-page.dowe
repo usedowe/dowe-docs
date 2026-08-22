@@ -34,13 +34,13 @@ page BarChartPage
   Section id:"bar-chart-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "CHARTS"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "BarChart"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Categorical comparisons with explicit values, grouped series, and readable labels."
-      Card variant:"soft" scheme:"tertiary" p:5 rounded:"lg" minW:56
+      Card variant:"solid" scheme:"tertiary" p:5 rounded:"lg" minW:56
         Grid columns:1 gap:1
           Text size:"xs" weight:"bold" spacing:"widest"
             "CATEGORY FIRST"
@@ -51,15 +51,15 @@ page BarChartPage
   Section id:"bar-chart-basic" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "CATEGORY DATA"
         Title size:"3xl" weight:"black"
           "Make a ranking scannable"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Each category supplies label and value. showValues keeps the number visible while grouped bars preserve the categorical axis."
       BarChart:
         data:channels
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"lg"
         palette:"ocean"
@@ -69,7 +69,7 @@ page BarChartPage
         showGlow:true
         legendPosition:"bottom"
         rounded:"lg"
-      Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+      Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
         type ChartSlice
           label:string
           value:number
@@ -77,16 +77,16 @@ page BarChartPage
 
         signal channels type:ChartSlice[] value:[{ label:"Direct" value:46 color:"primary" }]
 
-        BarChart data:channels variant:"soft" scheme:"surface" size:"lg" palette:"ocean" grouped:true showValues:true barRadius:8
+        BarChart data:channels variant:"solid" scheme:"surface" size:"lg" palette:"ocean" grouped:true showValues:true barRadius:8
       """
   Section id:"bar-chart-series" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "GROUPED SERIES"
         Title size:"3xl" weight:"black"
           "Layer a quarterly comparison"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Bar series contain a name and nested categorical data. Choose grouped for side-by-side comparison or stacked when the total matters more than each bar height."
       Grid columns:{ xs:1 md:2 } gap:4
         BarChart:
@@ -101,7 +101,7 @@ page BarChartPage
           legendPosition:"top"
         BarChart:
           series:quarterly
-          variant:"soft"
+          variant:"solid"
           scheme:"surface"
           size:"lg"
           palette:"sunset"
@@ -110,44 +110,44 @@ page BarChartPage
           barRadius:8
           showGlow:true
           legendPosition:"top"
-      Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+      Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
         type BarSeries
           name:string
           data:ChartSlice[]
         signal quarterly type:BarSeries[] value:[{ name:"New business" data:[{ label:"Q1" value:24 }] }]
 
         BarChart series:quarterly variant:"outlined" scheme:"primary" palette:"forest" grouped:true showValues:true legendPosition:"top"
-        BarChart series:quarterly variant:"soft" scheme:"surface" palette:"sunset" stacked:true showValues:true legendPosition:"top"
+        BarChart series:quarterly variant:"solid" scheme:"surface" palette:"sunset" stacked:true showValues:true legendPosition:"top"
       """
   Section id:"bar-chart-states" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "STATES AND GRID"
         Title size:"3xl" weight:"black"
           "Tune emphasis without losing context"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "hideGrid is useful for compact KPI panels. Keep axes and labels when the chart is the primary evidence for a decision."
       Grid columns:{ xs:1 md:3 } gap:4
         BarChart data:channels variant:"solid" scheme:"surface" size:"md" hideGrid:true showValues:true
-        BarChart data:channels variant:"soft" scheme:"info" size:"md" palette:"neon" showValues:true
+        BarChart data:channels variant:"solid" scheme:"info" size:"md" palette:"neon" showValues:true
         BarChart data:emptyBars variant:"outlined" scheme:"warning" size:"md" emptyLabel:"No channel data"
-      Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+      Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
         BarChart data:channels variant:"solid" scheme:"surface" hideGrid:true showValues:true
         BarChart data:emptyBars variant:"outlined" scheme:"warning" emptyLabel:"No channel data"
       """
   Section id:"bar-chart-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "BarChart also accepts applicable common identity, spacing, sizing, visibility, radius, border, and accessibility props."
       Table:
         data:barProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

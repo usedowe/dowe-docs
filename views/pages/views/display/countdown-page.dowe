@@ -12,13 +12,13 @@ page CountdownPage
   Section id:"countdown-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "DISPLAY"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Countdown"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Countdown renders time remaining until a target instant with consistent units, labels, separators, responsive overflow, and target-owned ticking behavior."
-      Card variant:"soft" scheme:"warning" p:5 rounded:"lg" minW:56
+      Card variant:"solid" scheme:"warning" p:5 rounded:"lg" minW:56
         Grid columns:1 gap:1
           Text size:"xs" weight:"bold" spacing:"widest"
             "TIME-BASED UI"
@@ -29,107 +29,107 @@ page CountdownPage
   Section id:"countdown-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "Compose a launch timeline"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The same target instant can be presented with different density and emphasis depending on where it appears in the product."
       Grid columns:{ xs:1 md:2 } gap:4
         Card variant:"outlined" border:1 p:{ xs:5 md:7 }
           Grid columns:1 gap:4
-            Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+            Text size:"xs" weight:"bold" spacing:"widest"
               "FULL TIMELINE"
             Countdown target:"2030-01-01T00:00:00Z" size:"lg" variant:"outlined" scheme:"primary" daysLabel:"Days" hoursLabel:"Hours" minutesLabel:"Minutes" secondsLabel:"Seconds"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Calendar-scale day values expand their unit. Narrow containers compact lg and xl timelines, keep fitting timelines centered, and use bounded horizontal scroll only as a final fallback."
         Card scheme:"muted" p:{ xs:5 md:7 }
           Grid columns:1 gap:4
             Text size:"xs" weight:"bold" spacing:"widest" color:"mutedText"
               "LAST MILE"
-            Countdown target:"2030-01-01T00:00:00Z" showDays:false showHours:true showMinutes:true showSeconds:true size:"xl" variant:"soft" scheme:"danger" hoursLabel:"hrs" minutesLabel:"min" secondsLabel:"sec"
+            Countdown target:"2030-01-01T00:00:00Z" showDays:false showHours:true showMinutes:true showSeconds:true size:"xl" variant:"solid" scheme:"danger" hoursLabel:"hrs" minutesLabel:"min" secondsLabel:"sec"
             Text size:"sm" color:"mutedText"
               "Hide days when the audience is already inside the final delivery window."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
           Countdown target:"2030-01-01T00:00:00Z" size:"lg" variant:"outlined" scheme:"primary" daysLabel:"Days" hoursLabel:"Hours" minutesLabel:"Minutes" secondsLabel:"Seconds"
-          Countdown target:"2030-01-01T00:00:00Z" showDays:false showHours:true showMinutes:true showSeconds:true size:"xl" variant:"soft" scheme:"danger" hoursLabel:"hrs" minutesLabel:"min" secondsLabel:"sec"
+          Countdown target:"2030-01-01T00:00:00Z" showDays:false showHours:true showMinutes:true showSeconds:true size:"xl" variant:"solid" scheme:"danger" hoursLabel:"hrs" minutesLabel:"min" secondsLabel:"sec"
         """
   Section id:"countdown-patterns" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "ADVANCED PATTERNS"
         Title size:"3xl" weight:"black"
           "Tune units to the job"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Countdown is useful for launches, handoffs, and limited windows when the authored labels explain exactly what the numbers mean."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:3
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "EVENT"
             Title size:"lg" weight:"black"
               "Launch day"
-            Countdown target:"2030-01-01T00:00:00Z" size:"md" variant:"soft" scheme:"success" showDays:true showHours:false showMinutes:false showSeconds:false daysLabel:"Days to launch"
-        Card variant:"soft" p:5
+            Countdown target:"2030-01-01T00:00:00Z" size:"md" variant:"solid" scheme:"success" showDays:true showHours:false showMinutes:false showSeconds:false daysLabel:"Days to launch"
+        Card variant:"solid" p:5
           Grid columns:1 gap:3
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "HANDOFF"
             Title size:"lg" weight:"black"
               "Review window"
             Countdown target:"2030-01-01T00:00:00Z" size:"md" variant:"outlined" scheme:"info" showDays:false showHours:true showMinutes:true showSeconds:false hoursLabel:"Hours left" minutesLabel:"Minutes left"
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:3
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "MICRO"
             Title size:"lg" weight:"black"
               "Final seconds"
             Countdown target:"2030-01-01T00:00:00Z" size:"sm" variant:"ghost" scheme:"warning" showDays:false showHours:false showMinutes:false showSeconds:true secondsLabel:"Seconds remaining"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Countdown target:"2030-01-01T00:00:00Z" size:"md" variant:"soft" scheme:"success" showDays:true showHours:false showMinutes:false showSeconds:false daysLabel:"Days to launch"
+          Countdown target:"2030-01-01T00:00:00Z" size:"md" variant:"solid" scheme:"success" showDays:true showHours:false showMinutes:false showSeconds:false daysLabel:"Days to launch"
           Countdown target:"2030-01-01T00:00:00Z" size:"md" variant:"outlined" scheme:"info" showDays:false showHours:true showMinutes:true showSeconds:false hoursLabel:"Hours left" minutesLabel:"Minutes left"
           Countdown target:"2030-01-01T00:00:00Z" size:"sm" variant:"ghost" scheme:"warning" showDays:false showHours:false showMinutes:false showSeconds:true secondsLabel:"Seconds remaining"
         """
   Section id:"countdown-contract" p:{ xs:5 md:7 }
     Grid columns:{ xs:1 md:2 } gap:4
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "TARGET"
         Title size:"xl" weight:"black"
           "Use an ISO-like instant"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The target is a quoted static date/time string. Keep the same instant in copied examples and server-owned workflow data."
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "COMPLETION"
         Title size:"xl" weight:"black"
           "Dispatch onComplete"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "When the page needs a follow-up action, connect onComplete to an action name. Web, Android, and iOS update immediately, tick once per second, clamp at zero, and dispatch the action once."
   Section id:"countdown-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Countdown also accepts the applicable common spacing, sizing, border, visibility, and accessibility props."
       Table:
         data:countdownProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

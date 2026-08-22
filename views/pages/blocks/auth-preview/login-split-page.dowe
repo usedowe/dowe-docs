@@ -3,7 +3,7 @@ page LoginSplitAuthPage
   Section id:"login-split-auth" p:0 minH:"vh-0"
     Grid columns:{ xs:1 md:2 } gap:0 minH:"vh-0"
       Box:
-        bg:"softPrimary"
+        bg:"muted"
         color:"primary"
         minH:{ xs:40 md:"vh-0" }
         p:{ xs:6 md:12 }
@@ -24,13 +24,13 @@ page LoginSplitAuthPage
             Grid columns:1 gap:2
               Title size:"3xl" weight:"black"
                 "Log in"
-              Text size:"sm" color:"muted"
+              Text size:"sm"
                 "Welcome back. Enter your details to continue."
             Grid columns:1 gap:4
-              Input bind:form.email label:"Email address" placeholder:"you@example.com" helpText:"Use the email associated with your account." variant:"soft" w:"full"
+              Input bind:form.email label:"Email address" placeholder:"you@example.com" helpText:"Use the email associated with your account." variant:"solid" w:"full"
                 validate rule:"required" message:"Enter your email address."
                 validate rule:"email" message:"Enter a valid email address."
-              Password bind:form.password label:"Password" placeholder:"Enter your password" hideStrength:true variant:"soft" w:"full"
+              Password bind:form.password label:"Password" placeholder:"Enter your password" hideStrength:true variant:"solid" w:"full"
               Flex justify:"between" align:"center" gap:2
                 Checkbox bind:form.remember label:"Remember me"
                 Button href:"/blocks/auth-preview/forgot-password" variant:"ghost" size:"xs"
@@ -39,7 +39,7 @@ page LoginSplitAuthPage
                 "Log in"
             Grid columns:3 gap:3 align:"center"
               Divider
-              Text size:"xs" color:"muted"
+              Text size:"xs"
                 "OR"
               Divider
             Grid columns:{ xs:1 lg:2 } gap:2

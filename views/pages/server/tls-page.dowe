@@ -18,24 +18,24 @@ page TlsPage
     ]
   Section id:"tls-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "SERVER / TLS"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Own HTTPS in the Dowe runtime"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Dowe issues, caches, and renews multi-domain Let's Encrypt certificates without Certbot, Node.js, or an external reverse proxy."
   Section id:"tls-acme" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "1 / ACME"
         Title size:"3xl" weight:"black"
           "Declare every public hostname"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "TLS-ALPN-01 runs on the HTTPS listener. The cache lives below .dowe, staging is safe by default, and certificate state is polled for automatic renewal."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -50,7 +50,7 @@ page TlsPage
         """
       Table:
         data:tlsAcmeRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -61,15 +61,15 @@ page TlsPage
   Section id:"tls-managed-domains" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "2 / MANAGED DOMAINS"
         Title size:"3xl" weight:"black"
           "Feed domains from Dowe data"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "A reverse proxy or application platform can load domains from local Dowe data or an authenticated HTTPS control plane. Dowe validates and reloads the effective set when it changes."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -90,7 +90,7 @@ page TlsPage
         """
       Table:
         data:tlsManagedRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -100,7 +100,7 @@ page TlsPage
         column field:"guidance" label:"What happens" width:"5fr"
       Table:
         data:tlsPolicyRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -111,15 +111,15 @@ page TlsPage
   Section id:"tls-local" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "3 / LOCAL DEVELOPMENT"
         Title size:"3xl" weight:"black"
           "Use a self-signed localhost certificate"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Let's Encrypt does not issue localhost certificates. Local mode creates an ephemeral self-signed certificate without modifying the system trust store."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"

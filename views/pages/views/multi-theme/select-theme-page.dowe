@@ -25,32 +25,32 @@ page SelectThemePage
   Section id:"select-theme-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "MULTI THEME"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "SelectTheme"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "SelectTheme turns the named themes from theme.dowe into one portable, persisted picker."
   Section id:"select-theme-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "Choose from all 17 configured themes"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The options come from the complete themes example catalog. Do not author Option children or a binding for this component."
       Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Grid columns:1 gap:5
           Grid columns:1 gap:1
             Title size:"lg" weight:"bold"
               "17-theme catalog"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "This app exposes Light, Dark, Palette 2, Palette 3, and Palette 5 through Palette 17 in their declared order."
           SelectTheme label:"Documentation theme" placeholder:"Choose a theme" variant:"outlined" scheme:"surface"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -64,15 +64,15 @@ page SelectThemePage
   Section id:"select-theme-catalog" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "CATALOG"
         Title size:"3xl" weight:"black"
           "Theme names stay in theme.dowe"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Add, order, and extend themes in the root theme declaration. SelectTheme automatically receives every normalized name in that same order."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy theme.dowe"
         copiedLabel:"Copied"
@@ -98,89 +98,89 @@ page SelectThemePage
               theme name:"palette-17" extends:"light"
         """
       Grid columns:1 gap:4
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "DISPLAY"
             Title size:"lg" weight:"bold"
               "Readable labels"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "palette-2 is presented as Palette 2, while its persisted value stays palette-2."
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "FALLBACK"
             Title size:"lg" weight:"bold"
               "A safe default"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "An unavailable stored name falls back to design.defaultTheme before the view is shown."
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "SYNC"
             Title size:"lg" weight:"bold"
               "All controls agree"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Selection updates every visible SelectTheme and ToggleTheme control through theme-preference without leaving the current page."
   Section id:"select-theme-layout" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "LAYOUT"
         Title size:"3xl" weight:"black"
           "Pair the picker with an action"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Inside a direct Flex row with no explicit width, SelectTheme uses the remaining row width while adjacent actions keep their intrinsic size."
       Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Flex gap:3 align:"end"
           SelectTheme label:"Theme" placeholder:"Choose a theme" variant:"outlined" scheme:"surface"
-          ToggleTheme variant:"soft" scheme:"secondary" size:"md"
+          ToggleTheme variant:"solid" scheme:"secondary" size:"md"
   Section id:"select-theme-contract" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "BEHAVIOR"
         Title size:"3xl" weight:"black"
           "One catalog, every target"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "SelectTheme reuses Select's field, popover, focus behavior, and accessibility surface; it adds only automatic options and the theme preference side effect."
       Grid columns:1 gap:4
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "NO CHILDREN"
             Title size:"lg" weight:"bold"
               "No manual options"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Option children are rejected because the generated catalog is the single source of choices."
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "PERSISTENCE"
             Title size:"lg" weight:"bold"
               "Restore the chosen name"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Web, Android, and iOS restore the selected name and apply its tokens immediately."
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "COMPANION"
             Title size:"lg" weight:"bold"
               "A compact companion"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Use ToggleTheme for a compact light/dark action alongside the complete picker."
   Section id:"select-theme-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "SelectTheme props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "SelectTheme also accepts applicable common identity, spacing, sizing, visibility, radius, border, and shadow props. It does not accept children, Option nodes, or bind."
       Table:
         data:selectThemeProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

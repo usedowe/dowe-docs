@@ -4,12 +4,12 @@ page NavMenuPage
       {
         prop:"variant"
         type:"solid | soft | outlined | ghost"
-        defaultValue:"ghost"
+        defaultValue:"solid"
       },
       {
         prop:"scheme"
         type:"primary | secondary | tertiary | muted | background | surface | success | info | warning | danger"
-        defaultValue:"muted"
+        defaultValue:"surface"
       },
       {
         prop:"size"
@@ -77,28 +77,28 @@ page NavMenuPage
   Section id:"navmenu-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "NAVIGATION"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "NavMenu"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "NavMenu creates portable horizontal navigation with links, expandable submenus, and rich megamenu content."
   Section id:"navmenu-default" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "HORIZONTAL NAVIGATION"
         Title size:"3xl" weight:"black"
           "Direct links and local menus"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Place NavMenu in an AppBar center region or another horizontal shell. Direct items navigate immediately; submenu and megamenu triggers keep their own open state."
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Web, Android, and iOS open submenu and megamenu content in a floating overlay, so the page layout never moves. The popover uses the theme background surface while scheme styles its trigger and active destinations."
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Activating a submenu or megamenu trigger again toggles its overlay closed; activating content inside it dispatches navigation or an action before dismissal."
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "On iOS, NavMenu uses the same Dowe-owned anchored overlay as Dropdown instead of the system popover. Android lets the selected child run before popup dismissal, then animates to the laid-out Section below the AppBar."
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "An item can use href:\"#navmenu-structure\" to target a Section id on the current page. Dowe validates the fragment, scrolls smoothly, respects reduced motion, and keeps the destination below a fixed or sticky AppBar."
       Card variant:"outlined" p:{ xs:5 md:8 } border:1
         Flex justify:"center"
@@ -110,7 +110,7 @@ page NavMenuPage
             item label:"Props" href:"#navmenu-props"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -125,11 +125,11 @@ page NavMenuPage
   Section id:"navmenu-variations" py:{ xs:7 md:10 }
     Grid columns:1 gap:8
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "VISUAL OPTIONS"
         Title size:"3xl" weight:"black"
           "Variants, schemes, and sizes"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Visual props apply to links, open triggers, and active destinations without changing the navigation structure."
       Grid columns:1 gap:4
         Title size:"xl" weight:"bold"
@@ -137,7 +137,7 @@ page NavMenuPage
         Flex wrap:true align:"start" gap:5
           NavMenu variant:"solid" scheme:"primary" size:"sm"
             item label:"Solid" href:"/docs/views/navigation/navmenu"
-          NavMenu variant:"soft" scheme:"primary" size:"sm"
+          NavMenu variant:"solid" scheme:"primary" size:"sm"
             item label:"Soft" href:"/docs/views/navigation/navmenu"
           NavMenu variant:"outlined" scheme:"primary" size:"sm"
             item label:"Outlined" href:"/docs/views/navigation/navmenu"
@@ -147,47 +147,47 @@ page NavMenuPage
         Title size:"xl" weight:"bold"
           "Schemes"
         Flex wrap:true align:"start" gap:5
-          NavMenu variant:"soft" scheme:"primary" size:"sm"
+          NavMenu variant:"solid" scheme:"primary" size:"sm"
             item label:"Primary" href:"/docs/views/navigation/navmenu"
-          NavMenu variant:"soft" scheme:"secondary" size:"sm"
+          NavMenu variant:"solid" scheme:"secondary" size:"sm"
             item label:"Secondary" href:"/docs/views/navigation/navmenu"
-          NavMenu variant:"soft" scheme:"tertiary" size:"sm"
+          NavMenu variant:"solid" scheme:"tertiary" size:"sm"
             item label:"Tertiary" href:"/docs/views/navigation/navmenu"
-          NavMenu variant:"soft" scheme:"muted" size:"sm"
+          NavMenu variant:"solid" scheme:"primary" size:"sm"
             item label:"Muted" href:"/docs/views/navigation/navmenu"
-          NavMenu variant:"soft" scheme:"success" size:"sm"
+          NavMenu variant:"solid" scheme:"success" size:"sm"
             item label:"Success" href:"/docs/views/navigation/navmenu"
-          NavMenu variant:"soft" scheme:"warning" size:"sm"
+          NavMenu variant:"solid" scheme:"warning" size:"sm"
             item label:"Warning" href:"/docs/views/navigation/navmenu"
-          NavMenu variant:"soft" scheme:"danger" size:"sm"
+          NavMenu variant:"solid" scheme:"danger" size:"sm"
             item label:"Danger" href:"/docs/views/navigation/navmenu"
       Grid columns:1 gap:4
         Title size:"xl" weight:"bold"
           "Sizes"
         Flex wrap:true align:"start" gap:5
-          NavMenu variant:"outlined" scheme:"muted" size:"sm"
+          NavMenu variant:"outlined" scheme:"primary" size:"sm"
             item label:"Small" href:"/docs/views/navigation/navmenu"
-          NavMenu variant:"outlined" scheme:"muted" size:"md"
+          NavMenu variant:"outlined" scheme:"primary" size:"md"
             item label:"Medium" href:"/docs/views/navigation/navmenu"
-          NavMenu variant:"outlined" scheme:"muted" size:"lg"
+          NavMenu variant:"outlined" scheme:"primary" size:"lg"
             item label:"Large" href:"/docs/views/navigation/navmenu"
   Section id:"navmenu-structure" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "STRUCTURE"
         Title size:"3xl" weight:"black"
           "Submenus and megamenus"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "A submenu contains direct navigation items. A megamenu owns one content region, where normal view components can form a richer destination panel."
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Activating content inside either popover dispatches its navigation or action before closing the overlay on web, Android, and iOS. Tapping the trigger again or outside also closes it."
       Grid columns:{ xs:1 md:2 } gap:5
-        Card variant:"soft" p:6
+        Card variant:"solid" p:6
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Submenu destinations"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Submenu triggers cannot navigate or call an action. Their arrow toggles the local menu and rotates while the menu is visible."
             Code:
               language:"dowe"
@@ -199,11 +199,11 @@ page NavMenuPage
                     item label:"Guides" description:"Start here" href:"/guides"
                     item label:"API" description:"Reference" href:"/api"
               """
-        Card variant:"soft" p:6
+        Card variant:"solid" p:6
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Megamenu content"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Use the required content region to group normal view nodes. The floating surface closes after content activation, trigger reactivation, or outside interaction; web also supports Escape."
             Code:
               language:"dowe"
@@ -214,43 +214,43 @@ page NavMenuPage
                   megamenu label:"Resources"
                     content
                       Grid columns:{ xs:1 md:2 } gap:4
-                        Card variant:"soft" p:4
+                        Card variant:"solid" p:4
                           Title size:"lg"
                             "Learn"
-                          Text size:"sm" color:"muted"
+                          Text size:"sm"
                             "Guides and examples."
               """
       Card variant:"outlined" p:{ xs:5 md:8 } border:1
         Flex justify:"center"
-          NavMenu variant:"soft" scheme:"muted" size:"md"
+          NavMenu variant:"solid" scheme:"primary" size:"md"
             item label:"Home" href:"/docs/views"
             megamenu label:"Resources"
               content
                 Grid columns:{ xs:1 md:2 } gap:4 p:4
-                  Card variant:"soft" p:4
+                  Card variant:"solid" p:4
                     Grid columns:1 gap:2
                       Title size:"lg" weight:"bold"
                         "Learn"
-                      Text size:"sm" color:"muted"
+                      Text size:"sm"
                         "Guides, examples, and component references."
-                  Card variant:"soft" p:4
+                  Card variant:"solid" p:4
                     Grid columns:1 gap:2
                       Title size:"lg" weight:"bold"
                         "Build"
-                      Text size:"sm" color:"muted"
+                      Text size:"sm"
                         "Compiler, targets, and deployment resources."
   Section id:"navmenu-icons" p:{ xs:5 md:7 }
     Grid columns:{ xs:1 md:2 } gap:6 align:"center"
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PORTABLE ICONS"
         Title size:"3xl" weight:"black"
           "Use one custom SVG per entry"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Each item, submenu, or megamenu can contain one icon block with exactly one Svg. The same vector lowers to web, Android, and iOS."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         content:"""
           NavMenu size:"md"
@@ -268,15 +268,15 @@ page NavMenuPage
     Grid columns:1 gap:8
       Grid columns:1 gap:5
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          Text size:"xs" weight:"bold" spacing:"widest"
             "API"
           Title size:"3xl" weight:"black"
             "NavMenu props"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "NavMenu also accepts applicable common identity, spacing, sizing, typography, visibility, radius, and border props. Use scheme, not color, for its visual family."
         Table:
           data:navMenuProps
-          variant:"soft"
+          variant:"solid"
           scheme:"surface"
           size:"sm"
           striped:true
@@ -289,11 +289,11 @@ page NavMenuPage
         Grid columns:1 gap:2
           Title size:"2xl" weight:"black"
             "Entry props"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Every entry needs a label. Only item entries can navigate or invoke an action; href and onClick are mutually exclusive."
         Table:
           data:entryProps
-          variant:"soft"
+          variant:"solid"
           scheme:"surface"
           size:"sm"
           striped:true

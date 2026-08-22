@@ -77,25 +77,25 @@ page AppBarPage
     ]
   Section id:"appbar-introduction" py:{ xs:6 md:10 }
     Flex direction:"column" gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "LAYOUT"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "AppBar"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "AppBar provides top-level navigation through explicit top, start, center, end, and bottom regions."
   Section id:"appbar-mental-model" p:{ xs:5 md:7 }
     Flex direction:"column" gap:5
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "MENTAL MODEL"
         Title size:"3xl" weight:"black"
           "Place the bar in a Scaffold"
-        Text color:"muted"
+        Text
           "Scaffold owns shell placement. AppBar owns the horizontal content regions and their visual surface. boxed:true keeps that surface full width while centering its inner content at 96rem on web or 1536 logical units on Android and iOS."
-      Alert type:"info" variant:"soft" scheme:"info" message:"AppBar stays visually flat on web, Android, and iOS unless you declare border, bordered:true, or floating:true. A sticky floating AppBar placed directly in Scaffold appBar overlays the web and desktop main body so page content remains visible beneath its surface. Sticky and fixed placement does not add an implicit divider, elevation, or shadow."
+      Alert type:"info" variant:"solid" scheme:"info" message:"AppBar stays visually flat on web, Android, and iOS unless you declare border, bordered:true, or floating:true. A sticky floating AppBar placed directly in Scaffold appBar overlays the web and desktop main body so page content remains visible beneath its surface. Sticky and fixed placement does not add an implicit divider, elevation, or shadow."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -103,7 +103,7 @@ page AppBarPage
           layout MainLayout
             Scaffold
               appBar
-                AppBar variant:"soft" position:"sticky" boxed:true bordered:true hideOnScroll:true
+                AppBar variant:"solid" position:"sticky" boxed:true bordered:true hideOnScroll:true
                   top
                     Marquee speed:"slow"
                       Text size:"xs"
@@ -118,7 +118,7 @@ page AppBarPage
                     Button href:"/" variant:"ghost" size:"sm"
                       "Home"
                   bottom
-                    Text size:"xs" color:"muted"
+                    Text size:"xs"
                       "Scroll down to hide · scroll up to reveal"
               main
                 children
@@ -126,11 +126,11 @@ page AppBarPage
   Section id:"appbar-examples" py:{ xs:7 md:10 }
     Flex direction:"column" gap:6
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "LIVE EXAMPLES"
         Title size:"3xl" weight:"black"
           "AppBar inside its real shell"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Each preview is a complete routed page with one Scaffold, so scrolling and shell spacing remain observable."
       Flex direction:"column" gap:3
         Title size:"xl" weight:"bold"
@@ -140,30 +140,30 @@ page AppBarPage
       Flex direction:"column" gap:3
         Title size:"xl" weight:"bold"
           "Floating, docked on scroll"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Scroll beyond 100 logical units to animate the fixed floating surface into the viewport top edge on web, Android, and iOS. Native side controls remain on one line while the surface changes width, radius, and border."
         Device device:"mobile" w:"full" rounded:"md" border:1
           Iframe src:"/examples/appbar-two" title:"Floating AppBar docking on scroll example" loading:"lazy" sandbox:"scripts same-origin"
       Flex direction:"column" gap:3
         Title size:"xl" weight:"bold"
           "Full-width regions and scroll reveal"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Scroll down to hide the AppBar, then scroll upward to reveal it again."
         Device device:"mobile" w:"full" rounded:"md" border:1
           Iframe src:"/examples/appbar-slots-scroll" title:"AppBar top bottom and scroll reveal example" loading:"lazy" sandbox:"scripts same-origin"
   Section id:"appbar-regions" p:{ xs:5 md:7 }
     Flex direction:"column" gap:5
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "REGIONS"
         Title size:"3xl" weight:"black"
           "A full-width frame around the main row"
-        Text color:"muted"
+        Text
           "top and bottom span the AppBar. start and end size to their content, while center takes the flexible space between them. Each region can contain ordinary view nodes."
-      Alert type:"info" variant:"soft" scheme:"info" message:"Use sticky or fixed AppBars inside Scaffold appBar. Scaffold measures fixed bars automatically; outside Scaffold, a fixed AppBar overlays normal web content."
+      Alert type:"info" variant:"solid" scheme:"info" message:"Use sticky or fixed AppBars inside Scaffold appBar. Scaffold measures fixed bars automatically; outside Scaffold, a fixed AppBar overlays normal web content."
       Table:
         data:appBarRegions
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -175,15 +175,15 @@ page AppBarPage
   Section id:"appbar-props" py:{ xs:7 md:10 }
     Flex direction:"column" gap:5
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "AppBar also accepts applicable common spacing, sizing, typography, visibility, and accessibility props."
       Table:
         data:appBarProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

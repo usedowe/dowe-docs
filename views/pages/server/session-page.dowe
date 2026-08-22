@@ -23,24 +23,24 @@ page SessionPage
     ]
   Section id:"session-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "SERVER / SESSIONS"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Opaque sessions"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Bearer describes how a credential travels. It does not require JWT. Dowe's CRUD template uses a server-owned ULID session backed by Cache and Database."
   Section id:"session-mental-model" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "1 / MENTAL MODEL"
         Title size:"3xl" weight:"black"
           "Use an opaque ULID as the session id"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "id session source:\"ulid\" generates a canonical 26-character ULID on the server. The client receives only the opaque id and sends it as Authorization: Bearer <ulid>. Claims and database credentials never enter the token."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -54,7 +54,7 @@ page SessionPage
         """
       Table:
         data:sessionModelRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -65,15 +65,15 @@ page SessionPage
   Section id:"session-validation" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "2 / MIDDLEWARE"
         Title size:"3xl" weight:"black"
           "Validate Cache first, then Database"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "session.verify rejects malformed or expired ULIDs, checks Cache, falls back to the sessions table, and returns valid:false when the session is absent. Only verified data should reach next context."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -89,7 +89,7 @@ page SessionPage
         """
       Table:
         data:sessionValidationRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -100,15 +100,15 @@ page SessionPage
   Section id:"session-lifecycle" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "3 / LIFECYCLE"
         Title size:"3xl" weight:"black"
           "Expiration and logout are stateful"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The default CRUD maxAge is 30 days. Runtime checks the ULID timestamp on every validation. Logout deletes both session:<ulid> from Cache and the matching sessions record, so revocation is immediate."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -119,7 +119,7 @@ page SessionPage
         """
       Table:
         data:sessionLifecycleRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -130,15 +130,15 @@ page SessionPage
   Section id:"session-jwt-choice" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "4 / DESIGN CHOICE"
         Title size:"3xl" weight:"black"
           "When should you use JWT?"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Choose the credential model from the authority your application needs: shared state favors immediate revocation, while signed assertions favor independent verification."
       Table:
         data:sessionChoiceRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

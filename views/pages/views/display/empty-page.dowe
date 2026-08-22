@@ -24,58 +24,58 @@ page EmptyPage
   Section id:"empty-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "DISPLAY"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Empty"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Empty gives a missing-data workflow a semantic Solar bold-duotone icon, useful copy, and one explicit next action. Its type selects the icon from the shared Icon catalog, so web, Android, and iOS stay visually aligned."
-      Empty type:"result" title:"No saved views" description:"Create a view to keep this workspace close at hand." actionLabel:"Create a view" variant:"soft" scheme:"primary" onClick:openTemplate
+      Empty type:"result" title:"No saved views" description:"Create a view to keep this workspace close at hand." actionLabel:"Create a view" variant:"solid" scheme:"primary" onClick:openTemplate
   Section id:"empty-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "Match the state to the job"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The type selects a portable icon family. Keep the title and description specific, then choose either navigation or an action for the recovery path. The icon is resolved internally; use Icon separately only when a surrounding layout needs an additional visual cue."
       Grid columns:{ xs:1 md:2 } gap:4
         Card variant:"outlined" p:{ xs:5 md:7 } border:1
           Grid columns:1 gap:4
-            Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+            Text size:"xs" weight:"bold" spacing:"widest"
               "SEARCH"
-            Empty type:"result" title:"No matching projects" description:"Try a broader query or reset the filters." actionLabel:"Reset filters" variant:"soft" scheme:"info" onClick:retrySearch
+            Empty type:"result" title:"No matching projects" description:"Try a broader query or reset the filters." actionLabel:"Reset filters" variant:"solid" scheme:"info" onClick:retrySearch
         Card variant:"outlined" p:{ xs:5 md:7 } border:1
           Grid columns:1 gap:4
-            Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+            Text size:"xs" weight:"bold" spacing:"widest"
               "TEMPLATE"
             Empty type:"template" title:"Start from a template" description:"Choose a starter surface before adding your own content." actionLabel:"Browse templates" href:"/docs/views" variant:"outlined" scheme:"secondary"
-      Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+      Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
         Empty type:"result" title:"No matching projects" description:"Try a broader query or reset the filters." actionLabel:"Reset filters" onClick:retrySearch
         Empty type:"template" title:"Start from a template" description:"Choose a starter surface before adding your own content." actionLabel:"Browse templates" href:"/docs/views"
       """
   Section id:"empty-types" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "ILLUSTRATION TYPES"
         Title size:"3xl" weight:"black"
           "Four states, one recovery pattern"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use the type as a semantic hint rather than a visual hack. Empty maps each type to a bundled Icon name, while the same action contract works for lists, search, datasets, and starter surfaces."
       Grid columns:{ xs:2 md:4 } gap:4
-        Empty type:"playlist" title:"No playlist yet" description:"Save content to build a queue." actionLabel:"Add content" scheme:"primary" variant:"soft" onClick:openTemplate
-        Empty type:"result" title:"No results" description:"Change the query and search again." actionLabel:"Search again" scheme:"info" variant:"soft" onClick:retrySearch
+        Empty type:"playlist" title:"No playlist yet" description:"Save content to build a queue." actionLabel:"Add content" scheme:"primary" variant:"solid" onClick:openTemplate
+        Empty type:"result" title:"No results" description:"Change the query and search again." actionLabel:"Search again" scheme:"info" variant:"solid" onClick:retrySearch
         Empty type:"data" title:"No data" description:"Connect a source to populate this view." actionLabel:"Connect source" scheme:"success" variant:"outlined" onClick:openTemplate
         Empty type:"template" title:"No template selected" description:"Pick a starting point for this page." actionLabel:"Choose template" scheme:"secondary" variant:"ghost" href:"/docs/views"
-      Card variant:"soft" p:{ xs:5 md:7 }
+      Card variant:"solid" p:{ xs:5 md:7 }
         Grid columns:1 gap:4
-          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          Text size:"xs" weight:"bold" spacing:"widest"
             "SHARED ICON CATALOG"
           Title size:"lg" weight:"black"
             "Semantic mapping, target-native output"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Empty reuses the same validated Solar bold-duotone geometry as Icon. The mapping is part of the component contract, not a private illustration implementation."
           Flex gap:4 align:"center"
             Icon name:"playlist-bold-duotone" fill:"primary" w:8 h:8
@@ -86,7 +86,7 @@ page EmptyPage
             column field:"type" label:"Type" width:"1fr"
             column field:"icon" label:"Icon name" width:"2fr"
             column field:"when" label:"Use for" width:"3fr"
-      Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+      Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
         Empty type:"playlist" title:"No playlist yet" description:"Save content to build a queue." actionLabel:"Add content"
         Empty type:"result" title:"No results" description:"Change the query and search again." actionLabel:"Search again"
         Empty type:"data" title:"No data" description:"Connect a source to populate this view." actionLabel:"Connect source"
@@ -95,42 +95,42 @@ page EmptyPage
   Section id:"empty-workflows" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "ADVANCED WORKFLOWS"
         Title size:"3xl" weight:"black"
           "Make the next step obvious"
       Grid columns:{ xs:1 md:3 } gap:4
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "FILTERED COLLECTION"
           Title size:"lg" weight:"black"
             "Reset, do not dead-end"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Use onClick when the parent page owns a local reset or query mutation."
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "NEW SURFACE"
           Title size:"lg" weight:"black"
             "Navigate to a builder"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Use href when the recovery step is a route and does not need local state."
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "COPY"
           Title size:"lg" weight:"black"
             "Name the absence"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "A specific title and description help people understand whether to wait, search, create, or connect."
   Section id:"empty-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Empty also accepts common spacing, sizing, visibility, border, radius, and accessibility props."
-      Table data:emptyProps variant:"soft" scheme:"surface" size:"sm" striped:true dividers:true rounded:"md"
+      Table data:emptyProps variant:"solid" scheme:"surface" size:"sm" striped:true dividers:true rounded:"md"
         column field:"prop" label:"Prop" width:"1.2fr"
         column field:"type" label:"Type" width:"3fr"
         column field:"defaultValue" label:"Default" width:"1.2fr"

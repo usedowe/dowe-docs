@@ -25,54 +25,54 @@ page SplitMediaTestimonialsPage
         Grid columns:1 gap:3
           Title size:{ xs:"3xl" md:"5xl" } weight:"black"
             "What our clients say"
-          Text size:"lg" color:"muted"
+          Text size:"lg"
             "A flexible testimonial story with a prominent media placeholder and clear attribution."
       Carousel variant:"controls" scheme:"primary" hideIndicators:true gap:4
         slide id:"john"
-          Card variant:"soft" rounded:"xl"
+          Card variant:"solid" rounded:"xl"
             Grid columns:{ xs:1 md:2 } minH:96
-              Box bg:"softMuted" minH:{ xs:64 md:96 } p:8
+              Box bg:"muted" minH:{ xs:64 md:96 } p:8
                 Flex align:"center" justify:"center" minH:{ xs:48 md:80 }
                   Icon name:"gallery-bold-duotone" fill:"muted" w:20 h:20
               Flex direction:"column" align:"start" justify:"center" gap:5 p:{ xs:7 md:12 }
                 Title size:{ xs:"2xl" md:"3xl" } weight:"black"
                   "{testimonials.john.title}"
-                Text size:"lg" color:"muted"
+                Text size:"lg"
                   "{testimonials.john.quote}"
                 Grid columns:1 gap:1
                   Text weight:"bold"
                     "{testimonials.john.name}"
-                  Text color:"muted"
+                  Text
                     "{testimonials.john.role}"
         slide id:"sophie"
-          Card variant:"soft" rounded:"xl"
+          Card variant:"solid" rounded:"xl"
             Grid columns:{ xs:1 md:2 } minH:96
-              Box bg:"softMuted" minH:{ xs:64 md:96 } p:8
+              Box bg:"muted" minH:{ xs:64 md:96 } p:8
                 Flex align:"center" justify:"center" minH:{ xs:48 md:80 }
                   Icon name:"gallery-bold-duotone" fill:"muted" w:20 h:20
               Flex direction:"column" align:"start" justify:"center" gap:5 p:{ xs:7 md:12 }
                 Title size:{ xs:"2xl" md:"3xl" } weight:"black"
                   "{testimonials.sophie.title}"
-                Text size:"lg" color:"muted"
+                Text size:"lg"
                   "{testimonials.sophie.quote}"
                 Grid columns:1 gap:1
                   Text weight:"bold"
                     "{testimonials.sophie.name}"
-                  Text color:"muted"
+                  Text
                     "{testimonials.sophie.role}"
         slide id:"andy"
-          Card variant:"soft" rounded:"xl"
+          Card variant:"solid" rounded:"xl"
             Grid columns:{ xs:1 md:2 } minH:96
-              Box bg:"softMuted" minH:{ xs:64 md:96 } p:8
+              Box bg:"muted" minH:{ xs:64 md:96 } p:8
                 Flex align:"center" justify:"center" minH:{ xs:48 md:80 }
                   Icon name:"gallery-bold-duotone" fill:"muted" w:20 h:20
               Flex direction:"column" align:"start" justify:"center" gap:5 p:{ xs:7 md:12 }
                 Title size:{ xs:"2xl" md:"3xl" } weight:"black"
                   "{testimonials.andy.title}"
-                Text size:"lg" color:"muted"
+                Text size:"lg"
                   "{testimonials.andy.quote}"
                 Grid columns:1 gap:1
                   Text weight:"bold"
                     "{testimonials.andy.name}"
-                  Text color:"muted"
+                  Text
                     "{testimonials.andy.role}"

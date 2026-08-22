@@ -11,13 +11,13 @@ page CollapsiblePage
   Section id:"collapsible-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "DISPLAY"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Collapsible"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Collapsible is a single disclosure section whose scheme colors, metrics, motion, and bundled Solar arrow Icon stay aligned across web, Android, and iOS."
-      Card variant:"soft" scheme:"info" p:5 rounded:"lg" minW:56
+      Card variant:"solid" scheme:"info" p:5 rounded:"lg" minW:56
         Grid columns:1 gap:1
           Text size:"xs" weight:"bold" spacing:"widest"
             "ONE DISCLOSURE"
@@ -28,80 +28,80 @@ page CollapsiblePage
   Section id:"collapsible-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "Reveal implementation notes"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The header, Icon arrow, content region, open state, and scheme-derived colors are generated from one target-neutral component contract."
       Card variant:"outlined" border:1 p:{ xs:5 md:7 }
         Grid columns:1 gap:4
-          Collapsible label:"Route details" defaultOpen:true variant:"soft" scheme:"surface" rounded:"md"
+          Collapsible label:"Route details" defaultOpen:true variant:"solid" scheme:"surface" rounded:"md"
             Grid columns:1 gap:3 p:2
-              Text size:"sm" color:"muted"
+              Text size:"sm"
                 "The generated header, arrow, and content region stay aligned across web, Android, and iOS."
               Flex wrap:true gap:2
-                Badge text:"portable" variant:"soft" scheme:"success" position:"top-right"
+                Badge text:"portable" variant:"solid" scheme:"success" position:"top-right"
                   Button variant:"ghost" scheme:"muted" size:"sm"
                     "View contract"
           Collapsible label:"Deferred details" variant:"outlined" scheme:"primary" rounded:"md"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Leave secondary guidance closed by default when it would interrupt the main task."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Collapsible label:"Route details" defaultOpen:true variant:"soft" scheme:"surface" rounded:"md"
-            Text size:"sm" color:"muted"
+          Collapsible label:"Route details" defaultOpen:true variant:"solid" scheme:"surface" rounded:"md"
+            Text size:"sm"
               "The generated header, arrow, and content region stay aligned across targets."
 
           Collapsible label:"Deferred details" variant:"outlined" scheme:"primary" rounded:"md"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Keep secondary guidance closed by default."
         """
   Section id:"collapsible-patterns" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "ADVANCED PATTERNS"
         Title size:"3xl" weight:"black"
           "Model a detail hierarchy"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use several focused Collapsible regions when the page has independent topics, and reserve disabled for a real unavailable state."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:3
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "OPEN BY DEFAULT"
             Title size:"lg" weight:"black"
               "Primary explanation"
             Collapsible label:"Why this matters" defaultOpen:true variant:"solid" scheme:"primary" rounded:"md"
               Text size:"sm" color:"primaryText"
                 "Lead with the one explanation that helps the user make the next decision."
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:3
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "QUIET DETAIL"
             Title size:"lg" weight:"black"
               "Supporting context"
             Collapsible label:"Implementation note" variant:"ghost" scheme:"muted" rounded:"md"
-              Text size:"sm" color:"muted"
+              Text size:"sm"
                 "Ghost treatment keeps a low-priority note available without competing with the main content."
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:3
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "UNAVAILABLE"
             Title size:"lg" weight:"black"
               "Coming soon"
-            Collapsible label:"Native exporter" disabled:true variant:"soft" scheme:"warning" rounded:"md"
-              Text size:"sm" color:"muted"
+            Collapsible label:"Native exporter" disabled:true variant:"solid" scheme:"warning" rounded:"md"
+              Text size:"sm"
                 "Disabled preserves the label and communicates that the body is not currently actionable."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -111,41 +111,41 @@ page CollapsiblePage
               "Lead with the explanation that helps the next decision."
 
           Collapsible label:"Implementation note" variant:"ghost" scheme:"muted"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Keep low-priority context available without competing."
 
-          Collapsible label:"Native exporter" disabled:true variant:"soft" scheme:"warning"
-            Text size:"sm" color:"muted"
+          Collapsible label:"Native exporter" disabled:true variant:"solid" scheme:"warning"
+            Text size:"sm"
               "Disabled communicates an unavailable body."
         """
   Section id:"collapsible-contract" p:{ xs:5 md:7 }
     Grid columns:{ xs:1 md:2 } gap:4
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "CHILDREN"
         Title size:"xl" weight:"black"
           "Normal Dowe views"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use Text, Grid, Flex, Button, Badge, and other supported views inside the body."
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "STATE"
         Title size:"xl" weight:"black"
           "Target-owned behavior"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "defaultOpen and disabled are declarative inputs; each generated target handles disclosure state, 160 ms content motion, and Icon rotation."
   Section id:"collapsible-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Collapsible also accepts the applicable common spacing, sizing, border, visibility, and accessibility props."
       Table:
         data:collapsibleProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

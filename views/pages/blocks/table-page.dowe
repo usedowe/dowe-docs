@@ -83,23 +83,23 @@ page TablesPage
   signal emptyRows type:EmptyTableRow[] value:[]
   Section id:"tables" py:{ xs:6 md:10 }
     Grid columns:1 gap:4
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "COPY-READY BLOCKS"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Tables"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Four copy-ready table blocks for directories, finance, project tracking, and empty states—with neutral surfaces that keep data easy to scan."
   Section id:"team-directory" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "01 · TEAM DIRECTORY"
           Title size:"2xl" weight:"black"
             "Responsive rows with people, status, search, and pagination"
         Button:
           href:"/blocks/table-preview/team-directory"
-          variant:"soft"
+          variant:"solid"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
@@ -123,7 +123,7 @@ page TablesPage
         tab id:"team-directory-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy table block"
             copiedLabel:"Copied"
@@ -222,14 +222,14 @@ page TablesPage
                                 Grid columns:{ xs:3 md:7 } gap:3 align:"center" p:3 border:1 borderColor:"muted"
                                   Box w:4 h:4 rounded:"xs" border:1
                                   Flex align:"center" gap:3
-                                    Avatar alt:"Team member avatar" variant:"soft" scheme:"muted" size:"md"
+                                    Avatar alt:"Team member avatar" variant:"solid" scheme:"muted" size:"md"
                                       icon
                                         Svg viewBox:"0 0 24 24" w:5 h:5
                                           Path d:"M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5Z" fill:"currentColor"
                                     Grid columns:1 gap:0
                                       Text size:"sm" weight:"bold"
                                         "{member.name}"
-                                      Text size:"xs" color:"muted"
+                                      Text size:"xs"
                                         "{member.role}"
                                   Text size:"sm" show:{ xs:false md:true }
                                     "{member.company}"
@@ -237,33 +237,33 @@ page TablesPage
                                     "{member.email}"
                                   Text size:"sm" show:{ xs:false md:true }
                                     "{member.location}"
-                                  Box bg:"softMuted" rounded:"full" px:3 py:1 show:{ xs:false md:true }
+                                  Box bg:"muted" rounded:"full" px:3 py:1 show:{ xs:false md:true }
                                     Text size:"xs"
                                       "{member.status}"
                                   IconButton icon:"menu-dots" label:"Open member actions" variant:"ghost" scheme:"muted" size:"sm"
                               Flex justify:"center" p:4
                                 Pagination bind:currentPage total:totalMembers pageSize:10 onChange:loadMembers variant:"ghost" scheme:"primary" size:"sm" ariaLabel:"Team directory pages"
                       tab id:"overview" label:"Overview"
-                        Text p:5 color:"muted"
+                        Text p:5
                           "Overview content"
                       tab id:"tasks" label:"Tasks · 7"
-                        Text p:5 color:"muted"
+                        Text p:5
                           "Task content"
                       tab id:"team" label:"Team · 99+"
-                        Text p:5 color:"muted"
+                        Text p:5
                           "Team content"
             """
   Section id:"invoice-ledger" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "02 · INVOICE LEDGER"
           Title size:"2xl" weight:"black"
             "Amounts, due dates, and status in one scan"
         Button:
           href:"/blocks/table-preview/invoices"
-          variant:"soft"
+          variant:"solid"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
@@ -279,7 +279,7 @@ page TablesPage
         tab id:"invoice-ledger-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy invoice table"
             copiedLabel:"Copied"
@@ -321,7 +321,7 @@ page TablesPage
                     "Invoice ledger"
                   Table:
                     data:invoices
-                    variant:"soft"
+                    variant:"solid"
                     scheme:"surface"
                     size:"md"
                     striped:true
@@ -339,13 +339,13 @@ page TablesPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "03 · PROJECT STATUS"
           Title size:"2xl" weight:"black"
             "Progress snapshots for a working portfolio"
         Button:
           href:"/blocks/table-preview/projects"
-          variant:"soft"
+          variant:"solid"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
@@ -361,7 +361,7 @@ page TablesPage
         tab id:"project-status-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy project table"
             copiedLabel:"Copied"
@@ -421,13 +421,13 @@ page TablesPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "04 · EMPTY STATE"
           Title size:"2xl" weight:"black"
             "Make an empty workspace feel intentional"
         Button:
           href:"/blocks/table-preview/empty-state"
-          variant:"soft"
+          variant:"solid"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
@@ -443,7 +443,7 @@ page TablesPage
         tab id:"empty-table-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy empty table"
             copiedLabel:"Copied"
@@ -462,7 +462,7 @@ page TablesPage
                     "Release queue"
                   Table:
                     data:rows
-                    variant:"soft"
+                    variant:"solid"
                     scheme:"surface"
                     size:"md"
                     bordered:true

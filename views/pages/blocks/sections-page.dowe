@@ -1,21 +1,21 @@
 page SectionsPage
   Section id:"sections" py:{ xs:6 md:10 }
     Grid columns:1 gap:4
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "COPY-READY BLOCKS"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Sections"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Thirteen responsive wireframe sections built from real Dowe components and portable media placeholders."
   Section id:"media-split" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "01 · MEDIA SPLIT"
           Title size:"2xl" weight:"black"
             "A product message beside a large image placeholder"
-        Button href:"/blocks/sections-preview/media-split" variant:"soft" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/sections-preview/media-split" variant:"solid" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
       Tabs variant:"line" position:"top" w:"full"
         tab id:"media-split-preview" label:"Preview"
@@ -24,7 +24,7 @@ page SectionsPage
         tab id:"media-split-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy section"
             copiedLabel:"Copied"
@@ -35,15 +35,15 @@ page SectionsPage
               ]
               Section id:"media-split-section" bg:"background" color:"backgroundText" boxed:true p:{ xs:6 md:12 }
                 Grid columns:{ xs:1 md:2 } gap:{ xs:8 md:16 } align:"center" minH:"vh-0"
-                  Box show:{ xs:false md:true } bg:"softMuted" rounded:"xl" p:8 minH:96
+                  Box show:{ xs:false md:true } bg:"muted" rounded:"xl" p:8 minH:96
                     Flex direction:"column" align:"center" justify:"center" gap:3 minH:80
                       Icon name:"gallery-bold-duotone" fill:"muted" w:16 h:16
-                      Text size:"sm" color:"muted"
+                      Text size:"sm"
                         "Image placeholder"
                   Flex direction:"column" align:{ xs:"center" md:"start" } gap:5
                     Title size:{ xs:"3xl" md:"5xl" } weight:"black"
                       "Boost your productivity with our to-do app"
-                    Text size:"lg" color:"muted"
+                    Text size:"lg"
                       "Plan important work, keep every priority visible, and move through the day with confidence."
                     Grid columns:1 gap:3 w:"full" show:{ xs:true sm:false }
                       each in:actions as:action key:action.id
@@ -53,17 +53,17 @@ page SectionsPage
                       each in:actions as:action key:action.id
                         Button variant:action.variant size:"lg" rounded:"full"
                           "{action.label}"
-                    Box show:{ xs:true md:false } bg:"softMuted" rounded:"xl" p:8 minH:72 w:"full"
+                    Box show:{ xs:true md:false } bg:"muted" rounded:"xl" p:8 minH:72 w:"full"
                       Flex direction:"column" align:"center" justify:"center" gap:3 minH:56
                         Icon name:"gallery-bold-duotone" fill:"muted" w:16 h:16
-                        Text size:"sm" color:"muted"
+                        Text size:"sm"
                           "Image placeholder"
             """
   Section id:"media-benefits" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "02 · MEDIA BENEFITS"
           Title size:"2xl" weight:"black"
             "A full-height visual paired with two compact benefits"
@@ -76,7 +76,7 @@ page SectionsPage
         tab id:"media-benefits-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy section"
             copiedLabel:"Copied"
@@ -87,39 +87,39 @@ page SectionsPage
               ]
               Section id:"media-benefits-section" bg:"background" color:"backgroundText" boxed:true p:{ xs:6 md:12 }
                 Grid columns:{ xs:1 md:2 } gap:{ xs:8 md:16 } align:"center" minH:"vh-0"
-                  Box show:{ xs:false md:true } bg:"softMuted" p:8 minH:"vh-0"
+                  Box show:{ xs:false md:true } bg:"muted" p:8 minH:"vh-0"
                     Flex direction:"column" align:"center" justify:"center" gap:3 minH:"vh-16"
                       Icon name:"gallery-bold-duotone" fill:"muted" w:16 h:16
-                      Text size:"sm" color:"muted"
+                      Text size:"sm"
                         "Image placeholder"
                   Flex direction:"column" align:{ xs:"center" md:"start" } gap:6
                     Grid columns:1 gap:3
                       Title size:{ xs:"3xl" md:"5xl" } weight:"black"
                         "Boost your productivity with our to-do app"
-                      Text size:"lg" color:"muted"
+                      Text size:"lg"
                         "Bring tasks, decisions, and daily momentum into one dependable workspace."
                     Grid columns:1 gap:4 w:"full"
                       each in:benefits as:benefit key:benefit.id
                         Flex align:"center" gap:4
-                          Box bg:"softMuted" rounded:"full" w:12 h:12 p:2
+                          Box bg:"muted" rounded:"full" w:12 h:12 p:2
                             Icon name:"gallery-bold-duotone" fill:"muted" w:7 h:7
-                          Text color:"muted"
+                          Text
                             "{benefit.label}"
-                    Box show:{ xs:true md:false } bg:"softMuted" p:8 minH:72 w:"full"
+                    Box show:{ xs:true md:false } bg:"muted" p:8 minH:72 w:"full"
                       Flex direction:"column" align:"center" justify:"center" gap:3 minH:56
                         Icon name:"gallery-bold-duotone" fill:"muted" w:16 h:16
-                        Text size:"sm" color:"muted"
+                        Text size:"sm"
                           "Image placeholder"
             """
   Section id:"device-showcase" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "03 · DEVICE SHOWCASE"
           Title size:"2xl" weight:"black"
             "Editorial copy with a framed device placeholder"
-        Button href:"/blocks/sections-preview/device-showcase" variant:"soft" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/sections-preview/device-showcase" variant:"solid" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
       Tabs variant:"line" position:"top" w:"full"
         tab id:"device-showcase-preview" label:"Preview"
@@ -128,7 +128,7 @@ page SectionsPage
         tab id:"device-showcase-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy section"
             copiedLabel:"Copied"
@@ -144,22 +144,22 @@ page SectionsPage
                       "Boost your productivity with our to-do app"
                     Grid columns:1 gap:4
                       each in:paragraphs as:paragraph key:paragraph.id
-                        Text size:"lg" color:"muted"
+                        Text size:"lg"
                           "{paragraph.content}"
                     Button variant:"ghost" iconEnd:"arrow-right"
                       "Learn more"
-                  Box bg:"softMuted" rounded:"xl" p:{ xs:4 md:6 } w:"full"
+                  Box bg:"muted" rounded:"xl" p:{ xs:4 md:6 } w:"full"
                     Box bg:"surface" border:1 borderColor:"muted" rounded:"lg" minH:{ xs:56 md:96 } p:6
                       Flex direction:"column" align:"center" justify:"center" gap:3 minH:{ xs:44 md:80 }
                         Icon name:"laptop-bold-duotone" fill:"muted" w:16 h:16
-                        Text size:"sm" color:"muted"
+                        Text size:"sm"
                           "Device placeholder"
             """
   Section id:"feature-media" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "04 · FEATURE MEDIA"
           Title size:"2xl" weight:"black"
             "Two stacked features beside a broad media surface"
@@ -172,7 +172,7 @@ page SectionsPage
         tab id:"feature-media-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy section"
             copiedLabel:"Copied"
@@ -186,27 +186,27 @@ page SectionsPage
                   Grid columns:1 gap:{ xs:8 md:12 }
                     each in:features as:feature key:feature.id
                       Flex direction:"column" align:{ xs:"center" md:"start" } gap:3
-                        Box bg:"softMuted" rounded:"full" w:12 h:12 p:2
+                        Box bg:"muted" rounded:"full" w:12 h:12 p:2
                           Icon name:"gallery-bold-duotone" fill:"muted" w:7 h:7
                         Title size:"xl" weight:"black"
                           "{feature.title}"
-                        Text color:"muted"
+                        Text
                           "{feature.description}"
-                  Box bg:"softMuted" rounded:"xl" p:8 minH:{ xs:72 md:96 }
+                  Box bg:"muted" rounded:"xl" p:8 minH:{ xs:72 md:96 }
                     Flex direction:"column" align:"center" justify:"center" gap:3 minH:{ xs:56 md:80 }
                       Icon name:"gallery-bold-duotone" fill:"muted" w:16 h:16
-                      Text size:"sm" color:"muted"
+                      Text size:"sm"
                         "Image placeholder"
             """
   Section id:"centered-media-cta" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "05 · CENTERED MEDIA CTA"
           Title size:"2xl" weight:"black"
             "Centered actions above a full-width image placeholder"
-        Button href:"/blocks/sections-preview/centered-media-cta" variant:"soft" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/sections-preview/centered-media-cta" variant:"solid" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
       Tabs variant:"line" position:"top" w:"full"
         tab id:"centered-media-cta-preview" label:"Preview"
@@ -215,7 +215,7 @@ page SectionsPage
         tab id:"centered-media-cta-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy section"
             copiedLabel:"Copied"
@@ -229,7 +229,7 @@ page SectionsPage
                   Flex direction:"column" align:"center" gap:5 maxW:96
                     Title size:{ xs:"3xl" md:"5xl" } weight:"black"
                       "Boost your productivity with our to-do app"
-                    Text size:"lg" color:"muted"
+                    Text size:"lg"
                       "Turn plans into a calm, visible workflow that keeps the whole team moving together."
                     Grid columns:1 gap:3 w:"full" show:{ xs:true sm:false }
                       each in:actions as:action key:action.id
@@ -239,17 +239,17 @@ page SectionsPage
                       each in:actions as:action key:action.id
                         Button variant:action.variant size:"lg" rounded:"full"
                           "{action.label}"
-                  Box bg:"softMuted" rounded:"xl" p:8 minH:{ xs:72 md:96 } w:"full"
+                  Box bg:"muted" rounded:"xl" p:8 minH:{ xs:72 md:96 } w:"full"
                     Flex direction:"column" align:"center" justify:"center" gap:3 minH:{ xs:56 md:80 }
                       Icon name:"gallery-bold-duotone" fill:"muted" w:16 h:16
-                      Text size:"sm" color:"muted"
+                      Text size:"sm"
                         "Image placeholder"
             """
   Section id:"video-features" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "06 · VIDEO FEATURES"
           Title size:"2xl" weight:"black"
             "A video placeholder beside focused feature copy"
@@ -262,7 +262,7 @@ page SectionsPage
         tab id:"video-features-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy section"
             copiedLabel:"Copied"
@@ -273,38 +273,38 @@ page SectionsPage
               ]
               Section id:"video-features-section" bg:"background" color:"backgroundText" boxed:true p:{ xs:6 md:12 }
                 Grid columns:{ xs:1 md:2 } gap:{ xs:10 md:16 } align:"center" minH:"vh-0"
-                  Box show:{ xs:false md:true } bg:"softMuted" rounded:"xl" p:8 minH:96
+                  Box show:{ xs:false md:true } bg:"muted" rounded:"xl" p:8 minH:96
                     Flex direction:"column" align:"center" justify:"center" gap:3 minH:80
                       Icon name:"play-circle-bold-duotone" fill:"muted" w:16 h:16
-                      Text size:"sm" color:"muted"
+                      Text size:"sm"
                         "Video placeholder"
                   Flex direction:"column" align:{ xs:"center" md:"start" } gap:7
-                    Text size:"lg" color:"muted"
+                    Text size:"lg"
                       "A visual guide helps designers, developers, customers, and managers shape the same outcome together."
                     Grid columns:1 gap:6
                       each in:features as:feature key:feature.id
                         Grid columns:1 gap:2
                           Title size:"2xl" weight:"black"
                             "{feature.title}"
-                          Text color:"muted"
+                          Text
                             "{feature.description}"
-                    Box show:{ xs:true md:false } bg:"softMuted" rounded:"xl" p:8 minH:72 w:"full"
+                    Box show:{ xs:true md:false } bg:"muted" rounded:"xl" p:8 minH:72 w:"full"
                       Flex direction:"column" align:"center" justify:"center" gap:3 minH:56
                         Icon name:"play-circle-bold-duotone" fill:"muted" w:16 h:16
-                        Text size:"sm" color:"muted"
+                        Text size:"sm"
                           "Video placeholder"
             """
   Section id:"centered-features" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "07 · CENTERED FEATURE GRID"
           Title size:"2xl" weight:"black"
             "Six balanced feature cards with compact icon placeholders"
         Button:
           href:"/blocks/cards-preview/centered-features"
-          variant:"soft"
+          variant:"solid"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
@@ -320,7 +320,7 @@ page SectionsPage
         tab id:"centered-features-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy cards"
             copiedLabel:"Copied"
@@ -338,24 +338,24 @@ page SectionsPage
                   Flex direction:"column" align:"center" gap:3
                     Title size:{ xs:"3xl" md:"5xl" } weight:"black"
                       "Browse our set of features"
-                    Text size:"lg" color:"muted"
+                    Text size:"lg"
                       "Explore a flexible set of capabilities designed for teams, products, and growing businesses."
                   Grid columns:{ xs:1 md:3 } gap:5
                     each in:features as:feature key:feature.id
                       Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:64
                         Flex direction:"column" align:"center" justify:"center" gap:4 minH:48
-                          Box bg:"softMuted" rounded:"lg" p:3
+                          Box bg:"muted" rounded:"lg" p:3
                             Icon name:"gallery-bold-duotone" fill:"muted" w:9 h:9
                           Title size:"xl" weight:"black"
                             "{feature.title}"
-                          Text color:"muted"
+                          Text
                             "{feature.description}"
             """
   Section id:"media-grid" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "08 · MEDIA CARD GRID"
           Title size:"2xl" weight:"black"
             "Four product cards led by generous media placeholders"
@@ -376,7 +376,7 @@ page SectionsPage
         tab id:"media-grid-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy cards"
             copiedLabel:"Copied"
@@ -392,32 +392,32 @@ page SectionsPage
                   Flex direction:"column" align:"center" gap:3
                     Title size:{ xs:"3xl" md:"5xl" } weight:"black"
                       "Browse our set of features"
-                    Text size:"lg" color:"muted"
+                    Text size:"lg"
                       "Choose a starting point and shape it around the way your team prefers to work."
                   Grid columns:{ xs:1 sm:2 md:4 } gap:5
                     each in:products as:product key:product.id
                       Card variant:"outlined" scheme:"muted" rounded:"xl" p:4
                         Grid columns:1 gap:4
-                          Box bg:"softMuted" rounded:"lg" minH:44 p:6
+                          Box bg:"muted" rounded:"lg" minH:44 p:6
                             Flex align:"center" justify:"center" minH:32
                               Icon name:"gallery-bold-duotone" fill:"muted" w:14 h:14
                           Grid columns:1 gap:2
                             Title size:"lg" weight:"black"
                               "{product.title}"
-                            Text color:"muted"
+                            Text
                               "{product.description}"
             """
   Section id:"product-carousel" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "09 · PRODUCT CAROUSEL"
           Title size:"2xl" weight:"black"
             "A compact catalog row framed by navigation and one CTA"
         Button:
           href:"/blocks/cards-preview/product-carousel"
-          variant:"soft"
+          variant:"solid"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
@@ -433,7 +433,7 @@ page SectionsPage
         tab id:"product-carousel-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy cards"
             copiedLabel:"Copied"
@@ -449,14 +449,14 @@ page SectionsPage
                   Flex direction:"column" align:"center" gap:3
                     Title size:{ xs:"3xl" md:"5xl" } weight:"black"
                       "Popular products"
-                    Text size:"lg" color:"muted"
+                    Text size:"lg"
                       "A compact catalog row for highlighting the products people explore most often."
                   Flex align:"center" gap:4
                     IconButton icon:"alt-arrow-left" label:"Previous products" variant:"ghost" show:{ xs:false md:true }
                     Grid columns:{ xs:1 sm:2 md:4 } gap:5 w:"full"
                       each in:products as:product key:product.id
                         Card variant:"outlined" scheme:"muted" rounded:"lg"
-                          Box bg:"softMuted" minH:44 p:6
+                          Box bg:"muted" minH:44 p:6
                             Flex align:"center" justify:"center" minH:32
                               Icon name:"gallery-bold-duotone" fill:"muted" w:14 h:14
                           Box p:5
@@ -471,7 +471,7 @@ page SectionsPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "10 · ACTION CARDS"
           Title size:"2xl" weight:"black"
             "Feature summaries with a clear action on every card"
@@ -492,7 +492,7 @@ page SectionsPage
         tab id:"action-cards-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy cards"
             copiedLabel:"Copied"
@@ -510,18 +510,18 @@ page SectionsPage
                   Flex direction:"column" align:"center" gap:3
                     Title size:{ xs:"3xl" md:"5xl" } weight:"black"
                       "Browse our set of features"
-                    Text size:"lg" color:"muted"
+                    Text size:"lg"
                       "A responsive collection of feature summaries with a clear next step on every card."
                   Grid columns:{ xs:1 md:3 } gap:5
                     each in:features as:feature key:feature.id
                       Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:72
                         Flex direction:"column" align:"start" justify:"between" gap:5 minH:56
                           Grid columns:1 gap:4
-                            Box bg:"softMuted" rounded:"lg" p:3 w:14
+                            Box bg:"muted" rounded:"lg" p:3 w:14
                               Icon name:"gallery-bold-duotone" fill:"muted" w:8 h:8
                             Title size:"xl" weight:"black"
                               "{feature.title}"
-                            Text color:"muted"
+                            Text
                               "{feature.description}"
                           Button variant:"ghost" size:"sm" iconEnd:"arrow-right"
                             "Learn more"
@@ -530,13 +530,13 @@ page SectionsPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "11 · BENTO HIERARCHY"
           Title size:"2xl" weight:"black"
             "One lead card supported by two compact horizontal cards"
         Button:
           href:"/blocks/cards-preview/bento"
-          variant:"soft"
+          variant:"solid"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
@@ -552,7 +552,7 @@ page SectionsPage
         tab id:"bento-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy cards"
             copiedLabel:"Copied"
@@ -566,26 +566,26 @@ page SectionsPage
                   Flex direction:"column" align:"center" gap:3
                     Title size:{ xs:"3xl" md:"5xl" } weight:"black"
                       "Browse our set of features"
-                    Text size:"lg" color:"muted"
+                    Text size:"lg"
                       "Use a strong lead card and compact supporting cards to create a clear visual hierarchy."
                   Grid columns:{ xs:1 md:2 } gap:5
-                    Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:80
+                    Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:80
                       Flex direction:"column" align:"center" justify:"end" gap:5 minH:64
                         Icon name:"gallery-bold-duotone" fill:"muted" w:16 h:16
                         Title size:"xl" weight:"black"
                           "Mobile app"
-                        Text color:"muted"
+                        Text
                           "A focused mobile experience for customers and teams wherever their work happens."
                         Button variant:"ghost" size:"sm" iconEnd:"arrow-right"
                           "Learn more"
                     Grid columns:1 gap:5
                       each in:supportingFeatures as:feature key:feature.id
-                        Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:52
+                        Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:52
                           Grid columns:{ xs:1 sm:2 } gap:5 align:"center"
                             Flex direction:"column" align:"start" gap:4
                               Title size:"xl" weight:"black"
                                 "{feature.title}"
-                              Text color:"muted"
+                              Text
                                 "{feature.description}"
                               Button variant:"ghost" size:"sm" iconEnd:"arrow-right"
                                 "Learn more"
@@ -596,7 +596,7 @@ page SectionsPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "12 · NUMBERED FEATURE CARDS"
           Title size:"2xl" weight:"black"
             "A clear six-step sequence with oversized numerals"
@@ -617,7 +617,7 @@ page SectionsPage
         tab id:"numbered-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy cards"
             copiedLabel:"Copied"
@@ -635,30 +635,30 @@ page SectionsPage
                   Flex direction:"column" align:"center" gap:3
                     Title size:{ xs:"3xl" md:"5xl" } weight:"black"
                       "Browse our set of features"
-                    Text size:"lg" color:"muted"
+                    Text size:"lg"
                       "Guide readers through a sequence with large numbers and concise supporting copy."
                   Grid columns:{ xs:1 md:3 } gap:5
                     each in:features as:feature key:feature.id
                       Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:64
                         Flex direction:"column" align:"center" justify:"center" gap:3 minH:48
-                          Title size:"5xl" weight:"black" color:"muted"
+                          Title size:"5xl" weight:"black"
                             "{feature.number}"
                           Title size:"xl" weight:"black"
                             "{feature.title}"
-                          Text color:"muted"
+                          Text
                             "{feature.description}"
             """
   Section id:"spotlight" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "13 · SPOTLIGHT GRID"
           Title size:"2xl" weight:"black"
             "A promotional lead card beside two tall supporting cards"
         Button:
           href:"/blocks/cards-preview/spotlight"
-          variant:"soft"
+          variant:"solid"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
@@ -674,7 +674,7 @@ page SectionsPage
         tab id:"spotlight-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy cards"
             copiedLabel:"Copied"
@@ -685,18 +685,18 @@ page SectionsPage
               ]
               Section id:"spotlight-cards" bg:"background" color:"backgroundText" boxed:true py:{ xs:8 md:12 }
                 Grid columns:{ xs:1 md:3 } gap:5 align:"stretch"
-                  Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:7 md:10 } minH:80
+                  Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:7 md:10 } minH:80
                     Flex direction:"column" align:"center" justify:"center" gap:5 minH:64
-                      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+                      Text size:"xs" weight:"bold" spacing:"widest"
                         "TAGLINE"
                       Title size:{ xs:"3xl" md:"5xl" } weight:"black"
                         "Mobile app"
-                      Text size:"lg" color:"muted"
+                      Text size:"lg"
                         "A focused product message with enough room for supporting copy and one clear action."
                       Button rounded:"full" size:"lg"
                         "See more"
                   each in:supportingProducts as:product key:product.id
-                    Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:7 md:8 } minH:80
+                    Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:7 md:8 } minH:80
                       Flex direction:"column" align:"center" justify:"center" gap:6 minH:64
                         Icon name:"gallery-bold-duotone" fill:"muted" w:16 h:16
                         Title size:"xl" weight:"black"

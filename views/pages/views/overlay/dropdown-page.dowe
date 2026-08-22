@@ -75,32 +75,32 @@ page DropdownPage
   Section id:"dropdown-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "OVERLAY"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Dropdown"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Dropdowns keep contextual actions close to their trigger in one portable floating menu."
   Section id:"dropdown-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "A contextual workspace menu"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The trigger owns the interaction while scheme styles only the floating option list. Open the menu to inspect its header, entries, divider, and footer."
       Card variant:"outlined" p:{ xs:6 md:10 } border:1
         Flex justify:"center" align:"center"
           Dropdown scheme:"primary"
             trigger
-              Button variant:"soft" iconEnd:"alt-arrow-down"
+              Button variant:"solid" iconEnd:"alt-arrow-down"
                 "Workspace"
             header
               Grid columns:1 gap:1 p:2
                 Text size:"sm" weight:"bold"
                   "Acme workspace"
-                Text size:"xs" color:"muted"
+                Text size:"xs"
                   "Manage your project"
             item label:"Component catalog" description:"Browse every Dowe view" href:"/docs/views"
               icon
@@ -114,14 +114,14 @@ page DropdownPage
                 "View all views"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
           Dropdown scheme:"primary"
             trigger
-              Button variant:"soft" iconEnd:"alt-arrow-down"
+              Button variant:"solid" iconEnd:"alt-arrow-down"
                 "Workspace"
             header
               Text weight:"bold"
@@ -137,45 +137,45 @@ page DropdownPage
   Section id:"dropdown-structure" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "STRUCTURE"
         Title size:"3xl" weight:"black"
           "A small, explicit menu tree"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Each dropdown has one trigger and one or more item entries. Header and footer are optional view regions; divider is a prop-free separator."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "TRIGGER"
             Title size:"lg" weight:"bold"
               "Required region"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Put any supported view tree in trigger. Its own Button or custom content controls the popover."
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "ENTRIES"
             Title size:"lg" weight:"bold"
               "Actionable items"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Every item needs a label and can add a description, navigation, action, disabled state, or one SVG icon."
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "SELECTION"
             Title size:"lg" weight:"bold"
               "Closes after selection"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Enabled items close the popover after navigation or their declared action. Disabled items remain visible but inert."
   Section id:"dropdown-navigation" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "ITEMS"
         Title size:"3xl" weight:"black"
           "Navigation, actions, and descriptions"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use href for navigation or onClick for a declared view action. Item descriptions help people distinguish related destinations without making the menu hard to scan."
       Grid columns:{ xs:1 md:2 } gap:5
         Card variant:"outlined" p:5 border:1
@@ -205,11 +205,11 @@ page DropdownPage
   Section id:"dropdown-schemes" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "SCHEMES"
         Title size:"3xl" weight:"black"
           "A scheme for every menu context"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Scheme belongs to the popover surface. The trigger stays independent, so it can match the action that opens the menu."
       Flex wrap:true justify:"center" align:"center" gap:3
         Dropdown scheme:"primary"
@@ -265,49 +265,49 @@ page DropdownPage
   Section id:"dropdown-targets" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "TARGET BEHAVIOR"
         Title size:"3xl" weight:"black"
           "One authored menu, native-owned placement"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Dowe preserves the same trigger and item model across targets while each generated application owns the floating surface."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "WEB"
             Title size:"lg" weight:"bold"
               "Anchored popover"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "The generated runtime positions the menu against its trigger and keeps it above nearby page content."
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "ANDROID"
             Title size:"lg" weight:"bold"
               "Dowe popup list"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Generated Compose uses a Dowe-owned popup list rather than a platform picker or inline layout."
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "IOS"
             Title size:"lg" weight:"bold"
               "Compact popover"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Generated SwiftUI keeps Dropdown compact as an anchored popover instead of adapting it to a sheet."
   Section id:"dropdown-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props and structural entries"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Dropdown also accepts the applicable common font, spacing, sizing, border, radius, and visibility props. Use scheme, not color or variant, to style the floating menu."
       Table:
         data:dropdownProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

@@ -18,24 +18,24 @@ page JwtPage
     ]
   Section id:"jwt-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "SERVER / JWT"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "JWT"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "JWT is Dowe's Dowe-owned server utility for signing, verifying, encrypting, and decrypting tokens without Node.js, npm packages, or client-side secrets."
   Section id:"jwt-mental-model" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "1 / MENTAL MODEL"
         Title size:"3xl" weight:"black"
           "Bind each JWT result directly"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "jwt binds a token or verification result directly. Its secret or key stays server-only for the current handler or middleware, and the old let value = jwt form is rejected."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -46,7 +46,7 @@ page JwtPage
         """
       Table:
         data:jwtModelRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -57,15 +57,15 @@ page JwtPage
   Section id:"jwt-verify" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "2 / SIGNED TOKENS"
         Title size:"3xl" weight:"black"
           "Verify bearer tokens before trusting claims"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "bearer only extracts the token. jwt verified validates the HS256 signature and standard time claims before middleware explicitly calls next."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -79,7 +79,7 @@ page JwtPage
         """
       Table:
         data:jwtVerifyRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -89,15 +89,15 @@ page JwtPage
         column field:"guidance" label:"Result" width:"5fr"
   Section id:"jwt-encryption" p:{ xs:5 md:7 }
     Grid columns:1 gap:4
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "3 / ENCRYPTED TOKENS"
       Title size:"3xl" weight:"black"
         "Use a separate JWE variable for encrypted claims"
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "JWE uses direct key management with A256GCM. jwt infers encryption from key plus claims, and decryption from key plus token."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -109,15 +109,15 @@ page JwtPage
   Section id:"jwt-security" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "4 / SECURITY"
         Title size:"3xl" weight:"black"
           "Fail closed and keep authority on the server"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Dowe rejects alg:none, unsupported algorithms, missing server environment values, invalid signatures, expired tokens, and tokens that are not yet valid. Declare secret names in .env.example and supply values through .env or the process environment. Runtime errors do not log tokens, headers, keys, or secrets."
       Table:
         data:jwtSecurityRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

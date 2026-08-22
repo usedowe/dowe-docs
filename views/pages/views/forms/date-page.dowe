@@ -51,20 +51,20 @@ page DatePage
   Section id:"date-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "FORM"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Date"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Date provides an Input-like trigger with a custom calendar dropdown, typed string values, explicit bounds, and consistent feedback. Its sm, md, and lg sizes scale both trigger height and displayed date text."
   Section id:"date-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "Schedule a launch"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Open the custom calendar dropdown to write an ISO calendar date to launchDate while min and max keep the selection inside the release window."
       Grid columns:{ xs:1 md:2 } gap:4
         Date:
@@ -78,19 +78,19 @@ page DatePage
           name:"launch-date"
           validate rule:"required" message:"Choose a launch date."
           validate rule:"date" message:"Choose a valid calendar date."
-        Card variant:"soft" p:{ xs:5 md:7 }
+        Card variant:"solid" p:{ xs:5 md:7 }
           Grid columns:1 gap:3
-            Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+            Text size:"xs" weight:"bold" spacing:"widest"
               "VALUE CONTRACT"
             Title size:"2xl" weight:"black"
               "YYYY-MM-DD"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Keep the value timezone-neutral when the product only needs a calendar day."
             Text size:"sm" weight:"bold" color:"primary"
               "Bounded and target-neutral"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -104,37 +104,37 @@ page DatePage
   Section id:"date-bounds" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "BOUNDS AND SURFACES"
         Title size:"3xl" weight:"black"
           "Make valid dates obvious"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "min and max define an inclusive calendar window. The visual surface can change without changing the value contract."
       Grid columns:{ xs:1 md:2 } gap:5
         Date value:"2026-09-01" label:"Outlined" min:"2026-01-01" max:"2026-12-31" scheme:"info" name:"outlined-date"
-        Date value:"2026-09-01" label:"Soft" min:"2026-01-01" max:"2026-12-31" variant:"soft" scheme:"success" name:"soft-date"
+        Date value:"2026-09-01" label:"Soft" min:"2026-01-01" max:"2026-12-31" variant:"solid" scheme:"success" name:"soft-date"
         Date value:"2026-10-15" label:"Solid" min:"2026-09-01" max:"2026-12-31" variant:"solid" scheme:"warning" name:"solid-date"
         Date value:"2026-11-20" label:"Line" min:"2026-01-01" max:"2026-12-31" variant:"line" scheme:"secondary" name:"line-date"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
           Date value:"2026-09-01" label:"Outlined" min:"2026-01-01" max:"2026-12-31" scheme:"info"
-          Date value:"2026-09-01" label:"Soft" min:"2026-01-01" max:"2026-12-31" variant:"soft" scheme:"success"
+          Date value:"2026-09-01" label:"Soft" min:"2026-01-01" max:"2026-12-31" variant:"solid" scheme:"success"
           Date value:"2026-10-15" label:"Solid" min:"2026-09-01" max:"2026-12-31" variant:"solid" scheme:"warning"
           Date value:"2026-11-20" label:"Line" min:"2026-01-01" max:"2026-12-31" variant:"line" scheme:"secondary"
         """
   Section id:"date-feedback" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "FEEDBACK AND SCALE"
         Title size:"3xl" weight:"black"
           "Pair dates with useful context"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "helpText guides selection and errorText reserves a correction path. Sizes map to 32, 40, and 48 logical units; labelFloating adds 8."
       Grid columns:{ xs:1 md:2 } gap:5
         Date value:"2026-12-05" label:"Billing date" helpText:"Invoices close on the fifth business day." scheme:"success" size:"sm" name:"billing-date"
@@ -143,51 +143,51 @@ page DatePage
         Date value:"2026-08-10" label:"Small" labelFloating:true size:"sm"
         Date value:"2026-08-10" label:"Medium" labelFloating:true
         Date value:"2026-08-10" label:"Large" labelFloating:true size:"lg"
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "Closing an empty calendar or choosing a date marks the control as touched. Rule feedback then updates after every selection."
   Section id:"date-contract" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "BEHAVIOR"
         Title size:"3xl" weight:"black"
           "One calendar-day contract"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Dowe lowers the same string value, bounds, label, and feedback model to web, SwiftUI, and Compose. The floating label stays aligned with the displayed date instead of the trailing calendar affordance."
       Grid columns:{ xs:1 md:3 } gap:5
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "BINDING"
           Title size:"lg" weight:"bold"
             "String Signal"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "bind reads and writes YYYY-MM-DD values without timezone conversion."
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "VALIDATION"
           Title size:"lg" weight:"bold"
             "Inclusive bounds"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "min and max keep a date inside a declared calendar window and must form a valid range."
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "TARGETS"
           Title size:"lg" weight:"bold"
             "Custom calendar"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Web, iOS, and Android use the same Dowe-owned month, weekday, and day-cell interaction over the shared field model."
   Section id:"date-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Date also accepts the applicable common spacing, sizing, typography, visibility, accessibility, and shadow props."
       Table:
         data:dateProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

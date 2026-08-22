@@ -4,7 +4,7 @@ page SignupReverseAuthPage
     Grid columns:{ xs:1 md:2 } gap:0 minH:"vh-0"
       Box:
         show:{ xs:true md:false }
-        bg:"softInfo"
+        bg:"muted"
         color:"info"
         minH:40
         p:6
@@ -25,17 +25,17 @@ page SignupReverseAuthPage
             Grid columns:1 gap:2
               Title size:"3xl" weight:"black"
                 "Sign up"
-              Text size:"sm" color:"muted"
+              Text size:"sm"
                 "Set up your account in a few quick steps."
             Grid columns:2 gap:3
-              Input bind:form.firstName label:"First name" placeholder:"First name" helpText:"Use the name shown on your account." variant:"soft" scheme:"info" w:"full"
+              Input bind:form.firstName label:"First name" placeholder:"First name" helpText:"Use the name shown on your account." variant:"solid" scheme:"info" w:"full"
                 validate rule:"required" message:"Enter your first name."
-              Input bind:form.lastName label:"Last name" placeholder:"Last name" helpText:"Use the name shown on your account." variant:"soft" scheme:"info" w:"full"
+              Input bind:form.lastName label:"Last name" placeholder:"Last name" helpText:"Use the name shown on your account." variant:"solid" scheme:"info" w:"full"
                 validate rule:"required" message:"Enter your last name."
-            Input bind:form.email label:"Email address" placeholder:"you@example.com" helpText:"Use an email address you can access." variant:"soft" scheme:"info" w:"full"
+            Input bind:form.email label:"Email address" placeholder:"you@example.com" helpText:"Use an email address you can access." variant:"solid" scheme:"info" w:"full"
               validate rule:"required" message:"Enter your email address."
               validate rule:"email" message:"Enter a valid email address."
-            Password bind:form.password label:"Password" placeholder:"Create a password" hideStrength:false variant:"soft" scheme:"info" w:"full"
+            Password bind:form.password label:"Password" placeholder:"Create a password" hideStrength:false variant:"solid" scheme:"info" w:"full"
             Checkbox bind:form.accepted label:"I agree to the terms and privacy policy." scheme:"info"
               validate rule:"required" message:"Accept the terms and privacy policy to continue."
             Button scheme:"info" w:"full"
@@ -50,7 +50,7 @@ page SignupReverseAuthPage
               "Already have an account? Log in"
       Box:
         show:{ xs:false md:true }
-        bg:"softInfo"
+        bg:"muted"
         color:"info"
         minH:"vh-0"
         p:12

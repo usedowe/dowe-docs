@@ -37,14 +37,14 @@ layout AppBarDashboardLayout
             Avatar:
               name:"Jonathan Stone"
               alt:"Jonathan Stone"
-              variant:"soft"
+              variant:"solid"
               scheme:"primary"
               size:"md"
               status:"online"
             Grid columns:1 gap:1 show:{ xs:false md:true }
               Text size:"sm" weight:"bold"
                 "Jonathan"
-              Text size:"xs" color:"muted"
+              Text size:"xs"
                 "Admin"
             IconButton:
               icon:"settings"

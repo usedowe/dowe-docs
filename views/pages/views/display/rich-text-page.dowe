@@ -14,13 +14,13 @@ page RichTextPage
   Section id:"rich-text-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "DISPLAY"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "RichText"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "RichText composes a paragraph-like inline flow from explicit mark entries with portable emphasis, color, and typography."
-      Card variant:"soft" scheme:"secondary" p:5 rounded:"lg" minW:56
+      Card variant:"solid" scheme:"secondary" p:5 rounded:"lg" minW:56
         Grid columns:1 gap:1
           Text size:"xs" weight:"bold" spacing:"widest"
             "INLINE, NOT HTML"
@@ -31,11 +31,11 @@ page RichTextPage
   Section id:"rich-text-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "Build a release message"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use marks to give hierarchy to a single sentence without splitting it into unrelated Text nodes."
       Card variant:"outlined" p:{ xs:6 md:9 } border:1
         RichText size:"xl" weight:"bold"
@@ -45,7 +45,7 @@ page RichTextPage
           mark text:"with" style:"mark" scheme:"muted"
           mark text:"explicit contracts" style:"tag" scheme:"secondary"
           mark text:"." style:"mark" scheme:"muted"
-      Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+      Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
         RichText size:"xl" weight:"bold"
           mark text:"Dowe" style:"grad" scheme:"primary"
           mark text:"generates" style:"under" scheme:"info"
@@ -56,16 +56,16 @@ page RichTextPage
   Section id:"rich-text-styles" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "MARK STYLES"
         Title size:"3xl" weight:"black"
           "Tune emphasis without custom markup"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The style belongs to the mark entry. Use schemes for semantic emphasis and keep the surrounding sentence readable without relying on color alone."
       Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"soft" p:{ xs:5 md:7 }
+        Card variant:"solid" p:{ xs:5 md:7 }
           Grid columns:1 gap:4
-            Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+            Text size:"xs" weight:"bold" spacing:"widest"
               "EDITORIAL"
             RichText size:"lg"
               mark text:"Draft" style:"strike" scheme:"danger"
@@ -75,9 +75,9 @@ page RichTextPage
               mark text:"Read the" style:"mark" scheme:"muted"
               mark text:" highlighted clause" style:"glow" scheme:"warning"
               mark text:" before shipping." style:"mark" scheme:"muted"
-        Card variant:"soft" p:{ xs:5 md:7 }
+        Card variant:"solid" p:{ xs:5 md:7 }
           Grid columns:1 gap:4
-            Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+            Text size:"xs" weight:"bold" spacing:"widest"
               "PRODUCT UI"
             RichText size:"lg"
               mark text:"Beta" style:"neon" scheme:"secondary"
@@ -88,7 +88,7 @@ page RichTextPage
               mark text:"A" style:"slant" scheme:"info"
               mark text:" compact" style:"pill" scheme:"primary"
               mark text:" callout." style:"mark" scheme:"muted"
-      Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+      Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
         RichText size:"lg"
           mark text:"Draft" style:"strike" scheme:"danger"
           mark text:"Approved" style:"pop" scheme:"success"
@@ -102,63 +102,63 @@ page RichTextPage
   Section id:"rich-text-headlines" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "TITLE SCALE"
         Title size:"3xl" weight:"black"
           "Build hero strips without styling Title"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Set title:true to keep Title typography while every visual treatment remains owned by the mark."
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "On web, Android, and iOS, fitting marks keep their intrinsic width while oversized marks wrap on whole-word boundaries with centered lines inside the available container."
-      Card variant:"soft" p:{ xs:6 md:9 }
+      Card variant:"solid" p:{ xs:6 md:9 }
         RichText title:true size:{ xs:"3xl" md:"5xl" }
           mark text:"DEVELOPMENT, BRANDING" style:"mark" scheme:"secondary"
-      Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+      Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
         RichText title:true size:{ xs:"3xl" md:"5xl" }
           mark text:"DEVELOPMENT, BRANDING" style:"mark" scheme:"secondary"
       """
   Section id:"rich-text-patterns" p:{ xs:5 md:7 }
     Grid columns:{ xs:1 md:3 } gap:4
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" color:"muted"
+        Text size:"xs" weight:"bold"
           "HEADLINES"
         Title size:"lg" weight:"black"
           "Keep a sentence"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use a larger size and a restrained number of marks for hero or release copy."
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" color:"muted"
+        Text size:"xs" weight:"bold"
           "STATUS"
         Title size:"lg" weight:"black"
           "Pair style and scheme"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The style controls treatment; scheme controls the semantic color family."
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" color:"muted"
+        Text size:"xs" weight:"bold"
           "ACCESSIBILITY"
         Title size:"lg" weight:"black"
           "Do not hide meaning"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The sentence must remain understandable when emphasis or color is reduced."
   Section id:"rich-text-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "RichText props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "RichText also accepts the applicable common typography, spacing, sizing, visibility, and accessibility props."
-      Table data:richTextProps variant:"soft" scheme:"surface" size:"sm" striped:true dividers:true rounded:"md"
+      Table data:richTextProps variant:"solid" scheme:"surface" size:"sm" striped:true dividers:true rounded:"md"
         column field:"prop" label:"Prop" width:"1.2fr"
         column field:"type" label:"Type" width:"3fr"
         column field:"defaultValue" label:"Default" width:"1.2fr"
       Grid columns:1 gap:2 pt:2
         Title size:"2xl" weight:"black"
           "mark entry props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "mark is structural: it is valid only inside RichText, has no children, and requires text."
-      Table data:markProps variant:"soft" scheme:"surface" size:"sm" striped:true dividers:true rounded:"md"
+      Table data:markProps variant:"solid" scheme:"surface" size:"sm" striped:true dividers:true rounded:"md"
         column field:"prop" label:"Prop" width:"1.2fr"
         column field:"type" label:"Type" width:"3fr"
         column field:"defaultValue" label:"Default" width:"1.2fr"

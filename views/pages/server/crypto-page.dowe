@@ -27,24 +27,24 @@ page CryptoPage
     ]
   Section id:"crypto-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "SERVER / CRYPTO"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Transform protected byte streams"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "crypto is a Dowe-owned server declaration for byte transforms. It names the transformed binding first, then makes the encryption mode and key material explicit."
   Section id:"crypto-mental-model" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "1 / MENTAL MODEL"
         Title size:"3xl" weight:"black"
           "Declare the output and encryption mode"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The binding after crypto is available to later server statements. encryption selects the byte transform, while data, key, and iv preserve a clear data flow without exposing server secrets to views."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -56,7 +56,7 @@ page CryptoPage
         """
       Table:
         data:cryptoModelRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -67,15 +67,15 @@ page CryptoPage
   Section id:"crypto-cenc" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "2 / CENC"
         Title size:"3xl" weight:"black"
           "Preserve clear ranges in encrypted samples"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "cencAesCtr supports an 8-byte or 16-byte IV and optional clear and encrypted subsamples. Clear bytes remain unchanged while encrypted ranges advance the AES-CTR stream."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -85,7 +85,7 @@ page CryptoPage
         """
       Table:
         data:cryptoCencRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

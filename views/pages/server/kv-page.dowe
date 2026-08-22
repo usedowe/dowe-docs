@@ -21,24 +21,24 @@ page KvPage
     ]
   Section id:"cache-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "SERVER / CACHE"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Cache"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "One server-only key-value contract for Cloudflare KV, Redis, and Dowe Cache, with a fast persistent local engine during dowe dev."
   Section id:"cache-mental-model" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "1 / MENTAL MODEL"
         Title size:"3xl" weight:"black"
           "Declare Cache, operate with kv"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "cache creates the provider connection. kv owns key-value operations and their result bindings, independently from Database query."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -51,7 +51,7 @@ page KvPage
         """
       Table:
         data:cacheModelRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -62,15 +62,15 @@ page KvPage
   Section id:"cache-providers" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "2 / PROVIDERS"
         Title size:"3xl" weight:"black"
           "Choose the production adapter"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Every provider uses the same required props. provider may use env.CACHE_PROVIDER; store credential names in .env.example and values in .env or the process environment."
       Table:
         data:cacheProviderRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -81,15 +81,15 @@ page KvPage
   Section id:"cache-operations" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "3 / OPERATIONS"
         Title size:"3xl" weight:"black"
           "Read, write, list, and clear"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "required:true turns a missing get into a controlled NotFound result."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -102,7 +102,7 @@ page KvPage
         """
       Table:
         data:cacheOperationRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -112,30 +112,30 @@ page KvPage
         column field:"guidance" label:"Result" width:"5fr"
   Section id:"cache-development" py:{ xs:7 md:10 }
     Grid columns:1 gap:4
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "4 / DOWE DEV"
       Title size:"3xl" weight:"black"
         "Local without Wrangler"
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "During dowe dev, all providers ignore the effective provider, resolve only name, and use the persistent Dowe engine at .dowe/kv. Host and credentials are not resolved, no remote provider starts, and no auxiliary port is opened."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy path"
         copiedLabel:"Copied"
         content:".dowe/kv/<resolved-name>"
   Section id:"cache-service" p:{ xs:5 md:7 }
     Grid columns:1 gap:4
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "5 / DOWE CACHE"
       Title size:"3xl" weight:"black"
         "Run the authenticated service"
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "The Dowe provider authenticates before the WebSocket upgrade. Administrators create Cache names and accounts through dowe cache create-account."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"

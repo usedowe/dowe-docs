@@ -62,24 +62,24 @@ page StandardLibraryPage
     set jsonResult source:json.stringify value:playground.items pretty:true
   Section id:"standard-library-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "VIEWS / STANDARD LIBRARY"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Compose portable view values"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "The same namespaced standard-library calls can power Signals, actions, collections, and computed component data in web, Android, and iOS views."
   Section id:"standard-library-mental-model" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "1 / SYNTAX"
         Title size:"3xl" weight:"black"
           "Name the target Signal and the function"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "View library calls are pure values. set writes the result to a Signal, source names the canonical namespace and function, and every other prop is a named argument."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy declarations"
         copiedLabel:"Copied"
@@ -90,15 +90,15 @@ page StandardLibraryPage
             set ordered source:sort.by values:items field:"score" direction:"desc" nulls:"last"
             set total source:list.sumBy values:items field:"score"
         """
-      Alert type:"info" message:"View functions use `set target source:namespace.function ...`. The compiler lowers the call once; web, Android, and iOS own only the final helper implementation." variant:"soft" scheme:"info"
+      Alert type:"info" message:"View functions use `set target source:namespace.function ...`. The compiler lowers the call once; web, Android, and iOS own only the final helper implementation." variant:"solid" scheme:"info"
   Section id:"standard-library-playground" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "2 / CROSS-TARGET PLAYGROUND"
         Title size:"3xl" weight:"black"
           "Run one portable workflow"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "This page exercises text normalization, safe parsing, CSV rows, stable sorting, list filtering, URL query construction, aggregation, JSON serialization, and ISO date formatting from one view action."
       Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Grid columns:1 gap:4
@@ -109,76 +109,76 @@ page StandardLibraryPage
           Button onClick:runStandardLibrary iconStart:"code"
             "Run portable library"
           Grid columns:{ xs:1 md:2 } gap:3
-            Box bg:"softMuted" rounded:"md" p:4
-              Text size:"xs" weight:"bold" color:"muted"
+            Box bg:"muted" rounded:"md" p:4
+              Text size:"xs" weight:"bold"
                 "Normalized text"
               Text size:"lg" weight:"bold"
                 "{normalized}"
-            Box bg:"softMuted" rounded:"md" p:4
-              Text size:"xs" weight:"bold" color:"muted"
+            Box bg:"muted" rounded:"md" p:4
+              Text size:"xs" weight:"bold"
                 "Parsed page"
               Text size:"lg" weight:"bold"
                 "{pageLabel}"
-            Box bg:"softMuted" rounded:"md" p:4
-              Text size:"xs" weight:"bold" color:"muted"
+            Box bg:"muted" rounded:"md" p:4
+              Text size:"xs" weight:"bold"
                 "Score total"
               Text size:"lg" weight:"bold"
                 "{scoreLabel}"
-            Box bg:"softMuted" rounded:"md" p:4
-              Text size:"xs" weight:"bold" color:"muted"
+            Box bg:"muted" rounded:"md" p:4
+              Text size:"xs" weight:"bold"
                 "Canonical date"
               Text size:"sm" weight:"bold"
                 "{formattedDate}"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "{queryResult}"
-      Code template:true language:"javascript" variant:"soft" scheme:"surface" copyLabel:"Copy JSON" copiedLabel:"Copied" content:"{jsonResult}"
+      Code template:true language:"javascript" variant:"solid" scheme:"surface" copyLabel:"Copy JSON" copiedLabel:"Copied" content:"{jsonResult}"
   Section id:"standard-library-results" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "3 / REACTIVE RESULTS"
         Title size:"3xl" weight:"black"
           "Keep arrays immutable and inspectable"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "sort and list return new logical arrays. Signals remain unchanged until an action assigns the result, so the same source collection can feed several views safely."
       Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"soft" scheme:"surface" p:4
-          Text size:"xs" weight:"bold" color:"muted"
+        Card variant:"solid" scheme:"surface" p:4
+          Text size:"xs" weight:"bold"
             "Sorted items"
           each in:orderedItems as:item key:item.id
             Flex align:"center" justify:"between" gap:2
               Text size:"sm"
                 "{item.name}"
-              Text size:"sm" color:"muted"
+              Text size:"sm"
                 "{item.score}"
-        Card variant:"soft" scheme:"surface" p:4
-          Text size:"xs" weight:"bold" color:"muted"
+        Card variant:"solid" scheme:"surface" p:4
+          Text size:"xs" weight:"bold"
             "Filtered items"
           each in:filteredItems as:item key:item.id
             Text size:"sm"
               "{item.name}"
-      Table data:csvRows variant:"soft" scheme:"surface" size:"sm" striped:true dividers:true rounded:"md"
+      Table data:csvRows variant:"solid" scheme:"surface" size:"sm" striped:true dividers:true rounded:"md"
         column field:"name" label:"CSV name"
         column field:"score" label:"CSV score"
   Section id:"standard-library-catalog" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "4 / IMPLEMENTED CATALOG"
         Title size:"3xl" weight:"black"
           "Use the canonical namespaces"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The functions below match the current server catalog where the operation is portable. Optional arguments keep their documented defaults."
-      Table data:catalogRows variant:"soft" scheme:"surface" size:"sm" striped:true dividers:true rounded:"md"
+      Table data:catalogRows variant:"solid" scheme:"surface" size:"sm" striped:true dividers:true rounded:"md"
         column field:"namespace" label:"Namespace" width:"1fr"
         column field:"functions" label:"Functions" width:"6fr"
   Section id:"standard-library-boundaries" py:{ xs:7 md:10 }
     Grid columns:1 gap:4
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "5 / TARGET CONTRACT"
       Title size:"3xl" weight:"black"
         "One lowered call, three native surfaces"
-      Table data:boundaryRows variant:"soft" scheme:"surface" size:"sm" striped:true dividers:true rounded:"md"
+      Table data:boundaryRows variant:"solid" scheme:"surface" size:"sm" striped:true dividers:true rounded:"md"
         column field:"boundary" label:"Surface" width:"2fr"
         column field:"behavior" label:"Contract" width:"5fr"
-      Alert type:"info" message:"The shared contract is defined by /specs/features/00068-add-portable-standard-library. `id.ulid`, server environment values, Store access, network, filesystem, and arbitrary callbacks stay outside views." variant:"soft" scheme:"info"
+      Alert type:"info" message:"The shared contract is defined by /specs/features/00068-add-portable-standard-library. `id.ulid`, server environment values, Store access, network, filesystem, and arbitrary callbacks stay outside views." variant:"solid" scheme:"info"

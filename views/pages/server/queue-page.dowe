@@ -36,24 +36,24 @@ page QueuePage
     ]
   Section id:"queue-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "SERVER / QUEUE"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Deliver durable work"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Queue provides durable work queues and topic pub/sub with explicit delivery decisions. The same server contract serves local Dowe storage, RabbitMQ, Cloudflare Worker bindings, and Vercel Queues."
   Section id:"queue-topology" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "1 / TOPOLOGY"
         Title size:"3xl" weight:"black"
           "Bindings decide where a message goes"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Topics use dot-separated words. A star matches one word and a hash matches zero or more words. Publishing copies a message to every matching queue."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy commands"
         copiedLabel:"Copied"
@@ -67,7 +67,7 @@ page QueuePage
         """
       Table:
         data:queueTopologyRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -75,20 +75,20 @@ page QueuePage
         rounded:"md"
         column field:"rule" label:"Rule" width:"2fr"
         column field:"meaning" label:"What happens" width:"5fr"
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "A live service, second server, and local CLI cannot directly own the same namespace concurrently. Lock acquisition fails closed; use the authenticated service protocol for a namespace owned by a running service."
   Section id:"queue-delivery" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "2 / DELIVERY"
         Title size:"3xl" weight:"black"
           "At-least-once, session-bound decisions"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Each subscription keeps its own streaming session. An opaque receipt can be acknowledged or rejected only once and only on that session."
       Table:
         data:queueDeliveryRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -100,15 +100,15 @@ page QueuePage
   Section id:"queue-providers" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "3 / PROVIDERS"
         Title size:"3xl" weight:"black"
           "One contract, four provider boundaries"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The provider API and CLI share local and native publication semantics while deploy adapters connect edge handlers to the selected provider."
       Table:
         data:queueProviderRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -116,20 +116,20 @@ page QueuePage
         rounded:"md"
         column field:"provider" label:"Provider" width:"2fr"
         column field:"contract" label:"What it owns" width:"5fr"
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "Remote Dowe Queue and RabbitMQ connections require TLS. Cloudflare uses the generated Worker binding; Vercel uses its regional HTTPS API."
   Section id:"queue-service" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "4 / DOWE QUEUE"
         Title size:"3xl" weight:"black"
           "Run the maintained service"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The host reserves one authenticated WebSocket path, takes exclusive ownership of each opened namespace, and leaves Queue operations to the shared Rust crate."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -138,11 +138,11 @@ page QueuePage
             server port:4150
               queue service
         """
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "Account writers use .dowe/queue/_auth/.lock for exclusive read-modify-write and atomic replacement. A second writer fails closed instead of losing an account record."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy commands"
         copiedLabel:"Copied"
@@ -154,15 +154,15 @@ page QueuePage
   Section id:"queue-application" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "5 / SERVER-ONLY APPLICATION API"
         Title size:"3xl" weight:"black"
           "Publish to an existing queue"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Server actions can select Dowe, RabbitMQ, Cloudflare, or Vercel and publish JSON directly to a named queue. The connection, credentials, and payload stay on the server."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -172,11 +172,11 @@ page QueuePage
             msg sent conn:appQueue.publish queue:"notifications" payload:{ userId:"123" event:"user_created" }
             return json:{ ok:sent.ok messageId:sent.id }
         """
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "Declare QUEUE_HOST, QUEUE_PORT, QUEUE_USER, QUEUE_PASSWORD, and QUEUE_VHOST in the root .env.example with empty or placeholder values. During dowe dev every provider uses local Dowe; deploys resolve the selected .env.live, .env.stage, or .env.uat values. Never expose secrets to Views."
       Table:
         data:queueApplicationRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -187,15 +187,15 @@ page QueuePage
   Section id:"queue-cli" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "6 / CLI"
         Title size:"3xl" weight:"black"
           "Inspect and administer local namespaces"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The root command calls the same Rust implementation used by runtime and IPC. Direct local commands fail closed when a live service owns the namespace lock."
       Table:
         data:queueCliRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -205,10 +205,10 @@ page QueuePage
         column field:"commands" label:"Use" width:"5fr"
   Section id:"queue-boundary" py:{ xs:7 md:10 }
     Grid columns:1 gap:4
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "7 / CURRENT SUPPORT"
       Title size:"3xl" weight:"black"
         "Finite publication, streaming consumption"
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "Dowe Source Format supports queue service, server-only Queue connections, and direct msg publish. Cloudflare and Vercel edge handlers support one static publication per handler; dynamic actions and source-level consume, subscribe, ACK, and NACK remain native Rust provider APIs. Secrets, receipts, and payloads remain server-only."
       Alert type:"info" message:"Provision remote queues through the provider control plane before deployment. The contract excludes arbitrary AMQP exchange types, priorities, TTL, dead-lettering, exactly-once delivery, visibility timeouts, and transparent subscription reconnection."

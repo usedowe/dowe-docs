@@ -65,16 +65,16 @@ page MetadataPage
   Section id:"metadata-overview" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "WEB / DOCUMENT HEAD"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Metadata follows the active route"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Layouts define shared SEO defaults. Pages override only the names they need. Dowe emits the effective head during SSR and keeps it synchronized during browser navigation."
         Alert type:"info" message:"Start with the layout for values shared by many routes. Add meta to a page only when that route needs a different value."
       Table:
         data:metadataModelRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -86,17 +86,17 @@ page MetadataPage
   Section id:"metadata-syntax" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "1 / AUTHOR THE DEFAULTS"
         Title size:"3xl" weight:"black"
           "Declare metadata in the layout"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "meta is a direct child of layout or page. It is not a visual component and does not count toward the layout root. Both props are required quoted strings."
-        Text size:"xs" weight:"bold" color:"muted"
+        Text size:"xs" weight:"bold"
           "views/layouts/site-layout.dowe"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy layout metadata"
         copiedLabel:"Copied"
@@ -115,13 +115,13 @@ page MetadataPage
           "2 / OVERRIDE ONE ROUTE"
         Title size:"2xl" weight:"black"
           "Replace only what this page needs"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The page inherits every layout value it does not declare. This keeps shared defaults in one place while allowing a route to provide its own title, description, or canonical URL."
         Text size:"xs" weight:"bold" color:"primary"
           "views/pages/pricing-page.dowe"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy page metadata"
         copiedLabel:"Copied"
@@ -138,15 +138,15 @@ page MetadataPage
   Section id:"metadata-resolution" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "RESOLUTION"
         Title size:{ xs:"2xl" md:"4xl" } weight:"black"
           "Nearest declaration wins by name"
-        Text color:"muted"
+        Text
           "Dowe starts with the active layout and applies the page last. Ordering is deterministic, and only a declaration with the same name replaces an inherited value."
       Table:
         data:metadataResolutionRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -159,15 +159,15 @@ page MetadataPage
   Section id:"metadata-names" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "SUPPORTED NAMES"
         Title size:{ xs:"2xl" md:"4xl" } weight:"black"
           "A bounded SEO contract"
-        Text color:"muted"
+        Text
           "Dowe rejects unknown, duplicated, empty, dynamic, nested, or child-bearing metadata before generation."
       Table:
         data:metadataNameRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -177,10 +177,10 @@ page MetadataPage
         column field:"names" label:"Supported names and behavior" width:"5fr"
   Section id:"metadata-targets" py:{ xs:7 md:10 }
     Grid columns:1 gap:4
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "TARGET SUPPORT"
       Title size:{ xs:"2xl" md:"4xl" } weight:"black"
         "Browser documents only"
-      Text color:"muted"
+      Text
         "Web emits metadata in SSR HTML and updates it in the SPA router. Desktop accepts the syntax but emits no document metadata. Android and iOS accept the syntax but generate no native metadata."
-      Alert type:"info" variant:"soft" scheme:"info" message:"Use platform-specific app configuration for future window, activity, view, or store-listing metadata. The meta declaration currently owns only the web document head."
+      Alert type:"info" variant:"solid" scheme:"info" message:"Use platform-specific app configuration for future window, activity, view, or store-listing metadata. The meta declaration currently owns only the web document head."

@@ -10,13 +10,13 @@ page AccordionPage
   Section id:"accordion-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "DISPLAY"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Accordion"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Accordion keeps the same normalized state, disclosure geometry, and border treatment across web, Android Compose, the Android development launcher, and iOS. Ghost stays editorial and quiet by default; soft, outlined, and solid treatments make the variant-versus-scheme balance explicit when a surface needs more emphasis."
-      Card variant:"soft" scheme:"primary" p:5 rounded:"lg" minW:56
+      Card variant:"solid" scheme:"primary" p:5 rounded:"lg" minW:56
         Grid columns:1 gap:1
           Text size:"xs" weight:"bold" spacing:"widest"
             "STRUCTURAL CONTENT"
@@ -27,105 +27,105 @@ page AccordionPage
   Section id:"accordion-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "Build a release FAQ"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "multiple:true lets readers compare answers without closing the panel they are already reading; multiple:false always keeps at most one item open."
-      Card variant:"soft" scheme:"surface" p:{ xs:5 md:7 }
+      Card variant:"solid" scheme:"surface" p:{ xs:5 md:7 }
         Accordion multiple:true variant:"outlined" scheme:"surface" rounded:"md"
           item id:"source" label:"Where does the source run?" defaultOpen:true
             Grid columns:1 gap:2 p:2
-              Text size:"sm" color:"muted"
+              Text size:"sm"
                 "Dowe lowers the page to a shared view model and lets each target render its own native disclosure behavior."
               Text size:"sm" weight:"bold"
                 "The source remains target-neutral."
           item id:"runtime" label:"Does it require a JavaScript package?"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "No. Web runtime behavior is Dowe-owned, while Android and iOS use their native state primitives."
           item id:"migration" label:"Can this item be disabled?" disabled:true
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Disabled entries remain visible and explain why a section is not currently available."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
           Accordion multiple:true variant:"outlined" scheme:"surface" rounded:"md"
             item id:"source" label:"Where does the source run?" defaultOpen:true
-              Text size:"sm" color:"muted"
+              Text size:"sm"
                 "Dowe lowers the page to a shared view model."
             item id:"runtime" label:"Does it require a JavaScript package?"
-              Text size:"sm" color:"muted"
+              Text size:"sm"
                 "No. Web, Android, and iOS use Dowe-owned output."
             item id:"migration" label:"Can this item be disabled?" disabled:true
-              Text size:"sm" color:"muted"
+              Text size:"sm"
                 "Disabled entries remain visible."
         """
   Section id:"accordion-patterns" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "ADVANCED PATTERNS"
         Title size:"3xl" weight:"black"
           "Use the body as a real view tree"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Accordion items are not string-only slots. Use Grid, Flex, Text, Title, and actions to make each answer useful on its own."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:3
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "OPERATIONS"
             Title size:"lg" weight:"black"
               "Deployment checks"
-            Accordion variant:"soft" scheme:"primary" rounded:"md"
+            Accordion variant:"solid" scheme:"primary" rounded:"md"
               item id:"build" label:"Build artifact" defaultOpen:true
-                Text size:"sm" color:"muted"
+                Text size:"sm"
                   "Compile once, inspect the generated artifact, and ship the selected target."
               item id:"verify" label:"Validation"
-                Text size:"sm" color:"muted"
+                Text size:"sm"
                   "Keep compiler diagnostics and target checks in the same workflow."
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:3
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "SCHEME"
             Title size:"lg" weight:"black"
               "Surface documentation"
             Accordion variant:"solid" scheme:"background" rounded:"md"
               item id:"contract" label:"Use scheme for families" defaultOpen:true
-                Text size:"sm" color:"muted"
+                Text size:"sm"
                   "background and surface are structural families intended for documentation panels."
               item id:"variant" label:"Keep variant orthogonal"
-                Text size:"sm" color:"muted"
+                Text size:"sm"
                   "solid, soft, outlined, and ghost describe treatment; scheme supplies the matching container, content, border, and Icon colors."
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:3
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "SINGLE OPEN"
             Title size:"lg" weight:"black"
               "Progressive disclosure"
             Accordion multiple:false scheme:"muted" rounded:"md"
               item id:"one" label:"First decision" defaultOpen:true
-                Text size:"sm" color:"muted"
+                Text size:"sm"
                   "Use the default-open item to establish the first step."
               item id:"two" label:"Second decision"
-                Text size:"sm" color:"muted"
+                Text size:"sm"
                   "The next choice replaces the previous panel when multiple is false."
   Section id:"accordion-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Accordion also accepts the applicable common spacing, sizing, border, visibility, and accessibility props. Ghost uses separators, soft uses a subtle item border, and solid or outlined use full item borders consistently on every target."
       Table:
         data:accordionProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

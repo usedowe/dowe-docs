@@ -20,13 +20,13 @@ page MicrophonePage
   Section id:"microphone-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "CONTROL"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Microphone"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Microphone records one audio clip from the device. Permission is requested when recording starts, and stopping emits a local URL plus the MIME type and duration."
-      Card variant:"soft" scheme:"warning" p:5 rounded:"lg" minW:56
+      Card variant:"solid" scheme:"warning" p:5 rounded:"lg" minW:56
         Grid columns:1 gap:1
           Text size:"xs" weight:"bold" spacing:"widest"
             "BOUNDED RECORDING"
@@ -37,20 +37,20 @@ page MicrophonePage
   Section id:"microphone-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "Record and stop"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The control owns the target recording session and exposes only the lifecycle events your page needs."
       Card variant:"outlined" border:1 p:{ xs:5 md:7 }
         Grid columns:1 gap:4
-          Microphone label:"Record audio" maxDuration:30 onStart:microphoneStart onStop:microphoneStop onError:microphoneError variant:"soft" scheme:"secondary" rounded:"lg"
-          Text size:"sm" color:"muted"
+          Microphone label:"Record audio" maxDuration:30 onStart:microphoneStart onStop:microphoneStop onError:microphoneError variant:"solid" scheme:"secondary" rounded:"lg"
+          Text size:"sm"
             "Use onStop to attach or persist the generated local URL in your workflow."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -64,27 +64,27 @@ page MicrophonePage
   Section id:"microphone-events" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "EVENTS"
         Title size:"3xl" weight:"black"
           "Use the item in fn"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "onStart receives source and kind. onStop includes mimeType, url, and durationMs. onError receives a stable source, kind, and error value."
-      Card variant:"soft" scheme:"surface" p:5
+      Card variant:"solid" scheme:"surface" p:5
         Text size:"sm"
           "The URL is a browser object URL on web, a temporary m4a URL on iOS, and a cache URI on Android. Dowe does not upload the recording automatically."
   Section id:"microphone-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Microphone also accepts common spacing, sizing, border, visibility, and accessibility props."
       Table:
         data:microphoneProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

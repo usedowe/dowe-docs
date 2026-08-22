@@ -19,22 +19,22 @@ page EventsPage
     set selected value:"Software"
   Section id:"events-introduction" py:{ xs:6 md:10 }
     Flex direction:"column" gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "STYLES"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Events"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Dispatch one portable Dowe action from Button, IconButton, Avatar, Fab, Empty, Box, Card, or Chip."
   Section id:"events-chip" p:{ xs:5 md:8 }
     Grid columns:{ xs:1 md:2 } gap:8 align:"center"
       Flex direction:"column" gap:4
         Title size:"3xl" weight:"black"
           "Clickable chips"
-        Text color:"muted"
+        Text
           "The event updates shared view state and dispatches through the native event system on every generated target."
         Code:
           language:"dowe"
-          variant:"soft"
+          variant:"solid"
           scheme:"surface"
           copyLabel:"Copy Dowe"
           copiedLabel:"Copied"
@@ -50,35 +50,35 @@ page EventsPage
           Flex wrap:true justify:"center" gap:3
             Chip variant:"solid" scheme:"warning" onClick:selectMobile gesture:"lift" transition:"spring"
               "Mobile Apps"
-            Chip variant:"soft" scheme:"muted" onClick:selectWeb gesture:"press" transition:"quick"
+            Chip variant:"solid" scheme:"muted" onClick:selectWeb gesture:"press" transition:"quick"
               "Web Sites"
             Chip variant:"solid" scheme:"success" onClick:selectSoftware gesture:"grow" transition:"smooth"
               "Software"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "{selected}"
   Section id:"events-surfaces" py:{ xs:7 md:10 }
     Flex direction:"column" gap:5
       Title size:"3xl" weight:"black"
         "Whole-surface actions"
       Grid columns:{ xs:1 md:2 } gap:5
-        Box bg:"softInfo" color:"softInfoText" rounded:"lg" p:6 onClick:selectWeb gesture:"press" transition:"quick"
+        Box bg:"muted" color:"mutedText" rounded:"lg" p:6 onClick:selectWeb gesture:"press" transition:"quick"
           Text weight:"bold"
             "Clickable Box"
-        Card variant:"soft" scheme:"success" p:6 onClick:selectSoftware gesture:"lift" transition:"spring"
+        Card variant:"solid" scheme:"success" p:6 onClick:selectSoftware gesture:"lift" transition:"spring"
           Text weight:"bold"
             "Clickable Card"
   Section id:"events-api" py:{ xs:7 md:10 }
     Flex direction:"column" gap:5
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Accepted values and compatible components"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "onClick accepts a visible local fn reference or a supported inline set action. It has no action by default and is not responsive."
       Table:
         data:eventComponents
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -88,7 +88,7 @@ page EventsPage
         column field:"surface" label:"Action surface" width:"4fr"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -97,10 +97,10 @@ page EventsPage
           Chip onClick:{ set:selected value:"mobile" } gesture:"press"
             "Mobile Apps"
         """
-      Alert type:"warning" variant:"soft" scheme:"warning" message:"onClick is not a shared style prop. Other components reject whole-surface onClick. Entries such as fabAction, Dropdown item, Command item, Map marker, and navigation items have their own separately documented action contracts."
+      Alert type:"warning" variant:"solid" scheme:"warning" message:"onClick is not a shared style prop. Other components reject whole-surface onClick. Entries such as fabAction, Dropdown item, Command item, Map marker, and navigation items have their own separately documented action contracts."
   Section id:"events-guidance" py:{ xs:7 md:10 }
     Flex direction:"column" gap:3
       Title size:"3xl" weight:"black"
         "Keep one clear action owner"
-      Text color:"muted"
+      Text
         "Use semantic href or to navigation props when the result is navigation. Avoid nesting interactive children inside a whole-surface action. gesture is optional visual feedback and never dispatches the action by itself."

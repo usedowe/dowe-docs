@@ -9,11 +9,11 @@ page GesturesPage
     ]
   Section id:"gestures-introduction" py:{ xs:6 md:10 }
     Flex direction:"column" gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "STYLES"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Gestures"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Add portable hover and press feedback without writing target-specific interaction code."
   Section id:"gestures-presets" p:{ xs:5 md:8 }
     Flex direction:"column" gap:6
@@ -23,7 +23,7 @@ page GesturesPage
         Flex wrap:true justify:"center" align:"center" gap:5
           Chip variant:"solid" scheme:"warning" gesture:"lift" transition:"spring" rotate:-5
             "Lift"
-          Chip variant:"soft" scheme:"muted" gesture:"press" transition:"quick" rotate:3
+          Chip variant:"solid" scheme:"muted" gesture:"press" transition:"quick" rotate:3
             "Press"
           Chip variant:"solid" scheme:"success" gesture:"grow" transition:"smooth" rotate:-3
             "Grow"
@@ -31,7 +31,7 @@ page GesturesPage
             "Tilt"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -43,20 +43,20 @@ page GesturesPage
     Flex direction:"column" gap:3
       Title size:"3xl" weight:"black"
         "One intent, native feedback"
-      Text color:"muted"
+      Text
         "Pointer targets respond to hover and active state. Touch targets respond while pressed, and reduced-motion preferences are respected automatically."
   Section id:"gestures-api" py:{ xs:7 md:10 }
     Flex direction:"column" gap:5
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Preset values by input type"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "gesture is a static quoted preset. Its default is none, except Button, IconButton, and Fab, whose primary trigger scales its complete surface to 0.94 during every press and restores it afterward, including consecutive Android taps and controls with a Dowe shadow. Use gesture:\"none\" to opt out. When transition is omitted, each target uses its baseline gesture timing; author a transition preset when named timing matters."
       Table:
         data:gesturePresets
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -67,10 +67,10 @@ page GesturesPage
         column field:"touch" label:"Android and iOS" width:"3fr"
   Section id:"gestures-compatibility" py:{ xs:7 md:10 }
     Flex direction:"column" gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "COMPATIBILITY"
       Title size:"3xl" weight:"black"
         "Visual feedback on styled components"
-      Text color:"muted"
+      Text
         "Every styled layout, navigation root, content component, chart, control, form, and overlay accepts gesture, including Box, Card, Chip, Image, Text, Button, Input, Tabs, Stepper, and Modal."
-      Alert type:"warning" variant:"soft" scheme:"warning" message:"Feedback is not an event. A gesture does not dispatch a function or add navigation semantics. Use onClick on a compatible action surface. Drag, swipe, pinch, long-press callbacks, context entries, Svg, and Path are outside this contract."
+      Alert type:"warning" variant:"solid" scheme:"warning" message:"Feedback is not an event. A gesture does not dispatch a function or add navigation semantics. Use onClick on a compatible action surface. Drag, swipe, pinch, long-press callbacks, context entries, Svg, and Path are outside this contract."

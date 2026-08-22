@@ -26,7 +26,7 @@ layout AppBarFloatingCardLayout
                 scheme:"info"
                 rounded:"full"
         center
-          NavMenu variant:"ghost" scheme:"muted" size:"sm" show:{ xs:false md:true }
+          NavMenu variant:"ghost" scheme:"primary" size:"sm" show:{ xs:false md:true }
             item label:"Home" href:"/blocks/appbar-preview/floating-card"
             item label:"About Us" href:"/blocks/appbar-preview/creative"
             item label:"Services" href:"/blocks/appbar-preview/social-pill"

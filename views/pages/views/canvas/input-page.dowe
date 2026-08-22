@@ -71,7 +71,7 @@ page CanvasInputPage
         width:100
         height:100
         radius:18
-        fill:"softSecondary"
+        fill:"muted"
         stroke:"secondary"
         strokeWidth:4
         rotation:0
@@ -142,13 +142,13 @@ page CanvasInputPage
   Section id:"canvas-input-introduction" py:{ xs:6 md:10 }
     Grid columns:{ xs:1 md:2 } gap:5 align:"center"
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "CANVAS · INPUT"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Interactive input"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Normalize pointer, multitouch, physical keyboard, and device motion into target-neutral event objects that drive retained command bindings."
-      Card variant:"soft" scheme:"tertiary" p:5 rounded:"lg" minW:56
+      Card variant:"solid" scheme:"tertiary" p:5 rounded:"lg" minW:56
         Grid columns:1 gap:1
           Text size:"xs" weight:"bold" spacing:"widest"
             "ONE EVENT MODEL"
@@ -159,11 +159,11 @@ page CanvasInputPage
   Section id:"canvas-input-demo" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "ADVANCED PLAYGROUND"
         Title size:"3xl" weight:"black"
           "Bind three input sources into one scene"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Move or touch the marker, focus the Canvas and press a physical key, or tilt a supported mobile device to rotate the center tile."
       Canvas:
         scene:interactiveScene
@@ -184,19 +184,19 @@ page CanvasInputPage
         border:1
         shadow:"md"
       Grid columns:{ xs:1 md:3 } gap:3
-        Card variant:"soft" scheme:"primary" p:4 rounded:"lg"
+        Card variant:"solid" scheme:"primary" p:4 rounded:"lg"
           Grid columns:1 gap:1
             Text size:"sm" weight:"bold"
               "Pointer"
             Text size:"sm"
               "The blue marker follows logical x and y coordinates."
-        Card variant:"soft" scheme:"secondary" p:4 rounded:"lg"
+        Card variant:"solid" scheme:"secondary" p:4 rounded:"lg"
           Grid columns:1 gap:1
             Text size:"sm" weight:"bold"
               "Physical keyboard"
             Text size:"sm"
               "The most recent key value replaces the scene heading."
-        Card variant:"soft" scheme:"tertiary" p:4 rounded:"lg"
+        Card variant:"solid" scheme:"tertiary" p:4 rounded:"lg"
           Grid columns:1 gap:1
             Text size:"sm" weight:"bold"
               "Device motion"
@@ -205,15 +205,15 @@ page CanvasInputPage
   Section id:"canvas-input-bindings" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "COMMAND BINDINGS"
         Title size:"3xl" weight:"black"
           "Store events, then resolve shallow paths"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Each function receives the event as item. A command bind object replaces selected fields immediately before drawing and preserves the static fallback when a path is missing."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -229,7 +229,7 @@ page CanvasInputPage
         """
       Table:
         data:inputContracts
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -241,24 +241,24 @@ page CanvasInputPage
   Section id:"canvas-input-lifecycle" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "LIFECYCLE AND PERMISSIONS"
         Title size:"3xl" weight:"black"
           "Input stays scoped to the active Canvas"
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"primary" p:5 rounded:"lg"
+        Card variant:"solid" scheme:"primary" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Title size:"xl" weight:"black"
               "Pointer capture"
             Text size:"sm"
               "Active pointers remain captured through up or cancel, including simultaneous touch identifiers."
-        Card variant:"soft" scheme:"secondary" p:5 rounded:"lg"
+        Card variant:"solid" scheme:"secondary" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Title size:"xl" weight:"black"
               "Keyboard focus"
             Text size:"sm"
               "A Canvas with onKey becomes focusable; pointer down gives it focus without opening a software keyboard."
-        Card variant:"soft" scheme:"warning" p:5 rounded:"lg"
+        Card variant:"solid" scheme:"warning" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Title size:"xl" weight:"black"
               "Motion sensors"

@@ -1,8 +1,8 @@
 page ChipPage
   const chipProps:
     value:[
-      { prop:"variant" type:"solid | soft | outlined | ghost" defaultValue:"soft" },
-      { prop:"scheme" type:"primary | secondary | tertiary | muted | background | surface | success | info | warning | danger" defaultValue:"muted" },
+      { prop:"variant" type:"solid | soft | outlined | ghost" defaultValue:"solid" },
+      { prop:"scheme" type:"primary | secondary | tertiary | muted | background | surface | success | info | warning | danger" defaultValue:"primary" },
       { prop:"size" type:"xs | sm | md | lg | xl" defaultValue:"md" },
       { prop:"startIcon" type:"quoted Solar icon name" defaultValue:"—" },
       { prop:"endIcon" type:"quoted Solar icon name" defaultValue:"—" },
@@ -15,16 +15,16 @@ page ChipPage
     ]
   Section id:"chip-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "DISPLAY"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Chip"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Chips present compact labels for filters, states, categories, and removable selections."
   Section id:"chip-variants" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "VARIANTS"
         Title size:"3xl" weight:"black"
           "Four levels of emphasis"
@@ -32,7 +32,7 @@ page ChipPage
         Grid columns:{ xs:2 md:4 } gap:3
           Chip variant:"solid" scheme:"primary"
             "Solid"
-          Chip variant:"soft" scheme:"success"
+          Chip variant:"solid" scheme:"success"
             "Soft"
           Chip variant:"outlined" scheme:"warning"
             "Outlined"
@@ -40,42 +40,42 @@ page ChipPage
             "Ghost"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Chip variant:"soft" scheme:"success" size:"md"
+          Chip variant:"solid" scheme:"success" size:"md"
             "Active"
         """
   Section id:"chip-schemes" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "SCHEMES"
         Title size:"3xl" weight:"black"
           "Semantic color families"
       Grid columns:{ xs:4 md:8 } gap:3
-        Chip variant:"soft" scheme:"primary"
+        Chip variant:"solid" scheme:"primary"
           "Primary"
-        Chip variant:"soft" scheme:"secondary"
+        Chip variant:"solid" scheme:"secondary"
           "Secondary"
-        Chip variant:"soft" scheme:"tertiary"
+        Chip variant:"solid" scheme:"tertiary"
           "Tertiary"
-        Chip variant:"soft" scheme:"muted"
+        Chip variant:"solid" scheme:"muted"
           "Muted"
-        Chip variant:"soft" scheme:"success"
+        Chip variant:"solid" scheme:"success"
           "Success"
-        Chip variant:"soft" scheme:"info"
+        Chip variant:"solid" scheme:"info"
           "Info"
-        Chip variant:"soft" scheme:"warning"
+        Chip variant:"solid" scheme:"warning"
           "Warning"
-        Chip variant:"soft" scheme:"danger"
+        Chip variant:"solid" scheme:"danger"
           "Danger"
   Section id:"chip-sizes" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "SIZES"
         Title size:"3xl" weight:"black"
           "Five compact densities"
@@ -93,18 +93,18 @@ page ChipPage
   Section id:"chip-icons" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "ICON PROPS AND REGIONS"
         Title size:"3xl" weight:"black"
           "Solar icons or custom SVG"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use startIcon or endIcon for a shared Solar icon. The icon scales with the Chip size and keeps the same order on web, Android, and iOS. Use the start and end regions when custom SVG geometry is required."
       Grid columns:{ xs:1 md:2 } gap:3
-        Chip variant:"soft" scheme:"info" startIcon:"settings"
+        Chip variant:"solid" scheme:"info" startIcon:"settings"
           "Settings"
         Chip variant:"outlined" scheme:"success" endIcon:"magnifier"
           "Search"
-        Chip variant:"soft" scheme:"info"
+        Chip variant:"solid" scheme:"info"
           start
             Svg viewBox:"0 0 24 24" w:4 h:4
               Path d:"M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm1 15h-2v-6h2v6Zm0-8h-2V7h2v2Z" fill:"currentColor"
@@ -116,17 +116,17 @@ page ChipPage
               Path d:"m9 16.2-4.2-4.2-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2Z" fill:"currentColor"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Chip variant:"soft" scheme:"info" startIcon:"settings"
+          Chip variant:"solid" scheme:"info" startIcon:"settings"
             "Settings"
           Chip variant:"outlined" scheme:"success" endIcon:"magnifier"
             "Search"
 
-          Chip variant:"soft" scheme:"info"
+          Chip variant:"solid" scheme:"info"
             start
               Svg viewBox:"0 0 24 24" w:4 h:4
                 Path d:"M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Z" fill:"currentColor"
@@ -135,34 +135,34 @@ page ChipPage
   Section id:"chip-close" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "REMOVABLE SELECTIONS"
         Title size:"3xl" weight:"black"
           "Close through a declared action"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "When onClose is present, Dowe generates the target-native close control and invokes the named view action."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Chip onClose:removeFilter variant:"soft" scheme:"primary"
+          Chip onClose:removeFilter variant:"solid" scheme:"primary"
             "Design systems"
         """
   Section id:"chip-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props and regions"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Chip also accepts applicable common spacing, sizing, visibility, grid placement, and style props."
       Table:
         data:chipProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

@@ -1,7 +1,7 @@
 layout AppBarClassicSaasLayout
   Scaffold
     appBar
-      AppBar variant:"soft" position:"sticky" boxed:true py:2
+      AppBar variant:"solid" position:"sticky" boxed:true py:2
         start
           Brand href:"/blocks/appbar" label:"Olmo home"
             Flex align:"center" gap:2

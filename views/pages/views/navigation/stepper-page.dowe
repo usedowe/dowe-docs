@@ -33,23 +33,23 @@ page StepperPage
   Section id:"stepper-introduction" py:{ xs:6 md:10 }
     Grid columns:{ xs:1 md:2 } gap:5 align:"center"
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "NAVIGATION"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Stepper"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Guide people through an ordered workflow with numbered, selectable steps and one focused panel."
-      Card variant:"soft" scheme:"success" p:3 rounded:"full"
+      Card variant:"solid" scheme:"success" p:3 rounded:"full"
         Text size:"xs" weight:"bold"
           "WEB · ANDROID · IOS"
   Section id:"stepper-default" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "ORDERED WORKFLOW"
         Title size:"3xl" weight:"black"
           "Direct step entries"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Stepper accepts only direct step entries. Each step owns a unique id, a visible label, and one or more view nodes for its panel. The first step starts active."
       Grid columns:{ xs:1 md:2 } gap:6 align:"start"
         Card variant:"outlined" p:{ xs:5 md:8 } border:1
@@ -58,27 +58,27 @@ page StepperPage
               Grid columns:1 gap:2 p:4
                 Title size:"lg" weight:"bold"
                   "Create your account"
-                Text size:"sm" color:"muted"
+                Text size:"sm"
                   "Enter the information you will use to sign in."
                 Input label:"Email" placeholder:"you@example.com"
             step id:"profile" label:"Profile"
               Grid columns:1 gap:2 p:4
                 Title size:"lg" weight:"bold"
                   "Complete your profile"
-                Text size:"sm" color:"muted"
+                Text size:"sm"
                   "Add the details your team will recognize."
                 Input label:"Display name" placeholder:"Ada Lovelace"
             step id:"review" label:"Review"
               Grid columns:1 gap:2 p:4
                 Title size:"lg" weight:"bold"
                   "Review and submit"
-                Text size:"sm" color:"muted"
+                Text size:"sm"
                   "Confirm the workflow before continuing."
                 Button
                   "Submit"
         Code:
           language:"dowe"
-          variant:"soft"
+          variant:"solid"
           scheme:"surface"
           copyLabel:"Copy Dowe"
           copiedLabel:"Copied"
@@ -97,13 +97,13 @@ page StepperPage
   Section id:"stepper-responsive" py:{ xs:7 md:10 }
     Grid columns:1 gap:7
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "RESPONSIVE WEB"
         Title size:"3xl" weight:"black"
           "A track that stays usable on small screens"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The horizontal track keeps its intrinsic width and stays bounded by its container. When labels no longer fit, the controls scroll horizontally while the active panel keeps the available width."
-      Card variant:"soft" p:{ xs:4 md:7 }
+      Card variant:"solid" p:{ xs:4 md:7 }
         Stepper scheme:"secondary"
           step id:"workspace" label:"Workspace details"
             Text size:"sm" p:4
@@ -117,15 +117,15 @@ page StepperPage
           step id:"confirmation" label:"Confirm configuration"
             Text size:"sm" p:4
               "Review the final workspace configuration."
-      Alert type:"info" variant:"soft" scheme:"info" message:"On web, arrow keys move between steps and Home or End selects the first or last step."
+      Alert type:"info" variant:"solid" scheme:"info" message:"On web, arrow keys move between steps and Home or End selects the first or last step."
   Section id:"stepper-orientation" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "ORIENTATION"
         Title size:"3xl" weight:"black"
           "Horizontal or vertical"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use horizontal for compact progress across a page. Use vertical when labels need more room or the workflow belongs beside its content."
       Grid columns:{ xs:1 md:2 } gap:5 align:"start"
         Card variant:"outlined" p:5 border:1
@@ -159,14 +159,14 @@ page StepperPage
   Section id:"stepper-schemes" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "SCHEMES"
         Title size:"3xl" weight:"black"
           "Semantic progress color"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "scheme selects the numbered indicator and active label family consistently on web, Android, and iOS."
       Grid columns:{ xs:1 md:2 } gap:5
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Stepper scheme:"warning"
             step id:"warning-one" label:"Prepare"
               Text size:"sm" p:3
@@ -174,7 +174,7 @@ page StepperPage
             step id:"warning-two" label:"Confirm"
               Text size:"sm" p:3
                 "Confirm before continuing"
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Stepper scheme:"danger"
             step id:"danger-one" label:"Inspect"
               Text size:"sm" p:3
@@ -182,39 +182,39 @@ page StepperPage
             step id:"danger-two" label:"Resolve"
               Text size:"sm" p:3
                 "Resolve the blocking issue"
-      Alert type:"info" variant:"soft" scheme:"info" message:"Stepper uses scheme, not color, for its visual family."
+      Alert type:"info" variant:"solid" scheme:"info" message:"Stepper uses scheme, not color, for its visual family."
   Section id:"stepper-accessibility" p:{ xs:5 md:7 }
     Grid columns:{ xs:1 md:2 } gap:6 align:"start"
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "ACCESSIBILITY"
         Title size:"3xl" weight:"black"
           "One active step on every target"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Web and desktop use tablist, tab, and tabpanel roles because each numbered control selects one visible panel. The active control also exposes aria-current step."
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Android and iOS generate native buttons, local state, numbered indicators, connectors, overflow behavior, and the same selected panel."
-      Card variant:"soft" p:6
+      Card variant:"solid" p:6
         Grid columns:1 gap:3
           Title size:"lg" weight:"bold"
             "Authoring rules"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Keep ids unique within one Stepper, give every step a label and content, and place ordinary view nodes under step instead of directly under Stepper."
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "The active step is local state in this release. Signal binding and validation gates are not part of the current contract."
   Section id:"stepper-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:8
       Grid columns:1 gap:5
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          Text size:"xs" weight:"bold" spacing:"widest"
             "API"
           Title size:"3xl" weight:"black"
             "Stepper props"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Stepper also accepts applicable common identity, spacing, sizing, visibility, radius, and border props."
         Table:
           data:stepperProps
-          variant:"soft"
+          variant:"solid"
           scheme:"surface"
           size:"sm"
           striped:true
@@ -227,11 +227,11 @@ page StepperPage
         Grid columns:1 gap:2
           Title size:"2xl" weight:"black"
             "step entry props"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "step is structural and is valid only as a direct child of Stepper."
         Table:
           data:stepProps
-          variant:"soft"
+          variant:"solid"
           scheme:"surface"
           size:"sm"
           striped:true

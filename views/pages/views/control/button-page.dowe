@@ -155,49 +155,49 @@ page ButtonPage
     value:[
       {
         id:"soft-primary"
-        variant:"soft"
+        variant:"solid"
         scheme:"primary"
         label:"Soft Primary"
       },
       {
         id:"soft-secondary"
-        variant:"soft"
+        variant:"solid"
         scheme:"secondary"
         label:"Soft Secondary"
       },
       {
         id:"soft-muted"
-        variant:"soft"
+        variant:"solid"
         scheme:"muted"
         label:"Soft Muted"
       },
       {
         id:"soft-success"
-        variant:"soft"
+        variant:"solid"
         scheme:"success"
         label:"Soft Success"
       },
       {
         id:"soft-info"
-        variant:"soft"
+        variant:"solid"
         scheme:"info"
         label:"Soft Info"
       },
       {
         id:"soft-danger"
-        variant:"soft"
+        variant:"solid"
         scheme:"danger"
         label:"Soft Danger"
       },
       {
         id:"soft-warning"
-        variant:"soft"
+        variant:"solid"
         scheme:"warning"
         label:"Soft Warning"
       },
       {
         id:"soft-tertiary"
-        variant:"soft"
+        variant:"solid"
         scheme:"tertiary"
         label:"Soft Tertiary"
       },
@@ -418,28 +418,28 @@ page ButtonPage
   Section id:"button-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "CONTROL"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Button"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Buttons let users trigger actions and navigation with one clear tap."
   Section id:"button-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "Configure a button"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The controls bind directly to the preview. Conditional icon values resolve to a validated Solar name or an empty string without reserving icon space."
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "On web, desktop, Android, and iOS, Button labels stay on one line and keep their control height in narrow layouts. Let the surrounding Flex wrap or change direction when the row no longer fits."
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "On web, iOS, and Android, the full rendered Button surface is interactive, including its padding, label, and optional icons."
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Button labels and icons are control content, not document text, so they cannot be selected on web, desktop, Android, or iOS."
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Button gives visible press feedback by scaling its full surface to 0.94 while active on web, iOS, and Android. Use gesture:\"none\" to disable it."
       Grid columns:{ xs:2 md:4 } gap:4
         Select bind:schemeChoice label:"Scheme" placeholder:"Choose a scheme"
@@ -469,7 +469,7 @@ page ButtonPage
             "Button label"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -480,22 +480,22 @@ page ButtonPage
       Grid columns:1 gap:2
         Title size:"xl" weight:"bold"
           "Reactive loading"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Bind loading to a boolean Signal or View Store path. When it is true, Button shows the bundled svg-spinners:3-dots-move Icon, keeps the content footprint, marks the control busy, and prevents another action."
         Title size:"xl" weight:"bold"
           "Reactive disabled state"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Bind disabled to a boolean Signal or View Store path. When it is true, Button keeps its scheme and variant at 0.5 opacity, preserves its layout, and blocks click or navigation on web, desktop, Android, and iOS."
   Section id:"button-schemes" py:{ xs:7 md:10 }
     Flex direction:"column" gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "SCHEMES AND VARIANTS"
         Title size:"3xl" weight:"black"
           "Every semantic color"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Each row keeps one variant fixed so color families are easy to compare."
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Each generated label uses the explicit braced text-binding form for its current item."
       Flex direction:"column" gap:3
         Grid columns:{ xs:2 md:4 } gap:3
@@ -517,7 +517,7 @@ page ButtonPage
   Section id:"button-sizes" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "VARIANTS AND SIZES"
         Title size:"3xl" weight:"black"
           "Five control densities"
@@ -528,15 +528,15 @@ page ButtonPage
   Section id:"button-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Button also accepts the applicable common spacing, sizing, typography, visibility, and accessibility props."
       Table:
         data:buttonProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

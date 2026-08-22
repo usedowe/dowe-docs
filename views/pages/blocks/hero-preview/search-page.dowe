@@ -6,7 +6,7 @@ page SearchHeroPage
       Flex direction:"column" align:"center" justify:"center" gap:6
         Title size:{ xs:"4xl" md:"6xl" } weight:"black"
           "A dedicated team to grow your company"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Lead visitors directly to the content, service, or resource they already have in mind."
         Input:
           bind:searchQuery
@@ -14,7 +14,7 @@ page SearchHeroPage
           labelFloating:true
           placeholder:"Search for..."
           iconStart:"magnifier"
-          variant:"soft"
+          variant:"solid"
           scheme:"muted"
           rounded:"full"
           w:"full"

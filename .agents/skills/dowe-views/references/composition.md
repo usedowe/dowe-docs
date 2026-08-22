@@ -48,7 +48,7 @@ layout SiteLayout
             Text weight:"black"
               "SOLTECH"
         end
-          NavMenu variant:"ghost" scheme:"surface"
+          NavMenu variant:"ghost" scheme:"primary"
             item label:"About" href:"/#about"
             item label:"Services" href:"/#services"
     main

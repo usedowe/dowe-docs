@@ -76,25 +76,25 @@ page I18nPage
     ]
   Section id:"i18n-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "LOCALIZATION / VIEWS"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Translate visible copy with i18n"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Translate visible Views copy from Dowe catalogs without branching by platform or locale. A key connects the component to every locale catalog, while the authored text remains the deterministic fallback."
   Section id:"i18n-model" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "1 / MENTAL MODEL"
         Title size:"3xl" weight:"black"
           "One key, one source fallback, every target"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Dowe validates catalogs before generation and lowers each localized value through the shared Views model. Read the setup in this order: define catalogs, add fallback copy, then reference keys from views."
         Alert type:"info" message:"Catalogs live at the project root. The compiler owns validation; each generated target owns the final locale lookup."
       Table:
         data:i18nModelRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -106,21 +106,21 @@ page I18nPage
   Section id:"i18n-smallest-example" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "2 / SMALLEST VALID SETUP"
         Title size:"3xl" weight:"black"
           "Declare every key in every locale"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Exactly one catalog must declare default:true. Nested node names form dot-separated keys. The Spanish catalog mirrors the English key shape and changes only the values."
         Alert type:"info" message:"The file path selects the locale. The default:true prop selects the source fallback catalog; it does not translate the page by itself."
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" color:"muted"
+        Text size:"xs" weight:"bold"
           "i18n/en.dowe — default catalog"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "This file supplies the source values used when no more specific locale is selected."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy English catalog"
         copiedLabel:"Copied"
@@ -134,13 +134,13 @@ page I18nPage
                 start "Get started"
         """
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" color:"muted"
+        Text size:"xs" weight:"bold"
           "i18n/es.dowe — translated catalog"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "This file keeps the same nested keys so every reference has a value in every locale."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Spanish catalog"
         copiedLabel:"Copied"
@@ -156,11 +156,11 @@ page I18nPage
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" color:"primary"
           "views/pages/home-page.dowe — reference the keys"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The page keeps readable English fallback children while i18n points to the matching catalog paths."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy localized page"
         copiedLabel:"Copied"
@@ -177,15 +177,15 @@ page I18nPage
   Section id:"i18n-surfaces" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "3 / SUPPORTED SURFACES"
         Title size:"3xl" weight:"black"
           "Localize copy where the component contract allows it"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The i18n prop always points to a quoted key and never replaces the required fallback. Secondary keys follow the same rule: their fallback prop must be present before the localized value can be used."
       Table:
         data:i18nSurfaceRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -197,11 +197,11 @@ page I18nPage
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" color:"primary"
           "Example — navigation labels with secondary copy"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Add every referenced key to every locale catalog before using this pattern. The label, description, and status values remain readable fallbacks in the source file."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy localized navigation"
         copiedLabel:"Copied"
@@ -224,15 +224,15 @@ page I18nPage
   Section id:"i18n-validation" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "4 / VALIDATION"
         Title size:"3xl" weight:"black"
           "Localization errors stop before generation"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The compiler checks the catalog contract and every referenced key before it generates a target. Fix the source catalogs instead of adding target-specific conditionals to a page."
       Table:
         data:i18nValidationRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -241,13 +241,13 @@ page I18nPage
         column field:"rule" label:"Validation" width:"2fr"
         column field:"result" label:"What Dowe checks" width:"5fr"
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" color:"muted"
+        Text size:"xs" weight:"bold"
           "Compatibility entry"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The explicit translation entry remains supported, but nested groups are easier to scan and maintain."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy compatibility entry"
         copiedLabel:"Copied"
@@ -258,15 +258,15 @@ page I18nPage
   Section id:"i18n-targets" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "5 / TARGET OUTPUT"
         Title size:"3xl" weight:"black"
           "Locale selection stays platform-owned"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The same catalog model feeds each target, but the generated runtime chooses the platform-native lookup and output format."
       Table:
         data:i18nTargetRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

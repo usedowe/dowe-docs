@@ -2,19 +2,19 @@ layout ScaffoldExampleLayout
   signal openDrawer value:false
   Scaffold boxed:true
     appBar
-      AppBar variant:"soft" position:"fixed" bordered:true boxed:true
+      AppBar variant:"solid" position:"fixed" bordered:true boxed:true
         start
           IconButton label:"Open navigation" variant:"ghost" show:{ xs:true md:false } onClick:{ set:openDrawer value:!openDrawer } icon:"menu-dots"
           Text weight:"bold"
             "Dowe"
         center
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Scaffold shell"
         end
           Button href:"/examples/bottombar" variant:"ghost" size:"sm"
             "Bottom bar"
     start
-      Sidebar show:{ xs:false md:true } variant:"soft" scheme:"surface"
+      Sidebar show:{ xs:false md:true } variant:"solid" scheme:"surface"
         header
           Text weight:"bold" p:3
             "Workspace"
@@ -26,13 +26,13 @@ layout ScaffoldExampleLayout
     main
       children
     bottomBar
-      BottomBar variant:"soft" scheme:"surface" bordered:true boxed:true
+      BottomBar variant:"solid" scheme:"surface" bordered:true boxed:true
         tab href:"/examples/scaffold" label:"Overview"
           Icon name:"home"
         tab href:"/examples/bottombar" label:"Bottom bar"
           Icon name:"add-circle"
     overlays
-      Drawer open:openDrawer position:"start" variant:"soft" show:{ xs:true md:false }
+      Drawer open:openDrawer position:"start" variant:"solid" show:{ xs:true md:false }
         header
           Text weight:"bold" p:3
             "Workspace"

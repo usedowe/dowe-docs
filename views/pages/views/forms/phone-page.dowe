@@ -66,20 +66,20 @@ page PhonePage
   Section id:"phone-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "FORM"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Phone"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Phone pairs a searchable Dowe-owned country catalog with digit-only local-number binding and explicit dial-code form storage. It uses the same inset, anchored popover, compact search, and horizontal country rows on every target."
   Section id:"phone-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "Collect an international contact number"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Search the Dowe country popover, keep Colombia and nearby markets at the top, and store the selected dial code separately from the digit-only bound local number."
       Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Grid columns:1 gap:5
@@ -101,13 +101,13 @@ page PhonePage
             validate rule:"required" message:"Enter a mobile phone number."
             validate rule:"phone" message:"Enter a valid phone number."
           Grid columns:1 gap:4
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "bind stores only local-number digits so applications can validate and format them independently."
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "dialCodeName gives the generated form a stable companion field for the selected calling code."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -121,11 +121,11 @@ page PhonePage
   Section id:"phone-regions" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "REGIONAL WORKFLOWS"
         Title size:"3xl" weight:"black"
           "Prioritize the countries that matter"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The selected country appears first, followed by priorityCountries and then the rest of the built-in catalog."
       Grid columns:{ xs:1 md:2 } gap:5
         Phone:
@@ -136,7 +136,7 @@ page PhonePage
           label:"Billing contact"
           placeholder:"415 555 0136"
           helpText:"North American markets stay at the top of the selector."
-          variant:"soft"
+          variant:"solid"
           scheme:"secondary"
           size:"md"
           name:"billing-phone"
@@ -154,23 +154,23 @@ page PhonePage
           name:"support-phone"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Phone value:"4155550136" country:"US" dialCodeName:"billingDialCode" priorityCountries:"US,CA,MX" label:"Billing contact" variant:"soft" scheme:"secondary" size:"md"
+          Phone value:"4155550136" country:"US" dialCodeName:"billingDialCode" priorityCountries:"US,CA,MX" label:"Billing contact" variant:"solid" scheme:"secondary" size:"md"
 
           Phone country:"ES" dialCodeName:"supportDialCode" priorityCountries:"ES,GB,DE" label:"Support callback" variant:"line" scheme:"success" size:"md"
         """
   Section id:"phone-states" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "STATES AND DENSITY"
         Title size:"3xl" weight:"black"
           "Keep validation attached to the whole number"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Error feedback belongs to the combined country and number control, while disabled preserves both values visibly. Floating labels stay anchored over the local-number input rather than the country selector."
       Grid columns:{ xs:1 md:2 } gap:5
         Phone:
@@ -192,57 +192,57 @@ page PhonePage
           scheme:"muted"
           size:"md"
           name:"verified-phone"
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "The base heights are 32, 40, and 48; labelFloating adds 8 logical units without changing the country trigger."
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "Phone validates the bound local-number string after blur or country-popover close; the first failing message belongs to the combined control."
       Grid columns:{ xs:1 md:3 } gap:4
-        Phone country:"CO" label:"Small" labelFloating:true variant:"soft" scheme:"primary" size:"sm"
-        Phone country:"CO" label:"Medium" labelFloating:true variant:"soft" scheme:"primary" size:"md"
-        Phone country:"CO" label:"Large" labelFloating:true variant:"soft" scheme:"primary" size:"lg"
+        Phone country:"CO" label:"Small" labelFloating:true variant:"solid" scheme:"primary" size:"sm"
+        Phone country:"CO" label:"Medium" labelFloating:true variant:"solid" scheme:"primary" size:"md"
+        Phone country:"CO" label:"Large" labelFloating:true variant:"solid" scheme:"primary" size:"lg"
   Section id:"phone-contract" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "BEHAVIOR"
         Title size:"3xl" weight:"black"
           "One country catalog, portable selection"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Dowe owns country metadata, ordering, search, dial-code storage, selected state, and the shared circle-flags SVGs across generated targets."
       Grid columns:{ xs:1 md:3 } gap:5
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "CATALOG"
           Title size:"lg" weight:"bold"
             "Searchable countries"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Country names, flags, and dial codes come from the deterministic Dowe-owned catalog."
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "VALUE"
           Title size:"lg" weight:"bold"
             "Digit-only local value"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "bind owns local-number digits and dialCodeName identifies the generated companion form value."
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "TARGETS"
           Title size:"lg" weight:"bold"
             "Dowe popovers"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Web, SwiftUI, Compose, and the Android launcher use the Dowe anchored dropdown surface with matching inset, width, compact search, horizontal flag/name/dial rows, empty feedback, selection, and vector country flags."
   Section id:"phone-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Phone also accepts the applicable common spacing, sizing, visibility, accessibility, and shadow props."
       Table:
         data:phoneProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

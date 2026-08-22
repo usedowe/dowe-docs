@@ -50,20 +50,20 @@ page DropzonePage
   Section id:"dropzone-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "FORM"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Dropzone"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Dropzone makes file intake explicit with accepted types, size limits, previews, removal, and portable disabled states."
   Section id:"dropzone-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "Collect profile images"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Accept only images, keep one file per profile, and cap the payload before it enters the upload workflow."
       Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Grid columns:1 gap:4
@@ -78,11 +78,11 @@ page DropzonePage
             variant:"outlined"
             scheme:"primary"
             size:"lg"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Web shows drag state, previews, file size, and removal. iOS opens UIDocumentPicker through fileImporter, while Android opens its native document selector and applies the same type, count, and size rules."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -92,39 +92,39 @@ page DropzonePage
   Section id:"dropzone-file-policies" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "FILE POLICIES"
         Title size:"3xl" weight:"black"
           "Make the intake match the job"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "accept, multiple, and maxSize describe the file contract before a user starts selecting files."
       Grid columns:{ xs:1 md:2 } gap:5
-        Dropzone accept:"application/pdf" multiple:true maxSize:10485760 name:"research-files" label:"Research files" helpText:"PDF documents, up to 10 MB each." placeholder:"Drop reports or browse" variant:"soft" scheme:"info" size:"md"
+        Dropzone accept:"application/pdf" multiple:true maxSize:10485760 name:"research-files" label:"Research files" helpText:"PDF documents, up to 10 MB each." placeholder:"Drop reports or browse" variant:"solid" scheme:"info" size:"md"
         Dropzone accept:"text/csv" multiple:true maxSize:2097152 name:"data-files" label:"Data exports" helpText:"CSV files, up to 2 MB each." placeholder:"Drop CSV exports or browse" variant:"solid" scheme:"success" size:"md"
         Dropzone accept:"video/*" multiple:false maxSize:52428800 name:"demo-video" label:"Demo video" helpText:"One video, up to 50 MB." placeholder:"Drop a demo video or browse" variant:"ghost" scheme:"secondary" size:"sm"
         Dropzone accept:"application/zip" multiple:false maxSize:104857600 name:"release-bundle" label:"Release bundle" helpText:"One ZIP archive, up to 100 MB." placeholder:"Drop the bundle or browse" variant:"outlined" scheme:"warning" size:"lg"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Dropzone accept:"application/pdf" multiple:true maxSize:10485760 name:"research-files" label:"Research files" helpText:"PDF documents, up to 10 MB each." placeholder:"Drop reports or browse" variant:"soft" scheme:"info" size:"md"
+          Dropzone accept:"application/pdf" multiple:true maxSize:10485760 name:"research-files" label:"Research files" helpText:"PDF documents, up to 10 MB each." placeholder:"Drop reports or browse" variant:"solid" scheme:"info" size:"md"
           Dropzone accept:"text/csv" multiple:true maxSize:2097152 name:"data-files" label:"Data exports" helpText:"CSV files, up to 2 MB each." placeholder:"Drop CSV exports or browse" variant:"solid" scheme:"success" size:"md"
         """
   Section id:"dropzone-states" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "STATES AND SURFACES"
         Title size:"3xl" weight:"black"
           "Design for success and correction"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "errorText keeps rejection feedback attached to the field, while disabled preserves the upload contract without accepting interaction."
       Grid columns:{ xs:1 md:2 } gap:5
         Dropzone accept:"image/*" multiple:true maxSize:1048576 label:"Asset library" errorText:"One file is larger than the 1 MB limit." placeholder:"Drop assets or browse" variant:"outlined" scheme:"danger" size:"md" name:"asset-library"
-        Dropzone accept:"application/json" multiple:false disabled:true label:"Configuration snapshot" helpText:"Uploads are locked while the workspace is syncing." placeholder:"Upload unavailable" variant:"soft" scheme:"muted" size:"md" name:"configuration"
+        Dropzone accept:"application/json" multiple:false disabled:true label:"Configuration snapshot" helpText:"Uploads are locked while the workspace is syncing." placeholder:"Upload unavailable" variant:"solid" scheme:"muted" size:"md" name:"configuration"
       Grid columns:{ xs:1 md:3 } gap:3
         Dropzone accept:"image/*" multiple:false label:"Small" placeholder:"Small dropzone" variant:"outlined" scheme:"primary" size:"sm"
         Dropzone accept:"image/*" multiple:false label:"Medium" placeholder:"Medium dropzone" variant:"outlined" scheme:"primary" size:"md"
@@ -132,46 +132,46 @@ page DropzonePage
   Section id:"dropzone-contract" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "BEHAVIOR"
         Title size:"3xl" weight:"black"
           "One safe file surface"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Dowe owns file filtering, drag state, preview summaries, size rejection, and removal affordances in generated target code."
       Grid columns:{ xs:1 md:3 } gap:5
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "FILTERING"
           Title size:"lg" weight:"bold"
             "Types and size"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "accept, multiple, and maxSize create a visible intake policy before files are selected."
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "FEEDBACK"
           Title size:"lg" weight:"bold"
             "Attached errors"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "errorText and helpText keep correction and guidance close to the drop target."
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "TARGETS"
           Title size:"lg" weight:"bold"
             "Native picker"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Web keeps drag and drop; iOS and Android open the system file selector, filter accept and maxSize, and render the selected names and sizes."
   Section id:"dropzone-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Dropzone also accepts the applicable common spacing, sizing, typography, visibility, accessibility, and shadow props."
       Table:
         data:dropzoneProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

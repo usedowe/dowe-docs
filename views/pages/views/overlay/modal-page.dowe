@@ -55,22 +55,22 @@ page ModalPage
   Section id:"modal-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "OVERLAY"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Modal"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Modal combines Card surface rules with Drawer's close control so one bool Signal produces the same focused task on web, Android, and iOS."
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "On compact viewports, the generated panel stays within 95% of the available overlay width on every target."
   Section id:"modal-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "A focused profile review"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Open the dialog to inspect its optional header and footer, Card-resolved surface, Drawer close control, overlay, and explicit close action."
       Card variant:"outlined" p:{ xs:6 md:10 } border:1
         Flex justify:"center" align:"center"
@@ -81,13 +81,13 @@ page ModalPage
           Title size:"xl" weight:"black"
             "Review profile"
         Grid columns:1 gap:3
-          Text color:"muted"
+          Text
             "Confirm that this profile is ready to appear in the workspace directory."
-          Card variant:"soft" scheme:"background" p:4
+          Card variant:"solid" scheme:"background" p:4
             Grid columns:1 gap:1
               Text weight:"bold"
                 "Maya Chen"
-              Text size:"sm" color:"muted"
+              Text size:"sm"
                 "Product designer · maya@acme.test"
         footer
           Flex justify:"end" gap:3
@@ -97,7 +97,7 @@ page ModalPage
               "Confirm"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -126,52 +126,52 @@ page ModalPage
   Section id:"modal-regions" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "STRUCTURE"
         Title size:"3xl" weight:"black"
           "Body content with optional edges"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The body is required. Add header for a title or context, and footer for persistent actions that stay grouped at the bottom of the dialog."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "HEADER"
             Title size:"lg" weight:"bold"
               "Optional context"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Use header for the dialog title, status, or compact context that people need before reading the body."
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "BODY"
             Title size:"lg" weight:"bold"
               "Required content"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Place the task, explanation, form controls, or supporting information directly inside Modal."
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "FOOTER"
             Title size:"lg" weight:"bold"
               "Optional actions"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Use footer for close, cancel, confirm, or other declared actions that complete the focused task."
   Section id:"modal-close-behavior" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "CLOSE BEHAVIOR"
         Title size:"3xl" weight:"black"
           "Choose the available exit paths"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "By default, the generated close control and a click on the overlay close the dialog. Keep a visible action in the footer when the task must make its exit explicit."
       Grid columns:{ xs:1 md:2 } gap:5
         Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:3
             Text size:"sm" weight:"bold"
               "Standard close behavior"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "The overlay and generated Drawer-style SVG control dismiss this dialog, and onClose invokes the declared function after the open Signal changes."
             Button onClick:openPolicyModal variant:"outlined" scheme:"info"
               "Open policy"
@@ -179,15 +179,15 @@ page ModalPage
           Grid columns:1 gap:3
             Text size:"sm" weight:"bold"
               "Explicit decision"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Disable overlay close and hide the generated close control when the footer must be the visible route out of the dialog."
             Button onClick:openProtectedModal variant:"outlined" scheme:"warning"
               "Open protected action"
-      Modal open:policyModalOpen onClose:closePolicyModal variant:"soft" scheme:"info"
+      Modal open:policyModalOpen onClose:closePolicyModal variant:"solid" scheme:"info"
         header
           Title size:"xl" weight:"black"
             "Workspace policy"
-        Text color:"muted"
+        Text
           "This dialog can close from its overlay, generated close control, or the footer action."
         footer
           Flex justify:"end"
@@ -201,7 +201,7 @@ page ModalPage
         header
           Title size:"xl" weight:"black"
             "Publish changes?"
-        Text color:"muted"
+        Text
           "The footer provides the visible actions for this decision."
         footer
           Flex justify:"end" gap:3
@@ -211,7 +211,7 @@ page ModalPage
               "Publish"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -231,15 +231,15 @@ page ModalPage
   Section id:"modal-variants" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "VARIANTS AND SCHEMES"
         Title size:"3xl" weight:"black"
           "Keep the dialog aligned with its context"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Modal resolves solid, soft, outlined, and ghost exactly like Card. Outlined keeps a readable neutral surface with the selected scheme on its border; the default scheme remains surface."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -248,7 +248,7 @@ page ModalPage
             Text
               "Default dialog surface"
 
-          Modal open:noticeOpen variant:"soft" scheme:"info"
+          Modal open:noticeOpen variant:"solid" scheme:"info"
             Text
               "Informational dialog"
 
@@ -263,49 +263,49 @@ page ModalPage
   Section id:"modal-targets" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "TARGET BEHAVIOR"
         Title size:"3xl" weight:"black"
           "One dialog contract, target-owned presentation"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The same source stays signal-driven on every target while Dowe generates the appropriate overlay surface and close behavior."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "WEB"
             Title size:"lg" weight:"bold"
               "Fixed dialog overlay"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Generated web output uses the shared Card surface, 560-unit panel metrics, Drawer SVG close control, Escape handling, and reactive Signal updates."
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "ANDROID"
             Title size:"lg" weight:"bold"
               "Dowe popup dialog"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Compose and the Android development launcher use the same Card colors and border, panel metrics, and Drawer close geometry."
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "IOS"
             Title size:"lg" weight:"bold"
               "Window presenter"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "SwiftUI mounts the same Card surface, metrics, and Drawer close SVG through a Dowe-owned window presenter."
   Section id:"modal-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props and regions"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Modal also accepts the applicable common spacing, sizing, border, radius, visibility, and style props. Use scheme, not color, to select its design family."
       Table:
         data:modalProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

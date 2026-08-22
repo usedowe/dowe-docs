@@ -17,15 +17,15 @@ page RouterEndpointsPage
   Section id:"router-endpoints" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "SERVER ROUTER"
         Title size:{ xs:"3xl" md:"5xl" } weight:"black"
           "Endpoint groups are one level"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Each group adds a path prefix and optional middleware to direct methods and WebSockets before Dowe compiles the final routes into the Dowe server. Groups never contain groups."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -39,7 +39,7 @@ page RouterEndpointsPage
         """
       Table:
         data:endpointRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

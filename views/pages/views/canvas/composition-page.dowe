@@ -14,7 +14,7 @@ page CanvasCompositionPage
         x:96
         y:74
         radius:120
-        fill:"softPrimary"
+        fill:"muted"
         opacity:0.74
       },
       {
@@ -22,7 +22,7 @@ page CanvasCompositionPage
         x:562
         y:300
         radius:150
-        fill:"softSecondary"
+        fill:"muted"
         opacity:0.68
       },
       {
@@ -111,13 +111,13 @@ page CanvasCompositionPage
   Section id:"canvas-composition-introduction" py:{ xs:6 md:10 }
     Grid columns:{ xs:1 md:2 } gap:5 align:"center"
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "CANVAS · COMPOSITION"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Image composition"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Place project assets inside a retained scene, then layer portable geometry, opacity, rotation, and typography above or below them."
-      Card variant:"soft" scheme:"success" p:5 rounded:"lg" minW:56
+      Card variant:"solid" scheme:"success" p:5 rounded:"lg" minW:56
         Grid columns:1 gap:1
           Text size:"xs" weight:"bold" spacing:"widest"
             "PROJECT ASSET"
@@ -128,11 +128,11 @@ page CanvasCompositionPage
   Section id:"canvas-composition-demo" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "ADVANCED EXAMPLE"
         Title size:"3xl" weight:"black"
           "Create a layered artboard"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The scene starts with a theme-aware background, adds translucent color, rotates a panel, fits a local asset, and finishes with centered text."
       Canvas:
         scene:composition
@@ -150,7 +150,7 @@ page CanvasCompositionPage
         shadow:"md"
       Table:
         data:compositionLayers
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -163,15 +163,15 @@ page CanvasCompositionPage
   Section id:"canvas-composition-source" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "SOURCE"
         Title size:"3xl" weight:"black"
           "Fit assets inside logical coordinates"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "An image command accepts a project asset path or HTTPS URL. Its own fit controls the source inside the command rectangle; Canvas fit controls the complete logical scene inside the component."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -188,24 +188,24 @@ page CanvasCompositionPage
   Section id:"canvas-composition-guidance" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "IMAGE RENDERING"
         Title size:"3xl" weight:"black"
           "Keep the portable boundary clear"
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"primary" p:5 rounded:"lg"
+        Card variant:"solid" scheme:"primary" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Title size:"xl" weight:"black"
               "Image fit"
             Text size:"sm"
               "contain shows the complete asset, cover fills and crops, and stretch maps it to the command bounds."
-        Card variant:"soft" scheme:"secondary" p:5 rounded:"lg"
+        Card variant:"solid" scheme:"secondary" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Title size:"xl" weight:"black"
               "Pixel sampling"
             Text size:"sm"
               "Set pixelated:true on Canvas when image commands should render without smoothing."
-        Card variant:"soft" scheme:"warning" p:5 rounded:"lg"
+        Card variant:"solid" scheme:"warning" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Title size:"xl" weight:"black"
               "Current limits"

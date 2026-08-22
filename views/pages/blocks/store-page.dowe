@@ -1,28 +1,28 @@
 page StorePage
   Section id:"store-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:4
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "COPY-READY BLOCKS"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Store"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Three responsive store wireframes built from real Dowe components, repeated data, and neutral media placeholders."
   Section id:"product-catalog" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "01 · PRODUCT CATALOG"
           Title size:"2xl" weight:"black"
             "Responsive filters and a repeated product grid"
-        Button href:"/blocks/store-preview/product-catalog" variant:"soft" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/store-preview/product-catalog" variant:"solid" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
       Tabs variant:"line" position:"top" w:"full"
         tab id:"product-catalog-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe src:"/blocks/store-preview/product-catalog" title:"Product catalog desktop preview" loading:"lazy" sandbox:"scripts same-origin"
         tab id:"product-catalog-code" label:"Code"
-          Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy block" copiedLabel:"Copied" content:"""
+          Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy block" copiedLabel:"Copied" content:"""
             page ProductCatalogStorePage
               const filters:
                 value:[
@@ -57,7 +57,7 @@ page StorePage
                   Grid columns:{ xs:2 md:4 } gap:{ xs:4 md:6 }
                     each in:products as:product key:product.id
                       Grid columns:1 gap:3
-                        Card variant:"soft" scheme:"muted" rounded:"xl" p:3 minH:{ xs:40 md:56 }
+                        Card variant:"solid" scheme:"muted" rounded:"xl" p:3 minH:{ xs:40 md:56 }
                           Flex direction:"column" justify:"between" minH:{ xs:32 md:48 }
                             Flex justify:"end"
                               IconButton icon:"heart" label:"Save product" scheme:"muted" size:"xs" rounded:"full"
@@ -69,7 +69,7 @@ page StorePage
                               "{product.name}"
                             Text size:"sm" weight:"black"
                               "{product.price}"
-                          Text size:"xs" color:"muted"
+                          Text size:"xs"
                             "{product.description}"
                           Flex align:"center" gap:1
                             Icon name:"star-bold" fill:"backgroundText" w:4 h:4
@@ -77,7 +77,7 @@ page StorePage
                             Icon name:"star-bold" fill:"backgroundText" w:4 h:4
                             Icon name:"star-bold" fill:"backgroundText" w:4 h:4
                             Icon name:"star-bold" fill:"backgroundText" w:4 h:4
-                            Text size:"xs" color:"muted"
+                            Text size:"xs"
                               "(261)"
                           Button variant:"outlined" size:"sm" rounded:"full"
                             "Add to basket"
@@ -86,7 +86,7 @@ page StorePage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "02 · PRODUCT DETAIL"
           Title size:"2xl" weight:"black"
             "Product gallery, description, quantity, and purchase actions"
@@ -97,7 +97,7 @@ page StorePage
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe src:"/blocks/store-preview/product-detail" title:"Product detail desktop preview" loading:"lazy" sandbox:"scripts same-origin"
         tab id:"product-detail-code" label:"Code"
-          Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy block" copiedLabel:"Copied" content:"""
+          Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy block" copiedLabel:"Copied" content:"""
             page ProductDetailStorePage
               const product:
                 value:{
@@ -111,35 +111,35 @@ page StorePage
               Section id:"store-product-detail" bg:"background" color:"backgroundText" boxed:true py:{ xs:6 md:10 } minH:"vh-0"
                 Grid columns:{ xs:1 md:2 } gap:{ xs:8 md:12 } align:"start"
                   Grid columns:1 gap:4
-                    Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:6 md:10 } minH:{ xs:64 md:96 }
+                    Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:6 md:10 } minH:{ xs:64 md:96 }
                       Flex align:"center" justify:"center" minH:{ xs:52 md:80 }
                         Icon name:"gallery-bold-duotone" fill:"muted" w:{ xs:16 md:24 } h:{ xs:16 md:24 }
                     Grid columns:3 gap:4
                       each in:thumbnails as:thumbnail key:thumbnail.id
-                        Card variant:"soft" scheme:"muted" rounded:"xl" p:4 minH:{ xs:28 md:40 }
+                        Card variant:"solid" scheme:"muted" rounded:"xl" p:4 minH:{ xs:28 md:40 }
                           Flex align:"center" justify:"center" minH:{ xs:20 md:32 }
                             Icon name:"gallery-bold-duotone" fill:"muted" w:8 h:8
                   Grid columns:1 gap:5
-                    Text size:"sm" color:"muted" spacing:"wide"
+                    Text size:"sm" spacing:"wide"
                       "HOME / PRODUCT"
                     Title size:{ xs:"3xl" md:"5xl" } weight:"black"
                       "{product.name}"
                     Title size:"3xl" weight:"black"
                       "{product.price}"
-                    Text size:"lg" color:"muted"
+                    Text size:"lg"
                       "{product.description}"
-                    Text color:"muted"
+                    Text
                       "Designed for everyday use with considered materials, balanced proportions, and a clear visual language."
-                    Text color:"muted"
+                    Text
                       "The neutral presentation keeps attention on the product while the supporting content remains easy to scan."
                     Flex align:"center" gap:1
                       each in:stars as:star key:star.id
                         Icon name:"star-bold" fill:"backgroundText" w:5 h:5
-                      Text size:"xs" color:"muted"
+                      Text size:"xs"
                         "(261)"
                     Divider
                     Flex wrap:true align:"center" gap:3
-                      Box bg:"softMuted" rounded:"full" p:1
+                      Box bg:"muted" rounded:"full" p:1
                         Flex align:"center" gap:2
                           Button variant:"ghost" scheme:"muted" size:"sm" rounded:"full"
                             "−"
@@ -150,7 +150,7 @@ page StorePage
                       Button variant:"outlined" scheme:"muted" size:"sm"
                         "IN STOCK"
                     Divider
-                    Text color:"muted"
+                    Text
                       "{product.delivery}"
                     Divider
                     Grid columns:{ xs:1 sm:2 } gap:3
@@ -163,18 +163,18 @@ page StorePage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "03 · SHOPPING CART"
           Title size:"2xl" weight:"black"
             "Repeated cart rows with responsive totals and checkout summary"
-        Button href:"/blocks/store-preview/shopping-cart" variant:"soft" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/store-preview/shopping-cart" variant:"solid" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
       Tabs variant:"line" position:"top" w:"full"
         tab id:"shopping-cart-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe src:"/blocks/store-preview/shopping-cart" title:"Shopping cart desktop preview" loading:"lazy" sandbox:"scripts same-origin"
         tab id:"shopping-cart-code" label:"Code"
-          Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy block" copiedLabel:"Copied" content:"""
+          Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy block" copiedLabel:"Copied" content:"""
             page ShoppingCartStorePage
               signal giftOrder value:false
               const items:
@@ -196,17 +196,17 @@ page StorePage
                     each in:items as:item key:item.id
                       Grid columns:1 gap:5
                         Grid columns:{ xs:2 md:4 } gap:{ xs:4 md:6 } align:"center"
-                          Card variant:"soft" scheme:"muted" rounded:"xl" p:4 w:{ xs:32 md:36 } minH:{ xs:32 md:36 }
+                          Card variant:"solid" scheme:"muted" rounded:"xl" p:4 w:{ xs:32 md:36 } minH:{ xs:32 md:36 }
                             Flex align:"center" justify:"center" minH:{ xs:24 md:28 }
                               Icon name:"gallery-bold-duotone" fill:"muted" w:8 h:8
                           Grid columns:1 gap:1
                             Title size:{ xs:"lg" md:"2xl" } weight:"black"
                               "{item.name}"
-                            Text size:{ xs:"sm" md:"lg" } color:"muted"
+                            Text size:{ xs:"sm" md:"lg" }
                               "{item.option}"
                           Flex align:"center" gap:2
                             IconButton icon:"heart" label:"Save item" variant:"ghost" scheme:"muted" rounded:"full"
-                            Box bg:"softMuted" rounded:"full" p:1
+                            Box bg:"muted" rounded:"full" p:1
                               Flex align:"center" gap:2
                                 Button variant:"ghost" scheme:"muted" size:"sm" rounded:"full"
                                   "−"
@@ -221,14 +221,14 @@ page StorePage
                         Divider
                     Grid show:{ xs:false md:true } columns:1 gap:4
                       Flex justify:"between"
-                        Text size:"lg" color:"muted"
+                        Text size:"lg"
                           "Subtotal"
-                        Text size:"lg" color:"muted"
+                        Text size:"lg"
                           "$199.89"
                       Flex justify:"between"
-                        Text color:"muted"
+                        Text
                           "Tax"
-                        Text color:"muted"
+                        Text
                           "(20%) $39.98"
                       Divider
                       Flex justify:"between"

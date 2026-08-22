@@ -42,24 +42,24 @@ page ScaffoldPage
     ]
   Section id:"scaffold-introduction" py:{ xs:6 md:10 }
     Flex direction:"column" gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "LAYOUT"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Scaffold"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Scaffold composes the complete application shell from explicit bar, side, main, and overlay regions."
   Section id:"scaffold-mental-model" p:{ xs:5 md:7 }
     Flex direction:"column" gap:5
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "MENTAL MODEL"
         Title size:"3xl" weight:"black"
           "One owner for the application shell"
-        Text color:"muted"
+        Text
           "Use one Scaffold in a nested layout chain. boxed:true centers only the start, main, and end body at 96rem on web or 1536 logical units on Android and iOS. AppBar, BottomBar, and overlays remain full width."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -68,26 +68,26 @@ page ScaffoldPage
             signal openDrawer value:false
             Scaffold boxed:true
               appBar
-                AppBar variant:"soft" position:"fixed" bordered:true
+                AppBar variant:"solid" position:"fixed" bordered:true
                   start
                     IconButton label:"Open navigation" variant:"ghost" show:{ xs:true md:false } onClick:{ set:openDrawer value:!openDrawer } icon:"menu-dots"
                     Text weight:"bold"
                       "Dowe"
               start
-                Sidebar show:{ xs:false md:true } variant:"soft" scheme:"surface"
+                Sidebar show:{ xs:false md:true } variant:"solid" scheme:"surface"
                   body
                     SideNav size:"sm" wide:true
                       item label:"Overview" href:"/docs"
               main
                 children
               bottomBar
-                BottomBar variant:"soft" scheme:"surface" bordered:true
+                BottomBar variant:"solid" scheme:"surface" bordered:true
                   tab href:"/docs" label:"Overview"
                     Icon name:"home"
                   tab href:"/docs/views/layout/scaffold" label:"Scaffold"
                     Icon name:"layers"
               overlays
-                Drawer open:openDrawer position:"start" variant:"soft" show:{ xs:true md:false }
+                Drawer open:openDrawer position:"start" variant:"solid" show:{ xs:true md:false }
                   body
                     SideNav size:"sm" wide:true
                       item label:"Overview" href:"/docs"
@@ -95,15 +95,15 @@ page ScaffoldPage
   Section id:"scaffold-splash" p:{ xs:5 md:7 }
     Flex direction:"column" gap:5
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "STARTUP BOUNDARY"
         Title size:"3xl" weight:"black"
           "Keep Splash beside the normal Scaffold root"
-        Text color:"muted"
+        Text
           "A layout may declare one init hook and one direct Splash sibling. While the bound boolean Signal is true, Dowe shows only the Splash children. When it becomes false, the normal Scaffold replaces that branch without rerunning init for the mounted scope."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -123,34 +123,34 @@ page ScaffoldPage
               Section minH:"vh-0"
                 Flex direction:"column" align:"center" justify:"center" gap:3
                   Icon name:"svg-spinners:ring-resize" stroke:"primary" w:10 h:10
-                  Text color:"muted"
+                  Text
                     "Loading application"
         """
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "Splash has no default spinner or styling. This example authors a portable Icon SVG Spinner and adjacent status text; children for the routed page remain inside Scaffold main rather than inside Splash."
   Section id:"scaffold-examples" py:{ xs:7 md:10 }
     Flex direction:"column" gap:6
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "LIVE EXAMPLE"
         Title size:"3xl" weight:"black"
           "A complete shell in one preview"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The example keeps the AppBar, desktop Sidebar, mobile Drawer, main content, and BottomBar in one routed shell so their responsive placement can be inspected together."
       Device device:"laptop" w:"full" rounded:"md" border:1
         Iframe src:"/examples/scaffold" title:"Complete Scaffold example" loading:"lazy" sandbox:"scripts same-origin"
   Section id:"scaffold-regions" p:{ xs:5 md:7 }
     Flex direction:"column" gap:5
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "REGIONS"
         Title size:"3xl" weight:"black"
           "Explicit shell structure"
-        Text color:"muted"
+        Text
           "Each region appears at most once. main is required; the remaining regions are optional and preserve the same order on web, Android, and iOS."
       Table:
         data:scaffoldRegions
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -162,15 +162,15 @@ page ScaffoldPage
   Section id:"scaffold-props" py:{ xs:7 md:10 }
     Flex direction:"column" gap:5
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Scaffold also accepts applicable common spacing, sizing, visibility, and accessibility props. boxed defaults to false; when enabled, it constrains only the shell body independently from any boxed width owned by its layout bars."
       Table:
         data:scaffoldProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

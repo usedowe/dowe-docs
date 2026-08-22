@@ -22,6 +22,11 @@ page FlexPage
         defaultValue:"0"
       },
       {
+        prop:"flex"
+        type:"initial | auto | none | 1 | responsive object"
+        defaultValue:"initial"
+      },
+      {
         prop:"wrap"
         type:"boolean"
         defaultValue:"false"
@@ -29,20 +34,20 @@ page FlexPage
     ]
   Section id:"flex-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "LAYOUT"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Flex"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Flex arranges children along one axis with predictable direction, alignment, and spacing."
   Section id:"flex-row" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "DIRECTION: ROW"
         Title size:"3xl" weight:"black"
           "Place items side by side"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Row is the default direction. Gap separates each child along the horizontal axis."
       Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Flex direction:"row" justify:"center" align:"center" gap:4
@@ -57,7 +62,7 @@ page FlexPage
               "Item 3"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -76,11 +81,11 @@ page FlexPage
   Section id:"flex-column" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "DIRECTION: COLUMN"
         Title size:"3xl" weight:"black"
           "Stack items vertically"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Column changes the main axis while justify, align, and gap keep the same target-neutral meaning."
       Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Flex direction:"column" align:"center" gap:4
@@ -95,7 +100,7 @@ page FlexPage
               "Item 3"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -114,15 +119,15 @@ page FlexPage
   Section id:"flex-responsive" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "RESPONSIVE"
         Title size:"3xl" weight:"black"
           "Change direction by width"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use a responsive direction object to stack content on small screens and switch to a row from md."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -133,18 +138,44 @@ page FlexPage
             Text
               "Second item"
         """
+  Section id:"flex-item" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest"
+          "FLEX ITEM SIZING"
+        Title size:"3xl" weight:"black"
+          "Let a direct child use the available axis"
+        Text size:"sm"
+          "Section, Box, Flex, and Card establish a flex parent for direct children. Grid accepts flex when the Grid itself is that child, but Grid never turns its children into flex items."
+      Code:
+        language:"dowe"
+        variant:"solid"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Section h:"vh-0"
+            Grid flex:{ xs:1 md:"none" }
+              Text
+                "Fills the Section body at xs."
+
+          Grid columns:1
+            Grid flex:1
+              Text
+                "This remains a Grid item."
+        """
   Section id:"flex-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Flex also accepts the applicable common spacing, sizing, visibility, and accessibility props."
       Table:
         data:flexProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

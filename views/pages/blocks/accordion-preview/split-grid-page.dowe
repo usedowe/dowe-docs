@@ -8,38 +8,38 @@ page SplitGridAccordionPage
       Flex direction:"column" align:"center" gap:3
         Title size:{ xs:"3xl" md:"5xl" } weight:"black"
           "Frequently Asked Questions"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Two responsive columns organize a larger question set without losing a clear reading order."
       Grid columns:{ xs:1 md:2 } gap:5 align:"start"
         Accordion variant:"outlined" scheme:"primary" rounded:"lg" w:"full"
           item id:"portable" label:"Why start with a portable component?" defaultOpen:true
             Grid columns:1 gap:2
               each in:answerLines as:line key:line.id
-                Text color:"muted"
+                Text
                   "{line.text}"
           item id:"organized" label:"How should a disclosure section be organized?"
             Grid columns:1 gap:2
               each in:answerLines as:line key:line.id
-                Text color:"muted"
+                Text
                   "{line.text}"
           item id:"responsive" label:"What makes the layout responsive?"
             Grid columns:1 gap:2
               each in:answerLines as:line key:line.id
-                Text color:"muted"
+                Text
                   "{line.text}"
         Accordion variant:"outlined" scheme:"primary" rounded:"lg" w:"full"
           item id:"hierarchy" label:"How is visual hierarchy preserved?"
             Grid columns:1 gap:2
               each in:answerLines as:line key:line.id
-                Text color:"muted"
+                Text
                   "{line.text}"
           item id:"neutral" label:"Can the content stay product-neutral?"
             Grid columns:1 gap:2
               each in:answerLines as:line key:line.id
-                Text color:"muted"
+                Text
                   "{line.text}"
           item id:"ownership" label:"Where should shared behavior live?"
             Grid columns:1 gap:2
               each in:answerLines as:line key:line.id
-                Text color:"muted"
+                Text
                   "{line.text}"

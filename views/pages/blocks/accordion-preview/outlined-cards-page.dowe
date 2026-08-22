@@ -8,26 +8,26 @@ page OutlinedAccordionPage
       Flex direction:"column" align:"center" gap:3
         Title size:{ xs:"3xl" md:"5xl" } weight:"black"
           "Frequently Asked Questions"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "A spacious FAQ with bordered disclosure cards and one clear answer at a time."
       Accordion variant:"outlined" scheme:"primary" rounded:"lg" w:"full"
         item id:"reusable" label:"What makes a reusable website block effective?" defaultOpen:true
           Grid columns:1 gap:2
             each in:answerLines as:line key:line.id
-              Text color:"muted"
+              Text
                 "{line.text}"
         item id:"responsive" label:"How should content adapt across screen sizes?"
           Grid columns:1 gap:2
             each in:answerLines as:line key:line.id
-              Text color:"muted"
+              Text
                 "{line.text}"
         item id:"products" label:"Can the same block support multiple products?"
           Grid columns:1 gap:2
             each in:answerLines as:line key:line.id
-              Text color:"muted"
+              Text
                 "{line.text}"
         item id:"accessible" label:"What keeps interaction accessible?"
           Grid columns:1 gap:2
             each in:answerLines as:line key:line.id
-              Text color:"muted"
+              Text
                 "{line.text}"

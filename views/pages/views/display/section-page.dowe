@@ -2,10 +2,11 @@ page SectionPage
   const sectionProps:
     value:[
       { prop:"id" type:"string" defaultValue:"—" },
-      { prop:"background" type:"soft | aurora | sunrise | ocean | meadow | slate" defaultValue:"—" },
+      { prop:"background" type:"aurora | sunrise | ocean | meadow | slate" defaultValue:"—" },
       { prop:"boxed" type:"boolean" defaultValue:"false" },
       { prop:"center" type:"boolean | responsive boolean" defaultValue:"false" },
       { prop:"gap" type:"scale | px | responsive gap" defaultValue:"0" },
+      { prop:"flex" type:"initial | auto | none | 1 | responsive object" defaultValue:"initial" },
       { prop:"cover" type:"asset path | https URL | responsive source" defaultValue:"—" },
       { prop:"overlay" type:"boolean | opacity | color | gradient" defaultValue:"—" },
       { prop:"p, px, py, pl, pr, pt, pb" type:"spacing scale | responsive scale" defaultValue:"px:{ xs:4 md:6 } · py:{ xs:10 md:16 }" },
@@ -15,47 +16,72 @@ page SectionPage
     ]
   Section id:"section-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "LAYOUT"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Section"
-      Text size:"lg" color:"muted"
-        "Section creates semantic page bands with responsive content spacing, optional boxed content, responsive child centering, explicit child gap, and portable visual layers."
+      Text size:"lg"
+        "Section creates semantic page bands with responsive content spacing, optional boxed content, responsive child centering, explicit child gap, portable visual layers, height-aware content bodies, and direct-child flex sizing."
   Section id:"section-model" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "MENTAL MODEL"
         Title size:"3xl" weight:"black"
           "One band, one generated content body"
-        Text size:"sm" color:"muted"
-          "Dowe keeps backgrounds and covers on the outer semantic band while placing children in an internal content body with responsive padding. boxed:true centers and limits only that body; center:true centers direct children, center:{ xs:false md:true } changes that alignment by breakpoint, and gap:{ xs:2 md:4 } controls vertical rhythm between direct children."
+        Text size:"sm"
+          "Dowe keeps backgrounds and covers on the outer semantic band while placing children in an internal content body with responsive padding. boxed:true centers and limits only that body; center:true centers direct children, center:{ xs:false md:true } changes that alignment by breakpoint, gap:{ xs:2 md:4 } controls vertical rhythm between direct children, and h/minH make the inner height available to direct h:\"full\" or minH:\"full\" children."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Section id:"product-overview" background:"soft" boxed:true center:{ xs:false md:true } gap:{ xs:2 md:4 }
+          Section id:"product-overview" background:"slate" boxed:true center:{ xs:false md:true } gap:{ xs:2 md:4 }
             Grid columns:1 gap:3
               Title size:"3xl"
                 "A semantic product band"
-              Text color:"muted"
+              Text
                 "Children receive responsive section spacing by default."
+        """
+  Section id:"section-height" p:{ xs:5 md:7 }
+    Grid columns:{ xs:1 md:2 } gap:6 align:"center"
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest"
+          "HEIGHT-AWARE BODY"
+        Title size:"3xl" weight:"black"
+          "Fill the usable inner area"
+        Text size:"sm"
+          "A Section with h or minH gives its generated body the height left after effective padding. Direct full-height children then reach the padded edges while the outer background stays intact. flex:1 is the portable flex-item alternative when the direct child should take that remaining space."
+      Code:
+        language:"dowe"
+        variant:"solid"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Section minH:"vh-0"
+            Grid columns:{ xs:1 md:2 } flex:1
+              Box
+                Text
+                  "Content panel"
+              Box
+                Text
+                  "Form panel"
         """
   Section id:"section-boxed" background:"slate" boxed:true py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "BOXED CONTENT"
         Title size:{ xs:"3xl" md:"5xl" } weight:"black"
           "Full-width band. Focused body."
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The outer Section keeps its background, cover, overlay, border, and anchor across the available width. Its generated body is centered and capped at 96rem on web or 1536 logical units on Android and iOS."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -64,24 +90,24 @@ page SectionPage
             Grid columns:1 gap:3
               Title size:"4xl"
                 "Focused content over a full-width band"
-              Text color:"muted"
+              Text
                 "Padding stays inside the boxed content width."
         """
   Section id:"section-backgrounds" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "BACKGROUND PRESETS"
         Title size:"3xl" weight:"black"
           "Portable decorative bands"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Presets are theme-aware Dowe values generated consistently for web, Android, and iOS."
       Grid columns:{ xs:3 md:6 } gap:4
-        Section background:"soft" rounded:"md" minH:32
+        Section background:"slate" rounded:"md" minH:32
           Grid columns:1 gap:2
             Title size:"xl"
               "Soft"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Neutral documentation and content."
         Section background:"aurora" rounded:"md" minH:32
           Grid columns:1 gap:2
@@ -116,11 +142,11 @@ page SectionPage
   Section id:"section-cover" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "COVER AND OVERLAY"
         Title size:"3xl" weight:"black"
           "Readable content over imagery"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "cover owns the base image and overlay adds contrast. background and cover are mutually exclusive, and overlay requires cover."
       Section cover:"https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1600&q=80" overlay:0.62 rounded:"md" minH:64
         Flex direction:"column" justify:"center" gap:3 minH:52
@@ -132,7 +158,7 @@ page SectionPage
             "The generated overlay keeps foreground content readable across targets."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -145,15 +171,15 @@ page SectionPage
   Section id:"section-spacing" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "RESPONSIVE SPACING"
         Title size:"3xl" weight:"black"
           "Comfortable by default, explicit when needed"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Without spacing props, content keeps a compact horizontal inset and a more pronounced vertical inset: px:{ xs:4 md:6 } and py:{ xs:10 md:16 }. Explicit props replace only their declared scope while unspecified sides retain the implicit default for their axis."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -169,15 +195,15 @@ page SectionPage
   Section id:"section-anchors" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "ANCHORS AND GRID"
         Title size:"3xl" weight:"black"
           "Page navigation and structural placement"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "A unique id registers a route section anchor. colSpan and rowSpan are valid only when Section is a direct child of Grid."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -186,22 +212,22 @@ page SectionPage
             Section id:"featured" colSpan:{ xs:1 md:2 } background:"aurora"
               Title size:"2xl"
                 "Featured area"
-            Section background:"soft"
+            Section background:"slate"
               Text
                 "Supporting area"
         """
   Section id:"section-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Section also accepts font, foreground and background colors, sizing, radius, border, and applicable common container props."
       Table:
         data:sectionProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

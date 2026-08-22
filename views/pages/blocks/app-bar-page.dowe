@@ -1,23 +1,23 @@
 page AppBarsPage
   Section id:"app-bars" py:{ xs:6 md:10 }
     Grid columns:1 gap:4
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "COPY-READY BLOCKS"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "App bars"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Eight navigation patterns. Preview device sizes and copy only the AppBar source."
   Section id:"classic-saas" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "01 · CLASSIC SAAS"
           Title size:"2xl" weight:"black"
             "Brand, navigation, and one clear action"
         Button:
           href:"/blocks/appbar-preview/classic-saas"
-          variant:"soft"
+          variant:"solid"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
@@ -33,12 +33,12 @@ page AppBarsPage
         tab id:"classic-saas-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy AppBar"
             copiedLabel:"Copied"
             content:"""
-              AppBar variant:"soft" position:"sticky" boxed:true py:2
+              AppBar variant:"solid" position:"sticky" boxed:true py:2
                 start
                   Brand href:"/blocks/appbar" label:"Olmo home"
                     Flex align:"center" gap:2
@@ -66,7 +66,7 @@ page AppBarsPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "02 · CREATIVE STUDIO"
           Title size:"2xl" weight:"black"
             "A soft campaign surface with compact controls"
@@ -88,12 +88,12 @@ page AppBarsPage
         tab id:"creative-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy AppBar"
             copiedLabel:"Copied"
             content:"""
-              AppBar variant:"soft" scheme:"danger" position:"sticky" boxed:true py:2 blurred:true
+              AppBar variant:"solid" scheme:"danger" position:"sticky" boxed:true py:2 blurred:true
                 start
                   Brand href:"/blocks/appbar" label:"Pekoo home"
                     Flex align:"center" gap:2
@@ -116,13 +116,13 @@ page AppBarsPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "03 · SOCIAL PILL"
           Title size:"2xl" weight:"black"
             "Social shortcuts and centered pill navigation"
         Button:
           href:"/blocks/appbar-preview/social-pill"
-          variant:"soft"
+          variant:"solid"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
@@ -138,12 +138,12 @@ page AppBarsPage
         tab id:"social-pill-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy AppBar"
             copiedLabel:"Copied"
             content:"""
-              AppBar variant:"soft" scheme:"primary" position:"sticky" boxed:true py:2
+              AppBar variant:"solid" scheme:"primary" position:"sticky" boxed:true py:2
                 start
                   Flex align:"center" gap:5
                     Brand href:"/blocks/appbar" label:"Pekoo home"
@@ -155,7 +155,7 @@ page AppBarsPage
                       IconButton icon:"global" label:"Community" scheme:"danger" rounded:"full"
                       IconButton icon:"figma" label:"Design profile" scheme:"info" rounded:"full"
                 center
-                  NavMenu variant:"solid" scheme:"surface" size:"sm" rounded:"full" show:{ xs:false md:true }
+                  NavMenu variant:"solid" scheme:"primary" size:"sm" rounded:"full" show:{ xs:false md:true }
                     item label:"Home" href:"/blocks/appbar-preview/social-pill"
                     item label:"About Us" href:"/blocks/appbar-preview/creative"
                     item label:"Services" href:"/blocks/appbar-preview/floating-card"
@@ -168,7 +168,7 @@ page AppBarsPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "04 · FLOATING CARD"
           Title size:"2xl" weight:"black"
             "An inset navigation surface above campaign color"
@@ -190,7 +190,7 @@ page AppBarsPage
         tab id:"floating-card-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy AppBar"
             copiedLabel:"Copied"
@@ -207,7 +207,7 @@ page AppBarsPage
                       IconButton icon:"global" label:"Community" scheme:"danger" rounded:"full"
                       IconButton icon:"figma" label:"Design profile" scheme:"info" rounded:"full"
                 center
-                  NavMenu variant:"ghost" scheme:"muted" size:"sm" show:{ xs:false md:true }
+                  NavMenu variant:"ghost" scheme:"primary" size:"sm" show:{ xs:false md:true }
                     item label:"Home" href:"/blocks/appbar-preview/floating-card"
                     item label:"About Us" href:"/blocks/appbar-preview/creative"
                     item label:"Services" href:"/blocks/appbar-preview/social-pill"
@@ -220,13 +220,13 @@ page AppBarsPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "05 · CENTERED PILL"
           Title size:"2xl" weight:"black"
             "A wide breathing rhythm with one centered menu"
         Button:
           href:"/blocks/appbar-preview/centered-pill"
-          variant:"soft"
+          variant:"solid"
           scheme:"info"
           size:"sm"
           rounded:"full"
@@ -243,12 +243,12 @@ page AppBarsPage
         tab id:"centered-pill-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy AppBar"
             copiedLabel:"Copied"
             content:"""
-              AppBar variant:"soft" scheme:"info" position:"sticky" boxed:true py:2
+              AppBar variant:"solid" scheme:"info" position:"sticky" boxed:true py:2
                 start
                   Brand href:"/blocks/appbar" label:"Pekoo home"
                     Flex align:"center" gap:2
@@ -256,7 +256,7 @@ page AppBarsPage
                       Text size:"xl" weight:"black"
                         "PEKOO."
                 center
-                  NavMenu variant:"solid" scheme:"surface" size:"sm" rounded:"full" show:{ xs:false md:true }
+                  NavMenu variant:"solid" scheme:"primary" size:"sm" rounded:"full" show:{ xs:false md:true }
                     item label:"Home" href:"/blocks/appbar-preview/centered-pill"
                     item label:"About Us" href:"/blocks/appbar-preview/creative"
                     item label:"Services" href:"/blocks/appbar-preview/social-pill"
@@ -269,7 +269,7 @@ page AppBarsPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "06 · HOSTING ANNOUNCEMENT"
           Title size:"2xl" weight:"black"
             "A utility strip above product navigation"
@@ -290,7 +290,7 @@ page AppBarsPage
         tab id:"hosting-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy AppBar"
             copiedLabel:"Copied"
@@ -314,7 +314,7 @@ page AppBarsPage
                       Text size:"xl" weight:"black" color:"primaryText"
                         "HOSTC"
                 center
-                  NavMenu variant:"soft" scheme:"surface" size:"sm" show:{ xs:false md:true }
+                  NavMenu variant:"solid" scheme:"primary" size:"sm" show:{ xs:false md:true }
                     submenu label:"Home"
                       item label:"Classic" href:"/blocks/appbar-preview/classic-saas"
                     submenu label:"Pages"
@@ -331,13 +331,13 @@ page AppBarsPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "07 · DASHBOARD TOOLBAR"
           Title size:"2xl" weight:"black"
             "Search, notifications, and profile context"
         Button:
           href:"/blocks/appbar-preview/dashboard"
-          variant:"soft"
+          variant:"solid"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
@@ -353,7 +353,7 @@ page AppBarsPage
         tab id:"dashboard-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy AppBar"
             copiedLabel:"Copied"
@@ -373,7 +373,7 @@ page AppBarsPage
                     Grid columns:1 gap:1 show:{ xs:false md:true }
                       Text size:"sm" weight:"bold"
                         "Jonathan"
-                      Text size:"xs" color:"muted"
+                      Text size:"xs"
                         "Admin"
                     IconButton icon:"settings" label:"Open settings" variant:"ghost" scheme:"muted" size:"sm" show:{ xs:false md:true }
             """
@@ -381,7 +381,7 @@ page AppBarsPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "08 · TWO-ROW ADMIN"
           Title size:"2xl" weight:"black"
             "Global tools above a complete product menu"
@@ -403,7 +403,7 @@ page AppBarsPage
         tab id:"admin-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy AppBar"
             copiedLabel:"Copied"

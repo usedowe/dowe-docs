@@ -17,7 +17,7 @@ page LeadFormHeroPage
       Flex direction:"column" align:"start" gap:5
         Title size:{ xs:"4xl" md:"6xl" } weight:"black"
           "A dedicated team to grow your company"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Set expectations before asking for contact details, then keep the form focused on information the team can act on."
         Grid columns:1 gap:3
           each in:benefits as:benefit key:benefit.id
@@ -25,7 +25,7 @@ page LeadFormHeroPage
               Icon name:"check-circle-bold" fill:"primary" w:6 h:6
               Text weight:"bold"
                 "{benefit.label}"
-      Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:5 md:8 }
+      Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:5 md:8 }
         Grid columns:{ xs:1 sm:2 } gap:4
           each in:formFields as:field key:field.id
             Grid columns:1 gap:2

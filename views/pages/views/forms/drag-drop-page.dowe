@@ -45,20 +45,20 @@ page DragDropPage
   Section id:"drag-drop-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "FORM"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "DragDrop"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "DragDrop models reorderable items and grouped lanes with explicit IDs, empty states, transfer rules, and target-native interaction."
   Section id:"drag-drop-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "Organize a delivery board"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Grouped lanes keep ownership visible. allowGroupTransfer lets an item move between lanes while each dragItem keeps a stable ID."
       DragDrop:
         emptyText:"Drop a task into this lane"
@@ -77,7 +77,7 @@ page DragDropPage
           dragItem id:"release" label:"Publish notes" description:"Summarize the shipped behavior."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -94,14 +94,14 @@ page DragDropPage
   Section id:"drag-drop-layouts" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "LAYOUTS"
         Title size:"3xl" weight:"black"
           "Use one list or several lanes"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Direct dragItem children create one list. dragGroup children create independent lanes. Do not mix both child shapes in one DragDrop."
       Grid columns:{ xs:1 md:2 } gap:5
-        DragDrop emptyText:"Drop unassigned work here" direction:"vertical" variant:"soft" scheme:"success" size:"md"
+        DragDrop emptyText:"Drop unassigned work here" direction:"vertical" variant:"solid" scheme:"success" size:"md"
           dragItem id:"draft" label:"Draft brief" description:"Needs a first review."
           dragItem id:"feedback" label:"Collect feedback" description:"Waiting on product input."
           dragItem id:"qa" label:"Run QA" description:"Ready for a final pass."
@@ -112,12 +112,12 @@ page DragDropPage
             dragItem id:"dependency" label:"External dependency" description:"Waiting on another team." disabled:true
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          DragDrop emptyText:"Drop unassigned work here" direction:"vertical" variant:"soft" scheme:"success" size:"md"
+          DragDrop emptyText:"Drop unassigned work here" direction:"vertical" variant:"solid" scheme:"success" size:"md"
             dragItem id:"draft" label:"Draft brief" description:"Needs a first review."
             dragItem id:"feedback" label:"Collect feedback" description:"Waiting on product input."
 
@@ -130,11 +130,11 @@ page DragDropPage
   Section id:"drag-drop-states" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "STATES AND DENSITY"
         Title size:"3xl" weight:"black"
           "Make movement and constraints visible"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Empty text, disabled items, and size communicate whether a board is ready for movement or only showing a static plan."
       Grid columns:{ xs:1 md:2 } gap:5
         DragDrop emptyText:"Nothing is queued yet" direction:"vertical" variant:"outlined" scheme:"info" size:"sm"
@@ -146,46 +146,46 @@ page DragDropPage
   Section id:"drag-drop-contract" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "BEHAVIOR"
         Title size:"3xl" weight:"black"
           "A deterministic movement model"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Dowe lowers authored item IDs, lane structure, drag direction, and disabled state to shared target-neutral data."
       Grid columns:{ xs:1 md:3 } gap:5
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "STRUCTURE"
           Title size:"lg" weight:"bold"
             "Stable IDs"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Every dragItem and dragGroup needs a unique ID within the DragDrop tree."
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "TRANSFER"
           Title size:"lg" weight:"bold"
             "Explicit movement"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "allowGroupTransfer controls cross-lane movement; direction controls the main arrangement."
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "TARGETS"
           Title size:"lg" weight:"bold"
             "Native drag affordances"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Web, SwiftUI, and Compose preserve handles, insertion feedback, empty lanes, and disabled states."
   Section id:"drag-drop-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "DragDrop also accepts the applicable common spacing, sizing, typography, visibility, accessibility, and shadow props."
       Table:
         data:dragDropProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

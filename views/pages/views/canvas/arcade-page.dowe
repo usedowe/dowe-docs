@@ -120,13 +120,13 @@ page CanvasArcadePage
   Section id:"canvas-arcade-introduction" py:{ xs:6 md:10 }
     Grid columns:{ xs:1 md:2 } gap:5 align:"center"
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "CANVAS · ARCADE"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Arcade scenes"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Combine ordered primitives and elapsed-time motion to build a portable game-like scene without a JavaScript engine."
-      Card variant:"soft" scheme:"danger" p:5 rounded:"lg" minW:56
+      Card variant:"solid" scheme:"danger" p:5 rounded:"lg" minW:56
         Grid columns:1 gap:1
           Text size:"xs" weight:"bold" spacing:"widest"
             "60 FPS CAP"
@@ -137,11 +137,11 @@ page CanvasArcadePage
   Section id:"canvas-arcade-demo" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "ADVANCED EXAMPLE"
         Title size:"3xl" weight:"black"
           "Layer a starfield, hazards, and a player ship"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Small stars and large hazards wrap at the logical scene boundary. The ship stays anchored while pulse motion animates its body and engine."
       Canvas:
         scene:gameScene
@@ -159,7 +159,7 @@ page CanvasArcadePage
         shadow:"md"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -175,30 +175,30 @@ page CanvasArcadePage
   Section id:"canvas-arcade-motion" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "MOTION MODEL"
         Title size:"3xl" weight:"black"
           "Compose motion fields deliberately"
       Grid columns:{ xs:2 md:4 } gap:4
-        Card variant:"soft" scheme:"primary" p:5 rounded:"lg"
+        Card variant:"solid" scheme:"primary" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Title size:"xl" weight:"black"
               "vx and vy"
             Text size:"sm"
               "Translate the command origin in logical units per second."
-        Card variant:"soft" scheme:"secondary" p:5 rounded:"lg"
+        Card variant:"solid" scheme:"secondary" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Title size:"xl" weight:"black"
               "rotation"
             Text size:"sm"
               "Rotate a command by degrees per second around its origin."
-        Card variant:"soft" scheme:"tertiary" p:5 rounded:"lg"
+        Card variant:"solid" scheme:"tertiary" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Title size:"xl" weight:"black"
               "pulse"
             Text size:"sm"
               "Oscillate opacity without mutating the retained scene Signal."
-        Card variant:"soft" scheme:"info" p:5 rounded:"lg"
+        Card variant:"solid" scheme:"info" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Title size:"xl" weight:"black"
               "wrap"
@@ -207,11 +207,11 @@ page CanvasArcadePage
   Section id:"canvas-arcade-limits" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "BOUNDARIES"
         Title size:"3xl" weight:"black"
           "Keep game systems outside the renderer"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Canvas renders retained commands and normalized input. Physics, collision detection, gamepads, audio, WebGL, shaders, and 3D engines are outside the current contract."
       Flex justify:"space-between" align:"center" wrap:true gap:3
         Button href:"/docs/views/canvas/overview" variant:"ghost" scheme:"muted" iconStart:"alt-arrow-left"

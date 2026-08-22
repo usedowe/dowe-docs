@@ -27,24 +27,24 @@ page HttpPage
     ]
   Section id:"http-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "SERVER / HTTP"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Make a controlled outbound request"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "http is a server-only declaration for outbound Dowe runtime requests. It gives the response a named binding while keeping URLs, credentials, and response handling inside the server boundary."
   Section id:"http-mental-model" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "1 / MENTAL MODEL"
         Title size:"3xl" weight:"black"
           "Declare the response binding first"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The name after http is the response variable for later statements. Use one lowercase method value and keep base, path, headers, timeout, and response mode explicit."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -55,7 +55,7 @@ page HttpPage
         """
       Table:
         data:httpModelRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -66,15 +66,15 @@ page HttpPage
   Section id:"http-proxy" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "2 / PROXY AND SAFETY"
         Title size:"3xl" weight:"black"
           "Keep authority explicit"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Declare base and bearer names in .env.example, supply values through .env or the process environment, and reference them only from server source. Headers are validated, Authorization belongs in bearer, and redirect plus timeout policy remain visible in source."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -86,7 +86,7 @@ page HttpPage
         """
       Table:
         data:httpProxyRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

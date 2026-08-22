@@ -31,13 +31,13 @@ page ArcChartPage
   Section id:"arc-chart-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "CHARTS"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "ArcChart"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Multi-arc circular summaries for progress, allocation, and proportional status."
-      Card variant:"soft" scheme:"secondary" p:5 rounded:"lg" minW:56
+      Card variant:"solid" scheme:"secondary" p:5 rounded:"lg" minW:56
         Grid columns:1 gap:1
           Text size:"xs" weight:"bold" spacing:"widest"
             "CATEGORICAL SIGNAL"
@@ -48,15 +48,15 @@ page ArcChartPage
   Section id:"arc-chart-basic" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "DATA AND LEGEND"
         Title size:"3xl" weight:"black"
           "Show a readable allocation"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "ArcChart reads label and value from a Signal array. Use an optional max per item for progress arcs, and combine legendPosition with showInlineLabels when the chart must remain understandable at a glance. Android keeps chart labels readable with a high-contrast surface badge."
       ArcChart:
         data:allocation
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"lg"
         palette:"ocean"
@@ -68,22 +68,22 @@ page ArcChartPage
         showInlineLabels:true
         showGlow:true
         rounded:"lg"
-      Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+      Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
         type ChartSlice
           label:string
           value:number
         signal allocation type:ChartSlice[] value:[{ label:"Product" value:42 }]
 
-        ArcChart data:allocation variant:"soft" scheme:"surface" size:"lg" palette:"ocean" legendPosition:"right" centerText:"Q2 mix" centerValue:"100%" thickness:22 gap:4 showInlineLabels:true
+        ArcChart data:allocation variant:"solid" scheme:"surface" size:"lg" palette:"ocean" legendPosition:"right" centerText:"Q2 mix" centerValue:"100%" thickness:22 gap:4 showInlineLabels:true
       """
   Section id:"arc-chart-angles" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PROGRESS AND ANGLES"
         Title size:"3xl" weight:"black"
           "Turn the arc into a progress signal"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "startAngle and endAngle create a deliberate gauge-like sweep. Keep the center value explicit so the percentage never depends on reading the graphic alone."
       Grid columns:{ xs:1 md:2 } gap:4 align:"center"
         ArcChart:
@@ -116,34 +116,34 @@ page ArcChartPage
           endAngle:540
           showInlineLabels:true
           hideLegend:true
-      Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+      Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
         ArcChart data:progress variant:"outlined" scheme:"success" size:"lg" palette:"forest" centerText:"Release" centerValue:"68%" thickness:26 startAngle:-90 endAngle:270 hideValues:true showGlow:true
         ArcChart data:allocation variant:"solid" scheme:"surface" size:"lg" palette:"sunset" legendPosition:"none" centerText:"Focus" centerValue:"4 teams" thickness:16 gap:2 startAngle:180 endAngle:540 showInlineLabels:true hideLegend:true
       """
   Section id:"arc-chart-states" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "STATES"
         Title size:"3xl" weight:"black"
           "Loading and empty data stay thematic"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use loading for an in-flight data request and emptyLabel for a valid empty Signal. Both states preserve the chart surface and accessibility context."
       Grid columns:{ xs:1 md:2 } gap:4
-        ArcChart data:allocation variant:"soft" scheme:"info" size:"md" loading:true centerText:"Syncing" centerValue:"—"
+        ArcChart data:allocation variant:"solid" scheme:"info" size:"md" loading:true centerText:"Syncing" centerValue:"—"
         ArcChart data:emptySlices variant:"outlined" scheme:"warning" size:"md" emptyLabel:"No allocation yet" centerText:"Empty" centerValue:"0"
   Section id:"arc-chart-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "ArcChart also accepts applicable common identity, spacing, sizing, visibility, radius, border, and accessibility props."
       Table:
         data:arcProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

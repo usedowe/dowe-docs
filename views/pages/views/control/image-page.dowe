@@ -3,7 +3,7 @@ page ImagePage
     value:[
       {
         prop:"src"
-        type:"quoted asset path | https URL"
+        type:"quoted asset path | https URL | typed string path"
         defaultValue:"required"
       },
       {
@@ -52,24 +52,28 @@ page ImagePage
         defaultValue:"true"
       },
     ]
+  const imageFeatures value:[
+    { id:"intuitive-interface" cover:"/assets/img/soluciones-escalables.webp" title:"Soluciones escalables" }
+    { id:"extremely-flexible" cover:"/assets/img/soporte-omnicanal.webp" title:"Soporte omnicanal" }
+  ]
   Section id:"image-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "CONTROL"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Image"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Image renders a responsive asset or HTTPS source with native loading, portable sizing, fitting, and accessibility text."
   Section id:"image-source" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "SOURCE AND ALT TEXT"
         Title size:"3xl" weight:"black"
           "Describe what the image contributes"
-        Text size:"sm" color:"muted"
-          "src accepts a project asset path or an HTTPS URL. On Android and iOS, alt is used only by native accessibility and is never shown over the image. Leave it empty only when the image is decorative."
+        Text size:"sm"
+          "src accepts a project asset path or an HTTPS URL, or a typed string path from a constant, Signal, or each item. On Android and iOS, alt is used only by native accessibility and is never shown over the image. Leave it empty only when the image is decorative."
       Grid columns:{ xs:1 md:2 } gap:4
         Grid columns:1 gap:3
           Image:
@@ -82,7 +86,7 @@ page ImagePage
           Grid columns:1 gap:1
             Title size:"xl" weight:"black"
               "Meaningful content"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Use alt text to preserve the information for people who cannot see the image."
         Grid columns:1 gap:3
           Image:
@@ -95,23 +99,45 @@ page ImagePage
           Grid columns:1 gap:1
             Title size:"xl" weight:"black"
               "Decorative image"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "An empty alt value keeps decorative artwork out of the accessibility description."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"Image src:\"/assets/dashboard.png\" alt:\"Dashboard overview\" aspect:\"horizontal\" objectFit:\"cover\""
+  Section id:"image-dynamic-source" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest"
+          "DYNAMIC SOURCE"
+        Title size:"3xl" weight:"black"
+          "Render a collection of image covers"
+        Text size:"sm"
+          "Use a bare src path when each item owns the image URL. Dowe validates the collection field as a string and keeps the same source binding across web, desktop, Android, iOS, and the Android development preview."
+      Grid columns:{ xs:1 md:2 } gap:4
+        each in:imageFeatures as:feature key:feature.id
+          Grid columns:1 gap:2
+            Image src:feature.cover alt:"Feature cover" aspect:"square" objectFit:"cover" scheme:"secondary" rounded:"lg"
+            Text size:"sm" weight:"bold"
+              "{feature.title}"
+      Code:
+        language:"dowe"
+        variant:"solid"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"const homeFeatures value:[{ id:\"intuitive-interface\" cover:\"/assets/img/soluciones-escalables.webp\" }] each in:homeFeatures as:feature key:feature.id Image src:feature.cover"
   Section id:"image-aspect" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "ASPECT RATIO"
         Title size:"3xl" weight:"black"
           "Frame each image for its place"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "horizontal uses 16 / 9, vertical uses 9 / 16, square uses 1 / 1, and auto preserves the source dimensions. Native targets resolve the available width first and derive the frame height from that ratio, keeping the image inside its Box, Grid, or section."
       Grid columns:{ xs:2 md:4 } gap:4
         Grid columns:1 gap:2
@@ -156,7 +182,7 @@ page ImagePage
             "auto · source ratio"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -164,11 +190,11 @@ page ImagePage
   Section id:"image-fitting" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "OBJECT FIT"
         Title size:"3xl" weight:"black"
           "Choose how the source fills its frame"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "cover crops to fill the frame, contain shows the whole image, fill stretches it, and none keeps the source at its natural size."
       Grid columns:{ xs:2 md:4 } gap:4
         Grid columns:1 gap:2
@@ -213,7 +239,7 @@ page ImagePage
             "none"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -221,13 +247,13 @@ page ImagePage
   Section id:"image-controls" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "WEB CONTROLS AND LOADING"
         Title size:"3xl" weight:"black"
           "Keep image actions intentional"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Web images hide download and fullscreen actions by default. Set hideControls:false when the image should expose both actions, and use eager loading only for imagery needed immediately."
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Android reuses bounded native memory and HTTPS disk caches. During a cold load it shows the theme's neutral surface and fades in the bitmap, avoiding a flash of the authored scheme color."
       Grid columns:{ xs:1 md:2 } gap:4
         Grid columns:1 gap:2
@@ -255,7 +281,7 @@ page ImagePage
             "Default passive image · lazy"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -263,15 +289,15 @@ page ImagePage
   Section id:"image-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Image also accepts applicable common spacing, sizing, border, visibility, and accessibility props."
       Table:
         data:imageProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

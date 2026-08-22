@@ -15,21 +15,21 @@ page AvatarPage
   Section id:"avatar-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "DISPLAY"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Avatar"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Avatars identify people and entities with an image, initials, or a portable icon."
       Avatar src:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=160&q=80" name:"Maya Chen" alt:"Portrait of Maya Chen" size:"xl" status:"online" bordered:true
   Section id:"avatar-images" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "IMAGES"
         Title size:"3xl" weight:"black"
           "Profiles with clear fallbacks"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use a packaged asset or an HTTPS image. Android loads both through its cached native image pipeline; when loading fails, Dowe falls back to initials resolved from name and then alt."
       Card variant:"outlined" p:{ xs:6 md:8 } border:1
         Grid columns:{ xs:1 md:3 } gap:6
@@ -38,7 +38,7 @@ page AvatarPage
           Avatar src:"https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=160&q=80" name:"Amara Okafor" alt:"Portrait of Amara Okafor" size:"md" status:"away"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -48,35 +48,35 @@ page AvatarPage
   Section id:"avatar-fallbacks" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "FALLBACKS"
         Title size:"3xl" weight:"black"
           "Initials stay recognizable"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Without src, Avatar renders initials from name. Variant and scheme keep the fallback aligned with the design system."
       Grid columns:{ xs:2 md:5 } gap:4
         Avatar name:"Ada Lovelace" alt:"Ada Lovelace" variant:"solid" scheme:"primary" size:"xl"
-        Avatar name:"Grace Hopper" alt:"Grace Hopper" variant:"soft" scheme:"secondary" size:"lg"
-        Avatar name:"Linus Torvalds" alt:"Linus Torvalds" variant:"soft" scheme:"success" size:"md"
+        Avatar name:"Grace Hopper" alt:"Grace Hopper" variant:"solid" scheme:"secondary" size:"lg"
+        Avatar name:"Linus Torvalds" alt:"Linus Torvalds" variant:"solid" scheme:"success" size:"md"
         Avatar name:"Margaret Hamilton" alt:"Margaret Hamilton" variant:"solid" scheme:"tertiary" size:"sm"
-        Avatar name:"Alan Turing" alt:"Alan Turing" variant:"soft" scheme:"muted" size:"xs"
+        Avatar name:"Alan Turing" alt:"Alan Turing" variant:"solid" scheme:"muted" size:"xs"
   Section id:"avatar-priority" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "CONTENT PRIORITY"
         Title size:"3xl" weight:"black"
           "Image, icon, then initials"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "A valid src has priority over the icon region. Without either, Dowe derives initials from name and alt."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Avatar name:"Dowe Agent" alt:"Dowe Agent" variant:"soft" scheme:"info" size:"lg"
+          Avatar name:"Dowe Agent" alt:"Dowe Agent" variant:"solid" scheme:"info" size:"lg"
             icon
               Svg viewBox:"0 0 24 24" w:6 h:6
                 Path d:"M12 2a5 5 0 0 0-5 5v3H5v12h14V10h-2V7a5 5 0 0 0-5-5Z" fill:"currentColor"
@@ -84,15 +84,15 @@ page AvatarPage
   Section id:"avatar-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Avatar also accepts navigation, visibility, sizing, spacing, grid placement, and applicable common style props."
       Table:
         data:avatarProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

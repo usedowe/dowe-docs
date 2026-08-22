@@ -11,20 +11,20 @@ page AlertPage
     ]
   Section id:"alert-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "DISPLAY"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Alert"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Alerts communicate success, errors, information, and warnings with accessible target-native semantics."
   Section id:"alert-types" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "SEMANTIC TYPES"
         Title size:"3xl" weight:"black"
           "Feedback users can scan"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Type defines meaning and derives the default scheme. Override scheme only when the product language requires it."
       Grid columns:{ xs:2 md:4 } gap:3
         Alert type:"success" message:"Your changes were saved successfully."
@@ -33,7 +33,7 @@ page AlertPage
         Alert type:"warning" message:"This operation will replace the current generated output."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -46,27 +46,27 @@ page AlertPage
   Section id:"alert-variants" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "VARIANTS"
         Title size:"3xl" weight:"black"
           "Match the visual emphasis"
       Grid columns:{ xs:2 md:4 } gap:3
         Alert type:"info" message:"Solid feedback for high emphasis." variant:"solid"
-        Alert type:"success" message:"Soft feedback for routine confirmation." variant:"soft"
+        Alert type:"success" message:"Soft feedback for routine confirmation." variant:"solid"
         Alert type:"warning" message:"Outlined feedback preserves surrounding contrast." variant:"outlined"
         Alert type:"error" message:"Ghost feedback keeps the lightest visual footprint." variant:"ghost"
   Section id:"alert-reactive" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "REACTIVE FEEDBACK"
         Title size:"3xl" weight:"black"
           "Connect request state"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Message and visible can read compatible Signal paths. onClose invokes a declared view action that clears or hides the alert."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -81,25 +81,25 @@ page AlertPage
   Section id:"alert-visibility" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "VISIBILITY"
         Title size:"3xl" weight:"black"
           "visible and show compose"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "When both props are present, the Alert renders only when visible and show resolve to true."
       Alert type:"info" message:"This alert is visible on medium and larger viewports." show:{ xs:false md:true }
   Section id:"alert-props" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Alert also accepts applicable common spacing, sizing, visibility, grid placement, and style props."
       Table:
         data:alertProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

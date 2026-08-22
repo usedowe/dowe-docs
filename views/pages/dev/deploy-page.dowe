@@ -146,24 +146,24 @@ page DeployPage
     ]
   Section id:"deploy-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "DEVELOPMENT / PRODUCTION DEPLOY"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Dowe Deploy"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Build native release artifacts, publish mobile apps, or deploy to Docker, SSH, Cloudflare, and Vercel. Dowe Cloud deployment is coming soon."
   Section id:"deploy-command" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "1 / CAPABILITY-AWARE MENU"
         Title size:"3xl" weight:"black"
           "Choose a configured surface"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Run deploy from the project root. Select Live, Stage, or UAT before the deploy surface; Android and iOS remain Live-only."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy commands"
         copiedLabel:"Copied"
@@ -181,7 +181,7 @@ page DeployPage
         """
       Table:
         data:deploySurfaceRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -193,15 +193,15 @@ page DeployPage
   Section id:"deploy-environment" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "2 / DEPLOY ENVIRONMENTS"
         Title size:"3xl" weight:"black"
           "Deploy without rewriting .env"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "dowe dev uses .env. Deploy selects .env.live, .env.stage, or .env.uat, while dowe build always uses .env.live. Ignore every local value file and declare shared names in .env.example."
       Table:
         data:deployEnvironmentRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -212,15 +212,15 @@ page DeployPage
   Section id:"native-builds" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "3 / NATIVE RELEASE ARTIFACTS"
         Title size:"3xl" weight:"black"
           "Build without publishing"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "dowe build writes release artifacts under .dowe/dist/build. iOS and macOS are available only when Dowe runs on macOS."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy build commands"
         copiedLabel:"Copied"
@@ -233,7 +233,7 @@ page DeployPage
         """
       Table:
         data:nativeBuildRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -245,15 +245,15 @@ page DeployPage
   Section id:"mobile-stores" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "4 / MOBILE STORES"
         Title size:"3xl" weight:"black"
           "Upload an already signed release"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Google Play receives an Android App Bundle through an edit. App Store Connect receives the signed IPA through Xcode's upload adapter. Non-interactive publication requires --publish."
       Table:
         data:storeRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -264,15 +264,15 @@ page DeployPage
   Section id:"deploy-docker" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "5 / NATIVE DOCKER RUNTIME"
         Title size:"3xl" weight:"black"
           "Tag the image you intend to run"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Interactive Docker asks for a registry and image name. docker.io and the project folder provide safe defaults, then Dowe remembers confirmed non-secret values separately for Server and Web."
       Table:
         data:dockerRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -283,7 +283,7 @@ page DeployPage
         column field:"guidance" label:"Rule" width:"5fr"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy structure"
         copiedLabel:"Copied"
@@ -300,15 +300,15 @@ page DeployPage
   Section id:"deploy-runtime" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "6 / DISTROLESS / NONROOT"
         Title size:"3xl" weight:"black"
           "Ship one Dowe application, not the toolchain"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Server and Web each contain one standalone Linux application executable with their selected surface embedded. Neither image contains Cargo, rustc, a shell, or Node.js."
       Table:
         data:runtimeRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -318,7 +318,7 @@ page DeployPage
         column field:"guidance" label:"Rule" width:"5fr"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy entrypoint"
         copiedLabel:"Copied"
@@ -326,15 +326,15 @@ page DeployPage
   Section id:"deploy-ssh" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "7 / SSH / SYSTEMD"
         Title size:"3xl" weight:"black"
           "Install one native server executable"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "SSH deploy embeds the selected Dowe application in the same-version Linux amd64 runtime, uploads it with OpenSSH, and enables a background systemd service."
       Table:
         data:sshRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -345,15 +345,15 @@ page DeployPage
   Section id:"deploy-build-result" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "8 / SAFE FALLBACK"
         Title size:"3xl" weight:"black"
           "Keep the context when Docker is unavailable"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Dowe always writes the context first. A working daemon builds and tags the image; a missing client or daemon leaves a usable Dockerfile for later."
       Table:
         data:deployResultRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -364,15 +364,15 @@ page DeployPage
   Section id:"deploy-boundaries" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "9 / CURRENT BOUNDARIES"
         Title size:"3xl" weight:"black"
           "Three active Server providers, one shared Dowe authority"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Dowe Cloud remains visible as a future provider, while Docker, SSH, Cloudflare, and Vercel are the active Server deploy targets. The former Linux host package remains retired."
       Table:
         data:deployBoundaryRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

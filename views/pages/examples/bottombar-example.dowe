@@ -1,26 +1,26 @@
 page BottomBarExample
   Section pt:{ xs:20 md:24 } pb:{ xs:8 md:12 }
     Grid columns:1 gap:5
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "PERSISTENT NAVIGATION"
       Title size:{ xs:"3xl" md:"5xl" } weight:"black"
         "Keep the next action within reach"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "The BottomBar remains at the lower edge while the Scaffold main region fills and scrolls through the viewport."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"primary" p:5
+        Card variant:"solid" scheme:"primary" p:5
           Grid columns:1 gap:2
             Text weight:"bold"
               "Start"
             Text size:"sm"
               "Secondary navigation or a return action."
-        Card variant:"soft" scheme:"secondary" p:5
+        Card variant:"solid" scheme:"secondary" p:5
           Grid columns:1 gap:2
             Text weight:"bold"
               "Center"
             Text size:"sm"
               "Status and context remain easy to scan."
-        Card variant:"soft" scheme:"tertiary" p:5
+        Card variant:"solid" scheme:"tertiary" p:5
           Grid columns:1 gap:2
             Text weight:"bold"
               "End"
@@ -30,6 +30,6 @@ page BottomBarExample
     Grid columns:1 gap:4
       Title size:"2xl" weight:"bold"
         "Scroll the main content"
-      Text color:"muted"
+      Text
         "The visible lower navigation belongs to the shell, not to this page content."
       Box bg:"surface" h:64 rounded:"md"

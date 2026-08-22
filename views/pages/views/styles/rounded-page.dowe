@@ -10,83 +10,83 @@ page RoundedPage
   Section id:"rounded-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Flex direction:"column" gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "STYLES"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Rounded"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Shape corners with one portable radius scale shared by web, Android, and iOS."
   Section id:"rounded-scale" p:{ xs:5 md:7 }
     Flex direction:"column" gap:6
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "RADIUS SCALE"
         Title size:"3xl" weight:"black"
           "Six corner shapes"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use a larger token for softer corners, or full for pills and circular surfaces."
       Grid columns:{ xs:3 md:6 } gap:4
         Flex direction:"column" gap:3 align:"center"
-          Box bg:"softPrimary" border:1 borderColor:"primary" rounded:"xs" w:"full" h:24
+          Box bg:"muted" border:1 borderColor:"primary" rounded:"xs" w:"full" h:24
           Text size:"sm" weight:"bold"
             "xs"
         Flex direction:"column" gap:3 align:"center"
-          Box bg:"softPrimary" border:1 borderColor:"primary" rounded:"sm" w:"full" h:24
+          Box bg:"muted" border:1 borderColor:"primary" rounded:"sm" w:"full" h:24
           Text size:"sm" weight:"bold"
             "sm"
         Flex direction:"column" gap:3 align:"center"
-          Box bg:"softPrimary" border:1 borderColor:"primary" rounded:"md" w:"full" h:24
+          Box bg:"muted" border:1 borderColor:"primary" rounded:"md" w:"full" h:24
           Text size:"sm" weight:"bold"
             "md"
         Flex direction:"column" gap:3 align:"center"
-          Box bg:"softPrimary" border:1 borderColor:"primary" rounded:"lg" w:"full" h:24
+          Box bg:"muted" border:1 borderColor:"primary" rounded:"lg" w:"full" h:24
           Text size:"sm" weight:"bold"
             "lg"
         Flex direction:"column" gap:3 align:"center"
-          Box bg:"softPrimary" border:1 borderColor:"primary" rounded:"xl" w:"full" h:24
+          Box bg:"muted" border:1 borderColor:"primary" rounded:"xl" w:"full" h:24
           Text size:"sm" weight:"bold"
             "xl"
         Flex direction:"column" gap:3 align:"center"
-          Box bg:"softPrimary" border:1 borderColor:"primary" rounded:"full" w:24 h:24
+          Box bg:"muted" border:1 borderColor:"primary" rounded:"full" w:24 h:24
           Text size:"sm" weight:"bold"
             "full"
   Section id:"rounded-components" py:{ xs:7 md:10 }
     Flex direction:"column" gap:6
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "COMPONENT EXAMPLES"
         Title size:"3xl" weight:"black"
           "Use the same shape language"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Apply rounded directly to containers, controls, media, and other compatible components."
       Grid columns:{ xs:1 md:3 } gap:5
-        Card variant:"soft" scheme:"primary" rounded:"sm" p:6
+        Card variant:"solid" scheme:"primary" rounded:"sm" p:6
           Flex direction:"column" gap:2
             Title size:"lg" weight:"bold"
               "Compact card"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Small corners keep dense interfaces precise."
         Flex direction:"column" gap:3 align:"center" justify:"center" p:6
           Button scheme:"secondary" rounded:"full"
             "Pill action"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Full follows the control shape."
         Flex direction:"column" gap:3 align:"center" justify:"center" p:6
           Avatar name:"Dowe" alt:"Dowe" size:"xl" scheme:"tertiary" rounded:"full"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Equal dimensions form a circle."
   Section id:"rounded-responsive" p:{ xs:5 md:7 }
     Grid columns:{ xs:1 md:2 } gap:6 align:"center"
       Flex direction:"column" gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "RESPONSIVE"
         Title size:"3xl" weight:"black"
           "Change shape by breakpoint"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Responsive objects use xs as the base and apply later values at their named breakpoints."
         Code:
           language:"dowe"
-          variant:"soft"
+          variant:"solid"
           scheme:"surface"
           copyLabel:"Copy Dowe"
           copiedLabel:"Copied"
@@ -95,7 +95,7 @@ page RoundedPage
               Text "Responsive corners"
           """
       Box:
-        bg:"softSecondary"
+        bg:"muted"
         border:2
         borderColor:"secondary"
         rounded:{ xs:"sm" md:"xl" }
@@ -105,15 +105,15 @@ page RoundedPage
   Section id:"rounded-props" py:{ xs:7 md:10 }
     Flex direction:"column" gap:5
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Rounded is optional. When omitted, a component may use its own theme or built-in default."
       Table:
         data:roundedProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -124,32 +124,32 @@ page RoundedPage
         column field:"defaultValue" label:"Default" width:"1fr"
   Section id:"rounded-compatibility" py:{ xs:7 md:10 }
     Flex direction:"column" gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "COMPATIBILITY"
       Title size:"3xl" weight:"black"
         "Available on styled components"
       Text weight:"bold"
         "Layout and shell"
-      Text color:"muted"
+      Text
         "Box, Section, Flex, Grid, AppBar, Footer, BottomBar, Sidebar, Scaffold, and Drawer."
       Text weight:"bold"
         "Navigation"
-      Text color:"muted"
+      Text
         "NavMenu, SideNav, RailNav, Tabs, and Stepper."
       Text weight:"bold"
         "Content and display"
-      Text color:"muted"
+      Text
         "Text, Title, Code, Video, Iframe, Device, Canvas, Table, Divider, Brand, Banner, Alert, Icon, Avatar, AvatarGroup, Badge, Chip, Skeleton, Card, Empty, Marquee, TypeWriter, RichText, Collapsible, Countdown, Map, Audio, Image, Accordion, Carousel, and ChatBox."
       Text weight:"bold"
         "Charts"
-      Text color:"muted"
+      Text
         "Candlestick, ArcChart, AreaChart, BarChart, LineChart, and PieChart."
       Text weight:"bold"
         "Controls and forms"
-      Text color:"muted"
+      Text
         "Input, Select, Button, IconButton, ToggleTheme, SelectTheme, Fab, Slider, Dropzone, ComboBox, CsvField, DragDrop, Editor, ImageCropper, Password, Phone, Pin, Textarea, Record, ToggleGroup, Checkbox, Color, Date, DateRange, RadioGroup, and Toggle."
       Text weight:"bold"
         "Overlays"
-      Text color:"muted"
+      Text
         "Modal, AlertDialog, Tooltip, Toast, Dropdown, and Command."
-      Alert type:"warning" variant:"soft" scheme:"warning" message:"Not available on Splash, Svg, Path, or context-only entries such as Option, fabAction, comboOption, csvColumn, dragGroup, dragItem, tab, step, and region entries. Button and IconButton also accept a compatible string Signal for rounded; other components use static or responsive values."
+      Alert type:"warning" variant:"solid" scheme:"warning" message:"Not available on Splash, Svg, Path, or context-only entries such as Option, fabAction, comboOption, csvColumn, dragGroup, dragItem, tab, step, and region entries. Button and IconButton also accept a compatible string Signal for rounded; other components use static or responsive values."

@@ -30,12 +30,12 @@ page LogoQuoteTestimonialsPage
               Title size:{ xs:"2xl" md:"4xl" } weight:"black"
                 "{testimonials.matt.quote}"
               Flex align:"center" justify:"center" gap:4
-                Box bg:"softMuted" rounded:"full" w:14 h:14 p:3
+                Box bg:"muted" rounded:"full" w:14 h:14 p:3
                   Icon name:"gallery-bold-duotone" fill:"muted" w:8 h:8
                 Grid columns:1 gap:1
                   Text weight:"bold"
                     "{testimonials.matt.name}"
-                  Text size:"sm" color:"muted"
+                  Text size:"sm"
                     "{testimonials.matt.role}"
             Box show:{ xs:false md:true }
         slide id:"sophie"
@@ -45,12 +45,12 @@ page LogoQuoteTestimonialsPage
               Title size:{ xs:"2xl" md:"4xl" } weight:"black"
                 "{testimonials.sophie.quote}"
               Flex align:"center" justify:"center" gap:4
-                Box bg:"softMuted" rounded:"full" w:14 h:14 p:3
+                Box bg:"muted" rounded:"full" w:14 h:14 p:3
                   Icon name:"gallery-bold-duotone" fill:"muted" w:8 h:8
                 Grid columns:1 gap:1
                   Text weight:"bold"
                     "{testimonials.sophie.name}"
-                  Text size:"sm" color:"muted"
+                  Text size:"sm"
                     "{testimonials.sophie.role}"
             Box show:{ xs:false md:true }
         slide id:"john"
@@ -60,11 +60,11 @@ page LogoQuoteTestimonialsPage
               Title size:{ xs:"2xl" md:"4xl" } weight:"black"
                 "{testimonials.john.quote}"
               Flex align:"center" justify:"center" gap:4
-                Box bg:"softMuted" rounded:"full" w:14 h:14 p:3
+                Box bg:"muted" rounded:"full" w:14 h:14 p:3
                   Icon name:"gallery-bold-duotone" fill:"muted" w:8 h:8
                 Grid columns:1 gap:1
                   Text weight:"bold"
                     "{testimonials.john.name}"
-                  Text size:"sm" color:"muted"
+                  Text size:"sm"
                     "{testimonials.john.role}"
             Box show:{ xs:false md:true }

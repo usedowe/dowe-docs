@@ -10,20 +10,20 @@ page StorePage
     ]
   Section id:"store-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "STATE"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Store"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "A Store is shared application state declared once in an imported module and available to every importing page or layout."
   Section id:"store-example" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "INTERACTIVE EXAMPLE"
         Title size:"3xl" weight:"black"
           "Shared preference"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "This page imports a persistent Store. Its value is shared across routes and restored by target-local storage after restart."
       Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Grid columns:1 gap:4
@@ -31,11 +31,11 @@ page StorePage
             "Application preference"
           Button onClick:{ set:docsPreferences.compactExamples value:!docsPreferences.compactExamples }
             "Toggle preference"
-          Text show:docsPreferences.compactExamples size:"sm" color:"muted"
+          Text show:docsPreferences.compactExamples size:"sm"
             "Compact mode is enabled. Another page that imports this Store reads the same value."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -52,7 +52,7 @@ page StorePage
     Grid columns:1 gap:4
       Table:
         data:storeGuidanceRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

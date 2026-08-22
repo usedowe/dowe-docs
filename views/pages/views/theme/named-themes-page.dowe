@@ -13,41 +13,29 @@ page NamedThemesPage
         group:"Titles"
         tokens:"primaryTitle, secondaryTitle, tertiaryTitle, mutedTitle, backgroundTitle, surfaceTitle, successTitle, infoTitle, warningTitle, dangerTitle"
       },
-      {
-        group:"Soft"
-        tokens:"softPrimary, softSecondary, softTertiary, softMuted, softSuccess, softInfo, softWarning, softDanger"
-      },
-      {
-        group:"Soft content"
-        tokens:"softPrimaryText, softSecondaryText, softTertiaryText, softMutedText, softSuccessText, softInfoText, softWarningText, softDangerText"
-      },
-      {
-        group:"Soft titles"
-        tokens:"softPrimaryTitle, softSecondaryTitle, softTertiaryTitle, softMutedTitle, softSuccessTitle, softInfoTitle, softWarningTitle, softDangerTitle"
-      },
     ]
   Section id:"named-themes-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "THEME.DOWE"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Named themes"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Define semantic color systems once, inherit complete palettes safely, and generate the same active theme model for every target."
-      ToggleTheme variant:"soft" scheme:"secondary" size:"md"
+      ToggleTheme variant:"solid" scheme:"secondary" size:"md"
   Section id:"named-themes-structure" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "ROOT STRUCTURE"
         Title size:"3xl" weight:"black"
           "Select one default and declare every name"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "design.defaultTheme must match a declared theme. light and dark can reuse Dowe's integrated palettes, while project themes can extend either base and override only the roles that differ."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy named themes"
         copiedLabel:"Copied"
@@ -57,7 +45,7 @@ page NamedThemesPage
             design defaultTheme:"light"
               theme name:"light"
                 colors:
-                  primary color:"#1F3A5F" text:"#FFFFFF" title:"#FFFFFE"
+                  primary color:"#1F3A5F" text:"#EAF2F8" title:"#FFFFFF"
                   happy color:"#176C75" text:"#FFFFFE" title:"#FFFFFE"
                   softHappy color:"#D9F3F1" text:"#124D53" title:"#124D53"
                   background color:"#FFFFFF" text:"#17263A" title:"#17263E"
@@ -74,42 +62,42 @@ page NamedThemesPage
                   softPrimary color:"#CCFBF3" text:"#073B35" title:"#073B35"
         """
       Grid columns:1 gap:4
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "DEFAULT THEME"
             Title size:"lg" weight:"bold"
               "Controls the first render"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "The normalized default is active in initial HTML and native output before a stored theme preference is applied."
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "NAMED CATALOG"
             Title size:"lg" weight:"bold"
               "Available to every target"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Every resolved name is emitted deterministically and becomes an option for SelectTheme."
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "INHERITANCE"
             Title size:"lg" weight:"bold"
               "Override a focused subset"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "extends resolves the parent first. Missing roles come from the parent instead of target-specific fallbacks."
   Section id:"named-themes-colors" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "SEMANTIC COLORS"
         Title size:"3xl" weight:"black"
           "Thirty-six required color roles"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "A resolved theme is complete before generation. Use hexadecimal #RGB, #RRGGBB, or #RRGGBBAA values in theme.dowe and semantic families in views."
       Table:
         data:colorGroups
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -126,7 +114,7 @@ page NamedThemesPage
               "Strong semantic surfaces"
             Text size:"sm"
               "solid uses primary for the fill, primaryText for ordinary content, and primaryTitle for Title or semantic headers."
-        Card variant:"soft" scheme:"primary" p:5
+        Card variant:"solid" scheme:"primary" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
               "SOFT CONTENT ROLES"
@@ -143,7 +131,7 @@ page NamedThemesPage
               "Project-defined semantics"
             Text size:"sm"
               "Card scheme happy resolves happy, happyText, and happyTitle from theme.dowe."
-        Card variant:"soft" scheme:"happy" p:5
+        Card variant:"solid" scheme:"happy" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
               "OPTIONAL SOFT FAMILY"
@@ -154,69 +142,69 @@ page NamedThemesPage
   Section id:"named-themes-resolution" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "RESOLUTION"
         Title size:"3xl" weight:"black"
           "Themes change color, not component geometry"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Named themes own semantic colors. Radius, border, shadow, size, and variant defaults belong to component slots directly under design."
       Grid columns:1 gap:4
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
             Title size:"lg" weight:"bold"
               "Views stay semantic"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Use scheme:\"primary\", bg:\"surface\", or color:\"muted\" instead of copying hexadecimal values into pages."
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
             Title size:"lg" weight:"bold"
               "Parents resolve first"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Dowe rejects missing parents and inheritance cycles before any target artifacts are generated."
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
             Title size:"lg" weight:"bold"
               "Every result is complete"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "A custom base without extends must provide every required role; inherited themes may remain focused."
   Section id:"named-themes-controls" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "RUNTIME CONTROLS"
         Title size:"3xl" weight:"black"
           "Expose the normalized catalog"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "SelectTheme lists every resolved name. ToggleTheme is intentionally limited to light and dark. Both persist one shared theme preference."
       Flex direction:{ xs:"column" md:"row" } gap:3 align:{ xs:"stretch" md:"end" }
         SelectTheme label:"Documentation theme" placeholder:"Choose a theme" variant:"outlined" scheme:"surface"
-        ToggleTheme variant:"soft" scheme:"secondary" size:"md"
+        ToggleTheme variant:"solid" scheme:"secondary" size:"md"
       Flex gap:3 wrap:true
-        Button variant:"soft" href:"/docs/views/multi-theme/select-theme"
+        Button variant:"solid" href:"/docs/views/multi-theme/select-theme"
           "SelectTheme docs"
-        Button variant:"soft" scheme:"secondary" href:"/docs/views/multi-theme/toggle-theme"
+        Button variant:"solid" scheme:"secondary" href:"/docs/views/multi-theme/toggle-theme"
           "ToggleTheme docs"
   Section id:"named-themes-validation" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "VALIDATION"
         Title size:"3xl" weight:"black"
           "Invalid theme graphs stop compilation"
       Grid columns:1 gap:4
-        Card variant:"soft" scheme:"danger" p:5
+        Card variant:"solid" scheme:"danger" p:5
           Grid columns:1 gap:2
             Title size:"lg" weight:"bold"
               "Names and defaults"
             Text size:"sm"
               "Names start with a lowercase letter and use lowercase letters, numbers, and hyphens. Names must be unique, and defaultTheme must resolve."
-        Card variant:"soft" scheme:"warning" p:5
+        Card variant:"solid" scheme:"warning" p:5
           Grid columns:1 gap:2
             Title size:"lg" weight:"bold"
               "Colors"
             Text size:"sm"
               "Unknown roles, non-hex values, and incomplete resolved themes are rejected with source locations."
-        Card variant:"soft" scheme:"info" p:5
+        Card variant:"solid" scheme:"info" p:5
           Grid columns:1 gap:2
             Title size:"lg" weight:"bold"
               "Inheritance"

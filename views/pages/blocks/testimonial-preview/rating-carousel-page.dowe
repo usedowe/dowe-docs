@@ -34,7 +34,7 @@ page RatingCarouselTestimonialsPage
         Grid columns:1 gap:3
           Title size:{ xs:"3xl" md:"5xl" } weight:"black"
             "What our clients say"
-          Text size:"lg" color:"muted"
+          Text size:"lg"
             "Trusted by ambitious teams that value clear thinking and dependable delivery."
         Flex direction:{ xs:"column" sm:"row" } gap:3
           Button size:"lg" rounded:"full" iconEnd:"arrow-right"
@@ -48,12 +48,12 @@ page RatingCarouselTestimonialsPage
               Flex gap:1
                 each in:stars as:star key:star.id
                   Icon name:"star-bold" fill:"muted" w:6 h:6
-              Text color:"muted"
+              Text
                 "{reviews.john.quote}"
               Grid columns:1 gap:1
                 Text weight:"bold"
                   "{reviews.john.name}"
-                Text color:"muted"
+                Text
                   "{reviews.john.role}"
         slide id:"sophie"
           Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:64
@@ -61,12 +61,12 @@ page RatingCarouselTestimonialsPage
               Flex gap:1
                 each in:stars as:star key:star.id
                   Icon name:"star-bold" fill:"muted" w:6 h:6
-              Text color:"muted"
+              Text
                 "{reviews.sophie.quote}"
               Grid columns:1 gap:1
                 Text weight:"bold"
                   "{reviews.sophie.name}"
-                Text color:"muted"
+                Text
                   "{reviews.sophie.role}"
         slide id:"matt"
           Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:64
@@ -74,12 +74,12 @@ page RatingCarouselTestimonialsPage
               Flex gap:1
                 each in:stars as:star key:star.id
                   Icon name:"star-bold" fill:"muted" w:6 h:6
-              Text color:"muted"
+              Text
                 "{reviews.matt.quote}"
               Grid columns:1 gap:1
                 Text weight:"bold"
                   "{reviews.matt.name}"
-                Text color:"muted"
+                Text
                   "{reviews.matt.role}"
         slide id:"andy"
           Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:64
@@ -87,10 +87,10 @@ page RatingCarouselTestimonialsPage
               Flex gap:1
                 each in:stars as:star key:star.id
                   Icon name:"star-bold" fill:"muted" w:6 h:6
-              Text color:"muted"
+              Text
                 "{reviews.andy.quote}"
               Grid columns:1 gap:1
                 Text weight:"bold"
                   "{reviews.andy.name}"
-                Text color:"muted"
+                Text
                   "{reviews.andy.role}"

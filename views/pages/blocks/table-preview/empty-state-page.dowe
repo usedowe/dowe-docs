@@ -8,15 +8,15 @@ page EmptyTablePage
   Section id:"empty-table" bg:"background" color:"backgroundText" boxed:true minH:"vh-0" p:{ xs:6 md:12 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "RELEASES"
         Title size:{ xs:"3xl" md:"5xl" } weight:"black"
           "Release queue"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "An empty table can still give the next action a clear, accessible home."
       Table:
         data:rows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"md"
         bordered:true

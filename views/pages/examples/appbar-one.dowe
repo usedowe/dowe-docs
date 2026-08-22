@@ -1,26 +1,26 @@
 page AppBarOne
   Section pt:{ xs:20 md:24 } pb:{ xs:8 md:12 }
     Grid columns:1 gap:5
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "FIXED SHELL"
       Title size:{ xs:"3xl" md:"5xl" } weight:"black"
         "A viewport-fixed application bar"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "This AppBar remains anchored to the viewport while the Scaffold main region scrolls beneath it."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"primary" p:5
+        Card variant:"solid" scheme:"primary" p:5
           Grid columns:1 gap:2
             Text weight:"bold"
               "Semantic"
             Text size:"sm"
               "The bar renders before the Scaffold body on every target."
-        Card variant:"soft" scheme:"secondary" p:5
+        Card variant:"solid" scheme:"secondary" p:5
           Grid columns:1 gap:2
             Text weight:"bold"
               "Boxed content"
             Text size:"sm"
               "The bar stays full width while its regions use a centered reading width."
-        Card variant:"soft" scheme:"tertiary" p:5
+        Card variant:"solid" scheme:"tertiary" p:5
           Grid columns:1 gap:2
             Text weight:"bold"
               "Portable"
@@ -30,6 +30,6 @@ page AppBarOne
     Grid columns:1 gap:4
       Title size:"2xl" weight:"bold"
         "Scroll the shell"
-      Text color:"muted"
+      Text
         "Additional content makes the relationship between the AppBar and Scaffold visible inside the embedded example."
       Box bg:"surface" h:64 rounded:"md"

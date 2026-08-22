@@ -26,24 +26,24 @@ page StandardLibraryPage
     ]
   Section id:"standard-library-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "SERVER / STANDARD LIBRARY"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Compose portable server values"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "The standard library gives reusable server functions small, deterministic operations for parsing, sorting, formatting, and numeric work. Each declaration names a capability, a source function, and the named props that it needs."
   Section id:"standard-library-mental-model" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "1 / MENTAL MODEL"
         Title size:"3xl" weight:"black"
           "Declare a capability-first value"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The binding is the value exposed to later statements. source selects one function in the namespace, and every other prop is named. There is no assignment operator, callback, or dynamic code."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy declarations"
         copiedLabel:"Copied"
@@ -54,7 +54,7 @@ page StandardLibraryPage
         """
       Table:
         data:standardModelRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -65,17 +65,17 @@ page StandardLibraryPage
   Section id:"standard-library-flow" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "2 / FN + HANDLER FLOW"
         Title size:{ xs:"2xl" md:"4xl" } weight:"black"
           "Keep algorithms reusable and HTTP at the edge"
-        Text color:"muted"
+        Text
           "A reusable fn transforms data and returns value. The handler imports it, passes named args, and owns the HTTP response. This keeps parsing, sorting, and aggregation out of route wiring."
-      Text size:"xs" weight:"bold" color:"muted"
+      Text size:"xs" weight:"bold"
         "server/functions/scores.dowe"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy reusable function"
         copiedLabel:"Copied"
@@ -86,11 +86,11 @@ page StandardLibraryPage
             math total source:"sum" values:sorted
             return value:{ total:total sorted:sorted }
         """
-      Text size:"xs" weight:"bold" color:"muted"
+      Text size:"xs" weight:"bold"
         "server/handlers/scores.dowe"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy handler"
         copiedLabel:"Copied"
@@ -104,7 +104,7 @@ page StandardLibraryPage
         """
       Table:
         data:standardBoundaryRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -115,15 +115,15 @@ page StandardLibraryPage
   Section id:"standard-library-catalog" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "3 / IMPLEMENTED CATALOG"
         Title size:{ xs:"2xl" md:"4xl" } weight:"black"
           "Use only the canonical functions"
-        Text color:"muted"
+        Text
           "The namespace and source names below are implemented today. Unknown functions and props are rejected during compilation. The optional ? marks an optional argument."
       Table:
         data:standardCatalogRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -134,19 +134,19 @@ page StandardLibraryPage
   Section id:"standard-library-details" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "4 / DETAILS"
         Title size:"3xl" weight:"black"
           "Know the predictable edge cases"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The declarations are intentionally finite. Read the result rules below before using a parser or aggregate in a handler."
-      Text size:"xs" weight:"bold" color:"muted"
+      Text size:"xs" weight:"bold"
         "math"
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "All math values are finite numbers. sum([]) is 0. average([]), min([]), and max([]) are null. Division by zero and non-finite results are controlled runtime results."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy math"
         copiedLabel:"Copied"
@@ -154,13 +154,13 @@ page StandardLibraryPage
           math total source:"sum" values:[1 2 3]
           math mean source:"average" values:body.scores
         """
-      Text size:"xs" weight:"bold" color:"muted"
+      Text size:"xs" weight:"bold"
         "parse"
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "int rejects decimal text, float accepts finite text, bool accepts the documented boolean spellings, and json returns a JSON value. Every parser returns fallback or null instead of throwing into the handler."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy parse"
         copiedLabel:"Copied"
@@ -169,13 +169,13 @@ page StandardLibraryPage
           parse filters source:"json" value:body.filters fallback:[]
           parse icon source:"svg" value:body.icon fallback:""
         """
-      Text size:"xs" weight:"bold" color:"muted"
+      Text size:"xs" weight:"bold"
         "sort"
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "asc and desc compare values stably. by reads a dotted field, accepts direction asc or desc, and places missing values first or last with nulls."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy sort"
         copiedLabel:"Copied"

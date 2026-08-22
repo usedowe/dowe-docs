@@ -39,13 +39,13 @@ page AreaChartPage
   Section id:"area-chart-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "CHARTS"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "AreaChart"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Filled trends that keep change, volume, and accumulation visible across every target."
-      Card variant:"soft" scheme:"primary" p:5 rounded:"lg" minW:56
+      Card variant:"solid" scheme:"primary" p:5 rounded:"lg" minW:56
         Grid columns:1 gap:1
           Text size:"xs" weight:"bold" spacing:"widest"
             "POINTS OR SERIES"
@@ -56,15 +56,15 @@ page AreaChartPage
   Section id:"area-chart-basic" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "POINT DATA"
         Title size:"3xl" weight:"black"
           "Fill the space below a trend"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "AreaChart accepts numeric x and y values. smooth, fillOpacity, and showPoints make the shape legible without adding custom drawing code."
       AreaChart:
         data:visits
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"lg"
         palette:"ocean"
@@ -75,23 +75,23 @@ page AreaChartPage
         showGlow:true
         legendPosition:"bottom"
         rounded:"lg"
-      Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+      Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
         type ChartPoint
           x:number
           y:number
 
         signal visits type:ChartPoint[] value:[{ x:1 y:24 } { x:2 y:31 } { x:3 y:28 }]
 
-        AreaChart data:visits variant:"soft" scheme:"surface" size:"lg" palette:"ocean" curve:"smooth" strokeWidth:3 fillOpacity:0.32 showPoints:true
+        AreaChart data:visits variant:"solid" scheme:"surface" size:"lg" palette:"ocean" curve:"smooth" strokeWidth:3 fillOpacity:0.32 showPoints:true
       """
   Section id:"area-chart-series" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "SERIES AND STACKING"
         Title size:"3xl" weight:"black"
           "Compare channels in one surface"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "A series item names its line, owns a nested point array, and may provide a semantic color token. stacked:true changes the comparison into a cumulative story."
       AreaChart:
         series:channels
@@ -106,7 +106,7 @@ page AreaChartPage
         showPoints:true
         legendPosition:"top"
         hideYAxis:true
-      Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+      Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
         type ChartSeries
           name:string
           data:ChartPoint[]
@@ -117,32 +117,32 @@ page AreaChartPage
   Section id:"area-chart-states" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "STATES AND AXES"
         Title size:"3xl" weight:"black"
           "Reduce noise deliberately"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Hide only the visual guides that are redundant for the context. Keep a legend or nearby copy when the fill colors carry meaning."
       Grid columns:{ xs:1 md:3 } gap:4
         AreaChart data:visits variant:"solid" scheme:"surface" size:"md" hideGrid:true hideXAxis:true hideYAxis:true hideLine:true fillOpacity:0.5
-        AreaChart data:visits variant:"soft" scheme:"info" size:"md" showPoints:true hideGrid:true
+        AreaChart data:visits variant:"solid" scheme:"info" size:"md" showPoints:true hideGrid:true
         AreaChart data:emptyPoints variant:"outlined" scheme:"warning" size:"md" emptyLabel:"No visits yet"
-      Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+      Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
         AreaChart data:visits variant:"solid" scheme:"surface" hideGrid:true hideXAxis:true hideYAxis:true hideLine:true fillOpacity:0.5
         AreaChart data:emptyPoints variant:"outlined" scheme:"warning" emptyLabel:"No visits yet"
       """
   Section id:"area-chart-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "AreaChart also accepts applicable common identity, spacing, sizing, visibility, radius, border, and accessibility props."
       Table:
         data:areaProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

@@ -57,20 +57,20 @@ page ColorPage
   Section id:"color-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "FORM"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Color"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Color gives people one native-feeling picker across web, iOS, and Android, with live format details and a string Signal contract. Its sm, md, and lg sizes scale both trigger height and displayed value text."
   Section id:"color-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "Build a color token"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Open the field to adjust saturation, brightness, and hue. bind writes the canonical uppercase hex value continuously, while format rows stay opt-in."
       Grid columns:{ xs:1 md:2 } gap:4
         Color:
@@ -84,19 +84,19 @@ page ColorPage
           scheme:"primary"
           size:"lg"
           name:"brand-color"
-        Card variant:"soft" p:{ xs:5 md:7 }
+        Card variant:"solid" p:{ xs:5 md:7 }
           Grid columns:1 gap:3
-            Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+            Text size:"xs" weight:"bold" spacing:"widest"
               "CURRENT VALUE"
             Title size:"2xl" weight:"black"
               "One source of truth"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "The same typed value can drive a theme token, an API payload, or a preview swatch without client-side string parsing."
             Text size:"sm" weight:"bold" color:"primary"
               "Hex input + normalized Signal"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -108,33 +108,33 @@ page ColorPage
   Section id:"color-formats" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "FORMATS"
         Title size:"3xl" weight:"black"
           "Expose the formats your workflow needs"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Hex is the stored value. RGB, CMYK, and OKLCH are computed from the same selected sRGB color for design tools and handoff."
       Grid columns:{ xs:1 md:2 } gap:5
-        Color value:"#14b8a6" label:"Product accent" showHex:true showRgb:true showCmyk:true showOklch:true variant:"soft" scheme:"success" size:"md" name:"product-accent"
+        Color value:"#14b8a6" label:"Product accent" showHex:true showRgb:true showCmyk:true showOklch:true variant:"solid" scheme:"success" size:"md" name:"product-accent"
         Color value:"#a855f7" label:"Campaign highlight" showHex:true showOklch:true variant:"line" scheme:"secondary" size:"sm" name:"campaign-highlight"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Color value:"#14b8a6" label:"Product accent" showHex:true showRgb:true showCmyk:true showOklch:true variant:"soft" scheme:"success" size:"md" name:"product-accent"
+          Color value:"#14b8a6" label:"Product accent" showHex:true showRgb:true showCmyk:true showOklch:true variant:"solid" scheme:"success" size:"md" name:"product-accent"
           Color value:"#a855f7" label:"Campaign highlight" showHex:true showOklch:true variant:"line" scheme:"secondary" size:"sm" name:"campaign-highlight"
         """
   Section id:"color-states" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "STATES AND SURFACES"
         Title size:"3xl" weight:"black"
           "Make feedback part of the field"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use the same color picker contract for resting, validated, and corrective states."
       Grid columns:{ xs:1 md:2 } gap:5
         Color:
@@ -155,7 +155,7 @@ page ColorPage
           scheme:"danger"
           size:"md"
           name:"review-color"
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "The base heights are 32, 40, and 48; labelFloating adds 8 logical units on every target."
       Grid columns:{ xs:1 md:3 } gap:3
         Color value:"#0ea5e9" label:"Small" labelFloating:true variant:"outlined" scheme:"info" size:"sm"
@@ -164,46 +164,46 @@ page ColorPage
   Section id:"color-contract" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "BEHAVIOR"
         Title size:"3xl" weight:"black"
           "One portable color model"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Dowe lowers the same anchored panel, saturation and brightness plane, hue slider, preview, formats, labels, and feedback to web, SwiftUI, and Compose. A floating label begins after the leading swatch so both remain readable."
       Grid columns:{ xs:1 md:3 } gap:5
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "BINDING"
           Title size:"lg" weight:"bold"
             "String Signal"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "bind reads and writes one uppercase #RRGGBB string continuously while the picker moves."
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "FORMATS"
           Title size:"lg" weight:"bold"
             "Opt-in details"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "showHex, showRgb, showCmyk, and showOklch add deterministic rows inside the anchored panel."
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "VALIDATION"
           Title size:"lg" weight:"bold"
             "Hex only"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "value and Signal values use the #RRGGBB contract so every target starts from the same color."
   Section id:"color-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Color also accepts the applicable common spacing, sizing, typography, visibility, accessibility, and shadow props."
       Table:
         data:colorProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

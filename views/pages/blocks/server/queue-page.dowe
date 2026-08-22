@@ -16,21 +16,21 @@ page ServerQueueBlockPage
       set messageVisible value:true
   Section id:"server-queue-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "SERVER BLOCK / QUEUE"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Publish durable work"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "A View sends a JSON event to a server handler. The handler uses a server-only Queue connection and returns the provider receipt."
   Section id:"server-queue-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
-      Card variant:"soft" scheme:"primary" p:{ xs:5 md:7 } rounded:"xl"
+      Card variant:"solid" scheme:"primary" p:{ xs:5 md:7 } rounded:"xl"
         Grid columns:1 gap:4
           Text size:"xs" weight:"bold" color:"primary"
             "LIVE VIEW + SERVER"
           Title size:"2xl" weight:"black"
             "Publish an application event"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "The Queue connection and credentials never leave the server. The View only submits event data and receives ok plus messageId."
           Text show:messageVisible size:"sm" color:"info"
             "{message}"
@@ -42,13 +42,13 @@ page ServerQueueBlockPage
             "Receipt: {lastId}"
       Card variant:"outlined" p:5
         Grid columns:1 gap:3
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "BEFORE YOU CLICK"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Local development uses Dowe and targets an existing queue. On deploy, the same handler can select RabbitMQ, Cloudflare, or Vercel through its server-only connection; provision the remote queue before publishing."
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy provisioning"
             copiedLabel:"Copied"
@@ -58,17 +58,17 @@ page ServerQueueBlockPage
             """
   Section id:"server-queue-files" py:{ xs:7 md:10 }
     Grid columns:1 gap:4
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "SOURCE FILES"
       Title size:"3xl" weight:"black"
         "Explicit connection, explicit destination"
-      Text color:"muted"
+      Text
         "The application publishes to a queue that was already provisioned. Consume, ACK, and NACK stay in the streaming Rust provider API."
       Tabs variant:"line" position:"top" w:"full"
         tab id:"view" label:"View"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy View"
             copiedLabel:"Copied"
@@ -86,7 +86,7 @@ page ServerQueueBlockPage
         tab id:"handler" label:"Handler"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy handler"
             copiedLabel:"Copied"
@@ -101,7 +101,7 @@ page ServerQueueBlockPage
         tab id:"config" label:"Queue config"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy Queue config"
             copiedLabel:"Copied"
@@ -111,7 +111,7 @@ page ServerQueueBlockPage
         tab id:"commands" label:"Provisioning"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy commands"
             copiedLabel:"Copied"

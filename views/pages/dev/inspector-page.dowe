@@ -75,24 +75,24 @@ page InspectorPage
     ]
   Section id:"inspector-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "DEVELOPMENT / WEB INSPECTOR"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Find the Dowe source behind any view"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Use the in-page inspector during dowe dev to connect a rendered web element to its authored component, source path, and exact lines without opening a browser extension."
   Section id:"inspector-start" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "1 / START THE WEB INSPECTOR"
         Title size:"3xl" weight:"black"
           "Run the web development target"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The inspector is injected only by the Dowe development client when the selected targets include web. Its branded orb and dock start in the lower-left corner, and its enabled and hidden states survive responsive reloads in the same browser tab, while deploy output and native targets do not receive it."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy commands"
         copiedLabel:"Copied"
@@ -105,15 +105,15 @@ page InspectorPage
   Section id:"inspector-workflow" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "2 / INSPECTION WORKFLOW"
         Title size:"3xl" weight:"black"
           "From rendered element to agent context"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Enable the overlay, move across the page, and select the authored node you want to change. The floating toggle can be dragged whenever it covers the element you need to inspect. The Inspect panel hides detail sections for space; use Show details beside Copy to reveal them, and select any authored ancestor in the rendered hierarchy."
       Table:
         data:inspectorActions
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -125,15 +125,15 @@ page InspectorPage
   Section id:"inspector-metadata" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "3 / SOURCE METADATA"
         Title size:"3xl" weight:"black"
           "Read the declaration, not an implementation wrapper"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The manifest resolves opaque DOM identifiers to authored Dowe nodes. A Section, AppBar, Button, Title, or nested component keeps its own source identity even when the web renderer adds internal HTML."
       Table:
         data:inspectorFields
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -142,20 +142,20 @@ page InspectorPage
         column field:"field" label:"Field" width:"1fr"
         column field:"value" label:"Value" width:"3fr"
         column field:"purpose" label:"Why it matters" width:"5fr"
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "Literal wrappers generated inside a Button inherit Button metadata. They are not reported as independent Text views, so later Section and Title mappings remain aligned with the source order. Show details to expand the bounded compiled props, web classes, declared signals, actions, and current signal state for the selected node."
   Section id:"inspector-routes" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "4 / ROUTE MAP"
         Title size:"3xl" weight:"black"
           "Browse the compiled web routes"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use the compact Solar Inspect and Routes icons in the dock header (hover for their names and route count) to switch tabs. Routes provides path/source search, compact grouped rows, and page and layout source spans; selecting a path navigates the current development page so you can continue inspecting in context."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy route example"
         copiedLabel:"Copied"
@@ -167,24 +167,24 @@ page InspectorPage
   Section id:"inspector-responsive" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "5 / LIVE VIEWPORT"
         Title size:"3xl" weight:"black"
           "Compare breakpoints with the actual page"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The dock header reports the live browser width, height, and active Dowe breakpoint. Resize the development page itself to compare Mobile, Tablet, Desktop, and Wide behavior; the inspector does not create a nested iframe or second session."
   Section id:"inspector-agent" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "6 / AGENT HANDOFF"
         Title size:"3xl" weight:"black"
           "Copy a precise change target"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "After selecting a node, copy the generated context into your coding agent. It names the component, project-relative file, inclusive line span, and imported usage path when one exists."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy example"
         copiedLabel:"Copied"
@@ -195,7 +195,7 @@ page InspectorPage
         """
       Button:
         href:"/docs/dev/dev#dev-artifacts"
-        variant:"soft"
+        variant:"solid"
         size:"sm"
         rounded:"full"
         iconStart:"code"
@@ -203,15 +203,15 @@ page InspectorPage
   Section id:"inspector-contract" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "7 / TARGET CONTRACT"
         Title size:"3xl" weight:"black"
           "Development-only by construction"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The compiler, web generator, and runtime gate the inspector together. The normal shared source model remains unchanged for Android, iOS, desktop, and deploy builds."
       Table:
         data:inspectorTargets
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -222,7 +222,7 @@ page InspectorPage
         column field:"artifacts" label:"Generated surface" width:"5fr"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy development paths"
         copiedLabel:"Copied"

@@ -35,23 +35,23 @@ page FeatureCardsPricingPage
   Section id:"feature-cards-pricing" bg:"background" color:"backgroundText" boxed:true minH:"vh-0" py:{ xs:8 md:12 }
     Grid columns:1 gap:{ xs:8 md:12 }
       Flex direction:"column" align:"center" gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PRICING"
         Title size:{ xs:"4xl" md:"6xl" } weight:"black"
           "Affordable pricing plans"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Choose a clear starting point, then scale the plan as your team and traffic grow."
       Grid columns:{ xs:1 md:3 } gap:5 align:"stretch"
         each in:plans as:plan key:plan.id
           Card variant:"outlined" scheme:"muted" rounded:"xl" p:0
             Grid columns:1 gap:0
-              Box bg:"softMuted" p:{ xs:6 md:7 }
+              Box bg:"muted" p:{ xs:6 md:7 }
                 Flex direction:"column" align:"center" gap:2
                   Title size:"xl" weight:"bold"
                     "{plan.name}"
                   Title size:"4xl" weight:"black"
                     "{plan.price}"
-                  Text color:"muted"
+                  Text
                     "Billed monthly"
                   Button size:"lg" rounded:"full" w:"full"
                     "Get started"

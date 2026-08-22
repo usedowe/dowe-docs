@@ -3,12 +3,12 @@ page WidthPage
     value:[
       {
         prop:"w"
-        type:"Dowe scale | container sm–7xl | full | responsive"
+        type:"Dowe scale | container sm–7xl | 10%–100% by tens | full | responsive"
         defaultValue:"—"
       },
       {
         prop:"minW"
-        type:"Dowe scale | container sm–7xl | full | responsive"
+        type:"Dowe scale | container sm–7xl | 10%–100% by tens | full | responsive"
         defaultValue:"—"
       },
       {
@@ -19,67 +19,136 @@ page WidthPage
     ]
   const containerWidths:
     value:[
-      { name:"sm" size:"24rem / 384px" variable:"--container-sm" },
-      { name:"md" size:"28rem / 448px" variable:"--container-md" },
-      { name:"lg" size:"32rem / 512px" variable:"--container-lg" },
-      { name:"xl" size:"36rem / 576px" variable:"--container-xl" },
-      { name:"2xl" size:"42rem / 672px" variable:"--container-2xl" },
-      { name:"3xl" size:"48rem / 768px" variable:"--container-3xl" },
-      { name:"4xl" size:"56rem / 896px" variable:"--container-4xl" },
-      { name:"5xl" size:"64rem / 1024px" variable:"--container-5xl" },
-      { name:"6xl" size:"72rem / 1152px" variable:"--container-6xl" },
-      { name:"7xl" size:"80rem / 1280px" variable:"--container-7xl" },
+      {
+        name:"sm"
+        size:"24rem / 384px"
+        variable:"--container-sm"
+      },
+      {
+        name:"md"
+        size:"28rem / 448px"
+        variable:"--container-md"
+      },
+      {
+        name:"lg"
+        size:"32rem / 512px"
+        variable:"--container-lg"
+      },
+      {
+        name:"xl"
+        size:"36rem / 576px"
+        variable:"--container-xl"
+      },
+      {
+        name:"2xl"
+        size:"42rem / 672px"
+        variable:"--container-2xl"
+      },
+      {
+        name:"3xl"
+        size:"48rem / 768px"
+        variable:"--container-3xl"
+      },
+      {
+        name:"4xl"
+        size:"56rem / 896px"
+        variable:"--container-4xl"
+      },
+      {
+        name:"5xl"
+        size:"64rem / 1024px"
+        variable:"--container-5xl"
+      },
+      {
+        name:"6xl"
+        size:"72rem / 1152px"
+        variable:"--container-6xl"
+      },
+      {
+        name:"7xl"
+        size:"80rem / 1280px"
+        variable:"--container-7xl"
+      },
     ]
   Section id:"width-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Flex direction:"column" gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "STYLES"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Width"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Set an explicit width or protect a component with minimum and maximum bounds across every target."
   Section id:"width-values" p:{ xs:5 md:7 }
     Flex direction:"column" gap:6
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "WIDTH VALUES"
         Title size:"3xl" weight:"black"
           "Scale values and full width"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Numeric values use the Dowe scale. The full token occupies the available parent width."
       Flex direction:"column" gap:2
-        Box bg:"softPrimary" rounded:"md" w:24 h:12
-        Text size:"sm" color:"muted"
+        Box bg:"muted" rounded:"md" w:24 h:12
+        Text size:"sm"
           "w:24"
       Flex direction:"column" gap:2
-        Box bg:"softSecondary" rounded:"md" w:48 h:12
-        Text size:"sm" color:"muted"
+        Box bg:"muted" rounded:"md" w:48 h:12
+        Text size:"sm"
           "w:48"
       Flex direction:"column" gap:2
-        Box bg:"softSecondary" rounded:"md" w:96 h:12
-        Text size:"sm" color:"muted"
+        Box bg:"muted" rounded:"md" w:96 h:12
+        Text size:"sm"
           "w:96"
       Flex direction:"column" gap:2
-        Box bg:"softSecondary" rounded:"md" w:"xl" h:12
-        Text size:"sm" color:"muted"
+        Box bg:"muted" rounded:"md" w:"xl" h:12
+        Text size:"sm"
           "w:\"xl\""
       Flex direction:"column" gap:2
-        Box bg:"softTertiary" rounded:"md" w:"full" h:12
-        Text size:"sm" color:"muted"
+        Box bg:"muted" rounded:"md" w:"full" h:12
+        Text size:"sm"
           "w:\"full\""
+  Section id:"width-percentages" py:{ xs:7 md:10 }
+    Grid columns:{ xs:1 md:2 } gap:6 align:"center"
+      Flex direction:"column" gap:3
+        Text size:"xs" weight:"bold" spacing:"widest"
+          "PERCENTAGES"
+        Title size:"3xl" weight:"black"
+          "Size relative to the container"
+        Text size:"sm"
+          "w and minW accept quoted percentages from 10% through 100% in increments of 10%. Each value uses the immediate container's available width on every target."
+        Code:
+          language:"dowe"
+          variant:"solid"
+          scheme:"surface"
+          copyLabel:"Copy Dowe"
+          copiedLabel:"Copied"
+          content:"""
+            Card w:{ xs:"100%" md:"50%" } minW:"30%" p:6
+              Text
+                "Relative width"
+          """
+        Alert:
+          type:"info"
+          variant:"solid"
+          scheme:"info"
+          message:"maxW and height props do not accept percentages. Values such as 15%, 0%, and 110% are rejected."
+      Flex direction:"column" gap:3 w:"full"
+        Box bg:"muted" rounded:"md" w:"30%" h:12
+        Box bg:"muted" rounded:"md" w:"60%" h:12
+        Box bg:"muted" rounded:"md" w:"100%" h:12
   Section id:"width-minimum" py:{ xs:7 md:10 }
     Grid columns:{ xs:1 md:2 } gap:6 align:"center"
       Flex direction:"column" gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "MINIMUM WIDTH"
         Title size:"3xl" weight:"black"
           "Keep controls usable"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "minW establishes a lower bound while the surrounding layout still decides available space."
         Code:
           language:"dowe"
-          variant:"soft"
+          variant:"solid"
           scheme:"surface"
           copyLabel:"Copy Dowe"
           copiedLabel:"Copied"
@@ -90,20 +159,20 @@ page WidthPage
       Flex direction:"column" gap:4 align:"start"
         Button minW:40
           "Continue"
-        Button minW:64 variant:"soft" scheme:"secondary"
+        Button minW:64 variant:"solid" scheme:"secondary"
           "Create workspace"
   Section id:"width-containers" py:{ xs:7 md:10 }
     Flex direction:"column" gap:5
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "CONTAINER VALUES"
         Title size:"3xl" weight:"black"
           "Use semantic widths"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The sm through 7xl values keep the same width across web, iOS, and Android. Use them with w, minW, and maxW."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -114,7 +183,7 @@ page WidthPage
         """
       Table:
         data:containerWidths
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -126,15 +195,15 @@ page WidthPage
   Section id:"width-responsive" p:{ xs:5 md:7 }
     Grid columns:{ xs:1 md:2 } gap:6 align:"center"
       Flex direction:"column" gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "RESPONSIVE"
         Title size:"3xl" weight:"black"
           "Fill available space up to a cap"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Combine w:\"full\" with responsive maxW when a surface should use available mobile space without becoming too wide on larger screens."
         Code:
           language:"dowe"
-          variant:"soft"
+          variant:"solid"
           scheme:"surface"
           copyLabel:"Copy Dowe"
           copiedLabel:"Copied"
@@ -143,22 +212,22 @@ page WidthPage
               Text "Responsive maximum width"
           """
       Flex direction:"column" align:"center" w:"full"
-        Box bg:"softPrimary" w:"full" maxW:{ xs:"full" md:64 } p:6 rounded:"lg"
+        Box bg:"muted" w:"full" maxW:{ xs:"full" md:64 } p:6 rounded:"lg"
           Text weight:"bold"
             "Full up to scale 64 from md."
   Section id:"width-maximum" py:{ xs:7 md:10 }
     Flex direction:"column" gap:5
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "MAXIMUM WIDTH"
         Title size:"3xl" weight:"black"
           "Cap width without forcing it"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "maxW sets an upper bound. Content may remain narrower, while w:\"full\" grows only until it reaches the limit."
       Grid columns:{ xs:1 md:2 } gap:6 align:"center"
         Code:
           language:"dowe"
-          variant:"soft"
+          variant:"solid"
           scheme:"surface"
           copyLabel:"Copy Dowe"
           copiedLabel:"Copied"
@@ -167,21 +236,21 @@ page WidthPage
               Title "Bounded card"
           """
         Flex direction:"column" align:"center" w:"full"
-          Card w:"full" maxW:64 variant:"soft" scheme:"success" rounded:"lg" p:6
+          Card w:"full" maxW:64 variant:"solid" scheme:"success" rounded:"lg" p:6
             Title size:"lg" weight:"bold"
               "Bounded card"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "This card fills its parent until scale 64."
   Section id:"width-props" py:{ xs:7 md:10 }
     Flex direction:"column" gap:5
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Supported props"
       Table:
         data:widthProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -192,32 +261,36 @@ page WidthPage
         column field:"defaultValue" label:"Default" width:"1fr"
   Section id:"width-compatibility" py:{ xs:7 md:10 }
     Flex direction:"column" gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "COMPATIBILITY"
       Title size:"3xl" weight:"black"
         "Available on styled components"
       Text weight:"bold"
         "Layout and shell"
-      Text color:"muted"
+      Text
         "Box, Section, Flex, Grid, AppBar, Footer, BottomBar, Sidebar, Scaffold, and Drawer."
       Text weight:"bold"
         "Navigation"
-      Text color:"muted"
+      Text
         "NavMenu, SideNav, RailNav, Tabs, and Stepper."
       Text weight:"bold"
         "Content and display"
-      Text color:"muted"
+      Text
         "Text, Title, Code, Video, Iframe, Device, Canvas, Table, Divider, Brand, Banner, Alert, Icon, Avatar, AvatarGroup, Badge, Chip, Skeleton, Card, Empty, Marquee, TypeWriter, RichText, Collapsible, Countdown, Map, Audio, Image, Accordion, Carousel, and ChatBox."
       Text weight:"bold"
         "Charts"
-      Text color:"muted"
+      Text
         "Candlestick, ArcChart, AreaChart, BarChart, LineChart, and PieChart."
       Text weight:"bold"
         "Controls and forms"
-      Text color:"muted"
+      Text
         "Input, Select, Button, IconButton, ToggleTheme, SelectTheme, Fab, Slider, Dropzone, ComboBox, CsvField, DragDrop, Editor, ImageCropper, Password, Phone, Pin, Textarea, Record, ToggleGroup, Checkbox, Color, Date, DateRange, RadioGroup, and Toggle."
       Text weight:"bold"
         "Overlays"
-      Text color:"muted"
+      Text
         "Modal, AlertDialog, Tooltip, Toast, Dropdown, and Command."
-      Alert type:"info" variant:"soft" scheme:"info" message:"Svg supports w, but not minW or maxW. Splash, Path, and context-only entries such as Option, fabAction, comboOption, csvColumn, dragGroup, dragItem, tab, step, and region entries do not accept these width props."
+      Alert:
+        type:"info"
+        variant:"solid"
+        scheme:"info"
+        message:"Svg supports w, but not minW or maxW. Splash, Path, and context-only entries such as Option, fabAction, comboOption, csvColumn, dragGroup, dragItem, tab, step, and region entries do not accept these width props."

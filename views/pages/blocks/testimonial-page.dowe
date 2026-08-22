@@ -1,23 +1,23 @@
 page TestimonialsPage
   Section id:"testimonials" py:{ xs:6 md:10 }
     Grid columns:1 gap:4
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "COPY-READY BLOCKS"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Testimonials"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Five responsive testimonial wireframes built from real Dowe components, portable placeholders, logo Icons, and Carousels."
   Section id:"avatar-cards" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "01 · AVATAR CARDS"
           Title size:"2xl" weight:"black"
             "Three outlined testimonials with compact avatar placeholders"
         Button:
           href:"/blocks/testimonial-preview/avatar-cards"
-          variant:"soft"
+          variant:"solid"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
@@ -33,7 +33,7 @@ page TestimonialsPage
         tab id:"avatar-cards-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy testimonials"
             copiedLabel:"Copied"
@@ -48,30 +48,30 @@ page TestimonialsPage
                   Flex direction:"column" align:"center" gap:3
                     Title size:{ xs:"3xl" md:"5xl" } weight:"black"
                       "What our clients say"
-                    Text size:"lg" color:"muted"
+                    Text size:"lg"
                       "Real feedback from people who trusted our team with important work."
                   Grid columns:{ xs:1 md:3 } gap:5
                     each in:testimonials as:testimonial key:testimonial.id
                       Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:72
                         Flex direction:"column" align:"start" justify:"between" gap:6 minH:56
                           Grid columns:1 gap:4
-                            Box bg:"softMuted" rounded:"full" w:14 h:14 p:3
+                            Box bg:"muted" rounded:"full" w:14 h:14 p:3
                               Icon name:"gallery-bold-duotone" fill:"muted" w:8 h:8
                             Title size:"xl" weight:"black"
                               "{testimonial.title}"
-                            Text color:"muted"
+                            Text
                               "{testimonial.quote}"
                           Grid columns:1 gap:1
                             Text weight:"bold"
                               "{testimonial.name}"
-                            Text size:"sm" color:"muted"
+                            Text size:"sm"
                               "{testimonial.role}"
             """
   Section id:"rating-carousel" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "02 · RATING CAROUSEL"
           Title size:"2xl" weight:"black"
             "Star-rated review cards with actions and native carousel controls"
@@ -92,7 +92,7 @@ page TestimonialsPage
         tab id:"rating-carousel-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy carousel"
             copiedLabel:"Copied"
@@ -115,7 +115,7 @@ page TestimonialsPage
                     Grid columns:1 gap:3
                       Title size:{ xs:"3xl" md:"5xl" } weight:"black"
                         "What our clients say"
-                      Text size:"lg" color:"muted"
+                      Text size:"lg"
                         "Trusted by ambitious teams that value clear thinking and dependable delivery."
                     Flex direction:{ xs:"column" sm:"row" } gap:3
                       Button size:"lg" rounded:"full" iconEnd:"arrow-right"
@@ -129,12 +129,12 @@ page TestimonialsPage
                           Flex gap:1
                             each in:stars as:star key:star.id
                               Icon name:"star-bold" fill:"muted" w:6 h:6
-                          Text color:"muted"
+                          Text
                             "{reviews.john.quote}"
                           Grid columns:1 gap:1
                             Text weight:"bold"
                               "{reviews.john.name}"
-                            Text color:"muted"
+                            Text
                               "{reviews.john.role}"
                     slide id:"sophie"
                       Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:64
@@ -142,12 +142,12 @@ page TestimonialsPage
                           Flex gap:1
                             each in:stars as:star key:star.id
                               Icon name:"star-bold" fill:"muted" w:6 h:6
-                          Text color:"muted"
+                          Text
                             "{reviews.sophie.quote}"
                           Grid columns:1 gap:1
                             Text weight:"bold"
                               "{reviews.sophie.name}"
-                            Text color:"muted"
+                            Text
                               "{reviews.sophie.role}"
                     slide id:"matt"
                       Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:64
@@ -155,25 +155,25 @@ page TestimonialsPage
                           Flex gap:1
                             each in:stars as:star key:star.id
                               Icon name:"star-bold" fill:"muted" w:6 h:6
-                          Text color:"muted"
+                          Text
                             "{reviews.matt.quote}"
                           Grid columns:1 gap:1
                             Text weight:"bold"
                               "{reviews.matt.name}"
-                            Text color:"muted"
+                            Text
                               "{reviews.matt.role}"
             """
   Section id:"logo-quote" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "03 · LOGO QUOTE"
           Title size:"2xl" weight:"black"
             "A centered quote carousel introduced by real bundled logo Icons"
         Button:
           href:"/blocks/testimonial-preview/logo-quote"
-          variant:"soft"
+          variant:"solid"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
@@ -189,7 +189,7 @@ page TestimonialsPage
         tab id:"logo-quote-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy logo quote"
             copiedLabel:"Copied"
@@ -212,12 +212,12 @@ page TestimonialsPage
                           Title size:{ xs:"2xl" md:"4xl" } weight:"black"
                             "{testimonials.matt.quote}"
                           Flex align:"center" justify:"center" gap:4
-                            Box bg:"softMuted" rounded:"full" w:14 h:14 p:3
+                            Box bg:"muted" rounded:"full" w:14 h:14 p:3
                               Icon name:"gallery-bold-duotone" fill:"muted" w:8 h:8
                             Grid columns:1 gap:1
                               Text weight:"bold"
                                 "{testimonials.matt.name}"
-                              Text size:"sm" color:"muted"
+                              Text size:"sm"
                                 "{testimonials.matt.role}"
                         Box show:{ xs:false md:true }
                     slide id:"sophie"
@@ -227,12 +227,12 @@ page TestimonialsPage
                           Title size:{ xs:"2xl" md:"4xl" } weight:"black"
                             "{testimonials.sophie.quote}"
                           Flex align:"center" justify:"center" gap:4
-                            Box bg:"softMuted" rounded:"full" w:14 h:14 p:3
+                            Box bg:"muted" rounded:"full" w:14 h:14 p:3
                               Icon name:"gallery-bold-duotone" fill:"muted" w:8 h:8
                             Grid columns:1 gap:1
                               Text weight:"bold"
                                 "{testimonials.sophie.name}"
-                              Text size:"sm" color:"muted"
+                              Text size:"sm"
                                 "{testimonials.sophie.role}"
                         Box show:{ xs:false md:true }
             """
@@ -240,7 +240,7 @@ page TestimonialsPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "04 · SPLIT MEDIA"
           Title size:"2xl" weight:"black"
             "A generous image placeholder paired with a testimonial carousel"
@@ -261,7 +261,7 @@ page TestimonialsPage
         tab id:"split-media-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy split testimonial"
             copiedLabel:"Copied"
@@ -275,53 +275,53 @@ page TestimonialsPage
                   Grid columns:1 gap:3
                     Title size:{ xs:"3xl" md:"5xl" } weight:"black"
                       "What our clients say"
-                    Text size:"lg" color:"muted"
+                    Text size:"lg"
                       "A flexible testimonial story with a prominent media placeholder and clear attribution."
                   Carousel variant:"controls" scheme:"primary" hideIndicators:true gap:4
                     slide id:"john"
-                      Card variant:"soft" rounded:"xl"
+                      Card variant:"solid" rounded:"xl"
                         Grid columns:{ xs:1 md:2 } minH:96
-                          Box bg:"softMuted" minH:{ xs:64 md:96 } p:8
+                          Box bg:"muted" minH:{ xs:64 md:96 } p:8
                             Flex align:"center" justify:"center" minH:{ xs:48 md:80 }
                               Icon name:"gallery-bold-duotone" fill:"muted" w:20 h:20
                           Flex direction:"column" align:"start" justify:"center" gap:5 p:{ xs:7 md:12 }
                             Title size:{ xs:"2xl" md:"3xl" } weight:"black"
                               "{testimonials.john.title}"
-                            Text size:"lg" color:"muted"
+                            Text size:"lg"
                               "{testimonials.john.quote}"
                             Grid columns:1 gap:1
                               Text weight:"bold"
                                 "{testimonials.john.name}"
-                              Text color:"muted"
+                              Text
                                 "{testimonials.john.role}"
                     slide id:"sophie"
-                      Card variant:"soft" rounded:"xl"
+                      Card variant:"solid" rounded:"xl"
                         Grid columns:{ xs:1 md:2 } minH:96
-                          Box bg:"softMuted" minH:{ xs:64 md:96 } p:8
+                          Box bg:"muted" minH:{ xs:64 md:96 } p:8
                             Flex align:"center" justify:"center" minH:{ xs:48 md:80 }
                               Icon name:"gallery-bold-duotone" fill:"muted" w:20 h:20
                           Flex direction:"column" align:"start" justify:"center" gap:5 p:{ xs:7 md:12 }
                             Title size:{ xs:"2xl" md:"3xl" } weight:"black"
                               "{testimonials.sophie.title}"
-                            Text size:"lg" color:"muted"
+                            Text size:"lg"
                               "{testimonials.sophie.quote}"
                             Grid columns:1 gap:1
                               Text weight:"bold"
                                 "{testimonials.sophie.name}"
-                              Text color:"muted"
+                              Text
                                 "{testimonials.sophie.role}"
             """
   Section id:"soft-cards" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "05 · SOFT CARDS"
           Title size:"2xl" weight:"black"
             "Three soft testimonial cards with simple profile rows"
         Button:
           href:"/blocks/testimonial-preview/soft-cards"
-          variant:"soft"
+          variant:"solid"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
@@ -337,7 +337,7 @@ page TestimonialsPage
         tab id:"soft-cards-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy testimonials"
             copiedLabel:"Copied"
@@ -352,13 +352,13 @@ page TestimonialsPage
                   Flex direction:"column" align:"center" gap:3
                     Title size:{ xs:"3xl" md:"5xl" } weight:"black"
                       "What our clients say"
-                    Text size:"lg" color:"muted"
+                    Text size:"lg"
                       "Short stories from collaborators who found clarity, momentum, and a better way forward."
                   Grid columns:{ xs:1 md:3 } gap:5
                     each in:testimonials as:testimonial key:testimonial.id
-                      Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:7 md:9 } minH:64
+                      Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:7 md:9 } minH:64
                         Flex direction:"column" justify:"between" gap:7 minH:52
-                          Text size:"lg" color:"muted"
+                          Text size:"lg"
                             "{testimonial.quote}"
                           Flex align:"center" gap:4
                             Box bg:"surface" rounded:"full" w:14 h:14 p:3
@@ -366,6 +366,6 @@ page TestimonialsPage
                             Grid columns:1 gap:1
                               Text weight:"bold"
                                 "{testimonial.name}"
-                              Text color:"muted"
+                              Text
                                 "{testimonial.role}"
             """

@@ -3,12 +3,12 @@ page ContactSplitPanelPage
   Section id:"contact-split-panel" bg:"background" color:"backgroundText" p:0 minH:"vh-0"
     Grid columns:{ xs:1 md:2 } gap:0 minH:"vh-0"
       Box p:{ xs:5 md:10 }
-        Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:6 md:10 }
+        Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:6 md:10 }
           Grid columns:1 gap:5
             Grid columns:1 gap:2
               Title size:{ xs:"3xl" md:"5xl" } weight:"black"
                 "Get in touch today"
-              Text color:"muted"
+              Text
                 "Tell us what you are building and we will help you find the clearest path forward."
             Grid columns:{ xs:1 sm:2 } gap:4
               Input bind:form.name label:"Name" placeholder:"John Carter" variant:"solid" scheme:"muted" w:"full"
@@ -18,8 +18,8 @@ page ContactSplitPanelPage
             Textarea bind:form.message label:"Leave us a message" placeholder:"Please type your message here..." rows:5 variant:"solid" scheme:"muted" w:"full"
             Button rounded:"full" w:{ xs:"full" sm:48 }
               "Send message"
-      Box bg:"softMuted" p:8 minH:{ xs:64 md:"vh-0" }
+      Box bg:"muted" p:8 minH:{ xs:64 md:"vh-0" }
         Flex direction:"column" align:"center" justify:"center" gap:3 minH:{ xs:48 md:"vh-0" }
           Icon name:"gallery-bold-duotone" fill:"muted" w:16 h:16
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Image placeholder"

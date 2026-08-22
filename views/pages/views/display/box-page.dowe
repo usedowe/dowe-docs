@@ -7,6 +7,11 @@ page BoxPage
         defaultValue:"static"
       },
       {
+        prop:"flex"
+        type:"initial | auto | none | 1 | responsive object"
+        defaultValue:"initial"
+      },
+      {
         prop:"top"
         type:"spacing scale | responsive object"
         defaultValue:"0 when positioned"
@@ -29,31 +34,31 @@ page BoxPage
     ]
   Section id:"box-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "LAYOUT"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Box"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Box is an advanced neutral layer primitive for media stages, portable positioned overlays, and fixed viewport content."
-      Text size:"sm" color:"muted"
-        "Start normal page composition with Section, Grid, Flex, Card, media, and controls. Add Box only when those owners cannot express the required layer geometry."
+      Text size:"sm"
+        "Start normal page composition with Section, Grid, Flex, Card, media, and controls. Normal-flow Box children use a vertical flex parent, so a direct child can use flex:1; add Box only when those owners cannot express the required layer geometry."
   Section id:"box-foreground" p:{ xs:5 md:7 }
     Grid columns:1 gap:5 align:"center"
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "FOREGROUND INHERITANCE"
         Title size:"3xl" weight:"black"
           "Set the content color once"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Box passes color to descendant text and current-color artwork. A child color remains a deliberate local override on web, Android, and iOS."
         Code:
           language:"dowe"
-          variant:"soft"
+          variant:"solid"
           scheme:"surface"
           copyLabel:"Copy Dowe"
           copiedLabel:"Copied"
           content:"""
-            Box bg:"softInfo" color:"softInfoText" p:5 rounded:"lg"
+            Box bg:"muted" color:"mutedText" p:5 rounded:"lg"
               Title size:"xl"
                 "Inherited title"
               Text size:"sm"
@@ -61,7 +66,7 @@ page BoxPage
               Text size:"sm" color:"danger"
                 "This child overrides the parent."
           """
-      Box bg:"softInfo" color:"softInfoText" p:5 rounded:"lg"
+      Box bg:"muted" color:"mutedText" p:5 rounded:"lg"
         Grid columns:1 gap:2
           Title size:"xl" weight:"black"
             "Inherited title"
@@ -72,27 +77,27 @@ page BoxPage
   Section id:"box-positioning" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "RELATIVE + ABSOLUTE"
         Title size:"3xl" weight:"black"
           "Layer real components over a visual stage"
-        Text size:"sm" color:"muted"
-          "A relative Box stays in normal flow and becomes the reference plane for direct absolute Box children."
+        Text size:"sm"
+          "A relative Box stays in normal flow and becomes the reference plane for direct absolute Box children. Android loads /assets cover paths from the packaged native asset bundle."
       Card variant:"outlined" p:{ xs:5 md:7 } border:1
-        Box position:"relative" bg:"softInfo" rounded:"lg" minH:64
+        Box position:"relative" bg:"muted" rounded:"lg" minH:64
           Box position:"absolute" top:{ xs:4 md:6 } right:{ xs:4 md:6 }
             Card p:4 rounded:"lg" shadow:"lg"
               Grid columns:1 gap:1
                 Title size:"2xl" weight:"black"
                   "36k+"
-                Text size:"xs" color:"muted"
+                Text size:"xs"
                   "Satisfied customers"
           Box position:"absolute" bottom:{ xs:4 md:6 } left:{ xs:4 md:6 }
-            Chip variant:"soft" scheme:"info"
+            Chip variant:"solid" scheme:"info"
               "Real-time analytics"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -103,21 +108,21 @@ page BoxPage
                 Text weight:"bold"
                   "Audience proof"
             Box position:"absolute" bottom:{ xs:4 md:6 } left:{ xs:4 md:6 }
-              Chip variant:"soft" scheme:"info"
+              Chip variant:"solid" scheme:"info"
                 "Real-time analytics"
         """
   Section id:"box-fixed" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "FIXED"
         Title size:"3xl" weight:"black"
           "Anchor content to the safe viewport"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Fixed Boxes leave document flow and remain outside the route scroll area. Use them for persistent actions, not ordinary section content."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -132,30 +137,30 @@ page BoxPage
       Flex direction:"column" gap:2
         Text weight:"bold"
           "Direct ownership"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "An absolute Box must be a direct child of a relative Box."
       Flex direction:"column" gap:2
         Text weight:"bold"
           "One edge per axis"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Choose top or bottom, and left or right. Opposite offsets on one axis are rejected."
       Flex direction:"column" gap:2
         Text weight:"bold"
           "Source-order layers"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Later positioned siblings appear above earlier siblings on every target."
   Section id:"box-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Position props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Position is static. Offsets use the Dowe spacing scale and can vary by breakpoint. Box also accepts its documented common style, cover, overlay, visibility, and animation props."
       Table:
         data:positionProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

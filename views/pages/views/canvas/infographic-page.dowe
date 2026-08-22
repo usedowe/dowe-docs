@@ -155,13 +155,13 @@ page CanvasInfographicPage
   Section id:"canvas-infographic-introduction" py:{ xs:6 md:10 }
     Grid columns:{ xs:1 md:2 } gap:5 align:"center"
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "CANVAS · INFOGRAPHIC"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Infographics"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Turn lines, shapes, labels, and theme tokens into portable data graphics while keeping essential meaning in semantic content."
-      Card variant:"soft" scheme:"info" p:5 rounded:"lg" minW:56
+      Card variant:"solid" scheme:"info" p:5 rounded:"lg" minW:56
         Grid columns:1 gap:1
           Text size:"xs" weight:"bold" spacing:"widest"
             "ACCESSIBLE BY DESIGN"
@@ -172,11 +172,11 @@ page CanvasInfographicPage
   Section id:"canvas-infographic-demo" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "ADVANCED EXAMPLE"
         Title size:"3xl" weight:"black"
           "Build a chart from drawing primitives"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "This scene uses a shared baseline, aligned labels, rounded bars, and a legend marker. Command order keeps labels above the filled bars."
       Canvas:
         scene:infographic
@@ -193,7 +193,7 @@ page CanvasInfographicPage
         border:1
       Table:
         data:coverageSummary
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -205,15 +205,15 @@ page CanvasInfographicPage
   Section id:"canvas-infographic-code" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "SOURCE"
         Title size:"3xl" weight:"black"
           "Keep chart geometry explicit"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Canvas is useful when a semantic chart component cannot express the visual. For standard line, bar, area, pie, or arc charts, prefer the dedicated Dowe component."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -230,24 +230,24 @@ page CanvasInfographicPage
   Section id:"canvas-infographic-guidance" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "DATA GRAPHICS"
         Title size:"3xl" weight:"black"
           "Choose Canvas when the composition is custom"
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"success" p:5 rounded:"lg"
+        Card variant:"solid" scheme:"success" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Title size:"xl" weight:"black"
               "Use Canvas"
             Text size:"sm"
               "Custom diagrams, branded infographics, spatial maps, and target-neutral annotations."
-        Card variant:"soft" scheme:"primary" p:5 rounded:"lg"
+        Card variant:"solid" scheme:"primary" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Title size:"xl" weight:"black"
               "Use a chart"
             Text size:"sm"
               "Standard categorical or time-series graphics that benefit from built-in legends and empty states."
-        Card variant:"soft" scheme:"warning" p:5 rounded:"lg"
+        Card variant:"solid" scheme:"warning" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Title size:"xl" weight:"black"
               "Always summarize"

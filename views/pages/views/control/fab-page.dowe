@@ -93,30 +93,30 @@ page FabPage
   Section id:"fab-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "CONTROL"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Fab"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Fab keeps a primary action within reach while optional secondary actions stay out of the way."
   Section id:"fab-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "Open the page actions"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use the fixed FAB in the lower-right corner. It stays outside the scrolling page flow, and its trigger expands an ordered list of direct fabAction children."
       Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Grid columns:1 gap:3
           Title size:"lg" weight:"bold"
             "One trigger, focused choices"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "A FAB without actions runs onClick. When actions exist, the trigger opens and closes the action list while still allowing onClick."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -128,30 +128,30 @@ page FabPage
   Section id:"fab-placement" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLACEMENT"
         Title size:"3xl" weight:"black"
           "Pin the action to a corner"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "position chooses a viewport corner. fixed keeps the action available during scrolling; offsetX and offsetY use the Dowe spacing scale."
       Grid columns:{ xs:1 md:2 } gap:5
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "BOTTOM-RIGHT"
           Title size:"lg" weight:"bold"
             "Default placement"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Use the default corner for a primary action that should remain available without competing with page content."
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "TOP-LEFT"
           Title size:"lg" weight:"bold"
             "Explicit placement"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Choose another corner deliberately when it avoids navigation, media controls, or safe-area content."
     Code:
       language:"dowe"
-      variant:"soft"
+      variant:"solid"
       scheme:"surface"
       copyLabel:"Copy Dowe"
       copiedLabel:"Copied"
@@ -161,81 +161,81 @@ page FabPage
   Section id:"fab-appearance" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "APPEARANCE"
         Title size:"3xl" weight:"black"
           "A compact, intentional trigger"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Fab supports solid and soft variants, every action scheme, and five square control sizes. Expanded actions use fully tappable intrinsic-width capsules, while the complete trigger circle accepts input and rotates its plus into a dismiss mark on web, Android, and iOS."
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The primary Fab trigger scales to 0.94 while pressed on web, iOS, and Android. Use gesture:\"none\" to disable the feedback."
       Grid columns:{ xs:1 md:2 } gap:5
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "SOLID"
           Title size:"lg" weight:"bold"
             "Strong primary action"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Use solid when the action is the clearest next step in the current screen."
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "SOFT"
           Title size:"lg" weight:"bold"
             "Lower visual emphasis"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Use soft when the action remains convenient but should defer to page content."
     Code:
       language:"dowe"
-      variant:"soft"
+      variant:"solid"
       scheme:"surface"
       copyLabel:"Copy Dowe"
       copiedLabel:"Copied"
       content:"""
-        Fab variant:"soft" scheme:"secondary" size:"md" icon:"edit" label:"Create note"
+        Fab variant:"solid" scheme:"secondary" size:"md" icon:"edit" label:"Create note"
       """
   Section id:"fab-contract" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "CONTRACT"
         Title size:"3xl" weight:"black"
           "Direct actions only"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Fab accepts zero or more direct fabAction children. Each action needs a static label plus href or onClick."
       Grid columns:{ xs:1 md:3 } gap:4
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "STRUCTURE"
           Title size:"lg" weight:"bold"
             "Ordered actions"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Keep fabAction nodes directly inside Fab. Other child components are rejected."
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "NAVIGATION"
           Title size:"lg" weight:"bold"
             "Routes or HTTPS"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "href follows the shared Dowe navigation policy for internal paths and HTTPS URLs."
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "TARGETS"
           Title size:"lg" weight:"bold"
             "One source model"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Dowe lowers the trigger and action list to matching web, Android, and iOS controls."
   Section id:"fab-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Fab props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Fab also accepts the applicable common spacing, sizing, visibility, and style props."
       Table:
         data:fabProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -247,15 +247,15 @@ page FabPage
   Section id:"fab-action-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "fabAction props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "fabAction is a structural child, not a standalone component. Declare href or onClick for every action."
       Table:
         data:fabActionProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

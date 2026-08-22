@@ -31,13 +31,13 @@ page CandlestickPage
   Section id:"candlestick-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "CHARTS"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Candlestick"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "OHLC market data with deterministic candles, native rendering, and an optional SSE stream."
-      Card variant:"soft" scheme:"success" p:5 rounded:"lg" minW:56
+      Card variant:"solid" scheme:"success" p:5 rounded:"lg" minW:56
         Grid columns:1 gap:1
           Text size:"xs" weight:"bold" spacing:"widest"
             "PORTABLE OHLC"
@@ -48,15 +48,15 @@ page CandlestickPage
   Section id:"candlestick-data" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "DATA MODEL"
         Title size:"3xl" weight:"black"
           "Validate OHLC before rendering"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "data points to a typed Signal array. Dowe preserves Signal order and ignores invalid runtime candles without breaking the remaining chart."
       Candlestick:
         data:candles
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         h:72
         rounded:"lg"
@@ -64,7 +64,7 @@ page CandlestickPage
         upColor:"success"
         downColor:"danger"
         maxPoints:240
-      Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+      Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
         type Candle
           time:number
           open:number
@@ -74,16 +74,16 @@ page CandlestickPage
 
         signal candles type:Candle[] value:[{ time:1719792000 open:184.2 high:188.6 low:182.4 close:187.9 }]
 
-        Candlestick data:candles variant:"soft" scheme:"surface" upColor:"success" downColor:"danger" maxPoints:240
+        Candlestick data:candles variant:"solid" scheme:"surface" upColor:"success" downColor:"danger" maxPoints:240
       """
   Section id:"candlestick-stream" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "REAL-TIME STREAMS"
         Title size:"3xl" weight:"black"
           "Keep the latest market window"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "stream connects to a Server-Sent Events endpoint. A candle with the latest time replaces the last point; a new time appends until maxPoints is reached."
       Grid columns:{ xs:1 md:2 } gap:4
         Candlestick:
@@ -95,49 +95,49 @@ page CandlestickPage
           upColor:"info"
           downColor:"warning"
           maxPoints:120
-        Card variant:"soft" scheme:"info" p:5
+        Card variant:"solid" scheme:"info" p:5
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold" spacing:"widest"
               "STREAM PAYLOAD"
             Text size:"sm"
               "Each event may contain one candle, an array, or a data wrapper. The client keeps only valid OHLC entries."
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Use a relative path for a same-origin endpoint or an HTTPS URL for an external public feed."
-      Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+      Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
         signal candles type:Candle[] value:[]
 
-        Candlestick data:candles stream:"/api/market/candles" variant:"soft" scheme:"surface" upColor:"success" downColor:"danger" maxPoints:240 emptyLabel:"Waiting for market data"
+        Candlestick data:candles stream:"/api/market/candles" variant:"solid" scheme:"surface" upColor:"success" downColor:"danger" maxPoints:240 emptyLabel:"Waiting for market data"
       """
   Section id:"candlestick-states" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "STATES AND STYLING"
         Title size:"3xl" weight:"black"
           "Make market context visible"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use semantic colors for direction, a surface variant for emphasis, and explicit empty copy when a feed has not produced data yet."
       Grid columns:{ xs:1 md:3 } gap:4
         Candlestick data:candles variant:"solid" scheme:"surface" h:56 rounded:"sm" upColor:"success" downColor:"danger"
-        Candlestick data:candles variant:"soft" scheme:"primary" h:56 rounded:"md" upColor:"primary" downColor:"secondary"
+        Candlestick data:candles variant:"solid" scheme:"primary" h:56 rounded:"md" upColor:"primary" downColor:"secondary"
         Candlestick data:emptyCandles variant:"outlined" scheme:"warning" h:56 rounded:"md" emptyLabel:"No session data"
-      Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+      Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
         Candlestick data:candles variant:"solid" scheme:"surface" h:56 rounded:"sm" upColor:"success" downColor:"danger"
-        Candlestick data:candles variant:"soft" scheme:"primary" h:56 rounded:"md" upColor:"primary" downColor:"secondary"
+        Candlestick data:candles variant:"solid" scheme:"primary" h:56 rounded:"md" upColor:"primary" downColor:"secondary"
         Candlestick data:emptyCandles variant:"outlined" scheme:"warning" h:56 rounded:"md" emptyLabel:"No session data"
       """
   Section id:"candlestick-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Candlestick also accepts applicable common identity, spacing, sizing, visibility, radius, border, and accessibility props."
       Table:
         data:candlestickProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

@@ -1,19 +1,19 @@
 page AppBarTwo
   Section py:{ xs:8 md:12 }
     Grid columns:1 gap:5
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "STICKY SHELL"
       Title size:{ xs:"3xl" md:"5xl" } weight:"black"
         "An inset, sticky application bar"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Floating adds inset spacing, radius, and a visible border. Blurred requests platform material where available."
       Card variant:"outlined" p:{ xs:5 md:7 } rounded:"lg" border:1
         Grid columns:1 gap:3
           Text weight:"bold"
             "AppBar remains structural"
-          Text color:"muted"
+          Text
             "Visual props change the surface, while Scaffold continues to own appBar and main placement."
-          Button href:"/examples/appbar-one" variant:"soft" size:"sm"
+          Button href:"/examples/appbar-one" variant:"solid" size:"sm"
             "Compare standard AppBar"
   Section py:{ xs:8 md:12 }
     Box bg:"primary" h:72 rounded:"lg"

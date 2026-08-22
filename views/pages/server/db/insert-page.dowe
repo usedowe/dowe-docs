@@ -16,24 +16,24 @@ page DatabaseInsertPage
     ]
   Section id:"database-insert-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "SERVER / DATABASE / WRITE"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Insert"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Insert creates one record in a declared table and returns the created value. Database creates a ULID id when the value does not provide one."
   Section id:"database-insert-example" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "1 / CREATE"
         Title size:"3xl" weight:"black"
           "Validate input before the write"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The handler already has the request context as req, keeps the table name static, and asks Database to require non-empty title and content values. The same insert query works with postgres, d1, or dowe; this example declares dowe."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -45,7 +45,7 @@ page DatabaseInsertPage
         """
       Table:
         data:insertRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

@@ -83,16 +83,16 @@ page ServerPage
   Section id:"server-file-model" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "SERVER / FILE MODEL"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Six responsibilities, one request path"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "main.dowe activates the server. Endpoint modules map HTTP methods and paths, middleware controls access, handlers own the HTTP boundary, functions own reusable logic, and config modules expose server-only resources."
         Alert type:"info" message:"Follow the request from main.dowe to endpoints, handler, service, and repository. Each file should make one authority obvious."
       Table:
         data:serverResponsibilitiesRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -104,15 +104,15 @@ page ServerPage
   Section id:"server-project-shape" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PROJECT SHAPE"
         Title size:{ xs:"2xl" md:"4xl" } weight:"black"
           "Organize the backend by responsibility"
-        Text color:"muted"
+        Text
           "This tree is recommended because it makes security and ownership visible. Imported modules are classified by their declarations, not by their folders, but new backend source should stay under server."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy server project structure"
         copiedLabel:"Copied"
@@ -137,7 +137,7 @@ page ServerPage
         """
       Table:
         data:serverBoundaryRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -148,11 +148,11 @@ page ServerPage
   Section id:"server-connected-example" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "CONNECTED EXAMPLE"
         Title size:{ xs:"2xl" md:"4xl" } weight:"black"
           "Follow one request through the backend"
-        Text color:"muted"
+        Text
           "These six files expose GET /api/blogs. The HTTP boundary stays thin, the service coordinates the use case, and the repository is the only function that reads Database."
         Alert type:"info" message:"Read each example from top to bottom. The import in one file explains why the next file is part of the request path."
       Grid columns:1 gap:5
@@ -161,11 +161,11 @@ page ServerPage
             "1 / main.dowe"
           Title size:"2xl" weight:"black"
             "Activate the imported endpoint graph"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "The root file chooses the server port and connects the endpoint declaration that owns the HTTP routes."
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy main server"
             copiedLabel:"Copied"
@@ -177,15 +177,15 @@ page ServerPage
                   endpoints:ApiRoutes
             """
         Grid columns:1 gap:3
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "2 / server/endpoints.dowe"
           Title size:"2xl" weight:"black"
             "Map the method and path"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "The endpoints declaration joins a URL to the handler imported from the handlers folder."
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy endpoints"
             copiedLabel:"Copied"
@@ -197,15 +197,15 @@ page ServerPage
                   get path:"" handler:listBlogs
             """
         Grid columns:1 gap:3
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "3 / server/handlers/blogs-handler.dowe"
           Title size:"2xl" weight:"black"
             "Choose the HTTP response"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "The handler is the HTTP boundary: it calls the use case and serializes the value as JSON."
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy handler"
             copiedLabel:"Copied"
@@ -217,15 +217,15 @@ page ServerPage
                 return json:{ ok:true data:blogs }
             """
         Grid columns:1 gap:3
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "4 / server/services/blogs-service.dowe"
           Title size:"2xl" weight:"black"
             "Coordinate the use case"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "The service connects the handler to reusable business logic without returning an HTTP response."
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy service function"
             copiedLabel:"Copied"
@@ -237,15 +237,15 @@ page ServerPage
                 return value:blogs
             """
         Grid columns:1 gap:3
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "5 / server/repositories/blogs-repository.dowe"
           Title size:"2xl" weight:"black"
             "Own the Database operation"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "The repository imports the configured handle, executes the query, and returns a value to the service."
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy repository function"
             copiedLabel:"Copied"
@@ -257,15 +257,15 @@ page ServerPage
                 return value:blogs
             """
         Grid columns:1 gap:3
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "6 / server/config/database.dowe"
           Title size:"2xl" weight:"black"
             "Export the server-only connection"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Configuration owns credentials and connection details. Other server modules import the handle instead of rebuilding it."
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy Database config"
             copiedLabel:"Copied"
@@ -283,23 +283,23 @@ page ServerPage
   Section id:"server-middleware-boundary" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "MIDDLEWARE BOUNDARY"
         Title size:{ xs:"2xl" md:"4xl" } weight:"black"
           "Authorize before business logic runs"
-        Text color:"muted"
+        Text
           "Middleware belongs on a group, HTTP method, or WebSocket. It either calls next, optionally adding server-only context, or returns a response that prevents the handler from running."
       Grid columns:1 gap:5
         Grid columns:1 gap:3
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "1 / server/middlewares/require-bearer.dowe"
           Title size:"2xl" weight:"black"
             "Stop unauthorized requests"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "This middleware validates the bearer token, adds the subject to trusted request context, or returns a 401 before the handler runs."
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy middleware"
             copiedLabel:"Copied"
@@ -316,11 +316,11 @@ page ServerPage
             "2 / server/endpoints.dowe"
           Title size:"2xl" weight:"black"
             "Attach the policy to a route"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "The endpoint declares the middleware on the method, so only this protected request passes through requireBearer."
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy protected endpoint"
             copiedLabel:"Copied"
@@ -333,21 +333,21 @@ page ServerPage
                   post path:"" handler:createBlog middleware:[requireBearer]
             """
       Alert:
-        variant:"soft"
+        variant:"solid"
         type:"warning"
         message:"Handlers and middleware return HTTP values with return status:... json:.... Reusable fn declarations return values with return value:.... Do not add async, await, assignment syntax, or return response."
   Section id:"server-decision-guide" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "DECISION GUIDE"
         Title size:{ xs:"2xl" md:"4xl" } weight:"black"
           "Create the file that owns the authority"
-        Text color:"muted"
+        Text
           "Keep the HTTP edge, use-case coordination, data access, integrations, and shared resources separate so security decisions remain visible."
       Table:
         data:serverDecisionRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

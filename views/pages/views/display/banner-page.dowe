@@ -10,27 +10,27 @@ page BannerPage
   Section id:"banner-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "DISPLAY"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Banner"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Banner turns an authored visual surface into one safe external link across web, desktop, Android, and iOS."
       Icon name:"arrow-right-up" color:"primary" w:12 h:12
   Section id:"banner-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "Make the complete surface the destination"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Banner requires an HTTPS href. Its children own the message and layout while the wrapper owns one portable external interaction."
       Banner:
         href:"https://dowe.dev"
         label:"Explore Dowe"
-        bg:"softPrimary"
-        color:"softPrimaryText"
+        bg:"muted"
+        color:"mutedText"
         p:{ xs:5 md:8 }
         rounded:"lg"
         border:1
@@ -42,7 +42,7 @@ page BannerPage
               "DOWE PLATFORM"
             Title size:{ xs:"2xl" md:"4xl" } weight:"black"
               "AI can generate code. Dowe generates systems."
-            Text color:"muted"
+            Text
               "Explore a compiler and runtime designed to keep fullstack architecture unified."
           Flex align:"center" gap:2
             Text weight:"bold"
@@ -50,7 +50,7 @@ page BannerPage
             Icon name:"arrow-right-up" w:6 h:6
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -58,8 +58,8 @@ page BannerPage
           Banner:
             href:"https://dowe.dev"
             label:"Explore Dowe"
-            bg:"softPrimary"
-            color:"softPrimaryText"
+            bg:"muted"
+            color:"mutedText"
             p:{ xs:5 md:8 }
             rounded:"lg"
             Grid columns:{ xs:1 md:2 } gap:5 align:"center"
@@ -73,18 +73,18 @@ page BannerPage
   Section id:"banner-examples" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "EXAMPLES"
         Title size:"3xl" weight:"black"
           "Banners for different levels of emphasis"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use common layout props to move from a compact announcement to an immersive campaign without changing the link contract."
       Grid columns:{ xs:1 md:2 } gap:5
         Banner:
           href:"https://dowe.dev/docs"
           label:"Read the Dowe documentation"
-          bg:"softSecondary"
-          color:"softSecondaryText"
+          bg:"muted"
+          color:"mutedText"
           px:{ xs:4 md:6 }
           py:4
           rounded:"md"
@@ -113,12 +113,12 @@ page BannerPage
               "Compile one target-neutral view tree into native and web experiences."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Banner href:"https://dowe.dev/docs" label:"Read the Dowe documentation" bg:"softSecondary" p:4 rounded:"md"
+          Banner href:"https://dowe.dev/docs" label:"Read the Dowe documentation" bg:"muted" p:4 rounded:"md"
             Flex justify:"between" align:"center" gap:3
               Text weight:"bold"
                 "New to Dowe? Start with the documentation."
@@ -140,60 +140,60 @@ page BannerPage
   Section id:"banner-contract" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "CONTRACT"
         Title size:"3xl" weight:"black"
           "One visual surface, one external destination"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Banner fixes external behavior so every target can preserve the same safe intent."
       Grid columns:{ xs:1 md:3 } gap:4
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "DESTINATION"
           Title size:"lg" weight:"black"
             "HTTPS is required"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Internal paths, fragments, relative URLs, HTTP, and unsafe schemes fail before target generation."
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "CONTENT"
           Title size:"lg" weight:"black"
             "Children own the visuals"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Compose text, icons, images, Flex, and Grid freely. Banner adds no Button variant or control metrics."
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "TARGETS"
           Title size:"lg" weight:"black"
             "External by design"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Web opens a protected new tab. Android and iOS use the system browser."
   Section id:"banner-accessibility" p:{ xs:5 md:7 }
     Grid columns:{ xs:1 md:2 } gap:4
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" color:"muted"
+        Text size:"xs" weight:"bold"
           "ACCESSIBILITY"
         Title size:"xl" weight:"black"
           "Name the complete link"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use label when the visible tree does not produce one concise destination name for assistive technology."
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" color:"muted"
+        Text size:"xs" weight:"bold"
           "COMPOSITION"
         Title size:"xl" weight:"black"
           "Avoid nested controls"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Do not place Button, IconButton, navigation items, or another interactive control inside a Banner."
   Section id:"banner-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Banner accepts one required external destination plus common layout, visual, and visibility props."
-      Table data:bannerProps variant:"soft" scheme:"surface" size:"sm" striped:true dividers:true rounded:"md"
+      Table data:bannerProps variant:"solid" scheme:"surface" size:"sm" striped:true dividers:true rounded:"md"
         column field:"prop" label:"Prop" width:"1.2fr"
         column field:"type" label:"Type" width:"3fr"
         column field:"defaultValue" label:"Default" width:"1.2fr"

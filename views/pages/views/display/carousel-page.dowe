@@ -14,14 +14,14 @@ page CarouselPage
   Section id:"carousel-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "DISPLAY"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Carousel"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "One ordered slide track with native scrolling, predictable controls, and responsive layouts on web, Android, and iOS."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"success" p:5 rounded:"lg"
+        Card variant:"solid" scheme:"success" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
               "ONE CONTRACT"
@@ -29,7 +29,7 @@ page CarouselPage
               "The same slide model"
             Text size:"sm"
               "Web uses overflow scrolling, Android uses Compose lazy scrolling, and iOS uses SwiftUI scrolling."
-        Card variant:"soft" scheme:"info" p:5 rounded:"lg"
+        Card variant:"solid" scheme:"info" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
               "RESPONSIVE BY DEFAULT"
@@ -37,7 +37,7 @@ page CarouselPage
               "Full-width slides"
             Text size:"sm"
               "Examples without slideWidth fill the viewport, so the same source works on desktop and narrow screens."
-        Card variant:"soft" scheme:"warning" p:5 rounded:"lg"
+        Card variant:"solid" scheme:"warning" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
               "INTERACTION"
@@ -48,18 +48,18 @@ page CarouselPage
   Section id:"carousel-basic" p:{ xs:5 md:7 }
     Grid columns:1 gap:8
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "BASIC VARIANTS"
         Title size:"3xl" weight:"black"
           "Scroll, snap, compose, and change direction"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Each example has several slides so the track can be tested with touch, mouse drag, wheel input, and responsive widths."
       Grid columns:1 gap:4
         Title size:"xl" weight:"black"
           "1. Simple scrollable and draggable"
         Carousel variant:"simple" scheme:"primary" gap:16 hideControls:true hideIndicators:true
           slide id:"simple-one"
-            Card variant:"soft" scheme:"primary" minH:44 rounded:"lg" p:5
+            Card variant:"solid" scheme:"primary" minH:44 rounded:"lg" p:5
               Text size:"xs" weight:"bold" spacing:"widest"
                 "01 / NATIVE SCROLL"
               Title size:"2xl" weight:"black"
@@ -67,7 +67,7 @@ page CarouselPage
               Text size:"sm"
                 "The track follows the platform gesture."
           slide id:"simple-two"
-            Card variant:"soft" scheme:"secondary" minH:44 rounded:"lg" p:5
+            Card variant:"solid" scheme:"secondary" minH:44 rounded:"lg" p:5
               Text size:"xs" weight:"bold" spacing:"widest"
                 "02 / POINTER"
               Title size:"2xl" weight:"black"
@@ -75,7 +75,7 @@ page CarouselPage
               Text size:"sm"
                 "Fine pointers get a drag enhancement."
           slide id:"simple-three"
-            Card variant:"soft" scheme:"tertiary" minH:44 rounded:"lg" p:5
+            Card variant:"solid" scheme:"tertiary" minH:44 rounded:"lg" p:5
               Text size:"xs" weight:"bold" spacing:"widest"
                 "03 / RESPONSIVE"
               Title size:"2xl" weight:"black"
@@ -83,21 +83,21 @@ page CarouselPage
               Text size:"sm"
                 "No second mobile tree is required."
           slide id:"simple-four"
-            Card variant:"soft" scheme:"success" minH:44 rounded:"lg" p:5
+            Card variant:"solid" scheme:"success" minH:44 rounded:"lg" p:5
               Text size:"xs" weight:"bold" spacing:"widest"
                 "04 / ACCESSIBLE"
               Title size:"2xl" weight:"black"
                 "Keyboard friendly"
               Text size:"sm"
                 "The native track remains reachable."
-        Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+        Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
           Carousel variant:"simple" scheme:"primary" gap:16 hideControls:true hideIndicators:true
             slide id:"one"
-              Card variant:"soft" scheme:"primary"
+              Card variant:"solid" scheme:"primary"
                 Text
                   "Native scrolling"
             slide id:"two"
-              Card variant:"soft" scheme:"secondary"
+              Card variant:"solid" scheme:"secondary"
                 Text
                   "Another slide"
         """
@@ -106,30 +106,30 @@ page CarouselPage
           "2. Snapping"
         Carousel variant:"snapping" scheme:"secondary" gap:16 hideControls:true indicatorType:"dot"
           slide id:"snap-one"
-            Card variant:"soft" scheme:"secondary" minH:48 rounded:"lg" p:5
+            Card variant:"solid" scheme:"secondary" minH:48 rounded:"lg" p:5
               Text size:"xs" weight:"bold" spacing:"widest"
                 "01"
               Title size:"2xl" weight:"black"
                 "Centered snap"
           slide id:"snap-two"
-            Card variant:"soft" scheme:"info" minH:48 rounded:"lg" p:5
+            Card variant:"solid" scheme:"info" minH:48 rounded:"lg" p:5
               Text size:"xs" weight:"bold" spacing:"widest"
                 "02"
               Title size:"2xl" weight:"black"
                 "One gesture"
           slide id:"snap-three"
-            Card variant:"soft" scheme:"success" minH:48 rounded:"lg" p:5
+            Card variant:"solid" scheme:"success" minH:48 rounded:"lg" p:5
               Text size:"xs" weight:"bold" spacing:"widest"
                 "03"
               Title size:"2xl" weight:"black"
                 "Stable landing"
           slide id:"snap-four"
-            Card variant:"soft" scheme:"primary" minH:48 rounded:"lg" p:5
+            Card variant:"solid" scheme:"primary" minH:48 rounded:"lg" p:5
               Text size:"xs" weight:"bold" spacing:"widest"
                 "04"
               Title size:"2xl" weight:"black"
                 "Same target position"
-        Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+        Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
           Carousel variant:"snapping" scheme:"secondary" gap:16 indicatorType:"dot"
             slide id:"one"
               Card
@@ -145,24 +145,24 @@ page CarouselPage
           "3. Right to left"
         Carousel variant:"rtl" scheme:"info" gap:16 hideControls:true indicatorType:"dot"
           slide id:"rtl-one"
-            Card variant:"soft" scheme:"info" minH:40 rounded:"lg" p:5
+            Card variant:"solid" scheme:"info" minH:40 rounded:"lg" p:5
               Title size:"2xl" weight:"black"
                 "First from right"
               Text size:"sm"
                 "Native direction stays intact."
           slide id:"rtl-two"
-            Card variant:"soft" scheme:"primary" minH:40 rounded:"lg" p:5
+            Card variant:"solid" scheme:"primary" minH:40 rounded:"lg" p:5
               Title size:"2xl" weight:"black"
                 "RTL flow"
               Text size:"sm"
                 "The active slide still follows the track."
           slide id:"rtl-three"
-            Card variant:"soft" scheme:"secondary" minH:40 rounded:"lg" p:5
+            Card variant:"solid" scheme:"secondary" minH:40 rounded:"lg" p:5
               Title size:"2xl" weight:"black"
                 "Same indicators"
               Text size:"sm"
                 "The generated controls keep their meaning."
-        Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+        Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
           Carousel variant:"rtl" scheme:"info" gap:16 indicatorType:"dot"
             slide id:"one"
               Card
@@ -178,24 +178,24 @@ page CarouselPage
           "4. Sticky slides"
         Carousel variant:"sticky" scheme:"warning" gap:16 hideControls:true hideIndicators:true
           slide id:"sticky-one"
-            Card variant:"soft" scheme:"warning" minH:44 rounded:"lg" p:5
+            Card variant:"solid" scheme:"warning" minH:44 rounded:"lg" p:5
               Title size:"2xl" weight:"black"
                 "Sticky label 01"
               Text size:"sm"
                 "The leading edge stays visible as the track advances."
           slide id:"sticky-two"
-            Card variant:"soft" scheme:"danger" minH:44 rounded:"lg" p:5
+            Card variant:"solid" scheme:"danger" minH:44 rounded:"lg" p:5
               Title size:"2xl" weight:"black"
                 "Sticky label 02"
               Text size:"sm"
                 "The next card arrives without duplicated markup."
           slide id:"sticky-three"
-            Card variant:"soft" scheme:"primary" minH:44 rounded:"lg" p:5
+            Card variant:"solid" scheme:"primary" minH:44 rounded:"lg" p:5
               Title size:"2xl" weight:"black"
                 "Sticky label 03"
               Text size:"sm"
                 "The track remains native on every target."
-        Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+        Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
           Carousel variant:"sticky" scheme:"warning" gap:16
             slide id:"one"
               Card
@@ -209,18 +209,18 @@ page CarouselPage
   Section id:"carousel-navigation" py:{ xs:7 md:10 }
     Grid columns:1 gap:8
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "NAVIGATION VARIANTS"
         Title size:"3xl" weight:"black"
           "Controls that stay with the track"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Previous and next, dots, thumbnails, and the counter use the same active index. With disableLoop:true the matching edge control becomes disabled on every target."
       Grid columns:1 gap:4
         Title size:"xl" weight:"black"
           "5. Previous and next controls"
         Carousel variant:"controls" scheme:"success" gap:16 showNavigation:true showCounter:true
           slide id:"controls-one"
-            Card variant:"soft" scheme:"success" minH:44 p:5 rounded:"lg"
+            Card variant:"solid" scheme:"success" minH:44 p:5 rounded:"lg"
               Text size:"xs" weight:"bold" spacing:"widest"
                 "01 / START"
               Title size:"2xl" weight:"black"
@@ -228,7 +228,7 @@ page CarouselPage
               Text size:"sm"
                 "Try the overlay arrows and the bottom controls."
           slide id:"controls-two"
-            Card variant:"soft" scheme:"info" minH:44 p:5 rounded:"lg"
+            Card variant:"solid" scheme:"info" minH:44 p:5 rounded:"lg"
               Text size:"xs" weight:"bold" spacing:"widest"
                 "02 / ACTIVE"
               Title size:"2xl" weight:"black"
@@ -236,7 +236,7 @@ page CarouselPage
               Text size:"sm"
                 "The counter follows scroll position."
           slide id:"controls-three"
-            Card variant:"soft" scheme:"primary" minH:44 p:5 rounded:"lg"
+            Card variant:"solid" scheme:"primary" minH:44 p:5 rounded:"lg"
               Text size:"xs" weight:"bold" spacing:"widest"
                 "03 / TOUCH"
               Title size:"2xl" weight:"black"
@@ -244,14 +244,14 @@ page CarouselPage
               Text size:"sm"
                 "Swipe and confirm the active state."
           slide id:"controls-four"
-            Card variant:"soft" scheme:"secondary" minH:44 p:5 rounded:"lg"
+            Card variant:"solid" scheme:"secondary" minH:44 p:5 rounded:"lg"
               Text size:"xs" weight:"bold" spacing:"widest"
                 "04 / END"
               Title size:"2xl" weight:"black"
                 "Loop back"
               Text size:"sm"
                 "The default loop returns to the first slide."
-        Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+        Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
           Carousel variant:"controls" scheme:"success" gap:16 showNavigation:true showCounter:true
             slide id:"one"
               Card
@@ -267,30 +267,30 @@ page CarouselPage
           "6. Interactive dots"
         Carousel variant:"dots" scheme:"danger" gap:16 hideControls:true indicatorType:"dot"
           slide id:"dots-one"
-            Card variant:"soft" scheme:"danger" minH:44 p:5
+            Card variant:"solid" scheme:"danger" minH:44 p:5
               Title size:"2xl" weight:"black"
                 "Dot one"
               Text size:"sm"
                 "The dot is a button, not decoration."
           slide id:"dots-two"
-            Card variant:"soft" scheme:"warning" minH:44 p:5
+            Card variant:"solid" scheme:"warning" minH:44 p:5
               Title size:"2xl" weight:"black"
                 "Dot two"
               Text size:"sm"
                 "Selecting it scrolls only this track."
           slide id:"dots-three"
-            Card variant:"soft" scheme:"success" minH:44 p:5
+            Card variant:"solid" scheme:"success" minH:44 p:5
               Title size:"2xl" weight:"black"
                 "Dot three"
               Text size:"sm"
                 "Native scroll updates the active dot."
           slide id:"dots-four"
-            Card variant:"soft" scheme:"info" minH:44 p:5
+            Card variant:"solid" scheme:"info" minH:44 p:5
               Title size:"2xl" weight:"black"
                 "Dot four"
               Text size:"sm"
                 "Keyboard focus remains visible."
-        Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+        Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
           Carousel variant:"dots" scheme:"danger" hideControls:true indicatorType:"dot"
             slide id:"one"
               Card
@@ -306,7 +306,7 @@ page CarouselPage
           "7. Thumbnail navigation"
         Carousel variant:"thumbnails" scheme:"primary" gap:16 hideControls:true hideIndicators:true
           slide id:"forest"
-            Card variant:"soft" scheme:"success" minH:52 rounded:"lg" p:5
+            Card variant:"solid" scheme:"success" minH:52 rounded:"lg" p:5
               Text size:"xs" weight:"bold" spacing:"widest"
                 "LANDSCAPE 01"
               Title size:"3xl" weight:"black"
@@ -314,7 +314,7 @@ page CarouselPage
               Text size:"sm"
                 "Stable id: forest"
           slide id:"ocean"
-            Card variant:"soft" scheme:"info" minH:52 rounded:"lg" p:5
+            Card variant:"solid" scheme:"info" minH:52 rounded:"lg" p:5
               Text size:"xs" weight:"bold" spacing:"widest"
                 "LANDSCAPE 02"
               Title size:"3xl" weight:"black"
@@ -322,7 +322,7 @@ page CarouselPage
               Text size:"sm"
                 "Stable id: ocean"
           slide id:"sunset"
-            Card variant:"soft" scheme:"warning" minH:52 rounded:"lg" p:5
+            Card variant:"solid" scheme:"warning" minH:52 rounded:"lg" p:5
               Text size:"xs" weight:"bold" spacing:"widest"
                 "LANDSCAPE 03"
               Title size:"3xl" weight:"black"
@@ -330,14 +330,14 @@ page CarouselPage
               Text size:"sm"
                 "Stable id: sunset"
           slide id:"night"
-            Card variant:"soft" scheme:"secondary" minH:52 rounded:"lg" p:5
+            Card variant:"solid" scheme:"secondary" minH:52 rounded:"lg" p:5
               Text size:"xs" weight:"bold" spacing:"widest"
                 "LANDSCAPE 04"
               Title size:"3xl" weight:"black"
                 "Night"
               Text size:"sm"
                 "Stable id: night"
-        Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+        Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
           Carousel variant:"thumbnails" scheme:"primary" hideControls:true hideIndicators:true
             slide id:"forest"
               Card
@@ -351,41 +351,41 @@ page CarouselPage
   Section id:"carousel-effects" p:{ xs:5 md:7 }
     Grid columns:1 gap:8
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "ADVANCED VARIANTS"
         Title size:"3xl" weight:"black"
           "Depth and motion without target-specific source"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Each advanced example has several slides to exercise the effect. Web uses scroll-linked transforms with a fallback; Android and iOS use native transforms with the same slide order and controls."
       Grid columns:1 gap:4
         Title size:"xl" weight:"black"
           "8. Cover flow"
         Carousel variant:"coverFlow" scheme:"secondary" slideWidth:280 gap:20 hideControls:true indicatorType:"dot"
           slide id:"cover-one"
-            Card variant:"soft" scheme:"secondary" minH:52 rounded:"lg" p:5
+            Card variant:"solid" scheme:"secondary" minH:52 rounded:"lg" p:5
               Text size:"xs" weight:"bold" spacing:"widest"
                 "COVER 01"
               Title size:"3xl" weight:"black"
                 "Focus"
           slide id:"cover-two"
-            Card variant:"soft" scheme:"primary" minH:52 rounded:"lg" p:5
+            Card variant:"solid" scheme:"primary" minH:52 rounded:"lg" p:5
               Text size:"xs" weight:"bold" spacing:"widest"
                 "COVER 02"
               Title size:"3xl" weight:"black"
                 "Depth"
           slide id:"cover-three"
-            Card variant:"soft" scheme:"tertiary" minH:52 rounded:"lg" p:5
+            Card variant:"solid" scheme:"tertiary" minH:52 rounded:"lg" p:5
               Text size:"xs" weight:"bold" spacing:"widest"
                 "COVER 03"
               Title size:"3xl" weight:"black"
                 "Balance"
           slide id:"cover-four"
-            Card variant:"soft" scheme:"success" minH:52 rounded:"lg" p:5
+            Card variant:"solid" scheme:"success" minH:52 rounded:"lg" p:5
               Text size:"xs" weight:"bold" spacing:"widest"
                 "COVER 04"
               Title size:"3xl" weight:"black"
                 "Return"
-        Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+        Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
           Carousel variant:"coverFlow" scheme:"secondary" slideWidth:280 gap:20
             slide id:"one"
               Card
@@ -401,7 +401,7 @@ page CarouselPage
           "9. Parallax slideshow"
         Carousel variant:"slideshow" scheme:"info" gap:16 autoplay:true autoplayInterval:4500 showCounter:true showNavigation:true
           slide id:"scene-one"
-            Card variant:"soft" scheme:"info" minH:60 rounded:"lg" p:6
+            Card variant:"solid" scheme:"info" minH:60 rounded:"lg" p:6
               Flex direction:"column" justify:"between" gap:2 minH:52
                 Text size:"xs" weight:"bold" spacing:"widest"
                   "SCENE ONE"
@@ -410,7 +410,7 @@ page CarouselPage
                 Text size:"sm"
                   "Autoplay advances the same native track as a swipe."
           slide id:"scene-two"
-            Card variant:"soft" scheme:"success" minH:60 rounded:"lg" p:6
+            Card variant:"solid" scheme:"success" minH:60 rounded:"lg" p:6
               Flex direction:"column" justify:"between" gap:2 minH:52
                 Text size:"xs" weight:"bold" spacing:"widest"
                   "SCENE TWO"
@@ -419,7 +419,7 @@ page CarouselPage
                 Text size:"sm"
                   "Use the arrows to interrupt the timer."
           slide id:"scene-three"
-            Card variant:"soft" scheme:"warning" minH:60 rounded:"lg" p:6
+            Card variant:"solid" scheme:"warning" minH:60 rounded:"lg" p:6
               Flex direction:"column" justify:"between" gap:2 minH:52
                 Text size:"xs" weight:"bold" spacing:"widest"
                   "SCENE THREE"
@@ -428,7 +428,7 @@ page CarouselPage
                 Text size:"sm"
                   "The slide responds to desktop and mobile width."
           slide id:"scene-four"
-            Card variant:"soft" scheme:"danger" minH:60 rounded:"lg" p:6
+            Card variant:"solid" scheme:"danger" minH:60 rounded:"lg" p:6
               Flex direction:"column" justify:"between" gap:2 minH:52
                 Text size:"xs" weight:"bold" spacing:"widest"
                   "SCENE FOUR"
@@ -436,7 +436,7 @@ page CarouselPage
                   "Motion optional"
                 Text size:"sm"
                   "Reduced motion keeps the core controls available."
-        Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+        Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
           Carousel variant:"slideshow" scheme:"info" autoplay:true autoplayInterval:4500 showCounter:true
             slide id:"scene-one"
               Card
@@ -452,30 +452,30 @@ page CarouselPage
           "10. Stories"
         Carousel variant:"stories" scheme:"danger" slideWidth:280 gap:20 hideControls:true indicatorType:"dot"
           slide id:"story-one"
-            Card variant:"soft" scheme:"danger" minH:64 rounded:"lg" p:5
+            Card variant:"solid" scheme:"danger" minH:64 rounded:"lg" p:5
               Title size:"3xl" weight:"black"
                 "A 3D story"
               Text size:"sm"
                 "Perspective follows the active slide."
           slide id:"story-two"
-            Card variant:"soft" scheme:"warning" minH:64 rounded:"lg" p:5
+            Card variant:"solid" scheme:"warning" minH:64 rounded:"lg" p:5
               Title size:"3xl" weight:"black"
                 "Swipe onward"
               Text size:"sm"
                 "The native gesture remains primary."
           slide id:"story-three"
-            Card variant:"soft" scheme:"secondary" minH:64 rounded:"lg" p:5
+            Card variant:"solid" scheme:"secondary" minH:64 rounded:"lg" p:5
               Title size:"3xl" weight:"black"
                 "Native momentum"
               Text size:"sm"
                 "The transform never owns the scroll."
           slide id:"story-four"
-            Card variant:"soft" scheme:"info" minH:64 rounded:"lg" p:5
+            Card variant:"solid" scheme:"info" minH:64 rounded:"lg" p:5
               Title size:"3xl" weight:"black"
                 "A clean finish"
               Text size:"sm"
                 "The active indicator stays synchronized."
-        Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+        Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
           Carousel variant:"stories" scheme:"danger" slideWidth:280 gap:20 indicatorType:"dot"
             slide id:"story-one"
               Card
@@ -491,30 +491,30 @@ page CarouselPage
           "11. Smart stack"
         Carousel variant:"smartStack" scheme:"muted" slideWidth:280 gap:16 hideControls:true indicatorType:"dot"
           slide id:"stack-one"
-            Card variant:"soft" scheme:"primary" minH:52 rounded:"xl" p:5
+            Card variant:"solid" scheme:"primary" minH:52 rounded:"xl" p:5
               Title size:"2xl" weight:"black"
                 "Morning brief"
               Text size:"sm"
                 "Small offsets create a layered stack."
           slide id:"stack-two"
-            Card variant:"soft" scheme:"success" minH:52 rounded:"xl" p:5
+            Card variant:"solid" scheme:"success" minH:52 rounded:"xl" p:5
               Title size:"2xl" weight:"black"
                 "Activity"
               Text size:"sm"
                 "Cards remain independently scrollable."
           slide id:"stack-three"
-            Card variant:"soft" scheme:"info" minH:52 rounded:"xl" p:5
+            Card variant:"solid" scheme:"info" minH:52 rounded:"xl" p:5
               Title size:"2xl" weight:"black"
                 "Weather"
               Text size:"sm"
                 "Native transforms preserve the intent."
           slide id:"stack-four"
-            Card variant:"soft" scheme:"secondary" minH:52 rounded:"xl" p:5
+            Card variant:"solid" scheme:"secondary" minH:52 rounded:"xl" p:5
               Title size:"2xl" weight:"black"
                 "Planning"
               Text size:"sm"
                 "The stack ends with the same controls."
-        Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+        Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
           Carousel variant:"smartStack" scheme:"muted" slideWidth:280 gap:16
             slide id:"one"
               Card rounded:"xl"
@@ -530,30 +530,30 @@ page CarouselPage
           "12. Card stack"
         Carousel variant:"cardStack" scheme:"primary" slideWidth:300 gap:16 hideControls:true hideIndicators:true
           slide id:"message-one"
-            Card variant:"soft" scheme:"primary" minH:44 rounded:"xl" p:5
+            Card variant:"solid" scheme:"primary" minH:44 rounded:"xl" p:5
               Title size:"2xl" weight:"black"
                 "The first card stays close."
               Text size:"lg"
                 "The next one arrives with native scroll."
           slide id:"message-two"
-            Card variant:"soft" scheme:"secondary" minH:44 rounded:"xl" p:5
+            Card variant:"solid" scheme:"secondary" minH:44 rounded:"xl" p:5
               Title size:"2xl" weight:"black"
                 "The track owns motion."
               Text size:"lg"
                 "Cards do not replace the platform gesture."
           slide id:"message-three"
-            Card variant:"soft" scheme:"tertiary" minH:44 rounded:"xl" p:5
+            Card variant:"solid" scheme:"tertiary" minH:44 rounded:"xl" p:5
               Title size:"2xl" weight:"black"
                 "Touch remains primary."
               Text size:"lg"
                 "Desktop drag and mobile swipe share one model."
           slide id:"message-four"
-            Card variant:"soft" scheme:"success" minH:44 rounded:"xl" p:5
+            Card variant:"solid" scheme:"success" minH:44 rounded:"xl" p:5
               Title size:"2xl" weight:"black"
                 "The stack resolves cleanly."
               Text size:"lg"
                 "The final card is still reachable."
-        Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+        Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
           Carousel variant:"cardStack" scheme:"primary" slideWidth:300 gap:16
             slide id:"message-one"
               Card rounded:"xl"
@@ -569,30 +569,30 @@ page CarouselPage
           "13. Flipbook"
         Carousel variant:"flipbook" scheme:"warning" slideWidth:320 gap:12 hideControls:true showCounter:true disableLoop:true showNavigation:true
           slide id:"page-one"
-            Card variant:"soft" scheme:"warning" minH:64 rounded:"sm" p:5
+            Card variant:"solid" scheme:"warning" minH:64 rounded:"sm" p:5
               Title size:"3xl" weight:"black"
                 "The opening"
               Text size:"sm"
                 "Previous starts disabled at the first page."
           slide id:"page-two"
-            Card variant:"soft" scheme:"danger" minH:64 rounded:"sm" p:5
+            Card variant:"solid" scheme:"danger" minH:64 rounded:"sm" p:5
               Title size:"3xl" weight:"black"
                 "The turning point"
               Text size:"sm"
                 "The counter and arrows follow the page."
           slide id:"page-three"
-            Card variant:"soft" scheme:"success" minH:64 rounded:"sm" p:5
+            Card variant:"solid" scheme:"success" minH:64 rounded:"sm" p:5
               Title size:"3xl" weight:"black"
                 "The ending"
               Text size:"sm"
                 "Next ends disabled instead of looping."
           slide id:"page-four"
-            Card variant:"soft" scheme:"info" minH:64 rounded:"sm" p:5
+            Card variant:"solid" scheme:"info" minH:64 rounded:"sm" p:5
               Title size:"3xl" weight:"black"
                 "The appendix"
               Text size:"sm"
                 "Four pages make the limit behavior visible."
-        Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+        Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
           Carousel variant:"flipbook" scheme:"warning" slideWidth:320 gap:12 showCounter:true disableLoop:true
             slide id:"page-one"
               Card rounded:"sm"
@@ -606,15 +606,15 @@ page CarouselPage
   Section id:"carousel-api" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props and parity"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Carousel accepts common spacing, sizing, visibility, radius, border, and accessibility props. Every slide requires a stable id and normal view children. Desktop reuses web output; Android and iOS keep the same ordered slides, active index, controls, indicators, and loop rules with native scrolling."
       Table:
         data:carouselProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

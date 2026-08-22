@@ -1,7 +1,7 @@
 layout AppBarSocialPillLayout
   Scaffold
     appBar
-      AppBar variant:"soft" scheme:"primary" position:"sticky" boxed:true py:2
+      AppBar variant:"solid" scheme:"primary" position:"sticky" boxed:true py:2
         start
           Flex align:"center" gap:5
             Brand href:"/blocks/appbar" label:"Pekoo home"
@@ -22,8 +22,6 @@ layout AppBarSocialPillLayout
                 rounded:"full"
         center
           NavMenu:
-            variant:"solid"
-            scheme:"surface"
             size:"sm"
             rounded:"full"
             show:{ xs:false md:true }

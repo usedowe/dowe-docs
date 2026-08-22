@@ -1,4 +1,4 @@
-import DevLayout from "@/views/layouts/dev-layout"
+import DocsLayout from "@/views/layouts/docs-layout"
 import InitPage from "@/views/pages/dev/init-page"
 import DevPage from "@/views/pages/dev/dev-page"
 import InspectorPage from "@/views/pages/dev/inspector-page"
@@ -14,7 +14,7 @@ import IconsPage from "@/views/pages/dev/icons-page"
 import ExtensionsPage from "@/views/pages/dev/editor-page"
 import SyntaxPage from "@/views/pages/dev/syntax-page"
 views DevViews
-  group path:"/docs/dev" layout:DevLayout
+  group path:"/docs/dev" layout:DocsLayout
     route path:"" page:InitPage
     route path:"init" page:InitPage
     route path:"dev" page:DevPage

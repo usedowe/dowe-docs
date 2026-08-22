@@ -1,4 +1,4 @@
-import ViewsLayout from "@/views/layouts/views-layout"
+import DocsLayout from "@/views/layouts/docs-layout"
 import ViewsPage from "@/views/pages/views/views-page"
 import MetadataPage from "@/views/pages/views/metadata-page"
 import I18nPage from "@/views/pages/views/i18n-page"
@@ -110,7 +110,7 @@ import ShowPage from "@/views/pages/views/show-page"
 import ParsePage from "@/views/pages/views/utilities/parse-page"
 import StandardLibraryPage from "@/views/pages/views/standard-library-page"
 views ViewsViews
-  group path:"/docs/views" layout:ViewsLayout
+  group path:"/docs/views" layout:DocsLayout
     route path:"" page:ViewsPage
     route path:"web/metadata" page:MetadataPage
     route path:"i18n" page:I18nPage

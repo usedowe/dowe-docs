@@ -1,6 +1,6 @@
 page LoginCardAuthPage
   signal form value:{ email:"" password:"" remember:false }
-  Section id:"login-card-auth" bg:"softMuted" boxed:true p:{ xs:5 md:10 } minH:"vh-0"
+  Section id:"login-card-auth" bg:"muted" boxed:true p:{ xs:5 md:10 } minH:"vh-0"
     Grid columns:{ xs:1 md:3 } align:"center" minH:"vh-0"
       Box show:{ xs:false md:true }
       Card rounded:"xl" shadow:"xl" shadowColor:"muted" p:{ xs:6 md:8 }
@@ -9,13 +9,13 @@ page LoginCardAuthPage
             Icon name:"user-circle-bold-duotone" fill:"primary" w:12 h:12
             Title size:"3xl" weight:"black"
               "Welcome back"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Please log in to continue."
           Grid columns:1 gap:4
-            Input bind:form.email label:"Email address" placeholder:"you@example.com" helpText:"Use the email associated with your account." variant:"soft" w:"full"
+            Input bind:form.email label:"Email address" placeholder:"you@example.com" helpText:"Use the email associated with your account." variant:"solid" w:"full"
               validate rule:"required" message:"Enter your email address."
               validate rule:"email" message:"Enter a valid email address."
-            Password bind:form.password label:"Password" placeholder:"Enter your password" hideStrength:true variant:"soft" w:"full"
+            Password bind:form.password label:"Password" placeholder:"Enter your password" hideStrength:true variant:"solid" w:"full"
             Flex justify:"between" align:"center" gap:2
               Checkbox bind:form.remember label:"Remember me"
               Button href:"/blocks/auth-preview/forgot-password" variant:"ghost" size:"xs"
@@ -24,7 +24,7 @@ page LoginCardAuthPage
               "Log in"
           Grid columns:3 gap:3 align:"center"
             Divider
-            Text size:"xs" color:"muted"
+            Text size:"xs"
               "OR"
             Divider
           Grid columns:{ xs:1 sm:3 } gap:3

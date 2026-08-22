@@ -1,6 +1,6 @@
 page SideNavPage
-  signal schemeChoice value:"muted"
-  signal variantChoice value:"ghost"
+  signal schemeChoice value:"primary"
+  signal variantChoice value:"solid"
   signal sizeChoice value:"md"
   signal wideEnabled value:true
   const schemeOptions:
@@ -21,9 +21,7 @@ page SideNavPage
         label:"Tertiary"
       },
       {
-        id:"muted"
-        value:"muted"
-        label:"Muted"
+
       },
       {
         id:"success"
@@ -92,12 +90,12 @@ page SideNavPage
       {
         prop:"variant"
         type:"solid | soft | outlined | ghost"
-        defaultValue:"ghost"
+        defaultValue:"solid"
       },
       {
         prop:"scheme"
-        type:"primary | secondary | tertiary | muted | success | info | warning | danger"
-        defaultValue:"muted"
+        type:"primary | secondary | tertiary | muted | background | surface | success | info | warning | danger"
+        defaultValue:"surface"
       },
       {
         prop:"size"
@@ -171,24 +169,24 @@ page SideNavPage
   Section id:"sidenav-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "NAVIGATION"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "SideNav"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "SideNav creates portable lateral navigation with headers, links, dividers, and expandable submenus."
   Section id:"sidenav-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "Configure lateral navigation"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The controls bind directly to the preview and update the same target-neutral navigation tree without resetting submenu state."
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Inactive labels and descriptions keep the page foreground on every target, while the selected scheme is reserved for active and pressed rows."
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "SideNav items and submenu items can target a Section id with href:\"#sidenav-structure\". Dowe validates the fragment, animates the scroll, and keeps the section below a fixed or sticky AppBar on web."
       Grid columns:{ xs:1 md:3 } gap:4
         Select:
@@ -232,7 +230,7 @@ page SideNavPage
           item label:"Props" description:"API reference" href:"#sidenav-props" icon:"settings"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -250,11 +248,11 @@ page SideNavPage
   Section id:"sidenav-variations" py:{ xs:7 md:10 }
     Grid columns:1 gap:8
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "VISUAL OPTIONS"
         Title size:"3xl" weight:"black"
           "Variants, schemes, and sizes"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Every sample uses the same navigation structure so each visual prop can be compared independently."
       Grid columns:1 gap:4
         Title size:"xl" weight:"bold"
@@ -263,7 +261,7 @@ page SideNavPage
           SideNav variant:"solid" scheme:"primary" wide:true
             item label:"Solid" description:"Filled navigation" href:"/docs/views"
             item label:"Settings" href:"/docs/views"
-          SideNav variant:"soft" scheme:"primary" wide:true
+          SideNav variant:"solid" scheme:"primary" wide:true
             item label:"Soft" description:"Subtle navigation" href:"/docs/views"
             item label:"Settings" href:"/docs/views"
           SideNav variant:"outlined" scheme:"primary" wide:true
@@ -276,21 +274,21 @@ page SideNavPage
         Title size:"xl" weight:"bold"
           "Schemes"
         Grid columns:{ xs:2 md:4 } gap:4
-          SideNav variant:"soft" scheme:"primary" size:"sm" wide:true
+          SideNav variant:"solid" scheme:"primary" size:"sm" wide:true
             item label:"Primary" href:"/docs/views"
-          SideNav variant:"soft" scheme:"secondary" size:"sm" wide:true
+          SideNav variant:"solid" scheme:"secondary" size:"sm" wide:true
             item label:"Secondary" href:"/docs/views"
-          SideNav variant:"soft" scheme:"tertiary" size:"sm" wide:true
+          SideNav variant:"solid" scheme:"tertiary" size:"sm" wide:true
             item label:"Tertiary" href:"/docs/views"
-          SideNav variant:"soft" size:"sm" wide:true
+          SideNav variant:"solid" size:"sm" wide:true
             item label:"Muted" href:"/docs/views"
-          SideNav variant:"soft" scheme:"success" size:"sm" wide:true
+          SideNav variant:"solid" scheme:"success" size:"sm" wide:true
             item label:"Success" href:"/docs/views"
-          SideNav variant:"soft" scheme:"info" size:"sm" wide:true
+          SideNav variant:"solid" scheme:"info" size:"sm" wide:true
             item label:"Info" href:"/docs/views"
-          SideNav variant:"soft" scheme:"warning" size:"sm" wide:true
+          SideNav variant:"solid" scheme:"warning" size:"sm" wide:true
             item label:"Warning" href:"/docs/views"
-          SideNav variant:"soft" scheme:"danger" size:"sm" wide:true
+          SideNav variant:"solid" scheme:"danger" size:"sm" wide:true
             item label:"Danger" href:"/docs/views"
       Grid columns:1 gap:4
         Title size:"xl" weight:"bold"
@@ -305,46 +303,46 @@ page SideNavPage
   Section id:"sidenav-width" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "WIDTH"
         Title size:"3xl" weight:"black"
           "Intrinsic or available width"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Without wide, SideNav and its interactive rows use their content width. Set wide:true when the navigation and the active or hovered rows should fill the available horizontal space on web, Android, and iOS."
       Grid columns:{ xs:1 md:2 } gap:5
-        Card variant:"soft" p:6
+        Card variant:"solid" p:6
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Intrinsic by default"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "The navigation stays as narrow as its entries require."
-            SideNav variant:"soft" size:"sm"
+            SideNav variant:"solid" size:"sm"
               item label:"Statistics" href:"/docs/views" status:"New" icon:"chart"
-        Card variant:"soft" p:6
+        Card variant:"solid" p:6
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Fill with wide"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "The navigation and its entry states expand across the available width."
-            SideNav variant:"soft" size:"sm" wide:true
+            SideNav variant:"solid" size:"sm" wide:true
               item label:"Statistics" href:"/docs/views" status:"New" icon:"chart"
   Section id:"sidenav-structure" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "STRUCTURE"
         Title size:"3xl" weight:"black"
           "Entries with clear roles"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use headers to introduce groups, items for navigation or actions, dividers for separation, and submenus for expandable destinations."
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Headers use the visible base color of their scheme on the transparent navigation surface. Items and submenu triggers use the normal text foreground while inactive."
       Grid columns:{ xs:1 md:2 } gap:5
-        Card variant:"soft" p:6
+        Card variant:"solid" p:6
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Navigation entries"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "An item can navigate with href or invoke an onClick action, but never both. Navigation options require href."
             Code:
               language:"dowe"
@@ -355,13 +353,13 @@ page SideNavPage
                   item label:"Overview" href:"/overview"
                   item label:"Create project" onClick:createProject
               """
-        Card variant:"soft" p:6
+        Card variant:"solid" p:6
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Expandable submenus"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "The open prop defines initial state. Dowe then keeps the last expanded state in application-session memory, including when a SideNav inside a Drawer is unmounted and mounted again. The memory resets on application restart or web reload. Give structurally identical SideNav instances distinct id values when their submenu state must remain independent."
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "On iOS, the layout height and content opacity animate without sliding rows through the trigger label or the navigation entries above it. With wide:true, the complete row is tappable, including the space between the label and arrow."
             Code:
               language:"dowe"
@@ -376,15 +374,15 @@ page SideNavPage
   Section id:"sidenav-icons" p:{ xs:5 md:7 }
     Grid columns:{ xs:1 md:2 } gap:6 align:"center"
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PORTABLE ICONS"
         Title size:"3xl" weight:"black"
           "Solar icons or custom SVG"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Set icon to a Solar icon name on a header, item, or submenu. For a custom symbol, use one icon block containing exactly one Svg. Both forms lower to web, Android, and iOS, inherit the normal foreground while inactive, and use the resolved scheme foreground when active."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         content:"""
           SideNav wide:true
@@ -401,15 +399,15 @@ page SideNavPage
     Grid columns:1 gap:8
       Grid columns:1 gap:5
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          Text size:"xs" weight:"bold" spacing:"widest"
             "API"
           Title size:"3xl" weight:"black"
             "SideNav props"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "SideNav also accepts applicable common identity, spacing, sizing, typography, visibility, radius, and border props."
         Table:
           data:sideNavProps
-          variant:"soft"
+          variant:"solid"
           scheme:"surface"
           size:"sm"
           striped:true
@@ -422,11 +420,11 @@ page SideNavPage
         Grid columns:1 gap:2
           Title size:"2xl" weight:"black"
             "Entry props"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Labels are required. Descriptions, status text, navigation, actions, and submenu state refine each structural entry."
         Table:
           data:entryProps
-          variant:"soft"
+          variant:"solid"
           scheme:"surface"
           size:"sm"
           striped:true

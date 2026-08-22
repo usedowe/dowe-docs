@@ -6,16 +6,17 @@ page TextPage
       { prop:"weight" type:"text weight token | responsive object" defaultValue:"400 for Text, title metric for Title" },
       { prop:"spacing" type:"text spacing token | responsive object" defaultValue:"normal" },
       { prop:"color" type:"color token | responsive object" defaultValue:"inherited" },
+      { prop:"bg" type:"color token | responsive object" defaultValue:"none" },
     ]
   Section id:"text-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "DISPLAY / TYPOGRAPHY"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Text and Title"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Use one text contract for readable copy and headings. Alignment is logical and portable across web, iOS, and Android."
-      Card variant:"soft" scheme:"secondary" p:5 rounded:"lg"
+      Card variant:"solid" scheme:"secondary" p:5 rounded:"lg"
         Grid columns:1 gap:2
           Text size:"xs" weight:"bold" spacing:"widest"
             "ONE SOURCE"
@@ -26,13 +27,13 @@ page TextPage
   Section id:"text-alignment" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "ALIGNMENT"
         Title size:"3xl" weight:"black"
           "Align the text, not the container"
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "align belongs to Text and Title. It is independent from Flex or Grid alignment, and start/end follow the writing direction of each target."
-      Card variant:"soft" scheme:"primary" p:5 rounded:"lg"
+      Card variant:"solid" scheme:"primary" p:5 rounded:"lg"
         Grid columns:1 gap:2
           Text size:"xs" weight:"bold" spacing:"widest"
             "EXPLICIT LINE BREAK"
@@ -41,7 +42,7 @@ page TextPage
             Full-stack development,
             from one codebase
             """
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Use a multiline string for an intentional break. Keep maxW alone when natural wrapping is acceptable."
       Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Grid columns:1 gap:4
@@ -53,7 +54,7 @@ page TextPage
             "end follows the logical trailing edge."
           Text size:"lg" align:"justify"
             "justify distributes space across lines with native target support."
-      Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy alignment examples" copiedLabel:"Copied" content:"""
+      Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy alignment examples" copiedLabel:"Copied" content:"""
         Title size:"xl" align:"center"
           "Centered heading"
         Text size:"lg" align:"justify"
@@ -62,14 +63,14 @@ page TextPage
   Section id:"text-fluid-size" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "FLUID SIZE"
         Title size:"3xl" weight:"black"
           "A scalar size is already responsive"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The shared typography scale lowers a scalar size through fluid metrics on every target. Use size:\"lg\" directly; do not add a breakpoint object only to make it responsive."
       Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"soft" scheme:"info" p:{ xs:5 md:7 }
+        Card variant:"solid" scheme:"info" p:{ xs:5 md:7 }
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
               "RECOMMENDED"
@@ -77,7 +78,7 @@ page TextPage
               "Fluid by default"
             Text size:"sm"
               "The same declaration adapts between compact and wide viewports."
-        Card variant:"soft" scheme:"muted" p:{ xs:5 md:7 }
+        Card variant:"solid" scheme:"muted" p:{ xs:5 md:7 }
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
               "EXPLICIT OVERRIDE"
@@ -85,7 +86,7 @@ page TextPage
               "Choose breakpoints deliberately"
             Text size:"sm"
               "Use an object only when the design intentionally changes at named breakpoints."
-      Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy sizing examples" copiedLabel:"Copied" content:"""
+      Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy sizing examples" copiedLabel:"Copied" content:"""
         Text size:"lg"
           "Fluid body copy"
         Title size:"xl"
@@ -96,13 +97,13 @@ page TextPage
   Section id:"text-props" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Text and Title props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Both components accept the same typography and common style surface. RichText remains a separate marked-text contract and does not accept align."
-      Table data:textProps variant:"soft" scheme:"surface" size:"sm" striped:true dividers:true rounded:"md"
+      Table data:textProps variant:"solid" scheme:"surface" size:"sm" striped:true dividers:true rounded:"md"
         column field:"prop" label:"Prop" width:"1fr"
         column field:"type" label:"Type" width:"3fr"
         column field:"defaultValue" label:"Default" width:"2fr"

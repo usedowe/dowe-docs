@@ -99,24 +99,24 @@ page AgentPage
     ]
   Section id:"agent-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "DEVELOPMENT / EXTERNAL AGENTS"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Dowe Agent"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Dowe prepares a project for Codex, Claude Code, OpenCode, or another coding agent without choosing, hosting, or charging for the model."
   Section id:"agent-installation" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "1 / ONE PROJECT SETUP"
         Title size:"3xl" weight:"black"
           "Install the complete agent"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Initialization writes provider-neutral instructions, the TDD harness, plans, and the public Dowe authoring skills included in the installed Dowe version."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy commands"
         copiedLabel:"Copied"
@@ -126,7 +126,7 @@ page AgentPage
         """
       Table:
         data:agentInstallationRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -138,15 +138,15 @@ page AgentPage
   Section id:"agent-skills" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "2 / VERSIONED AUTHORING KNOWLEDGE"
         Title size:"3xl" weight:"black"
           "Skills are installed automatically"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Dowe installs authoring skills locally so an external agent can use the syntax and target boundaries that match the current compiler version. The skills keep frontend modules in views, backend modules and migrations in server, and only project wiring at the root."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy structure"
         copiedLabel:"Copied"
@@ -166,7 +166,7 @@ page AgentPage
         """
       Table:
         data:agentSkillRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -177,23 +177,23 @@ page AgentPage
   Section id:"agent-visual-fidelity" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "3 / REFERENCE-DRIVEN UI"
         Title size:"3xl" weight:"black"
           "Treat the image as a visual contract"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "When a user asks for an exact reconstruction, dowe-views inventories the complete shell and every visible page band before authoring source."
       each in:referenceChecks as:check key:check.id
         Grid columns:1 gap:1
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "{check.label}"
           Title size:"xl" weight:"black"
             "{check.title}"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "{check.description}"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy visual QA command"
         copiedLabel:"Copied"
@@ -201,15 +201,15 @@ page AgentPage
   Section id:"project-starters" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "4 / AGENT-READY FROM INIT"
         Title size:"3xl" weight:"black"
           "Start with a designed system"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Choose CRUD or blank first. CRUD continues directly to optional English and Spanish i18n, while the Database provider stays in server configuration and both starters include the same project Agent Harness and five public authoring skills, including domain modeling blueprints for business systems."
       Table:
         data:starterRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -221,15 +221,15 @@ page AgentPage
   Section id:"agent-workflow" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "5 / AUTOMATIC WORKFLOW"
         Title size:"3xl" weight:"black"
           "The agent owns the workflow"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "AGENTS.md gives every external agent one short authoring contract. CLAUDE.md points Claude-compatible tools to the same rules instead of creating a second workflow."
       Table:
         data:agentWorkflowRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -239,24 +239,24 @@ page AgentPage
         column field:"guidance" label:"Responsibility" width:"5fr"
   Section id:"agent-tdd" py:{ xs:7 md:10 }
     Grid columns:1 gap:4
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "6 / SPEC-DRIVEN DEVELOPMENT"
       Title size:"3xl" weight:"black"
         "Harnesses enforce process, not a test language"
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "The TDD harness requires a spec, contracts, a test plan, validation, and documentation before a behavior change closes. Native literal tests can live in any project folder and run through dowe test."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy flow"
         copiedLabel:"Copied"
         content:"Spec -> Contract -> Tests -> Implementation -> Validation -> Documentation"
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "The coding agent writes and runs the concrete project tests appropriate to the selected spec. For literal contracts it can use test and assert declarations anywhere in the project, then records validation evidence under .dowe only when the harness requires it."
       Button:
         href:"/docs/dev/tests"
-        variant:"soft"
+        variant:"solid"
         size:"sm"
         rounded:"full"
         iconStart:"check-circle"

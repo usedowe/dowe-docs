@@ -1,28 +1,28 @@
 page DashboardPage
   Section id:"dashboard-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:4
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "COPY-READY BLOCKS"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Dashboard"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Six neutral dashboard compositions built from real Dowe components, responsive layouts, and data-driven source you can copy into a project."
   Section id:"dashboard-overview" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "01 · OVERVIEW"
           Title size:"2xl" weight:"black"
             "A measured overview with metrics and workload signals"
-        Button href:"/blocks/dashboard-preview/overview" variant:"soft" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/dashboard-preview/overview" variant:"solid" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
       Tabs variant:"line" position:"top" w:"full"
         tab id:"overview-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe src:"/blocks/dashboard-preview/overview" title:"Dashboard overview preview" loading:"lazy" sandbox:"scripts same-origin"
         tab id:"overview-page-code" label:"Page Code"
-          Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy page" copiedLabel:"Copied" content:"""
+          Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy page" copiedLabel:"Copied" content:"""
             type DashboardMetric
               id:string
               label:string
@@ -74,53 +74,53 @@ page DashboardPage
                 { x:7 y:68 },
                 { x:8 y:82 },
               ]
-              Section id:"dashboard-overview" bg:"softMuted" minH:"vh-0" p:{ xs:4 md:8 }
+              Section id:"dashboard-overview" bg:"muted" minH:"vh-0" p:{ xs:4 md:8 }
                 Grid columns:1 gap:5
                   Flex direction:{ xs:"column" md:"row" } justify:"between" align:{ xs:"start" md:"center" } gap:3
                     Grid columns:1 gap:1
-                      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+                      Text size:"xs" weight:"bold" spacing:"widest"
                         "OVERVIEW"
                       Title size:{ xs:"2xl" md:"4xl" } weight:"black"
                         "Good morning, Jordan"
-                      Text size:"sm" color:"muted"
+                      Text size:"sm"
                         "Here is the latest view of your workspace activity."
                     Button variant:"outlined" scheme:"muted" size:"sm" iconStart:"download-minimalistic"
                       "Export"
                   Grid columns:{ xs:1 sm:2 lg:4 } gap:4
                     each in:metrics as:metric key:metric.id
-                      Card variant:"soft" rounded:"lg" p:5 border:1
+                      Card variant:"solid" rounded:"lg" p:5 border:1
                         Grid columns:1 gap:2
-                          Text size:"xs" color:"muted"
+                          Text size:"xs"
                             "{metric.label}"
                           Title size:"2xl" weight:"black"
                             "{metric.value}"
                           Flex align:"center" gap:2
-                            Chip variant:"soft" scheme:"success"
+                            Chip variant:"solid" scheme:"success"
                               "{metric.change}"
-                            Text size:"xs" color:"muted"
+                            Text size:"xs"
                               "vs last month"
                   Grid columns:{ xs:1 lg:2 } gap:4
-                    Card variant:"soft" rounded:"lg" p:{ xs:4 md:6 } border:1
+                    Card variant:"solid" rounded:"lg" p:{ xs:4 md:6 } border:1
                       Grid columns:1 gap:4
                         Flex justify:"between" align:"center" gap:3
                           Grid columns:1 gap:1
                             Title size:"lg" weight:"bold"
                               "Revenue trend"
-                            Text size:"xs" color:"muted"
+                            Text size:"xs"
                               "Last eight reporting periods"
-                          Chip variant:"soft" scheme:"muted"
+                          Chip variant:"solid" scheme:"muted"
                             "Updated"
-                        LineChart data:trend variant:"soft" scheme:"surface" size:"lg" palette:"ocean" curve:"smooth" showGradientFill:true hideGrid:true rounded:"md"
-                    Card variant:"soft" rounded:"lg" p:{ xs:4 md:6 } border:1
+                        LineChart data:trend variant:"solid" scheme:"surface" size:"lg" palette:"ocean" curve:"smooth" showGradientFill:true hideGrid:true rounded:"md"
+                    Card variant:"solid" rounded:"lg" p:{ xs:4 md:6 } border:1
                       Grid columns:1 gap:4
                         Grid columns:1 gap:1
                           Title size:"lg" weight:"bold"
                             "Workload mix"
-                          Text size:"xs" color:"muted"
+                          Text size:"xs"
                             "Current allocation across teams"
-                        ArcChart data:allocation variant:"soft" scheme:"surface" size:"md" palette:"ocean" legendPosition:"bottom" centerText:"Active" centerValue:"100%" thickness:18 gap:4 hideValues:true rounded:"md"
+                        ArcChart data:allocation variant:"solid" scheme:"surface" size:"md" palette:"ocean" legendPosition:"bottom" centerText:"Active" centerValue:"100%" thickness:18 gap:4 hideValues:true rounded:"md"
                   Grid columns:{ xs:1 md:2 } gap:4
-                    Card variant:"soft" rounded:"lg" p:{ xs:4 md:6 } border:1
+                    Card variant:"solid" rounded:"lg" p:{ xs:4 md:6 } border:1
                       Grid columns:1 gap:4
                         Flex justify:"between" align:"center"
                           Title size:"lg" weight:"bold"
@@ -135,7 +135,7 @@ page DashboardPage
                                   "{country.label}"
                               Text size:"sm" weight:"bold"
                                 "{country.value}"
-                    Card variant:"soft" rounded:"lg" p:{ xs:4 md:6 } border:1
+                    Card variant:"solid" rounded:"lg" p:{ xs:4 md:6 } border:1
                       Grid columns:1 gap:4
                         Flex justify:"between" align:"center"
                           Title size:"lg" weight:"bold"
@@ -145,18 +145,18 @@ page DashboardPage
                         Grid columns:1 gap:3
                           each in:activity as:item key:item.id
                             Flex align:"center" gap:3
-                              Avatar name:"Team member" alt:"Team member avatar placeholder" size:"sm" variant:"soft" scheme:"primary"
+                              Avatar name:"Team member" alt:"Team member avatar placeholder" size:"sm" variant:"solid" scheme:"primary"
                               Grid columns:1 gap:1
                                 Text size:"sm" weight:"bold"
                                   "{item.name}"
-                                Text size:"xs" color:"muted"
+                                Text size:"xs"
                                   "{item.action}"
-                                Text size:"xs" color:"muted"
+                                Text size:"xs"
                                   "{item.time}"
 
           """
         tab id:"overview-layout-code" label:"Layout Code"
-          Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy layout" copiedLabel:"Copied" content:"""
+          Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy layout" copiedLabel:"Copied" content:"""
             layout DashboardPreviewLayout
               Scaffold minH:"vh-0" boxed:true
                 appBar
@@ -170,9 +170,9 @@ page DashboardPage
                       Flex align:"center" gap:3
                         IconButton icon:"magnifier" label:"Search dashboard" variant:"ghost" scheme:"muted" size:"sm" show:{ xs:false md:true }
                         IconButton icon:"bell" label:"Open notifications" variant:"ghost" scheme:"muted" size:"sm"
-                        Avatar name:"Jordan Lee" alt:"Jordan Lee" size:"sm" variant:"soft" scheme:"primary" status:"online"
+                        Avatar name:"Jordan Lee" alt:"Jordan Lee" size:"sm" variant:"solid" scheme:"primary" status:"online"
                 start
-                  Sidebar show:{ xs:false md:true } variant:"soft" scheme:"muted" w:64 h:"vh-0" border:1
+                  Sidebar show:{ xs:false md:true } variant:"solid" scheme:"muted" w:64 h:"vh-0" border:1
                     body
                       SideNav variant:"solid" p:4
                         header label:"Workspace" description:"Dashboard blocks" icon:"widget-5"
@@ -185,7 +185,7 @@ page DashboardPage
                 main
                   children
                 bottomBar
-                  BottomBar show:{ xs:true md:false } variant:"soft" scheme:"surface" bordered:true boxed:true
+                  BottomBar show:{ xs:true md:false } variant:"solid" scheme:"surface" bordered:true boxed:true
                     tab href:"/blocks/dashboard-preview/overview" label:"Overview"
                       Icon name:"home"
                     tab href:"/blocks/dashboard-preview/task-board" label:"Tasks"
@@ -200,7 +200,7 @@ page DashboardPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "02 · TASK BOARD"
           Title size:"2xl" weight:"black"
             "Three kanban columns with repeated task cards"
@@ -211,7 +211,7 @@ page DashboardPage
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe src:"/blocks/dashboard-preview/task-board" title:"Dashboard task board preview" loading:"lazy" sandbox:"scripts same-origin"
         tab id:"task-board-page-code" label:"Page Code"
-          Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy page" copiedLabel:"Copied" content:"""
+          Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy page" copiedLabel:"Copied" content:"""
             type BoardTask
               id:string
               title:string
@@ -236,116 +236,116 @@ page DashboardPage
                   { id:"task-6" title:"Approve Q2 report" meta:"Finance · 1d" owner:"Sofia Silva" status:"Review" },
                   { id:"task-7" title:"Sign off release checklist" meta:"Ops · 2d" owner:"Noah Williams" status:"Review" },
                 ]
-              Section id:"dashboard-task-board" bg:"softMuted" minH:"vh-0" p:{ xs:4 md:8 }
+              Section id:"dashboard-task-board" bg:"muted" minH:"vh-0" p:{ xs:4 md:8 }
                 Grid columns:1 gap:5
                   Flex direction:{ xs:"column" md:"row" } justify:"between" align:{ xs:"start" md:"center" } gap:3
                     Grid columns:1 gap:1
-                      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+                      Text size:"xs" weight:"bold" spacing:"widest"
                         "TASK BOARD"
                       Title size:{ xs:"2xl" md:"4xl" } weight:"black"
                         "Plan the next release"
-                      Text size:"sm" color:"muted"
+                      Text size:"sm"
                         "A neutral kanban surface keeps priorities visible across every target."
                     Button size:"sm" iconStart:"add-circle"
                       "Add task"
                   Grid columns:{ xs:1 md:3 } gap:4 align:"start"
-                    Box bg:"softMuted" rounded:"lg" p:3 border:1
+                    Box bg:"muted" rounded:"lg" p:3 border:1
                       Grid columns:1 gap:3
                         Flex justify:"between" align:"center" px:1
                           Flex align:"center" gap:2
                             Text size:"sm" weight:"bold"
                               "Backlog"
-                            Chip variant:"soft" scheme:"muted"
+                            Chip variant:"solid" scheme:"muted"
                               "3"
                           IconButton icon:"menu-dots" label:"Open backlog actions" variant:"ghost" scheme:"muted" size:"sm"
                         Grid columns:1 gap:3
                           each in:backlogTasks as:task key:task.id
-                            Card variant:"soft" p:4 border:1
+                            Card variant:"solid" p:4 border:1
                               Grid columns:1 gap:3
-                                Box bg:"softMuted" rounded:"sm" minH:16 p:3
+                                Box bg:"muted" rounded:"sm" minH:16 p:3
                                   Flex direction:"column" align:"center" justify:"center" gap:1 minH:10
                                     Icon name:"gallery-bold-duotone" fill:"muted" w:6 h:6
-                                    Text size:"xs" color:"muted"
+                                    Text size:"xs"
                                       "Media placeholder"
                                 Flex justify:"between" align:"start" gap:2
                                   Title size:"sm" weight:"bold"
                                     "{task.title}"
                                   IconButton icon:"menu-dots" label:"Open task actions" variant:"ghost" scheme:"muted" size:"sm"
-                                Text size:"xs" color:"muted"
+                                Text size:"xs"
                                   "{task.meta}"
                                 Flex justify:"between" align:"center" gap:2
                                   Flex align:"center" gap:2
-                                    Avatar name:"Task owner" alt:"Task owner avatar placeholder" size:"sm" variant:"soft" scheme:"primary"
-                                    Text size:"xs" color:"muted"
+                                    Avatar name:"Task owner" alt:"Task owner avatar placeholder" size:"sm" variant:"solid" scheme:"primary"
+                                    Text size:"xs"
                                       "{task.owner}"
-                                  Chip variant:"soft" scheme:"muted"
+                                  Chip variant:"solid" scheme:"muted"
                                     "{task.status}"
-                    Box bg:"softMuted" rounded:"lg" p:3 border:1
+                    Box bg:"muted" rounded:"lg" p:3 border:1
                       Grid columns:1 gap:3
                         Flex justify:"between" align:"center" px:1
                           Flex align:"center" gap:2
                             Text size:"sm" weight:"bold"
                               "In progress"
-                            Chip variant:"soft" scheme:"muted"
+                            Chip variant:"solid" scheme:"muted"
                               "2"
                           IconButton icon:"menu-dots" label:"Open progress actions" variant:"ghost" scheme:"muted" size:"sm"
                         Grid columns:1 gap:3
                           each in:progressTasks as:task key:task.id
-                            Card variant:"soft" p:4 border:1
+                            Card variant:"solid" p:4 border:1
                               Grid columns:1 gap:3
-                                Box bg:"softMuted" rounded:"sm" minH:16 p:3
+                                Box bg:"muted" rounded:"sm" minH:16 p:3
                                   Flex direction:"column" align:"center" justify:"center" gap:1 minH:10
                                     Icon name:"gallery-bold-duotone" fill:"muted" w:6 h:6
-                                    Text size:"xs" color:"muted"
+                                    Text size:"xs"
                                       "Media placeholder"
                                 Flex justify:"between" align:"start" gap:2
                                   Title size:"sm" weight:"bold"
                                     "{task.title}"
                                   IconButton icon:"menu-dots" label:"Open task actions" variant:"ghost" scheme:"muted" size:"sm"
-                                Text size:"xs" color:"muted"
+                                Text size:"xs"
                                   "{task.meta}"
                                 Flex justify:"between" align:"center" gap:2
                                   Flex align:"center" gap:2
-                                    Avatar name:"Task owner" alt:"Task owner avatar placeholder" size:"sm" variant:"soft" scheme:"primary"
-                                    Text size:"xs" color:"muted"
+                                    Avatar name:"Task owner" alt:"Task owner avatar placeholder" size:"sm" variant:"solid" scheme:"primary"
+                                    Text size:"xs"
                                       "{task.owner}"
-                                  Chip variant:"soft" scheme:"muted"
+                                  Chip variant:"solid" scheme:"muted"
                                     "{task.status}"
-                    Box bg:"softMuted" rounded:"lg" p:3 border:1
+                    Box bg:"muted" rounded:"lg" p:3 border:1
                       Grid columns:1 gap:3
                         Flex justify:"between" align:"center" px:1
                           Flex align:"center" gap:2
                             Text size:"sm" weight:"bold"
                               "Review"
-                            Chip variant:"soft" scheme:"muted"
+                            Chip variant:"solid" scheme:"muted"
                               "2"
                           IconButton icon:"menu-dots" label:"Open review actions" variant:"ghost" scheme:"muted" size:"sm"
                         Grid columns:1 gap:3
                           each in:reviewTasks as:task key:task.id
-                            Card variant:"soft" p:4 border:1
+                            Card variant:"solid" p:4 border:1
                               Grid columns:1 gap:3
-                                Box bg:"softMuted" rounded:"sm" minH:16 p:3
+                                Box bg:"muted" rounded:"sm" minH:16 p:3
                                   Flex direction:"column" align:"center" justify:"center" gap:1 minH:10
                                     Icon name:"gallery-bold-duotone" fill:"muted" w:6 h:6
-                                    Text size:"xs" color:"muted"
+                                    Text size:"xs"
                                       "Media placeholder"
                                 Flex justify:"between" align:"start" gap:2
                                   Title size:"sm" weight:"bold"
                                     "{task.title}"
                                   IconButton icon:"menu-dots" label:"Open task actions" variant:"ghost" scheme:"muted" size:"sm"
-                                Text size:"xs" color:"muted"
+                                Text size:"xs"
                                   "{task.meta}"
                                 Flex justify:"between" align:"center" gap:2
                                   Flex align:"center" gap:2
-                                    Avatar name:"Task owner" alt:"Task owner avatar placeholder" size:"sm" variant:"soft" scheme:"primary"
-                                    Text size:"xs" color:"muted"
+                                    Avatar name:"Task owner" alt:"Task owner avatar placeholder" size:"sm" variant:"solid" scheme:"primary"
+                                    Text size:"xs"
                                       "{task.owner}"
-                                  Chip variant:"soft" scheme:"muted"
+                                  Chip variant:"solid" scheme:"muted"
                                     "{task.status}"
 
           """
         tab id:"task-board-layout-code" label:"Layout Code"
-          Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy layout" copiedLabel:"Copied" content:"""
+          Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy layout" copiedLabel:"Copied" content:"""
             layout DashboardPreviewLayout
               Scaffold minH:"vh-0" boxed:true
                 appBar
@@ -359,9 +359,9 @@ page DashboardPage
                       Flex align:"center" gap:3
                         IconButton icon:"magnifier" label:"Search dashboard" variant:"ghost" scheme:"muted" size:"sm" show:{ xs:false md:true }
                         IconButton icon:"bell" label:"Open notifications" variant:"ghost" scheme:"muted" size:"sm"
-                        Avatar name:"Jordan Lee" alt:"Jordan Lee" size:"sm" variant:"soft" scheme:"primary" status:"online"
+                        Avatar name:"Jordan Lee" alt:"Jordan Lee" size:"sm" variant:"solid" scheme:"primary" status:"online"
                 start
-                  Sidebar show:{ xs:false md:true } variant:"soft" scheme:"muted" w:64 h:"vh-0" border:1
+                  Sidebar show:{ xs:false md:true } variant:"solid" scheme:"muted" w:64 h:"vh-0" border:1
                     body
                       SideNav variant:"solid" p:4
                         header label:"Workspace" description:"Dashboard blocks" icon:"widget-5"
@@ -374,7 +374,7 @@ page DashboardPage
                 main
                   children
                 bottomBar
-                  BottomBar show:{ xs:true md:false } variant:"soft" scheme:"surface" bordered:true boxed:true
+                  BottomBar show:{ xs:true md:false } variant:"solid" scheme:"surface" bordered:true boxed:true
                     tab href:"/blocks/dashboard-preview/overview" label:"Overview"
                       Icon name:"home"
                     tab href:"/blocks/dashboard-preview/task-board" label:"Tasks"
@@ -389,18 +389,18 @@ page DashboardPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "03 · TEAM DIRECTORY"
           Title size:"2xl" weight:"black"
             "Responsive member rows with a real Pagination"
-        Button href:"/blocks/dashboard-preview/team-directory" variant:"soft" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/dashboard-preview/team-directory" variant:"solid" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
       Tabs variant:"line" position:"top" w:"full"
         tab id:"team-directory-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe src:"/blocks/dashboard-preview/team-directory" title:"Dashboard team directory preview" loading:"lazy" sandbox:"scripts same-origin forms"
         tab id:"team-directory-page-code" label:"Page Code"
-          Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy page" copiedLabel:"Copied" content:"""
+          Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy page" copiedLabel:"Copied" content:"""
             type DirectoryMember
               id:string
               name:string
@@ -424,19 +424,19 @@ page DashboardPage
                 ]
               fn loadMembers
                 set currentPage value:currentPage
-              Section id:"dashboard-team-directory" bg:"softMuted" minH:"vh-0" p:{ xs:4 md:8 }
+              Section id:"dashboard-team-directory" bg:"muted" minH:"vh-0" p:{ xs:4 md:8 }
                 Grid columns:1 gap:5
                   Flex direction:{ xs:"column" md:"row" } justify:"between" align:{ xs:"start" md:"center" } gap:3
                     Grid columns:1 gap:1
-                      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+                      Text size:"xs" weight:"bold" spacing:"widest"
                         "TEAM DIRECTORY"
                       Title size:{ xs:"2xl" md:"4xl" } weight:"black"
                         "People and permissions"
-                      Text size:"sm" color:"muted"
+                      Text size:"sm"
                         "Search, scan status, and move through a real paginated directory."
                     Button variant:"outlined" scheme:"muted" size:"sm" iconStart:"download-minimalistic"
                       "Export"
-                  Card variant:"soft" rounded:"lg" p:{ xs:4 md:6 } border:1
+                  Card variant:"solid" rounded:"lg" p:{ xs:4 md:6 } border:1
                     Grid columns:1 gap:4
                       Flex direction:{ xs:"column" sm:"row" } justify:"between" align:{ xs:"stretch" sm:"end" } gap:3
                         Input bind:search label:"Search" placeholder:"Search people" iconStart:"magnifier" scheme:"muted" w:{ xs:"full" sm:80 }
@@ -456,27 +456,27 @@ page DashboardPage
                         each in:members as:member key:member.id
                           Grid columns:{ xs:2 md:5 } gap:3 align:"center" p:3 border:1 borderColor:"muted"
                             Flex align:"center" gap:3
-                              Avatar name:"Team member" alt:"Team member avatar placeholder" size:"md" variant:"soft" scheme:"primary"
+                              Avatar name:"Team member" alt:"Team member avatar placeholder" size:"md" variant:"solid" scheme:"primary"
                               Grid columns:1 gap:1
                                 Text size:"sm" weight:"bold"
                                   "{member.name}"
-                                Text size:"xs" color:"muted"
+                                Text size:"xs"
                                   "{member.role}"
                             Text size:"sm" show:{ xs:false md:true }
                               "{member.company}"
                             Text size:"sm" show:{ xs:false md:true }
                               "{member.location}"
-                            Chip variant:"soft" scheme:"success" show:{ xs:false md:true }
+                            Chip variant:"solid" scheme:"success" show:{ xs:false md:true }
                               "{member.status}"
                             IconButton icon:"menu-dots" label:"Open member actions" variant:"ghost" scheme:"muted" size:"sm"
                       Flex direction:{ xs:"column" sm:"row" } justify:"between" align:{ xs:"start" sm:"center" } gap:3 pt:3
-                        Text size:"sm" color:"muted"
+                        Text size:"sm"
                           "Showing 1–6 of 24 members"
                         Pagination bind:currentPage total:totalMembers pageSize:6 onChange:loadMembers variant:"ghost" scheme:"primary" size:"sm" ariaLabel:"Team directory pages"
 
           """
         tab id:"team-directory-layout-code" label:"Layout Code"
-          Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy layout" copiedLabel:"Copied" content:"""
+          Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy layout" copiedLabel:"Copied" content:"""
             layout DashboardPreviewLayout
               Scaffold minH:"vh-0" boxed:true
                 appBar
@@ -490,9 +490,9 @@ page DashboardPage
                       Flex align:"center" gap:3
                         IconButton icon:"magnifier" label:"Search dashboard" variant:"ghost" scheme:"muted" size:"sm" show:{ xs:false md:true }
                         IconButton icon:"bell" label:"Open notifications" variant:"ghost" scheme:"muted" size:"sm"
-                        Avatar name:"Jordan Lee" alt:"Jordan Lee" size:"sm" variant:"soft" scheme:"primary" status:"online"
+                        Avatar name:"Jordan Lee" alt:"Jordan Lee" size:"sm" variant:"solid" scheme:"primary" status:"online"
                 start
-                  Sidebar show:{ xs:false md:true } variant:"soft" scheme:"muted" w:64 h:"vh-0" border:1
+                  Sidebar show:{ xs:false md:true } variant:"solid" scheme:"muted" w:64 h:"vh-0" border:1
                     body
                       SideNav variant:"solid" p:4
                         header label:"Workspace" description:"Dashboard blocks" icon:"widget-5"
@@ -505,7 +505,7 @@ page DashboardPage
                 main
                   children
                 bottomBar
-                  BottomBar show:{ xs:true md:false } variant:"soft" scheme:"surface" bordered:true boxed:true
+                  BottomBar show:{ xs:true md:false } variant:"solid" scheme:"surface" bordered:true boxed:true
                     tab href:"/blocks/dashboard-preview/overview" label:"Overview"
                       Icon name:"home"
                     tab href:"/blocks/dashboard-preview/task-board" label:"Tasks"
@@ -520,7 +520,7 @@ page DashboardPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "04 · REPORTS"
           Title size:"2xl" weight:"black"
             "Four chart cards that collapse cleanly"
@@ -531,7 +531,7 @@ page DashboardPage
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe src:"/blocks/dashboard-preview/reports" title:"Dashboard reports preview" loading:"lazy" sandbox:"scripts same-origin"
         tab id:"reports-page-code" label:"Page Code"
-          Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy page" copiedLabel:"Copied" content:"""
+          Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy page" copiedLabel:"Copied" content:"""
             type ReportSlice
               label:string
               value:number
@@ -570,67 +570,67 @@ page DashboardPage
                 { label:"Referral" value:22 },
                 { label:"Partner" value:18 },
               ]
-              Section id:"dashboard-reports" bg:"softMuted" minH:"vh-0" p:{ xs:4 md:8 }
+              Section id:"dashboard-reports" bg:"muted" minH:"vh-0" p:{ xs:4 md:8 }
                 Grid columns:1 gap:5
                   Flex direction:{ xs:"column" md:"row" } justify:"between" align:{ xs:"start" md:"center" } gap:3
                     Grid columns:1 gap:1
-                      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+                      Text size:"xs" weight:"bold" spacing:"widest"
                         "REPORTS"
                       Title size:{ xs:"2xl" md:"4xl" } weight:"black"
                         "Signals worth sharing"
-                      Text size:"sm" color:"muted"
+                      Text size:"sm"
                         "Four real chart cards keep trends and comparisons readable at every width."
                     Button variant:"outlined" scheme:"muted" size:"sm" iconStart:"download-minimalistic"
                       "Download report"
                   Grid columns:{ xs:1 md:2 } gap:4
-                    Card variant:"soft" rounded:"lg" p:{ xs:4 md:6 } border:1
+                    Card variant:"solid" rounded:"lg" p:{ xs:4 md:6 } border:1
                       Grid columns:1 gap:4
                         Flex justify:"between" align:"center"
                           Grid columns:1 gap:1
                             Title size:"lg" weight:"bold"
                               "Revenue"
-                            Text size:"xs" color:"muted"
+                            Text size:"xs"
                               "Monthly recurring revenue"
-                          Chip variant:"soft" scheme:"success"
+                          Chip variant:"solid" scheme:"success"
                             "+12.8%"
-                        LineChart data:revenue variant:"soft" scheme:"surface" size:"md" palette:"ocean" curve:"smooth" showGradientFill:true rounded:"md"
-                    Card variant:"soft" rounded:"lg" p:{ xs:4 md:6 } border:1
+                        LineChart data:revenue variant:"solid" scheme:"surface" size:"md" palette:"ocean" curve:"smooth" showGradientFill:true rounded:"md"
+                    Card variant:"solid" rounded:"lg" p:{ xs:4 md:6 } border:1
                       Grid columns:1 gap:4
                         Flex justify:"between" align:"center"
                           Grid columns:1 gap:1
                             Title size:"lg" weight:"bold"
                               "Signups"
-                            Text size:"xs" color:"muted"
+                            Text size:"xs"
                               "New accounts by month"
-                          Chip variant:"soft" scheme:"muted"
+                          Chip variant:"solid" scheme:"muted"
                             "324 total"
-                        BarChart data:signups variant:"soft" scheme:"surface" size:"md" palette:"forest" grouped:true showValues:true barRadius:5 rounded:"md"
-                    Card variant:"soft" rounded:"lg" p:{ xs:4 md:6 } border:1
+                        BarChart data:signups variant:"solid" scheme:"surface" size:"md" palette:"forest" grouped:true showValues:true barRadius:5 rounded:"md"
+                    Card variant:"solid" rounded:"lg" p:{ xs:4 md:6 } border:1
                       Grid columns:1 gap:4
                         Flex justify:"between" align:"center"
                           Grid columns:1 gap:1
                             Title size:"lg" weight:"bold"
                               "Retention"
-                            Text size:"xs" color:"muted"
+                            Text size:"xs"
                               "Active accounts after onboarding"
-                          Chip variant:"soft" scheme:"warning"
+                          Chip variant:"solid" scheme:"warning"
                             "-4.2%"
                         LineChart data:retention variant:"outlined" scheme:"warning" size:"md" palette:"sunset" curve:"linear" hideGrid:true rounded:"md"
-                    Card variant:"soft" rounded:"lg" p:{ xs:4 md:6 } border:1
+                    Card variant:"solid" rounded:"lg" p:{ xs:4 md:6 } border:1
                       Grid columns:1 gap:4
                         Flex justify:"between" align:"center"
                           Grid columns:1 gap:1
                             Title size:"lg" weight:"bold"
                               "Acquisition channels"
-                            Text size:"xs" color:"muted"
+                            Text size:"xs"
                               "Qualified visits this month"
-                          Chip variant:"soft" scheme:"muted"
+                          Chip variant:"solid" scheme:"muted"
                             "120 leads"
-                        BarChart data:channels variant:"soft" scheme:"surface" size:"md" palette:"ocean" grouped:true showValues:true barRadius:5 rounded:"md"
+                        BarChart data:channels variant:"solid" scheme:"surface" size:"md" palette:"ocean" grouped:true showValues:true barRadius:5 rounded:"md"
 
           """
         tab id:"reports-layout-code" label:"Layout Code"
-          Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy layout" copiedLabel:"Copied" content:"""
+          Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy layout" copiedLabel:"Copied" content:"""
             layout DashboardPreviewLayout
               Scaffold minH:"vh-0" boxed:true
                 appBar
@@ -644,9 +644,9 @@ page DashboardPage
                       Flex align:"center" gap:3
                         IconButton icon:"magnifier" label:"Search dashboard" variant:"ghost" scheme:"muted" size:"sm" show:{ xs:false md:true }
                         IconButton icon:"bell" label:"Open notifications" variant:"ghost" scheme:"muted" size:"sm"
-                        Avatar name:"Jordan Lee" alt:"Jordan Lee" size:"sm" variant:"soft" scheme:"primary" status:"online"
+                        Avatar name:"Jordan Lee" alt:"Jordan Lee" size:"sm" variant:"solid" scheme:"primary" status:"online"
                 start
-                  Sidebar show:{ xs:false md:true } variant:"soft" scheme:"muted" w:64 h:"vh-0" border:1
+                  Sidebar show:{ xs:false md:true } variant:"solid" scheme:"muted" w:64 h:"vh-0" border:1
                     body
                       SideNav variant:"solid" p:4
                         header label:"Workspace" description:"Dashboard blocks" icon:"widget-5"
@@ -659,7 +659,7 @@ page DashboardPage
                 main
                   children
                 bottomBar
-                  BottomBar show:{ xs:true md:false } variant:"soft" scheme:"surface" bordered:true boxed:true
+                  BottomBar show:{ xs:true md:false } variant:"solid" scheme:"surface" bordered:true boxed:true
                     tab href:"/blocks/dashboard-preview/overview" label:"Overview"
                       Icon name:"home"
                     tab href:"/blocks/dashboard-preview/task-board" label:"Tasks"
@@ -674,18 +674,18 @@ page DashboardPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "05 · SETTINGS"
           Title size:"2xl" weight:"black"
             "A responsive settings form with secure controls"
-        Button href:"/blocks/dashboard-preview/settings" variant:"soft" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/dashboard-preview/settings" variant:"solid" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
       Tabs variant:"line" position:"top" w:"full"
         tab id:"settings-preview" label:"Preview"
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe src:"/blocks/dashboard-preview/settings" title:"Dashboard settings preview" loading:"lazy" sandbox:"scripts same-origin forms"
         tab id:"settings-page-code" label:"Page Code"
-          Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy page" copiedLabel:"Copied" content:"""
+          Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy page" copiedLabel:"Copied" content:"""
             page DashboardSettingsPage
               signal settings value:{ fullName:"Jordan Lee" email:"jordan@example.com" password:"" timezone:"utc" digest:"weekly" }
               const timezones:
@@ -700,33 +700,33 @@ page DashboardPage
                   { id:"weekly" value:"weekly" label:"Weekly" },
                   { id:"never" value:"never" label:"Never" },
                 ]
-              Section id:"dashboard-settings" bg:"softMuted" minH:"vh-0" p:{ xs:4 md:8 }
+              Section id:"dashboard-settings" bg:"muted" minH:"vh-0" p:{ xs:4 md:8 }
                 Grid columns:1 gap:5
                   Grid columns:1 gap:1
-                    Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+                    Text size:"xs" weight:"bold" spacing:"widest"
                       "SETTINGS"
                     Title size:{ xs:"2xl" md:"4xl" } weight:"black"
                       "Workspace preferences"
-                    Text size:"sm" color:"muted"
+                    Text size:"sm"
                       "Keep identity, security, and notifications in one responsive form."
                   Grid columns:{ xs:1 lg:2 } gap:4 align:"start"
-                    Card variant:"soft" rounded:"lg" p:{ xs:5 md:6 } border:1
+                    Card variant:"solid" rounded:"lg" p:{ xs:5 md:6 } border:1
                       Flex direction:"column" align:"center" gap:3
-                        Avatar name:"Jordan Lee" alt:"Jordan Lee profile photo placeholder" size:"xl" variant:"soft" scheme:"primary" bordered:true
+                        Avatar name:"Jordan Lee" alt:"Jordan Lee profile photo placeholder" size:"xl" variant:"solid" scheme:"primary" bordered:true
                         Text size:"sm" weight:"bold"
                           "Profile photo"
-                        Text size:"xs" color:"muted"
+                        Text size:"xs"
                           "Placeholder avatar for this copy-ready block."
                         Button variant:"outlined" scheme:"muted" size:"sm"
                           "Change photo"
-                    Card variant:"soft" rounded:"lg" p:{ xs:5 md:8 } border:1
+                    Card variant:"solid" rounded:"lg" p:{ xs:5 md:8 } border:1
                       Grid columns:1 gap:5
                         Grid columns:1 gap:1
                           Title size:"xl" weight:"bold"
                             "Profile and notifications"
-                          Text size:"sm" color:"muted"
+                          Text size:"sm"
                             "These fields are ready to bind to a settings endpoint."
-                        Alert type:"info" variant:"soft" scheme:"info" message:"Changes are saved locally in this preview."
+                        Alert type:"info" variant:"solid" scheme:"info" message:"Changes are saved locally in this preview."
                         Grid columns:{ xs:1 md:2 } gap:4
                           Input bind:settings.fullName label:"Full name" placeholder:"Your full name" scheme:"muted" w:"full"
                           Input bind:settings.email label:"Email address" placeholder:"you@example.com" scheme:"muted" w:"full"
@@ -745,7 +745,7 @@ page DashboardPage
 
           """
         tab id:"settings-layout-code" label:"Layout Code"
-          Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy layout" copiedLabel:"Copied" content:"""
+          Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy layout" copiedLabel:"Copied" content:"""
             layout DashboardPreviewLayout
               Scaffold minH:"vh-0" boxed:true
                 appBar
@@ -759,9 +759,9 @@ page DashboardPage
                       Flex align:"center" gap:3
                         IconButton icon:"magnifier" label:"Search dashboard" variant:"ghost" scheme:"muted" size:"sm" show:{ xs:false md:true }
                         IconButton icon:"bell" label:"Open notifications" variant:"ghost" scheme:"muted" size:"sm"
-                        Avatar name:"Jordan Lee" alt:"Jordan Lee" size:"sm" variant:"soft" scheme:"primary" status:"online"
+                        Avatar name:"Jordan Lee" alt:"Jordan Lee" size:"sm" variant:"solid" scheme:"primary" status:"online"
                 start
-                  Sidebar show:{ xs:false md:true } variant:"soft" scheme:"muted" w:64 h:"vh-0" border:1
+                  Sidebar show:{ xs:false md:true } variant:"solid" scheme:"muted" w:64 h:"vh-0" border:1
                     body
                       SideNav variant:"solid" p:4
                         header label:"Workspace" description:"Dashboard blocks" icon:"widget-5"
@@ -774,7 +774,7 @@ page DashboardPage
                 main
                   children
                 bottomBar
-                  BottomBar show:{ xs:true md:false } variant:"soft" scheme:"surface" bordered:true boxed:true
+                  BottomBar show:{ xs:true md:false } variant:"solid" scheme:"surface" bordered:true boxed:true
                     tab href:"/blocks/dashboard-preview/overview" label:"Overview"
                       Icon name:"home"
                     tab href:"/blocks/dashboard-preview/task-board" label:"Tasks"
@@ -789,7 +789,7 @@ page DashboardPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "06 · COMPLETE PROFILE"
           Title size:"2xl" weight:"black"
             "A portable Stepper for profile setup"
@@ -800,7 +800,7 @@ page DashboardPage
           Device device:"laptop" w:"full" rounded:"lg" border:1
             Iframe src:"/blocks/dashboard-preview/complete-profile" title:"Dashboard complete profile preview" loading:"lazy" sandbox:"scripts same-origin forms"
         tab id:"complete-profile-page-code" label:"Page Code"
-          Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy page" copiedLabel:"Copied" content:"""
+          Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy page" copiedLabel:"Copied" content:"""
             page DashboardCompleteProfilePage
               signal profile value:{ name:"" email:"" password:"" role:"designer" timezone:"utc" }
               const roles:
@@ -815,22 +815,22 @@ page DashboardPage
                   { id:"bogota" value:"bogota" label:"Bogota (GMT-5)" },
                   { id:"berlin" value:"berlin" label:"Berlin (GMT+1)" },
                 ]
-              Section id:"dashboard-complete-profile" bg:"softMuted" minH:"vh-0" p:{ xs:4 md:8 }
+              Section id:"dashboard-complete-profile" bg:"muted" minH:"vh-0" p:{ xs:4 md:8 }
                 Grid columns:1 gap:5
                   Grid columns:1 gap:1
-                    Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+                    Text size:"xs" weight:"bold" spacing:"widest"
                       "COMPLETE PROFILE"
                     Title size:{ xs:"2xl" md:"4xl" } weight:"black"
                       "A focused setup flow"
-                    Text size:"sm" color:"muted"
+                    Text size:"sm"
                       "Use the portable Stepper to collect only the details the workspace needs."
-                  Card variant:"soft" rounded:"lg" p:{ xs:4 md:8 } border:1
+                  Card variant:"solid" rounded:"lg" p:{ xs:4 md:8 } border:1
                     Stepper scheme:"primary" orientation:"horizontal"
                       step id:"identity" label:"Identity"
                         Grid columns:1 gap:4 p:{ xs:2 md:4 }
                           Flex direction:"column" align:"center" gap:3
-                            Avatar name:"Profile" alt:"Profile photo placeholder" size:"xl" variant:"soft" scheme:"primary" bordered:true
-                            Text size:"xs" color:"muted"
+                            Avatar name:"Profile" alt:"Profile photo placeholder" size:"xl" variant:"solid" scheme:"primary" bordered:true
+                            Text size:"xs"
                               "Photo placeholder"
                           Input bind:profile.name label:"Display name" placeholder:"How should we call you?" scheme:"muted" w:"full"
                           Input bind:profile.email label:"Email address" placeholder:"you@example.com" scheme:"muted" w:"full"
@@ -845,10 +845,10 @@ page DashboardPage
                           Password bind:profile.password label:"Create a password" placeholder:"Use a secure password" hideStrength:false scheme:"muted" w:"full"
                       step id:"finish" label:"Finish"
                         Grid columns:1 gap:4 p:{ xs:2 md:4 }
-                          Avatar name:"Profile" alt:"Profile photo placeholder" size:"lg" variant:"soft" scheme:"primary"
+                          Avatar name:"Profile" alt:"Profile photo placeholder" size:"lg" variant:"solid" scheme:"primary"
                           Title size:"lg" weight:"bold"
                             "Ready to continue"
-                          Text size:"sm" color:"muted"
+                          Text size:"sm"
                             "Review your details, then enter the workspace."
                           Flex direction:{ xs:"column" sm:"row" } justify:"between" gap:3
                             Button variant:"ghost" scheme:"muted"
@@ -858,7 +858,7 @@ page DashboardPage
 
           """
         tab id:"complete-profile-layout-code" label:"Layout Code"
-          Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy layout" copiedLabel:"Copied" content:"""
+          Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy layout" copiedLabel:"Copied" content:"""
             layout DashboardPreviewLayout
               Scaffold minH:"vh-0" boxed:true
                 appBar
@@ -872,9 +872,9 @@ page DashboardPage
                       Flex align:"center" gap:3
                         IconButton icon:"magnifier" label:"Search dashboard" variant:"ghost" scheme:"muted" size:"sm" show:{ xs:false md:true }
                         IconButton icon:"bell" label:"Open notifications" variant:"ghost" scheme:"muted" size:"sm"
-                        Avatar name:"Jordan Lee" alt:"Jordan Lee" size:"sm" variant:"soft" scheme:"primary" status:"online"
+                        Avatar name:"Jordan Lee" alt:"Jordan Lee" size:"sm" variant:"solid" scheme:"primary" status:"online"
                 start
-                  Sidebar show:{ xs:false md:true } variant:"soft" scheme:"muted" w:64 h:"vh-0" border:1
+                  Sidebar show:{ xs:false md:true } variant:"solid" scheme:"muted" w:64 h:"vh-0" border:1
                     body
                       SideNav variant:"solid" p:4
                         header label:"Workspace" description:"Dashboard blocks" icon:"widget-5"
@@ -887,7 +887,7 @@ page DashboardPage
                 main
                   children
                 bottomBar
-                  BottomBar show:{ xs:true md:false } variant:"soft" scheme:"surface" bordered:true boxed:true
+                  BottomBar show:{ xs:true md:false } variant:"solid" scheme:"surface" bordered:true boxed:true
                     tab href:"/blocks/dashboard-preview/overview" label:"Overview"
                       Icon name:"home"
                     tab href:"/blocks/dashboard-preview/task-board" label:"Tasks"

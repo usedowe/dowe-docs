@@ -40,11 +40,11 @@ page ProjectStatusTablePage
   Section id:"project-status" bg:"background" color:"backgroundText" boxed:true minH:"vh-0" p:{ xs:6 md:12 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PORTFOLIO"
         Title size:{ xs:"3xl" md:"5xl" } weight:"black"
           "Project status"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Use explicit columns to keep ownership, progress, and risk visible as work changes."
       Table:
         data:projects

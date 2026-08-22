@@ -30,85 +30,85 @@ page CardsPage
   ]
   Section id:"cards" py:{ xs:6 md:10 }
     Grid columns:1 gap:4
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "COPY-READY BLOCKS"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Cards"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Fourteen responsive card wireframes built from real Dowe components with their copy-ready source beside each preview."
   Section id:"centered-card" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "01 · CENTERED CARD"
           Title size:"2xl" weight:"black"
             "Centered identity, headline, and short copy"
       Tabs variant:"line" position:"top" w:"full"
         tab id:"centered-card-preview" label:"Preview"
-          Box bg:"softMuted" p:{ xs:4 md:6 }
+          Box bg:"muted" p:{ xs:4 md:6 }
             Flex align:"center" justify:"center"
               Card variant:"solid" scheme:"background" rounded:"lg" w:64 minH:72 p:{ xs:6 md:10 }
                 Flex direction:"column" align:"center" justify:"center" gap:4 minH:56
-                  Box bg:"softMuted" rounded:"full" w:14 h:14
+                  Box bg:"muted" rounded:"full" w:14 h:14
                   Title font:"system" size:"lg" weight:"medium"
                     "Headline"
                   Flex direction:"column" align:"center" gap:0
-                    Text font:"system" size:"sm" color:"muted"
+                    Text font:"system" size:"sm"
                       "Please add your content"
-                    Text font:"system" size:"sm" color:"muted"
+                    Text font:"system" size:"sm"
                       "here. Keep it short and"
-                    Text font:"system" size:"sm" color:"muted"
+                    Text font:"system" size:"sm"
                       "simple. And smile :)"
         tab id:"centered-card-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy centered card"
             copiedLabel:"Copied"
             content:"""
               Card variant:"solid" scheme:"background" rounded:"lg" w:64 minH:72 p:{ xs:6 md:10 }
                 Flex direction:"column" align:"center" justify:"center" gap:4 minH:56
-                  Box bg:"softMuted" rounded:"full" w:14 h:14
+                  Box bg:"muted" rounded:"full" w:14 h:14
                   Title font:"system" size:"lg" weight:"medium"
                     "Headline"
                   Flex direction:"column" align:"center" gap:0
-                    Text font:"system" size:"sm" color:"muted"
+                    Text font:"system" size:"sm"
                       "Please add your content"
-                    Text font:"system" size:"sm" color:"muted"
+                    Text font:"system" size:"sm"
                       "here. Keep it short and"
-                    Text font:"system" size:"sm" color:"muted"
+                    Text font:"system" size:"sm"
                       "simple. And smile :)"
             """
   Section id:"media-card" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "02 · MEDIA CARD"
           Title size:"2xl" weight:"black"
             "A leading visual paired with headline and subtitle"
       Tabs variant:"line" position:"top" w:"full"
         tab id:"media-card-preview" label:"Preview"
-          Box bg:"softMuted" p:{ xs:4 md:6 }
+          Box bg:"muted" p:{ xs:4 md:6 }
             Flex align:"center" justify:"center"
               Card variant:"solid" scheme:"background" rounded:"lg" w:64 minH:72 p:{ xs:6 md:10 }
                 Flex align:"center" justify:"center" minH:56
                   Grid columns:1 gap:6 w:64
                     Grid columns:2 gap:4 align:"center"
-                      Box bg:"softMuted" rounded:"full" w:14 h:14
+                      Box bg:"muted" rounded:"full" w:14 h:14
                       Grid columns:1 gap:1
                         Title font:"system" size:"lg" weight:"medium"
                           "Headline"
-                        Text font:"system" size:"sm" color:"muted"
+                        Text font:"system" size:"sm"
                           "Subtitle"
-                    Text font:"system" size:"sm" color:"muted" maxW:56
+                    Text font:"system" size:"sm" maxW:56
                       "Please add your content here. Keep it short and simple. And smile :)"
         tab id:"media-card-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy media card"
             copiedLabel:"Copied"
@@ -117,26 +117,26 @@ page CardsPage
                 Flex align:"center" justify:"center" minH:56
                   Grid columns:1 gap:6 w:64
                     Grid columns:2 gap:4 align:"center"
-                      Box bg:"softMuted" rounded:"full" w:14 h:14
+                      Box bg:"muted" rounded:"full" w:14 h:14
                       Grid columns:1 gap:1
                         Title font:"system" size:"lg" weight:"medium"
                           "Headline"
-                        Text font:"system" size:"sm" color:"muted"
+                        Text font:"system" size:"sm"
                           "Subtitle"
-                    Text font:"system" size:"sm" color:"muted" maxW:56
+                    Text font:"system" size:"sm" maxW:56
                       "Please add your content here. Keep it short and simple. And smile :)"
             """
   Section id:"action-card" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "03 · ACTION CARD"
           Title size:"2xl" weight:"black"
             "Editorial copy with one compact action"
       Tabs variant:"line" position:"top" w:"full"
         tab id:"action-card-preview" label:"Preview"
-          Box bg:"softMuted" p:{ xs:4 md:6 }
+          Box bg:"muted" p:{ xs:4 md:6 }
             Flex align:"center" justify:"center"
               Card variant:"solid" scheme:"background" rounded:"lg" w:64 minH:72 p:{ xs:6 md:10 }
                 Flex align:"center" justify:"center" minH:56
@@ -144,7 +144,7 @@ page CardsPage
                     Grid columns:1 gap:2
                       Title font:"system" size:"lg" weight:"medium"
                         "Headline"
-                      Text font:"system" size:"sm" color:"muted" maxW:48
+                      Text font:"system" size:"sm" maxW:48
                         "Please add your content here. Keep it short and simple. And smile :)"
                     Flex justify:"end" align:"end"
                       Button size:"sm" rounded:"md" w:20
@@ -152,7 +152,7 @@ page CardsPage
         tab id:"action-card-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy action card"
             copiedLabel:"Copied"
@@ -163,7 +163,7 @@ page CardsPage
                     Grid columns:1 gap:2
                       Title font:"system" size:"lg" weight:"medium"
                         "Headline"
-                      Text font:"system" size:"sm" color:"muted" maxW:48
+                      Text font:"system" size:"sm" maxW:48
                         "Please add your content here. Keep it short and simple. And smile :)"
                     Flex justify:"end" align:"end"
                       Button size:"sm" rounded:"md" w:20
@@ -173,32 +173,32 @@ page CardsPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "04 · FEATURE CARD"
           Title size:"2xl" weight:"black"
             "Three compact markers above centered copy"
       Tabs variant:"line" position:"top" w:"full"
         tab id:"feature-card-preview" label:"Preview"
-          Box bg:"softMuted" p:{ xs:4 md:6 }
+          Box bg:"muted" p:{ xs:4 md:6 }
             Flex align:"center" justify:"center"
               Card variant:"solid" scheme:"background" rounded:"lg" w:{ xs:72 md:80 } minH:72 p:{ xs:6 md:10 }
                 Flex direction:"column" align:"center" justify:"center" gap:3 minH:56
                   Flex align:"center" justify:"center" gap:8
                     each in:featureMarkers as:marker key:marker.id
-                      Box bg:"softMuted" rounded:"md" w:10 h:10
+                      Box bg:"muted" rounded:"md" w:10 h:10
                   Title font:"system" size:"lg" weight:"medium"
                     "Headline"
                   Flex direction:"column" align:"center" gap:0
-                    Text font:"system" size:"sm" color:"muted"
+                    Text font:"system" size:"sm"
                       "Please add your content here."
-                    Text font:"system" size:"sm" color:"muted"
+                    Text font:"system" size:"sm"
                       "Keep it short and simple. And"
-                    Text font:"system" size:"sm" color:"muted"
+                    Text font:"system" size:"sm"
                       "smile :)"
         tab id:"feature-card-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy feature card"
             copiedLabel:"Copied"
@@ -212,42 +212,42 @@ page CardsPage
                 Flex direction:"column" align:"center" justify:"center" gap:3 minH:56
                   Flex align:"center" justify:"center" gap:8
                     each in:markers as:marker key:marker.id
-                      Box bg:"softMuted" rounded:"md" w:10 h:10
+                      Box bg:"muted" rounded:"md" w:10 h:10
                   Title font:"system" size:"lg" weight:"medium"
                     "Headline"
                   Flex direction:"column" align:"center" gap:0
-                    Text font:"system" size:"sm" color:"muted"
+                    Text font:"system" size:"sm"
                       "Please add your content here."
-                    Text font:"system" size:"sm" color:"muted"
+                    Text font:"system" size:"sm"
                       "Keep it short and simple. And"
-                    Text font:"system" size:"sm" color:"muted"
+                    Text font:"system" size:"sm"
                       "smile :)"
             """
   Section id:"image-card" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "05 · IMAGE CARD"
           Title size:"2xl" weight:"black"
             "A broad placeholder above a simple text block"
       Tabs variant:"line" position:"top" w:"full"
         tab id:"image-card-preview" label:"Preview"
-          Box bg:"softMuted" p:{ xs:4 md:6 }
+          Box bg:"muted" p:{ xs:4 md:6 }
             Flex align:"center" justify:"center"
               Card variant:"solid" scheme:"background" rounded:"lg" w:{ xs:72 md:80 } minH:96 p:{ xs:6 md:10 }
                 Flex align:"center" justify:"center" minH:80
                   Grid columns:1 gap:4 w:"full" maxW:80
-                    Box bg:"softMuted" rounded:"lg" w:"full" h:40
+                    Box bg:"muted" rounded:"lg" w:"full" h:40
                     Grid columns:1 gap:1
                       Title font:"system" size:"lg" weight:"medium"
                         "Headline"
-                      Text font:"system" size:"sm" color:"muted" maxW:64
+                      Text font:"system" size:"sm" maxW:64
                         "Please add your content here. Keep it short and simple. And smile :)"
         tab id:"image-card-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy image card"
             copiedLabel:"Copied"
@@ -255,34 +255,34 @@ page CardsPage
               Card variant:"solid" scheme:"background" rounded:"lg" w:{ xs:72 md:80 } minH:96 p:{ xs:6 md:10 }
                 Flex align:"center" justify:"center" minH:80
                   Grid columns:1 gap:4 w:"full" maxW:80
-                    Box bg:"softMuted" rounded:"lg" w:"full" h:40
+                    Box bg:"muted" rounded:"lg" w:"full" h:40
                     Grid columns:1 gap:1
                       Title font:"system" size:"lg" weight:"medium"
                         "Headline"
-                      Text font:"system" size:"sm" color:"muted" maxW:64
+                      Text font:"system" size:"sm" maxW:64
                         "Please add your content here. Keep it short and simple. And smile :)"
             """
   Section id:"dual-action-card" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "06 · DUAL-ACTION CARD"
           Title size:"2xl" weight:"black"
             "A small label, headline, copy, and paired actions"
       Tabs variant:"line" position:"top" w:"full"
         tab id:"dual-action-card-preview" label:"Preview"
-          Box bg:"softMuted" p:{ xs:4 md:6 }
+          Box bg:"muted" p:{ xs:4 md:6 }
             Flex align:"center" justify:"center"
               Card variant:"solid" scheme:"background" rounded:"lg" w:{ xs:72 md:80 } minH:72 p:{ xs:6 md:10 }
                 Flex align:"center" justify:"center" minH:56
                   Grid columns:1 gap:6 w:"full" maxW:80
                     Grid columns:1 gap:1
-                      Text font:"system" size:"sm" color:"muted"
+                      Text font:"system" size:"sm"
                         "Part I"
                       Title font:"system" size:"lg" weight:"medium"
                         "Headline"
-                    Text font:"system" size:"sm" color:"muted" maxW:64
+                    Text font:"system" size:"sm" maxW:64
                       "Please add your content here. Keep it short and simple. And smile :)"
                     Flex justify:"end" align:"end" gap:4
                       each in:dualActions as:action key:action.id
@@ -291,7 +291,7 @@ page CardsPage
         tab id:"dual-action-card-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy dual-action card"
             copiedLabel:"Copied"
@@ -304,11 +304,11 @@ page CardsPage
                 Flex align:"center" justify:"center" minH:56
                   Grid columns:1 gap:6 w:"full" maxW:80
                     Grid columns:1 gap:1
-                      Text font:"system" size:"sm" color:"muted"
+                      Text font:"system" size:"sm"
                         "Part I"
                       Title font:"system" size:"lg" weight:"medium"
                         "Headline"
-                    Text font:"system" size:"sm" color:"muted" maxW:64
+                    Text font:"system" size:"sm" maxW:64
                       "Please add your content here. Keep it short and simple. And smile :)"
                     Flex justify:"end" align:"end" gap:4
                       each in:actions as:action key:action.id
@@ -319,21 +319,21 @@ page CardsPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "07 · TAGGED CARD"
           Title size:"2xl" weight:"black"
             "A compact summary with tags and a corner marker"
       Tabs variant:"line" position:"top" w:"full"
         tab id:"tagged-card-preview" label:"Preview"
-          Box bg:"softMuted" p:{ xs:4 md:6 }
+          Box bg:"muted" p:{ xs:4 md:6 }
             Flex align:"center" justify:"center"
               Card variant:"solid" scheme:"background" rounded:"lg" w:64 minH:56 p:6
                 Flex direction:"column" gap:4
                   Flex justify:"between" align:"start"
                     Title font:"system" size:"lg" weight:"medium"
                       "Headline"
-                    Box bg:"softMuted" rounded:"full" w:8 h:8
-                  Text font:"system" size:"sm" color:"muted"
+                    Box bg:"muted" rounded:"full" w:8 h:8
+                  Text font:"system" size:"sm"
                     "Please add your content here. Keep it short and simple. And smile :)"
                   Flex wrap:true gap:2
                     each in:cardTags as:tag key:tag.id
@@ -343,7 +343,7 @@ page CardsPage
         tab id:"tagged-card-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy tagged card"
             copiedLabel:"Copied"
@@ -358,8 +358,8 @@ page CardsPage
                   Flex justify:"between" align:"start"
                     Title font:"system" size:"lg" weight:"medium"
                       "Headline"
-                    Box bg:"softMuted" rounded:"full" w:8 h:8
-                  Text font:"system" size:"sm" color:"muted"
+                    Box bg:"muted" rounded:"full" w:8 h:8
+                  Text font:"system" size:"sm"
                     "Please add your content here. Keep it short and simple. And smile :)"
                   Flex wrap:true gap:2
                     each in:tags as:tag key:tag.id
@@ -371,76 +371,76 @@ page CardsPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "08 · IMAGE LABEL CARD"
           Title size:"2xl" weight:"black"
             "A visual panel with a floating status label"
       Tabs variant:"line" position:"top" w:"full"
         tab id:"image-label-card-preview" label:"Preview"
-          Box bg:"softMuted" p:{ xs:4 md:6 }
+          Box bg:"muted" p:{ xs:4 md:6 }
             Flex align:"center" justify:"center"
               Card variant:"solid" scheme:"background" rounded:"lg" w:64 p:0
                 Grid columns:1 gap:0
-                  Box position:"relative" bg:"softMuted" w:"full" h:48
+                  Box position:"relative" bg:"muted" w:"full" h:48
                     Box position:"absolute" top:3 right:3
                       Chip variant:"solid" scheme:"muted" size:"sm" rounded:"full"
                         "Label"
                   Grid columns:1 gap:2 p:6
                     Title font:"system" size:"lg" weight:"medium"
                       "Headline"
-                    Text font:"system" size:"sm" color:"muted"
+                    Text font:"system" size:"sm"
                       "Please add your content here. Keep it short and simple. And smile :)"
         tab id:"image-label-card-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy image label card"
             copiedLabel:"Copied"
             content:"""
               Card variant:"solid" scheme:"background" rounded:"lg" w:64 p:0
                 Grid columns:1 gap:0
-                  Box position:"relative" bg:"softMuted" w:"full" h:48
+                  Box position:"relative" bg:"muted" w:"full" h:48
                     Box position:"absolute" top:3 right:3
                       Chip variant:"solid" scheme:"muted" size:"sm" rounded:"full"
                         "Label"
                   Grid columns:1 gap:2 p:6
                     Title font:"system" size:"lg" weight:"medium"
                       "Headline"
-                    Text font:"system" size:"sm" color:"muted"
+                    Text font:"system" size:"sm"
                       "Please add your content here. Keep it short and simple. And smile :)"
             """
   Section id:"media-action-card" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "09 · MEDIA ACTION CARD"
           Title size:"2xl" weight:"black"
             "A media block with metadata and paired actions"
       Tabs variant:"line" position:"top" w:"full"
         tab id:"media-action-card-preview" label:"Preview"
-          Box bg:"softMuted" p:{ xs:4 md:6 }
+          Box bg:"muted" p:{ xs:4 md:6 }
             Flex align:"center" justify:"center"
               Card variant:"solid" scheme:"background" rounded:"lg" w:{ xs:72 md:80 } p:0
                 Grid columns:1 gap:0
                   Flex align:"center" justify:"between" gap:3 p:6
                     Flex align:"center" gap:2
-                      Box bg:"softMuted" rounded:"full" w:8 h:8
+                      Box bg:"muted" rounded:"full" w:8 h:8
                       Grid columns:1 gap:0
                         Title font:"system" size:"lg" weight:"medium"
                           "Headline"
-                        Text font:"system" size:"sm" color:"muted"
+                        Text font:"system" size:"sm"
                           "Subhead"
-                    Box bg:"softMuted" rounded:"full" w:4 h:4
-                  Box bg:"softMuted" w:"full" h:48
+                    Box bg:"muted" rounded:"full" w:4 h:4
+                  Box bg:"muted" w:"full" h:48
                   Grid columns:1 gap:4 p:6
                     Grid columns:1 gap:1
                       Title font:"system" size:"lg" weight:"medium"
                         "Title"
-                      Text font:"system" size:"sm" color:"muted"
+                      Text font:"system" size:"sm"
                         "Subtitle"
-                    Text font:"system" size:"sm" color:"muted"
+                    Text font:"system" size:"sm"
                       "Please add your content here. Keep it short and simple. And smile :)"
                     Flex justify:"end" gap:4
                       each in:dualActions as:action key:action.id
@@ -449,7 +449,7 @@ page CardsPage
         tab id:"media-action-card-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy media action card"
             copiedLabel:"Copied"
@@ -462,21 +462,21 @@ page CardsPage
                 Grid columns:1 gap:0
                   Flex align:"center" justify:"between" gap:3 p:6
                     Flex align:"center" gap:2
-                      Box bg:"softMuted" rounded:"full" w:8 h:8
+                      Box bg:"muted" rounded:"full" w:8 h:8
                       Grid columns:1 gap:0
                         Title font:"system" size:"lg" weight:"medium"
                           "Headline"
-                        Text font:"system" size:"sm" color:"muted"
+                        Text font:"system" size:"sm"
                           "Subhead"
-                    Box bg:"softMuted" rounded:"full" w:4 h:4
-                  Box bg:"softMuted" w:"full" h:48
+                    Box bg:"muted" rounded:"full" w:4 h:4
+                  Box bg:"muted" w:"full" h:48
                   Grid columns:1 gap:4 p:6
                     Grid columns:1 gap:1
                       Title font:"system" size:"lg" weight:"medium"
                         "Title"
-                      Text font:"system" size:"sm" color:"muted"
+                      Text font:"system" size:"sm"
                         "Subtitle"
-                    Text font:"system" size:"sm" color:"muted"
+                    Text font:"system" size:"sm"
                       "Please add your content here. Keep it short and simple. And smile :)"
                     Flex justify:"end" gap:4
                       each in:actions as:action key:action.id
@@ -487,33 +487,33 @@ page CardsPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "10 · NUMBERED LIST CARD"
           Title size:"2xl" weight:"black"
             "Two compact points under a centered heading"
       Tabs variant:"line" position:"top" w:"full"
         tab id:"numbered-list-card-preview" label:"Preview"
-          Box bg:"softMuted" p:{ xs:4 md:6 }
+          Box bg:"muted" p:{ xs:4 md:6 }
             Flex align:"center" justify:"center"
               Card variant:"solid" scheme:"background" rounded:"lg" w:{ xs:72 md:80 } p:6
                 Grid columns:1 gap:4
                   Flex direction:"column" align:"center" gap:0
                     Title font:"system" size:"lg" weight:"medium"
                       "Headline"
-                    Text font:"system" size:"sm" color:"muted"
+                    Text font:"system" size:"sm"
                       "Subhead"
                   each in:numberedCardRows as:row key:row.id
                     Flex align:"center" gap:3
-                      Box bg:"softMuted" rounded:"full" w:8 h:8
+                      Box bg:"muted" rounded:"full" w:8 h:8
                         Flex align:"center" justify:"center" h:"full"
                           Text font:"system" size:"sm"
                             "{row.number}"
-                      Text font:"system" size:"sm" color:"muted"
+                      Text font:"system" size:"sm"
                         "{row.copy}"
         tab id:"numbered-list-card-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy numbered list card"
             copiedLabel:"Copied"
@@ -527,39 +527,39 @@ page CardsPage
                   Flex direction:"column" align:"center" gap:0
                     Title font:"system" size:"lg" weight:"medium"
                       "Headline"
-                    Text font:"system" size:"sm" color:"muted"
+                    Text font:"system" size:"sm"
                       "Subhead"
                   each in:rows as:row key:row.id
                     Flex align:"center" gap:3
-                      Box bg:"softMuted" rounded:"full" w:8 h:8
+                      Box bg:"muted" rounded:"full" w:8 h:8
                         Flex align:"center" justify:"center" h:"full"
                           Text font:"system" size:"sm"
                             "{row.number}"
-                      Text font:"system" size:"sm" color:"muted"
+                      Text font:"system" size:"sm"
                         "{row.copy}"
             """
   Section id:"image-tags-action-card" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "11 · IMAGE TAGS ACTION CARD"
           Title size:"2xl" weight:"black"
             "A media card with metadata, tags, and action"
       Tabs variant:"line" position:"top" w:"full"
         tab id:"image-tags-action-card-preview" label:"Preview"
-          Box bg:"softMuted" p:{ xs:4 md:6 }
+          Box bg:"muted" p:{ xs:4 md:6 }
             Flex align:"center" justify:"center"
               Card variant:"solid" scheme:"background" rounded:"lg" w:{ xs:72 md:80 } p:0
                 Grid columns:1 gap:0
-                  Box bg:"softMuted" w:"full" h:48
+                  Box bg:"muted" w:"full" h:48
                   Grid columns:1 gap:4 p:6
                     Grid columns:1 gap:1
                       Title font:"system" size:"lg" weight:"medium"
                         "Headline"
-                      Text font:"system" size:"sm" color:"muted"
+                      Text font:"system" size:"sm"
                         "Subhead"
-                    Text font:"system" size:"sm" color:"muted"
+                    Text font:"system" size:"sm"
                       "Please add your content here. Keep it short and simple. And smile :)"
                     Divider scheme:"muted"
                     Text font:"system" size:"sm"
@@ -570,14 +570,14 @@ page CardsPage
                           Text font:"system" size:"sm"
                             "{tag.label}"
                       Box border:1 borderColor:"muted" rounded:"full" px:3 py:1
-                        Text font:"system" size:"sm" color:"muted"
+                        Text font:"system" size:"sm"
                           "Tag 4"
                     Button size:"sm" rounded:"md" w:20
                       "Button"
         tab id:"image-tags-action-card-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy image tags action card"
             copiedLabel:"Copied"
@@ -590,14 +590,14 @@ page CardsPage
               ]
               Card variant:"solid" scheme:"background" rounded:"lg" w:{ xs:72 md:80 } p:0
                 Grid columns:1 gap:0
-                  Box bg:"softMuted" w:"full" h:48
+                  Box bg:"muted" w:"full" h:48
                   Grid columns:1 gap:4 p:6
                     Grid columns:1 gap:1
                       Title font:"system" size:"lg" weight:"medium"
                         "Headline"
-                      Text font:"system" size:"sm" color:"muted"
+                      Text font:"system" size:"sm"
                         "Subhead"
-                    Text font:"system" size:"sm" color:"muted"
+                    Text font:"system" size:"sm"
                       "Please add your content here. Keep it short and simple. And smile :)"
                     Divider scheme:"muted"
                     Text font:"system" size:"sm"
@@ -614,32 +614,32 @@ page CardsPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "12 · MEDIA LEGEND CARD"
           Title size:"2xl" weight:"black"
             "A short intro, media placeholder, and legend"
       Tabs variant:"line" position:"top" w:"full"
         tab id:"media-legend-card-preview" label:"Preview"
-          Box bg:"softMuted" p:{ xs:4 md:6 }
+          Box bg:"muted" p:{ xs:4 md:6 }
             Flex align:"center" justify:"center"
               Card variant:"solid" scheme:"background" rounded:"lg" w:{ xs:72 md:80 } p:0
                 Grid columns:1 gap:0
                   Grid columns:1 gap:1 p:6
                     Title font:"system" size:"lg" weight:"medium"
                       "Headline"
-                    Text font:"system" size:"sm" color:"muted"
+                    Text font:"system" size:"sm"
                       "Please add your content here. Keep it short and simple. And smile :)"
-                  Box bg:"softMuted" w:"full" h:48
+                  Box bg:"muted" w:"full" h:48
                   Flex justify:"center" gap:6 p:6
                     each in:cardLegend as:item key:item.id
                       Flex align:"center" gap:2
-                        Box bg:"softMuted" rounded:"full" w:4 h:4
-                        Text font:"system" size:"sm" color:"muted"
+                        Box bg:"muted" rounded:"full" w:4 h:4
+                        Text font:"system" size:"sm"
                           "{item.label}"
         tab id:"media-legend-card-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy media legend card"
             copiedLabel:"Copied"
@@ -654,42 +654,42 @@ page CardsPage
                   Grid columns:1 gap:1 p:6
                     Title font:"system" size:"lg" weight:"medium"
                       "Headline"
-                    Text font:"system" size:"sm" color:"muted"
+                    Text font:"system" size:"sm"
                       "Please add your content here. Keep it short and simple. And smile :)"
-                  Box bg:"softMuted" w:"full" h:48
+                  Box bg:"muted" w:"full" h:48
                   Flex justify:"center" gap:6 p:6
                     each in:legend as:item key:item.id
                       Flex align:"center" gap:2
-                        Box bg:"softMuted" rounded:"full" w:4 h:4
-                        Text font:"system" size:"sm" color:"muted"
+                        Box bg:"muted" rounded:"full" w:4 h:4
+                        Text font:"system" size:"sm"
                           "{item.label}"
             """
   Section id:"tile-grid-card" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "13 · TILE GRID CARD"
           Title size:"2xl" weight:"black"
             "A compact four-tile media grid"
       Tabs variant:"line" position:"top" w:"full"
         tab id:"tile-grid-card-preview" label:"Preview"
-          Box bg:"softMuted" p:{ xs:4 md:6 }
+          Box bg:"muted" p:{ xs:4 md:6 }
             Flex align:"center" justify:"center"
               Card variant:"solid" scheme:"background" rounded:"lg" w:{ xs:72 md:80 } p:6
                 Grid columns:1 gap:4
                   Grid columns:1 gap:1
                     Title font:"system" size:"lg" weight:"medium"
                       "Headline"
-                    Text font:"system" size:"sm" color:"muted"
+                    Text font:"system" size:"sm"
                       "Please add your content here. Keep it short and simple. And smile :)"
                   Grid columns:2 gap:4
                     each in:cardTiles as:tile key:tile.id
-                      Box bg:"softMuted" rounded:"lg" w:"full" h:24
+                      Box bg:"muted" rounded:"lg" w:"full" h:24
         tab id:"tile-grid-card-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy tile grid card"
             copiedLabel:"Copied"
@@ -705,31 +705,31 @@ page CardsPage
                   Grid columns:1 gap:1
                     Title font:"system" size:"lg" weight:"medium"
                       "Headline"
-                    Text font:"system" size:"sm" color:"muted"
+                    Text font:"system" size:"sm"
                       "Please add your content here. Keep it short and simple. And smile :)"
                   Grid columns:2 gap:4
                     each in:tiles as:tile key:tile.id
-                      Box bg:"softMuted" rounded:"lg" w:"full" h:24
+                      Box bg:"muted" rounded:"lg" w:"full" h:24
             """
   Section id:"avatar-tags-card" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "14 · AVATAR TAGS CARD"
           Title size:"2xl" weight:"black"
             "A compact identity card with tags"
       Tabs variant:"line" position:"top" w:"full"
         tab id:"avatar-tags-card-preview" label:"Preview"
-          Box bg:"softMuted" p:{ xs:4 md:6 }
+          Box bg:"muted" p:{ xs:4 md:6 }
             Flex align:"center" justify:"center"
               Card variant:"solid" scheme:"background" rounded:"lg" w:64 minH:56 p:6
                 Flex direction:"column" gap:4
                   Flex align:"center" gap:3
-                    Box bg:"softMuted" rounded:"full" w:8 h:8
+                    Box bg:"muted" rounded:"full" w:8 h:8
                     Title font:"system" size:"lg" weight:"medium"
                       "Headline"
-                  Text font:"system" size:"sm" color:"muted"
+                  Text font:"system" size:"sm"
                     "Please add your content here. Keep it short and simple. And smile :)"
                   Flex wrap:true gap:2
                     each in:cardTags as:tag key:tag.id
@@ -739,7 +739,7 @@ page CardsPage
         tab id:"avatar-tags-card-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy avatar tags card"
             copiedLabel:"Copied"
@@ -752,10 +752,10 @@ page CardsPage
               Card variant:"solid" scheme:"background" rounded:"lg" w:64 minH:56 p:6
                 Flex direction:"column" gap:4
                   Flex align:"center" gap:3
-                    Box bg:"softMuted" rounded:"full" w:8 h:8
+                    Box bg:"muted" rounded:"full" w:8 h:8
                     Title font:"system" size:"lg" weight:"medium"
                       "Headline"
-                  Text font:"system" size:"sm" color:"muted"
+                  Text font:"system" size:"sm"
                     "Please add your content here. Keep it short and simple. And smile :)"
                   Flex wrap:true gap:2
                     each in:tags as:tag key:tag.id

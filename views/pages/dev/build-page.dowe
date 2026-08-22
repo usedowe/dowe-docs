@@ -75,24 +75,24 @@ page BuildPage
     ]
   Section id:"build-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "DEVELOPMENT / NATIVE BUILD"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Build without publishing"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Compile Dowe Views into mobile and desktop release artifacts while keeping publication as a separate deploy step."
   Section id:"build-command" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "1 / COMMAND"
         Title size:"3xl" weight:"black"
           "Choose a release target"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Run dowe build from the project root. Without --target, the interactive menu shows only targets available on the current host."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy build commands"
         copiedLabel:"Copied"
@@ -107,7 +107,7 @@ page BuildPage
         """
       Table:
         data:buildCommandRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -119,15 +119,15 @@ page BuildPage
   Section id:"build-environment" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "2 / PRODUCTION ENVIRONMENT"
         Title size:"3xl" weight:"black"
           "Build with .env.live"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Keep development values in .env. Every dowe build reads Live values from the Git-ignored .env.live file, so release compilation never requires editing the development profile."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy environment files"
         copiedLabel:"Copied"
@@ -138,7 +138,7 @@ page BuildPage
         """
       Table:
         data:buildEnvironmentRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -149,15 +149,15 @@ page BuildPage
   Section id:"build-targets" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "3 / HOST AVAILABILITY"
         Title size:"3xl" weight:"black"
           "Build on the operating system that owns the target"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Android is portable across supported hosts. Apple targets require macOS, Windows requires Windows, and Linux requires Linux."
       Table:
         data:buildTargetRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -169,15 +169,15 @@ page BuildPage
   Section id:"build-mobile-signing" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "4 / AUTOMATIC SIGNING"
         Title size:"3xl" weight:"black"
           "Keep release credentials out of source"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Dowe automates the default local signing flow and keeps optional CI overrides in the process environment. Signing values never enter build.json."
       Table:
         data:buildSigningRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -188,15 +188,15 @@ page BuildPage
   Section id:"build-versioning" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "5 / RELEASE VERSION"
         Title size:"3xl" weight:"black"
           "Increment the store build number"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The public version defaults to 0.1.0 and the numeric build defaults to 1. Store providers reject a build number that has already been uploaded."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy versioned build"
         copiedLabel:"Copied"
@@ -206,7 +206,7 @@ page BuildPage
         """
       Table:
         data:buildVersionRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -216,15 +216,15 @@ page BuildPage
         column field:"effect" label:"Changes" width:"5fr"
   Section id:"build-output" p:{ xs:5 md:7 }
     Grid columns:1 gap:4
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "6 / OUTPUT CONTRACT"
       Title size:"3xl" weight:"black"
         "Everything stays below .dowe/dist/build"
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "Each target owns one output folder containing build.json and the expected release artifact. Generated target projects remain disposable below .dowe/apps."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy output structure"
         copiedLabel:"Copied"

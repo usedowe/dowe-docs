@@ -8,7 +8,7 @@ page CenteredMediaCtaSectionPage
       Flex direction:"column" align:"center" gap:5 maxW:96
         Title size:{ xs:"3xl" md:"5xl" } weight:"black"
           "Boost your productivity with our to-do app"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Turn plans into a calm, visible workflow that keeps the whole team moving in the same direction."
         Grid columns:1 gap:3 w:"full" show:{ xs:true sm:false }
           each in:actions as:action key:action.id
@@ -18,8 +18,8 @@ page CenteredMediaCtaSectionPage
           each in:actions as:action key:action.id
             Button variant:action.variant size:"lg" rounded:"full"
               "{action.label}"
-      Box bg:"softMuted" rounded:"xl" p:8 minH:{ xs:72 md:96 } w:"full"
+      Box bg:"muted" rounded:"xl" p:8 minH:{ xs:72 md:96 } w:"full"
         Flex direction:"column" align:"center" justify:"center" gap:3 minH:{ xs:56 md:80 }
           Icon name:"gallery-bold-duotone" fill:"muted" w:16 h:16
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Image placeholder"

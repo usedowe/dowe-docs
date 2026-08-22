@@ -20,35 +20,35 @@ page AvatarGroupPage
   Section id:"avatar-group-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "DISPLAY"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "AvatarGroup"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "AvatarGroup renders a stack or inline collection of identities from static item entries or a Signal-backed array, with a deterministic overflow counter."
-      AvatarGroup items:team size:"lg" max:4 bordered:true variant:"soft" scheme:"primary"
+      AvatarGroup items:team size:"lg" max:4 bordered:true variant:"solid" scheme:"primary"
   Section id:"avatar-group-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "Show a live project roster"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use items when the collection already lives in page state. max keeps the header compact without throwing away the complete source array."
       Card variant:"outlined" border:1 p:{ xs:5 md:7 }
         Grid columns:1 gap:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+            Text size:"xs" weight:"bold" spacing:"widest"
               "SIGNAL ARRAY"
             Title size:"xl" weight:"black"
               "Design systems guild"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "The fifth person becomes an overflow counter when max is four on web, Android, and iOS."
-          AvatarGroup items:team size:"xl" max:4 bordered:true variant:"soft" scheme:"primary"
+          AvatarGroup items:team size:"xl" max:4 bordered:true variant:"solid" scheme:"primary"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy Dowe"
             copiedLabel:"Copied"
@@ -59,21 +59,21 @@ page AvatarGroupPage
                 { name:"Amara" alt:"Amara Okafor" },
                 { name:"Lin" alt:"Lin Park" },
               ]
-              AvatarGroup items:team size:"xl" max:4 bordered:true variant:"soft" scheme:"primary"
+              AvatarGroup items:team size:"xl" max:4 bordered:true variant:"solid" scheme:"primary"
             """
   Section id:"avatar-group-patterns" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "ADVANCED PATTERNS"
         Title size:"3xl" weight:"black"
           "Choose the right density"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Stacked groups communicate membership; inline groups work better inside metadata rows and compact headers."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:3
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "STACKED"
             Title size:"lg" weight:"black"
               "Project collaborators"
@@ -82,26 +82,26 @@ page AvatarGroupPage
               item name:"Grace" alt:"Grace Hopper"
               item name:"Linus" alt:"Linus Torvalds"
               item name:"Margaret" alt:"Margaret Hamilton"
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:3
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "INLINE"
             Title size:"lg" weight:"black"
               "Review participants"
-            AvatarGroup size:"sm" inline:true variant:"soft" scheme:"success"
+            AvatarGroup size:"sm" inline:true variant:"solid" scheme:"success"
               item name:"Maya" alt:"Maya Chen"
               item name:"Leo" alt:"Leo Martin"
               item name:"Dowe" alt:"Dowe Agent"
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:3
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "AUTO FIT"
             Title size:"lg" weight:"black"
               "Responsive header"
-            AvatarGroup items:team size:"md" autoFit:true bordered:true variant:"soft" scheme:"info"
+            AvatarGroup items:team size:"md" autoFit:true bordered:true variant:"solid" scheme:"info"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -112,7 +112,7 @@ page AvatarGroupPage
             item name:"Linus" alt:"Linus Torvalds"
             item name:"Margaret" alt:"Margaret Hamilton"
 
-          AvatarGroup size:"sm" inline:true variant:"soft" scheme:"success"
+          AvatarGroup size:"sm" inline:true variant:"solid" scheme:"success"
             item name:"Maya" alt:"Maya Chen"
             item name:"Leo" alt:"Leo Martin"
             item name:"Dowe" alt:"Dowe Agent"
@@ -120,31 +120,31 @@ page AvatarGroupPage
   Section id:"avatar-group-contract" p:{ xs:5 md:7 }
     Grid columns:{ xs:1 md:2 } gap:4
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "FALLBACKS"
         Title size:"xl" weight:"black"
           "Image, then initials"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "A valid HTTPS or packaged local src wins first; without it, name and alt keep the identity recognizable on every target."
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "INTERACTION"
         Title size:"xl" weight:"black"
           "Items can navigate"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Static item entries also accept href, target, externalMode, and onClick when an identity should act as a link or action."
   Section id:"avatar-group-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "AvatarGroup also accepts the applicable common spacing, sizing, border, visibility, and accessibility props."
       Table:
         data:avatarGroupProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

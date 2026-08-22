@@ -45,24 +45,24 @@ page DatabaseEntitiesPage
     ]
   Section id:"database-entities-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "SERVER / DATABASE / ENTITIES"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Entities"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "An entity is an importable server contract that names a table, its fields, and the constraints Dowe can lower into deterministic PostgreSQL or D1 migrations. Dowe Database remains schema-less and does not create a local SQL schema from entities."
   Section id:"database-entities-declaration" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "1 / DECLARATION"
         Title size:"3xl" weight:"black"
           "Describe one table with explicit fields"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The declaration name is a server binding. Dowe converts it to a lower-snake-case table name, so SmsDeliveries targets sms_deliveries. Every entity must declare at least one field and may declare at most one primary field."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy entity"
         copiedLabel:"Copied"
@@ -81,15 +81,15 @@ page DatabaseEntitiesPage
   Section id:"database-entities-types" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "2 / FIELD TYPES"
         Title size:"3xl" weight:"black"
           "Use the implemented portable type set"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Entity field types are fixed and validated during compilation. The provider migration maps each type to its current SQL representation."
       Table:
         data:entityTypeRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -100,15 +100,15 @@ page DatabaseEntitiesPage
   Section id:"database-entities-constraints" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "3 / CONSTRAINTS"
         Title size:"3xl" weight:"black"
           "Make storage requirements visible"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Constraint props are boolean and belong after the field type. Unknown props, duplicate fields, unsupported types, and multiple primary fields fail compilation."
       Table:
         data:entityConstraintRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -116,23 +116,23 @@ page DatabaseEntitiesPage
         rounded:"md"
         column field:"constraint" label:"Constraint" width:"2fr"
         column field:"guidance" label:"Generated behavior" width:"5fr"
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "Entities do not currently declare foreign keys, relations, defaults, compound indexes, or provider-specific column types."
   Section id:"database-entities-modules" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "4 / MODULES AND DATABASE CONFIG"
         Title size:"3xl" weight:"black"
           "Group a bounded domain behind one module"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Keep related declarations together under server/entities and import their named bindings into a shared Database config module. Prefer one focused plural file per bounded domain instead of one file per table. Keep isolated schemas separate and split modules when ownership, lifecycle, authorization, or size demands it."
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" color:"primary"
           "server/entities/sms-entities.dowe"
         Code:
           language:"dowe"
-          variant:"soft"
+          variant:"solid"
           scheme:"surface"
           copyLabel:"Copy entity module"
           copiedLabel:"Copied"
@@ -150,11 +150,11 @@ page DatabaseEntitiesPage
               createdAt:timestamp required:true
           """
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" color:"muted"
+        Text size:"xs" weight:"bold"
           "server/config/database.dowe"
         Code:
           language:"dowe"
-          variant:"soft"
+          variant:"solid"
           scheme:"surface"
           copyLabel:"Copy Database config"
           copiedLabel:"Copied"
@@ -173,13 +173,13 @@ page DatabaseEntitiesPage
   Section id:"database-entities-provider-behavior" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "5 / PROVIDER BEHAVIOR"
         Title size:"3xl" weight:"black"
           "Know what the entity controls"
       Table:
         data:entityProviderRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -187,7 +187,7 @@ page DatabaseEntitiesPage
         rounded:"md"
         column field:"provider" label:"Provider" width:"2fr"
         column field:"guidance" label:"Entity effect" width:"5fr"
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "A query still uses conn:<handle>.<operation> and a table string. An entity is compile-time schema and migration authority for SQL providers, not a runtime Database handle and not a value exposed to Views."
-      Button href:"/docs/server/db/migrations" variant:"soft" scheme:"muted" size:"sm" iconStart:"document-add"
+      Button href:"/docs/server/db/migrations" variant:"solid" scheme:"muted" size:"sm" iconStart:"document-add"
         "Migration graph"

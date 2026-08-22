@@ -12,24 +12,24 @@ page DatabaseDeletePage
     ]
   Section id:"database-delete-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "SERVER / DATABASE / WRITE"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Delete"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Delete removes records that match a declared equality filter and returns a result binding with the change count. The same operation dispatches to postgres, d1, or dowe through the selected database handle."
   Section id:"database-delete-example" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "1 / REMOVE"
         Title size:"3xl" weight:"black"
           "Delete with an ownership filter"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use a static table and include every server-owned equality field required to authorize the deletion. required:true makes an empty match a controlled 404."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -41,7 +41,7 @@ page DatabaseDeletePage
         """
       Table:
         data:deleteRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

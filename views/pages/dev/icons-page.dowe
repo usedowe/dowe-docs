@@ -34,24 +34,24 @@ page IconsPage
     ]
   Section id:"icons-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "DEVELOPMENT / PROJECT ICONS"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "One SVG, every app icon"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Generate web, desktop, iOS, and Android icon sets with the Dowe utilities included in Dowe."
   Section id:"icons-command" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "1 / GENERATION"
         Title size:"3xl" weight:"black"
           "Keep the vector source simple"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use icon.svg in the project root or assets/icon.svg. Dowe asks for the path first, then an opaque hexadecimal background, rounded value, and target selection. The dowe icons namespace only generates application assets; D1 migration utilities use the separate dowe d1 namespace."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy commands"
         copiedLabel:"Copied"
@@ -62,7 +62,7 @@ page IconsPage
         """
       Table:
         data:iconCommandRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -73,15 +73,15 @@ page IconsPage
         column field:"guidance" label:"Details" width:"5fr"
   Section id:"icons-output" py:{ xs:7 md:10 }
     Grid columns:1 gap:4
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "2 / VERSIONED ASSETS"
       Title size:"3xl" weight:"black"
         "Commit assets, regenerate safely"
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "Dowe writes target folders and a deterministic manifest below icons. Regenerating selected targets removes their stale files and preserves every unselected platform."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy structure"
         copiedLabel:"Copied"
@@ -95,20 +95,20 @@ page IconsPage
             ios/
             android/
         """
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "Web receives favicon and touch icons. Desktop receives ICO, ICNS, and PNG assets; the ICNS keeps Apple's transparent margin, includes native 1x and 2x sizes, and is applied to both the macOS app and its DMG. iOS receives an AppIcon asset catalog, while Android receives legacy, round, and adaptive launcher resources."
   Section id:"icons-development" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "3 / DEVELOPMENT SYNC"
         Title size:"3xl" weight:"black"
           "Regeneration reaches every target"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "dowe dev watches icons and synchronizes current copies into disposable .dowe output. Web avoids stale icon caching, desktop hosts consume their native format, and mobile builds receive their launcher resources."
       Table:
         data:iconSyncRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

@@ -42,15 +42,15 @@ page MarketingServicesFeaturesPage
             "results for your business"
         Title size:"4xl" weight:"black" show:{ xs:true md:false }
           "Digital marketing that drives results for your business"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Focused capabilities for building demand, learning faster, and growing with confidence."
       Grid columns:{ xs:1 md:2 } gap:{ xs:7 md:10 }
         each in:marketingServices as:service key:service.id
           Flex align:"start" gap:4 minH:28
-            Box bg:"softPrimary" rounded:"full" p:3
+            Box bg:"muted" rounded:"full" p:3
               Icon name:"graph-new-up-line-duotone" fill:"primary" w:10 h:10
             Grid columns:1 gap:2
               Title size:"lg" weight:"black"
                 "{service.title}"
-              Text color:"muted"
+              Text
                 "{service.description}"

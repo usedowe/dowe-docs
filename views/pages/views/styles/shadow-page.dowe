@@ -88,20 +88,20 @@ page ShadowPage
   Section id:"shadow-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Flex direction:"column" gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "STYLES"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Shadow"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Add the same soft exterior shadow on web, Android, and iOS, then tint it with the semantic colors from your theme."
   Section id:"shadow-playground" p:{ xs:5 md:7 }
     Flex direction:"column" gap:6
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "Choose a shadow"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use shadow for a progressive soft blur and shadowColor for a theme-aware tint. The generated snippet follows both selections."
       Grid columns:{ xs:1 md:2 } gap:4
         Select:
@@ -118,7 +118,7 @@ page ShadowPage
             Option value:option.value label:option.label
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -130,45 +130,45 @@ page ShadowPage
   Section id:"shadow-components" py:{ xs:7 md:10 }
     Flex direction:"column" gap:6
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "COMPONENT EXAMPLES"
         Title size:"3xl" weight:"black"
           "One style contract"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Card, Button, Avatar, Chip, and Input use the same portable shadow scale and semantic color families."
       Grid columns:{ xs:2 md:5 } gap:4
         Flex direction:"column" gap:3 align:"center" p:6
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "CARD"
           Card shadow:"md" shadowColor:"primary" p:6
             Flex direction:"column" gap:2
               Title size:"lg" weight:"bold"
                 "Release ready"
-              Text size:"sm" color:"muted"
+              Text size:"sm"
                 "A primary shadow separates related content from the page."
         Flex direction:"column" gap:3 align:"center" p:6
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "BUTTON"
           Button shadow:"sm" shadowColor:"secondary" scheme:"secondary"
             "Continue"
         Flex direction:"column" gap:3 align:"center" p:6
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "AVATAR"
           Avatar:
             name:"Dowe Agent"
             alt:"Dowe Agent"
-            variant:"soft"
+            variant:"solid"
             scheme:"tertiary"
             size:"xl"
             shadow:"lg"
             shadowColor:"tertiary"
         Flex direction:"column" gap:3 align:"center" p:6
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "CHIP"
-          Chip variant:"soft" scheme:"success" shadow:"xs" shadowColor:"success"
+          Chip variant:"solid" scheme:"success" shadow:"xs" shadowColor:"success"
             "Validated"
         Flex direction:"column" gap:3 align:"center" p:6
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "INPUT"
           Input:
             label:"Workspace"
@@ -180,7 +180,7 @@ page ShadowPage
   Section id:"shadow-scale" p:{ xs:5 md:7 }
     Flex direction:"column" gap:6
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "SIZE SCALE"
         Title size:"3xl" weight:"black"
           "Five shadow levels"
@@ -203,39 +203,39 @@ page ShadowPage
   Section id:"shadow-colors" py:{ xs:7 md:10 }
     Flex direction:"column" gap:6
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "SEMANTIC COLORS"
         Title size:"3xl" weight:"black"
           "Eight theme families"
       Grid columns:{ xs:2 md:4 } gap:4
-        Button shadow:"md" shadowColor:"primary" variant:"soft"
+        Button shadow:"md" shadowColor:"primary" variant:"solid"
           "Primary"
-        Button shadow:"md" shadowColor:"secondary" variant:"soft" scheme:"secondary"
+        Button shadow:"md" shadowColor:"secondary" variant:"solid" scheme:"secondary"
           "Secondary"
-        Button shadow:"md" shadowColor:"tertiary" variant:"soft" scheme:"tertiary"
+        Button shadow:"md" shadowColor:"tertiary" variant:"solid" scheme:"tertiary"
           "Tertiary"
-        Button shadow:"md" shadowColor:"muted" variant:"soft" scheme:"muted"
+        Button shadow:"md" shadowColor:"muted" variant:"solid" scheme:"muted"
           "Muted"
-        Button shadow:"md" shadowColor:"success" variant:"soft" scheme:"success"
+        Button shadow:"md" shadowColor:"success" variant:"solid" scheme:"success"
           "Success"
-        Button shadow:"md" shadowColor:"info" variant:"soft" scheme:"info"
+        Button shadow:"md" shadowColor:"info" variant:"solid" scheme:"info"
           "Info"
-        Button shadow:"md" shadowColor:"danger" variant:"soft" scheme:"danger"
+        Button shadow:"md" shadowColor:"danger" variant:"solid" scheme:"danger"
           "Danger"
-        Button shadow:"md" shadowColor:"warning" variant:"soft" scheme:"warning"
+        Button shadow:"md" shadowColor:"warning" variant:"solid" scheme:"warning"
           "Warning"
   Section id:"shadow-props" py:{ xs:7 md:10 }
     Flex direction:"column" gap:5
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Declare shadow without shadowColor for the neutral target default, or combine both props for a semantic tint."
       Table:
         data:shadowProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -246,32 +246,32 @@ page ShadowPage
         column field:"defaultValue" label:"Default" width:"1fr"
   Section id:"shadow-compatibility" py:{ xs:7 md:10 }
     Flex direction:"column" gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "COMPATIBILITY"
       Title size:"3xl" weight:"black"
         "Available on styled components"
       Text weight:"bold"
         "Layout and shell"
-      Text color:"muted"
+      Text
         "Box, Section, Flex, Grid, AppBar, Footer, BottomBar, Sidebar, Scaffold, and Drawer."
       Text weight:"bold"
         "Navigation"
-      Text color:"muted"
+      Text
         "NavMenu, SideNav, RailNav, Tabs, and Stepper."
       Text weight:"bold"
         "Content and display"
-      Text color:"muted"
+      Text
         "Text, Title, Code, Video, Iframe, Device, Canvas, Table, Divider, Brand, Banner, Alert, Icon, Avatar, AvatarGroup, Badge, Chip, Skeleton, Card, Empty, Marquee, TypeWriter, RichText, Collapsible, Countdown, Map, Audio, Image, Accordion, Carousel, and ChatBox."
       Text weight:"bold"
         "Charts"
-      Text color:"muted"
+      Text
         "Candlestick, ArcChart, AreaChart, BarChart, LineChart, and PieChart."
       Text weight:"bold"
         "Controls and forms"
-      Text color:"muted"
+      Text
         "Input, Select, Button, IconButton, ToggleTheme, SelectTheme, Fab, Slider, Dropzone, ComboBox, CsvField, DragDrop, Editor, ImageCropper, Password, Phone, Pin, Textarea, Record, ToggleGroup, Checkbox, Color, Date, DateRange, RadioGroup, and Toggle."
       Text weight:"bold"
         "Overlays"
-      Text color:"muted"
+      Text
         "Modal, AlertDialog, Tooltip, Toast, Dropdown, and Command."
-      Alert type:"warning" variant:"soft" scheme:"warning" message:"Not available on Splash, Svg, Path, or context-only entries such as Option, fabAction, comboOption, csvColumn, dragGroup, dragItem, tab, step, and region entries."
+      Alert type:"warning" variant:"solid" scheme:"warning" message:"Not available on Splash, Svg, Path, or context-only entries such as Option, fabAction, comboOption, csvColumn, dragGroup, dragItem, tab, step, and region entries."

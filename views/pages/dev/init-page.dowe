@@ -47,24 +47,24 @@ page InitPage
     ]
   Section id:"init-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "START HERE / PROJECT SETUP"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Dowe Init"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Create a complete Dowe project in the current directory, with source, editor settings, local environment files, and agent-ready guidance."
   Section id:"init-command" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "1 / YOUR FIRST PROJECT"
         Title size:"3xl" weight:"black"
           "Initialize the directory you want to own"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Create or enter an empty directory, then run the interactive command. Dowe asks which starter to use and whether to add English and Spanish localization catalogs."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy first project commands"
         copiedLabel:"Copied"
@@ -76,7 +76,7 @@ page InitPage
       Alert type:"info" message:"Select CRUD for a complete fullstack example or blank for the smallest Hello Dowe application. Use --i18n when the first version should include English and Spanish catalogs."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy template commands"
         copiedLabel:"Copied"
@@ -89,15 +89,15 @@ page InitPage
   Section id:"init-templates" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "2 / TWO CANONICAL STARTERS"
         Title size:"3xl" weight:"black"
           "Start small or study the full system"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Both templates use the same Dowe Source Format and the same Rust-owned compiler. The difference is how much application structure they create for you."
       Table:
         data:initTemplateRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -109,15 +109,15 @@ page InitPage
   Section id:"init-project" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "3 / PROJECT BOUNDARY"
         Title size:"3xl" weight:"black"
           "Know what Dowe creates"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The root files connect the application. Frontend modules stay under views, backend modules stay under server, and generated development output does not exist until a later command compiles the project."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy project structure"
         copiedLabel:"Copied"
@@ -144,7 +144,7 @@ page InitPage
         """
       Table:
         data:initProjectRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -155,15 +155,15 @@ page InitPage
   Section id:"init-safety" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "4 / SAFE INITIALIZATION"
         Title size:"3xl" weight:"black"
           "No partial project and no silent overwrite"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Dowe validates every destination before it writes. A conflict stops new-project initialization without leaving a partially copied template."
       Table:
         data:initSafetyRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -172,26 +172,26 @@ page InitPage
         column field:"situation" label:"Situation" width:"2fr"
         column field:"behavior" label:"Decision" width:"2fr"
         column field:"guidance" label:"What happens" width:"5fr"
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "Initialization does not run development automatically, initialize Git, install node_modules, add Tailwind, or execute authored source through Node.js."
   Section id:"init-next" p:{ xs:5 md:7 }
     Grid columns:1 gap:4
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "5 / NEXT STEP"
       Title size:"3xl" weight:"black"
         "Start the generated project"
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "Run the fullstack development targets from the same directory. Dowe compiles main.dowe and its imports, starts the server and web views, and writes disposable artifacts below .dowe."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy development command"
         copiedLabel:"Copied"
         content:"dowe dev --target server --target web"
       Button:
         href:"/docs/dev/dev"
-        variant:"soft"
+        variant:"solid"
         size:"sm"
         rounded:"full"
         iconStart:"code"

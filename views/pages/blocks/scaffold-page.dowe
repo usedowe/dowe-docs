@@ -1,23 +1,23 @@
 page ScaffoldsPage
   Section id:"scaffolds" py:{ xs:6 md:10 }
     Grid columns:1 gap:4
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "COPY-READY BLOCKS"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Scaffolds"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Four responsive application shells. Preview each layout and copy its complete Dowe source."
   Section id:"app-footer" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "01 · APP BAR + FOOTER"
           Title size:"2xl" weight:"black"
             "A simple page shell with mobile drawer navigation"
         Button:
           href:"/blocks/scaffold-preview/app-footer"
-          variant:"soft"
+          variant:"solid"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
@@ -33,7 +33,7 @@ page ScaffoldsPage
         tab id:"app-footer-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy Scaffold"
             copiedLabel:"Copied"
@@ -42,7 +42,7 @@ page ScaffoldsPage
                 signal openDrawer value:false
                 Scaffold minH:"vh-0"
                   appBar
-                    AppBar variant:"soft" scheme:"primary" bordered:true
+                    AppBar variant:"solid" scheme:"primary" bordered:true
                       start
                         IconButton:
                           label:"Open navigation"
@@ -56,7 +56,7 @@ page ScaffoldsPage
                   main
                     children
                   bottomBar
-                    Footer variant:"soft" scheme:"muted" bordered:true
+                    Footer variant:"solid" scheme:"muted" bordered:true
                       center
                         Text weight:"bold"
                           "Footer"
@@ -64,7 +64,7 @@ page ScaffoldsPage
                     Drawer:
                       open:openDrawer
                       position:"start"
-                      variant:"soft"
+                      variant:"solid"
                       scheme:"tertiary"
                       show:{ xs:true md:false }
                       body
@@ -76,7 +76,7 @@ page ScaffoldsPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "02 · INSET SIDEBAR"
           Title size:"2xl" weight:"black"
             "A dashboard sidebar between full-width bars"
@@ -97,7 +97,7 @@ page ScaffoldsPage
         tab id:"inset-sidebar-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy Scaffold"
             copiedLabel:"Copied"
@@ -106,7 +106,7 @@ page ScaffoldsPage
                 signal openDrawer value:false
                 Scaffold minH:"vh-0"
                   appBar
-                    AppBar variant:"soft" scheme:"primary" bordered:true
+                    AppBar variant:"solid" scheme:"primary" bordered:true
                       start
                         IconButton:
                           label:"Open navigation"
@@ -118,7 +118,7 @@ page ScaffoldsPage
                         Text weight:"bold"
                           "AppBar"
                   start
-                    Sidebar show:{ xs:false md:true } variant:"soft" scheme:"secondary" w:64 border:1
+                    Sidebar show:{ xs:false md:true } variant:"solid" scheme:"secondary" w:64 border:1
                       body
                         Flex direction:"column" minH:"full" align:"center" justify:"center"
                           Text weight:"bold"
@@ -126,7 +126,7 @@ page ScaffoldsPage
                   main
                     children
                   bottomBar
-                    Footer variant:"soft" scheme:"muted" bordered:true
+                    Footer variant:"solid" scheme:"muted" bordered:true
                       center
                         Text weight:"bold"
                           "Footer"
@@ -134,7 +134,7 @@ page ScaffoldsPage
                     Drawer:
                       open:openDrawer
                       position:"start"
-                      variant:"soft"
+                      variant:"solid"
                       scheme:"tertiary"
                       show:{ xs:true md:false }
                       body
@@ -146,13 +146,13 @@ page ScaffoldsPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "03 · FULL-HEIGHT SIDEBAR"
           Title size:"2xl" weight:"black"
             "A sidebar beside the complete content column"
         Button:
           href:"/blocks/scaffold-preview/full-height-sidebar"
-          variant:"soft"
+          variant:"solid"
           scheme:"secondary"
           size:"sm"
           rounded:"full"
@@ -169,7 +169,7 @@ page ScaffoldsPage
         tab id:"full-height-sidebar-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy Scaffold"
             copiedLabel:"Copied"
@@ -180,7 +180,7 @@ page ScaffoldsPage
                   start
                     Sidebar:
                       show:{ xs:false md:true }
-                      variant:"soft"
+                      variant:"solid"
                       scheme:"secondary"
                       w:64
                       h:"vh-0"
@@ -191,7 +191,7 @@ page ScaffoldsPage
                             "Sidebar"
                   main
                     Flex direction:"column" minH:"vh-0" justify:"between"
-                      AppBar variant:"soft" scheme:"primary" bordered:true
+                      AppBar variant:"solid" scheme:"primary" bordered:true
                         start
                           IconButton:
                             label:"Open navigation"
@@ -203,7 +203,7 @@ page ScaffoldsPage
                           Text weight:"bold"
                             "AppBar"
                       children
-                      Footer variant:"soft" scheme:"muted" bordered:true
+                      Footer variant:"solid" scheme:"muted" bordered:true
                         center
                           Text weight:"bold"
                             "Footer"
@@ -211,7 +211,7 @@ page ScaffoldsPage
                     Drawer:
                       open:openDrawer
                       position:"start"
-                      variant:"soft"
+                      variant:"solid"
                       scheme:"tertiary"
                       show:{ xs:true md:false }
                       body
@@ -223,7 +223,7 @@ page ScaffoldsPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "04 · RAIL + BOTTOM BAR"
           Title size:"2xl" weight:"black"
             "A desktop rail that yields to mobile bottom navigation"
@@ -245,7 +245,7 @@ page ScaffoldsPage
         tab id:"rail-bottom-bar-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy Scaffold"
             copiedLabel:"Copied"
@@ -253,12 +253,12 @@ page ScaffoldsPage
               layout NavigationLayout
                 Scaffold minH:"vh-0"
                   start
-                    Box minH:"vh-0" w:16 bg:"softTertiary" show:{ xs:false md:true }
-                      RailNav variant:"soft" scheme:"tertiary" showLabels:true minH:"vh-0"
+                    Box minH:"vh-0" w:16 bg:"muted" show:{ xs:false md:true }
+                      RailNav variant:"solid" scheme:"tertiary" showLabels:true minH:"vh-0"
                         item label:"Rail" href:"/" icon:"widget-4"
                   main
                     Flex direction:"column" minH:{ xs:"vh-16" md:"vh-0" } justify:"between"
-                      AppBar variant:"soft" scheme:"primary" bordered:true
+                      AppBar variant:"solid" scheme:"primary" bordered:true
                         start
                           IconButton:
                             label:"Open navigation"
@@ -270,7 +270,7 @@ page ScaffoldsPage
                             "AppBar"
                       children
                   bottomBar
-                    BottomBar show:{ xs:true md:false } variant:"soft" scheme:"primary" bordered:true
+                    BottomBar show:{ xs:true md:false } variant:"solid" scheme:"primary" bordered:true
                       tab href:"/" label:"BottomBar"
                         Icon name:"home"
             """

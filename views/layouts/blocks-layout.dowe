@@ -5,7 +5,7 @@ layout BlocksLayout
   signal openDrawer value:false
   Scaffold boxed:true
     appBar
-      AppBar variant:"soft" scheme:"background" boxed:true bordered:true position:"fixed"
+      AppBar variant:"solid" scheme:"background" boxed:true bordered:true position:"fixed"
         start
           IconButton:
             show:{ xs:true md:false }

@@ -6,18 +6,18 @@ page SpotlightCardsPage
     ]
   Section id:"spotlight-cards" bg:"background" color:"backgroundText" boxed:true py:{ xs:8 md:12 } minH:"vh-0"
     Grid columns:{ xs:1 md:3 } gap:5 align:"stretch"
-      Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:7 md:10 } minH:80
+      Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:7 md:10 } minH:80
         Flex direction:"column" align:"center" justify:"center" gap:5 minH:64
-          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          Text size:"xs" weight:"bold" spacing:"widest"
             "TAGLINE"
           Title size:{ xs:"3xl" md:"5xl" } weight:"black"
             "Mobile app"
-          Text size:"lg" color:"muted"
+          Text size:"lg"
             "A focused product message with enough room for supporting copy and one clear action."
           Button rounded:"full" size:"lg"
             "See more"
       each in:supportingProducts as:product key:product.id
-        Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:7 md:8 } minH:80
+        Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:7 md:8 } minH:80
           Flex direction:"column" align:"center" justify:"center" gap:6 minH:64
             Icon name:"gallery-bold-duotone" fill:"muted" w:16 h:16
             Title size:"xl" weight:"black"

@@ -12,7 +12,7 @@ page CarouselHeroPage
             "{slideContent.strategy.eyebrow}"
           Title size:{ xs:"4xl" md:"6xl" } weight:"black"
             "{slideContent.strategy.title}"
-          Text size:"lg" color:"muted"
+          Text size:"lg"
             "Use a portable Carousel when the hero needs several focused messages with native controls and indicators."
           Flex direction:{ xs:"column" sm:"row" } align:"center" justify:"center" gap:3
             Button size:"lg" rounded:"full" iconEnd:"arrow-right"
@@ -25,7 +25,7 @@ page CarouselHeroPage
             "{slideContent.delivery.eyebrow}"
           Title size:{ xs:"4xl" md:"6xl" } weight:"black"
             "{slideContent.delivery.title}"
-          Text size:"lg" color:"muted"
+          Text size:"lg"
             "Use a portable Carousel when the hero needs several focused messages with native controls and indicators."
           Flex direction:{ xs:"column" sm:"row" } align:"center" justify:"center" gap:3
             Button size:"lg" rounded:"full" iconEnd:"arrow-right"
@@ -38,7 +38,7 @@ page CarouselHeroPage
             "{slideContent.support.eyebrow}"
           Title size:{ xs:"4xl" md:"6xl" } weight:"black"
             "{slideContent.support.title}"
-          Text size:"lg" color:"muted"
+          Text size:"lg"
             "Use a portable Carousel when the hero needs several focused messages with native controls and indicators."
           Flex direction:{ xs:"column" sm:"row" } align:"center" justify:"center" gap:3
             Button size:"lg" rounded:"full" iconEnd:"arrow-right"

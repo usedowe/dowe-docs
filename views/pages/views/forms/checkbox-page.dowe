@@ -46,30 +46,30 @@ page CheckboxPage
   Section id:"checkbox-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "FORM"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Checkbox"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Checkboxes let people opt into a single independent boolean choice with a clear label and portable state."
   Section id:"checkbox-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "Bind one boolean value"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "bind connects the checkbox to a boolean Signal. Tapping the control updates that value without executing user JavaScript."
       Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Grid columns:1 gap:4
           Checkbox bind:notificationsEnabled label:"Send me release notifications" name:"release-notifications" helpText:"Required for release owners."
             validate rule:"required" message:"Enable release notifications."
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Use a boolean Signal whenever another part of the view needs the same opt-in state."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -82,11 +82,11 @@ page CheckboxPage
   Section id:"checkbox-schemes" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "SCHEMES"
         Title size:"3xl" weight:"black"
           "Every semantic family"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The selected state uses the chosen scheme while the unchecked square stays neutral and legible."
       Grid columns:{ xs:2 md:4 } gap:4
         Checkbox checked:true label:"Primary"
@@ -99,7 +99,7 @@ page CheckboxPage
         Checkbox checked:true label:"Danger" scheme:"danger"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -111,11 +111,11 @@ page CheckboxPage
   Section id:"checkbox-states" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "STATES"
         Title size:"3xl" weight:"black"
           "Checked, unchecked, and unavailable"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use checked for a fixed initial state. disabled preserves the state visibly while preventing interaction."
       Grid columns:{ xs:2 md:4 } gap:4
         Checkbox checked:true label:"Enabled and checked" scheme:"success"
@@ -124,7 +124,7 @@ page CheckboxPage
         Checkbox checked:false disabled:true label:"Disabled and unchecked" scheme:"muted"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -137,15 +137,15 @@ page CheckboxPage
   Section id:"checkbox-validation" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "VALIDATION"
         Title size:"3xl" weight:"black"
           "Require explicit consent"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "For Checkbox, required means the bound boolean must be true. Activation marks it as touched, then every toggle refreshes the message and danger state."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -156,46 +156,46 @@ page CheckboxPage
   Section id:"checkbox-contract" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "BEHAVIOR"
         Title size:"3xl" weight:"black"
           "One boolean contract"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Dowe lowers the same boolean field model to a square, softly rounded checkbox on web, iOS, and Android."
       Grid columns:{ xs:1 md:3 } gap:5
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "BINDING"
           Title size:"lg" weight:"bold"
             "Boolean only"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "bind accepts a bool Signal path and writes true or false when the user changes the control."
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "ACCESSIBILITY"
           Title size:"lg" weight:"bold"
             "Label the choice"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Provide label text so the visible choice and its control stay understandable together."
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "TARGETS"
           Title size:"lg" weight:"bold"
             "Portable state"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Web, SwiftUI, and Compose render the same checked, unchecked, and disabled states."
   Section id:"checkbox-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Checkbox also accepts the applicable common spacing, sizing, font, visibility, accessibility, and shadow props."
       Table:
         data:checkboxProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

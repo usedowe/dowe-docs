@@ -9,11 +9,11 @@ page ContactDetailsFormPage
     Grid columns:{ xs:1 md:2 } gap:{ xs:8 md:14 } align:"center" minH:"vh-0"
       Flex direction:"column" align:{ xs:"center" md:"start" } gap:5
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          Text size:"xs" weight:"bold" spacing:"widest"
             "CONTACT US"
           Title size:{ xs:"3xl" md:"5xl" } weight:"black"
             "Get in touch today"
-          Text size:"md" color:"muted"
+          Text size:"md"
             "Share a few details and our team will get back to you with a clear next step."
         Grid columns:1 gap:3
           each in:contactDetails as:detail key:detail.id
@@ -21,9 +21,9 @@ page ContactDetailsFormPage
               Icon name:"letter" fill:"muted" w:5 h:5 show:detail.emailIcon
               Icon name:"phone-calling" fill:"muted" w:5 h:5 show:detail.phoneIcon
               Icon name:"map-point" fill:"muted" w:5 h:5 show:detail.addressIcon
-              Text color:"muted"
+              Text
                 "{detail.value}"
-      Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:5 md:8 }
+      Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:5 md:8 }
         Grid columns:1 gap:4
           Grid columns:{ xs:1 sm:2 } gap:4
             Input bind:form.name label:"Name" placeholder:"John Carter" variant:"solid" scheme:"muted" w:"full"

@@ -12,24 +12,24 @@ page DatabaseUpdatePage
     ]
   Section id:"database-update-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "SERVER / DATABASE / WRITE"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Update"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Update applies a patch to records selected by a static table and equality filter, then returns a change result through its query binding."
   Section id:"database-update-example" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "1 / PATCH"
         Title size:"3xl" weight:"black"
           "Filter by authority, then return fresh data"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use where to select the record. required:true produces a controlled 404 when no matching record exists. Read request props directly from req.body; a subsequent read can return the refreshed record. The query shape is shared by postgres, d1, and dowe."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -42,7 +42,7 @@ page DatabaseUpdatePage
         """
       Table:
         data:updateRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

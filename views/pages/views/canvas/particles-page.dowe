@@ -77,7 +77,7 @@ page CanvasParticlesPage
         x:90
         y:180
         radius:24
-        fill:"softPrimary"
+        fill:"muted"
         opacity:0.44
         motion:{ vx:15 vy:-12 pulse:0.3 wrap:true }
       },
@@ -86,7 +86,7 @@ page CanvasParticlesPage
         x:455
         y:205
         radius:27
-        fill:"softSecondary"
+        fill:"muted"
         opacity:0.38
         motion:{ vx:-13 vy:18 pulse:0.25 wrap:true }
       },
@@ -114,13 +114,13 @@ page CanvasParticlesPage
   Section id:"canvas-particles-introduction" py:{ xs:6 md:10 }
     Grid columns:{ xs:1 md:2 } gap:5 align:"center"
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "CANVAS · PARTICLES"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Particle fields"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Build animated atmospheres from independent retained commands whose position and opacity derive from one monotonic clock."
-      Card variant:"soft" scheme:"secondary" p:5 rounded:"lg" minW:56
+      Card variant:"solid" scheme:"secondary" p:5 rounded:"lg" minW:56
         Grid columns:1 gap:1
           Text size:"xs" weight:"bold" spacing:"widest"
             "DETERMINISTIC MOTION"
@@ -131,11 +131,11 @@ page CanvasParticlesPage
   Section id:"canvas-particles-demo" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "ADVANCED EXAMPLE"
         Title size:"3xl" weight:"black"
           "Mix velocity, pulse, opacity, and z-order"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Each particle has its own speed and pulse frequency. The central rule and title draw last, so moving circles always travel underneath the label."
       Canvas:
         scene:particles
@@ -153,7 +153,7 @@ page CanvasParticlesPage
         shadow:"md"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -169,24 +169,24 @@ page CanvasParticlesPage
   Section id:"canvas-particles-timing" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "TIMING"
         Title size:"3xl" weight:"black"
           "Animation honors user and app state"
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"primary" p:5 rounded:"lg"
+        Card variant:"solid" scheme:"primary" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Title size:"xl" weight:"black"
               "Monotonic time"
             Text size:"sm"
               "Velocity uses elapsed seconds, so dropped frames do not slow the scene."
-        Card variant:"soft" scheme:"success" p:5 rounded:"lg"
+        Card variant:"solid" scheme:"success" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Title size:"xl" weight:"black"
               "Reduced motion"
             Text size:"sm"
               "A reduced-motion preference freezes every command at elapsed time zero."
-        Card variant:"soft" scheme:"warning" p:5 rounded:"lg"
+        Card variant:"solid" scheme:"warning" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Title size:"xl" weight:"black"
               "Route lifecycle"
@@ -195,11 +195,11 @@ page CanvasParticlesPage
   Section id:"canvas-particles-still" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "STATIC PREVIEW"
         Title size:"3xl" weight:"black"
           "Freeze the same scene at time zero"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Set autoplay:false for deterministic posters, snapshots, or compositions that reuse motion-ready scene data without starting a frame timeline."
       Canvas:
         scene:particles

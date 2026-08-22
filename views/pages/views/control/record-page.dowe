@@ -12,13 +12,13 @@ page RecordPage
   Section id:"record-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "CONTROL"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Record"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Record is a portable audio capture surface with waveform feedback, elapsed time, review controls, and explicit discard or confirm affordances."
-      Card variant:"soft" scheme:"danger" p:5 rounded:"lg" minW:56
+      Card variant:"solid" scheme:"danger" p:5 rounded:"lg" minW:56
         Grid columns:1 gap:1
           Text size:"xs" weight:"bold" spacing:"widest"
             "REVIEWABLE MEDIA"
@@ -29,101 +29,101 @@ page RecordPage
   Section id:"record-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "Compare recording states"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The browser preview exposes the same start, pause, resume, stop, discard, and confirm state model that native targets render with their own controls."
       Grid columns:{ xs:1 md:2 } gap:4
         Card variant:"outlined" border:1 p:{ xs:5 md:7 }
           Grid columns:1 gap:4
-            Record name:"voice-briefing" variant:"soft" scheme:"primary" maxDuration:90
-            Text size:"xs" color:"muted"
+            Record name:"voice-briefing" variant:"solid" scheme:"primary" maxDuration:90
+            Text size:"xs"
               "Soft capture surface with a 90-second limit."
         Card variant:"outlined" border:1 p:{ xs:5 md:7 }
           Grid columns:1 gap:4
             Record name:"reviewed-note" url:"https://cdn.pixabay.com/audio/2022/04/25/audio_5d61b5204f.mp3" variant:"solid" scheme:"success" maxDuration:45
-            Text size:"xs" color:"muted"
+            Text size:"xs"
               "A supplied URL represents a recorded result ready for review."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Record name:"voice-briefing" variant:"soft" scheme:"primary" maxDuration:90
+          Record name:"voice-briefing" variant:"solid" scheme:"primary" maxDuration:90
           Record name:"reviewed-note" url:"https://cdn.pixabay.com/audio/2022/04/25/audio_5d61b5204f.mp3" variant:"solid" scheme:"success" maxDuration:45
         """
   Section id:"record-workflows" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "ADVANCED WORKFLOWS"
         Title size:"3xl" weight:"black"
           "Record, review, then commit"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Keep the field name stable across targets so the generated runtime can associate a capture with the same form or workflow."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "1 · CAPTURE"
             Title size:"lg" weight:"black"
               "Short voice note"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Use a tight maxDuration for support tickets, status updates, or accessibility notes."
-            Record name:"support-note" variant:"soft" scheme:"info" maxDuration:30
-        Card variant:"soft" p:5
+            Record name:"support-note" variant:"solid" scheme:"info" maxDuration:30
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "2 · REVIEW"
             Title size:"lg" weight:"black"
               "Listen before sending"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "url lets a restored or uploaded result render in the same review surface."
-            Record name:"review-note" url:"https://cdn.pixabay.com/audio/2022/04/25/audio_5d61b5204f.mp3" variant:"soft" scheme:"warning" maxDuration:120
-        Card variant:"soft" p:5
+            Record name:"review-note" url:"https://cdn.pixabay.com/audio/2022/04/25/audio_5d61b5204f.mp3" variant:"solid" scheme:"warning" maxDuration:120
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "3 · GUARDRAIL"
             Title size:"lg" weight:"black"
               "Disable capture"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Disabled keeps the affordance visible while the surrounding workflow is unavailable."
-            Record name:"locked-note" variant:"soft" scheme:"muted" disabled:true maxDuration:60
+            Record name:"locked-note" variant:"solid" scheme:"muted" disabled:true maxDuration:60
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Record name:"support-note" variant:"soft" scheme:"info" maxDuration:30
-          Record name:"review-note" url:"/uploads/review-note.webm" variant:"soft" scheme:"warning" maxDuration:120
-          Record name:"locked-note" variant:"soft" scheme:"muted" disabled:true maxDuration:60
+          Record name:"support-note" variant:"solid" scheme:"info" maxDuration:30
+          Record name:"review-note" url:"/uploads/review-note.webm" variant:"solid" scheme:"warning" maxDuration:120
+          Record name:"locked-note" variant:"solid" scheme:"muted" disabled:true maxDuration:60
         """
   Section id:"record-actions" p:{ xs:5 md:7 }
     Flex direction:"column" gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "ACTIONS"
       Title size:"2xl" weight:"black"
         "Wire the lifecycle explicitly"
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "Record accepts onStart, onPause, onResume, onStop, onDiscard, and onConfirm action names. Bind only the transitions that your workflow needs; the target-owned control still keeps the state model consistent."
   Section id:"record-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Record also accepts the applicable common spacing, sizing, border, visibility, and accessibility props."
       Table:
         data:recordProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

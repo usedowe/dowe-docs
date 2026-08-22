@@ -89,7 +89,7 @@ page CanvasOverviewPage
         width:122
         height:70
         radius:16
-        fill:"softPrimary"
+        fill:"muted"
         stroke:"primary"
         strokeWidth:3
         rotation:-5
@@ -107,7 +107,7 @@ page CanvasOverviewPage
         x:529
         y:262
         text:"6 commands"
-        fill:"softPrimaryText"
+        fill:"mutedText"
         size:16
         align:"center"
       },
@@ -209,13 +209,13 @@ page CanvasOverviewPage
   Section id:"canvas-overview-introduction" py:{ xs:6 md:10 }
     Grid columns:{ xs:1 md:2 } gap:5 align:"center"
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "CANVAS"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Canvas"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Describe a retained 2D scene once and render it through native drawing systems on web, desktop, Android, and iOS."
-      Card variant:"soft" scheme:"primary" p:5 rounded:"lg" minW:56
+      Card variant:"solid" scheme:"primary" p:5 rounded:"lg" minW:56
         Grid columns:1 gap:1
           Text size:"xs" weight:"bold" spacing:"widest"
             "TARGET-NEUTRAL"
@@ -226,11 +226,11 @@ page CanvasOverviewPage
   Section id:"canvas-overview-scene" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "ADVANCED OVERVIEW"
         Title size:"3xl" weight:"black"
           "Layer a complete scene in source order"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Every command is retained in a Signal array. Later commands draw above earlier commands, while the logical viewport stays independent from the displayed size."
       Canvas:
         scene:overviewScene
@@ -248,7 +248,7 @@ page CanvasOverviewPage
         shadow:"md"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -266,24 +266,24 @@ page CanvasOverviewPage
   Section id:"canvas-overview-model" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "MENTAL MODEL"
         Title size:"3xl" weight:"black"
           "Separate scene coordinates from layout"
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" scheme:"primary" p:5 rounded:"lg"
+        Card variant:"solid" scheme:"primary" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Title size:"xl" weight:"black"
               "Logical viewport"
             Text size:"sm"
               "viewWidth and viewHeight establish portable coordinates. Layout props such as w and h only size the component."
-        Card variant:"soft" scheme:"secondary" p:5 rounded:"lg"
+        Card variant:"solid" scheme:"secondary" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Title size:"xl" weight:"black"
               "Fit transform"
             Text size:"sm"
               "contain preserves the full scene, cover fills and clips, and stretch maps both axes independently."
-        Card variant:"soft" scheme:"tertiary" p:5 rounded:"lg"
+        Card variant:"solid" scheme:"tertiary" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Title size:"xl" weight:"black"
               "Accessible equivalent"
@@ -292,13 +292,13 @@ page CanvasOverviewPage
   Section id:"canvas-overview-commands" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "SCENE COMMANDS"
         Title size:"3xl" weight:"black"
           "Six portable primitives"
       Table:
         data:commandTypes
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -310,15 +310,15 @@ page CanvasOverviewPage
   Section id:"canvas-overview-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Canvas props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Canvas also accepts applicable common identity, spacing, sizing, visibility, radius, border, and shadow props."
       Table:
         data:canvasProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

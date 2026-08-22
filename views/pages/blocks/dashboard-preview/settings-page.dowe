@@ -12,33 +12,33 @@ page DashboardSettingsPage
       { id:"weekly" value:"weekly" label:"Weekly" },
       { id:"never" value:"never" label:"Never" },
     ]
-  Section id:"dashboard-settings" bg:"softMuted" minH:"vh-0" p:{ xs:4 md:8 }
+  Section id:"dashboard-settings" bg:"muted" minH:"vh-0" p:{ xs:4 md:8 }
     Grid columns:1 gap:5
       Grid columns:1 gap:1
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "SETTINGS"
         Title size:{ xs:"2xl" md:"4xl" } weight:"black"
           "Workspace preferences"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Keep identity, security, and notifications in one responsive form."
       Grid columns:{ xs:1 lg:2 } gap:4 align:"start"
-        Card variant:"soft" rounded:"lg" p:{ xs:5 md:6 } border:1
+        Card variant:"solid" rounded:"lg" p:{ xs:5 md:6 } border:1
           Flex direction:"column" align:"center" gap:3
-            Avatar name:"Jordan Lee" alt:"Jordan Lee profile photo placeholder" size:"xl" variant:"soft" scheme:"primary" bordered:true
+            Avatar name:"Jordan Lee" alt:"Jordan Lee profile photo placeholder" size:"xl" variant:"solid" scheme:"primary" bordered:true
             Text size:"sm" weight:"bold"
               "Profile photo"
-            Text size:"xs" color:"muted"
+            Text size:"xs"
               "Placeholder avatar for this copy-ready block."
             Button variant:"outlined" scheme:"muted" size:"sm"
               "Change photo"
-        Card variant:"soft" rounded:"lg" p:{ xs:5 md:8 } border:1
+        Card variant:"solid" rounded:"lg" p:{ xs:5 md:8 } border:1
           Grid columns:1 gap:5
             Grid columns:1 gap:1
               Title size:"xl" weight:"bold"
                 "Profile and notifications"
-              Text size:"sm" color:"muted"
+              Text size:"sm"
                 "These fields are ready to bind to a settings endpoint."
-            Alert type:"info" variant:"soft" scheme:"info" message:"Changes are saved locally in this preview."
+            Alert type:"info" variant:"solid" scheme:"info" message:"Changes are saved locally in this preview."
             Grid columns:{ xs:1 md:2 } gap:4
               Input bind:settings.fullName label:"Full name" placeholder:"Your full name" scheme:"muted" w:"full"
               Input bind:settings.email label:"Email address" placeholder:"you@example.com" scheme:"muted" w:"full"

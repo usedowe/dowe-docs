@@ -37,15 +37,15 @@ page CenteredFeatureCardsPage
       Flex direction:"column" align:"center" gap:3
         Title size:{ xs:"3xl" md:"5xl" } weight:"black"
           "Browse our set of features"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Explore a flexible set of capabilities designed for teams, products, and growing businesses."
       Grid columns:{ xs:1 md:3 } gap:5
         each in:features as:feature key:feature.id
           Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:64
             Flex direction:"column" align:"center" justify:"center" gap:4 minH:48
-              Box bg:"softMuted" rounded:"lg" p:3
+              Box bg:"muted" rounded:"lg" p:3
                 Icon name:"gallery-bold-duotone" fill:"muted" w:9 h:9
               Title size:"xl" weight:"black"
                 "{feature.title}"
-              Text color:"muted"
+              Text
                 "{feature.description}"

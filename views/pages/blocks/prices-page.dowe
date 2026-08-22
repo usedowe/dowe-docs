@@ -1,21 +1,21 @@
 page PricesPage
   Section id:"prices" py:{ xs:6 md:10 }
     Grid columns:1 gap:4
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "COPY-READY BLOCKS"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Pricing"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Six responsive pricing wireframes built from real Dowe components and reusable data."
   Section id:"feature-cards" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "01 · FEATURE CARDS"
           Title size:"2xl" weight:"black"
             "Plan summaries above detailed feature lists"
-        Button href:"/blocks/pricing-preview/feature-cards" variant:"soft" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/pricing-preview/feature-cards" variant:"solid" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
       Tabs variant:"line" position:"top" w:"full"
         tab id:"preview" label:"Preview"
@@ -24,7 +24,7 @@ page PricesPage
         tab id:"code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy pricing block"
             copiedLabel:"Copied"
@@ -65,23 +65,23 @@ page PricesPage
               Section id:"feature-cards-pricing" bg:"background" color:"backgroundText" boxed:true py:{ xs:8 md:12 }
                 Grid columns:1 gap:{ xs:8 md:12 }
                   Flex direction:"column" align:"center" gap:3
-                    Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+                    Text size:"xs" weight:"bold" spacing:"widest"
                       "PRICING"
                     Title size:{ xs:"4xl" md:"6xl" } weight:"black"
                       "Affordable pricing plans"
-                    Text size:"lg" color:"muted"
+                    Text size:"lg"
                       "Choose a clear starting point, then scale the plan as your team and traffic grow."
                   Grid columns:{ xs:1 md:3 } gap:5 align:"stretch"
                     each in:plans as:plan key:plan.id
                       Card variant:"outlined" scheme:"muted" rounded:"xl" p:0
                         Grid columns:1 gap:0
-                          Box bg:"softMuted" p:{ xs:6 md:7 }
+                          Box bg:"muted" p:{ xs:6 md:7 }
                             Flex direction:"column" align:"center" gap:2
                               Title size:"xl" weight:"bold"
                                 "{plan.name}"
                               Title size:"4xl" weight:"black"
                                 "{plan.price}"
-                              Text color:"muted"
+                              Text
                                 "Billed monthly"
                               Button size:"lg" rounded:"full" w:"full"
                                 "Get started"
@@ -111,7 +111,7 @@ page PricesPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "02 · MEDIA CARDS"
           Title size:"2xl" weight:"black"
             "Visual placeholders introduce each plan"
@@ -124,7 +124,7 @@ page PricesPage
         tab id:"code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy pricing block"
             copiedLabel:"Copied"
@@ -153,25 +153,25 @@ page PricesPage
               Section id:"media-cards-pricing" bg:"background" color:"backgroundText" boxed:true py:{ xs:8 md:12 }
                 Grid columns:1 gap:{ xs:8 md:12 }
                   Flex direction:"column" align:"center" gap:3
-                    Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+                    Text size:"xs" weight:"bold" spacing:"widest"
                       "PRICING"
                     Title size:{ xs:"4xl" md:"6xl" } weight:"black"
                       "Affordable pricing plans"
-                    Text size:"lg" color:"muted"
+                    Text size:"lg"
                       "Pick the level of support and capacity that best matches your next stage of growth."
                   Grid columns:{ xs:1 md:3 } gap:5 align:"stretch"
                     each in:plans as:plan key:plan.id
                       Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 }
                         Flex direction:"column" align:"center" justify:"between" gap:5 minH:{ xs:80 md:96 }
                           Flex direction:"column" align:"center" gap:4
-                            Box bg:"softMuted" rounded:"full" w:24 h:24
+                            Box bg:"muted" rounded:"full" w:24 h:24
                               Flex align:"center" justify:"center" w:"full" h:"full"
                                 Icon name:"gallery-bold-duotone" fill:"muted" w:12 h:12
                             Title size:"3xl" weight:"black"
                               "{plan.price}"
-                            Text size:"sm" weight:"bold" spacing:"widest" color:"muted"
+                            Text size:"sm" weight:"bold" spacing:"widest"
                               "{plan.name}"
-                            Text color:"muted"
+                            Text
                               "{plan.description}"
                           Button size:"lg" rounded:"full" w:"full"
                             "Get started"
@@ -180,11 +180,11 @@ page PricesPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "03 · SPLIT PLANS"
           Title size:"2xl" weight:"black"
             "A focused starter card beside an expanded enterprise offer"
-        Button href:"/blocks/pricing-preview/split-plans" variant:"soft" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/pricing-preview/split-plans" variant:"solid" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
       Tabs variant:"line" position:"top" w:"full"
         tab id:"preview" label:"Preview"
@@ -193,7 +193,7 @@ page PricesPage
         tab id:"code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy pricing block"
             copiedLabel:"Copied"
@@ -221,7 +221,7 @@ page PricesPage
                     Grid columns:1 gap:5
                       Flex justify:"between" align:"center"
                         Icon name:"gallery-bold-duotone" fill:"muted" w:12 h:12
-                        Box bg:"softMuted" rounded:"full" p:3
+                        Box bg:"muted" rounded:"full" p:3
                           Text size:"sm" weight:"bold"
                             "$99/mo"
                       Title size:"3xl" weight:"black"
@@ -256,7 +256,7 @@ page PricesPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "04 · MINIMAL COLUMNS"
           Title size:"2xl" weight:"black"
             "Three quiet columns with one elevated recommendation"
@@ -269,7 +269,7 @@ page PricesPage
         tab id:"code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy pricing block"
             copiedLabel:"Copied"
@@ -319,7 +319,7 @@ page PricesPage
                           Flex justify:"between" align:"center"
                             Title size:"3xl" weight:"black"
                               "{plan.name}"
-                            Title size:"xl" weight:"bold" color:"muted"
+                            Title size:"xl" weight:"bold"
                               "{plan.price}"
                           Grid columns:1 gap:3
                             Flex align:"center" gap:3
@@ -342,12 +342,12 @@ page PricesPage
                           "Get started"
                     Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:96 show:plan.popular
                       Flex direction:"column" justify:"between" gap:8 minH:80
-                        Text size:"sm" color:"muted"
+                        Text size:"sm"
                           "Popular"
                         Flex justify:"between" align:"center"
                           Title size:"3xl" weight:"black"
                             "{plan.name}"
-                          Title size:"xl" weight:"bold" color:"muted"
+                          Title size:"xl" weight:"bold"
                             "{plan.price}"
                         Grid columns:1 gap:3
                           Flex align:"center" gap:3
@@ -373,11 +373,11 @@ page PricesPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "05 · BILLING TOGGLE"
           Title size:"2xl" weight:"black"
             "Interactive monthly and annual pricing"
-        Button href:"/blocks/pricing-preview/billing-toggle" variant:"soft" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/pricing-preview/billing-toggle" variant:"solid" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
       Tabs variant:"line" position:"top" w:"full"
         tab id:"preview" label:"Preview"
@@ -386,7 +386,7 @@ page PricesPage
         tab id:"code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy pricing block"
             copiedLabel:"Copied"
@@ -435,7 +435,7 @@ page PricesPage
               Section id:"billing-toggle-pricing" bg:"background" color:"backgroundText" boxed:true py:{ xs:8 md:12 }
                 Grid columns:1 gap:{ xs:7 md:10 }
                   Flex direction:"column" align:"center" gap:3
-                    Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+                    Text size:"xs" weight:"bold" spacing:"widest"
                       "PRICING"
                     Title size:{ xs:"4xl" md:"6xl" } weight:"black"
                       "Affordable pricing plans"
@@ -497,7 +497,7 @@ page PricesPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "06 · COMPARISON TABLE"
           Title size:"2xl" weight:"black"
             "A plan matrix that becomes a swipeable mobile comparison"
@@ -510,7 +510,7 @@ page PricesPage
         tab id:"code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy pricing block"
             copiedLabel:"Copied"
@@ -540,7 +540,7 @@ page PricesPage
               Section id:"comparison-table-pricing" bg:"background" color:"backgroundText" boxed:true py:{ xs:8 md:12 }
                 Grid columns:1 gap:{ xs:8 md:12 }
                   Flex direction:"column" align:"center" gap:3
-                    Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+                    Text size:"xs" weight:"bold" spacing:"widest"
                       "PRICING"
                     Title size:{ xs:"4xl" md:"6xl" } weight:"black"
                       "Affordable pricing plans"
@@ -550,7 +550,7 @@ page PricesPage
                         "Features"
                       each in:plans as:plan key:plan.id
                         Flex direction:"column" align:"center" gap:3 p:5
-                          Text color:"muted"
+                          Text
                             "{plan.price}"
                           Title size:"xl" weight:"black"
                             "{plan.name}"
@@ -558,7 +558,7 @@ page PricesPage
                             "Get started"
                     each in:featureRows as:row key:row.id
                       Grid columns:4 gap:0 align:"center" border:1 borderColor:"muted"
-                        Text p:4 color:"muted"
+                        Text p:4
                           "{row.label}"
                         Text p:4
                           "{row.basicValue}"
@@ -573,7 +573,7 @@ page PricesPage
                           "Basic"
                         Button rounded:"full" w:"full"
                           "Get started"
-                        Text color:"muted"
+                        Text
                           "Number of users · 1 user"
                     slide id:"growth"
                       Grid columns:1 gap:5
@@ -581,7 +581,7 @@ page PricesPage
                           "Growth"
                         Button rounded:"full" w:"full"
                           "Get started"
-                        Text color:"muted"
+                        Text
                           "Number of users · 5 users"
                     slide id:"enterprise"
                       Grid columns:1 gap:5
@@ -589,6 +589,6 @@ page PricesPage
                           "Enterprise"
                         Button rounded:"full" w:"full"
                           "Get started"
-                        Text color:"muted"
+                        Text
                           "Number of users · Unlimited"
             """

@@ -40,13 +40,13 @@ page MarqueePage
   Section id:"marquee-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "DISPLAY"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Marquee"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Marquee duplicates normal view children into a continuous motion track with explicit speed, direction, pause, fade, and orientation props."
-      Card variant:"soft" scheme:"secondary" p:5 rounded:"lg" minW:56
+      Card variant:"solid" scheme:"secondary" p:5 rounded:"lg" minW:56
         Grid columns:1 gap:1
           Text size:"xs" weight:"bold" spacing:"widest"
             "MOTION AS CONTENT"
@@ -57,71 +57,71 @@ page MarqueePage
   Section id:"marquee-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "Move a release rail"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use a slow strip for editorial content and pauseOnHover when people may need to inspect a moving item."
       Card variant:"outlined" p:{ xs:5 md:8 } border:1
         Grid columns:1 gap:5
-          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          Text size:"xs" weight:"bold" spacing:"widest"
             "HORIZONTAL"
           Marquee speed:"slow" pauseOnHover:true fade:true fadeColor:"background" gap:4
             Flex align:"center" gap:4
-              Chip variant:"soft" scheme:"success" size:"sm"
+              Chip variant:"solid" scheme:"success" size:"sm"
                 "NEW"
               Text weight:"bold"
                 "Portable motion"
-              Text color:"muted"
+              Text
                 "Dowe-owned generation"
               Chip variant:"outlined" scheme:"primary" size:"sm"
                 "v1.0"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
           Marquee speed:"slow" pauseOnHover:true fade:true fadeColor:"background" gap:4
             Flex align:"center" gap:4
-              Chip variant:"soft" scheme:"success" size:"sm"
+              Chip variant:"solid" scheme:"success" size:"sm"
                 "NEW"
               Text weight:"bold"
                 "Portable motion"
-              Text color:"muted"
+              Text
                 "Dowe-owned generation"
         """
   Section id:"marquee-directions" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "DIRECTION AND DENSITY"
         Title size:"3xl" weight:"black"
           "Use the same child tree in different rails"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "reverse changes travel direction. orientation changes the track axis. The child layout still owns its own alignment and gap."
       Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"soft" p:{ xs:5 md:7 }
+        Card variant:"solid" p:{ xs:5 md:7 }
           Grid columns:1 gap:4
-            Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+            Text size:"xs" weight:"bold" spacing:"widest"
               "REVERSE"
             Marquee speed:"fast" reverse:true pauseOnHover:true fade:true fadeColor:"surface" gap:3
               Flex align:"center" gap:3
-                Chip variant:"soft" scheme:"primary" size:"sm"
+                Chip variant:"solid" scheme:"primary" size:"sm"
                   "Web"
-                Chip variant:"soft" scheme:"secondary" size:"sm"
+                Chip variant:"solid" scheme:"secondary" size:"sm"
                   "Desktop"
-                Chip variant:"soft" scheme:"success" size:"sm"
+                Chip variant:"solid" scheme:"success" size:"sm"
                   "Android"
-                Chip variant:"soft" scheme:"warning" size:"sm"
+                Chip variant:"solid" scheme:"warning" size:"sm"
                   "iOS"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "A fast reverse rail works for compact platform or status labels."
-        Card variant:"soft" p:{ xs:5 md:7 }
+        Card variant:"solid" p:{ xs:5 md:7 }
           Grid columns:1 gap:4
-            Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+            Text size:"xs" weight:"bold" spacing:"widest"
               "VERTICAL"
             Marquee speed:"normal" orientation:"vertical" fade:true fadeColor:"surface" gap:3 h:32
               Flex direction:"column" align:"center" gap:3
@@ -133,20 +133,20 @@ page MarqueePage
                 Divider orientation:"horizontal" scheme:"secondary"
                 Text weight:"bold"
                   "Ship"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Vertical orientation is useful for short rotating labels inside a constrained panel."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
           Marquee speed:"fast" reverse:true pauseOnHover:true fade:true fadeColor:"surface" gap:3
             Flex align:"center" gap:3
-              Chip variant:"soft" scheme:"primary" size:"sm"
+              Chip variant:"solid" scheme:"primary" size:"sm"
                 "Web"
-              Chip variant:"soft" scheme:"secondary" size:"sm"
+              Chip variant:"solid" scheme:"secondary" size:"sm"
                 "Desktop"
 
           Marquee speed:"normal" orientation:"vertical" fade:true fadeColor:"surface" gap:3 h:32
@@ -160,38 +160,38 @@ page MarqueePage
   Section id:"marquee-guidance" p:{ xs:5 md:7 }
     Grid columns:{ xs:1 md:3 } gap:4
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" color:"muted"
+        Text size:"xs" weight:"bold"
           "PAUSE"
         Title size:"lg" weight:"black"
           "Let people inspect"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "pauseOnHover is a useful default when the moving children carry labels or controls."
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" color:"muted"
+        Text size:"xs" weight:"bold"
           "FADE"
         Title size:"lg" weight:"black"
           "Signal the viewport"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "fade and fadeColor soften the edges without changing the child content or track length."
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" color:"muted"
+        Text size:"xs" weight:"bold"
           "CHILDREN"
         Title size:"lg" weight:"black"
           "Keep one semantic group"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Marquee requires at least one normal child view and does not accept structural placeholder entries."
   Section id:"marquee-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Marquee also accepts common spacing, sizing, typography, visibility, radius, border, and accessibility props."
       Table:
         data:marqueeProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

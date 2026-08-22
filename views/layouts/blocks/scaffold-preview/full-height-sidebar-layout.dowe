@@ -4,7 +4,7 @@ layout ScaffoldFullHeightSidebarLayout
     start
       Sidebar:
         show:{ xs:false md:true }
-        variant:"soft"
+        variant:"solid"
         scheme:"secondary"
         w:64
         h:"vh-0"
@@ -15,7 +15,7 @@ layout ScaffoldFullHeightSidebarLayout
               "Sidebar"
     main
       Flex direction:"column" minH:"vh-0" justify:"between"
-        AppBar variant:"soft" scheme:"primary" bordered:true
+        AppBar variant:"solid" scheme:"primary" bordered:true
           start
             IconButton:
               show:{ xs:true md:false }
@@ -27,7 +27,7 @@ layout ScaffoldFullHeightSidebarLayout
             Text weight:"bold"
               "AppBar"
         children
-        Footer variant:"soft" scheme:"muted" bordered:true
+        Footer variant:"solid" scheme:"muted" bordered:true
           center
             Text weight:"bold"
               "Footer"
@@ -35,7 +35,7 @@ layout ScaffoldFullHeightSidebarLayout
       Drawer:
         open:openDrawer
         position:"start"
-        variant:"soft"
+        variant:"solid"
         scheme:"tertiary"
         show:{ xs:true md:false }
         body

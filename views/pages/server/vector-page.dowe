@@ -21,33 +21,33 @@ page VectorPage
     ]
   Section id:"vector-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "SERVER / VECTOR"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Find related records"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Store embeddings, attach JSON metadata, and find related records with the same server-only contract in local and remote environments."
       Button href:"/docs/server/kv" variant:"ghost" scheme:"muted" size:"sm"
         "Cache documentation"
   Section id:"vector-connection" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "1 / CONNECTION"
         Title size:"3xl" weight:"black"
           "Declare Vector, operate with emb"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The initial provider is dowe. Connection values stay server-only and may come from the server environment."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"vector appVector provider:\"dowe\" host:env.VECTOR_HOST port:env.VECTOR_PORT account:env.VECTOR_USER secret:env.VECTOR_PASSWORD name:env.VECTOR_DATABASE"
       Table:
         data:vectorConnectionRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -58,15 +58,15 @@ page VectorPage
   Section id:"vector-operations" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "2 / OPERATIONS"
         Title size:"3xl" weight:"black"
           "Upsert, search, read, delete, and list"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The first upsert fixes the dimension. Search uses cosine similarity and returns the highest scores first."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy operations"
         copiedLabel:"Copied"
@@ -79,7 +79,7 @@ page VectorPage
         """
       Table:
         data:vectorOperationRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -90,15 +90,15 @@ page VectorPage
   Section id:"vector-modes" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "3 / LOCAL AND REMOTE"
         Title size:"3xl" weight:"black"
           "One contract, explicit production mode"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The same declarations work during development and production. The host value decides whether the connection stays embedded or crosses an authenticated WebSocket."
       Table:
         data:vectorModeRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -109,15 +109,15 @@ page VectorPage
   Section id:"vector-service" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "4 / DOWE VECTOR"
         Title size:"3xl" weight:"black"
           "Run the remote provider"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The maintained dowe-vector project authenticates an account and bearer secret before the WebSocket upgrade."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -128,7 +128,7 @@ page VectorPage
         """
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy command"
         copiedLabel:"Copied"

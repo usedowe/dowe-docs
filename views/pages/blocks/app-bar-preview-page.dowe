@@ -1,11 +1,11 @@
 page AppBarPreviewPage
   Section id:"preview" boxed:true py:{ xs:10 md:16 }
     Grid columns:1 gap:5
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "REUSABLE BLOCK"
       Title size:{ xs:"3xl" md:"5xl" } weight:"black"
         "Build a clear first impression"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Every routed preview reuses this page while its layout owns the AppBar variation."
       Flex wrap:true gap:3
         Button href:"/blocks/appbar" rounded:"full"
@@ -14,25 +14,25 @@ page AppBarPreviewPage
           "View component reference"
   Section boxed:true py:{ xs:8 md:12 }
     Grid columns:{ xs:1 md:3 } gap:4
-      Card variant:"soft" scheme:"primary" p:5 rounded:"lg"
+      Card variant:"solid" scheme:"primary" p:5 rounded:"lg"
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "STRUCTURE"
           Title size:"lg" weight:"black"
             "Clear regions"
           Text size:"sm"
             "Brand, navigation, and actions keep predictable ownership."
-      Card variant:"soft" scheme:"secondary" p:5 rounded:"lg"
+      Card variant:"solid" scheme:"secondary" p:5 rounded:"lg"
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "RESPONSIVE"
           Title size:"lg" weight:"black"
             "Useful at every width"
           Text size:"sm"
             "Desktop navigation yields to compact controls on smaller screens."
-      Card variant:"soft" scheme:"tertiary" p:5 rounded:"lg"
+      Card variant:"solid" scheme:"tertiary" p:5 rounded:"lg"
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "PORTABLE"
           Title size:"lg" weight:"black"
             "One Dowe source"

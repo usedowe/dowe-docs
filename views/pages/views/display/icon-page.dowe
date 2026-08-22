@@ -393,11 +393,11 @@ page IconPage
   Section id:"icon-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "DISPLAY"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Icon"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Icon resolves bundled Solar, country flag, animated SVG Spinner, and SVG Logos vectors before target generation."
       Flex gap:4 align:"center"
         Icon name:"alt-arrow-right-bold-duotone" fill:"primary" w:10 h:10
@@ -407,11 +407,11 @@ page IconPage
   Section id:"icon-catalogs" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "FOUR CATALOGS"
         Title size:"3xl" weight:"black"
           "One component, namespaced sources"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Plain names resolve Solar. Country flags, SVG Spinners, and SVG Logos use explicit namespaces so completions and diagnostics stay deterministic."
       Grid columns:{ xs:1 md:2 lg:4 } gap:{ xs:3 md:4 }
         Card variant:"outlined" p:5 border:1
@@ -419,30 +419,30 @@ page IconPage
             Icon name:"layers-line-duotone" fill:"primary" w:9 h:9
             Title size:"lg" weight:"black"
               "Solar"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Use the base name for linear or append a canonical suffix for another Solar variant."
         Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:3
             Icon name:"country-flags:US" w:9 h:9
             Title size:"lg" weight:"black"
               "Country flags"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Prefix the ISO country code with country-flags:. No variant prop is needed."
         Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:3
             Icon name:"svg-spinners:270-ring" fill:"tertiary" w:9 h:9
             Title size:"lg" weight:"black"
               "SVG Spinners"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Prefix one of 46 bundled spinner names with svg-spinners:. No variant prop is needed."
         Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:3
             Icon name:"svg-logos:github-icon" w:9 h:9
             Title size:"lg" weight:"black"
               "SVG Logos"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Prefix one of 1,863 bundled logo names with svg-logos: and keep its authored brand colors."
-      Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+      Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
         Icon name:"alt-arrow-right-bold-duotone" fill:"primary"
         Icon name:"country-flags:CO" w:8 h:8
         Icon name:"svg-spinners:3-dots-bounce" fill:"secondary" w:8 h:8
@@ -451,78 +451,78 @@ page IconPage
   Section id:"icon-logos" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "SVG LOGOS"
         Title size:"3xl" weight:"black"
           "Brand vectors without runtime downloads"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Choose a lower-case SVG Logos file stem with the svg-logos: namespace. Only referenced logos enter generated output."
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Web and desktop preserve the validated original SVG. Native targets draw shared normalized paths with deterministic solid fallbacks for complex paints."
       Grid columns:{ xs:2 sm:3 md:4 lg:6 } gap:{ xs:3 md:4 }
-        Card variant:"soft" p:{ xs:3 md:4 }
+        Card variant:"solid" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-logos:github-icon" w:10 h:10
             Text size:"xs" weight:"bold"
               "github-icon"
-        Card variant:"soft" p:{ xs:3 md:4 }
+        Card variant:"solid" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-logos:openai" w:10 h:10
             Text size:"xs" weight:"bold"
               "openai"
-        Card variant:"soft" p:{ xs:3 md:4 }
+        Card variant:"solid" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-logos:anthropic-icon" w:10 h:10
             Text size:"xs" weight:"bold"
               "anthropic-icon"
-        Card variant:"soft" p:{ xs:3 md:4 }
+        Card variant:"solid" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-logos:cloudflare-workers" w:10 h:10
             Text size:"xs" weight:"bold"
               "cloudflare-workers"
-        Card variant:"soft" p:{ xs:3 md:4 }
+        Card variant:"solid" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-logos:rust" w:10 h:10
             Text size:"xs" weight:"bold"
               "rust"
-        Card variant:"soft" p:{ xs:3 md:4 }
+        Card variant:"solid" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-logos:apple" w:10 h:10
             Text size:"xs" weight:"bold"
               "apple"
-        Card variant:"soft" p:{ xs:3 md:4 }
+        Card variant:"solid" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-logos:google" w:10 h:10
             Text size:"xs" weight:"bold"
               "google"
-        Card variant:"soft" p:{ xs:3 md:4 }
+        Card variant:"solid" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-logos:docker" w:10 h:10
             Text size:"xs" weight:"bold"
               "docker"
-        Card variant:"soft" p:{ xs:3 md:4 }
+        Card variant:"solid" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-logos:figma" w:10 h:10
             Text size:"xs" weight:"bold"
               "figma"
-        Card variant:"soft" p:{ xs:3 md:4 }
+        Card variant:"solid" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-logos:model-context-protocol-icon" w:10 h:10
             Text size:"xs" weight:"bold"
               "model-context-protocol-icon"
-        Card variant:"soft" p:{ xs:3 md:4 }
+        Card variant:"solid" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-logos:vercel-icon" w:10 h:10
             Text size:"xs" weight:"bold"
               "vercel-icon"
-        Card variant:"soft" p:{ xs:3 md:4 }
+        Card variant:"solid" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-logos:vite-icon" w:10 h:10
             Text size:"xs" weight:"bold"
               "vite-icon"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -530,21 +530,21 @@ page IconPage
           Icon name:"svg-logos:github-icon" w:10 h:10
           Icon name:"svg-logos:cloudflare-workers" w:10 h:10
         """
-      Alert type:"info" message:"SVG Logos is CC0, but logos and trademarks remain the property of their respective owners. Icon is decorative, so label the containing control or link." variant:"soft" scheme:"info"
+      Alert type:"info" message:"SVG Logos is CC0, but logos and trademarks remain the property of their respective owners. Icon is decorative, so label the containing control or link." variant:"solid" scheme:"info"
   Section id:"icon-browser" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "DOWE DATABASE CATALOG"
         Title size:"3xl" weight:"black"
           "Browse every Solar icon without bundling the catalog"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The server filters and paginates 7,476 normalized SVG records in Dowe Database. This view receives at most 60 geometries and renders each one with Svg data."
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The catalog is loaded by a server-only Dowe seeder. The dowe icons namespace remains dedicated to application icon assets."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy command"
         copiedLabel:"Copied"
@@ -554,7 +554,7 @@ page IconPage
       Card variant:"outlined" p:{ xs:4 md:6 } border:1
         Grid columns:{ xs:1 md:4 } gap:{ xs:4 md:6 } align:"start"
           Box colSpan:{ xs:1 md:1 }
-            Sidebar variant:"soft" scheme:"surface" p:{ xs:3 md:4 } w:"full"
+            Sidebar variant:"solid" scheme:"surface" p:{ xs:3 md:4 } w:"full"
               body
                 SideNav scheme:"primary" size:"sm" wide:true
                   item label:"Arrows" status:"67" onClick:selectArrows
@@ -607,32 +607,32 @@ page IconPage
                 Button w:"full" onClick:applyFilters iconStart:"magnifier"
                   "Apply"
               Flex wrap:true justify:"between" align:"center" gap:4
-                Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+                Text size:"xs" weight:"bold" spacing:"widest"
                   "{category}"
                 Button onClick:loadIcons variant:"ghost" scheme:"muted" size:"sm" iconStart:"restart"
                   "Refresh"
-              Text show:loading size:"sm" color:"muted"
+              Text show:loading size:"sm"
                 "Loading SVG geometry from Dowe Database…"
-              Alert type:"error" message:"The icon catalog could not be loaded." visible:hasError variant:"soft" scheme:"danger"
+              Alert type:"error" message:"The icon catalog could not be loaded." visible:hasError variant:"solid" scheme:"danger"
               Grid columns:{ xs:2 sm:3 md:4 lg:6 } gap:{ xs:3 md:4 }
                 each in:icons as:icon key:icon.key
-                  Card variant:"soft" p:4
+                  Card variant:"solid" p:4
                     Flex direction:"column" gap:3 align:"center"
                       Svg data:icon.svg color:"primary" w:12 h:12
-                      Text size:"xs" color:"muted"
+                      Text size:"xs"
                         "{icon.name}"
-              Text show:{ when:total lte:0 } size:"sm" color:"muted"
+              Text show:{ when:total lte:0 } size:"sm"
                 "No icons match the current filters."
               Pagination bind:page total:total pageSize:60 onChange:loadIcons variant:"ghost" scheme:"primary" size:"sm" ariaLabel:"Icon catalog pages"
-      Alert type:"info" message:"Runtime Svg accepts normalized Dowe vector data only. The renderer validates every viewBox, path, paint, opacity, stroke, and transform before drawing it." variant:"soft" scheme:"info"
+      Alert type:"info" message:"Runtime Svg accepts normalized Dowe vector data only. The renderer validates every viewBox, path, paint, opacity, stroke, and transform before drawing it." variant:"solid" scheme:"info"
   Section id:"icon-styles" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "SOLAR VARIANTS"
         Title size:"3xl" weight:"black"
           "Six variants, canonical names"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The base name selects linear; other variants append a suffix. Duotone geometry preserves its authored secondary opacity."
       Grid columns:{ xs:2 sm:3 md:6 } gap:{ xs:3 md:4 }
         Flex direction:"column" gap:3 align:"center"
@@ -661,7 +661,7 @@ page IconPage
             "bold-duotone"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -673,56 +673,56 @@ page IconPage
   Section id:"icon-spinners" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "LOADING MOTION"
         Title size:"3xl" weight:"black"
           "Choose a spinner by visual rhythm"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Web and desktop preserve validated upstream CSS. Android and iOS draw the same portable fallback paths with native continuous motion."
       Grid columns:{ xs:2 sm:3 md:4 } gap:{ xs:3 md:4 }
-        Card variant:"soft" p:{ xs:3 md:4 }
+        Card variant:"solid" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-spinners:90-ring" fill:"primary" w:9 h:9
             Text size:"xs" weight:"bold"
               "90-ring"
-        Card variant:"soft" p:{ xs:3 md:4 }
+        Card variant:"solid" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-spinners:3-dots-bounce" fill:"secondary" w:9 h:9
             Text size:"xs" weight:"bold"
               "3-dots-bounce"
-        Card variant:"soft" p:{ xs:3 md:4 }
+        Card variant:"solid" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-spinners:bars-scale-middle" fill:"tertiary" w:9 h:9
             Text size:"xs" weight:"bold"
               "bars-scale-middle"
-        Card variant:"soft" p:{ xs:3 md:4 }
+        Card variant:"solid" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-spinners:blocks-wave" fill:"success" w:9 h:9
             Text size:"xs" weight:"bold"
               "blocks-wave"
-        Card variant:"soft" p:{ xs:3 md:4 }
+        Card variant:"solid" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-spinners:pulse-rings-3" fill:"warning" w:9 h:9
             Text size:"xs" weight:"bold"
               "pulse-rings-3"
-        Card variant:"soft" p:{ xs:3 md:4 }
+        Card variant:"solid" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-spinners:bouncing-ball" fill:"danger" w:9 h:9
             Text size:"xs" weight:"bold"
               "bouncing-ball"
-        Card variant:"soft" p:{ xs:3 md:4 }
+        Card variant:"solid" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-spinners:wifi-fade" fill:"info" w:9 h:9
             Text size:"xs" weight:"bold"
               "wifi-fade"
-        Card variant:"soft" p:{ xs:3 md:4 }
+        Card variant:"solid" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
             Icon name:"svg-spinners:wind-toy" fill:"primary" w:9 h:9
             Text size:"xs" weight:"bold"
               "wind-toy"
   Section id:"icon-contract" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "AUTHORING CONTRACT"
       Title size:"3xl" weight:"black"
         "Catalog selection, decorative semantics"
@@ -732,6 +732,6 @@ page IconPage
         column field:"defaultValue" label:"Default"
       Flex gap:4 align:"center"
         Icon name:selectedIcon fill:"primary" w:10 h:10
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "A string Signal or each-item path can switch among the shared catalog; immutable const collections preload only their literal names, unrelated mutable lists do not expand the catalog, and invalid runtime values use the validated initial icon."
-      Alert type:"info" message:"Icon is decorative. Pair a loading spinner with visible status text or an accessible labeled control. Reduced-motion preferences stop or suppress continuous motion." variant:"soft" scheme:"info"
+      Alert type:"info" message:"Icon is decorative. Pair a loading spinner with visible status text or an accessible labeled control. Reduced-motion preferences stop or suppress continuous motion." variant:"solid" scheme:"info"

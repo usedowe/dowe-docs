@@ -1,0 +1,6 @@
+page DocsPage
+  init
+    redirect path:"/docs/dev"
+  Section minH:"vh-0"
+    Text
+      "Redirecting to Dowe development documentation."

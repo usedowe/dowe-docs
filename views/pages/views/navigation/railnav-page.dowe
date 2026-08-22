@@ -68,22 +68,22 @@ page RailNavPage
   Section id:"railnav-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "NAVIGATION"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "RailNav"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "RailNav creates a narrow vertical menu with portable icons, accessible tooltips, and optional labels below each icon."
   Section id:"railnav-default" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "ICON-ONLY"
         Title size:"3xl" weight:"black"
           "A compact rail by default"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Each item requires a label and a Solar icon. On web and desktop, hover or keyboard focus reveals the label in a Tooltip positioned after the rail. Native targets expose the same label to accessibility services."
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use a fragment such as href:\"#railnav-labels\" to navigate to a Section id on the same page. The transition scrolls smoothly and aligns below a fixed or sticky AppBar on web."
       Grid columns:{ xs:1 md:2 } gap:6 align:"start"
         Card variant:"outlined" p:{ xs:6 md:10 } border:1
@@ -97,7 +97,7 @@ page RailNavPage
               item label:"Props" href:"#railnav-props" icon:"settings"
         Code:
           language:"dowe"
-          variant:"soft"
+          variant:"solid"
           scheme:"surface"
           copyLabel:"Copy Dowe"
           copiedLabel:"Copied"
@@ -113,36 +113,36 @@ page RailNavPage
   Section id:"railnav-labels" py:{ xs:7 md:10 }
     Grid columns:{ xs:1 md:2 } gap:7 align:"center"
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "OPTIONAL LABELS"
         Title size:"3xl" weight:"black"
           "Text below the icon"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Set showLabels:true when every destination should remain visible. RailNav centers the label below its icon, keeps it to one line, and preserves the narrow width selected by size. Because the label is visible, no duplicate tooltip is generated."
         Code:
           language:"dowe"
-          variant:"soft"
+          variant:"solid"
           scheme:"surface"
           content:"""
-            RailNav showLabels:true size:"sm" variant:"soft"
+            RailNav showLabels:true size:"sm" variant:"solid"
               item label:"Home" href:"/" icon:"home"
               item label:"Map" href:"/map" icon:"map"
               item label:"Saved" href:"/saved" icon:"bookmark"
           """
-      Card variant:"soft" p:{ xs:6 md:9 }
+      Card variant:"solid" p:{ xs:6 md:9 }
         Flex justify:"center"
-          RailNav showLabels:true size:"sm" variant:"soft"
+          RailNav showLabels:true size:"sm" variant:"solid"
             item label:"Home" href:"/docs/views" icon:"home"
             item label:"Map" href:"/docs/views" icon:"map"
             item label:"Saved" href:"/docs/views" icon:"bookmark"
   Section id:"railnav-variations" py:{ xs:7 md:10 }
     Grid columns:1 gap:8
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "VISUAL OPTIONS"
         Title size:"3xl" weight:"black"
           "Variants, schemes, and sizes"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Visual props apply to hover, focus, press, and active destination states without changing the rail structure."
       Grid columns:1 gap:4
         Title size:"xl" weight:"bold"
@@ -151,7 +151,7 @@ page RailNavPage
           RailNav variant:"solid" scheme:"primary" size:"sm"
             item label:"Solid" href:"/docs/views/navigation/railnav" icon:"home"
             item label:"Settings" href:"/docs/views" icon:"settings"
-          RailNav variant:"soft" scheme:"primary" size:"sm"
+          RailNav variant:"solid" scheme:"primary" size:"sm"
             item label:"Soft" href:"/docs/views/navigation/railnav" icon:"home"
             item label:"Settings" href:"/docs/views" icon:"settings"
           RailNav variant:"outlined" scheme:"primary" size:"sm"
@@ -164,15 +164,15 @@ page RailNavPage
         Title size:"xl" weight:"bold"
           "Schemes"
         Flex wrap:true align:"start" gap:5
-          RailNav variant:"soft" scheme:"primary" size:"sm"
+          RailNav variant:"solid" scheme:"primary" size:"sm"
             item label:"Primary" href:"/docs/views/navigation/railnav" icon:"route"
-          RailNav variant:"soft" scheme:"secondary" size:"sm"
+          RailNav variant:"solid" scheme:"secondary" size:"sm"
             item label:"Secondary" href:"/docs/views/navigation/railnav" icon:"route"
-          RailNav variant:"soft" scheme:"success" size:"sm"
+          RailNav variant:"solid" scheme:"success" size:"sm"
             item label:"Success" href:"/docs/views/navigation/railnav" icon:"route"
-          RailNav variant:"soft" scheme:"warning" size:"sm"
+          RailNav variant:"solid" scheme:"warning" size:"sm"
             item label:"Warning" href:"/docs/views/navigation/railnav" icon:"route"
-          RailNav variant:"soft" scheme:"danger" size:"sm"
+          RailNav variant:"solid" scheme:"danger" size:"sm"
             item label:"Danger" href:"/docs/views/navigation/railnav" icon:"route"
       Grid columns:1 gap:4
         Title size:"xl" weight:"bold"
@@ -187,20 +187,20 @@ page RailNavPage
   Section id:"railnav-contract" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PORTABLE CONTRACT"
         Title size:"3xl" weight:"black"
           "Icon and Tooltip are built in"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The icon prop resolves through the same Solar catalog and vector model as Icon. In icon-only web and desktop output, RailNav reuses Tooltip styling, positioning, hover, and focus behavior automatically."
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Items accept navigation or an onClick function, never both. divider is the only other direct child; headers, descriptions, statuses, submenus, and custom SVG icons belong in SideNav."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         content:"""
-          RailNav variant:"soft" scheme:"primary"
+          RailNav variant:"solid" scheme:"primary"
             item label:"Home" href:"/" icon:"home"
             item label:"Explore" href:"/explore" navigate:"replace" icon:"compass"
             divider
@@ -210,15 +210,15 @@ page RailNavPage
     Grid columns:1 gap:8
       Grid columns:1 gap:5
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          Text size:"xs" weight:"bold" spacing:"widest"
             "API"
           Title size:"3xl" weight:"black"
             "RailNav props"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "RailNav also accepts applicable common identity, spacing, sizing, visibility, radius, and border props."
         Table:
           data:railNavProps
-          variant:"soft"
+          variant:"solid"
           scheme:"surface"
           size:"sm"
           striped:true
@@ -231,11 +231,11 @@ page RailNavPage
         Grid columns:1 gap:2
           Title size:"2xl" weight:"black"
             "Item props"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "label and icon are required static values. i18n can translate the accessible or visible label while preserving its deterministic fallback."
         Table:
           data:entryProps
-          variant:"soft"
+          variant:"solid"
           scheme:"surface"
           size:"sm"
           striped:true

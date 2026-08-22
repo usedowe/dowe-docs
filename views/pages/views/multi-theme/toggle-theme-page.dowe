@@ -30,116 +30,116 @@ page ToggleThemePage
   Section id:"toggle-theme-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "MULTI THEME"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "ToggleTheme"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "ToggleTheme is an icon-only control for switching directly between the light and dark themes."
   Section id:"toggle-theme-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "Switch the current appearance"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The sun and moon icon describe the next action. Every ToggleTheme control reflects the same persisted preference."
       Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Flex gap:4 align:"center" justify:"between"
           Grid columns:1 gap:1
             Title size:"lg" weight:"bold"
               "Light and dark, in one action"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Use ToggleTheme when the interface only needs the two canonical appearance modes."
-          ToggleTheme variant:"soft" scheme:"secondary" size:"lg" lightLabel:"Switch to light mode" darkLabel:"Switch to dark mode"
+          ToggleTheme variant:"solid" scheme:"secondary" size:"lg" lightLabel:"Switch to light mode" darkLabel:"Switch to dark mode"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          ToggleTheme variant:"soft" scheme:"secondary" size:"lg"
+          ToggleTheme variant:"solid" scheme:"secondary" size:"lg"
             lightLabel:"Switch to light mode"
             darkLabel:"Switch to dark mode"
         """
   Section id:"toggle-theme-appearance" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "APPEARANCE"
         Title size:"3xl" weight:"black"
           "The same button language"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "variant, scheme, and size follow the portable Button visual contract while keeping the control icon-only."
       Grid columns:1 gap:5
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:3 align:"center"
             ToggleTheme variant:"solid" scheme:"primary" size:"md"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Solid"
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:3 align:"center"
-            ToggleTheme variant:"soft" scheme:"secondary" size:"md"
-            Text size:"sm" color:"muted"
+            ToggleTheme variant:"solid" scheme:"secondary" size:"md"
+            Text size:"sm"
               "Soft"
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:3 align:"center"
             ToggleTheme variant:"outlined" scheme:"tertiary" size:"md"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Outlined"
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:3 align:"center"
             ToggleTheme variant:"ghost" scheme:"muted" size:"md"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Ghost"
   Section id:"toggle-theme-behavior" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "BEHAVIOR"
         Title size:"3xl" weight:"black"
           "A focused two-theme choice"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "ToggleTheme is deliberately limited to light and dark. Use SelectTheme when your theme catalog has additional named palettes."
       Grid columns:1 gap:4
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "PERSISTENCE"
             Title size:"lg" weight:"bold"
               "One shared preference"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "The selected theme is stored as theme-preference and restored before the next view mounts."
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "ACCESSIBILITY"
             Title size:"lg" weight:"bold"
               "Next-action labels"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "The accessible label names the next mode, rather than repeating the active one."
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "TARGETS"
             Title size:"lg" weight:"bold"
               "Immediate tokens"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Web, Android, and iOS apply the new design tokens immediately from the same source model."
   Section id:"toggle-theme-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "ToggleTheme props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "ToggleTheme also accepts applicable common identity, spacing, sizing, visibility, radius, border, and shadow props. It does not accept children."
       Table:
         data:toggleThemeProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

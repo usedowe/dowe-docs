@@ -3,9 +3,10 @@ page ToggleGroupPage
   const toggleGroupProps:
     value:[
       { prop:"value" type:"string Signal path" defaultValue:"—" },
-      { prop:"selected" type:"static string | number" defaultValue:"first item" },
-      { prop:"variant" type:"solid | soft | outlined | ghost" defaultValue:"solid" },
-      { prop:"scheme" type:"primary | secondary | muted | success | info | warning | danger" defaultValue:"muted" },
+      { prop:"selected" type:"string or comma-separated ids" defaultValue:"first item" },
+      { prop:"multiple" type:"boolean" defaultValue:"false" },
+      { prop:"variant" type:"Button variant: solid | soft | outlined | ghost" defaultValue:"solid" },
+      { prop:"scheme" type:"Button scheme: primary | secondary | tertiary | muted | success | info | warning | danger" defaultValue:"primary" },
       { prop:"size" type:"xs | sm | md | lg" defaultValue:"md" },
       { prop:"wide, vertical, disabled" type:"boolean" defaultValue:"false" },
       { prop:"ariaLabel" type:"string" defaultValue:"—" },
@@ -14,13 +15,13 @@ page ToggleGroupPage
   Section id:"toggle-group-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "CONTROL"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "ToggleGroup"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "ToggleGroup turns structural item entries into one accessible string-valued segmented control for modes, filters, and compact workflow choices."
-      Card variant:"soft" scheme:"info" p:5 rounded:"lg" minW:56
+      Card variant:"solid" scheme:"info" p:5 rounded:"lg" minW:56
         Grid columns:1 gap:1
           Text size:"xs" weight:"bold" spacing:"widest"
             "ONE VALUE"
@@ -31,32 +32,32 @@ page ToggleGroupPage
   Section id:"toggle-group-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "Switch a view mode"
-        Text size:"sm" color:"muted"
-          "The selected value is shared with the page Signal, so the control and its downstream preview stay on one source-of-truth path."
+        Text size:"sm"
+          "The selected value is shared with the page Signal, so the control and its downstream preview stay on one source-of-truth path. ToggleGroup uses the same scheme, variant, size, radius, typography, and press treatment as Button on web, iOS, and Android."
       Card variant:"outlined" border:1 p:{ xs:5 md:7 }
         Grid columns:1 gap:4
-          ToggleGroup value:mode variant:"soft" scheme:"muted" size:"md" wide:true ariaLabel:"View mode"
+          ToggleGroup value:mode variant:"solid" scheme:"muted" size:"md" wide:true ariaLabel:"View mode"
             item id:"map" label:"Map" icon:"file"
             item id:"list" label:"List" icon:"search"
             item id:"stats" label:"Stats" icon:"settings"
-          Card variant:"soft" scheme:"primary" p:4
+          Card variant:"solid" scheme:"primary" p:4
             Text size:"sm" weight:"bold"
               "Active mode"
             Text size:"lg" weight:"black"
               "{mode}"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
           signal mode value:"map"
-          ToggleGroup value:mode variant:"soft" scheme:"muted" size:"md" wide:true ariaLabel:"View mode"
+          ToggleGroup value:mode variant:"solid" scheme:"muted" size:"md" wide:true ariaLabel:"View mode"
             item id:"map" label:"Map" icon:"file"
             item id:"list" label:"List" icon:"search"
             item id:"stats" label:"Stats" icon:"settings"
@@ -64,16 +65,16 @@ page ToggleGroupPage
   Section id:"toggle-group-patterns" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "ADVANCED PATTERNS"
         Title size:"3xl" weight:"black"
           "Use selection where layout changes"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use horizontal groups for compact filters and vertical groups when the labels need more room."
-      Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"soft" p:5
+      Grid columns:{ xs:1 md:4 } gap:4
+        Card variant:"solid" p:5
           Grid columns:1 gap:3
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "FILTERS"
             Title size:"lg" weight:"black"
               "Content density"
@@ -81,28 +82,40 @@ page ToggleGroupPage
               item id:"all" label:"All"
               item id:"unread" label:"Unread"
               item id:"saved" label:"Saved"
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:3
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "ORIENTATION"
             Title size:"lg" weight:"black"
               "Workspace sections"
-            ToggleGroup selected:"overview" variant:"soft" scheme:"success" size:"md" vertical:true ariaLabel:"Workspace section"
+            ToggleGroup selected:"overview" variant:"solid" scheme:"success" size:"md" vertical:true ariaLabel:"Workspace section"
               item id:"overview" label:"Overview" icon:"file"
               item id:"activity" label:"Activity" icon:"search"
               item id:"settings" label:"Settings" icon:"settings"
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:3
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "DISABLED"
             Title size:"lg" weight:"black"
               "Preserve the choice"
             ToggleGroup selected:"monthly" variant:"ghost" scheme:"muted" size:"sm" disabled:true ariaLabel:"Billing cycle"
               item id:"monthly" label:"Monthly"
               item id:"annual" label:"Annual"
+        Card variant:"solid" p:5
+          Grid columns:1 gap:3
+            Text size:"xs" weight:"bold"
+              "MULTIPLE"
+            Title size:"lg" weight:"black"
+              "Combine filters"
+            Text size:"sm"
+              "Pass comma-separated item ids and enable multiple:true to keep more than one option active."
+            ToggleGroup selected:"design,development" multiple:true variant:"solid" scheme:"primary" size:"sm" ariaLabel:"Teams"
+              item id:"design" label:"Design"
+              item id:"development" label:"Development"
+              item id:"research" label:"Research"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -112,39 +125,44 @@ page ToggleGroupPage
             item id:"unread" label:"Unread"
             item id:"saved" label:"Saved"
 
-          ToggleGroup selected:"overview" variant:"soft" scheme:"success" size:"md" vertical:true ariaLabel:"Workspace section"
+          ToggleGroup selected:"overview" variant:"solid" scheme:"success" size:"md" vertical:true ariaLabel:"Workspace section"
             item id:"overview" label:"Overview" icon:"file"
             item id:"activity" label:"Activity" icon:"search"
             item id:"settings" label:"Settings" icon:"settings"
+
+          ToggleGroup selected:"design,development" multiple:true variant:"solid" scheme:"primary" size:"sm" ariaLabel:"Teams"
+            item id:"design" label:"Design"
+            item id:"development" label:"Development"
+            item id:"research" label:"Research"
         """
   Section id:"toggle-group-contract" p:{ xs:5 md:7 }
     Grid columns:{ xs:1 md:2 } gap:4
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "STRUCTURE"
         Title size:"xl" weight:"black"
           "Items are explicit"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Every item requires a stable id and a visible label. Icons are optional and use validated Solar names."
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "ACCESSIBILITY"
         Title size:"xl" weight:"black"
           "Name the group"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Set ariaLabel when the visible labels do not fully explain the choice to assistive technology."
   Section id:"toggle-group-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "ToggleGroup also accepts the applicable common spacing, sizing, border, visibility, and accessibility props."
       Table:
         data:toggleGroupProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

@@ -3,7 +3,7 @@ page GridPage
     value:[
       {
         prop:"columns"
-        type:"positive integer from 1 to 12 | responsive object"
+        type:"positive integer from 1 to 12 | fr track list | responsive object"
         defaultValue:"1"
       },
       {
@@ -15,6 +15,11 @@ page GridPage
         prop:"gap"
         type:"spacing value | responsive object"
         defaultValue:"0"
+      },
+      {
+        prop:"flex"
+        type:"initial | auto | none | 1 | responsive object"
+        defaultValue:"initial"
       },
       {
         prop:"justify"
@@ -42,20 +47,22 @@ page GridPage
     ]
   Section id:"grid-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "LAYOUT"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Grid"
-      Text size:"lg" color:"muted"
-        "Grid creates explicit rows and columns for catalogs, dashboards, galleries, and page structure."
+      Text size:"lg"
+        "Grid creates explicit rows and columns for catalogs, dashboards, galleries, and page structure. It fills the available width by default and keeps an automatic height based on its content across web, iOS, and Android."
+      Text size:"sm"
+        "Grid can be a flex item of Section, Box, Flex, or Card. Its own children remain grid items, so their flex prop has no effect."
   Section id:"grid-columns" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "COLUMNS"
         Title size:"3xl" weight:"black"
           "Create equal tracks"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "A positive integer creates that many equal columns. Gap separates rows and columns."
       Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Grid columns:3 gap:4
@@ -70,7 +77,7 @@ page GridPage
               "Item 3"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -89,11 +96,11 @@ page GridPage
   Section id:"grid-responsive" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "RESPONSIVE COLUMNS"
         Title size:"3xl" weight:"black"
           "Adapt the structure by width"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Responsive columns select the highest matching breakpoint while the viewport narrows or widens, without requiring a reload."
       Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Grid columns:{ xs:1 sm:2 md:3 } gap:4
@@ -117,7 +124,7 @@ page GridPage
               "Item 6"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -136,19 +143,19 @@ page GridPage
   Section id:"grid-track-counts" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "RESPONSIVE TRACK COUNTS"
         Title size:"3xl" weight:"black"
           "Keep the structure portable"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Grid columns use an integer from 1 to 12. Responsive values change the number of equal columns at each breakpoint, so the same declaration behaves consistently on web, iOS, and Android."
       Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Grid columns:1 gap:4
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "This responsive example is one column below md and two equal columns from md upward. The gap changes from scale 10 to 16, align:center centers each cell's content, and minH:vh-0 gives the grid a minimum viewport height."
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy Dowe"
             copiedLabel:"Copied"
@@ -161,16 +168,54 @@ page GridPage
                   Text
                     "Second column"
             """
-          Text size:"sm" color:"muted"
-            "Templates such as fr, px, percentages, and auto are not valid Grid column or row values. Use numeric track counts to keep the generated layout portable across all view targets."
+          Text size:"sm"
+            "Rows continue to use auto or positive integer counts. Grid columns also support homogeneous positive fr tracks; px, percentages, mixed units, zero-weight tracks, and fr rows remain invalid."
+  Section id:"grid-fraction-tracks" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest"
+          "FRACTION TRACKS"
+        Title size:"3xl" weight:"black"
+          "Build weighted layouts"
+        Text size:"sm"
+          "Use positive fr weights when equal columns are not enough. The same 1:2:1 proportions are generated for web CSS, iOS SwiftUI, Android Compose, and the Android development launcher."
+      Card variant:"outlined" p:{ xs:5 md:7 } border:1
+        Grid columns:{ xs:"1fr" md:"1fr 2fr 1fr" } gap:4 align:"center"
+          Box bg:"success" color:"successText" p:4 rounded:"sm"
+            Text
+              "1fr"
+          Box bg:"primary" color:"primaryText" p:4 rounded:"sm"
+            Text
+              "2fr"
+          Box bg:"info" color:"surface" p:4 rounded:"sm"
+            Text
+              "1fr"
+      Code:
+        language:"dowe"
+        variant:"solid"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Grid columns:"1fr 2fr 1fr" gap:4 align:"center"
+            Box p:4
+              Text
+                "Narrow track"
+            Box p:4
+              Text
+                "Wide track"
+            Box p:4
+              Text
+                "Narrow track"
+        """
   Section id:"grid-spans" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "GRID ITEMS"
         Title size:"3xl" weight:"black"
           "Span multiple tracks"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Direct Box and Card children can span columns or rows while the parent Grid keeps ownership of the structure."
       Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Grid columns:3 gap:4
@@ -188,7 +233,7 @@ page GridPage
               "Two columns"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -205,15 +250,15 @@ page GridPage
     Grid columns:1 gap:7
       Grid columns:1 gap:5
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          Text size:"xs" weight:"bold" spacing:"widest"
             "API"
           Title size:"3xl" weight:"black"
             "Grid props"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Grid also accepts the applicable common spacing, sizing, visibility, and accessibility props."
         Table:
           data:gridProps
-          variant:"soft"
+          variant:"solid"
           scheme:"surface"
           size:"sm"
           striped:true
@@ -226,11 +271,11 @@ page GridPage
         Grid columns:1 gap:2
           Title size:"2xl" weight:"black"
             "Grid item props"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "colSpan and rowSpan are valid only on a direct Box or Card child of Grid."
         Table:
           data:gridItemProps
-          variant:"soft"
+          variant:"solid"
           scheme:"surface"
           size:"sm"
           striped:true

@@ -74,24 +74,24 @@ page InstallPage
     ]
   Section id:"install-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "DEVELOPMENT / CLI DISTRIBUTION"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Install Dowe"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Install the versioned Dowe CLI from the official release channel, then use the same binary for development, testing, builds, and deployment."
   Section id:"install-command" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "1 / OFFICIAL INSTALLERS"
         Title size:"3xl" weight:"black"
           "Install from get.dowe.dev"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The platform installer downloads the matching archive from the latest channel and places the binary in the user install directory."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy install commands"
         copiedLabel:"Copied"
@@ -104,7 +104,7 @@ page InstallPage
         """
       Table:
         data:installChannelRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -116,15 +116,15 @@ page InstallPage
   Section id:"install-location" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "2 / USER-OWNED INSTALLATION"
         Title size:"3xl" weight:"black"
           "Choose the version and location"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use installer environment variables when a project, workstation image, or CI runner needs a different release channel or destination."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy configuration"
         copiedLabel:"Copied"
@@ -135,7 +135,7 @@ page InstallPage
         """
       Table:
         data:installConfigRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -146,15 +146,15 @@ page InstallPage
         column field:"guidance" label:"Default or rule" width:"5fr"
   Section id:"install-troubleshooting" p:{ xs:5 md:7 }
     Grid columns:1 gap:4
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "3 / WINDOWS TROUBLESHOOTING"
       Title size:"3xl" weight:"black"
         "Expose the installer error"
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "Empty installer variables are treated as unset. If PowerShell reports a null method error, download the script first to expose whether the response or the installer failed."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy diagnostic"
         copiedLabel:"Copied"
@@ -166,15 +166,15 @@ page InstallPage
   Section id:"install-verify" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "4 / VERIFY AND UPGRADE"
         Title size:"3xl" weight:"black"
           "Keep the CLI current"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "After installation, verify the binary and let Dowe delegate future upgrades to the same platform installer instead of duplicating installation logic."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy commands"
         copiedLabel:"Copied"
@@ -184,7 +184,7 @@ page InstallPage
         """
       Table:
         data:installVerifyRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -196,15 +196,15 @@ page InstallPage
   Section id:"install-uninstall" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "5 / REMOVE THE CLI"
         Title size:"3xl" weight:"black"
           "Uninstall without touching projects"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Dowe removes the installed binary, its packaged font catalog, the managed PATH entry, and only empty installation directories. Project source, project .dowe data, and unrelated files remain untouched."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy uninstall commands"
         copiedLabel:"Copied"
@@ -214,7 +214,7 @@ page InstallPage
         """
       Table:
         data:uninstallRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -226,15 +226,15 @@ page InstallPage
   Section id:"install-next" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "6 / READY TO BUILD"
         Title size:"3xl" weight:"black"
           "Move from installation to a project"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Once the CLI is available, initialize a project or enter an existing Dowe root and start the shared development workflow."
       Table:
         data:installNextRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -244,7 +244,7 @@ page InstallPage
         column field:"guidance" label:"Next command or rule" width:"5fr"
       Button:
         href:"/docs/dev"
-        variant:"soft"
+        variant:"solid"
         size:"sm"
         rounded:"full"
         iconStart:"add-circle"

@@ -16,13 +16,13 @@ page DeviceShowcaseSectionPage
           "Boost your productivity with our to-do app"
         Grid columns:1 gap:4
           each in:paragraphs as:paragraph key:paragraph.id
-            Text size:"lg" color:"muted"
+            Text size:"lg"
               "{paragraph.content}"
         Button variant:"ghost" iconEnd:"arrow-right"
           "Learn more"
-      Box bg:"softMuted" rounded:"xl" p:{ xs:4 md:6 } w:"full"
+      Box bg:"muted" rounded:"xl" p:{ xs:4 md:6 } w:"full"
         Box bg:"surface" border:1 borderColor:"muted" rounded:"lg" minH:{ xs:56 md:96 } p:6
           Flex direction:"column" align:"center" justify:"center" gap:3 minH:{ xs:44 md:80 }
             Icon name:"laptop-bold-duotone" fill:"muted" w:16 h:16
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Device placeholder"

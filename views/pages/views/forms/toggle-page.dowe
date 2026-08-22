@@ -46,20 +46,20 @@ page TogglePage
   Section id:"toggle-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "FORM"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Toggle"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Toggles let people turn one independent setting on or off with a compact, familiar switch."
   Section id:"toggle-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "Bind one boolean setting"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "bind connects Toggle to a boolean Signal. Changing the switch writes the new value without executing user JavaScript."
       Card variant:"outlined" p:{ xs:5 md:7 } border:1
         Grid columns:1 gap:4
@@ -68,11 +68,11 @@ page TogglePage
             label:"Release notifications"
             name:"release-notifications"
             scheme:"primary"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Use the same Signal anywhere the current on or off setting needs to be reflected."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -84,11 +84,11 @@ page TogglePage
   Section id:"toggle-schemes" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "SCHEMES"
         Title size:"3xl" weight:"black"
           "Every semantic family"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The active track and thumb use the selected scheme while the off state remains neutral and legible."
       Grid columns:{ xs:2 md:4 } gap:4
         Toggle checked:true label:"Primary" scheme:"primary"
@@ -101,7 +101,7 @@ page TogglePage
         Toggle checked:true label:"Danger" scheme:"danger"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -113,11 +113,11 @@ page TogglePage
   Section id:"toggle-side-labels" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "SIDE LABELS"
         Title size:"3xl" weight:"black"
           "Make both states clear"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "labelLeft appears before the switch and labelRight after it. The active side stays emphasized as the boolean value changes."
       Grid columns:{ xs:1 md:2 } gap:5
         Toggle:
@@ -136,7 +136,7 @@ page TogglePage
           scheme:"success"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -147,11 +147,11 @@ page TogglePage
   Section id:"toggle-states" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "STATES"
         Title size:"3xl" weight:"black"
           "On, off, and unavailable"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use checked for a fixed initial state. disabled keeps the value visible while preventing interaction."
       Grid columns:{ xs:2 md:4 } gap:4
         Toggle checked:true label:"Enabled and on" scheme:"success"
@@ -160,7 +160,7 @@ page TogglePage
         Toggle checked:false disabled:true label:"Disabled and off" scheme:"muted"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -173,46 +173,46 @@ page TogglePage
   Section id:"toggle-contract" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "BEHAVIOR"
         Title size:"3xl" weight:"black"
           "One boolean contract, every target"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Dowe lowers the same boolean switch to web, iOS, and Android, keeping labels, scheme, state, and disabled behavior aligned."
       Grid columns:{ xs:1 md:3 } gap:5
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "BINDING"
           Title size:"lg" weight:"bold"
             "Boolean only"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "bind accepts a bool Signal path and writes true or false when the user changes the switch."
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "STATE CONTEXT"
           Title size:"lg" weight:"bold"
             "Labels on both sides"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "label, labelLeft, and labelRight explain the setting and both of its available states."
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "TARGETS"
           Title size:"lg" weight:"bold"
             "Portable switch"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Web, SwiftUI, and Compose render the same checked, unchecked, and disabled model."
   Section id:"toggle-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Toggle also accepts the applicable common spacing, sizing, font, visibility, accessibility, and shadow props."
       Table:
         data:toggleProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

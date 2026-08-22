@@ -23,25 +23,25 @@ page MediaCardsPricingPage
   Section id:"media-cards-pricing" bg:"background" color:"backgroundText" boxed:true minH:"vh-0" py:{ xs:8 md:12 }
     Grid columns:1 gap:{ xs:8 md:12 }
       Flex direction:"column" align:"center" gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PRICING"
         Title size:{ xs:"4xl" md:"6xl" } weight:"black"
           "Affordable pricing plans"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Pick the level of support and capacity that best matches your next stage of growth."
       Grid columns:{ xs:1 md:3 } gap:5 align:"stretch"
         each in:plans as:plan key:plan.id
           Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 }
             Flex direction:"column" align:"center" justify:"between" gap:5 minH:{ xs:80 md:96 }
               Flex direction:"column" align:"center" gap:4
-                Box bg:"softMuted" rounded:"full" w:24 h:24
+                Box bg:"muted" rounded:"full" w:24 h:24
                   Flex align:"center" justify:"center" w:"full" h:"full"
                     Icon name:"gallery-bold-duotone" fill:"muted" w:12 h:12
                 Title size:"3xl" weight:"black"
                   "{plan.price}"
-                Text size:"sm" weight:"bold" spacing:"widest" color:"muted"
+                Text size:"sm" weight:"bold" spacing:"widest"
                   "{plan.name}"
-                Text color:"muted"
+                Text
                   "{plan.description}"
               Button size:"lg" rounded:"full" w:"full"
                 "Get started"

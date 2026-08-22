@@ -25,12 +25,12 @@ page CompleteSolutionsFeaturesPage
       Flex direction:"column" align:"center" gap:3
         Title size:{ xs:"4xl" md:"6xl" } weight:"black"
           "The Complete Solutions"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Everything your team needs to create, organize, and optimize digital experiences."
       Grid columns:{ xs:1 md:3 } gap:6
         each in:completeSolutions as:solution key:solution.id
           Flex direction:"column" align:"center" gap:5
-            Box bg:"softMuted" rounded:"lg" p:6 w:"full" h:52
+            Box bg:"muted" rounded:"lg" p:6 w:"full" h:52
               Box bg:"surface" rounded:"lg" p:4 shadow:"sm" minH:40
                 Grid columns:1 gap:4
                   Flex align:"center" justify:"between"
@@ -42,13 +42,13 @@ page CompleteSolutionsFeaturesPage
                       Icon name:"pen-new-square" fill:"muted" w:5 h:5
                       Icon name:"add-circle" fill:"muted" w:5 h:5
                   Grid columns:3 gap:2
-                    Box bg:"softMuted" rounded:"md" minH:16
-                    Box bg:"softWarning" rounded:"md" minH:16
-                    Box bg:"softMuted" rounded:"md" minH:16
+                    Box bg:"muted" rounded:"md" minH:16
+                    Box bg:"muted" rounded:"md" minH:16
+                    Box bg:"muted" rounded:"md" minH:16
                   Flex justify:"end"
                     Icon name:"cursor-bold" fill:"surfaceText" w:7 h:7
             Grid columns:1 gap:2 minH:20
               Title size:"lg" weight:"black"
                 "{solution.title}"
-              Text color:"muted"
+              Text
                 "{solution.description}"

@@ -18,26 +18,26 @@ page TasksPage
     ]
   Section id:"tasks-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "SERVER / TASKS"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Start isolated work now"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Tasks start detached server work immediately. The caller continues without a result while Dowe runs the work in an isolated worker."
       Button href:"/docs/server/background-jobs" variant:"ghost" scheme:"muted" size:"sm" iconStart:"chart-2"
         "Scheduled cron jobs"
   Section id:"tasks-named" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "1 / NAMED TASKS"
         Title size:"3xl" weight:"black"
           "Reuse an imported server function"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use a named task when the detached work belongs in a reusable server module. The caller evaluates args before the worker starts, then returns immediately."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -51,7 +51,7 @@ page TasksPage
         """
       Table:
         data:taskNamedRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -62,15 +62,15 @@ page TasksPage
   Section id:"tasks-reverse-proxy" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "2 / REVERSE-PROXY TELEMETRY"
         Title size:"3xl" weight:"black"
           "Measure a real upstream response"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Tasks are immediate by default. Only a direct handler that finishes with return reverse can opt into after headers timing."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -86,7 +86,7 @@ page TasksPage
         """
       Table:
         data:taskTelemetryRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -97,15 +97,15 @@ page TasksPage
   Section id:"tasks-inline" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "3 / INLINE TASKS"
         Title size:"3xl" weight:"black"
           "Keep small detached work local"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "An inline task is useful when the work is short and does not deserve a reusable module. Its body has its own worker scope."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -119,7 +119,7 @@ page TasksPage
         """
       Table:
         data:taskInlineRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -129,10 +129,10 @@ page TasksPage
         column field:"guidance" label:"What it means" width:"5fr"
   Section id:"tasks-limits" pb:{ xs:7 md:10 }
     Grid columns:1 gap:4
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "4 / PROCESS BOUNDARY"
       Title size:"3xl" weight:"black"
         "Choose tasks for non-critical work"
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "Tasks do not expose cancellation, inspection, retry, or durable delivery. Use cron for UTC schedules, and keep a request synchronous when its response depends on the result."
       Alert type:"warning" message:"A task is detached execution, not durable delivery. Use Queue when the work must survive process failure, be inspected, or be acknowledged by a consumer."

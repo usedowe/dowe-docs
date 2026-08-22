@@ -16,24 +16,24 @@ page RequestBytesPage
     ]
   Section id:"request-bytes-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "SERVER / REQUEST BYTES"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Receive the exact HTTP body"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "request source bytes binds the incoming body without JSON decoding or text conversion. The Rust runtime preserves its byte sequence for storage, hashing, functions, and byte responses."
   Section id:"request-bytes-mental-model" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "1 / MENTAL MODEL"
         Title size:"3xl" weight:"black"
           "Bind bytes before using them"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The name after request is the byte binding available to following server declarations. It belongs inside an HTTP handler and remains subject to the runtime request-size limit."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -45,7 +45,7 @@ page RequestBytesPage
         """
       Table:
         data:requestBytesRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -55,15 +55,15 @@ page RequestBytesPage
         column field:"guidance" label:"What it means" width:"5fr"
   Section id:"request-bytes-response" py:{ xs:7 md:10 }
     Grid columns:1 gap:4
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "2 / BYTE FLOW"
       Title size:"3xl" weight:"black"
         "Return a byte binding directly"
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "A byte binding read from storage can be returned with an explicit content type. Dowe avoids a JSON or UTF-8 round trip across the complete handler."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"

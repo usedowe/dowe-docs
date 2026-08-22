@@ -1,21 +1,21 @@
 page CtasPage
   Section id:"ctas" py:{ xs:6 md:10 }
     Grid columns:1 gap:4
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "COPY-READY BLOCKS"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Call to action"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Seven responsive wireframe CTAs built from real Dowe components and neutral media placeholders."
   Section id:"split-actions" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "01 · SPLIT ACTIONS"
           Title size:"2xl" weight:"black"
             "A compact headline balanced by two calls to action"
-        Button href:"/blocks/cta-preview/split-actions" variant:"soft" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/cta-preview/split-actions" variant:"solid" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
       Tabs variant:"line" position:"top" w:"full"
         tab id:"split-actions-preview" label:"Preview"
@@ -24,7 +24,7 @@ page CtasPage
         tab id:"split-actions-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy CTA"
             copiedLabel:"Copied"
@@ -52,7 +52,7 @@ page CtasPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "02 · CENTERED ACTIONS"
           Title size:"2xl" weight:"black"
             "A centered conversion message with paired actions"
@@ -65,7 +65,7 @@ page CtasPage
         tab id:"centered-actions-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy CTA"
             copiedLabel:"Copied"
@@ -93,11 +93,11 @@ page CtasPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "03 · MEDIA PANEL"
           Title size:"2xl" weight:"black"
             "A soft split panel pairing conversion copy with media"
-        Button href:"/blocks/cta-preview/media-panel" variant:"soft" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/cta-preview/media-panel" variant:"solid" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
       Tabs variant:"line" position:"top" w:"full"
         tab id:"media-panel-preview" label:"Preview"
@@ -106,7 +106,7 @@ page CtasPage
         tab id:"media-panel-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy CTA"
             copiedLabel:"Copied"
@@ -116,13 +116,13 @@ page CtasPage
                 { id:"sales" label:"Talk to sales" variant:"outlined" },
               ]
 
-              Section id:"media-panel-cta" bg:"softMuted" color:"softMutedText" boxed:true p:{ xs:6 md:12 }
+              Section id:"media-panel-cta" bg:"muted" color:"mutedText" boxed:true p:{ xs:6 md:12 }
                 Grid columns:{ xs:1 md:2 } gap:{ xs:8 md:14 } align:"center" minH:"vh-0"
                   Flex direction:"column" align:{ xs:"center" md:"start" } justify:"center" gap:5
                     Grid columns:1 gap:3
                       Title size:{ xs:"3xl" md:"5xl" } weight:"black"
                         "Create your account today and get started for free!"
-                      Text size:"lg" color:"muted"
+                      Text size:"lg"
                         "Bring your next idea to life with a focused workspace built for clear plans and steady progress."
                     Grid columns:1 gap:3 w:"full" show:{ xs:true sm:false }
                       each in:actions as:action key:action.id
@@ -135,14 +135,14 @@ page CtasPage
                   Box bg:"surface" rounded:"xl" p:8 minH:{ xs:72 md:96 }
                     Flex direction:"column" align:"center" justify:"center" gap:3 minH:{ xs:56 md:80 }
                       Icon name:"gallery-bold-duotone" fill:"muted" w:16 h:16
-                      Text size:"sm" color:"muted"
+                      Text size:"sm"
                         "Image placeholder"
             """
   Section id:"app-download" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "04 · APP DOWNLOAD"
           Title size:"2xl" weight:"black"
             "Two platform cards with distinct store actions"
@@ -155,7 +155,7 @@ page CtasPage
         tab id:"app-download-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy CTA"
             copiedLabel:"Copied"
@@ -174,7 +174,7 @@ page CtasPage
                     Flex direction:"column" align:{ xs:"center" md:"start" } justify:"center" gap:5 minH:{ xs:64 md:80 }
                       Title size:{ xs:"3xl" md:"4xl" } weight:"black"
                         "Download our app for Android"
-                      Text size:"lg" color:"muted"
+                      Text size:"lg"
                         "Take the same focused workflow with you across phones, tablets, and compatible devices."
                       Button size:"lg" rounded:"full" iconStart:"play"
                         "Download for Android"
@@ -183,11 +183,11 @@ page CtasPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "05 · MEDIA LEFT"
           Title size:"2xl" weight:"black"
             "A compact media placeholder leading into focused copy"
-        Button href:"/blocks/cta-preview/media-left" variant:"soft" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/cta-preview/media-left" variant:"solid" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
       Tabs variant:"line" position:"top" w:"full"
         tab id:"media-left-preview" label:"Preview"
@@ -196,7 +196,7 @@ page CtasPage
         tab id:"media-left-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy CTA"
             copiedLabel:"Copied"
@@ -208,16 +208,16 @@ page CtasPage
 
               Section id:"media-left-cta" bg:"background" color:"backgroundText" boxed:true p:{ xs:6 md:12 }
                 Grid columns:{ xs:1 md:2 } gap:{ xs:8 md:14 } align:"center" minH:"vh-0"
-                  Box bg:"softMuted" rounded:"xl" p:8 minH:{ xs:64 md:80 }
+                  Box bg:"muted" rounded:"xl" p:8 minH:{ xs:64 md:80 }
                     Flex direction:"column" align:"center" justify:"center" gap:3 minH:{ xs:48 md:64 }
                       Icon name:"gallery-bold-duotone" fill:"muted" w:16 h:16
-                      Text size:"sm" color:"muted"
+                      Text size:"sm"
                         "Image placeholder"
                   Flex direction:"column" align:{ xs:"center" md:"start" } justify:"center" gap:5
                     Grid columns:1 gap:3
                       Title size:{ xs:"3xl" md:"5xl" } weight:"black"
                         "Create your account today and get started for free!"
-                      Text size:"lg" color:"muted"
+                      Text size:"lg"
                         "Start with a clear plan, invite your team, and turn the next milestone into visible progress."
                     Grid columns:1 gap:3 w:"full" show:{ xs:true sm:false }
                       each in:actions as:action key:action.id
@@ -232,7 +232,7 @@ page CtasPage
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "06 · BENEFIT LIST"
           Title size:"2xl" weight:"black"
             "A benefit checklist beside a large media placeholder"
@@ -245,7 +245,7 @@ page CtasPage
         tab id:"benefit-list-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy CTA"
             copiedLabel:"Copied"
@@ -262,7 +262,7 @@ page CtasPage
                 { id:"sales" label:"Talk to sales" variant:"outlined" },
               ]
 
-              Section id:"benefit-list-cta" bg:"softMuted" color:"softMutedText" boxed:true p:{ xs:6 md:12 }
+              Section id:"benefit-list-cta" bg:"muted" color:"mutedText" boxed:true p:{ xs:6 md:12 }
                 Grid columns:{ xs:1 md:2 } gap:{ xs:8 md:14 } align:"center" minH:"vh-0"
                   Flex direction:"column" align:{ xs:"center" md:"start" } justify:"center" gap:6
                     Title size:{ xs:"3xl" md:"5xl" } weight:"black"
@@ -271,7 +271,7 @@ page CtasPage
                       each in:benefits as:benefit key:benefit.id
                         Flex align:"center" gap:3
                           Icon name:"check-circle-bold" fill:"muted" w:5 h:5
-                          Text color:"muted"
+                          Text
                             "{benefit.label}"
                     Grid columns:1 gap:3 w:"full" show:{ xs:true sm:false }
                       each in:actions as:action key:action.id
@@ -284,18 +284,18 @@ page CtasPage
                   Box bg:"surface" rounded:"xl" p:8 minH:{ xs:72 md:96 }
                     Flex direction:"column" align:"center" justify:"center" gap:3 minH:{ xs:56 md:80 }
                       Icon name:"gallery-bold-duotone" fill:"muted" w:16 h:16
-                      Text size:"sm" color:"muted"
+                      Text size:"sm"
                         "Image placeholder"
             """
   Section id:"inset-panel" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Flex direction:{ xs:"column" md:"row" } justify:"between" align:"end" gap:3
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "07 · INSET PANEL"
           Title size:"2xl" weight:"black"
             "A centered CTA framed by a soft inset surface"
-        Button href:"/blocks/cta-preview/inset-panel" variant:"soft" size:"sm" rounded:"full" iconEnd:"arrow-right"
+        Button href:"/blocks/cta-preview/inset-panel" variant:"solid" size:"sm" rounded:"full" iconEnd:"arrow-right"
           "Open full page"
       Tabs variant:"line" position:"top" w:"full"
         tab id:"inset-panel-preview" label:"Preview"
@@ -304,7 +304,7 @@ page CtasPage
         tab id:"inset-panel-code" label:"Code"
           Code:
             language:"dowe"
-            variant:"soft"
+            variant:"solid"
             scheme:"surface"
             copyLabel:"Copy CTA"
             copiedLabel:"Copied"
@@ -315,7 +315,7 @@ page CtasPage
               ]
 
               Section id:"inset-panel-cta" bg:"background" color:"backgroundText" boxed:true p:{ xs:5 md:12 }
-                Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:7 md:14 } minH:{ xs:80 md:96 }
+                Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:7 md:14 } minH:{ xs:80 md:96 }
                   Flex direction:"column" align:"center" justify:"center" gap:6 minH:{ xs:64 md:72 }
                     Flex direction:"column" align:"center" gap:3 maxW:96
                       Title size:{ xs:"3xl" md:"6xl" } weight:"black"

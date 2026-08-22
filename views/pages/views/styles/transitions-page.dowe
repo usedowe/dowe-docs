@@ -8,22 +8,22 @@ page TransitionsPage
     ]
   Section id:"transitions-introduction" py:{ xs:6 md:10 }
     Flex direction:"column" gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "STYLES"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Transitions"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Choose how quickly gesture feedback enters and settles across every target."
   Section id:"transitions-presets" p:{ xs:5 md:8 }
     Grid columns:{ xs:1 md:2 } gap:8 align:"center"
       Flex direction:"column" gap:4
         Title size:"3xl" weight:"black"
           "Four timing presets"
-        Text color:"muted"
+        Text
           "none is immediate, quick is compact, smooth softens general movement, and spring adds expressive settling."
         Code:
           language:"dowe"
-          variant:"soft"
+          variant:"solid"
           scheme:"surface"
           copyLabel:"Copy Dowe"
           copiedLabel:"Copied"
@@ -32,11 +32,11 @@ page TransitionsPage
               "Hover or press"
           """
       Flex direction:"column" align:"center" gap:4
-        Chip variant:"soft" scheme:"muted" transition:"none" gesture:"grow"
+        Chip variant:"solid" scheme:"muted" transition:"none" gesture:"grow"
           "none"
-        Chip variant:"soft" scheme:"info" transition:"quick" gesture:"grow"
+        Chip variant:"solid" scheme:"info" transition:"quick" gesture:"grow"
           "quick"
-        Chip variant:"soft" scheme:"success" transition:"smooth" gesture:"grow"
+        Chip variant:"solid" scheme:"success" transition:"smooth" gesture:"grow"
           "smooth"
         Chip variant:"solid" scheme:"warning" transition:"spring" gesture:"grow"
           "spring"
@@ -44,20 +44,20 @@ page TransitionsPage
     Flex direction:"column" gap:3
       Title size:"3xl" weight:"black"
         "Transitions need an interactive state"
-      Text color:"muted"
+      Text
         "Pair transition with gesture. Use animation when the component itself should enter with motion."
   Section id:"transitions-api" py:{ xs:7 md:10 }
     Flex direction:"column" gap:5
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Timing values"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "transition is a static quoted preset. When omitted, web uses its 180ms gesture baseline and native targets use their general-purpose feedback timing. Author a preset for deterministic named timing."
       Table:
         data:transitionPresets
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -67,14 +67,14 @@ page TransitionsPage
         column field:"web" label:"Web reference" width:"2fr"
         column field:"native" label:"Native" width:"2fr"
         column field:"use" label:"Use" width:"2fr"
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "SwiftUI and Jetpack Compose use their native spring implementations. Reduced motion makes interactive changes immediate."
   Section id:"transitions-compatibility" py:{ xs:7 md:10 }
     Flex direction:"column" gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "COMPATIBILITY"
       Title size:"3xl" weight:"black"
         "Same surface as gesture"
-      Text color:"muted"
+      Text
         "Every styled layout, navigation root, content component, chart, control, form, and overlay accepts transition. It is excluded from Option, fabAction, comboOption, csvColumn, dragGroup, dragItem, tab, step, region entries, Svg, and Path."
-      Alert type:"warning" variant:"soft" scheme:"warning" message:"A transition needs state. transition alone has no visual result. Pair it with gesture; use animation for entrance motion. Custom timings and Signal-backed values are rejected."
+      Alert type:"warning" variant:"solid" scheme:"warning" message:"A transition needs state. transition alone has no visual result. Pair it with gesture; use animation for entrance motion. Custom timings and Signal-backed values are rejected."

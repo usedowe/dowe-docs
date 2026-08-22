@@ -82,20 +82,20 @@ page InputPage
   Section id:"input-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "FORM"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Input"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Inputs collect editable text with consistent labels, placeholders, icons, and visual variants on every target."
   Section id:"input-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "Edit one shared value"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The Select and Input bind to the same string Signal. Choose a preset, then continue editing it directly in the field."
       Grid columns:{ xs:1 md:2 } gap:4
         Select:
@@ -117,7 +117,7 @@ page InputPage
           validate rule:"min:3" message:"Use at least three characters."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -131,18 +131,18 @@ page InputPage
   Section id:"input-labels" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "LABELS"
         Title size:"3xl" weight:"black"
           "Fixed or floating"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "A fixed label stays above the field. A floating label lives in the control surface and activates with focus or a value."
       Grid columns:{ xs:1 md:2 } gap:5
         Input label:"Email" placeholder:"name@example.com" w:"full"
         Input label:"Email" placeholder:"name@example.com" labelFloating:true w:"full"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -153,25 +153,25 @@ page InputPage
   Section id:"input-variants" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "VARIANTS"
         Title size:"3xl" weight:"black"
           "Four control surfaces"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Variant changes the container treatment while keeping the same normalized field geometry."
       Grid columns:{ xs:1 md:3 } gap:4
         Input variant:"solid" label:"Solid" placeholder:"Solid input" w:"full"
-        Input variant:"soft" label:"Soft" placeholder:"Soft input" w:"full"
+        Input variant:"solid" label:"Soft" placeholder:"Soft input" w:"full"
         Input label:"Outlined" placeholder:"Outlined input" w:"full"
         Input variant:"ghost" label:"Ghost" placeholder:"Ghost input" w:"full"
   Section id:"input-schemes" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "SCHEMES"
         Title size:"3xl" weight:"black"
           "Every semantic family"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Outlined fields use a neutral resting border and preserve the selected scheme for foreground and focus feedback."
       Grid columns:{ xs:2 md:4 } gap:4
         Input label:"Primary" placeholder:"Enter a value" w:"full"
@@ -185,11 +185,11 @@ page InputPage
   Section id:"input-sizes" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "SIZES"
         Title size:"3xl" weight:"black"
           "One scale on every target"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Small, medium, and large controls are 32, 40, and 48 logical units, and their value text scales through body sm, md, and lg. A floating label adds 8 units without changing the selected size, including when the controls share a stretching Grid or Flex row on web."
       Grid columns:{ xs:1 md:3 } gap:4
         Input label:"Small" placeholder:"32 + 8" labelFloating:true size:"sm" w:"full"
@@ -198,27 +198,27 @@ page InputPage
   Section id:"input-icons" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "ICONS"
         Title size:"3xl" weight:"black"
           "Context inside the field"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Input resolves Solar icons at compile time. Floating-label fields hide them while empty and unfocused, then reveal them after focus or a value moves the label above the editable row. The active label begins after iconStart and its gap, aligned with the editable text."
       Grid columns:{ xs:1 md:2 } gap:5
         Input label:"Search" placeholder:"Search documentation" scheme:"info" iconStart:"magnifier" w:"full"
-        Input label:"Project" placeholder:"dowe-app" labelFloating:true variant:"soft" scheme:"success" iconStart:"folder" iconEnd:"check-circle" w:"full"
+        Input label:"Project" placeholder:"dowe-app" labelFloating:true variant:"solid" scheme:"success" iconStart:"folder" iconEnd:"check-circle" w:"full"
   Section id:"input-validation" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "VALIDATION"
         Title size:"3xl" weight:"black"
           "Validate after the first interaction"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Direct validate children run in source order. The first failing message replaces helpText after blur, and later edits refresh it immediately."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -230,48 +230,48 @@ page InputPage
   Section id:"input-contract" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "BEHAVIOR"
         Title size:"3xl" weight:"black"
           "One native contract"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Input uses native editable controls on web, iOS, and Android while Dowe keeps height, inset, typography, radius, binding, and focus color aligned."
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "On web, saved email and password values keep the field's inherited color and transparent background instead of activating browser autofill styling."
       Grid columns:{ xs:1 md:3 } gap:5
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "BINDING"
           Title size:"lg" weight:"bold"
             "Two-way text"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "bind reads and writes a string Signal path without executing user JavaScript."
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "ACCESSIBILITY"
           Title size:"lg" weight:"bold"
             "Label first"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Placeholder copy never replaces the accessible label contract."
         Flex direction:"column" gap:2
-          Text size:"xs" weight:"bold" color:"muted"
+          Text size:"xs" weight:"bold"
             "TARGETS"
           Title size:"lg" weight:"bold"
             "Portable metrics"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Web, SwiftUI, and Compose consume the same normalized field model."
   Section id:"input-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Input also accepts the applicable common spacing, sizing, font, visibility, accessibility, and shadow props."
       Table:
         data:inputProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

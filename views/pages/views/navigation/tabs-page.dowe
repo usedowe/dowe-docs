@@ -38,22 +38,22 @@ page TabsPage
   Section id:"tabs-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "NAVIGATION"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Tabs"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Tabs keep related content in one place while letting people move between focused panels."
   Section id:"tabs-default" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PANEL NAVIGATION"
         Title size:"3xl" weight:"black"
           "Direct tab entries"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Tabs accepts only direct tab entries. Each entry has a unique id, a visible label, and one or more view nodes for its panel. The first entry starts active."
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The tab list wraps its controls instead of stretching across the panel. If a horizontal list becomes wider than its container, it stays bounded and scrolls."
       Grid columns:{ xs:1 md:2 } gap:6 align:"start"
         Card variant:"outlined" p:{ xs:5 md:8 } border:1
@@ -62,23 +62,23 @@ page TabsPage
               Grid columns:1 gap:2 p:4
                 Title size:"lg" weight:"bold"
                   "Project overview"
-                Text size:"sm" color:"muted"
+                Text size:"sm"
                   "Keep the essential summary in the first, immediately available panel."
             tab id:"activity" label:"Activity"
               Grid columns:1 gap:2 p:4
                 Title size:"lg" weight:"bold"
                   "Recent activity"
-                Text size:"sm" color:"muted"
+                Text size:"sm"
                   "Related updates remain nearby without making the page longer."
             tab id:"settings" label:"Settings"
               Grid columns:1 gap:2 p:4
                 Title size:"lg" weight:"bold"
                   "Settings"
-                Text size:"sm" color:"muted"
+                Text size:"sm"
                   "Configuration belongs in its own focused panel."
         Code:
           language:"dowe"
-          variant:"soft"
+          variant:"solid"
           scheme:"surface"
           copyLabel:"Copy Dowe"
           copiedLabel:"Copied"
@@ -97,14 +97,14 @@ page TabsPage
   Section id:"tabs-variants" py:{ xs:7 md:10 }
     Grid columns:1 gap:8
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "VISUAL OPTIONS"
         Title size:"3xl" weight:"black"
           "Five tab treatments"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Variant changes the tab list treatment without changing panel behavior or keyboard navigation."
       Grid columns:{ xs:1 md:2 } gap:5
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Solid"
@@ -115,7 +115,7 @@ page TabsPage
               tab id:"solid-second" label:"Second"
                 Text size:"sm" p:3
                   "Panels keep their own view content."
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Outlined"
@@ -126,7 +126,7 @@ page TabsPage
               tab id:"outlined-second" label:"Second"
                 Text size:"sm" p:3
                   "The same panel contract applies."
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Line"
@@ -137,7 +137,7 @@ page TabsPage
               tab id:"line-second" label:"Second"
                 Text size:"sm" p:3
                   "Use it for denser interfaces."
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Ghost"
@@ -148,7 +148,7 @@ page TabsPage
               tab id:"ghost-second" label:"Second"
                 Text size:"sm" p:3
                   "The active state remains clear."
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Pills"
@@ -162,11 +162,11 @@ page TabsPage
   Section id:"tabs-position" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "ORIENTATION"
         Title size:"3xl" weight:"black"
           "Place controls around the panel"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "top and bottom use a horizontal tab list. start and end place a vertical list beside the panel on every generated target."
       Grid columns:{ xs:1 md:3 } gap:5
         Card variant:"outlined" p:5 border:1
@@ -204,7 +204,7 @@ page TabsPage
                   "Use end when the content should lead."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         content:"""
           Tabs variant:"outlined" scheme:"muted" position:"start"
@@ -218,11 +218,11 @@ page TabsPage
   Section id:"tabs-schemes" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "SCHEMES"
         Title size:"3xl" weight:"black"
           "Use scheme for the visual family"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Tabs uses scheme, not color. Action and structural scheme families work consistently across web, desktop, Android, and iOS."
       Flex wrap:true align:"start" gap:5
         Tabs
@@ -253,37 +253,37 @@ page TabsPage
           tab id:"surface-next" label:"Next"
             Text size:"sm" p:3
               "Next panel"
-      Alert type:"info" variant:"soft" scheme:"info" message:"Tabs rejects color as a visual-family prop. Use scheme to select the semantic or structural family."
+      Alert type:"info" variant:"solid" scheme:"info" message:"Tabs rejects color as a visual-family prop. Use scheme to select the semantic or structural family."
   Section id:"tabs-accessibility" p:{ xs:5 md:7 }
     Grid columns:1 gap:6 align:"start"
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "ACCESSIBILITY"
         Title size:"3xl" weight:"black"
           "Keyboard-ready panels"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Web and desktop output uses tablist, tab, and tabpanel roles. Arrow keys move through the tab controls, while Home and End move to the first and last control."
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Android and iOS generate native stateful controls with the same initial active tab, orientation, variant, and scheme."
-      Card variant:"soft" p:6
+      Card variant:"solid" p:6
         Grid columns:1 gap:3
           Title size:"lg" weight:"bold"
             "Authoring rules"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Do not place ordinary view nodes directly inside Tabs. Put each panel node under a tab, keep ids unique within that Tabs instance, and give every tab a label and content."
   Section id:"tabs-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:8
       Grid columns:1 gap:5
         Grid columns:1 gap:2
-          Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+          Text size:"xs" weight:"bold" spacing:"widest"
             "API"
           Title size:"3xl" weight:"black"
             "Tabs props"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Tabs also accepts applicable common identity, spacing, sizing, visibility, radius, and border props."
         Table:
           data:tabsProps
-          variant:"soft"
+          variant:"solid"
           scheme:"surface"
           size:"sm"
           striped:true
@@ -296,11 +296,11 @@ page TabsPage
         Grid columns:1 gap:2
           Title size:"2xl" weight:"black"
             "tab entry props"
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "tab is structural and is valid only as a direct child of Tabs."
         Table:
           data:tabProps
-          variant:"soft"
+          variant:"solid"
           scheme:"surface"
           size:"sm"
           striped:true

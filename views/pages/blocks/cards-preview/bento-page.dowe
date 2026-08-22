@@ -17,26 +17,26 @@ page BentoCardsPage
       Flex direction:"column" align:"center" gap:3
         Title size:{ xs:"3xl" md:"5xl" } weight:"black"
           "Browse our set of features"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Use a strong lead card and compact supporting cards to create a clear visual hierarchy."
       Grid columns:{ xs:1 md:2 } gap:5
-        Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:80
+        Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:80
           Flex direction:"column" align:"center" justify:"end" gap:5 minH:64
             Icon name:"gallery-bold-duotone" fill:"muted" w:16 h:16
             Title size:"xl" weight:"black"
               "Mobile app"
-            Text color:"muted"
+            Text
               "A focused mobile experience for customers and teams wherever their work happens."
             Button variant:"ghost" size:"sm" iconEnd:"arrow-right"
               "Learn more"
         Grid columns:1 gap:5
           each in:supportingFeatures as:feature key:feature.id
-            Card variant:"soft" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:52
+            Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:52
               Grid columns:{ xs:1 sm:2 } gap:5 align:"center"
                 Flex direction:"column" align:"start" gap:4
                   Title size:"xl" weight:"black"
                     "{feature.title}"
-                  Text color:"muted"
+                  Text
                     "{feature.description}"
                   Button variant:"ghost" size:"sm" iconEnd:"arrow-right"
                     "Learn more"

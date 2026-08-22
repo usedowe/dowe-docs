@@ -38,24 +38,24 @@ page ParsePage
     set parsedSvg source:parse.svg value:svgInput fallback:""
   Section id:"parse-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "UTILITY"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "parse"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "parse converts user-provided strings into safe portable values without throwing a view runtime exception."
   Section id:"parse-syntax" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "VIEW SYNTAX"
         Title size:"3xl" weight:"black"
           "Assign utility results inside fn"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "View utilities are normalized calls. source names the function, named props provide its arguments, and set writes the result to a Signal."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy syntax"
         copiedLabel:"Copied"
@@ -63,11 +63,11 @@ page ParsePage
           fn convert
             set output source:parse.svg value:input fallback:""
         """
-      Alert type:"info" message:"parser svg data=svg and string svg data=... are not Dowe declarations. The implemented syntax is set <Signal> source:parse.svg value:<string Signal>." variant:"soft" scheme:"info"
+      Alert type:"info" message:"parser svg data=svg and string svg data=... are not Dowe declarations. The implemented syntax is set <Signal> source:parse.svg value:<string Signal>." variant:"solid" scheme:"info"
   Section id:"parse-playground" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "Convert SVG text"
@@ -79,7 +79,7 @@ page ParsePage
         Code:
           language:"dowe"
           template:true
-          variant:"soft"
+          variant:"solid"
           scheme:"surface"
           copyLabel:"Copy result"
           copiedLabel:"Copied"
@@ -87,7 +87,7 @@ page ParsePage
   Section id:"parse-functions" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "FUNCTIONS"
         Title size:"3xl" weight:"black"
           "Implemented parse catalog"
@@ -97,11 +97,11 @@ page ParsePage
         column field:"result" label:"Result"
   Section id:"parse-limits" py:{ xs:7 md:10 }
     Grid columns:1 gap:4
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "CURRENT SUPPORT"
       Title size:"3xl" weight:"black"
         "Bounded and deterministic"
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "parse.svg accepts at most 262144 UTF-8 bytes and 1024 paths. It imports viewBox or numeric width and height, svg, g, path, inline fill styles, and matrix transforms."
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "Unsupported vector elements are skipped. Invalid XML, dimensions, path data, or transforms return fallback when supplied and null otherwise."

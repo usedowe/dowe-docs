@@ -16,7 +16,7 @@ layout ViewsLayout
   signal openDrawer value:false
   Scaffold boxed:true
     appBar
-      AppBar variant:"soft" scheme:"background" boxed:true bordered:true position:"fixed"
+      AppBar variant:"solid" scheme:"background" boxed:true bordered:true position:"fixed"
         start
           IconButton:
             show:{ xs:true md:false }
@@ -34,7 +34,7 @@ layout ViewsLayout
         end
           Github
     start
-      Sidebar show:{ xs:false md:true } variant:"ghost" scheme:"muted" w:72
+      Sidebar show:{ xs:false md:true } w:72
         body
           ViewsNavigation
     main

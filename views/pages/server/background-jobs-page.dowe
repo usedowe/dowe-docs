@@ -30,24 +30,24 @@ page BackgroundJobsPage
     ]
   Section id:"background-jobs-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "SERVER / BACKGROUND JOBS"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Run scheduled server work"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "A background job is an imported server function registered with cron. Dowe runs each scheduled execution in an isolated worker without blocking the server."
   Section id:"background-jobs-definition" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "1 / DEFINE THE WORK"
         Title size:"3xl" weight:"black"
           "Use an ordinary server function"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Jobs do not need a special declaration. Put the reusable work in a server fn, declare its input with params, and keep provider access inside that function."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -60,7 +60,7 @@ page BackgroundJobsPage
         """
       Table:
         data:jobDefinitionRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -71,15 +71,15 @@ page BackgroundJobsPage
   Section id:"background-jobs-registration" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "2 / REGISTER THE SCHEDULE"
         Title size:"3xl" weight:"black"
           "Attach cron directly to server.init"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Import the function in main.dowe and register it under server.init with the explicit fn prop. Cron creates no result binding, the schedule uses five UTC fields, and args must be static JSON because init has no request-local scope."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -93,7 +93,7 @@ page BackgroundJobsPage
         """
       Table:
         data:cronRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -101,18 +101,18 @@ page BackgroundJobsPage
         rounded:"md"
         column field:"field" label:"Field" width:"2fr"
         column field:"values" label:"Accepted values" width:"5fr"
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "Cron fields accept *, numeric values, lists, ranges, and steps such as */15. Each server replica owns its own scheduler."
   Section id:"background-jobs-runtime" pb:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "3 / RUNTIME BEHAVIOR"
         Title size:"3xl" weight:"black"
           "Know what happens when a job runs"
       Table:
         data:jobRuntimeRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

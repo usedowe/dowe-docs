@@ -37,18 +37,18 @@ page ActionCardsPage
       Flex direction:"column" align:"center" gap:3
         Title size:{ xs:"3xl" md:"5xl" } weight:"black"
           "Browse our set of features"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "A responsive collection of feature summaries with a clear next step on every card."
       Grid columns:{ xs:1 md:3 } gap:5
         each in:features as:feature key:feature.id
           Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:72
             Flex direction:"column" align:"start" justify:"between" gap:5 minH:56
               Grid columns:1 gap:4
-                Box bg:"softMuted" rounded:"lg" p:3 w:14
+                Box bg:"muted" rounded:"lg" p:3 w:14
                   Icon name:"gallery-bold-duotone" fill:"muted" w:8 h:8
                 Title size:"xl" weight:"black"
                   "{feature.title}"
-                Text color:"muted"
+                Text
                   "{feature.description}"
               Button variant:"ghost" size:"sm" iconEnd:"arrow-right"
                 "Learn more"

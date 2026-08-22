@@ -20,7 +20,7 @@ layout AppBarHostingLayout
               Text size:"xl" weight:"black" color:"primaryText"
                 "HOSTC"
         center
-          NavMenu variant:"soft" scheme:"surface" size:"sm" show:{ xs:false md:true }
+          NavMenu variant:"solid" scheme:"primary" size:"sm" show:{ xs:false md:true }
             submenu label:"Home"
               item label:"Classic" href:"/blocks/appbar-preview/classic-saas"
               item label:"Creative" href:"/blocks/appbar-preview/creative"
@@ -44,7 +44,7 @@ layout AppBarHostingLayout
             IconButton:
               icon:"hamburger-menu"
               label:"Open navigation"
-              variant:"soft"
+              variant:"solid"
               scheme:"warning"
               show:{ xs:true md:false }
     main

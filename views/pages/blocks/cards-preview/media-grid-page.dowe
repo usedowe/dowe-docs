@@ -11,17 +11,17 @@ page MediaGridCardsPage
       Flex direction:"column" align:"center" gap:3
         Title size:{ xs:"3xl" md:"5xl" } weight:"black"
           "Browse our set of features"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Choose a starting point and shape it around the way your team prefers to work."
       Grid columns:{ xs:1 sm:2 md:4 } gap:5
         each in:products as:product key:product.id
           Card variant:"outlined" scheme:"muted" rounded:"xl" p:4
             Grid columns:1 gap:4
-              Box bg:"softMuted" rounded:"lg" minH:44 p:6
+              Box bg:"muted" rounded:"lg" minH:44 p:6
                 Flex align:"center" justify:"center" minH:32
                   Icon name:"gallery-bold-duotone" fill:"muted" w:14 h:14
               Grid columns:1 gap:2
                 Title size:"lg" weight:"black"
                   "{product.title}"
-                Text color:"muted"
+                Text
                   "{product.description}"

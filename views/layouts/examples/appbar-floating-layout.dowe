@@ -1,12 +1,12 @@
 layout AppBarFloatingLayout
   Scaffold p:{ xs:2 md:4 }
     appBar
-      AppBar variant:"soft" position:"fixed" boxed:true blurred:true floating:true dockOnScroll:true
+      AppBar variant:"solid" position:"fixed" boxed:true blurred:true floating:true dockOnScroll:true
         start
           Text weight:"bold"
             "Dowe"
         center
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Dock on scroll"
         end
           Button href:"/examples/appbar-one" variant:"ghost" size:"sm"

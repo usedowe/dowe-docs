@@ -24,23 +24,23 @@ page OnlineSolutionsFeaturesPage
     ]
   Section id:"online-solutions-features" bg:"surface" color:"surfaceText" boxed:true py:{ xs:8 md:12 }
     Grid columns:{ xs:1 md:2 } gap:{ xs:10 md:16 } align:"center"
-      Box bg:"softMuted" p:{ xs:5 md:8 }
+      Box bg:"muted" p:{ xs:5 md:8 }
         Grid columns:{ xs:1 sm:2 } gap:5
           each in:onlineCapabilities as:capability key:capability.id
             Card rounded:"lg" shadow:"md" p:6 minH:56
               Flex direction:"column" gap:4
-                Box bg:"softPrimary" rounded:"full" w:14 h:14 p:2
+                Box bg:"muted" rounded:"full" w:14 h:14 p:2
                   Icon name:"stars-line-duotone" fill:"primary" w:10 h:10
                 Title size:"lg" weight:"black"
                   "{capability.title}"
-                Text color:"muted"
+                Text
                   "{capability.description}"
       Flex direction:"column" gap:6
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "ONE-STOP SOLUTIONS"
         Title size:{ xs:"4xl" md:"6xl" } weight:"black"
           "Cutting-edge solutions for your online business"
-        Text color:"muted"
+        Text
           "Bring strategy, design, and technology together to build a business customers understand and trust."
-        Text color:"muted"
+        Text
           "Move from isolated tools to a connected system that helps your team learn, adapt, and grow."

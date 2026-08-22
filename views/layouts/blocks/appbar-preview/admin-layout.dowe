@@ -41,7 +41,7 @@ layout AppBarAdminLayout
             Avatar:
               name:"Jordan Lee"
               alt:"Jordan Lee"
-              variant:"soft"
+              variant:"solid"
               scheme:"primary"
               size:"md"
               status:"online"

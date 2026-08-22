@@ -13,15 +13,15 @@ page RouterWebSocketsPage
   Section id:"router-websockets" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "WEBSOCKETS"
         Title size:{ xs:"3xl" md:"5xl" } weight:"black"
           "Protect the upgrade before opening a socket"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "WebSockets can live in endpoint groups, inherit their path and middleware, and add route-specific middleware. Browser clients authenticate the upgrade with a search parameter because they cannot set arbitrary upgrade headers."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -45,7 +45,7 @@ page RouterWebSocketsPage
         """
       Table:
         data:websocketRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

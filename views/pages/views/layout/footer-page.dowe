@@ -50,25 +50,25 @@ page FooterPage
   Section id:"footer-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "LAYOUT"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Footer"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Footers close a page with top and bottom bands around a balanced start, center, and end row inside one shared inner container."
   Section id:"footer-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "A complete product footer"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use top and bottom for responsive bands, then keep identity, navigation, and actions in the start, center, and end row. Footer includes horizontal spacing 4 on small viewports and 6 from md, a more pronounced top spacing of 10 and 16, and bottom spacing of 4 and 6. boxed:true constrains top, the central row, and bottom together while keeping the outer surface full width. Override spacing with p, px, py, pl, pr, pt, or pb when the composition needs a different rhythm."
       Card variant:"outlined" p:{ xs:4 md:6 } border:1
-        Footer variant:"soft" bordered:true boxed:true
+        Footer variant:"solid" bordered:true boxed:true
           top
-            Text size:"xs" color:"muted" show:{ xs:true md:false }
+            Text size:"xs" show:{ xs:true md:false }
               "Build once. Ship every target."
           start
             Flex align:"center" gap:2
@@ -84,21 +84,21 @@ page FooterPage
               Button href:"/docs/dev/agent" variant:"ghost" scheme:"muted" size:"sm"
                 "Agents"
           end
-            Button href:"/docs/views/control/button" variant:"soft" size:"sm"
+            Button href:"/docs/views/control/button" variant:"solid" size:"sm"
               "Explore components"
           bottom
-            Text size:"xs" color:"muted"
+            Text size:"xs"
               "© 2026 Dowe Studio"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Footer variant:"soft" bordered:true boxed:true
+          Footer variant:"solid" bordered:true boxed:true
             top
-              Text size:"xs" color:"muted" show:{ xs:true md:false }
+              Text size:"xs" show:{ xs:true md:false }
                 "Build once. Ship every target."
             start
               Text weight:"bold"
@@ -109,86 +109,86 @@ page FooterPage
               Button href:"/docs/server" variant:"ghost" scheme:"muted" size:"sm"
                 "Server"
             end
-              Button href:"/docs/views/control/button" variant:"soft" size:"sm"
+              Button href:"/docs/views/control/button" variant:"solid" size:"sm"
                 "Explore components"
             bottom
-              Text size:"xs" color:"muted"
+              Text size:"xs"
                 "© 2026 Dowe Studio"
         """
   Section id:"footer-regions" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "REGIONS"
         Title size:"3xl" weight:"black"
           "Five regions, one responsive contract"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "top and bottom span the shared inner container around the central start, center, and end row. A missing region reserves no artificial space."
       Grid columns:1 gap:4
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "TOP"
             Title size:"lg" weight:"bold"
               "Opening band"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Place a directory, announcement, or mobile-only identity above the row."
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "START"
             Title size:"lg" weight:"bold"
               "Identity"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Use the leading region for a brand, project name, or ownership label."
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "CENTER"
             Title size:"lg" weight:"bold"
               "Navigation"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "The center region takes flexible space when start or end content is present."
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "END"
             Title size:"lg" weight:"bold"
               "Action"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Keep one conversion, support, or account action close to the trailing edge."
-        Card variant:"soft" p:5
+        Card variant:"solid" p:5
           Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" color:"muted"
+            Text size:"xs" weight:"bold"
               "BOTTOM"
             Title size:"lg" weight:"bold"
               "Closing band"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Place legal copy, social links, or mobile-only actions below the row."
       Footer variant:"outlined" scheme:"primary" bordered:true
         top
-          Text size:"sm" color:"muted" show:{ xs:true md:false }
+          Text size:"sm" show:{ xs:true md:false }
             "Top region"
         start
           Text size:"sm" weight:"bold"
             "Start region"
         center
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Center region expands"
         end
-          Button variant:"soft" size:"sm"
+          Button variant:"solid" size:"sm"
             "End action"
         bottom
-          Text size:"sm" color:"muted"
+          Text size:"sm"
             "Bottom region"
   Section id:"footer-visuals" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "VISUAL SYSTEM"
         Title size:"3xl" weight:"black"
           "Surface, contrast, and containment"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "variant controls the surface treatment, scheme chooses the design family, and bordered, blurred, and boxed refine the shell without changing its regions."
       Grid columns:1 gap:4
         Footer bordered:true
@@ -196,32 +196,32 @@ page FooterPage
             Text size:"sm" weight:"bold"
               "Solid surface"
           end
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Default chrome"
-        Footer variant:"soft" scheme:"info" blurred:true
+        Footer variant:"solid" scheme:"info" blurred:true
           start
             Text size:"sm" weight:"bold"
               "Soft blurred"
           end
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Lightweight context"
         Footer variant:"outlined" scheme:"success" bordered:true boxed:true
           start
             Text size:"sm" weight:"bold"
               "Outlined boxed"
           end
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Contained footer"
         Footer variant:"ghost" scheme:"muted"
           start
             Text size:"sm" weight:"bold"
               "Ghost utility"
           end
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Minimal emphasis"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -231,7 +231,7 @@ page FooterPage
               Text
                 "Solid surface"
 
-          Footer variant:"soft" scheme:"info" blurred:true
+          Footer variant:"solid" scheme:"info" blurred:true
             start
               Text
                 "Soft blurred"
@@ -244,21 +244,21 @@ page FooterPage
   Section id:"footer-advanced" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "ADVANCED COMPOSITION"
         Title size:"3xl" weight:"black"
           "A footer that scales with the product"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Keep the outer contract small and compose richer groups inside each region. This pattern works for a product shell, documentation portal, or account area."
-      Footer variant:"soft" scheme:"background" bordered:true boxed:true p:{ xs:4 md:6 }
+      Footer variant:"solid" scheme:"background" bordered:true boxed:true p:{ xs:4 md:6 }
         top
-          Text size:"xs" color:"muted" show:{ xs:true md:false }
+          Text size:"xs" show:{ xs:true md:false }
             "Northstar product directory"
         start
           Grid columns:1 gap:2
             Text weight:"bold"
               "Northstar"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Systems for teams that ship."
         center
           Flex wrap:true gap:5
@@ -270,29 +270,29 @@ page FooterPage
               "Safety"
         end
           Grid columns:1 gap:2
-            Text size:"xs" color:"muted"
+            Text size:"xs"
               "Need help?"
             Button href:"/docs/views" size:"sm"
               "Read the docs"
         bottom
-          Text size:"xs" color:"muted"
+          Text size:"xs"
             "© 2026 Northstar Labs"
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Footer variant:"soft" scheme:"background" bordered:true boxed:true
+          Footer variant:"solid" scheme:"background" bordered:true boxed:true
             top
-              Text size:"xs" color:"muted" show:{ xs:true md:false }
+              Text size:"xs" show:{ xs:true md:false }
                 "Northstar product directory"
             start
               Grid columns:1 gap:2
                 Text weight:"bold"
                   "Northstar"
-                Text size:"sm" color:"muted"
+                Text size:"sm"
                   "Systems for teams that ship."
             center
               Flex wrap:true gap:5
@@ -304,21 +304,21 @@ page FooterPage
               Button href:"/docs/views" size:"sm"
                 "Read the docs"
             bottom
-              Text size:"xs" color:"muted"
+              Text size:"xs"
                 "© 2026 Northstar Labs"
         """
   Section id:"footer-props" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Footer also accepts applicable common spacing, sizing, typography, visibility, border, radius, and accessibility props."
       Table:
         data:footerProps
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

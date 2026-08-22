@@ -102,24 +102,24 @@ page DatabasePage
     ]
   Section id:"database-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "SERVER / DATABASE"
       Title size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Database"
-      Text size:"lg" color:"muted"
+      Text size:"lg"
         "Database is Dowe's Dowe-owned server data contract. One query syntax can target PostgreSQL, Cloudflare D1, or Dowe Database, while handles and credentials stay server-only."
   Section id:"database-mental-model" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "1 / MENTAL MODEL"
         Title size:"3xl" weight:"black"
           "Declare a handle, then bind results"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "database declares the provider connection and query executes one operation. The HTTP request is already available as req inside the handler, just like env references; the binding returned by query is available to later server statements and can be projected into a response."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
@@ -131,7 +131,7 @@ page DatabasePage
         """
       Table:
         data:databaseModelRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -143,15 +143,15 @@ page DatabasePage
   Section id:"database-operations" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "2 / OPERATIONS"
         Title size:"3xl" weight:"black"
           "Choose the data flow"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Use list, read, insert, update, and delete for predictable record access. Use query for the supported SQL-like read grammar. The operation syntax stays the same when the provider changes."
       Table:
         data:databaseOperationRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -163,15 +163,15 @@ page DatabasePage
   Section id:"database-providers" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "3 / PROVIDERS"
         Title size:"3xl" weight:"black"
           "Three adapters, one server contract"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The provider selects the Dowe adapter used in production. host, port, account, secret, and name are server-only props; Dowe never sends them to a View."
       Table:
         data:databaseProviderRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -180,11 +180,11 @@ page DatabasePage
         column field:"provider" label:"Provider" width:"2fr"
         column field:"guidance" label:"Connection contract" width:"5fr"
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" color:"muted"
+        Text size:"xs" weight:"bold"
           "The same query against each provider"
         Code:
           language:"dowe"
-          variant:"soft"
+          variant:"solid"
           scheme:"surface"
           copyLabel:"Copy PostgreSQL"
           copiedLabel:"Copied"
@@ -200,11 +200,11 @@ page DatabasePage
             query blogs conn:appDb.list table:"blogs"
           """
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" color:"muted"
+        Text size:"xs" weight:"bold"
           "Cloudflare D1"
         Code:
           language:"dowe"
-          variant:"soft"
+          variant:"solid"
           scheme:"surface"
           copyLabel:"Copy D1"
           copiedLabel:"Copied"
@@ -218,11 +218,11 @@ page DatabasePage
             query blogs conn:appDb.list table:"blogs"
           """
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" color:"muted"
+        Text size:"xs" weight:"bold"
           "Dowe Database"
         Code:
           language:"dowe"
-          variant:"soft"
+          variant:"solid"
           scheme:"surface"
           copyLabel:"Copy Dowe"
           copiedLabel:"Copied"
@@ -240,15 +240,15 @@ page DatabasePage
   Section id:"database-registration" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "3 / PROJECT REGISTRY"
         Title size:"3xl" weight:"black"
           "Register handles in main.dowe"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "A Database declaration can live in any server configuration module. Import the handle into main.dowe and list it under server.databases so migrate and seeders receive one deterministic project catalog, even before a route uses that handle."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy registration"
         copiedLabel:"Copied"
@@ -259,20 +259,20 @@ page DatabasePage
             server port:8081
               databases:[IconDb]
         """
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "The registry accepts only imported Database handles. It does not copy provider credentials, open connections, or expose server-only values to Views."
   Section id:"database-schema" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "4 / ENTITIES AND SEEDERS"
         Title size:"3xl" weight:"black"
           "Describe shape once, seed it deterministically"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "entity and seeder are importable server bindings. Run dowe database migrate after entity changes: Postgres and D1 append provider SQL, while Dowe records a dynamic no-SQL head. Production applies pending migrations and seeders automatically; local development applies seeders with dowe database seeders."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy schema"
         copiedLabel:"Copied"
@@ -292,7 +292,7 @@ page DatabasePage
         """
       Table:
         data:databaseSchemaRows
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true
@@ -302,17 +302,17 @@ page DatabasePage
         column field:"guidance" label:"Responsibility" width:"5fr"
   Section id:"database-environments" p:{ xs:5 md:7 }
     Grid columns:1 gap:4
-      Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+      Text size:"xs" weight:"bold" spacing:"widest"
         "5 / DEVELOPMENT AND PRODUCTION"
       Title size:"3xl" weight:"black"
         "The same source behaves predictably in both environments"
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "During dowe dev, all three providers use the embedded local Database under .dowe/db/<name> and resolve only name. Seeders are not loaded or executed automatically; run dowe database seeders when local records are needed. No account, secret, external network, Wrangler process, or second D1 port is used."
-      Text size:"sm" color:"muted"
+      Text size:"sm"
         "During production, Dowe validates the maintained migration graph, applies pending Postgres or D1 nodes atomically, runs pending seeders atomically, and only then starts accepting traffic. Dowe Database uses authenticated WebSocket operations and does not require SQL migrations."
       Code:
         language:"dowe"
-        variant:"soft"
+        variant:"solid"
         scheme:"surface"
         copyLabel:"Copy query"
         copiedLabel:"Copied"

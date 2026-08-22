@@ -29,13 +29,13 @@ page MapPage
   Section id:"map-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "DISPLAY"
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Map"
-        Text size:"lg" color:"muted"
+        Text size:"lg"
           "Map provides a portable location surface with deterministic markers, optional route endpoints, controls, scale, and location actions."
-      Card variant:"soft" scheme:"success" p:5 rounded:"lg" minW:56
+      Card variant:"solid" scheme:"success" p:5 rounded:"lg" minW:56
         Grid columns:1 gap:1
           Text size:"xs" weight:"bold" spacing:"widest"
             "STRUCTURED LOCATION"
@@ -46,11 +46,11 @@ page MapPage
   Section id:"map-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PLAYGROUND"
         Title size:"3xl" weight:"black"
           "Plan an office route"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "The example combines a centered map, semantic marker labels, a waypoint, route endpoints, scale, location controls, and named actions."
       Map:
         centerLat:4.7109
@@ -70,15 +70,15 @@ page MapPage
         onLocationError:reportLocationError
         onRoute:buildRoute
         scheme:"primary"
-        variant:"soft"
+        variant:"solid"
         rounded:"lg"
         border:1
         marker id:"office" lat:4.7109 lng:-74.0721 label:"Dowe office" popup:"Main workspace" icon:"start" onClick:selectOffice
         marker id:"partner" lat:4.72 lng:-74.06 label:"Partner studio" popup:"Design review" icon:"default" onClick:selectOffice
         marker id:"destination" lat:4.65 lng:-74.09 label:"Delivery point" popup:"Route endpoint" icon:"end"
         waypoint lat:4.68 lng:-74.08
-      Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
-        Map centerLat:4.7109 centerLng:-74.0721 zoom:12 height:"360px" width:"100%" showScale:true showLocationControl:true routeStartLat:4.7109 routeStartLng:-74.0721 routeEndLat:4.65 routeEndLng:-74.09 onLocation:locateUser onLocationError:reportLocationError onRoute:buildRoute scheme:"primary" variant:"soft"
+      Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+        Map centerLat:4.7109 centerLng:-74.0721 zoom:12 height:"360px" width:"100%" showScale:true showLocationControl:true routeStartLat:4.7109 routeStartLng:-74.0721 routeEndLat:4.65 routeEndLng:-74.09 onLocation:locateUser onLocationError:reportLocationError onRoute:buildRoute scheme:"primary" variant:"solid"
           marker id:"office" lat:4.7109 lng:-74.0721 label:"Dowe office" popup:"Main workspace" icon:"start" onClick:selectOffice
           marker id:"destination" lat:4.65 lng:-74.09 label:"Delivery point" popup:"Route endpoint" icon:"end"
           waypoint lat:4.68 lng:-74.08
@@ -86,70 +86,70 @@ page MapPage
   Section id:"map-states" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "PRESENTATION STATES"
         Title size:"3xl" weight:"black"
           "Tune the map to its context"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "A map can be interactive for exploration or quiet and compact when it only confirms a stored location."
       Grid columns:{ xs:1 md:2 } gap:4
         Card variant:"outlined" p:{ xs:5 md:7 } border:1
           Grid columns:1 gap:4
-            Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+            Text size:"xs" weight:"bold" spacing:"widest"
               "LOCATION CARD"
             Map centerLat:4.7109 centerLng:-74.0721 zoom:14 height:"240px" width:"100%" showControls:false showScale:false showLocationControl:false interactive:false scheme:"success" variant:"outlined" rounded:"md"
               marker id:"office-card" lat:4.7109 lng:-74.0721 label:"Office" icon:"start"
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Disable interaction when the map is a visual confirmation rather than a planning tool."
         Card variant:"outlined" p:{ xs:5 md:7 } border:1
           Grid columns:1 gap:4
-            Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+            Text size:"xs" weight:"bold" spacing:"widest"
               "WAYPOINTS"
-            Map centerLat:4.69 centerLng:-74.08 zoom:11 height:"240px" width:"100%" showControls:true showScale:true interactive:true scheme:"info" variant:"soft" rounded:"md"
+            Map centerLat:4.69 centerLng:-74.08 zoom:11 height:"240px" width:"100%" showControls:true showScale:true interactive:true scheme:"info" variant:"solid" rounded:"md"
               marker id:"north" lat:4.73 lng:-74.06 label:"North checkpoint" icon:"waypoint"
               marker id:"south" lat:4.65 lng:-74.09 label:"South checkpoint" icon:"waypoint"
               waypoint lat:4.69 lng:-74.08
               waypoint lat:4.70 lng:-74.07
-            Text size:"sm" color:"muted"
+            Text size:"sm"
               "Use waypoints to describe a route without turning every intermediate point into an actionable marker."
-      Code language:"dowe" variant:"soft" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+      Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
         Map centerLat:4.7109 centerLng:-74.0721 zoom:14 height:"240px" showControls:false interactive:false scheme:"success" variant:"outlined"
           marker id:"office" lat:4.7109 lng:-74.0721 label:"Office" icon:"start"
 
-        Map centerLat:4.69 centerLng:-74.08 zoom:11 height:"240px" showScale:true scheme:"info" variant:"soft"
+        Map centerLat:4.69 centerLng:-74.08 zoom:11 height:"240px" showScale:true scheme:"info" variant:"solid"
           marker id:"north" lat:4.73 lng:-74.06 label:"North checkpoint" icon:"waypoint"
           waypoint lat:4.69 lng:-74.08
       """
   Section id:"map-entries" p:{ xs:5 md:7 }
     Grid columns:{ xs:1 md:3 } gap:4
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "MARKERS"
         Title size:"2xl" weight:"black"
           "Give every marker an id"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Markers require unique static ids plus latitude and longitude. label and popup provide accessible and contextual copy; onClick stays optional."
       Flex direction:"column" gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "ROUTES"
         Title size:"2xl" weight:"black"
           "Declare all four endpoints"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "A route is either absent or complete: routeStartLat, routeStartLng, routeEndLat, and routeEndLng must appear together."
-      Table data:markerProps variant:"soft" scheme:"surface" size:"sm" striped:true dividers:true rounded:"md"
+      Table data:markerProps variant:"solid" scheme:"surface" size:"sm" striped:true dividers:true rounded:"md"
         column field:"prop" label:"Marker prop" width:"1.2fr"
         column field:"type" label:"Type" width:"3fr"
         column field:"defaultValue" label:"Default" width:"1.2fr"
   Section id:"map-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
-        Text size:"xs" weight:"bold" spacing:"widest" color:"muted"
+        Text size:"xs" weight:"bold" spacing:"widest"
           "API"
         Title size:"3xl" weight:"black"
           "Map props"
-        Text size:"sm" color:"muted"
+        Text size:"sm"
           "Map also accepts common identity, spacing, sizing, visibility, radius, border, and accessibility props."
-      Table data:mapProps variant:"soft" scheme:"surface" size:"sm" striped:true dividers:true rounded:"md"
+      Table data:mapProps variant:"solid" scheme:"surface" size:"sm" striped:true dividers:true rounded:"md"
         column field:"prop" label:"Prop" width:"1.2fr"
         column field:"type" label:"Type" width:"3fr"
         column field:"defaultValue" label:"Default" width:"1.2fr"
