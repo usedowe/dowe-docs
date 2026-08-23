@@ -36,7 +36,7 @@ layout ScaffoldInsetSidebarLayout
         open:openDrawer
         position:"start"
         variant:"solid"
-        scheme:"tertiary"
+        scheme:"accent"
         show:{ xs:true md:false }
         body
           Flex direction:"column" minH:"vh-0" align:"center" justify:"center"

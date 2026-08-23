@@ -56,7 +56,7 @@ page SelectPage
       },
       {
         prop:"scheme"
-        type:"primary | secondary | tertiary | muted | success | info | warning | danger"
+        type:"primary | secondary | accent | muted | success | info | warning | danger"
         defaultValue:"primary"
       },
       {
@@ -228,8 +228,8 @@ page SelectPage
           Option value:"primary" label:"Primary"
         Select label:"Secondary" placeholder:"Choose" scheme:"secondary" w:"full"
           Option value:"secondary" label:"Secondary"
-        Select label:"Tertiary" placeholder:"Choose" scheme:"tertiary" w:"full"
-          Option value:"tertiary" label:"Tertiary"
+        Select label:"Accent" placeholder:"Choose" scheme:"accent" w:"full"
+          Option value:"accent" label:"Accent"
         Select label:"Muted" placeholder:"Choose" scheme:"muted" w:"full"
           Option value:"muted" label:"Muted"
         Select label:"Success" placeholder:"Choose" scheme:"success" w:"full"

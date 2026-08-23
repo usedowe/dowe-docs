@@ -5,12 +5,12 @@ page LoginReverseAuthPage
       Box:
         show:{ xs:true md:false }
         bg:"muted"
-        color:"tertiary"
+        color:"accent"
         minH:40
         p:6
         Flex direction:"column" justify:"center" align:"center" minH:40
           Box bg:"surface" rounded:"lg" p:5 shadow:"lg" shadowColor:"muted"
-            Icon name:"lock-password-bold-duotone" fill:"tertiary" w:16 h:16
+            Icon name:"lock-password-bold-duotone" fill:"accent" w:16 h:16
       Flex:
         direction:"column"
         justify:"center"
@@ -28,30 +28,30 @@ page LoginReverseAuthPage
               Text size:"sm"
                 "Use your account to continue securely."
             Grid columns:1 gap:4
-              Input bind:form.email label:"Email address" placeholder:"you@example.com" helpText:"Use the email associated with your account." variant:"solid" scheme:"tertiary" w:"full"
+              Input bind:form.email label:"Email address" placeholder:"you@example.com" helpText:"Use the email associated with your account." variant:"solid" scheme:"accent" w:"full"
                 validate rule:"required" message:"Enter your email address."
                 validate rule:"email" message:"Enter a valid email address."
-              Password bind:form.password label:"Password" placeholder:"Enter your password" hideStrength:true variant:"solid" scheme:"tertiary" w:"full"
+              Password bind:form.password label:"Password" placeholder:"Enter your password" hideStrength:true variant:"solid" scheme:"accent" w:"full"
               Flex justify:"between" align:"center" gap:2
-                Checkbox bind:form.remember label:"Remember me" scheme:"tertiary"
-                Button href:"/blocks/auth-preview/forgot-password" variant:"ghost" scheme:"tertiary" size:"xs"
+                Checkbox bind:form.remember label:"Remember me" scheme:"accent"
+                Button href:"/blocks/auth-preview/forgot-password" variant:"ghost" scheme:"accent" size:"xs"
                   "Forgot password?"
-              Button scheme:"tertiary" w:"full"
+              Button scheme:"accent" w:"full"
                 "Log in"
             Grid columns:{ xs:1 lg:2 } gap:2
-              Button variant:"outlined" scheme:"tertiary" size:"sm" iconStart:"global" w:"full"
+              Button variant:"outlined" scheme:"accent" size:"sm" iconStart:"global" w:"full"
                 "Continue with Google"
-              Button variant:"outlined" scheme:"tertiary" size:"sm" iconStart:"smartphone" w:"full"
+              Button variant:"outlined" scheme:"accent" size:"sm" iconStart:"smartphone" w:"full"
                 "Continue with Apple"
             Divider
-            Button href:"/blocks/auth-preview/signup-reverse" variant:"ghost" scheme:"tertiary" size:"sm"
+            Button href:"/blocks/auth-preview/signup-reverse" variant:"ghost" scheme:"accent" size:"sm"
               "No account yet? Sign up"
       Box:
         show:{ xs:false md:true }
         bg:"muted"
-        color:"tertiary"
+        color:"accent"
         minH:"vh-0"
         p:12
         Flex direction:"column" justify:"center" align:"center" minH:"vh-0"
           Box bg:"surface" rounded:"lg" p:9 shadow:"xl" shadowColor:"muted"
-            Icon name:"lock-password-bold-duotone" fill:"tertiary" w:24 h:24
+            Icon name:"lock-password-bold-duotone" fill:"accent" w:24 h:24

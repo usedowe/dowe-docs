@@ -42,9 +42,9 @@ page ShadowPage
         label:"Secondary"
       },
       {
-        id:"tertiary"
-        value:"tertiary"
-        label:"Tertiary"
+        id:"accent"
+        value:"accent"
+        label:"Accent"
       },
       {
         id:"muted"
@@ -81,7 +81,7 @@ page ShadowPage
       },
       {
         prop:"shadowColor"
-        type:"primary | secondary | tertiary | muted | success | info | danger | warning"
+        type:"primary | secondary | accent | muted | success | info | danger | warning"
         defaultValue:"—"
       },
     ]
@@ -158,10 +158,10 @@ page ShadowPage
             name:"Dowe Agent"
             alt:"Dowe Agent"
             variant:"solid"
-            scheme:"tertiary"
+            scheme:"accent"
             size:"xl"
             shadow:"lg"
-            shadowColor:"tertiary"
+            shadowColor:"accent"
         Flex direction:"column" gap:3 align:"center" p:6
           Text size:"xs" weight:"bold"
             "CHIP"
@@ -212,8 +212,8 @@ page ShadowPage
           "Primary"
         Button shadow:"md" shadowColor:"secondary" variant:"solid" scheme:"secondary"
           "Secondary"
-        Button shadow:"md" shadowColor:"tertiary" variant:"solid" scheme:"tertiary"
-          "Tertiary"
+        Button shadow:"md" shadowColor:"accent" variant:"solid" scheme:"accent"
+          "Accent"
         Button shadow:"md" shadowColor:"muted" variant:"solid" scheme:"muted"
           "Muted"
         Button shadow:"md" shadowColor:"success" variant:"solid" scheme:"success"

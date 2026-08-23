@@ -4,7 +4,7 @@ page AccordionPage
       { prop:"item" type:"id, label, optional disabled/defaultOpen" defaultValue:"required" },
       { prop:"multiple" type:"boolean" defaultValue:"false" },
       { prop:"variant" type:"solid | soft | outlined | ghost" defaultValue:"ghost" },
-      { prop:"scheme" type:"primary | secondary | tertiary | muted | background | surface | success | info | warning | danger" defaultValue:"design/theme" },
+      { prop:"scheme" type:"primary | secondary | accent | muted | background | surface | success | info | warning | danger" defaultValue:"design/theme" },
       { prop:"item children" type:"normal view tree" defaultValue:"required" },
     ]
   Section id:"accordion-introduction" py:{ xs:6 md:10 }

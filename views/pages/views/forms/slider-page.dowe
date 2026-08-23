@@ -46,7 +46,7 @@ page SliderPage
       },
       {
         prop:"scheme"
-        type:"primary | secondary | tertiary | muted | success | info | warning | danger"
+        type:"primary | secondary | accent | muted | success | info | warning | danger"
         defaultValue:"primary"
       },
       {
@@ -123,7 +123,7 @@ page SliderPage
       Grid columns:{ xs:2 md:4 } gap:4
         Slider value:65 min:0 max:100 label:"Primary" scheme:"primary" size:"md"
         Slider value:65 min:0 max:100 label:"Secondary" scheme:"secondary" size:"md"
-        Slider value:65 min:0 max:100 label:"Tertiary" scheme:"tertiary" size:"md"
+        Slider value:65 min:0 max:100 label:"Accent" scheme:"accent" size:"md"
         Slider value:65 min:0 max:100 label:"Muted" scheme:"muted" size:"md"
         Slider value:65 min:0 max:100 label:"Success" scheme:"success" size:"md"
         Slider value:65 min:0 max:100 label:"Info" scheme:"info" size:"md"

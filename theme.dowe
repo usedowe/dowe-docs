@@ -5,7 +5,7 @@ theme
       colors:
         primary color:"#1F3A5F" text:"#EAF2F8" title:"#FFFFFF"
         secondary color:"#6BC670" text:"#102A15" title:"#071B0B"
-        tertiary color:"#3F7A8A" text:"#FFFFFF" title:"#FFFFFF"
+        accent color:"#3F7A8A" text:"#FFFFFF" title:"#FFFFFF"
         happy color:"#176C75" text:"#FFFFFE" title:"#FFFFFE"
       colors:
         muted color:"#e9ebee" text:"#26201F" title:"#26201F"
@@ -20,7 +20,7 @@ theme
       colors:
         primary color:"#6BC670" text:"#0E2513" title:"#0E2513"
         secondary color:"#8EADD1" text:"#13243A" title:"#13243A"
-        tertiary color:"#70C3A0" text:"#0E251D" title:"#0E251D"
+        accent color:"#70C3A0" text:"#0E251D" title:"#0E251D"
       colors:
         muted color:"#A6B1BF" text:"#152131" title:"#152131"
         background color:"#0F1721" text:"#F4F7FB" title:"#F4F7FB"
@@ -34,7 +34,7 @@ theme
       colors:
         primary color:"#007565" text:"#fffffe" title:"#fffffe"
         secondary color:"#b91f3d" text:"#fffffe" title:"#fffffe"
-        tertiary color:"#735f00" text:"#fffffe" title:"#fffffe"
+        accent color:"#735f00" text:"#fffffe" title:"#fffffe"
       colors:
         muted color:"#1b2d45" text:"#fffffe" title:"#fffffe"
         background color:"#f6fffd" text:"#00214d" title:"#00214d"
@@ -43,7 +43,7 @@ theme
       colors:
         primary color:"#08699f" text:"#fffffe" title:"#fffffe"
         secondary color:"#456d88" text:"#fffffe" title:"#fffffe"
-        tertiary color:"#b92847" text:"#fffffe" title:"#fffffe"
+        accent color:"#b92847" text:"#fffffe" title:"#fffffe"
       colors:
         muted color:"#526172" text:"#fffffe" title:"#fffffe"
         background color:"#f5f9fc" text:"#094067" title:"#094067"
@@ -52,7 +52,7 @@ theme
       colors:
         primary color:"#176c75" text:"#fffffe" title:"#fffffe"
         secondary color:"#7430c6" text:"#fffffe" title:"#fffffe"
-        tertiary color:"#6f5700" text:"#fffffe" title:"#fffffe"
+        accent color:"#6f5700" text:"#fffffe" title:"#fffffe"
       colors:
         muted color:"#2e2e2e" text:"#fffffe" title:"#fffffe"
         background color:"#fffffe" text:"#181818" title:"#181818"
@@ -66,7 +66,7 @@ theme
       colors:
         primary color:"#825200" text:"#fffffe" title:"#fffffe"
         secondary color:"#9f3550" text:"#fffffe" title:"#fffffe"
-        tertiary color:"#a92d25" text:"#fffffe" title:"#fffffe"
+        accent color:"#a92d25" text:"#fffffe" title:"#fffffe"
       colors:
         muted color:"#475d5b" text:"#f2f7f5" title:"#f2f7f5"
         background color:"#f2f7f5" text:"#00473e" title:"#00473e"
@@ -75,7 +75,7 @@ theme
       colors:
         primary color:"#452bc4" text:"#fffffe" title:"#fffffe"
         secondary color:"#56567a" text:"#fffffe" title:"#fffffe"
-        tertiary color:"#a52d35" text:"#fffffe" title:"#fffffe"
+        accent color:"#a52d35" text:"#fffffe" title:"#fffffe"
       colors:
         muted color:"#2b2c34" text:"#fffffe" title:"#fffffe"
         background color:"#fffffe" text:"#2b2c34" title:"#2b2c34"
@@ -84,7 +84,7 @@ theme
       colors:
         primary color:"#0e172c" text:"#fffffe" title:"#fffffe"
         secondary color:"#5d4b80" text:"#fffffe" title:"#fffffe"
-        tertiary color:"#6731b8" text:"#fffffe" title:"#fffffe"
+        accent color:"#6731b8" text:"#fffffe" title:"#fffffe"
       colors:
         muted color:"#51485b" text:"#fffffe" title:"#fffffe"
         background color:"#fec7d7" text:"#0e172c" title:"#0e172c"
@@ -93,7 +93,7 @@ theme
       colors:
         primary color:"#006b6b" text:"#fffffe" title:"#fffffe"
         secondary color:"#b62c1c" text:"#fffffe" title:"#fffffe"
-        tertiary color:"#865b20" text:"#fffffe" title:"#fffffe"
+        accent color:"#865b20" text:"#fffffe" title:"#fffffe"
       colors:
         muted color:"#222525" text:"#f8f5f2" title:"#f8f5f2"
         background color:"#f8f5f2" text:"#232323" title:"#232323"
@@ -102,7 +102,7 @@ theme
       colors:
         primary color:"#9a4100" text:"#fffffe" title:"#fffffe"
         secondary color:"#555866" text:"#fffffe" title:"#fffffe"
-        tertiary color:"#ad2253" text:"#fffffe" title:"#fffffe"
+        accent color:"#ad2253" text:"#fffffe" title:"#fffffe"
       colors:
         muted color:"#2a2a2a" text:"#eff0f3" title:"#eff0f3"
         background color:"#eff0f3" text:"#0d0d0d" title:"#0d0d0d"
@@ -111,7 +111,7 @@ theme
       colors:
         primary color:"#f9bc60" text:"#001e1d" title:"#001e1d"
         secondary color:"#8ed8cc" text:"#001e1d" title:"#001e1d"
-        tertiary color:"#f4a6a7" text:"#001e1d" title:"#001e1d"
+        accent color:"#f4a6a7" text:"#001e1d" title:"#001e1d"
       colors:
         muted color:"#b8cfc9" text:"#001e1d" title:"#001e1d"
         background color:"#004643" text:"#fffffe" title:"#fffffe"
@@ -120,7 +120,7 @@ theme
       colors:
         primary color:"#655533" text:"#fffffe" title:"#fffffe"
         secondary color:"#665042" text:"#fffffe" title:"#fffffe"
-        tertiary color:"#a92820" text:"#fffffe" title:"#fffffe"
+        accent color:"#a92820" text:"#fffffe" title:"#fffffe"
       colors:
         muted color:"#5a554d" text:"#fffffe" title:"#fffffe"
         background color:"#f9f4ef" text:"#020826" title:"#020826"
@@ -129,7 +129,7 @@ theme
       colors:
         primary color:"#eebbc3" text:"#232946" title:"#232946"
         secondary color:"#b8c1ec" text:"#232946" title:"#232946"
-        tertiary color:"#f5d6a8" text:"#232946" title:"#232946"
+        accent color:"#f5d6a8" text:"#232946" title:"#232946"
       colors:
         muted color:"#aab4d6" text:"#232946" title:"#232946"
         background color:"#232946" text:"#fffffe" title:"#fffffe"
@@ -138,7 +138,7 @@ theme
       colors:
         primary color:"#ff8906" text:"#0f0e17" title:"#0f0e17"
         secondary color:"#f77b6b" text:"#0f0e17" title:"#0f0e17"
-        tertiary color:"#ee5a8c" text:"#0f0e17" title:"#0f0e17"
+        accent color:"#ee5a8c" text:"#0f0e17" title:"#0f0e17"
       colors:
         muted color:"#a7a9be" text:"#0f0e17" title:"#0f0e17"
         background color:"#0f0e17" text:"#fffffe" title:"#fffffe"
@@ -147,7 +147,7 @@ theme
       colors:
         primary color:"#735f00" text:"#fffffe" title:"#fffffe"
         secondary color:"#3d6767" text:"#fffffe" title:"#fffffe"
-        tertiary color:"#326c83" text:"#fffffe" title:"#fffffe"
+        accent color:"#326c83" text:"#fffffe" title:"#fffffe"
       colors:
         muted color:"#2d334a" text:"#fffffe" title:"#fffffe"
         background color:"#f7fbfb" text:"#272343" title:"#272343"
@@ -156,7 +156,7 @@ theme
       colors:
         primary color:"#a13b57" text:"#fffffe" title:"#fffffe"
         secondary color:"#7b4a4d" text:"#fffffe" title:"#fffffe"
-        tertiary color:"#3d6b47" text:"#fffffe" title:"#fffffe"
+        accent color:"#3d6b47" text:"#fffffe" title:"#fffffe"
       colors:
         muted color:"#594a4e" text:"#faeee7" title:"#faeee7"
         background color:"#faeee7" text:"#33272a" title:"#33272a"
@@ -165,7 +165,7 @@ theme
       colors:
         primary color:"#ffc7b6" text:"#271c19" title:"#271c19"
         secondary color:"#f4d2a4" text:"#271c19" title:"#271c19"
-        tertiary color:"#e1cee5" text:"#271c19" title:"#271c19"
+        accent color:"#e1cee5" text:"#271c19" title:"#271c19"
       colors:
         muted color:"#fff3ec" text:"#55423d" title:"#55423d"
         background color:"#55423d" text:"#fffffe" title:"#fffffe"
@@ -174,7 +174,7 @@ theme
       colors:
         primary color:"#9f3663" text:"#fffffe" title:"#fffffe"
         secondary color:"#31717a" text:"#fffffe" title:"#fffffe"
-        tertiary color:"#7a5800" text:"#fffffe" title:"#fffffe"
+        accent color:"#7a5800" text:"#fffffe" title:"#fffffe"
       colors:
         muted color:"#172c66" text:"#fef6e4" title:"#fef6e4"
         background color:"#fef6e4" text:"#001858" title:"#001858"

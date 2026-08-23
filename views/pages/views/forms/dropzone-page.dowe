@@ -38,7 +38,7 @@ page DropzonePage
       },
       {
         prop:"scheme"
-        type:"primary | secondary | tertiary | muted | success | info | warning | danger | surface | background"
+        type:"primary | secondary | accent | muted | success | info | warning | danger | surface | background"
         defaultValue:"primary"
       },
       {

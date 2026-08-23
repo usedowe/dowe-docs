@@ -3,15 +3,15 @@ page NamedThemesPage
     value:[
       {
         group:"Base"
-        tokens:"primary, secondary, tertiary, muted, background, surface, success, info, warning, danger"
+        tokens:"primary, secondary, accent, muted, background, surface, success, info, warning, danger"
       },
       {
         group:"Content"
-        tokens:"primaryText, secondaryText, tertiaryText, mutedText, backgroundText, surfaceText, successText, infoText, warningText, dangerText"
+        tokens:"primaryText, secondaryText, accentText, mutedText, backgroundText, surfaceText, successText, infoText, warningText, dangerText"
       },
       {
         group:"Titles"
-        tokens:"primaryTitle, secondaryTitle, tertiaryTitle, mutedTitle, backgroundTitle, surfaceTitle, successTitle, infoTitle, warningTitle, dangerTitle"
+        tokens:"primaryTitle, secondaryTitle, accentTitle, mutedTitle, backgroundTitle, surfaceTitle, successTitle, infoTitle, warningTitle, dangerTitle"
       },
     ]
   Section id:"named-themes-introduction" py:{ xs:6 md:10 }

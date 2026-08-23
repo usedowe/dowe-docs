@@ -8,7 +8,7 @@ page NavMenuPage
       },
       {
         prop:"scheme"
-        type:"primary | secondary | tertiary | muted | background | surface | success | info | warning | danger"
+        type:"primary | secondary | accent | muted | background | surface | success | info | warning | danger"
         defaultValue:"surface"
       },
       {
@@ -151,8 +151,8 @@ page NavMenuPage
             item label:"Primary" href:"/docs/views/navigation/navmenu"
           NavMenu variant:"solid" scheme:"secondary" size:"sm"
             item label:"Secondary" href:"/docs/views/navigation/navmenu"
-          NavMenu variant:"solid" scheme:"tertiary" size:"sm"
-            item label:"Tertiary" href:"/docs/views/navigation/navmenu"
+          NavMenu variant:"solid" scheme:"accent" size:"sm"
+            item label:"Accent" href:"/docs/views/navigation/navmenu"
           NavMenu variant:"solid" scheme:"primary" size:"sm"
             item label:"Muted" href:"/docs/views/navigation/navmenu"
           NavMenu variant:"solid" scheme:"success" size:"sm"

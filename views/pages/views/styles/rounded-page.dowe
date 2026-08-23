@@ -72,7 +72,7 @@ page RoundedPage
           Text size:"sm"
             "Full follows the control shape."
         Flex direction:"column" gap:3 align:"center" justify:"center" p:6
-          Avatar name:"Dowe" alt:"Dowe" size:"xl" scheme:"tertiary" rounded:"full"
+          Avatar name:"Dowe" alt:"Dowe" size:"xl" scheme:"accent" rounded:"full"
           Text size:"sm"
             "Equal dimensions form a circle."
   Section id:"rounded-responsive" p:{ xs:5 md:7 }

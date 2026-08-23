@@ -2,7 +2,7 @@ page ChipPage
   const chipProps:
     value:[
       { prop:"variant" type:"solid | soft | outlined | ghost" defaultValue:"solid" },
-      { prop:"scheme" type:"primary | secondary | tertiary | muted | background | surface | success | info | warning | danger" defaultValue:"primary" },
+      { prop:"scheme" type:"primary | secondary | accent | muted | background | surface | success | info | warning | danger" defaultValue:"primary" },
       { prop:"size" type:"xs | sm | md | lg | xl" defaultValue:"md" },
       { prop:"startIcon" type:"quoted Solar icon name" defaultValue:"—" },
       { prop:"endIcon" type:"quoted Solar icon name" defaultValue:"—" },
@@ -60,8 +60,8 @@ page ChipPage
           "Primary"
         Chip variant:"solid" scheme:"secondary"
           "Secondary"
-        Chip variant:"solid" scheme:"tertiary"
-          "Tertiary"
+        Chip variant:"solid" scheme:"accent"
+          "Accent"
         Chip variant:"solid" scheme:"muted"
           "Muted"
         Chip variant:"solid" scheme:"success"

@@ -5,7 +5,7 @@ page AvatarPage
       { prop:"name" type:"string" defaultValue:"—" },
       { prop:"alt" type:"string" defaultValue:"Avatar" },
       { prop:"variant" type:"solid | soft" defaultValue:"solid" },
-      { prop:"scheme" type:"primary | secondary | tertiary | muted | background | surface | success | info | warning | danger" defaultValue:"primary" },
+      { prop:"scheme" type:"primary | secondary | accent | muted | background | surface | success | info | warning | danger" defaultValue:"primary" },
       { prop:"size" type:"xs | sm | md | lg | xl" defaultValue:"md" },
       { prop:"status" type:"online | offline | busy | away" defaultValue:"—" },
       { prop:"bordered" type:"boolean" defaultValue:"false" },
@@ -58,7 +58,7 @@ page AvatarPage
         Avatar name:"Ada Lovelace" alt:"Ada Lovelace" variant:"solid" scheme:"primary" size:"xl"
         Avatar name:"Grace Hopper" alt:"Grace Hopper" variant:"solid" scheme:"secondary" size:"lg"
         Avatar name:"Linus Torvalds" alt:"Linus Torvalds" variant:"solid" scheme:"success" size:"md"
-        Avatar name:"Margaret Hamilton" alt:"Margaret Hamilton" variant:"solid" scheme:"tertiary" size:"sm"
+        Avatar name:"Margaret Hamilton" alt:"Margaret Hamilton" variant:"solid" scheme:"accent" size:"sm"
         Avatar name:"Alan Turing" alt:"Alan Turing" variant:"solid" scheme:"muted" size:"xs"
   Section id:"avatar-priority" p:{ xs:5 md:7 }
     Grid columns:1 gap:5

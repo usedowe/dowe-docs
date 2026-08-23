@@ -20,7 +20,7 @@ page AppBarOne
               "Boxed content"
             Text size:"sm"
               "The bar stays full width while its regions use a centered reading width."
-        Card variant:"solid" scheme:"tertiary" p:5
+        Card variant:"solid" scheme:"accent" p:5
           Grid columns:1 gap:2
             Text weight:"bold"
               "Portable"

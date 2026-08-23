@@ -8,7 +8,7 @@ layout ScaffoldRailBottomBarLayout
         bg:"muted"
         RailNav:
           variant:"solid"
-          scheme:"tertiary"
+          scheme:"accent"
           showLabels:true
           minH:"vh-0"
           item label:"Rail" href:"/blocks/scaffold-preview/rail-bottom-bar" icon:"widget-4"

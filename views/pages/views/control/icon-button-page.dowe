@@ -15,9 +15,9 @@ page IconButtonPage
         label:"Secondary"
       },
       {
-        id:"tertiary"
-        value:"tertiary"
-        label:"Tertiary"
+        id:"accent"
+        value:"accent"
+        label:"Accent"
       },
       {
         id:"muted"
@@ -145,7 +145,7 @@ page IconButtonPage
       },
       {
         prop:"scheme"
-        type:"primary | secondary | tertiary | muted | success | info | warning | danger"
+        type:"primary | secondary | accent | muted | success | info | warning | danger"
         defaultValue:"primary"
       },
       {

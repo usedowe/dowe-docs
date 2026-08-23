@@ -38,7 +38,7 @@ page ImagePage
       },
       {
         prop:"scheme"
-        type:"primary | secondary | tertiary | muted | success | info | warning | danger"
+        type:"primary | secondary | accent | muted | success | info | warning | danger"
         defaultValue:"primary"
       },
       {
@@ -275,7 +275,7 @@ page ImagePage
             aspect:"horizontal"
             objectFit:"cover"
             loading:"lazy"
-            scheme:"tertiary"
+            scheme:"accent"
             rounded:"lg"
           Text size:"sm" weight:"bold"
             "Default passive image · lazy"

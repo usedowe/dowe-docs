@@ -3,7 +3,7 @@ page DropdownPage
     value:[
       {
         prop:"scheme"
-        type:"primary | secondary | tertiary | muted | background | surface | success | info | warning | danger"
+        type:"primary | secondary | accent | muted | background | surface | success | info | warning | danger"
         defaultValue:"primary"
       },
       {
@@ -222,11 +222,11 @@ page DropdownPage
             Button variant:"outlined" scheme:"secondary" size:"sm" iconEnd:"alt-arrow-down"
               "Secondary"
           item label:"Secondary menu" href:"/docs/views"
-        Dropdown scheme:"tertiary"
+        Dropdown scheme:"accent"
           trigger
-            Button variant:"outlined" scheme:"tertiary" size:"sm" iconEnd:"alt-arrow-down"
-              "Tertiary"
-          item label:"Tertiary menu" href:"/docs/views"
+            Button variant:"outlined" scheme:"accent" size:"sm" iconEnd:"alt-arrow-down"
+              "Accent"
+          item label:"Accent menu" href:"/docs/views"
         Dropdown scheme:"muted"
           trigger
             Button variant:"outlined" scheme:"muted" size:"sm" iconEnd:"alt-arrow-down"

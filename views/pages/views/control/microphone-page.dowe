@@ -8,7 +8,7 @@ page MicrophonePage
       { prop:"onStop" type:"function" defaultValue:"—" },
       { prop:"onError" type:"function" defaultValue:"—" },
       { prop:"variant" type:"solid | soft | outlined | ghost" defaultValue:"solid" },
-      { prop:"scheme" type:"primary | secondary | tertiary | muted | success | info | warning | danger" defaultValue:"primary" },
+      { prop:"scheme" type:"primary | secondary | accent | muted | success | info | warning | danger" defaultValue:"primary" },
     ]
   signal microphoneStatus value:"Ready"
   fn microphoneStart

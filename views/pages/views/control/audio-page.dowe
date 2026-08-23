@@ -5,7 +5,7 @@ page AudioPage
       { prop:"subtitle" type:"string" defaultValue:"—" },
       { prop:"avatarSrc" type:"asset path | https URL" defaultValue:"—" },
       { prop:"variant" type:"solid | soft" defaultValue:"solid" },
-      { prop:"scheme" type:"primary | secondary | tertiary | muted | success | info | warning | danger" defaultValue:"primary" },
+      { prop:"scheme" type:"primary | secondary | accent | muted | success | info | warning | danger" defaultValue:"primary" },
       { prop:"rounded" type:"xs | sm | md | lg | xl | full" defaultValue:"radius" },
     ]
   Section id:"audio-introduction" py:{ xs:6 md:10 }

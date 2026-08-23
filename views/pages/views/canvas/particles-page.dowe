@@ -32,7 +32,7 @@ page CanvasParticlesPage
         x:220
         y:90
         radius:7
-        fill:"tertiary"
+        fill:"accent"
         opacity:0.8
         motion:{ vx:-28 vy:20 pulse:1.2 wrap:true }
       },
@@ -160,7 +160,7 @@ page CanvasParticlesPage
         content:"""
           signal particles value:[
             { type:"circle" x:30 y:40 radius:9 fill:"primary" opacity:0.7 motion:{ vx:22 vy:14 pulse:0.7 wrap:true } },
-            { type:"circle" x:220 y:90 radius:7 fill:"tertiary" opacity:0.8 motion:{ vx:-28 vy:20 pulse:1.2 wrap:true } },
+            { type:"circle" x:220 y:90 radius:7 fill:"accent" opacity:0.8 motion:{ vx:-28 vy:20 pulse:1.2 wrap:true } },
             { type:"text" x:320 y:188 text:"MOTION FIELD" fill:"surfaceText" size:26 align:"center" },
           ]
 

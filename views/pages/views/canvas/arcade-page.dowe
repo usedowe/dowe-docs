@@ -192,7 +192,7 @@ page CanvasArcadePage
               "rotation"
             Text size:"sm"
               "Rotate a command by degrees per second around its origin."
-        Card variant:"solid" scheme:"tertiary" p:5 rounded:"lg"
+        Card variant:"solid" scheme:"accent" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Title size:"xl" weight:"black"
               "pulse"

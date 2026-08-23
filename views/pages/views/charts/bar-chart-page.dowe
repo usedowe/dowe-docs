@@ -40,7 +40,7 @@ page BarChartPage
           "BarChart"
         Text size:"lg"
           "Categorical comparisons with explicit values, grouped series, and readable labels."
-      Card variant:"solid" scheme:"tertiary" p:5 rounded:"lg" minW:56
+      Card variant:"solid" scheme:"accent" p:5 rounded:"lg" minW:56
         Grid columns:1 gap:1
           Text size:"xs" weight:"bold" spacing:"widest"
             "CATEGORY FIRST"

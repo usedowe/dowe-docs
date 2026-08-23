@@ -29,7 +29,7 @@ page CheckboxPage
       },
       {
         prop:"scheme"
-        type:"primary | secondary | tertiary | muted | success | info | warning | danger"
+        type:"primary | secondary | accent | muted | success | info | warning | danger"
         defaultValue:"primary"
       },
       {
@@ -91,7 +91,7 @@ page CheckboxPage
       Grid columns:{ xs:2 md:4 } gap:4
         Checkbox checked:true label:"Primary"
         Checkbox checked:true label:"Secondary" scheme:"secondary"
-        Checkbox checked:true label:"Tertiary" scheme:"tertiary"
+        Checkbox checked:true label:"Accent" scheme:"accent"
         Checkbox checked:true label:"Muted" scheme:"muted"
         Checkbox checked:true label:"Success" scheme:"success"
         Checkbox checked:true label:"Info" scheme:"info"

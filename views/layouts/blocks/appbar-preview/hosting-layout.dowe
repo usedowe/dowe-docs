@@ -3,7 +3,7 @@ layout AppBarHostingLayout
     appBar
       AppBar scheme:"primary" position:"sticky" boxed:true
         top
-          Box bg:"tertiary" color:"tertiaryText" px:4 py:2
+          Box bg:"accent" color:"accentText" px:4 py:2
             Grid columns:{ xs:1 md:3 } gap:4 align:"center"
               Text size:"xs" weight:"bold"
                 "Contact@hostc.com"

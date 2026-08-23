@@ -2,7 +2,7 @@ page CarouselPage
   const carouselProps:
     value:[
       { prop:"variant" type:"simple | snapping | masonry | rtl | sticky | controls | dots | thumbnails | coverFlow | slideshow | stories | smartStack | cardStack | flipbook" defaultValue:"simple" },
-      { prop:"scheme" type:"primary | secondary | tertiary | muted | success | info | warning | danger" defaultValue:"primary" },
+      { prop:"scheme" type:"primary | secondary | accent | muted | success | info | warning | danger" defaultValue:"primary" },
       { prop:"orientation" type:"horizontal | vertical" defaultValue:"horizontal" },
       { prop:"autoplay, autoplayInterval" type:"boolean, milliseconds" defaultValue:"false, 3000" },
       { prop:"disableLoop" type:"boolean" defaultValue:"false" },
@@ -75,7 +75,7 @@ page CarouselPage
               Text size:"sm"
                 "Fine pointers get a drag enhancement."
           slide id:"simple-three"
-            Card variant:"solid" scheme:"tertiary" minH:44 rounded:"lg" p:5
+            Card variant:"solid" scheme:"accent" minH:44 rounded:"lg" p:5
               Text size:"xs" weight:"bold" spacing:"widest"
                 "03 / RESPONSIVE"
               Title size:"2xl" weight:"black"
@@ -374,7 +374,7 @@ page CarouselPage
               Title size:"3xl" weight:"black"
                 "Depth"
           slide id:"cover-three"
-            Card variant:"solid" scheme:"tertiary" minH:52 rounded:"lg" p:5
+            Card variant:"solid" scheme:"accent" minH:52 rounded:"lg" p:5
               Text size:"xs" weight:"bold" spacing:"widest"
                 "COVER 03"
               Title size:"3xl" weight:"black"
@@ -542,7 +542,7 @@ page CarouselPage
               Text size:"lg"
                 "Cards do not replace the platform gesture."
           slide id:"message-three"
-            Card variant:"solid" scheme:"tertiary" minH:44 rounded:"xl" p:5
+            Card variant:"solid" scheme:"accent" minH:44 rounded:"xl" p:5
               Title size:"2xl" weight:"black"
                 "Touch remains primary."
               Text size:"lg"

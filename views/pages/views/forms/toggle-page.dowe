@@ -39,7 +39,7 @@ page TogglePage
       },
       {
         prop:"scheme"
-        type:"primary | secondary | tertiary | muted | success | info | warning | danger"
+        type:"primary | secondary | accent | muted | success | info | warning | danger"
         defaultValue:"primary"
       },
     ]
@@ -93,7 +93,7 @@ page TogglePage
       Grid columns:{ xs:2 md:4 } gap:4
         Toggle checked:true label:"Primary" scheme:"primary"
         Toggle checked:true label:"Secondary" scheme:"secondary"
-        Toggle checked:true label:"Tertiary" scheme:"tertiary"
+        Toggle checked:true label:"Accent" scheme:"accent"
         Toggle checked:true label:"Muted" scheme:"muted"
         Toggle checked:true label:"Success" scheme:"success"
         Toggle checked:true label:"Info" scheme:"info"

@@ -55,7 +55,7 @@ page InputPage
       },
       {
         prop:"scheme"
-        type:"primary | secondary | tertiary | muted | success | info | warning | danger"
+        type:"primary | secondary | accent | muted | success | info | warning | danger"
         defaultValue:"primary"
       },
       {
@@ -176,7 +176,7 @@ page InputPage
       Grid columns:{ xs:2 md:4 } gap:4
         Input label:"Primary" placeholder:"Enter a value" w:"full"
         Input scheme:"secondary" label:"Secondary" placeholder:"Enter a value" w:"full"
-        Input scheme:"tertiary" label:"Tertiary" placeholder:"Enter a value" w:"full"
+        Input scheme:"accent" label:"Accent" placeholder:"Enter a value" w:"full"
         Input scheme:"muted" label:"Muted" placeholder:"Enter a value" w:"full"
         Input scheme:"success" label:"Success" placeholder:"Enter a value" w:"full"
         Input scheme:"info" label:"Info" placeholder:"Enter a value" w:"full"

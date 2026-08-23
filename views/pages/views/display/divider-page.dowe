@@ -2,7 +2,7 @@ page DividerPage
   const dividerProps:
     value:[
       { prop:"orientation" type:"horizontal | vertical" defaultValue:"horizontal" },
-      { prop:"scheme" type:"primary | secondary | tertiary | muted | background | surface | success | info | warning | danger" defaultValue:"muted" },
+      { prop:"scheme" type:"primary | secondary | accent | muted | background | surface | success | info | warning | danger" defaultValue:"muted" },
       { prop:"show" type:"bool Signal or responsive visibility" defaultValue:"true" },
       { prop:"spacing, sizing, rounded, border" type:"common style props" defaultValue:"—" },
     ]

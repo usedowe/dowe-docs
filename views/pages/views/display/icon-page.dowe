@@ -430,7 +430,7 @@ page IconPage
               "Prefix the ISO country code with country-flags:. No variant prop is needed."
         Card variant:"outlined" p:5 border:1
           Grid columns:1 gap:3
-            Icon name:"svg-spinners:270-ring" fill:"tertiary" w:9 h:9
+            Icon name:"svg-spinners:270-ring" fill:"accent" w:9 h:9
             Title size:"lg" weight:"black"
               "SVG Spinners"
             Text size:"sm"
@@ -652,7 +652,7 @@ page IconPage
           Text size:"xs" weight:"bold"
             "bold"
         Flex direction:"column" gap:3 align:"center"
-          Icon name:"alt-arrow-right-line-duotone" fill:"tertiary" stroke:"primary" w:10 h:10
+          Icon name:"alt-arrow-right-line-duotone" fill:"accent" stroke:"primary" w:10 h:10
           Text size:"xs" weight:"bold"
             "line-duotone"
         Flex direction:"column" gap:3 align:"center"
@@ -692,7 +692,7 @@ page IconPage
               "3-dots-bounce"
         Card variant:"solid" p:{ xs:3 md:4 }
           Flex direction:"column" gap:3 align:"center"
-            Icon name:"svg-spinners:bars-scale-middle" fill:"tertiary" w:9 h:9
+            Icon name:"svg-spinners:bars-scale-middle" fill:"accent" w:9 h:9
             Text size:"xs" weight:"bold"
               "bars-scale-middle"
         Card variant:"solid" p:{ xs:3 md:4 }

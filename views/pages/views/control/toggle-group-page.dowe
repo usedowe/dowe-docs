@@ -6,7 +6,7 @@ page ToggleGroupPage
       { prop:"selected" type:"string or comma-separated ids" defaultValue:"first item" },
       { prop:"multiple" type:"boolean" defaultValue:"false" },
       { prop:"variant" type:"Button variant: solid | soft | outlined | ghost" defaultValue:"solid" },
-      { prop:"scheme" type:"Button scheme: primary | secondary | tertiary | muted | success | info | warning | danger" defaultValue:"primary" },
+      { prop:"scheme" type:"Button scheme: primary | secondary | accent | muted | success | info | warning | danger" defaultValue:"primary" },
       { prop:"size" type:"xs | sm | md | lg" defaultValue:"md" },
       { prop:"wide, vertical, disabled" type:"boolean" defaultValue:"false" },
       { prop:"ariaLabel" type:"string" defaultValue:"—" },

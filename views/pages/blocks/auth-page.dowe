@@ -77,7 +77,7 @@ page AuthPage
             "A mirrored split that keeps media first on mobile"
         Button:
           href:"/blocks/auth-preview/login-reverse"
-          scheme:"tertiary"
+          scheme:"accent"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
@@ -102,24 +102,24 @@ page AuthPage
 
               Section id:"login-reverse-auth" p:0 minH:"vh-0"
                 Grid columns:{ xs:1 md:2 } gap:0 minH:"vh-0"
-                  Box show:{ xs:true md:false } bg:"muted" color:"tertiary" minH:40 p:6
+                  Box show:{ xs:true md:false } bg:"muted" color:"accent" minH:40 p:6
                     Flex direction:"column" justify:"center" align:"center" minH:40
-                      Icon name:"lock-password-bold-duotone" fill:"tertiary" w:16 h:16
+                      Icon name:"lock-password-bold-duotone" fill:"accent" w:16 h:16
                   Flex direction:"column" justify:"center" align:"center" p:{ xs:6 md:12 } minH:{ xs:"vh-40" md:"vh-0" }
                     Grid columns:1 gap:5 w:"full" maxW:96
                       Title size:"3xl" weight:"black"
                         "Log in"
-                      Input bind:form.email label:"Email address" placeholder:"you@example.com" variant:"solid" scheme:"tertiary" w:"full"
-                      Password bind:form.password label:"Password" placeholder:"Enter your password" hideStrength:true variant:"solid" scheme:"tertiary" w:"full"
+                      Input bind:form.email label:"Email address" placeholder:"you@example.com" variant:"solid" scheme:"accent" w:"full"
+                      Password bind:form.password label:"Password" placeholder:"Enter your password" hideStrength:true variant:"solid" scheme:"accent" w:"full"
                       Flex justify:"between" align:"center" gap:2
-                        Checkbox bind:form.remember label:"Remember me" scheme:"tertiary"
-                        Button href:"/blocks/auth-preview/forgot-password" variant:"ghost" scheme:"tertiary" size:"xs"
+                        Checkbox bind:form.remember label:"Remember me" scheme:"accent"
+                        Button href:"/blocks/auth-preview/forgot-password" variant:"ghost" scheme:"accent" size:"xs"
                           "Forgot password?"
-                      Button scheme:"tertiary" w:"full"
+                      Button scheme:"accent" w:"full"
                         "Log in"
-                  Box show:{ xs:false md:true } bg:"muted" color:"tertiary" minH:"vh-0" p:12
+                  Box show:{ xs:false md:true } bg:"muted" color:"accent" minH:"vh-0" p:12
                     Flex direction:"column" justify:"center" align:"center" minH:"vh-0"
-                      Icon name:"lock-password-bold-duotone" fill:"tertiary" w:24 h:24
+                      Icon name:"lock-password-bold-duotone" fill:"accent" w:24 h:24
             """
   Section id:"login-card" p:{ xs:5 md:7 }
     Grid columns:1 gap:5

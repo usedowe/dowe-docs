@@ -86,7 +86,7 @@ page ToggleThemePage
               "Soft"
         Card variant:"solid" p:5
           Grid columns:1 gap:3 align:"center"
-            ToggleTheme variant:"outlined" scheme:"tertiary" size:"md"
+            ToggleTheme variant:"outlined" scheme:"accent" size:"md"
             Text size:"sm"
               "Outlined"
         Card variant:"solid" p:5

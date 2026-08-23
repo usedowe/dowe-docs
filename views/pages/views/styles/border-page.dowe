@@ -66,9 +66,9 @@ page BorderPage
           Text size:"sm"
             "Secondary"
         Flex direction:"column" gap:2 align:"center"
-          Box border:3 borderColor:"tertiary" rounded:"md" w:"full" h:16
+          Box border:3 borderColor:"accent" rounded:"md" w:"full" h:16
           Text size:"sm"
-            "Tertiary"
+            "Accent"
         Flex direction:"column" gap:2 align:"center"
           Box border:3 borderColor:"muted" rounded:"md" w:"full" h:16
           Text size:"sm"
@@ -130,10 +130,10 @@ page BorderPage
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Box border:{ xs:1 md:4 } borderColor:"tertiary" rounded:"md" p:6
+          Box border:{ xs:1 md:4 } borderColor:"accent" rounded:"md" p:6
             Text "Responsive border"
         """
-      Box border:{ xs:1 md:4 } borderColor:"tertiary" rounded:"md" p:6
+      Box border:{ xs:1 md:4 } borderColor:"accent" rounded:"md" p:6
         Text weight:"bold"
           "Resize the viewport to compare border 1 and border 4."
   Section id:"border-props" py:{ xs:7 md:10 }

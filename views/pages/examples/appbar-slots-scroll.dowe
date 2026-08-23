@@ -21,7 +21,7 @@ page AppBarSlotsScroll
               "Scroll up"
             Text
               "The same bar returns immediately when the scroll direction reverses."
-        Card variant:"solid" scheme:"tertiary" p:5
+        Card variant:"solid" scheme:"accent" p:5
           Flex direction:"column" gap:2
             Title size:"xl" weight:"bold"
               "Reach the top"

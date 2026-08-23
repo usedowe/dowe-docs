@@ -61,7 +61,7 @@ page ComponentDefaultsPage
       },
       {
         prop:"scheme"
-        values:"primary | secondary | tertiary | muted | background | surface | success | info | warning | danger"
+        values:"primary | secondary | accent | muted | background | surface | success | info | warning | danger"
         note:"Semantic color family"
       },
       {

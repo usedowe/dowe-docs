@@ -104,7 +104,7 @@ page CanvasInfographicPage
         width:410
         height:36
         radius:8
-        fill:"tertiary"
+        fill:"accent"
       },
       {
         type:"text"

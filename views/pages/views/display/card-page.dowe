@@ -8,7 +8,7 @@ page CardPage
       },
       {
         prop:"scheme"
-        type:"primary | secondary | tertiary | muted | background | surface | success | info | warning | danger"
+        type:"primary | secondary | accent | muted | background | surface | success | info | warning | danger"
         defaultValue:"primary"
       },
       {
@@ -263,7 +263,7 @@ page CardPage
               "SLIDE UP"
             Text size:"sm"
               "A directional entrance for sequential content."
-        Card variant:"solid" scheme:"tertiary" animation:"scaleIn"
+        Card variant:"solid" scheme:"accent" animation:"scaleIn"
           Grid columns:1 gap:1
             Text size:"xs" weight:"bold" spacing:"widest"
               "SCALE IN"

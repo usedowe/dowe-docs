@@ -34,7 +34,7 @@ page AnimationsPage
         Card variant:"solid" scheme:"secondary" animation:"slideUp" p:5
           Text weight:"bold"
             "slideUp"
-        Card variant:"solid" scheme:"tertiary" animation:"slideDown" p:5
+        Card variant:"solid" scheme:"accent" animation:"slideDown" p:5
           Text weight:"bold"
             "slideDown"
         Card variant:"solid" scheme:"info" animation:"slideLeft" p:5

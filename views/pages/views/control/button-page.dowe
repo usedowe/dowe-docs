@@ -19,9 +19,9 @@ page ButtonPage
         label:"Secondary"
       },
       {
-        id:"tertiary"
-        value:"tertiary"
-        label:"Tertiary"
+        id:"accent"
+        value:"accent"
+        label:"Accent"
       },
       {
         id:"muted"
@@ -145,10 +145,10 @@ page ButtonPage
         label:"Solid Warning"
       },
       {
-        id:"solid-tertiary"
+        id:"solid-accent"
         variant:"solid"
-        scheme:"tertiary"
-        label:"Solid Tertiary"
+        scheme:"accent"
+        label:"Solid Accent"
       },
     ]
   const softButtons:
@@ -196,10 +196,10 @@ page ButtonPage
         label:"Soft Warning"
       },
       {
-        id:"soft-tertiary"
+        id:"soft-accent"
         variant:"solid"
-        scheme:"tertiary"
-        label:"Soft Tertiary"
+        scheme:"accent"
+        label:"Soft Accent"
       },
     ]
   const outlinedButtons:
@@ -247,10 +247,10 @@ page ButtonPage
         label:"Outlined Warning"
       },
       {
-        id:"outlined-tertiary"
+        id:"outlined-accent"
         variant:"outlined"
-        scheme:"tertiary"
-        label:"Outlined Tertiary"
+        scheme:"accent"
+        label:"Outlined Accent"
       },
     ]
   const ghostButtons:
@@ -298,10 +298,10 @@ page ButtonPage
         label:"Ghost Warning"
       },
       {
-        id:"ghost-tertiary"
+        id:"ghost-accent"
         variant:"ghost"
-        scheme:"tertiary"
-        label:"Ghost Tertiary"
+        scheme:"accent"
+        label:"Ghost Accent"
       },
     ]
   const sizeButtons:
@@ -376,7 +376,7 @@ page ButtonPage
       },
       {
         prop:"scheme"
-        type:"primary | secondary | tertiary | muted | success | info | warning | danger"
+        type:"primary | secondary | accent | muted | success | info | warning | danger"
         defaultValue:"primary"
       },
       {

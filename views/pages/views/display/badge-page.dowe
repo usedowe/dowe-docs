@@ -4,7 +4,7 @@ page BadgePage
       { prop:"text" type:"static string" defaultValue:"required" },
       { prop:"position" type:"top-left | top-right | bottom-left | bottom-right" defaultValue:"top-right" },
       { prop:"variant" type:"solid | soft" defaultValue:"solid" },
-      { prop:"scheme" type:"primary | secondary | tertiary | muted | background | surface | success | info | warning | danger" defaultValue:"primary" },
+      { prop:"scheme" type:"primary | secondary | accent | muted | background | surface | success | info | warning | danger" defaultValue:"primary" },
       { prop:"children" type:"one or more view children" defaultValue:"required" },
     ]
   Section id:"badge-introduction" py:{ xs:6 md:10 }
@@ -102,7 +102,7 @@ page BadgePage
               "TOP RIGHT"
         Card variant:"solid" scheme:"muted" p:7 rounded:"lg" minH:32
           Flex direction:"column" align:"center" justify:"center" gap:5 minH:20
-            Badge text:"BL" scheme:"tertiary" position:"bottom-left"
+            Badge text:"BL" scheme:"accent" position:"bottom-left"
               Button variant:"solid" scheme:"muted"
                 "Target"
             Text size:"xs" weight:"bold"

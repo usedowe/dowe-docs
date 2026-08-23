@@ -21,7 +21,7 @@ page ModalPage
       },
       {
         prop:"scheme"
-        type:"primary | secondary | tertiary | muted | background | surface | success | info | warning | danger"
+        type:"primary | secondary | accent | muted | background | surface | success | info | warning | danger"
         defaultValue:"surface"
       },
       {

@@ -65,7 +65,7 @@ page ScaffoldsPage
                       open:openDrawer
                       position:"start"
                       variant:"solid"
-                      scheme:"tertiary"
+                      scheme:"accent"
                       show:{ xs:true md:false }
                       body
                         Flex direction:"column" minH:"vh-0" align:"center" justify:"center"
@@ -135,7 +135,7 @@ page ScaffoldsPage
                       open:openDrawer
                       position:"start"
                       variant:"solid"
-                      scheme:"tertiary"
+                      scheme:"accent"
                       show:{ xs:true md:false }
                       body
                         Flex direction:"column" minH:"vh-0" align:"center" justify:"center"
@@ -212,7 +212,7 @@ page ScaffoldsPage
                       open:openDrawer
                       position:"start"
                       variant:"solid"
-                      scheme:"tertiary"
+                      scheme:"accent"
                       show:{ xs:true md:false }
                       body
                         Flex direction:"column" minH:"vh-0" align:"center" justify:"center"
@@ -229,7 +229,7 @@ page ScaffoldsPage
             "A desktop rail that yields to mobile bottom navigation"
         Button:
           href:"/blocks/scaffold-preview/rail-bottom-bar"
-          scheme:"tertiary"
+          scheme:"accent"
           size:"sm"
           rounded:"full"
           iconEnd:"arrow-right"
@@ -254,7 +254,7 @@ page ScaffoldsPage
                 Scaffold minH:"vh-0"
                   start
                     Box minH:"vh-0" w:16 bg:"muted" show:{ xs:false md:true }
-                      RailNav variant:"solid" scheme:"tertiary" showLabels:true minH:"vh-0"
+                      RailNav variant:"solid" scheme:"accent" showLabels:true minH:"vh-0"
                         item label:"Rail" href:"/" icon:"widget-4"
                   main
                     Flex direction:"column" minH:{ xs:"vh-16" md:"vh-0" } justify:"between"

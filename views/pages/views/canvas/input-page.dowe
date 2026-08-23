@@ -148,7 +148,7 @@ page CanvasInputPage
           "Interactive input"
         Text size:"lg"
           "Normalize pointer, multitouch, physical keyboard, and device motion into target-neutral event objects that drive retained command bindings."
-      Card variant:"solid" scheme:"tertiary" p:5 rounded:"lg" minW:56
+      Card variant:"solid" scheme:"accent" p:5 rounded:"lg" minW:56
         Grid columns:1 gap:1
           Text size:"xs" weight:"bold" spacing:"widest"
             "ONE EVENT MODEL"
@@ -196,7 +196,7 @@ page CanvasInputPage
               "Physical keyboard"
             Text size:"sm"
               "The most recent key value replaces the scene heading."
-        Card variant:"solid" scheme:"tertiary" p:4 rounded:"lg"
+        Card variant:"solid" scheme:"accent" p:4 rounded:"lg"
           Grid columns:1 gap:1
             Text size:"sm" weight:"bold"
               "Device motion"

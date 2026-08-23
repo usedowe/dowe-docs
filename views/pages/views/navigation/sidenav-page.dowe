@@ -16,9 +16,9 @@ page SideNavPage
         label:"Secondary"
       },
       {
-        id:"tertiary"
-        value:"tertiary"
-        label:"Tertiary"
+        id:"accent"
+        value:"accent"
+        label:"Accent"
       },
       {
 
@@ -94,7 +94,7 @@ page SideNavPage
       },
       {
         prop:"scheme"
-        type:"primary | secondary | tertiary | muted | background | surface | success | info | warning | danger"
+        type:"primary | secondary | accent | muted | background | surface | success | info | warning | danger"
         defaultValue:"surface"
       },
       {
@@ -278,8 +278,8 @@ page SideNavPage
             item label:"Primary" href:"/docs/views"
           SideNav variant:"solid" scheme:"secondary" size:"sm" wide:true
             item label:"Secondary" href:"/docs/views"
-          SideNav variant:"solid" scheme:"tertiary" size:"sm" wide:true
-            item label:"Tertiary" href:"/docs/views"
+          SideNav variant:"solid" scheme:"accent" size:"sm" wide:true
+            item label:"Accent" href:"/docs/views"
           SideNav variant:"solid" size:"sm" wide:true
             item label:"Muted" href:"/docs/views"
           SideNav variant:"solid" scheme:"success" size:"sm" wide:true
