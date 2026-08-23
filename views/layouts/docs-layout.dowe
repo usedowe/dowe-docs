@@ -36,7 +36,7 @@ layout DocsLayout
           Github
     start
       Sidebar show:{ xs:false md:true } w:72
-        header
+        header px:4 py:2
           ToggleGroup bind:activeSection size:"sm" wide:true ariaLabel:"Documentation section"
             item id:"dev" label:"Dev"
             item id:"views" label:"Views"
