@@ -130,7 +130,7 @@ page ColorsPage
         Title size:"3xl" weight:"black"
           "One card for every color"
         Text size:"sm"
-          "Cards use semantic schemes and follow the active theme. The hex labels document the light theme values in theme.dowe; solid cards preview base families and soft cards preview lower-emphasis counterparts."
+          "Cards use semantic schemes and follow the active theme. The hex labels document the light theme values in theme.dowe; solid cards preview the base families."
       Grid columns:{ xs:1 sm:2 lg:4 } gap:4
         Card scheme:"primary" p:5 rounded:"lg"
           Grid columns:1 gap:2
@@ -142,16 +142,6 @@ page ColorsPage
               "fill: #1F3A5F"
             Text size:"xs"
               "text: #FFFFFF · title: #FFFFFE"
-        Card variant:"solid" scheme:"primary" p:5 rounded:"lg"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" spacing:"widest"
-              "SOFT PRIMARY"
-            Title size:"lg" weight:"black"
-              "Soft primary"
-            Text size:"sm"
-              "fill: #CCFBF3"
-            Text size:"xs"
-              "text: #073B35 · title: #073B35"
         Card scheme:"secondary" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
@@ -162,16 +152,6 @@ page ColorsPage
               "fill: #6BC670"
             Text size:"xs"
               "text: #102A15 · title: #102A15"
-        Card variant:"solid" scheme:"secondary" p:5 rounded:"lg"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" spacing:"widest"
-              "SOFT SECONDARY"
-            Title size:"lg" weight:"black"
-              "Soft secondary"
-            Text size:"sm"
-              "fill: #E3F5E5"
-            Text size:"xs"
-              "text: #234B2A · title: #234B2A"
         Card scheme:"accent" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
@@ -182,36 +162,6 @@ page ColorsPage
               "fill: #3F7A8A"
             Text size:"xs"
               "text: #FFFFFF · title: #FFFFFF"
-        Card variant:"solid" scheme:"accent" p:5 rounded:"lg"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" spacing:"widest"
-              "SOFT ACCENT"
-            Title size:"lg" weight:"black"
-              "Soft accent"
-            Text size:"sm"
-              "fill: #E5F1F3"
-            Text size:"xs"
-              "text: #244C57 · title: #244C57"
-        Card scheme:"happy" p:5 rounded:"lg"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" spacing:"widest"
-              "CUSTOM FAMILY"
-            Title size:"lg" weight:"black"
-              "Happy"
-            Text size:"sm"
-              "fill: #176C75"
-            Text size:"xs"
-              "text: #FFFFFE · title: #FFFFFE"
-        Card variant:"solid" scheme:"happy" p:5 rounded:"lg"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" spacing:"widest"
-              "CUSTOM SOFT FAMILY"
-            Title size:"lg" weight:"black"
-              "Soft happy"
-            Text size:"sm"
-              "fill: #D9F3F1"
-            Text size:"xs"
-              "text: #124D53 · title: #124D53"
         Card scheme:"muted" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
@@ -222,16 +172,6 @@ page ColorsPage
               "fill: #526274"
             Text size:"xs"
               "text: #FFFFFF · title: #FFFFFF"
-        Card variant:"solid" scheme:"muted" p:5 rounded:"lg"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" spacing:"widest"
-              "SOFT MUTED"
-            Title size:"lg" weight:"black"
-              "Soft muted"
-            Text size:"sm"
-              "fill: #E6EBF0"
-            Text size:"xs"
-              "text: #33465B · title: #33465B"
         Card scheme:"background" p:5 rounded:"lg" border:1 borderColor:"muted"
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
@@ -262,16 +202,6 @@ page ColorsPage
               "fill: #2F7D43"
             Text size:"xs"
               "text: #FFFFFF · title: #FFFFFF"
-        Card variant:"solid" scheme:"success" p:5 rounded:"lg"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" spacing:"widest"
-              "SOFT SUCCESS"
-            Title size:"lg" weight:"black"
-              "Soft success"
-            Text size:"sm"
-              "fill: #E0F2E4"
-            Text size:"xs"
-              "text: #245D33 · title: #245D33"
         Card scheme:"info" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
@@ -282,16 +212,6 @@ page ColorsPage
               "fill: #2F6FA3"
             Text size:"xs"
               "text: #FFFFFF · title: #FFFFFF"
-        Card variant:"solid" scheme:"info" p:5 rounded:"lg"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" spacing:"widest"
-              "SOFT INFO"
-            Title size:"lg" weight:"black"
-              "Soft info"
-            Text size:"sm"
-              "fill: #E2EEF8"
-            Text size:"xs"
-              "text: #234F73 · title: #234F73"
         Card scheme:"warning" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
@@ -302,16 +222,6 @@ page ColorsPage
               "fill: #8A6300"
             Text size:"xs"
               "text: #FFFFFF · title: #FFFFFF"
-        Card variant:"solid" scheme:"warning" p:5 rounded:"lg"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" spacing:"widest"
-              "SOFT WARNING"
-            Title size:"lg" weight:"black"
-              "Soft warning"
-            Text size:"sm"
-              "fill: #F8EDCF"
-            Text size:"xs"
-              "text: #604600 · title: #604600"
         Card scheme:"danger" p:5 rounded:"lg"
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
@@ -322,16 +232,6 @@ page ColorsPage
               "fill: #A33A46"
             Text size:"xs"
               "text: #FFFFFF · title: #FFFFFF"
-        Card variant:"solid" scheme:"danger" p:5 rounded:"lg"
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" spacing:"widest"
-              "SOFT DANGER"
-            Title size:"lg" weight:"black"
-              "Soft danger"
-            Text size:"sm"
-              "fill: #F7E3E6"
-            Text size:"xs"
-              "text: #7B2C36 · title: #7B2C36"
   Section id:"colors-dark" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
@@ -340,7 +240,7 @@ page ColorsPage
         Title size:"3xl" weight:"black"
           "The same roles, a different contrast relationship"
         Text size:"sm"
-          "dark extends light and overrides only the values that need a darker canvas or stronger contrast. The custom happy family remains inherited from light."
+          "dark extends light and overrides only the values that need a darker canvas or stronger contrast."
       Table:
         data:darkOverrides
         variant:"solid"
@@ -374,8 +274,6 @@ page ColorsPage
               theme name:"light"
                 colors:
                   primary color:"#1F3A5F" text:"#EAF2F8" title:"#FFFFFF"
-                  softPrimary color:"#CCFBF3" text:"#073B35" title:"#073B35"
-                  happy color:"#176C75" text:"#FFFFFE" title:"#FFFFFE"
 
           Card scheme:"primary"
             Title
@@ -392,22 +290,14 @@ page ColorsPage
               "Base family"
             Text size:"sm"
               "scheme primary uses primary as its fill, primaryText for ordinary content, and primaryTitle for titles."
-        Card variant:"solid" scheme:"secondary" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" spacing:"widest"
-              "SOFT"
-            Title size:"lg" weight:"bold"
-              "Lower emphasis"
-            Text size:"sm"
-              "variant soft scheme primary resolves the separate softPrimary, softPrimaryText, and softPrimaryTitle trio."
         Card variant:"solid" scheme:"info" p:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
               "CUSTOM"
             Title size:"lg" weight:"bold"
-              "Project families"
+              "Semantic families"
             Text size:"sm"
-              "happy is a custom semantic family. Add its complete color, text, and title values under colors."
+              "Add complete color, text, and title values when defining a custom semantic family under colors."
       Flex gap:3 wrap:true
         Button variant:"solid" href:"/docs/views/theme/named-themes"
           "Named themes docs"

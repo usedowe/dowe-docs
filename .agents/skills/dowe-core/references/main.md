@@ -28,6 +28,7 @@ main
   views:viewRoutes
   server port:8080
     endpoints:apiRoutes
+    databases:[appDb]
     init
       cron fn:everyDay schedule:"0 3 * * *" args:{}
 ```
@@ -38,9 +39,13 @@ main
 | --- | --- |
 | `app` | `name:string`, `bundle:reverse-DNS string` |
 | `views:<binding>` | One imported `views` binding |
-| `views:[...]` | Ordered non-empty imported `views` bindings |
-| `server` | `port:number`, `endpoints:<binding or list>`; optional `cors`, `init`, inline routes, WebSockets, and protocol children |
+| `views:[...]` | Ordered non-empty imported `views` bindings separated by spaces |
+| `server` | `port:number`, `endpoints:<binding or list>`, `databases:<binding list>`; optional `cors`, `init`, inline routes, WebSockets, and protocol children |
 | `desktop` | One nested `server` with the same server contract |
+
+Use spaces between array items, for example `views:[dashboardRoutes docsRoutes]` or
+`databases:[appDb]`. Comma-separated arrays remain accepted only as a migration form and are
+canonicalized by formatting.
 
 `theme.dowe` and `main.dowe` are Dowe configuration roots and cannot be imported. Dotenv files are
 not Dowe Source Format and cannot be imported. All reusable modules use static imports and the `@/`
@@ -178,8 +183,12 @@ source control and treat copies under `.dowe` as disposable generated output. We
 only the synchronized `icons/web` set under `/icons/**`; native icon targets are not public assets.
 
 Web exports preserve the complete public `assets/**` tree under `/assets/**`, including files used
-only by document metadata. A source file such as `assets/social/home.png` is therefore available as
-`/assets/social/home.png` after static, Cloudflare Worker, or Cloudflare Pages deployment.
+only by document metadata. The URL is formed by taking the path relative to the project `assets/`
+directory and prefixing it with `/assets/`: `assets/social/home.png` is therefore available as
+`/assets/social/home.png` after `dowe dev`, static, Cloudflare Worker, or Cloudflare Pages deployment.
+The filesystem path, the source-relative path `assets/social/home.png`, and the stripped URL
+`/social/home.png` are not public URLs. Do not import files from `assets/` through `@/`; keep them in
+the project asset tree and reference their root-relative `/assets/**` URL from views.
 
 The responsibility names `services`, `repositories`, `providers`, `tasks`, and `utils` are optional
 folders, not declaration keywords. Their files declare `fn <binding>` because `fn` is the only

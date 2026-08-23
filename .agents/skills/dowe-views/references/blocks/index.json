@@ -54,6 +54,13 @@
         "pill or floating navigation",
         "dashboard navigation"
       ],
+      "authoringRules": [
+        "Use one AppBar directly under Scaffold.appBar with Brand in start, NavMenu directly in center, and actions directly in end.",
+        "Put responsive show on NavMenu, Button, or IconButton instead of wrapping a slot child in Box.",
+        "Use top and bottom only for full-width bands that belong inside the AppBar surface; use Drawer in overlays for mobile navigation.",
+        "Do not duplicate the desktop or mobile AppBar with Box surfaces in overlays.",
+        "Do not use translateX or translateY on AppBar, Brand, NavMenu, its actions, Drawer, or wrappers around them; align the shell through boxed content, AppBar regions, Flex justify and align, gap, padding, intrinsic sizing, and responsive show."
+      ],
       "responsive": "Keep primary destinations available; move secondary navigation into Drawer at xs.",
       "tags": [
         "navigation",
@@ -78,6 +85,13 @@
         "centered card",
         "split form and media",
         "reversed split form and media"
+      ],
+      "authoringRules": [
+        "Use one responsive Grid or Flex tree; do not duplicate the complete form for compact and wide breakpoints.",
+        "Let one Grid columns:1 gap stack own field rhythm, and let Input, Password, Phone, Pin, and Button own their surfaces without individual Box wrappers.",
+        "Keep Password hideStrength disabled on login forms with hideStrength:false or by omitting the prop; enable hideStrength:true only on registration forms.",
+        "Use Card only when the reference visibly groups the form as a raised, filled, or outlined surface.",
+        "Reserve Box for an advanced auth-layout layer plane with direct absolute background or ornament children, or for a fixed viewport layer."
       ],
       "responsive": "Collapse split layouts to one readable form column at xs; keep actions and labels visible.",
       "tags": [
@@ -1375,4 +1389,3 @@
     }
   ]
 }
-

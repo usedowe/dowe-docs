@@ -13,10 +13,28 @@ Database providers are `postgres`, `d1`, and `dowe`. Postgres and Dowe require `
 be static or server environment references; `provider` must be static and `name` must resolve
 during compilation. `entities` and `seeders` contain imported or local bindings.
 
-Cache providers are `kv` for Cloudflare KV, `redis` for Redis, and `dowe` for Dowe Cache. Vector
+Cache providers are `kv` for Cloudflare KV, `redis` for Redis, and `dowe` for Dowe Cache. `provider`
+may be a static provider or a server-only environment reference such as `env.CACHE_PROVIDER`.
+Vector
 initially supports only `dowe`. Config modules may export `database`, `cache`, and `vector`
 bindings; import those bindings into repository functions instead of opening the same handle
 repeatedly.
+
+Database declarations can live in any imported server configuration module. Register handles that
+belong to the project-wide migration and seeder catalog from `main.dowe`:
+
+```text
+import appDb from "@/server/config/database"
+
+main
+  server port:8080
+    databases:[appDb]
+```
+
+`databases` accepts only imported Database handles. It does not copy connection props or expose
+credentials. A registered handle may be unused by a route and is still available to `dowe database
+migrate` and `dowe database seeders`; normal runtime handles remain available when discovered by
+compiled server operations.
 
 ## Entities and seeders
 
@@ -37,19 +55,38 @@ entity Users
 Seeders contain static entity inserts. The compiler validates entity references and field names and
 assigns each seeder a deterministic fingerprint, so it runs once per database. Normal `dowe dev`
 does not load or apply seeder modules; run `dowe database seeders` to compile the complete seeder
-set and populate the local embedded databases under `.dowe/db`.
+set and populate the local embedded databases under `.dowe/db`. Production applies each pending
+seeder and its ledger record in one provider transaction.
 
 ```text
 seeder Bootstrap
   insert entity:Users value:{ id:"01ARZ3NDEKTSV4RRFFQ69G5FAV" name:"Admin" email:"admin@example.com" active:true createdAt:"2026-01-01T00:00:00Z" }
 ```
 
-Entity declarations can live in separate modules and be imported by the config module:
+Group related declarations into a focused bounded-domain module and import its bindings together.
+Do not generate a separate file for every entity by default, and do not create an unrelated
+application-wide catch-all. Keep an isolated entity in its own file or split a module when ownership,
+lifecycle, authorization, or module size requires a clearer boundary:
 
 ```text
-import Blog from "@/server/entities/blog-entity"
+entity Users
+  id:string primary:true
+  name:string required:true
+  email:string required:true unique:true
 
-database appDb provider:"dowe" host:env.DATABASE_HOST port:env.DATABASE_PORT account:env.DATABASE_ACCOUNT secret:env.DATABASE_SECRET name:env.DATABASE_NAME entities:[Blog] seeders:[]
+entity UserRoles
+  id:string primary:true
+  userId:string required:true index:true
+  roleId:string required:true index:true
+```
+
+The declarations above belong together in `server/entities/user-entities.dowe`. Register both
+named bindings through one module import:
+
+```text
+import Users, UserRoles from "@/server/entities/user-entities"
+
+database appDb provider:"dowe" host:env.DATABASE_HOST port:env.DATABASE_PORT account:env.DATABASE_ACCOUNT secret:env.DATABASE_SECRET name:env.DATABASE_NAME entities:[Users UserRoles] seeders:[]
 ```
 
 ## Relations
@@ -132,19 +169,20 @@ Use Cloudflare's account and Database identifiers for D1:
 database appDb provider:"d1" account:env.ACCOUNT_ID secret:env.CLOUDFLARE_API_TOKEN name:env.DATABASE_ID entities:[Blog] seeders:[Bootstrap]
 ```
 
-D1 supports compound equality filters but not `conn:<handle>.tx`. Keep account, token, and Database ID
-in server-only environment variables. Bind request values separately from SQL when a query needs
-custom filtering or pagination:
+D1 supports the same compound equality filters and insert transaction form as the other providers.
+Keep account, token, and Database ID in server-only environment variables. Bind request values
+separately from SQL when a query needs custom filtering or pagination:
 
 ```text
-query rows conn:appDb.query sql:"SELECT id, name FROM icons WHERE category = ?1 LIMIT 60 OFFSET ((CAST(?2 AS INTEGER) - 1) * 60)" params:[req.params.category req.params.page]
+query rows conn:appDb.query sql:"SELECT id, name FROM icons WHERE category = ?1 ORDER BY name LIMIT 60 OFFSET 0" params:[req.params.category]
 ```
 
 Do not interpolate a request reference into `sql`. The runtime binds query parameters using the
 selected provider's native placeholder rules.
 
-`conn:<handle>.tx` is supported by local development storage and remote `provider:"dowe"` handles.
-It stages literal `insert` children and ends with `commit` or `rollback`:
+`conn:<handle>.tx` is supported by PostgreSQL, D1, local development storage, and remote
+`provider:"dowe"` handles. It stages literal `insert` children and ends with exactly one final
+`commit` or `rollback`:
 
 ```text
 query result conn:appDb.tx
@@ -153,17 +191,26 @@ query result conn:appDb.tx
   commit value:delivery
 ```
 
-Commit is atomic and durable: Dowe validates every staged insert, records one checksummed WAL frame,
-syncs the group to disk, and only then publishes the records. A conflict rejects the complete
-transaction. PostgreSQL and D1 handles reject `tx` during compilation. Write requests are not
-automatically retried after a transport failure; use a stable ULID or business idempotency key when
-the caller may retry.
+Commit is atomic: Dowe records one checksummed WAL frame, PostgreSQL uses a native transaction, and
+D1 uses one atomic batch. A conflict or invalid insert rejects the complete transaction. `rollback`
+discards all staged inserts and returns `null`. Write requests are not automatically retried after a
+transport failure; use a stable ULID or business idempotency key when the caller may retry.
 
 During `dowe dev`, Dowe uses its embedded persistent Database under `.dowe/db/<name>` for every
 provider and resolves only `name`; it does not start Wrangler or contact the authored provider.
-`dowe database seeders` is the explicit local data bootstrap command. `dowe deploy` generates SQL
-migration artifacts for Postgres and D1, and production applies pending migrations and seeders
-before the server starts listening.
+In an interactive terminal, `dowe database` shows the complete Database command menu, including
+`migrate` and `seeders`; commands with required arguments ask for them before dispatching through
+the same CLI implementation as a typed command. Without a TTY, provide the subcommand explicitly.
+`dowe database seeders` is the explicit local data bootstrap command. Run
+`dowe database migrate` after entity changes; it maintains
+`migrations/database.graph.json` and immutable SQL nodes for PostgreSQL and D1 while recording a
+dynamic no-SQL head for Dowe. Deployment validates the graph instead of regenerating history, and
+production applies pending migrations and seeders before the server starts listening.
+
+The portable `query` read grammar supports projections, `AS` aliases, multiple equality joins,
+equality filters joined by `AND`, `ORDER BY`, `LIMIT`, `OFFSET`, and `?N` parameters. Dowe renders
+provider-safe identifiers and native placeholders internally. Provider-specific functions, casts,
+subqueries, and arithmetic are not part of this operation.
 
 ## Cache KV operations
 
@@ -192,8 +239,8 @@ fn createSessionRepository params:{ userId:string }
 ```
 
 During `dowe dev`, every provider uses persistent local data under `.dowe/kv/<name>`. Only `name`
-is resolved; Dowe does not validate the effective remote credentials, start Wrangler, or connect to
-the authored provider. Production resolves the full connection.
+is resolved; the effective provider and remote credentials are ignored, and Dowe does not start
+Wrangler or connect to the authored provider. Production resolves the provider and full connection.
 
 ## Vector embedding operations
 

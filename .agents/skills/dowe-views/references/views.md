@@ -132,13 +132,14 @@ page BlogsPage
 | `Grid` | Exact tracks, responsive columns, repeated cards, dashboards, catalogs, and structural stacks |
 | `Flex` | One-axis rows or columns, alignment, navigation bars, toolbars, and compact groups |
 | `Card` | One related semantic unit such as a form, metric, article, or profile |
-| `Box` | Exceptional neutral styling, background, overlay, cover, or wrapper behavior that has no stronger semantic component |
+| `Box` | Advanced relative/absolute or fixed layer geometry that Section, Grid, Flex, Card, media, controls, and content cannot express in normal flow |
 | `RailNav` | Narrow vertical navigation with required Solar icons, accessible tooltips, and optional labels below icons |
 | `Tabs` | Related content panels selected from a compact intrinsic-width control list |
 | `Svg` | Portable vector paths; use direct `Path` children for static geometry or `data:<reference>` for one normalized runtime record |
 
-Avoid Card inside Card. Use `Grid` or `Flex` inside a Card. Do not use Box as the default page,
-section, form, or catalog container. When choosing between Section, Grid, Flex, Card, and Box, or
+Avoid Card inside Card. Use `Grid` or `Flex` inside a Card. Begin with no Box nodes; never use Box
+for ordinary styling, spacing, sizing, Grid gutters, or control wrappers. When choosing between
+Section, Grid, Flex, Card, and Box, or
 when decomposing a reference design into a layout and pages, follow the ordered decision tree and
 anti-pattern table in `references/composition.md`.
 
@@ -146,6 +147,17 @@ anti-pattern table in `references/composition.md`.
 and `icon`. Icon-only mode is the default and reveals the label on web and desktop through hover or
 focus tooltip behavior; set `showLabels:true` to place labels below icons on every target. Use
 `SideNav` for headers, descriptions, status text, submenus, or custom SVG icons.
+
+For shell navigation, keep the component orientations explicit. `NavMenu` is horizontal and belongs
+directly in AppBar `center` or `end`; it is not the navigation child of `Drawer`, `Sidebar`, or
+`Scaffold start/end`. `SideNav` is vertical and is the navigation child for `Sidebar body` and
+`Drawer body`. On responsive shells, hide the AppBar `NavMenu`, show an `IconButton` that opens the
+Drawer, and reuse one static `SideNav` component in the desktop Sidebar and mobile Drawer.
+
+AppBar regions are already horizontal flex containers. Keep `Brand`/Logo, `NavMenu`, `Button`, and
+`IconButton` as direct region children; never add a wrapper `Flex` just for `align`, `gap`, or
+sibling placement. For a mobile Drawer trigger, put `IconButton` before Brand in `start` or directly
+in `end`. Treat an imported Logo component as one semantic Brand child.
 
 `Tabs` accepts direct `tab` children with unique quoted `id` and `label` props plus panel content.
 Its control list wraps its labels instead of filling the panel width. Horizontal lists scroll only
@@ -171,6 +183,11 @@ above the `each` that uses it. Dowe hoists the nested declaration into the ownin
 scope without adding a visual wrapper, preserving the container's direct children. Do not declare
 constants inside reusable `component` exports.
 
+This is mandatory for two or more same-shape sibling units, including rows composed from `Flex`,
+`Icon`, and text. Put the collection declaration before the visual tree and make the `each` wrap the
+complete repeated unit. Copying the unit and changing only its content is invalid authoring even when
+the rendered screenshot is correct.
+
 ```text
 each in:blogs as:blog key:blog.id
   Card
@@ -183,6 +200,10 @@ each in:blogs as:blog key:blog.id
 Inside the loop, item paths stay scoped for visible text and reactive props such as
 `scheme:blog.scheme`. `Select` also accepts a structural `each` over an immutable `const` catalog
 producing `Option value:option.value label:option.label` entries.
+
+Static-only props do not become dynamic because they are inside `each`. `Icon.name` remains a quoted,
+compiler-validated name; do not use `name:<item.icon>`. Use the supported runtime `Svg data:<reference>`
+contract for a genuinely runtime vector catalog, or keep the component's static contract intact.
 
 `"blog.title"` is literal text. A braced binding must resolve to a string. Mixed text such as
 `"By {blog.author}"` is not interpolated and remains literal. Braces apply to direct visible-text
@@ -222,6 +243,43 @@ a View Store; target-local persistence is not a credential vault. Store declarat
 Views-only regardless of their folder. Persistent hydration falls back to the declared initial value
 when stored data is malformed or structurally incompatible with that initial shape.
 
+## View-to-server contracts
+
+An internal `request` crosses the Views and Server authoring boundary. The View remains the owner of
+interaction and presentation state, but the task must load the companion `dowe-server` skill when
+the project-owned route needs to be added or changed. Do this even when the prompt begins with a
+page, screenshot, table, form, search field, pagination control, or other UI reference.
+
+Record one row per affected request before editing:
+
+| Field | Required decision |
+| --- | --- |
+| Caller | Page or layout plus its named `fn` or `init` |
+| Request | HTTP method and resolved `route` or `path` |
+| Client input | Body fields, headers, route params, and values that remain untrusted |
+| Client output | Minimal serializable response shape consumed by the View |
+| View states | Loading, success, empty, error, unauthorized, and retry behavior when applicable |
+| Server route | Endpoint entry and matching method |
+| Server layers | Handler, middleware, service, repository, provider, and config owners |
+| Data impact | Entity, migration, Database, Cache, Vector, Queue, or file changes required |
+| Security | Authentication, authorization, tenant/owner scope, validation, and safe error behavior |
+
+Inspect the route implementation and its full imports instead of assuming that an `/api` string
+already has a compatible endpoint. A missing route, wrong method, incompatible body or response,
+missing authorization, or missing persistence behavior is part of the same fullstack task. Use the
+Server skill to modify only the layers required by the requested behavior, then re-check the matrix
+against the actual source.
+
+Do not solve a missing Server capability by moving Database, Cache, Vector, Queue, outbound
+server-only HTTP, secrets, filesystem, crypto, or spawn into a View. Do not copy an authorization or
+business rule into a Signal or View Store. The Server must treat every client value as untrusted and
+return only the fields the View needs. Views may hide an action, but the Server remains the
+authorization authority.
+
+For a request with an explicitly external, independently owned `base`, verify the external client
+contract without inventing a project Server route. The cross-skill gate applies to project-owned
+backend behavior and to any local adapter required by the requested feature.
+
 ## View function utilities
 
 View functions contain ordered, target-neutral statements.
@@ -229,10 +287,17 @@ View functions contain ordered, target-neutral statements.
 | Utility | Binding | Props |
 | --- | --- | --- |
 | `request result` | Function-local result with `ok` and `data` | `method`, exactly one of `route` or `path`; optional `base`, `body`, `headers` |
+| `validate signal` | Marks all registered fields touched and stops the sequence when invalid | Signal root with validated controls |
 | `set target` | none | `value`, or `source:<standard-library function>` with its props |
 | `reset target` | none | Restores a Signal or View Store to its initial value |
 | `toast` | none | `value:{ type title message visible duration? }`; optional `duration`, Card-equivalent `variant` (`solid`, `soft`, `outlined`, `ghost`), design `scheme`, and corner `position`; `variant` also resolves from `design Toast` |
 | `redirect` | none | Required static absolute `path` to a declared internal route; replaces history and terminates the function |
+
+When controls with `validate` children bind to fields of the same Signal, Dowe derives read-only
+`<signal>.isValid`, `<signal>.isInvalid`, `<signal>.errors.<field>`, and `<signal>.touched.<field>`
+paths. Use those paths for reactive `Button disabled:` state; they never become part of the Signal
+value or a request body. Put `validate <signal>` before `request` in a submit function to touch all
+registered fields and stop the sequence while any rule fails.
 
 ```text
 fn createBlog
@@ -316,12 +381,40 @@ illustrations, textures, and authentic screenshots explicitly supplied or reques
 `Image` assets and must never be redrawn as `Svg` paths or `Canvas` commands. A design reference or
 any crop derived from it is not an application asset; rebuild the UI it depicts with Dowe
 components and use named missing paths for unavailable original media.
+
+### Public image paths
+
+Project media belongs in the root `assets/` tree. It is not imported through `@/` and it is not
+addressed with a machine filesystem path. Dowe maps the path relative to `assets/` to the same
+root-relative URL under `/assets/` in the development web server and web packages:
+
+| Source file | View URL |
+| --- | --- |
+| `assets/img/hero.webp` | `/assets/img/hero.webp` |
+| `assets/social/home.png` | `/assets/social/home.png` |
+
+Use the view URL in static `Image src` and in `cover` props. A dynamic `Image src` may read a
+string field from a constant, Signal, or current `each` item. `assets/img/hero.webp`,
+`/img/hero.webp`, and `/Users/name/project/assets/img/hero.webp` are not equivalents and must not be
+substituted for `/assets/img/hero.webp`. The built-in runtime only resolves project media under
+`/assets/**`; a 404 at `/img/**` means the public prefix was dropped. Check the file's spelling and
+case on disk, then request the exact URL from the running `dowe dev` server before debugging layout,
+`show`, `objectFit`, or responsive props.
+
+The same source URL is kept in target-neutral Dowe source. Web and desktop serve `/assets/**`, while
+native target packaging copies the local project file into the platform bundle and resolves it from
+the packaged asset store.
+
 Static `Svg` requires a quoted `viewBox` and one or more direct `Path` children. Runtime `Svg`
 instead uses `data:<reference>` and cannot declare `viewBox` or `Path`. The runtime reference resolves
 to one normalized Dowe vector record or JSON string; it does not accept SVG markup. `Path` accepts
 quoted `d`, a `fill` using `currentColor`, `none`, a design color token, or a hexadecimal color, and
 optional `transform:"matrix(a b c d e f)"`. Keep `Path` documented
 with `Svg` rather than treating it as a standalone component.
+
+For static `Svg`, authoring only `w` or only `h` leaves the other axis automatic and preserves the
+`viewBox` ratio. If neither is authored, the default is `6` by `6`. `Brand` follows the same
+single-axis rule using the intrinsic measure of its children.
 
 Canvas is a built-in View component, not a separate application surface. Use it only when semantic
 components cannot express a drawing, chart, diagram, game-like scene, or custom pointer

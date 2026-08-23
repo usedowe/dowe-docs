@@ -3,6 +3,10 @@
 `theme.dowe` contains exactly one `theme` block. It accepts `fonts` and `design`. Application name
 and bundle metadata belong in `main.dowe`, not in `theme.dowe`.
 
+Color families use the grouped-role syntax shown below. The family name is the semantic fill token,
+`text` is the ordinary content and control-label role, and `title` is the heading role. This is the
+only theme color form to author or emit.
+
 ```text
 theme
   fonts default:"manrope" install:["manrope" "inter"]
@@ -94,7 +98,11 @@ Pair at most two families per project: one for `Title` and one for `Text`, confi
 ## Reference-system extraction
 
 Treat a screenshot or mockup as evidence of relationships, not as a bag of unrelated pixel values.
-Inventory repeated choices before editing `theme.dowe`.
+Inventory repeated choices before editing `theme.dowe`. An image supplied for a layout, page,
+reusable component, or `Section` is not by itself a request to create or change a theme. If the file
+already exists, consume its semantic tokens without changing its palette; if it does not exist, do
+not create one solely from the image. Re-extract or generate colors only when the user explicitly
+asks for a theme or visual-system change.
 
 | Reference evidence | Theme decision |
 | --- | --- |
@@ -102,7 +110,7 @@ Inventory repeated choices before editing `theme.dowe`.
 | Cards, bars, menus, and raised panels | `surface color:… text:… title:…` |
 | Brand and primary action family | Complete `primary` and `softPrimary` fill, text, and title triples |
 | Supporting accent family | `secondary` or `accent` complete family |
-| Secondary copy and quiet fills | Complete `muted` and `softMuted` fill, text, and title triples |
+| Secondary copy and quiet fills | Base `muted` on `primary` as a lighter, lower-emphasis tonal counterpart; choose `mutedText` and `mutedTitle` for clear contrast, then complete the `softMuted` triple when soft variants are needed |
 | Repeated success, information, warning, or error meaning | Matching semantic status family |
 | Repeated Card, Button, Avatar, or Chip treatment | Supported dedicated `design` slot |
 | Repeated control or surface treatment without a dedicated slot | Supported `Ui` defaults |
@@ -130,7 +138,7 @@ styling individual components:
 | --- | --- | --- |
 | Canvas | `background` family | Quietest broad field with readable body copy and headings |
 | Primary surface | `surface` family | Clearly separable from the canvas without requiring a border everywhere |
-| Quiet panel or divider field | Commonly the `softMuted` fill, text, and title triple | Low-contrast grouping for secondary content, navigation, and ambient regions |
+| Quiet panel or divider field | `muted` or `softMuted` fill, text, and title triple | `muted` is a lighter tonal counterpart of `primary`; use it when a solid primary surface is too heavy, including solid form controls such as `Input` |
 | Brand emphasis | `primary` family | Saturated accent for actions, values, focal labels, and occasional glow—not every Card |
 | Supporting visual accent | `secondary` or `accent` family | Complements the brand and distinguishes charts, data, or a second product concept |
 
@@ -148,7 +156,10 @@ character, then let size, measure, and layout create hierarchy in views. Do not 
 composition by adding more font families or using the maximum Title size in every section.
 
 Every action and status family is a child of `colors:` with `color`, `text`, and `title` props, plus
-the corresponding grouped soft family. `background` and `surface` are structural triples.
+the corresponding grouped soft family. `muted` should be authored as a lighter tonal counterpart
+of `primary`, not as an unrelated neutral; its `text` and `title` roles must remain clearly legible
+against the lighter fill. This gives solid controls such as `Input` a quieter alternative to a
+heavy primary surface. `background` and `surface` are structural triples.
 A filled component supplies its resolved text role to normal descendants and its title role to
 `Title`. Buttons use the text role for their label. The transparent `SideNav` header is an
 exception: it uses the visible base color of its `scheme` so its content remains readable. An

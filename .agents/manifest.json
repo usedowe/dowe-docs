@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1",
   "harnessVersion": "1",
-  "doweVersion": "1.0.15",
+  "doweVersion": "1.0.24",
   "mode": "project",
   "projectRoot": ".",
   "agentRoot": ".agents",
@@ -22,6 +22,7 @@
   ],
   "managedSkills": [
     "dowe-core",
+    "dowe-domain-modeling",
     "dowe-server",
     "dowe-theme",
     "dowe-views"
