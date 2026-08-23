@@ -1,36 +1,269 @@
 page IconPage
   signal icons value:[]
+  signal categories value:[]
   signal category value:"arrows"
   signal style value:"linear"
   const selectedIcon value:"route-bold-duotone"
   signal search value:""
   signal page value:1
   signal total value:0
+  signal totalLabel value:"0"
   signal loading value:true
   signal hasError value:false
   const styleOptions:
     value:[
-      { id:"broken" value:"broken" label:"Broken" },
-      { id:"outline" value:"outline" label:"Outline" },
-      { id:"linear" value:"linear" label:"Linear" },
-      { id:"bold" value:"bold" label:"Bold" },
-      { id:"line-duotone" value:"line-duotone" label:"Line duotone" },
-      { id:"bold-duotone" value:"bold-duotone" label:"Bold duotone" },
+      {
+        id:"broken"
+        value:"broken"
+        label:"Broken"
+      }
+      {
+        id:"outline"
+        value:"outline"
+        label:"Outline"
+      }
+      {
+        id:"linear"
+        value:"linear"
+        label:"Linear"
+      }
+      {
+        id:"bold"
+        value:"bold"
+        label:"Bold"
+      }
+      {
+        id:"line-duotone"
+        value:"line-duotone"
+        label:"Line duotone"
+      }
+      {
+        id:"bold-duotone"
+        value:"bold-duotone"
+        label:"Bold duotone"
+      }
     ]
   const iconProps:
     value:[
-      { prop:"name" type:"quoted catalog name | string Signal, constant, or each-item path" defaultValue:"required" },
-      { prop:"fill" type:"currentColor | Dowe color token" defaultValue:"currentColor" },
-      { prop:"stroke" type:"currentColor | Dowe color token" defaultValue:"currentColor" },
-      { prop:"w, h" type:"common size props" defaultValue:"6" },
+      {
+        prop:"name"
+        type:"quoted catalog name | string Signal, constant, or each-item path"
+        defaultValue:"required"
+      }
+      {
+        prop:"fill"
+        type:"currentColor | Dowe color token"
+        defaultValue:"currentColor"
+      }
+      {
+        prop:"stroke"
+        type:"currentColor | Dowe color token"
+        defaultValue:"currentColor"
+      }
+      {
+        prop:"w, h"
+        type:"common size props"
+        defaultValue:"6"
+      }
+    ]
+  const catalogSources:
+    value:[
+      {
+        id:"solar"
+        name:"layers-line-duotone"
+        fill:"primary"
+        title:"Solar"
+        description:"Use the base name for linear or append a canonical suffix for another Solar variant."
+      }
+      {
+        id:"country-flags"
+        name:"country-flags:US"
+        fill:"currentColor"
+        title:"Country flags"
+        description:"Prefix the ISO country code with country-flags:. No variant prop is needed."
+      }
+      {
+        id:"spinners"
+        name:"svg-spinners:270-ring"
+        fill:"accent"
+        title:"SVG Spinners"
+        description:"Prefix one of 46 bundled spinner names with svg-spinners:. No variant prop is needed."
+      }
+      {
+        id:"logos"
+        name:"svg-logos:github-icon"
+        fill:"currentColor"
+        title:"SVG Logos"
+        description:"Prefix one of 1,863 bundled logo names with svg-logos: and keep its authored brand colors."
+      }
+    ]
+  const logoNames:
+    value:[
+      {
+        id:"github-icon"
+        name:"svg-logos:github-icon"
+        label:"github-icon"
+      }
+      {
+        id:"openai"
+        name:"svg-logos:openai"
+        label:"openai"
+      }
+      {
+        id:"anthropic-icon"
+        name:"svg-logos:anthropic-icon"
+        label:"anthropic-icon"
+      }
+      {
+        id:"cloudflare-workers"
+        name:"svg-logos:cloudflare-workers"
+        label:"cloudflare-workers"
+      }
+      {
+        id:"rust"
+        name:"svg-logos:rust"
+        label:"rust"
+      }
+      {
+        id:"apple"
+        name:"svg-logos:apple"
+        label:"apple"
+      }
+      {
+        id:"google"
+        name:"svg-logos:google"
+        label:"google"
+      }
+      {
+        id:"docker"
+        name:"svg-logos:docker"
+        label:"docker"
+      }
+      {
+        id:"figma"
+        name:"svg-logos:figma"
+        label:"figma"
+      }
+      {
+        id:"model-context-protocol-icon"
+        name:"svg-logos:model-context-protocol-icon"
+        label:"model-context-protocol-icon"
+      }
+      {
+        id:"vercel-icon"
+        name:"svg-logos:vercel-icon"
+        label:"vercel-icon"
+      }
+      {
+        id:"vite-icon"
+        name:"svg-logos:vite-icon"
+        label:"vite-icon"
+      }
+    ]
+  const spinnerOptions:
+    value:[
+      {
+        id:"90-ring"
+        name:"svg-spinners:90-ring"
+        label:"90-ring"
+        fill:"primary"
+      }
+      {
+        id:"3-dots-bounce"
+        name:"svg-spinners:3-dots-bounce"
+        label:"3-dots-bounce"
+        fill:"secondary"
+      }
+      {
+        id:"bars-scale-middle"
+        name:"svg-spinners:bars-scale-middle"
+        label:"bars-scale-middle"
+        fill:"accent"
+      }
+      {
+        id:"blocks-wave"
+        name:"svg-spinners:blocks-wave"
+        label:"blocks-wave"
+        fill:"success"
+      }
+      {
+        id:"pulse-rings-3"
+        name:"svg-spinners:pulse-rings-3"
+        label:"pulse-rings-3"
+        fill:"warning"
+      }
+      {
+        id:"bouncing-ball"
+        name:"svg-spinners:bouncing-ball"
+        label:"bouncing-ball"
+        fill:"danger"
+      }
+      {
+        id:"wifi-fade"
+        name:"svg-spinners:wifi-fade"
+        label:"wifi-fade"
+        fill:"info"
+      }
+      {
+        id:"wind-toy"
+        name:"svg-spinners:wind-toy"
+        label:"wind-toy"
+        fill:"primary"
+      }
+    ]
+  const styleVariants:
+    value:[
+      {
+        id:"broken"
+        name:"alt-arrow-right-broken"
+        fill:"primary"
+        label:"broken"
+      }
+      {
+        id:"outline"
+        name:"alt-arrow-right-outline"
+        fill:"primary"
+        label:"outline"
+      }
+      {
+        id:"linear"
+        name:"alt-arrow-right"
+        fill:"primary"
+        label:"linear"
+      }
+      {
+        id:"bold"
+        name:"alt-arrow-right-bold"
+        fill:"primary"
+        label:"bold"
+      }
+      {
+        id:"line-duotone"
+        name:"alt-arrow-right-line-duotone"
+        fill:"accent"
+        label:"line-duotone"
+      }
+      {
+        id:"bold-duotone"
+        name:"alt-arrow-right-bold-duotone"
+        fill:"primary"
+        label:"bold-duotone"
+      }
     ]
   init
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-      set loading value:false
-      set hasError value:false
+    request categoriesResult method:"GET" route:"/api/icons/categories"
+    if categoriesResult.ok
+      set categories value:categoriesResult.data
+      request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
+      if result.ok
+        set icons value:result.data.data
+        set total value:result.data.total
+        set totalLabel source:parse.string value:result.data.total
+        set loading value:false
+        set hasError value:false
+      else
+        set loading value:false
+        set hasError value:true
     else
       set loading value:false
       set hasError value:true
@@ -40,6 +273,7 @@ page IconPage
     if result.ok
       set icons value:result.data.data
       set total value:result.data.total
+      set totalLabel source:parse.string value:result.data.total
       set loading value:false
       set hasError value:false
     else
@@ -52,343 +286,11 @@ page IconPage
     if result.ok
       set icons value:result.data.data
       set total value:result.data.total
+      set totalLabel source:parse.string value:result.data.total
       set loading value:false
       set hasError value:false
     else
       set loading value:false
-      set hasError value:true
-  fn selectArrows
-    set category value:"arrows"
-    set page value:1
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-    else
-      set hasError value:true
-  fn selectArrowsAction
-    set category value:"arrows-action"
-    set page value:1
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-    else
-      set hasError value:true
-  fn selectAstronomy
-    set category value:"astronomy"
-    set page value:1
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-    else
-      set hasError value:true
-  fn selectBuilding
-    set category value:"building"
-    set page value:1
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-    else
-      set hasError value:true
-  fn selectBusiness
-    set category value:"business"
-    set page value:1
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-    else
-      set hasError value:true
-  fn selectCall
-    set category value:"call"
-    set page value:1
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-    else
-      set hasError value:true
-  fn selectDevices
-    set category value:"devices"
-    set page value:1
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-    else
-      set hasError value:true
-  fn selectFaces
-    set category value:"faces"
-    set page value:1
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-    else
-      set hasError value:true
-  fn selectFiles
-    set category value:"files"
-    set page value:1
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-    else
-      set hasError value:true
-  fn selectFolders
-    set category value:"folders"
-    set page value:1
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-    else
-      set hasError value:true
-  fn selectFood
-    set category value:"food"
-    set page value:1
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-    else
-      set hasError value:true
-  fn selectHands
-    set category value:"hands"
-    set page value:1
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-    else
-      set hasError value:true
-  fn selectHome
-    set category value:"home"
-    set page value:1
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-    else
-      set hasError value:true
-  fn selectIt
-    set category value:"it"
-    set page value:1
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-    else
-      set hasError value:true
-  fn selectLike
-    set category value:"like"
-    set page value:1
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-    else
-      set hasError value:true
-  fn selectList
-    set category value:"list"
-    set page value:1
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-    else
-      set hasError value:true
-  fn selectMap
-    set category value:"map"
-    set page value:1
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-    else
-      set hasError value:true
-  fn selectMedicine
-    set category value:"medicine"
-    set page value:1
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-    else
-      set hasError value:true
-  fn selectMessages
-    set category value:"messages"
-    set page value:1
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-    else
-      set hasError value:true
-  fn selectMoney
-    set category value:"money"
-    set page value:1
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-    else
-      set hasError value:true
-  fn selectNature
-    set category value:"nature"
-    set page value:1
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-    else
-      set hasError value:true
-  fn selectNotes
-    set category value:"notes"
-    set page value:1
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-    else
-      set hasError value:true
-  fn selectNotifications
-    set category value:"notifications"
-    set page value:1
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-    else
-      set hasError value:true
-  fn selectParts
-    set category value:"parts"
-    set page value:1
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-    else
-      set hasError value:true
-  fn selectSchool
-    set category value:"school"
-    set page value:1
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-    else
-      set hasError value:true
-  fn selectSearch
-    set category value:"search"
-    set page value:1
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-    else
-      set hasError value:true
-  fn selectSecurity
-    set category value:"security"
-    set page value:1
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-    else
-      set hasError value:true
-  fn selectSettings
-    set category value:"settings"
-    set page value:1
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-    else
-      set hasError value:true
-  fn selectShopping
-    set category value:"shopping"
-    set page value:1
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-    else
-      set hasError value:true
-  fn selectSports
-    set category value:"sports"
-    set page value:1
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-    else
-      set hasError value:true
-  fn selectTextFormatting
-    set category value:"text-formatting"
-    set page value:1
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-    else
-      set hasError value:true
-  fn selectTime
-    set category value:"time"
-    set page value:1
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-    else
-      set hasError value:true
-  fn selectTools
-    set category value:"tools"
-    set page value:1
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-    else
-      set hasError value:true
-  fn selectUi
-    set category value:"ui"
-    set page value:1
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-    else
-      set hasError value:true
-  fn selectUsers
-    set category value:"users"
-    set page value:1
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-    else
-      set hasError value:true
-  fn selectVideo
-    set category value:"video"
-    set page value:1
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-    else
-      set hasError value:true
-  fn selectWeather
-    set category value:"weather"
-    set page value:1
-    request result method:"GET" route:"/api/icons/:category/:style/q-:search/:page"
-    if result.ok
-      set icons value:result.data.data
-      set total value:result.data.total
-    else
       set hasError value:true
   Section id:"icon-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
@@ -414,40 +316,26 @@ page IconPage
         Text size:"sm"
           "Plain names resolve Solar. Country flags, SVG Spinners, and SVG Logos use explicit namespaces so completions and diagnostics stay deterministic."
       Grid columns:{ xs:1 md:2 lg:4 } gap:{ xs:3 md:4 }
-        Card variant:"outlined" p:5 border:1
-          Grid columns:1 gap:3
-            Icon name:"layers-line-duotone" fill:"primary" w:9 h:9
-            Title size:"lg" weight:"black"
-              "Solar"
-            Text size:"sm"
-              "Use the base name for linear or append a canonical suffix for another Solar variant."
-        Card variant:"outlined" p:5 border:1
-          Grid columns:1 gap:3
-            Icon name:"country-flags:US" w:9 h:9
-            Title size:"lg" weight:"black"
-              "Country flags"
-            Text size:"sm"
-              "Prefix the ISO country code with country-flags:. No variant prop is needed."
-        Card variant:"outlined" p:5 border:1
-          Grid columns:1 gap:3
-            Icon name:"svg-spinners:270-ring" fill:"accent" w:9 h:9
-            Title size:"lg" weight:"black"
-              "SVG Spinners"
-            Text size:"sm"
-              "Prefix one of 46 bundled spinner names with svg-spinners:. No variant prop is needed."
-        Card variant:"outlined" p:5 border:1
-          Grid columns:1 gap:3
-            Icon name:"svg-logos:github-icon" w:9 h:9
-            Title size:"lg" weight:"black"
-              "SVG Logos"
-            Text size:"sm"
-              "Prefix one of 1,863 bundled logo names with svg-logos: and keep its authored brand colors."
-      Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
-        Icon name:"alt-arrow-right-bold-duotone" fill:"primary"
-        Icon name:"country-flags:CO" w:8 h:8
-        Icon name:"svg-spinners:3-dots-bounce" fill:"secondary" w:8 h:8
-        Icon name:"svg-logos:github-icon" w:8 h:8
-      """
+        each in:catalogSources as:catalog key:catalog.id
+          Card variant:"outlined" p:5 border:1
+            Grid columns:1 gap:3
+              Icon name:catalog.name fill:catalog.fill w:9 h:9
+              Title size:"lg" weight:"black"
+                "{catalog.title}"
+              Text size:"sm"
+                "{catalog.description}"
+      Code:
+        language:"dowe"
+        variant:"solid"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Icon name:"alt-arrow-right-bold-duotone" fill:"primary"
+          Icon name:"country-flags:CO" w:8 h:8
+          Icon name:"svg-spinners:3-dots-bounce" fill:"secondary" w:8 h:8
+          Icon name:"svg-logos:github-icon" w:8 h:8
+        """
   Section id:"icon-logos" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
@@ -460,66 +348,12 @@ page IconPage
         Text size:"sm"
           "Web and desktop preserve the validated original SVG. Native targets draw shared normalized paths with deterministic solid fallbacks for complex paints."
       Grid columns:{ xs:2 sm:3 md:4 lg:6 } gap:{ xs:3 md:4 }
-        Card variant:"solid" p:{ xs:3 md:4 }
-          Flex direction:"column" gap:3 align:"center"
-            Icon name:"svg-logos:github-icon" w:10 h:10
-            Text size:"xs" weight:"bold"
-              "github-icon"
-        Card variant:"solid" p:{ xs:3 md:4 }
-          Flex direction:"column" gap:3 align:"center"
-            Icon name:"svg-logos:openai" w:10 h:10
-            Text size:"xs" weight:"bold"
-              "openai"
-        Card variant:"solid" p:{ xs:3 md:4 }
-          Flex direction:"column" gap:3 align:"center"
-            Icon name:"svg-logos:anthropic-icon" w:10 h:10
-            Text size:"xs" weight:"bold"
-              "anthropic-icon"
-        Card variant:"solid" p:{ xs:3 md:4 }
-          Flex direction:"column" gap:3 align:"center"
-            Icon name:"svg-logos:cloudflare-workers" w:10 h:10
-            Text size:"xs" weight:"bold"
-              "cloudflare-workers"
-        Card variant:"solid" p:{ xs:3 md:4 }
-          Flex direction:"column" gap:3 align:"center"
-            Icon name:"svg-logos:rust" w:10 h:10
-            Text size:"xs" weight:"bold"
-              "rust"
-        Card variant:"solid" p:{ xs:3 md:4 }
-          Flex direction:"column" gap:3 align:"center"
-            Icon name:"svg-logos:apple" w:10 h:10
-            Text size:"xs" weight:"bold"
-              "apple"
-        Card variant:"solid" p:{ xs:3 md:4 }
-          Flex direction:"column" gap:3 align:"center"
-            Icon name:"svg-logos:google" w:10 h:10
-            Text size:"xs" weight:"bold"
-              "google"
-        Card variant:"solid" p:{ xs:3 md:4 }
-          Flex direction:"column" gap:3 align:"center"
-            Icon name:"svg-logos:docker" w:10 h:10
-            Text size:"xs" weight:"bold"
-              "docker"
-        Card variant:"solid" p:{ xs:3 md:4 }
-          Flex direction:"column" gap:3 align:"center"
-            Icon name:"svg-logos:figma" w:10 h:10
-            Text size:"xs" weight:"bold"
-              "figma"
-        Card variant:"solid" p:{ xs:3 md:4 }
-          Flex direction:"column" gap:3 align:"center"
-            Icon name:"svg-logos:model-context-protocol-icon" w:10 h:10
-            Text size:"xs" weight:"bold"
-              "model-context-protocol-icon"
-        Card variant:"solid" p:{ xs:3 md:4 }
-          Flex direction:"column" gap:3 align:"center"
-            Icon name:"svg-logos:vercel-icon" w:10 h:10
-            Text size:"xs" weight:"bold"
-              "vercel-icon"
-        Card variant:"solid" p:{ xs:3 md:4 }
-          Flex direction:"column" gap:3 align:"center"
-            Icon name:"svg-logos:vite-icon" w:10 h:10
-            Text size:"xs" weight:"bold"
-              "vite-icon"
+        each in:logoNames as:logoName key:logoName.id
+          Card variant:"solid" p:{ xs:3 md:4 }
+            Flex direction:"column" gap:3 align:"center"
+              Icon name:logoName.name w:10 h:10
+              Text size:"xs" weight:"bold"
+                "{logoName.label}"
       Code:
         language:"dowe"
         variant:"solid"
@@ -530,7 +364,11 @@ page IconPage
           Icon name:"svg-logos:github-icon" w:10 h:10
           Icon name:"svg-logos:cloudflare-workers" w:10 h:10
         """
-      Alert type:"info" message:"SVG Logos is CC0, but logos and trademarks remain the property of their respective owners. Icon is decorative, so label the containing control or link." variant:"solid" scheme:"info"
+      Alert:
+        type:"info"
+        message:"SVG Logos is CC0, but logos and trademarks remain the property of their respective owners. Icon is decorative, so label the containing control or link."
+        variant:"solid"
+        scheme:"info"
   Section id:"icon-browser" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
@@ -539,7 +377,7 @@ page IconPage
         Title size:"3xl" weight:"black"
           "Browse every Solar icon without bundling the catalog"
         Text size:"sm"
-          "The server filters and paginates 7,476 normalized SVG records in Dowe Database. This view receives at most 60 geometries and renders each one with Svg data."
+          "Categories and counts come from Dowe Database. The server filters and paginates normalized SVG records; this view receives at most 60 geometries and renders each one with Svg data."
         Text size:"sm"
           "The catalog is loaded by a server-only Dowe seeder. The dowe icons namespace remains dedicated to application icon assets."
       Code:
@@ -548,83 +386,61 @@ page IconPage
         scheme:"surface"
         copyLabel:"Copy command"
         copiedLabel:"Copied"
-        content:"""
-          database IconDb provider:"dowe" host:env.DOWE_HOST port:env.DOWE_PORT account:env.DOWE_ACCOUNT secret:env.DOWE_SECRET name:"dowe-docs-icons" entities:[IconCategories Icons] seeders:[IconCatalog]
-        """
+        content:"database IconDb provider:\"dowe\" host:env.DOWE_HOST port:env.DOWE_PORT account:env.DOWE_ACCOUNT secret:env.DOWE_SECRET name:\"dowe-docs-icons\" entities:[IconCategories Icons] seeders:[IconCatalog]"
       Card variant:"outlined" p:{ xs:4 md:6 } border:1
-        Grid columns:{ xs:1 md:4 } gap:{ xs:4 md:6 } align:"start"
-          Box colSpan:{ xs:1 md:1 }
-            Sidebar variant:"solid" scheme:"surface" p:{ xs:3 md:4 } w:"full"
-              body
-                SideNav scheme:"primary" size:"sm" wide:true
-                  item label:"Arrows" status:"67" onClick:selectArrows
-                  item label:"Arrows Action" status:"58" onClick:selectArrowsAction
-                  item label:"Astronomy" status:"32" onClick:selectAstronomy
-                  item label:"Building" status:"7" onClick:selectBuilding
-                  item label:"Business" status:"19" onClick:selectBusiness
-                  item label:"Call" status:"21" onClick:selectCall
-                  item label:"Devices" status:"89" onClick:selectDevices
-                  item label:"Faces" status:"21" onClick:selectFaces
-                  item label:"Files" status:"15" onClick:selectFiles
-                  item label:"Folders" status:"14" onClick:selectFolders
-                  item label:"Food" status:"18" onClick:selectFood
-                  item label:"Hands" status:"5" onClick:selectHands
-                  item label:"Home" status:"35" onClick:selectHome
-                  item label:"IT" status:"31" onClick:selectIt
-                  item label:"Like" status:"17" onClick:selectLike
-                  item label:"List" status:"28" onClick:selectList
-                  item label:"Map" status:"37" onClick:selectMap
-                  item label:"Medicine" status:"32" onClick:selectMedicine
-                  item label:"Messages" status:"48" onClick:selectMessages
-                  item label:"Money" status:"35" onClick:selectMoney
-                  item label:"Nature" status:"9" onClick:selectNature
-                  item label:"Notes" status:"23" onClick:selectNotes
-                  item label:"Notifications" status:"7" onClick:selectNotifications
-                  item label:"Parts" status:"19" onClick:selectParts
-                  item label:"School" status:"29" onClick:selectSchool
-                  item label:"Search" status:"12" onClick:selectSearch
-                  item label:"Security" status:"46" onClick:selectSecurity
-                  item label:"Settings" status:"15" onClick:selectSettings
-                  item label:"Shopping" status:"27" onClick:selectShopping
-                  item label:"Sports" status:"41" onClick:selectSports
-                  item label:"Text Formatting" status:"33" onClick:selectTextFormatting
-                  item label:"Time" status:"27" onClick:selectTime
-                  item label:"Tools" status:"29" onClick:selectTools
-                  item label:"UI" status:"139" onClick:selectUi
-                  item label:"Users" status:"22" onClick:selectUsers
-                  item label:"Video" status:"103" onClick:selectVideo
-                  item label:"Weather" status:"36" onClick:selectWeather
-          Box colSpan:{ xs:1 md:3 }
-            Grid columns:1 gap:6
-              Grid columns:{ xs:1 md:3 } gap:{ xs:3 md:4 } align:"end"
-                Input bind:search label:"Search" placeholder:"Icon name"
-                Select:
-                  bind:style
-                  label:"Style"
-                  placeholder:"Choose a style"
-                  each in:styleOptions as:option key:option.id
-                    Option value:option.value label:option.label
-                Button w:"full" onClick:applyFilters iconStart:"magnifier"
-                  "Apply"
-              Flex wrap:true justify:"between" align:"center" gap:4
-                Text size:"xs" weight:"bold" spacing:"widest"
-                  "{category}"
-                Button onClick:loadIcons variant:"ghost" scheme:"muted" size:"sm" iconStart:"restart"
-                  "Refresh"
-              Text show:loading size:"sm"
-                "Loading SVG geometry from Dowe Database…"
-              Alert type:"error" message:"The icon catalog could not be loaded." visible:hasError variant:"solid" scheme:"danger"
-              Grid columns:{ xs:2 sm:3 md:4 lg:6 } gap:{ xs:3 md:4 }
-                each in:icons as:icon key:icon.key
-                  Card variant:"solid" p:4
-                    Flex direction:"column" gap:3 align:"center"
-                      Svg data:icon.svg color:"primary" w:12 h:12
-                      Text size:"xs"
-                        "{icon.name}"
-              Text show:{ when:total lte:0 } size:"sm"
-                "No icons match the current filters."
-              Pagination bind:page total:total pageSize:60 onChange:loadIcons variant:"ghost" scheme:"primary" size:"sm" ariaLabel:"Icon catalog pages"
-      Alert type:"info" message:"Runtime Svg accepts normalized Dowe vector data only. The renderer validates every viewBox, path, paint, opacity, stroke, and transform before drawing it." variant:"solid" scheme:"info"
+        Grid columns:1 gap:6
+          Grid columns:{ xs:1 sm:2 md:4 } gap:{ xs:3 md:4 } align:"end"
+            Select bind:category label:"Category" placeholder:"Choose a category"
+              each in:categories as:categoryOption key:categoryOption.slug
+                Option value:categoryOption.slug label:categoryOption.label
+            Input bind:search label:"Search" placeholder:"Icon name"
+            Select bind:style label:"Style" placeholder:"Choose a style"
+              each in:styleOptions as:option key:option.id
+                Option value:option.value label:option.label
+            Button w:"full" onClick:applyFilters iconStart:"magnifier"
+              "Apply"
+          Flex wrap:true justify:"between" align:"center" gap:4
+            Flex direction:"column" gap:1
+              Text size:"xs" weight:"bold" spacing:"widest"
+                "{category}"
+              Flex gap:1 align:"center"
+                Text size:"xs"
+                  "{totalLabel}"
+                Text size:"xs"
+                  "matching icons"
+            Button onClick:loadIcons variant:"ghost" size:"sm" iconStart:"restart"
+              "Refresh"
+          Text show:loading size:"sm"
+            "Loading SVG geometry from Dowe Database…"
+          Alert:
+            type:"error"
+            message:"The icon catalog could not be loaded."
+            visible:hasError
+            variant:"solid"
+            scheme:"danger"
+          Grid columns:{ xs:2 sm:3 md:4 lg:6 } gap:{ xs:3 md:4 }
+            each in:icons as:icon key:icon.key
+              Card variant:"solid" p:4
+                Flex direction:"column" gap:3 align:"center"
+                  Svg data:icon.svg color:"primary" w:12 h:12
+                  Text size:"xs"
+                    "{icon.name}"
+          Text show:{ when:total lte:0 } size:"sm"
+            "No icons match the current filters."
+          Pagination:
+            bind:page
+            total:total
+            pageSize:60
+            onChange:loadIcons
+            variant:"ghost"
+            scheme:"primary"
+            size:"sm"
+            ariaLabel:"Icon catalog pages"
+      Alert:
+        type:"info"
+        message:"Runtime Svg accepts normalized Dowe vector data only. The renderer validates every viewBox, path, paint, opacity, stroke, and transform before drawing it."
+        variant:"solid"
+        scheme:"info"
   Section id:"icon-styles" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
@@ -635,30 +451,11 @@ page IconPage
         Text size:"sm"
           "The base name selects linear; other variants append a suffix. Duotone geometry preserves its authored secondary opacity."
       Grid columns:{ xs:2 sm:3 md:6 } gap:{ xs:3 md:4 }
-        Flex direction:"column" gap:3 align:"center"
-          Icon name:"alt-arrow-right-broken" fill:"primary" stroke:"primary" w:10 h:10
-          Text size:"xs" weight:"bold"
-            "broken"
-        Flex direction:"column" gap:3 align:"center"
-          Icon name:"alt-arrow-right-outline" fill:"primary" stroke:"primary" w:10 h:10
-          Text size:"xs" weight:"bold"
-            "outline"
-        Flex direction:"column" gap:3 align:"center"
-          Icon name:"alt-arrow-right" fill:"primary" stroke:"primary" w:10 h:10
-          Text size:"xs" weight:"bold"
-            "linear"
-        Flex direction:"column" gap:3 align:"center"
-          Icon name:"alt-arrow-right-bold" fill:"primary" stroke:"primary" w:10 h:10
-          Text size:"xs" weight:"bold"
-            "bold"
-        Flex direction:"column" gap:3 align:"center"
-          Icon name:"alt-arrow-right-line-duotone" fill:"accent" stroke:"primary" w:10 h:10
-          Text size:"xs" weight:"bold"
-            "line-duotone"
-        Flex direction:"column" gap:3 align:"center"
-          Icon name:"alt-arrow-right-bold-duotone" fill:"primary" stroke:"primary" w:10 h:10
-          Text size:"xs" weight:"bold"
-            "bold-duotone"
+        each in:styleVariants as:styleVariant key:styleVariant.id
+          Flex direction:"column" gap:3 align:"center"
+            Icon name:styleVariant.name fill:styleVariant.fill stroke:"primary" w:10 h:10
+            Text size:"xs" weight:"bold"
+              "{styleVariant.label}"
       Code:
         language:"dowe"
         variant:"solid"
@@ -680,46 +477,12 @@ page IconPage
         Text size:"sm"
           "Web and desktop preserve validated upstream CSS. Android and iOS draw the same portable fallback paths with native continuous motion."
       Grid columns:{ xs:2 sm:3 md:4 } gap:{ xs:3 md:4 }
-        Card variant:"solid" p:{ xs:3 md:4 }
-          Flex direction:"column" gap:3 align:"center"
-            Icon name:"svg-spinners:90-ring" fill:"primary" w:9 h:9
-            Text size:"xs" weight:"bold"
-              "90-ring"
-        Card variant:"solid" p:{ xs:3 md:4 }
-          Flex direction:"column" gap:3 align:"center"
-            Icon name:"svg-spinners:3-dots-bounce" fill:"secondary" w:9 h:9
-            Text size:"xs" weight:"bold"
-              "3-dots-bounce"
-        Card variant:"solid" p:{ xs:3 md:4 }
-          Flex direction:"column" gap:3 align:"center"
-            Icon name:"svg-spinners:bars-scale-middle" fill:"accent" w:9 h:9
-            Text size:"xs" weight:"bold"
-              "bars-scale-middle"
-        Card variant:"solid" p:{ xs:3 md:4 }
-          Flex direction:"column" gap:3 align:"center"
-            Icon name:"svg-spinners:blocks-wave" fill:"success" w:9 h:9
-            Text size:"xs" weight:"bold"
-              "blocks-wave"
-        Card variant:"solid" p:{ xs:3 md:4 }
-          Flex direction:"column" gap:3 align:"center"
-            Icon name:"svg-spinners:pulse-rings-3" fill:"warning" w:9 h:9
-            Text size:"xs" weight:"bold"
-              "pulse-rings-3"
-        Card variant:"solid" p:{ xs:3 md:4 }
-          Flex direction:"column" gap:3 align:"center"
-            Icon name:"svg-spinners:bouncing-ball" fill:"danger" w:9 h:9
-            Text size:"xs" weight:"bold"
-              "bouncing-ball"
-        Card variant:"solid" p:{ xs:3 md:4 }
-          Flex direction:"column" gap:3 align:"center"
-            Icon name:"svg-spinners:wifi-fade" fill:"info" w:9 h:9
-            Text size:"xs" weight:"bold"
-              "wifi-fade"
-        Card variant:"solid" p:{ xs:3 md:4 }
-          Flex direction:"column" gap:3 align:"center"
-            Icon name:"svg-spinners:wind-toy" fill:"primary" w:9 h:9
-            Text size:"xs" weight:"bold"
-              "wind-toy"
+        each in:spinnerOptions as:spinner key:spinner.id
+          Card variant:"solid" p:{ xs:3 md:4 }
+            Flex direction:"column" gap:3 align:"center"
+              Icon name:spinner.name fill:spinner.fill w:9 h:9
+              Text size:"xs" weight:"bold"
+                "{spinner.label}"
   Section id:"icon-contract" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Text size:"xs" weight:"bold" spacing:"widest"
@@ -734,4 +497,8 @@ page IconPage
         Icon name:selectedIcon fill:"primary" w:10 h:10
         Text size:"sm"
           "A string Signal or each-item path can switch among the shared catalog; immutable const collections preload only their literal names, unrelated mutable lists do not expand the catalog, and invalid runtime values use the validated initial icon."
-      Alert type:"info" message:"Icon is decorative. Pair a loading spinner with visible status text or an accessible labeled control. Reduced-motion preferences stop or suppress continuous motion." variant:"solid" scheme:"info"
+      Alert:
+        type:"info"
+        message:"Icon is decorative. Pair a loading spinner with visible status text or an accessible labeled control. Reduced-motion preferences stop or suppress continuous motion."
+        variant:"solid"
+        scheme:"info"

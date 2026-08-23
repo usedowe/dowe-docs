@@ -1,18 +1,9 @@
 page TextPage
-  const textProps:
-    value:[
-      { prop:"align" type:"start | center | end | justify | responsive object" defaultValue:"start" },
-      { prop:"size" type:"xs through 9xl" defaultValue:"md (fluid)" },
-      { prop:"weight" type:"text weight token | responsive object" defaultValue:"400 for Text, title metric for Title" },
-      { prop:"spacing" type:"text spacing token | responsive object" defaultValue:"normal" },
-      { prop:"color" type:"color token | responsive object" defaultValue:"inherited" },
-      { prop:"bg" type:"color token | responsive object" defaultValue:"none" },
-    ]
   Section id:"text-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:3
       Text size:"xs" weight:"bold" spacing:"widest"
         "DISPLAY / TYPOGRAPHY"
-      Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+      Title as:"h1" size:{ xs:"3xl" md:"6xl" } weight:"black"
         "Text and Title"
       Text size:"lg"
         "Use one text contract for readable copy and headings. Alignment is logical and portable across web, iOS, and Android."
@@ -54,12 +45,40 @@ page TextPage
             "end follows the logical trailing edge."
           Text size:"lg" align:"justify"
             "justify distributes space across lines with native target support."
-      Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy alignment examples" copiedLabel:"Copied" content:"""
-        Title size:"xl" align:"center"
-          "Centered heading"
-        Text size:"lg" align:"justify"
-          "A paragraph can use the same logical contract on web, iOS, and Android."
-      """
+      Card variant:"solid" scheme:"secondary" p:5 rounded:"lg"
+        Grid columns:1 gap:2
+          Text size:"xs" weight:"bold" spacing:"widest"
+            "SEMANTIC HTML"
+          Title size:"2xl" weight:"black"
+            "Choose the heading level"
+          Text size:"sm"
+            "Title renders as h2 by default on the web. Use as to choose h1 through h6 when the page hierarchy requires a different heading level. The prop changes only the web tag; typography remains the same on native targets."
+      Code:
+        language:"dowe"
+        variant:"solid"
+        scheme:"surface"
+        copyLabel:"Copy semantic heading examples"
+        copiedLabel:"Copied"
+        content:"""
+          Title as:"h1" size:"2xl"
+            "Page heading"
+          Title as:"h3" size:"xl"
+            "Section heading"
+          Title size:"lg"
+            "Default h2 heading"
+        """
+      Code:
+        language:"dowe"
+        variant:"solid"
+        scheme:"surface"
+        copyLabel:"Copy alignment examples"
+        copiedLabel:"Copied"
+        content:"""
+          Title size:"xl" align:"center"
+            "Centered heading"
+          Text size:"lg" align:"justify"
+            "A paragraph can use the same logical contract on web, iOS, and Android."
+        """
   Section id:"text-fluid-size" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
@@ -86,14 +105,20 @@ page TextPage
               "Choose breakpoints deliberately"
             Text size:"sm"
               "Use an object only when the design intentionally changes at named breakpoints."
-      Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy sizing examples" copiedLabel:"Copied" content:"""
-        Text size:"lg"
-          "Fluid body copy"
-        Title size:"xl"
-          "Fluid heading"
-        Text size:{ xs:"md" lg:"xl" }
-          "Intentional breakpoint override"
-      """
+      Code:
+        language:"dowe"
+        variant:"solid"
+        scheme:"surface"
+        copyLabel:"Copy sizing examples"
+        copiedLabel:"Copied"
+        content:"""
+          Text size:"lg"
+            "Fluid body copy"
+          Title size:"xl"
+            "Fluid heading"
+          Text size:{ xs:"md" lg:"xl" }
+            "Intentional breakpoint override"
+        """
   Section id:"text-props" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
@@ -102,8 +127,53 @@ page TextPage
         Title size:"3xl" weight:"black"
           "Text and Title props"
         Text size:"sm"
-          "Both components accept the same typography and common style surface. RichText remains a separate marked-text contract and does not accept align."
-      Table data:textProps variant:"solid" scheme:"surface" size:"sm" striped:true dividers:true rounded:"md"
+          "Both components accept the same typography and common style surface. Title also accepts as on the web to select h1 through h6; it defaults to h2. RichText remains a separate marked-text contract and does not accept align."
+      const textProps:
+        value:[
+          {
+            prop:"align"
+            type:"start | center | end | justify | responsive object"
+            defaultValue:"start"
+          }
+          {
+            prop:"size"
+            type:"xs through 9xl"
+            defaultValue:"md (fluid)"
+          }
+          {
+            prop:"weight"
+            type:"text weight token | responsive object"
+            defaultValue:"400 for Text, title metric for Title"
+          }
+          {
+            prop:"spacing"
+            type:"text spacing token | responsive object"
+            defaultValue:"normal"
+          }
+          {
+            prop:"color"
+            type:"color token | responsive object"
+            defaultValue:"inherited"
+          }
+          {
+            prop:"bg"
+            type:"color token | responsive object"
+            defaultValue:"none"
+          }
+          {
+            prop:"as"
+            type:"h1 | h2 | h3 | h4 | h5 | h6 (web only, Title only)"
+            defaultValue:"h2"
+          }
+        ]
+      Table:
+        data:textProps
+        variant:"solid"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
         column field:"prop" label:"Prop" width:"1fr"
         column field:"type" label:"Type" width:"3fr"
         column field:"defaultValue" label:"Default" width:"2fr"
