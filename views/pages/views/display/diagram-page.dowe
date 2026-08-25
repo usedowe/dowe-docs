@@ -1,0 +1,126 @@
+type DiagramNode
+  id:string
+  type:string
+  x:number
+  y:number
+  width:number
+  height:number
+  label:string
+
+type DiagramEdge
+  id:string
+  source:string
+  target:string
+  label:string
+
+page DiagramPage
+  signal nodes type:DiagramNode[] value:[
+    { id:"input" type:"source" x:80 y:120 width:180 height:72 label:"Input" }
+    { id:"process" type:"task" x:360 y:120 width:180 height:72 label:"Process" }
+    { id:"output" type:"result" x:640 y:120 width:180 height:72 label:"Output" }
+  ]
+  signal edges type:DiagramEdge[] value:[
+    { id:"input-process" source:"input" target:"process" label:"payload" }
+    { id:"process-output" source:"process" target:"output" label:"result" }
+  ]
+  const featureProps:
+    value:[
+      { prop:"nodes" type:"Signal<DiagramNode[]>" defaultValue:"required" },
+      { prop:"edges" type:"Signal<DiagramEdge[]>" defaultValue:"required" },
+      { prop:"fitView" type:"boolean" defaultValue:"true" },
+      { prop:"panOnDrag" type:"boolean" defaultValue:"true" },
+      { prop:"zoomOnScroll" type:"boolean" defaultValue:"true" },
+      { prop:"minimap, controls" type:"boolean" defaultValue:"false, true" },
+      { prop:"onNodeClick, onNodeDrag, onConnect" type:"Action names" defaultValue:"—" },
+    ]
+  Section id:"diagram-introduction" py:{ xs:6 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest"
+          "DISPLAY"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Diagram"
+        Text size:"lg"
+          "Diagram is a cross-platform node editor for workflows, architecture maps, dependency graphs, and interactive data flows. Its shared graph model keeps nodes, edges, viewport gestures, selection, and actions consistent across web, iOS, and Android."
+      Card variant:"solid" scheme:"success" p:5 rounded:"lg" minW:56
+        Grid columns:1 gap:1
+          Text size:"xs" weight:"bold" spacing:"widest"
+            "SHARED GRAPH MODEL"
+          Title size:"xl" weight:"black"
+            "One graph, every target"
+          Text size:"sm"
+            "Use typed node and edge collections. Target renderers provide native gestures and drawing without requiring a web-only dependency."
+  Section id:"diagram-api" p:{ xs:5 md:7 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Diagram props"
+        Text size:"sm"
+          "Nodes and edges are identified by stable ids. Edges reference node ids through source and target. Interactive actions receive the selected graph item or connection payload."
+      Table data:featureProps variant:"solid" scheme:"surface" size:"sm" striped:true dividers:true rounded:"md"
+        column field:"prop" label:"Prop" width:"1.2fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1.2fr"
+  Section id:"diagram-example" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest"
+          "EXAMPLE"
+        Title size:"3xl" weight:"black"
+          "Build a workflow graph"
+        Text size:"sm"
+          "The canonical graph contract is deliberately target-neutral. Positions are expressed in diagram coordinates so the same layout can be restored on every platform."
+      Diagram nodes:nodes edges:edges fitView:true minimap:true controls:true panOnDrag:true zoomOnScroll:true h:80 rounded:"lg" border:1
+      Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
+        type DiagramNode
+          id:string
+          type:string
+          x:number
+          y:number
+          width:number
+          height:number
+          label:string
+
+        type DiagramEdge
+          id:string
+          source:string
+          target:string
+          label:string
+
+        signal nodes type:DiagramNode[] value:[
+          { id:"input" type:"source" x:80 y:120 width:180 height:72 label:"Input" }
+          { id:"process" type:"task" x:360 y:120 width:180 height:72 label:"Process" }
+          { id:"output" type:"result" x:640 y:120 width:180 height:72 label:"Output" }
+        ]
+        signal edges type:DiagramEdge[] value:[
+          { id:"input-process" source:"input" target:"process" label:"payload" }
+          { id:"process-output" source:"process" target:"output" label:"result" }
+        ]
+
+        Diagram nodes:nodes edges:edges fitView:true minimap:true controls:true panOnDrag:true zoomOnScroll:true
+      """
+  Section id:"diagram-interaction" py:{ xs:7 md:10 }
+    Grid columns:{ xs:1 md:3 } gap:4
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest"
+          "NAVIGATION"
+        Title size:"2xl" weight:"black"
+          "Pan and zoom"
+        Text size:"sm"
+          "Drag the canvas to pan and use wheel, pinch, or the native controls to zoom. fitView centers the complete graph."
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest"
+          "EDITING"
+        Title size:"2xl" weight:"black"
+          "Select and move"
+        Text size:"sm"
+          "Nodes can be selected and dragged. Position updates remain in diagram coordinates so Signal or Store state can persist them."
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest"
+          "CONNECTIONS"
+        Title size:"2xl" weight:"black"
+          "Connect nodes"
+        Text size:"sm"
+          "Connection actions expose source and target ids. The shared contract validates that both referenced nodes exist."

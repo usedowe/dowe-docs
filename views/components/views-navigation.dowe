@@ -54,6 +54,7 @@ component ViewsNavigation
       item label:"Iframe" href:"/docs/views/display/iframe" icon:"window-frame"
       item label:"Icon" href:"/docs/views/display/icon" icon:"stars-minimalistic"
       item label:"Map" href:"/docs/views/display/map" icon:"map"
+      item label:"Diagram" href:"/docs/views/display/diagram" icon:"structure"
       item label:"Marquee" href:"/docs/views/display/marquee" icon:"text-field"
       item label:"RichText" href:"/docs/views/display/rich-text" icon:"text-field"
       item label:"Section" href:"/docs/views/display/section" icon:"ruler"

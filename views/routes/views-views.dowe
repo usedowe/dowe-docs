@@ -56,6 +56,7 @@ import DividerPage from "@/views/pages/views/display/divider-page"
 import EmptyPage from "@/views/pages/views/display/empty-page"
 import IframePage from "@/views/pages/views/display/iframe-page"
 import MapPage from "@/views/pages/views/display/map-page"
+import DiagramPage from "@/views/pages/views/display/diagram-page"
 import MarqueePage from "@/views/pages/views/display/marquee-page"
 import RichTextPage from "@/views/pages/views/display/rich-text-page"
 import SkeletonPage from "@/views/pages/views/display/skeleton-page"
@@ -209,6 +210,7 @@ views ViewsViews
     route path:"display/empty" page:EmptyPage
     route path:"display/iframe" page:IframePage
     route path:"display/map" page:MapPage
+    route path:"display/diagram" page:DiagramPage
     route path:"display/marquee" page:MarqueePage
     route path:"display/rich-text" page:RichTextPage
     route path:"display/skeleton" page:SkeletonPage
