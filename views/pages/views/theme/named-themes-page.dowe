@@ -46,8 +46,6 @@ page NamedThemesPage
               theme name:"light"
                 colors:
                   primary color:"#1F3A5F" text:"#EAF2F8" title:"#FFFFFF"
-                  happy color:"#176C75" text:"#FFFFFE" title:"#FFFFFE"
-                  softHappy color:"#D9F3F1" text:"#124D53" title:"#124D53"
                   background color:"#FFFFFF" text:"#17263A" title:"#17263E"
                   surface color:"#F7F9FC" text:"#17263A" title:"#17263E"
                   softPrimary color:"#CCFBF3" text:"#073B35" title:"#073B35"
@@ -122,23 +120,6 @@ page NamedThemesPage
               "Lower visual emphasis"
             Text size:"sm"
               "soft uses softPrimary with softPrimaryText for content and softPrimaryTitle for titles."
-      Grid columns:1 gap:4
-        Card scheme:"happy" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" spacing:"widest"
-              "CUSTOM FAMILY"
-            Title size:"xl" weight:"black"
-              "Project-defined semantics"
-            Text size:"sm"
-              "Card scheme happy resolves happy, happyText, and happyTitle from theme.dowe."
-        Card variant:"solid" scheme:"happy" p:5
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" spacing:"widest"
-              "OPTIONAL SOFT FAMILY"
-            Title size:"xl" weight:"black"
-              "Declared, never derived"
-            Text size:"sm"
-              "variant soft uses softHappy only when that complete family is declared."
   Section id:"named-themes-resolution" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2

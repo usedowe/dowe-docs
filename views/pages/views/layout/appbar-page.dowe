@@ -46,6 +46,11 @@ page AppBarPage
         type:"boolean"
         defaultValue:"false"
       },
+      {
+        prop:"mobileMenu"
+        type:"mobileMenuOpen signal plus header, body, footer regions"
+        defaultValue:"—"
+      },
     ]
   const appBarRegions:
     value:[
@@ -123,6 +128,55 @@ page AppBarPage
               main
                 children
         """
+  Section id:"appbar-mobile-menu" p:{ xs:5 md:7 }
+    Flex direction:"column" gap:5
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest"
+          "MOBILE MENU"
+        Title size:"3xl" weight:"black"
+          "A popover without a Drawer"
+        Text
+          "AppBar can own a mobile menu anchored to its bottom edge. Bind mobileMenuOpen on the mobileMenu itself. Without that binding, the menu starts closed. The surface is hidden at desktop widths and preserves the same header, body, and footer structure on web, Android, and iOS."
+      Code:
+        language:"dowe"
+        variant:"solid"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          signal mobileMenuOpen value:false
+
+          layout MainLayout
+            Scaffold
+              appBar
+                AppBar position:"fixed" boxed:true bordered:true
+                  start
+                    Button onClick:{ set:mobileMenuOpen value:!mobileMenuOpen } variant:"ghost"
+                      "Menu"
+                  center
+                    Text weight:"bold"
+                      "Dowe"
+                  end
+                    Button href:"/docs" variant:"ghost"
+                      "Docs"
+                  mobileMenu mobileMenuOpen:mobileMenuOpen
+                    header
+                      Text weight:"bold"
+                        "Navigation"
+                    body
+                      Button href:"/docs/views" variant:"ghost"
+                        "Views"
+                      Button href:"/docs/server" variant:"ghost"
+                        "Server"
+                    footer
+                      Text size:"xs"
+                        "Select a destination"
+              main
+                children
+        """
+      Alert type:"info" variant:"solid" scheme:"info" message:"The popover starts directly below the AppBar and does not reserve Drawer space."
+      Device device:"mobile" w:"full" rounded:"md" border:1
+        Iframe src:"/examples/appbar-mobile-menu" title:"AppBar mobile menu example" loading:"lazy" sandbox:"scripts same-origin"
   Section id:"appbar-examples" py:{ xs:7 md:10 }
     Flex direction:"column" gap:6
       Flex direction:"column" gap:2

@@ -16,14 +16,12 @@ layout BlocksLayout
           Logo
         center
           NavMenu show:{ xs:false md:true } size:"lg"
-            item label:"Dev" href:"/docs/dev"
-            item label:"Server" href:"/docs/server"
-            item label:"Views" href:"/docs/views"
+            item label:"Docs" href:"/docs"
             item label:"Blocks" href:"/blocks/hero"
         end
           Github
     start
-      Sidebar show:{ xs:false md:true } variant:"ghost" scheme:"muted" w:72
+      Sidebar show:{ xs:false md:true } scheme:"background" w:72
         body
           BlocksNavigation
     main

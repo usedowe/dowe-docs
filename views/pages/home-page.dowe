@@ -17,7 +17,6 @@ page HomePage
       variant:"solid"
       scheme:"surface"
       rounded:"xl"
-      shadow:"lg"
       shadowColor:"primary"
       Tabs variant:"line" scheme:"primary" w:"full"
         tab id:"hero-unix" label:"macOS / Linux"

@@ -61,6 +61,7 @@ import RichTextPage from "@/views/pages/views/display/rich-text-page"
 import SkeletonPage from "@/views/pages/views/display/skeleton-page"
 import IconPage from "@/views/pages/views/display/icon-page"
 import DropdownPage from "@/views/pages/views/overlay/dropdown-page"
+import DrawerPage from "@/views/pages/views/overlay/drawer-page"
 import ModalPage from "@/views/pages/views/overlay/modal-page"
 import AlertDialogPage from "@/views/pages/views/overlay/alert-dialog-page"
 import CommandPage from "@/views/pages/views/overlay/command-page"
@@ -211,6 +212,7 @@ views ViewsViews
     route path:"display/skeleton" page:SkeletonPage
     route path:"display/icon" page:IconPage
     route path:"overlay/dropdown" page:DropdownPage
+    route path:"overlay/drawer" page:DrawerPage
     route path:"overlay/modal" page:ModalPage
     route path:"overlay/alert-dialog" page:AlertDialogPage
     route path:"overlay/command" page:CommandPage

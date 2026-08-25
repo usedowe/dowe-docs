@@ -1,0 +1,330 @@
+page DrawerPage
+  signal navigationDrawerOpen value:false
+  signal detailsDrawerOpen value:false
+  signal actionDrawerOpen value:false
+  const drawerProps:
+    value:[
+      {
+        prop:"open"
+        type:"bool Signal path"
+        defaultValue:"required"
+      }
+      {
+        prop:"position"
+        type:"start | end | top | bottom"
+        defaultValue:"start"
+      }
+      {
+        prop:"header"
+        type:"optional region with view children"
+        defaultValue:"—"
+      }
+      {
+        prop:"body"
+        type:"required region with view children"
+        defaultValue:"required"
+      }
+      {
+        prop:"footer"
+        type:"optional region with view children"
+        defaultValue:"—"
+      }
+      {
+        prop:"disableOverlayClose"
+        type:"boolean"
+        defaultValue:"false"
+      }
+      {
+        prop:"hideCloseButton"
+        type:"boolean"
+        defaultValue:"false"
+      }
+      {
+        prop:"variant / scheme"
+        type:"Card surface style props"
+        defaultValue:"solid / surface"
+      }
+    ]
+  const drawerRegions:
+    value:[
+      {
+        id:"header"
+        label:"HEADER"
+        title:"Context and identity"
+        description:"Use header for a title, account summary, or compact context at the top of the surface."
+      }
+      {
+        id:"body"
+        label:"BODY"
+        title:"Required content"
+        description:"Place navigation, filters, forms, or supporting content inside the required body region."
+      }
+      {
+        id:"footer"
+        label:"FOOTER"
+        title:"Persistent actions"
+        description:"Use footer for save, cancel, apply, or close actions that need a stable position."
+      }
+    ]
+  fn openNavigationDrawer
+    set navigationDrawerOpen value:true
+  fn closeNavigationDrawer
+    set navigationDrawerOpen value:false
+  fn openDetailsDrawer
+    set detailsDrawerOpen value:true
+  fn closeDetailsDrawer
+    set detailsDrawerOpen value:false
+  fn openActionDrawer
+    set actionDrawerOpen value:true
+  fn closeActionDrawer
+    set actionDrawerOpen value:false
+  Section id:"drawer-introduction" py:{ xs:6 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest"
+          "OVERLAY"
+        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "Drawer"
+        Text size:"lg"
+          "Drawer provides an openable side surface for navigation, filters, settings, and supporting content while the current page remains underneath the overlay."
+        Text size:"sm"
+          "Use one bool Signal for open state, body for required content, and header or footer when the surface needs context or persistent actions."
+  Section id:"drawer-playground" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest"
+          "PLAYGROUND"
+        Title size:"3xl" weight:"black"
+          "A navigation surface"
+        Text size:"sm"
+          "Open the Drawer to inspect its header, body, footer, generated close control, overlay, and explicit navigation actions."
+      Card variant:"outlined" p:{ xs:6 md:10 } border:1
+        Flex justify:"center" align:"center"
+          Button onClick:openNavigationDrawer iconStart:"menu-dots"
+            "Open navigation"
+      Drawer open:navigationDrawerOpen position:"start"
+        header px:4 py:2
+          Title size:"xl" weight:"black"
+            "Workspace"
+        body p:4
+          Button onClick:closeNavigationDrawer variant:"ghost"
+            "Overview"
+          Button onClick:closeNavigationDrawer variant:"ghost"
+            "Projects"
+          Button onClick:closeNavigationDrawer variant:"ghost"
+            "Team"
+        footer px:4 py:2
+          Button onClick:closeNavigationDrawer w:"full"
+            "Close navigation"
+      Code:
+        language:"dowe"
+        variant:"solid"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          signal navigationDrawerOpen value:false
+
+          fn openNavigationDrawer
+            set navigationDrawerOpen value:true
+
+          fn closeNavigationDrawer
+            set navigationDrawerOpen value:false
+
+          Button onClick:openNavigationDrawer
+            "Open navigation"
+
+          Drawer open:navigationDrawerOpen position:"start"
+            header px:4 py:2
+              Title size:"xl"
+                "Workspace"
+            body p:4
+              Text
+                "Navigation content"
+            footer px:4 py:2
+              Button onClick:closeNavigationDrawer
+                "Close navigation"
+        """
+  Section id:"drawer-regions" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest"
+          "STRUCTURE"
+        Title size:"3xl" weight:"black"
+          "Three regions, one surface"
+        Text size:"sm"
+          "body is required. Add header for identity or context and footer for actions that should remain separated from the scrollable content."
+      Grid columns:{ xs:1 md:3 } gap:4
+        each in:drawerRegions as:region key:region.id
+          Card variant:"solid" p:5
+            Grid columns:1 gap:2
+              Text size:"xs" weight:"bold"
+                "{region.label}"
+              Title size:"lg" weight:"bold"
+                "{region.title}"
+              Text size:"sm"
+                "{region.description}"
+  Section id:"drawer-positions" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest"
+          "POSITIONS"
+        Title size:"3xl" weight:"black"
+          "Choose the edge that owns the task"
+        Text size:"sm"
+          "position accepts start, end, top, or bottom. The default is start; choose another edge when the page hierarchy or action flow calls for it."
+      Grid columns:{ xs:1 md:2 } gap:5
+        Card variant:"outlined" p:5 border:1
+          Grid columns:1 gap:3
+            Text size:"sm" weight:"bold"
+              "End drawer"
+            Text size:"sm"
+              "A details panel can enter from the end without replacing the current reading position."
+            Button onClick:openDetailsDrawer variant:"outlined" scheme:"info"
+              "Open details"
+        Card variant:"outlined" p:5 border:1
+          Grid columns:1 gap:3
+            Text size:"sm" weight:"bold"
+              "Bottom drawer"
+            Text size:"sm"
+              "A compact action surface can enter from the bottom for short mobile workflows."
+            Button onClick:openActionDrawer variant:"outlined" scheme:"accent"
+              "Open actions"
+      Drawer open:detailsDrawerOpen position:"end" variant:"solid" scheme:"info"
+        header px:4 py:2
+          Title size:"xl" weight:"black"
+            "Details"
+        body p:4
+          Grid columns:1 gap:3
+            Text
+              "Keep the primary page visible while showing supporting information at the end edge."
+            Text size:"sm"
+              "The same open Signal contract works for navigation and contextual panels."
+        footer px:4 py:2
+          Button onClick:closeDetailsDrawer scheme:"info"
+            "Done"
+      Drawer open:actionDrawerOpen position:"bottom" scheme:"accent"
+        body p:4
+          Flex direction:"column" gap:3
+            Title size:"lg" weight:"black"
+              "Quick actions"
+            Text size:"sm"
+              "Bottom placement is useful for a short list of mobile actions."
+            Button onClick:closeActionDrawer w:"full" scheme:"accent"
+              "Continue"
+      Code:
+        language:"dowe"
+        variant:"solid"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Drawer open:detailsOpen position:"end" variant:"solid" scheme:"info"
+            header px:4 py:2
+              Title
+                "Details"
+            body p:4
+              Text
+                "Supporting information"
+            footer px:4 py:2
+              Button onClick:closeDetails
+                "Done"
+
+          Drawer open:actionsOpen position:"bottom" variant:"soft" scheme:"accent"
+            body p:4
+              Text
+                "Quick actions"
+        """
+  Section id:"drawer-close-behavior" py:{ xs:7 md:10 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest"
+          "CLOSE BEHAVIOR"
+        Title size:"3xl" weight:"black"
+          "Make the exit path explicit when needed"
+        Text size:"sm"
+          "By default, the overlay and generated close control dismiss the Drawer. Disable overlay close or hide the generated control when the footer must own the visible exit action."
+      Card variant:"outlined" p:5 border:1
+        Grid columns:1 gap:3
+          Text size:"sm" weight:"bold"
+            "Protected workflow"
+          Text size:"sm"
+            "These props are static booleans and can be combined for a confirmation or save flow whose footer controls the only visible exit."
+          Code:
+            language:"dowe"
+            variant:"solid"
+            scheme:"surface"
+            copyLabel:"Copy Dowe"
+            copiedLabel:"Copied"
+            content:"""
+              Drawer open:publishOpen
+                disableOverlayClose:true
+                hideCloseButton:true
+                header px:4 py:2
+                  Title
+                    "Save changes?"
+                body p:4
+                  Text
+                    "The footer owns the available actions."
+                footer px:4 py:2
+                  Button onClick:closePublish variant:"ghost" scheme:"muted"
+                    "Cancel"
+                  Button onClick:publish
+                    "Save"
+            """
+  Section id:"drawer-styling" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest"
+          "VARIANTS AND SCHEMES"
+        Title size:"3xl" weight:"black"
+          "Match the surface to its context"
+        Text size:"sm"
+          "Drawer uses Card surface rules. Compare solid, soft, outlined, and ghost with a scheme such as surface, info, accent, or danger; use scheme rather than color."
+      Code:
+        language:"dowe"
+        variant:"solid"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Drawer open:defaultOpen
+            body p:4
+              Text
+                "Default surface"
+
+          Drawer open:noticeOpen variant:"soft" scheme:"info"
+            body p:4
+              Text
+                "Informational surface"
+
+          Drawer open:reviewOpen variant:"outlined" scheme:"warning"
+            body p:4
+              Text
+                "Review surface"
+
+          Drawer open:removeOpen variant:"ghost" scheme:"danger"
+            body p:4
+              Text
+                "Destructive surface"
+        """
+  Section id:"drawer-props" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest"
+          "API"
+        Title size:"3xl" weight:"black"
+          "Props and regions"
+        Text size:"sm"
+          "Drawer also accepts applicable common spacing, sizing, border, radius, visibility, typography, and style props. Keep open bound to a bool Signal and keep body present in every Drawer."
+      Table:
+        data:drawerProps
+        variant:"solid"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"prop" label:"Prop or region" width:"1.5fr"
+        column field:"type" label:"Type" width:"3fr"
+        column field:"defaultValue" label:"Default" width:"1fr"

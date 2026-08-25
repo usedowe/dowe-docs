@@ -1,0 +1,30 @@
+layout AppBarMobileMenuLayout
+  signal mobileMenuOpen value:false
+  Scaffold
+    appBar
+      AppBar position:"fixed" boxed:true bordered:true
+        start
+          Button onClick:{ set:mobileMenuOpen value:!mobileMenuOpen } variant:"ghost" size:"sm"
+            "Menu"
+        center
+          Text weight:"bold"
+            "Dowe"
+        end
+          Button href:"/docs/views/layout/appbar" variant:"ghost" size:"sm"
+            "AppBar"
+        mobileMenu mobileMenuOpen:mobileMenuOpen
+          header
+            Text weight:"bold"
+              "Navigation"
+          body
+            Button href:"/docs/views" variant:"ghost"
+              "Views"
+            Button href:"/docs/server" variant:"ghost"
+              "Server"
+            Button href:"/docs/views/layout/appbar" variant:"ghost"
+              "AppBar"
+          footer
+            Text size:"xs"
+              "Mobile navigation"
+    main
+      children

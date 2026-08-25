@@ -5,6 +5,8 @@ import ScaffoldExampleLayout from "@/views/layouts/examples/scaffold-example-lay
 import AppBarOne from "@/views/pages/examples/appbar-one"
 import AppBarTwo from "@/views/pages/examples/appbar-two"
 import AppBarSlotsScroll from "@/views/pages/examples/appbar-slots-scroll"
+import AppBarMobileMenuLayout from "@/views/layouts/examples/appbar-mobile-menu-layout"
+import AppBarMobileMenu from "@/views/pages/examples/appbar-mobile-menu"
 import BottomBarExample from "@/views/pages/examples/bottombar-example"
 import ScaffoldExample from "@/views/pages/examples/scaffold-example"
 import ExamplesLayout from "@/views/layouts/examples/examples-layout"
@@ -15,6 +17,8 @@ views ExamplesViews
     route path:"" page:AppBarTwo
   group path:"/examples/appbar-slots-scroll" layout:AppBarSlotsScrollLayout
     route path:"" page:AppBarSlotsScroll
+  group path:"/examples/appbar-mobile-menu" layout:AppBarMobileMenuLayout
+    route path:"" page:AppBarMobileMenu
   group path:"/examples/bottombar" layout:BottomBarLayout
     route path:"" page:BottomBarExample
   group path:"/examples/scaffold" layout:ScaffoldExampleLayout

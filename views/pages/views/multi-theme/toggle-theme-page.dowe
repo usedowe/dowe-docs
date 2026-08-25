@@ -72,7 +72,7 @@ page ToggleThemePage
         Title size:"3xl" weight:"black"
           "The same button language"
         Text size:"sm"
-          "variant, scheme, and size follow the portable Button visual contract while keeping the control icon-only."
+          "ToggleTheme reuses the IconButton visual contract, so variant, scheme, size, icons, and press feedback stay consistent on web, iOS, and Android."
       Grid columns:1 gap:5
         Card variant:"solid" p:5
           Grid columns:1 gap:3 align:"center"
@@ -127,7 +127,7 @@ page ToggleThemePage
             Title size:"lg" weight:"bold"
               "Immediate tokens"
             Text size:"sm"
-              "Web, Android, and iOS apply the new design tokens immediately from the same source model."
+              "Web, Android, and iOS apply the new design tokens immediately from the same source model, using the same sun and moon icons as IconButton."
   Section id:"toggle-theme-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2

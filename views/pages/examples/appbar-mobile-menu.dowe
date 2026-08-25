@@ -1,0 +1,16 @@
+page AppBarMobileMenu
+  Section pt:{ xs:20 md:24 } pb:{ xs:8 md:12 }
+    Flex direction:"column" gap:5
+      Text size:"xs" weight:"bold" spacing:"widest"
+        "MOBILE MENU"
+      Title size:{ xs:"3xl" md:"5xl" } weight:"black"
+        "Navigation anchored to the AppBar"
+      Text size:"lg"
+        "Open the menu from the AppBar. It appears directly below the bar, with header, body, and footer regions, without opening a Drawer."
+      Card variant:"solid" scheme:"primary" p:5
+        Flex direction:"column" gap:2
+          Text weight:"bold"
+            "Try the menu"
+          Text
+            "The menu is intentionally visible on mobile and hidden on desktop. Its signal closes automatically after navigation."
+      Box bg:"surface" h:96 rounded:"md"

@@ -117,6 +117,7 @@ component ViewsNavigation
       item label:"AlertDialog" href:"/docs/views/overlay/alert-dialog" icon:"dialog"
       item label:"Command" href:"/docs/views/overlay/command" icon:"command"
       item label:"Dropdown" href:"/docs/views/overlay/dropdown" icon:"menu-dots-circle"
+      item label:"Drawer" href:"/docs/views/overlay/drawer" icon:"sidebar"
       item label:"Modal" href:"/docs/views/overlay/modal" icon:"dialog"
       item label:"Tooltip" href:"/docs/views/overlay/tooltip" icon:"question-circle"
       item label:"Toast" href:"/docs/views/overlay/toast" icon:"bell"
