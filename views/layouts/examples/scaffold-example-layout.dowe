@@ -32,7 +32,7 @@ layout ScaffoldExampleLayout
         tab href:"/examples/bottombar" label:"Bottom bar"
           Icon name:"add-circle"
     overlays
-      Drawer open:openDrawer position:"start" variant:"solid" show:{ xs:true md:false }
+      Drawer bind:openDrawer position:"start" variant:"solid" show:{ xs:true md:false }
         header
           Text weight:"bold" p:3
             "Workspace"

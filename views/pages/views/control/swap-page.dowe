@@ -6,37 +6,37 @@ page SwapPage
         prop:"bind"
         type:"boolean Signal path"
         defaultValue:"required"
-      },
+      }
       {
         prop:"iconOn"
         type:"Solar icon name"
         defaultValue:"required"
-      },
+      }
       {
         prop:"iconOff"
         type:"Solar icon name"
         defaultValue:"required"
-      },
+      }
       {
         prop:"label"
         type:"non-empty string"
         defaultValue:"required"
-      },
+      }
       {
         prop:"scheme"
         type:"semantic scheme"
         defaultValue:"primary"
-      },
+      }
       {
         prop:"variant"
         type:"solid"
         defaultValue:"solid"
-      },
+      }
       {
         prop:"size"
         type:"xs | sm | md | lg | xl"
         defaultValue:"md"
-      },
+      }
     ]
   Section id:"swap-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:4
@@ -59,11 +59,17 @@ page SwapPage
           Swap bind:menuOpen iconOn:"close-circle" iconOff:"menu-dots" label:"Toggle menu"
           Text size:"sm"
             "Tap the control to update menuOpen."
-      Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
-        signal menuOpen value:false
+      Code:
+        language:"dowe"
+        variant:"solid"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          signal menuOpen value:false
 
-        Swap bind:menuOpen iconOn:"close-circle" iconOff:"menu-dots" label:"Toggle menu"
-      """
+          Swap bind:menuOpen iconOn:"close-circle" iconOff:"menu-dots" label:"Toggle menu"
+        """
   Section id:"swap-contract" py:{ xs:7 md:10 }
     Grid columns:1 gap:4
       Title size:"3xl" weight:"black"
@@ -72,13 +78,7 @@ page SwapPage
         "bind is required and must point to a boolean Signal or View Store value. Both iconOn and iconOff are quoted Solar icon names, and label is the accessible action description."
       Text size:"sm"
         "Swap keeps the square IconButton proportions, press feedback, semantic styling, and animated icon exchange consistent across every target."
-      Table:
-        data:swapProps
-        variant:"solid"
-        scheme:"surface"
-        size:"sm"
-        striped:true
-        dividers:true
+      Table data:swapProps variant:"solid" scheme:"surface" size:"sm" striped:true dividers:true
         column field:"prop" label:"Prop"
         column field:"type" label:"Type"
         column field:"defaultValue" label:"Default"

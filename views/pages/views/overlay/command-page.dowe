@@ -5,7 +5,7 @@ page CommandPage
   const commandProps:
     value:[
       {
-        prop:"open"
+        prop:"bind"
         type:"optional bool Signal path"
         defaultValue:"always available"
       },
@@ -85,7 +85,7 @@ page CommandPage
           Card variant:"solid" scheme:"info" p:4
             Text size:"sm"
               "{commandStatus}"
-      Command open:commandOpen placeholder:"Search the workspace" emptyText:"No matching workspace actions" closeText:"to close" navigateText:"Move" selectText:"Run" toggleText:"Change section" shortcut:"k" scheme:"surface" showFooter:true
+      Command bind:commandOpen placeholder:"Search the workspace" emptyText:"No matching workspace actions" closeText:"to close" navigateText:"Move" selectText:"Run" toggleText:"Change section" shortcut:"k" scheme:"surface" showFooter:true
         item label:"Save current draft" description:"Persist the page you are editing" onClick:saveDraft
         group label:"Navigate"
           item label:"Views overview" description:"Browse the Dowe Views catalog" href:"/docs/views"
@@ -109,7 +109,7 @@ page CommandPage
           fn openCommand
             set commandOpen value:true
 
-          Command open:commandOpen placeholder:"Search the workspace" shortcut:"k" scheme:"surface"
+          Command bind:commandOpen placeholder:"Search the workspace" shortcut:"k" scheme:"surface"
             item label:"Save current draft" onClick:saveDraft
             group label:"Navigate"
               item label:"Views overview" href:"/docs/views"
@@ -159,7 +159,7 @@ page CommandPage
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Command open:paletteOpen
+          Command bind:paletteOpen
             item label:"Save draft" onClick:saveDraft
             group label:"Navigate"
               item label:"Views" href:"/docs/views" description:"Browse the catalog"
@@ -198,7 +198,7 @@ page CommandPage
               "disableGlobalShortcut:true prevents the global key listener when another shell owns keyboard focus."
             Button onClick:openCompactCommand variant:"solid" scheme:"muted" size:"sm"
               "Open compact palette"
-      Command open:compactCommandOpen placeholder:"Jump to..." emptyText:"Nothing matches" closeText:"close" navigateText:"move" selectText:"open" toggleText:"switch" shortcut:"j" disableGlobalShortcut:true showFooter:false variant:"solid" scheme:"muted"
+      Command bind:compactCommandOpen placeholder:"Jump to..." emptyText:"Nothing matches" closeText:"close" navigateText:"move" selectText:"open" toggleText:"switch" shortcut:"j" disableGlobalShortcut:true showFooter:false variant:"solid" scheme:"muted"
         group label:"Quick access"
           item label:"Views overview" href:"/docs/views"
           item label:"Server overview" href:"/docs/server"
@@ -210,7 +210,7 @@ page CommandPage
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Command open:compactOpen placeholder:"Jump to..." shortcut:"j" disableGlobalShortcut:true showFooter:false variant:"solid" scheme:"muted"
+          Command bind:compactOpen placeholder:"Jump to..." shortcut:"j" disableGlobalShortcut:true showFooter:false variant:"solid" scheme:"muted"
             group label:"Quick access"
               item label:"Views overview" href:"/docs/views"
               item label:"Server overview" href:"/docs/server"
@@ -250,15 +250,15 @@ page CommandPage
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Command open:paletteOpen variant:"solid" scheme:"muted"
+          Command bind:paletteOpen variant:"solid" scheme:"muted"
             group label:"Navigation"
               item label:"Views" href:"/docs/views"
 
-          Command open:paletteOpen variant:"solid" scheme:"surface"
+          Command bind:paletteOpen variant:"solid" scheme:"surface"
             group label:"Navigation"
               item label:"Views" href:"/docs/views"
 
-          Command open:paletteOpen variant:"solid" scheme:"info"
+          Command bind:paletteOpen variant:"solid" scheme:"info"
             group label:"Navigation"
               item label:"Views" href:"/docs/views"
         """

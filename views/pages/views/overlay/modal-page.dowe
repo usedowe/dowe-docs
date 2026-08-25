@@ -5,7 +5,7 @@ page ModalPage
   const modalProps:
     value:[
       {
-        prop:"open"
+        prop:"bind"
         type:"bool Signal path"
         defaultValue:"required"
       },
@@ -76,7 +76,7 @@ page ModalPage
         Flex justify:"center" align:"center"
           Button onClick:openProfileModal iconStart:"user"
             "Review profile"
-      Modal open:profileModalOpen onClose:closeProfileModal
+      Modal bind:profileModalOpen onClose:closeProfileModal
         header
           Title size:"xl" weight:"black"
             "Review profile"
@@ -113,7 +113,7 @@ page ModalPage
           Button onClick:openProfileModal
             "Review profile"
 
-          Modal open:profileModalOpen onClose:closeProfileModal
+          Modal bind:profileModalOpen onClose:closeProfileModal
             header
               Title size:"xl"
                 "Review profile"
@@ -172,7 +172,7 @@ page ModalPage
             Text size:"sm" weight:"bold"
               "Standard close behavior"
             Text size:"sm"
-              "The overlay and generated Drawer-style SVG control dismiss this dialog, and onClose invokes the declared function after the open Signal changes."
+              "The overlay and generated Drawer-style SVG control dismiss this dialog, and onClose invokes the declared function after the bound Signal changes."
             Button onClick:openPolicyModal variant:"solid" scheme:"info"
               "Open policy"
         Card variant:"solid" p:5 border:1
@@ -183,7 +183,7 @@ page ModalPage
               "Disable overlay close and hide the generated close control when the footer must be the visible route out of the dialog."
             Button onClick:openProtectedModal variant:"solid" scheme:"warning"
               "Open protected action"
-      Modal open:policyModalOpen onClose:closePolicyModal variant:"solid" scheme:"info"
+      Modal bind:policyModalOpen onClose:closePolicyModal variant:"solid" scheme:"info"
         header
           Title size:"xl" weight:"black"
             "Workspace policy"
@@ -194,7 +194,7 @@ page ModalPage
             Button onClick:closePolicyModal scheme:"info"
               "Understood"
       Modal:
-        open:protectedModalOpen
+        bind:protectedModalOpen
         onClose:closeProtectedModal
         disableOverlayClose:true
         hideCloseButton:true
@@ -216,7 +216,7 @@ page ModalPage
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Modal open:publishOpen disableOverlayClose:true hideCloseButton:true
+          Modal bind:publishOpen disableOverlayClose:true hideCloseButton:true
             header
               Title
                 "Publish changes?"
@@ -244,19 +244,19 @@ page ModalPage
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Modal open:detailsOpen
+          Modal bind:detailsOpen
             Text
               "Default dialog surface"
 
-          Modal open:noticeOpen variant:"solid" scheme:"info"
+          Modal bind:noticeOpen variant:"solid" scheme:"info"
             Text
               "Informational dialog"
 
-          Modal open:reviewOpen variant:"solid" scheme:"warning"
+          Modal bind:reviewOpen variant:"solid" scheme:"warning"
             Text
               "Review before continuing"
 
-          Modal open:removeOpen variant:"solid" scheme:"danger"
+          Modal bind:removeOpen variant:"solid" scheme:"danger"
             Text
               "Destructive context"
         """

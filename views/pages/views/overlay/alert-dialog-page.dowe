@@ -6,7 +6,7 @@ page AlertDialogPage
   const alertDialogProps:
     value:[
       {
-        prop:"open"
+        prop:"bind"
         type:"bool Signal path"
         defaultValue:"required"
       },
@@ -92,8 +92,8 @@ page AlertDialogPage
           Card variant:"solid" scheme:"info" p:4
             Text size:"sm"
               "{dialogStatus}"
-      AlertDialog open:deleteDialogOpen title:"Delete Northstar project?" description:"All generated previews, settings, and project history will be removed. This cannot be undone." confirmText:"Delete project" cancelText:"Keep project" onConfirm:confirmDeleteDialog onCancel:closeDeleteDialog scheme:"danger"
-      AlertDialog open:archiveDialogOpen title:"Archive Northstar project?" description:"The project will leave the active workspace but its history can be restored later." confirmText:"Archive project" cancelText:"Keep active" onConfirm:confirmArchiveDialog onCancel:closeArchiveDialog variant:"solid" scheme:"warning"
+      AlertDialog bind:deleteDialogOpen title:"Delete Northstar project?" description:"All generated previews, settings, and project history will be removed. This cannot be undone." confirmText:"Delete project" cancelText:"Keep project" onConfirm:confirmDeleteDialog onCancel:closeDeleteDialog scheme:"danger"
+      AlertDialog bind:archiveDialogOpen title:"Archive Northstar project?" description:"The project will leave the active workspace but its history can be restored later." confirmText:"Archive project" cancelText:"Keep active" onConfirm:confirmArchiveDialog onCancel:closeArchiveDialog variant:"solid" scheme:"warning"
       Code:
         language:"dowe"
         variant:"solid"
@@ -115,7 +115,7 @@ page AlertDialogPage
           Button onClick:openDeleteDialog scheme:"danger"
             "Delete project"
 
-          AlertDialog open:deleteDialogOpen title:"Delete Northstar project?" description:"This cannot be undone." confirmText:"Delete project" cancelText:"Keep project" onConfirm:confirmDeleteDialog onCancel:closeDeleteDialog scheme:"danger"
+          AlertDialog bind:deleteDialogOpen title:"Delete Northstar project?" description:"This cannot be undone." confirmText:"Delete project" cancelText:"Keep project" onConfirm:confirmDeleteDialog onCancel:closeDeleteDialog scheme:"danger"
         """
   Section id:"alert-dialog-decisions" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
@@ -157,7 +157,7 @@ page AlertDialogPage
               "Use a softer warning scheme when the action removes content from the active view but keeps history."
             Button onClick:openArchiveDialog variant:"solid" scheme:"warning" size:"sm"
               "Review archive"
-      AlertDialog open:publishDialogOpen title:"Publish current workspace?" description:"The generated site will become the active preview for everyone with access to this project." confirmText:"Publishing..." cancelText:"Cancel" onConfirm:closePublishDialog onCancel:closePublishDialog variant:"solid" scheme:"success" loading:true
+      AlertDialog bind:publishDialogOpen title:"Publish current workspace?" description:"The generated site will become the active preview for everyone with access to this project." confirmText:"Publishing..." cancelText:"Cancel" onConfirm:closePublishDialog onCancel:closePublishDialog variant:"solid" scheme:"success" loading:true
       Code:
         language:"dowe"
         variant:"solid"
@@ -165,7 +165,7 @@ page AlertDialogPage
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          AlertDialog open:publishDialogOpen title:"Publish current workspace?" description:"The generated site will become the active preview." confirmText:"Publishing..." cancelText:"Cancel" onConfirm:closePublishDialog onCancel:closePublishDialog variant:"solid" scheme:"success" loading:true
+          AlertDialog bind:publishDialogOpen title:"Publish current workspace?" description:"The generated site will become the active preview." confirmText:"Publishing..." cancelText:"Cancel" onConfirm:closePublishDialog onCancel:closePublishDialog variant:"solid" scheme:"success" loading:true
         """
   Section id:"alert-dialog-behavior" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
@@ -175,7 +175,7 @@ page AlertDialogPage
         Title size:"3xl" weight:"black"
           "A small contract with strong defaults"
         Text size:"sm"
-          "AlertDialog requires an open bool Signal. Its generated actions use the declared labels and invoke the corresponding functions after the user makes a choice."
+          "AlertDialog requires a bool Signal through `bind`. Its generated actions use the declared labels and invoke the corresponding functions after the user makes a choice."
       Grid columns:{ xs:1 md:3 } gap:4
         Card variant:"solid" p:5 border:1
           Grid columns:1 gap:2
@@ -184,7 +184,7 @@ page AlertDialogPage
             Title size:"lg" weight:"bold"
               "Own visibility"
             Text size:"sm"
-              "Bind open to a bool Signal path and set it from a named view function."
+              "Bind a bool Signal path with `bind` and set it from a named view function."
         Card variant:"solid" p:5 border:1
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold"
@@ -233,9 +233,9 @@ page AlertDialogPage
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          AlertDialog open:deleteOpen scheme:"danger" title:"Delete project?" description:"This cannot be undone." confirmText:"Delete" cancelText:"Cancel" onConfirm:deleteProject onCancel:closeDelete
+          AlertDialog bind:deleteOpen scheme:"danger" title:"Delete project?" description:"This cannot be undone." confirmText:"Delete" cancelText:"Cancel" onConfirm:deleteProject onCancel:closeDelete
 
-          AlertDialog open:publishOpen variant:"solid" scheme:"success" title:"Publish changes?" description:"The preview will become active." confirmText:"Publish" cancelText:"Cancel" onConfirm:publish onCancel:closePublish
+          AlertDialog bind:publishOpen variant:"solid" scheme:"success" title:"Publish changes?" description:"The preview will become active." confirmText:"Publish" cancelText:"Cancel" onConfirm:publish onCancel:closePublish
         """
   Section id:"alert-dialog-targets" p:{ xs:5 md:7 }
     Grid columns:1 gap:6

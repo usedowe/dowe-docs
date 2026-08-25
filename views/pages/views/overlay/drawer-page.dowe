@@ -5,7 +5,7 @@ page DrawerPage
   const drawerProps:
     value:[
       {
-        prop:"open"
+        prop:"bind"
         type:"bool Signal path"
         defaultValue:"required"
       }
@@ -102,7 +102,7 @@ page DrawerPage
         Flex justify:"center" align:"center"
           Button onClick:openNavigationDrawer iconStart:"menu-dots"
             "Open navigation"
-      Drawer open:navigationDrawerOpen position:"start"
+      Drawer bind:navigationDrawerOpen position:"start"
         header px:4 py:2
           Title size:"xl" weight:"black"
             "Workspace"
@@ -134,7 +134,7 @@ page DrawerPage
           Button onClick:openNavigationDrawer
             "Open navigation"
 
-          Drawer open:navigationDrawerOpen position:"start"
+          Drawer bind:navigationDrawerOpen position:"start"
             header px:4 py:2
               Title size:"xl"
                 "Workspace"
@@ -190,7 +190,7 @@ page DrawerPage
               "A compact action surface can enter from the bottom for short mobile workflows."
             Button onClick:openActionDrawer variant:"solid" scheme:"accent"
               "Open actions"
-      Drawer open:detailsDrawerOpen position:"end" variant:"solid" scheme:"info"
+      Drawer bind:detailsDrawerOpen position:"end" variant:"solid" scheme:"info"
         header px:4 py:2
           Title size:"xl" weight:"black"
             "Details"
@@ -199,11 +199,11 @@ page DrawerPage
             Text
               "Keep the primary page visible while showing supporting information at the end edge."
             Text size:"sm"
-              "The same open Signal contract works for navigation and contextual panels."
+              "The same `bind` Signal contract works for navigation and contextual panels."
         footer px:4 py:2
           Button onClick:closeDetailsDrawer scheme:"info"
             "Done"
-      Drawer open:actionDrawerOpen position:"bottom" scheme:"accent"
+      Drawer bind:actionDrawerOpen position:"bottom" scheme:"accent"
         body p:4
           Flex direction:"column" gap:3
             Title size:"lg" weight:"black"
@@ -219,7 +219,7 @@ page DrawerPage
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Drawer open:detailsOpen position:"end" variant:"solid" scheme:"info"
+          Drawer bind:detailsOpen position:"end" variant:"solid" scheme:"info"
             header px:4 py:2
               Title
                 "Details"
@@ -230,7 +230,7 @@ page DrawerPage
               Button onClick:closeDetails
                 "Done"
 
-          Drawer open:actionsOpen position:"bottom" variant:"solid" scheme:"accent"
+          Drawer bind:actionsOpen position:"bottom" variant:"solid" scheme:"accent"
             body p:4
               Text
                 "Quick actions"
@@ -257,7 +257,7 @@ page DrawerPage
             copyLabel:"Copy Dowe"
             copiedLabel:"Copied"
             content:"""
-              Drawer open:publishOpen
+              Drawer bind:publishOpen
                 disableOverlayClose:true
                 hideCloseButton:true
                 header px:4 py:2
@@ -288,22 +288,22 @@ page DrawerPage
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Drawer open:defaultOpen
+          Drawer bind:defaultOpen
             body p:4
               Text
                 "Default surface"
 
-          Drawer open:noticeOpen variant:"solid" scheme:"info"
+          Drawer bind:noticeOpen variant:"solid" scheme:"info"
             body p:4
               Text
                 "Informational surface"
 
-          Drawer open:reviewOpen variant:"solid" scheme:"warning"
+          Drawer bind:reviewOpen variant:"solid" scheme:"warning"
             body p:4
               Text
                 "Review surface"
 
-          Drawer open:removeOpen variant:"solid" scheme:"danger"
+          Drawer bind:removeOpen variant:"solid" scheme:"danger"
             body p:4
               Text
                 "Destructive surface"
@@ -316,7 +316,7 @@ page DrawerPage
         Title size:"3xl" weight:"black"
           "Props and regions"
         Text size:"sm"
-          "Drawer also accepts applicable common spacing, sizing, border, radius, visibility, typography, and style props. Keep open bound to a bool Signal and keep body present in every Drawer."
+          "Drawer also accepts applicable common spacing, sizing, border, radius, visibility, typography, and style props. Keep `bind` connected to a bool Signal and keep body present in every Drawer."
       Table:
         data:drawerProps
         variant:"solid"

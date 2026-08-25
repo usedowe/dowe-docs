@@ -28,7 +28,7 @@ layout CenteredMediaHeroLayout
     main
       children
     overlays
-      Drawer open:openNavigation position:"start" show:{ xs:true md:false }
+      Drawer bind:openNavigation position:"start" show:{ xs:true md:false }
         body
           Flex direction:"column" align:"stretch" gap:2 p:4
             each in:navigationItems as:item key:item.id

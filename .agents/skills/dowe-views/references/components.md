@@ -160,7 +160,7 @@ layout SiteLayout
     main
       children
     overlays
-      Drawer open:openNavigation show:{ xs:true md:false }
+      Drawer bind:openNavigation show:{ xs:true md:false }
         body
           SiteNavigation
 ```

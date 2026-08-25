@@ -48,7 +48,7 @@ page AppBarPage
       },
       {
         prop:"mobileMenu"
-        type:"mobileMenuOpen signal plus header, body, footer regions"
+        type:"bind signal plus header, body, footer regions"
         defaultValue:"—"
       },
     ]
@@ -136,7 +136,7 @@ page AppBarPage
         Title size:"3xl" weight:"black"
           "A popover without a Drawer"
         Text
-          "AppBar can own a mobile menu anchored to its bottom edge. Bind mobileMenuOpen on the mobileMenu itself. Without that binding, the menu starts closed. The surface is hidden at desktop widths and preserves the same header, body, and footer structure on web, Android, and iOS."
+          "AppBar can own a mobile menu anchored to its bottom edge. Bind the mobile menu Signal with `bind` on the mobileMenu itself. Without that binding, the menu starts closed. The surface is hidden at desktop widths and preserves the same header, body, and footer structure on web, Android, and iOS."
       Code:
         language:"dowe"
         variant:"solid"
@@ -159,7 +159,7 @@ page AppBarPage
                   end
                     Button href:"/docs" variant:"solid"
                       "Docs"
-                  mobileMenu mobileMenuOpen:mobileMenuOpen
+                  mobileMenu bind:mobileMenuOpen
                     header
                       Text weight:"bold"
                         "Navigation"

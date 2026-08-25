@@ -12,7 +12,7 @@ layout AppBarMobileMenuLayout
         end
           Button href:"/docs/views/layout/appbar" variant:"solid" size:"sm"
             "AppBar"
-        mobileMenu mobileMenuOpen:mobileMenuOpen
+        mobileMenu bind:mobileMenuOpen
           header
             Text weight:"bold"
               "Navigation"

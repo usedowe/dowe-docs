@@ -87,7 +87,7 @@ page ScaffoldPage
                   tab href:"/docs/views/layout/scaffold" label:"Scaffold"
                     Icon name:"layers"
               overlays
-                Drawer open:openDrawer position:"start" variant:"solid" show:{ xs:true md:false }
+                Drawer bind:openDrawer position:"start" variant:"solid" show:{ xs:true md:false }
                   body
                     SideNav size:"sm" wide:true
                       item label:"Overview" href:"/docs"

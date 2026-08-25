@@ -29,7 +29,7 @@ layout ServerLayout
     main
       children
     overlays
-      Drawer open:openDrawer
+      Drawer bind:openDrawer
         header
           NavMenu size:"sm"
             item label:"Dev" href:"/docs/dev"

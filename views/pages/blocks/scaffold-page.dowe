@@ -62,7 +62,7 @@ page ScaffoldsPage
                           "Footer"
                   overlays
                     Drawer:
-                      open:openDrawer
+                      bind:openDrawer
                       position:"start"
                       variant:"solid"
                       scheme:"accent"
@@ -132,7 +132,7 @@ page ScaffoldsPage
                           "Footer"
                   overlays
                     Drawer:
-                      open:openDrawer
+                      bind:openDrawer
                       position:"start"
                       variant:"solid"
                       scheme:"accent"
@@ -209,7 +209,7 @@ page ScaffoldsPage
                             "Footer"
                   overlays
                     Drawer:
-                      open:openDrawer
+                      bind:openDrawer
                       position:"start"
                       variant:"solid"
                       scheme:"accent"
