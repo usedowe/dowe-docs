@@ -12,7 +12,7 @@ page EmptyPage
       { prop:"actionLabel" type:"static string" defaultValue:"View more" },
       { prop:"href, target, externalMode" type:"navigation props" defaultValue:"—" },
       { prop:"onClick" type:"Action name" defaultValue:"—" },
-      { prop:"variant, scheme" type:"solid | soft | outlined | ghost, Dowe family" defaultValue:"soft, primary" },
+      { prop:"variant, scheme" type:"solid, Dowe family" defaultValue:"solid, primary" },
     ]
   const emptyIcons:
     value:[
@@ -41,16 +41,16 @@ page EmptyPage
         Text size:"sm"
           "The type selects a portable icon family. Keep the title and description specific, then choose either navigation or an action for the recovery path. The icon is resolved internally; use Icon separately only when a surrounding layout needs an additional visual cue."
       Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"outlined" p:{ xs:5 md:7 } border:1
+        Card variant:"solid" p:{ xs:5 md:7 } border:1
           Grid columns:1 gap:4
             Text size:"xs" weight:"bold" spacing:"widest"
               "SEARCH"
             Empty type:"result" title:"No matching projects" description:"Try a broader query or reset the filters." actionLabel:"Reset filters" variant:"solid" scheme:"info" onClick:retrySearch
-        Card variant:"outlined" p:{ xs:5 md:7 } border:1
+        Card variant:"solid" p:{ xs:5 md:7 } border:1
           Grid columns:1 gap:4
             Text size:"xs" weight:"bold" spacing:"widest"
               "TEMPLATE"
-            Empty type:"template" title:"Start from a template" description:"Choose a starter surface before adding your own content." actionLabel:"Browse templates" href:"/docs/views" variant:"outlined" scheme:"secondary"
+            Empty type:"template" title:"Start from a template" description:"Choose a starter surface before adding your own content." actionLabel:"Browse templates" href:"/docs/views" variant:"solid" scheme:"secondary"
       Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
         Empty type:"result" title:"No matching projects" description:"Try a broader query or reset the filters." actionLabel:"Reset filters" onClick:retrySearch
         Empty type:"template" title:"Start from a template" description:"Choose a starter surface before adding your own content." actionLabel:"Browse templates" href:"/docs/views"
@@ -67,8 +67,8 @@ page EmptyPage
       Grid columns:{ xs:2 md:4 } gap:4
         Empty type:"playlist" title:"No playlist yet" description:"Save content to build a queue." actionLabel:"Add content" scheme:"primary" variant:"solid" onClick:openTemplate
         Empty type:"result" title:"No results" description:"Change the query and search again." actionLabel:"Search again" scheme:"info" variant:"solid" onClick:retrySearch
-        Empty type:"data" title:"No data" description:"Connect a source to populate this view." actionLabel:"Connect source" scheme:"success" variant:"outlined" onClick:openTemplate
-        Empty type:"template" title:"No template selected" description:"Pick a starting point for this page." actionLabel:"Choose template" scheme:"secondary" variant:"ghost" href:"/docs/views"
+        Empty type:"data" title:"No data" description:"Connect a source to populate this view." actionLabel:"Connect source" scheme:"success" variant:"solid" onClick:openTemplate
+        Empty type:"template" title:"No template selected" description:"Pick a starting point for this page." actionLabel:"Choose template" scheme:"secondary" variant:"solid" href:"/docs/views"
       Card variant:"solid" p:{ xs:5 md:7 }
         Grid columns:1 gap:4
           Text size:"xs" weight:"bold" spacing:"widest"
@@ -82,7 +82,7 @@ page EmptyPage
             Icon name:"magnifier-bold-duotone" fill:"info" w:8 h:8
             Icon name:"database-bold-duotone" fill:"success" w:8 h:8
             Icon name:"widget-add-bold-duotone" fill:"secondary" w:8 h:8
-          Table data:emptyIcons variant:"outlined" scheme:"surface" size:"sm" striped:true dividers:true rounded:"md"
+          Table data:emptyIcons variant:"solid" scheme:"surface" size:"sm" striped:true dividers:true rounded:"md"
             column field:"type" label:"Type" width:"1fr"
             column field:"icon" label:"Icon name" width:"2fr"
             column field:"when" label:"Use for" width:"3fr"

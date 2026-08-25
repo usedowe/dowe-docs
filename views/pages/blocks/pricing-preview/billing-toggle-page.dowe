@@ -61,15 +61,15 @@ page BillingTogglePricingPage
       Flex align:"center" justify:"center" gap:2
         Button size:"sm" rounded:"full" show:monthly onClick:showMonthly
           "Monthly plan"
-        Button variant:"outlined" size:"sm" rounded:"full" show:annual onClick:showMonthly
+        Button variant:"solid" size:"sm" rounded:"full" show:annual onClick:showMonthly
           "Monthly plan"
-        Button variant:"outlined" size:"sm" rounded:"full" show:monthly onClick:showAnnual
+        Button variant:"solid" size:"sm" rounded:"full" show:monthly onClick:showAnnual
           "Annual plan"
         Button size:"sm" rounded:"full" show:annual onClick:showAnnual
           "Annual plan"
       Grid columns:{ xs:1 md:3 } gap:5 align:"stretch"
         each in:plans as:plan key:plan.id
-          Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:7 } minH:96 show:plan.standard
+          Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:6 md:7 } minH:96 show:plan.standard
             Flex direction:"column" justify:"between" gap:7 minH:80
               Grid columns:1 gap:4
                 Title size:"xl" weight:"black"

@@ -32,7 +32,7 @@ page AvatarCardsTestimonialsPage
           "Real feedback from people who trusted our team with important work."
       Grid columns:{ xs:1 md:3 } gap:5
         each in:testimonials as:testimonial key:testimonial.id
-          Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:72
+          Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:72
             Flex direction:"column" align:"start" justify:"between" gap:6 minH:56
               Grid columns:1 gap:4
                 Box bg:"muted" rounded:"full" w:14 h:14 p:3

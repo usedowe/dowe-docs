@@ -34,17 +34,17 @@ page LoginReverseAuthPage
               Password bind:form.password label:"Password" placeholder:"Enter your password" hideStrength:true variant:"solid" scheme:"accent" w:"full"
               Flex justify:"between" align:"center" gap:2
                 Checkbox bind:form.remember label:"Remember me" scheme:"accent"
-                Button href:"/blocks/auth-preview/forgot-password" variant:"ghost" scheme:"accent" size:"xs"
+                Button href:"/blocks/auth-preview/forgot-password" variant:"solid" scheme:"accent" size:"xs"
                   "Forgot password?"
               Button scheme:"accent" w:"full"
                 "Log in"
             Grid columns:{ xs:1 lg:2 } gap:2
-              Button variant:"outlined" scheme:"accent" size:"sm" iconStart:"global" w:"full"
+              Button variant:"solid" scheme:"accent" size:"sm" iconStart:"global" w:"full"
                 "Continue with Google"
-              Button variant:"outlined" scheme:"accent" size:"sm" iconStart:"smartphone" w:"full"
+              Button variant:"solid" scheme:"accent" size:"sm" iconStart:"smartphone" w:"full"
                 "Continue with Apple"
             Divider
-            Button href:"/blocks/auth-preview/signup-reverse" variant:"ghost" scheme:"accent" size:"sm"
+            Button href:"/blocks/auth-preview/signup-reverse" variant:"solid" scheme:"accent" size:"sm"
               "No account yet? Sign up"
       Box:
         show:{ xs:false md:true }

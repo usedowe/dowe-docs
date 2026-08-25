@@ -3,7 +3,7 @@ page CardPage
     value:[
       {
         prop:"variant"
-        type:"solid | soft | outlined | ghost"
+        type:"solid"
         defaultValue:"solid"
       },
       {
@@ -90,12 +90,12 @@ page CardPage
         Card variant:"solid" scheme:"success" minH:32
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
-              "SOFT"
+              "SOLID"
             Title size:"xl" weight:"black"
               "Routine confirmation"
             Text size:"sm"
-              "Soft color keeps related details visible without competing with the page."
-        Card variant:"outlined" scheme:"warning" minH:32
+              "Solid color keeps related details visible without competing with the page."
+        Card variant:"solid" scheme:"warning" minH:32
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
               "OUTLINED"
@@ -103,7 +103,7 @@ page CardPage
               "Contextual boundary"
             Text size:"sm"
               "A border separates related information while preserving the surrounding surface."
-        Card variant:"ghost" scheme:"danger" minH:32
+        Card variant:"solid" scheme:"danger" minH:32
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
               "GHOST"
@@ -118,7 +118,7 @@ page CardPage
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Card variant:"outlined" scheme:"warning"
+          Card variant:"solid" scheme:"warning"
             Grid columns:1 gap:2
               Title size:"xl"
                 "Review required"
@@ -175,7 +175,7 @@ page CardPage
               "Foreground stays legible"
             Text size:"sm"
               "The image is centered and covers the card without changing child order."
-        Card variant:"outlined" rounded:"lg" minH:72
+        Card variant:"solid" rounded:"lg" minH:72
           Flex direction:"column" justify:"between" gap:3 minH:60
             Grid columns:1 gap:2
               Text size:"xs" weight:"bold" spacing:"widest"
@@ -210,7 +210,7 @@ page CardPage
         Text size:"sm"
           "Cards default to p:{ xs:4 lg:5 } and add no gap between children. Their direct children use a vertical flex parent, so a child layout can use flex:1 when the Card has a bounded height. Use Grid or Flex inside the card, and use spans only as a direct Grid child."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"outlined"
+        Card variant:"solid"
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
               "DEFAULT PADDING"
@@ -234,7 +234,7 @@ page CardPage
         copiedLabel:"Copied"
         content:"""
           Grid columns:{ xs:1 md:3 } gap:4
-            Card variant:"outlined"
+            Card variant:"solid"
               Text
                 "Uses default responsive padding."
             Card variant:"solid" scheme:"info" p:{ xs:5 md:7 } colSpan:{ xs:1 md:2 }

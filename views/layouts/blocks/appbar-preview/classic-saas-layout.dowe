@@ -9,7 +9,7 @@ layout AppBarClassicSaasLayout
               Text size:"xl" weight:"black"
                 "OLMO."
         center
-          NavMenu variant:"ghost" scheme:"primary" size:"sm" show:{ xs:false md:true }
+          NavMenu variant:"solid" scheme:"primary" size:"sm" show:{ xs:false md:true }
             item label:"Home" href:"/blocks/appbar-preview/classic-saas"
             submenu label:"About"
               item label:"Creative" href:"/blocks/appbar-preview/creative"
@@ -29,7 +29,7 @@ layout AppBarClassicSaasLayout
             IconButton:
               icon:"hamburger-menu"
               label:"Open navigation"
-              variant:"ghost"
+              variant:"solid"
               show:{ xs:true md:false }
     main
       children

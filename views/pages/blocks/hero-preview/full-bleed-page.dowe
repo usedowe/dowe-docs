@@ -9,7 +9,7 @@ page FullBleedHeroPage
         Flex direction:{ xs:"column" sm:"row" } align:"center" gap:3
           Button size:"lg" rounded:"full" iconEnd:"arrow-right"
             "Get started"
-          Button variant:"outlined" scheme:"muted" size:"lg" rounded:"full"
+          Button variant:"solid" scheme:"muted" size:"lg" rounded:"full"
             "Talk to sales"
       Flex direction:"column" align:"center" justify:"center" gap:3 minH:{ xs:48 md:72 }
         Icon name:"gallery-bold-duotone" fill:"mutedText" w:16 h:16

@@ -317,7 +317,7 @@ page IconPage
           "Plain names resolve Solar. Country flags, SVG Spinners, and SVG Logos use explicit namespaces so completions and diagnostics stay deterministic."
       Grid columns:{ xs:1 md:2 lg:4 } gap:{ xs:3 md:4 }
         each in:catalogSources as:catalog key:catalog.id
-          Card variant:"outlined" p:5 border:1
+          Card variant:"solid" p:5 border:1
             Grid columns:1 gap:3
               Icon name:catalog.name fill:catalog.fill w:9 h:9
               Title size:"lg" weight:"black"
@@ -387,7 +387,7 @@ page IconPage
         copyLabel:"Copy command"
         copiedLabel:"Copied"
         content:"database IconDb provider:\"dowe\" host:env.DOWE_HOST port:env.DOWE_PORT account:env.DOWE_ACCOUNT secret:env.DOWE_SECRET name:\"dowe-docs-icons\" entities:[IconCategories Icons] seeders:[IconCatalog]"
-      Card variant:"outlined" p:{ xs:4 md:6 } border:1
+      Card variant:"solid" p:{ xs:4 md:6 } border:1
         Grid columns:1 gap:6
           Grid columns:{ xs:1 sm:2 md:4 } gap:{ xs:3 md:4 } align:"end"
             Select bind:category label:"Category" placeholder:"Choose a category"
@@ -408,7 +408,7 @@ page IconPage
                   "{totalLabel}"
                 Text size:"xs"
                   "matching icons"
-            Button onClick:loadIcons variant:"ghost" size:"sm" iconStart:"restart"
+            Button onClick:loadIcons variant:"solid" size:"sm" iconStart:"restart"
               "Refresh"
           Text show:loading size:"sm"
             "Loading SVG geometry from Dowe Database…"
@@ -432,7 +432,7 @@ page IconPage
             total:total
             pageSize:60
             onChange:loadIcons
-            variant:"ghost"
+            variant:"solid"
             scheme:"primary"
             size:"sm"
             ariaLabel:"Icon catalog pages"
@@ -489,7 +489,7 @@ page IconPage
         "AUTHORING CONTRACT"
       Title size:"3xl" weight:"black"
         "Catalog selection, decorative semantics"
-      Table data:iconProps variant:"outlined" scheme:"surface" size:"sm"
+      Table data:iconProps variant:"solid" scheme:"surface" size:"sm"
         column field:"prop" label:"Prop"
         column field:"type" label:"Accepted value"
         column field:"defaultValue" label:"Default"

@@ -13,7 +13,7 @@ page ToastPage
       },
       {
         prop:"variant"
-        type:"solid | soft | outlined | ghost"
+        type:"solid"
         defaultValue:"design Toast, then solid"
       },
       {
@@ -30,19 +30,19 @@ page ToastPage
   fn showSuccessToast
     toast value:{ type:"success" title:"Changes saved" message:"Your workspace is up to date." visible:true } duration:6000 position:"top-right" variant:"solid" scheme:"success"
   fn showInfoToast
-    toast value:{ type:"info" title:"Sync started" message:"New activity will appear here." visible:true } duration:6000 position:"top-right" variant:"outlined" scheme:"info"
+    toast value:{ type:"info" title:"Sync started" message:"New activity will appear here." visible:true } duration:6000 position:"top-right" variant:"solid" scheme:"info"
   fn showWarningToast
     toast value:{ type:"warning" title:"Review required" message:"Check the publishing settings first." visible:true } duration:6000 position:"bottom-left" variant:"solid" scheme:"warning"
   fn showErrorToast
-    toast value:{ type:"error" title:"Publish failed" message:"Try again after checking the connection." visible:true } duration:6000 position:"bottom-right" variant:"ghost" scheme:"danger"
+    toast value:{ type:"error" title:"Publish failed" message:"Try again after checking the connection." visible:true } duration:6000 position:"bottom-right" variant:"solid" scheme:"danger"
   fn showSolidToast
     toast value:{ type:"success" title:"Solid" message:"Family background with matching on-color." visible:true } duration:6000 position:"top-right" variant:"solid" scheme:"success"
   fn showSoftToast
     toast value:{ type:"info" title:"Soft" message:"Soft family surface with matching content." visible:true } duration:6000 position:"top-right" variant:"solid" scheme:"info"
   fn showOutlinedToast
-    toast value:{ type:"warning" title:"Outlined" message:"Neutral Card surface with a warning border." visible:true } duration:6000 position:"top-right" variant:"outlined" scheme:"warning"
+    toast value:{ type:"warning" title:"Outlined" message:"Neutral Card surface with a warning border." visible:true } duration:6000 position:"top-right" variant:"solid" scheme:"warning"
   fn showGhostToast
-    toast value:{ type:"error" title:"Ghost" message:"Transparent Card surface with danger content." visible:true } duration:6000 position:"top-right" variant:"ghost" scheme:"danger"
+    toast value:{ type:"error" title:"Ghost" message:"Transparent Card surface with danger content." visible:true } duration:6000 position:"top-right" variant:"solid" scheme:"danger"
   Section id:"toast-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
@@ -63,7 +63,7 @@ page ToastPage
           "A lowercase toast statement replaces the current message in the generated global presenter. It does not require a Toast node in the page tree."
         Text size:"sm"
           "Set Toast variant in theme.dowe to style global toast statements by default. An explicit variant on a statement still wins."
-      Card variant:"outlined" p:{ xs:6 md:10 } border:1
+      Card variant:"solid" p:{ xs:6 md:10 } border:1
         Flex wrap:true justify:"center" gap:3
           Button onClick:showSuccessToast variant:"solid" scheme:"success"
             "Show success"
@@ -123,7 +123,7 @@ page ToastPage
               "Outlined"
             Text size:"sm"
               "Neutral surface with a family border."
-            Button onClick:showOutlinedToast variant:"outlined" scheme:"warning"
+            Button onClick:showOutlinedToast variant:"solid" scheme:"warning"
               "Preview"
         Card variant:"solid" p:5
           Grid columns:1 gap:3
@@ -131,7 +131,7 @@ page ToastPage
               "Ghost"
             Text size:"sm"
               "Transparent surface with family content."
-            Button onClick:showGhostToast variant:"ghost" scheme:"danger"
+            Button onClick:showGhostToast variant:"solid" scheme:"danger"
               "Preview"
   Section id:"toast-close" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
@@ -143,13 +143,13 @@ page ToastPage
         Text size:"sm"
           "Every generated Toast includes the same portable SVG close control as Drawer. The surface is non-modal, so the page remains scrollable while the close control stays interactive. Duration closes the presenter automatically."
       Grid columns:{ xs:1 md:2 } gap:5
-        Card variant:"outlined" p:5 border:1
+        Card variant:"solid" p:5 border:1
           Grid columns:1 gap:2
             Text size:"sm" weight:"bold"
               "Manual dismissal"
             Text size:"sm"
               "The close control removes the current message on web, Compose, the Android development launcher, and SwiftUI. On iOS, unrelated reactive updates cannot restart a dismissal already in progress."
-        Card variant:"outlined" p:5 border:1
+        Card variant:"solid" p:5 border:1
           Grid columns:1 gap:2
             Text size:"sm" weight:"bold"
               "Automatic dismissal"

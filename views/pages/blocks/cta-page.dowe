@@ -31,7 +31,7 @@ page CtasPage
             content:"""
               const actions value:[
                 { id:"start" label:"Get started" variant:"solid" },
-                { id:"sales" label:"Talk to sales" variant:"outlined" },
+                { id:"sales" label:"Talk to sales" variant:"solid" },
               ]
 
               Section id:"split-actions-cta" bg:"background" color:"backgroundText" boxed:true p:{ xs:6 md:10 }
@@ -72,7 +72,7 @@ page CtasPage
             content:"""
               const actions value:[
                 { id:"start" label:"Get started" variant:"solid" },
-                { id:"sales" label:"Talk to sales" variant:"outlined" },
+                { id:"sales" label:"Talk to sales" variant:"solid" },
               ]
 
               Section id:"centered-actions-cta" bg:"background" color:"backgroundText" boxed:true p:{ xs:6 md:12 }
@@ -113,7 +113,7 @@ page CtasPage
             content:"""
               const actions value:[
                 { id:"start" label:"Get started" variant:"solid" },
-                { id:"sales" label:"Talk to sales" variant:"outlined" },
+                { id:"sales" label:"Talk to sales" variant:"solid" },
               ]
 
               Section id:"media-panel-cta" bg:"muted" color:"mutedText" boxed:true p:{ xs:6 md:12 }
@@ -170,7 +170,7 @@ page CtasPage
                         "Stay connected to your work from every Apple device, wherever the day takes you."
                       Button scheme:"muted" size:"lg" rounded:"full" iconStart:"smartphone"
                         "Download for iOS"
-                  Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:7 md:10 } minH:{ xs:80 md:96 }
+                  Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:7 md:10 } minH:{ xs:80 md:96 }
                     Flex direction:"column" align:{ xs:"center" md:"start" } justify:"center" gap:5 minH:{ xs:64 md:80 }
                       Title size:{ xs:"3xl" md:"4xl" } weight:"black"
                         "Download our app for Android"
@@ -203,7 +203,7 @@ page CtasPage
             content:"""
               const actions value:[
                 { id:"start" label:"Get started" variant:"solid" },
-                { id:"sales" label:"Talk to sales" variant:"outlined" },
+                { id:"sales" label:"Talk to sales" variant:"solid" },
               ]
 
               Section id:"media-left-cta" bg:"background" color:"backgroundText" boxed:true p:{ xs:6 md:12 }
@@ -259,7 +259,7 @@ page CtasPage
               ]
               const actions value:[
                 { id:"start" label:"Get started" variant:"solid" },
-                { id:"sales" label:"Talk to sales" variant:"outlined" },
+                { id:"sales" label:"Talk to sales" variant:"solid" },
               ]
 
               Section id:"benefit-list-cta" bg:"muted" color:"mutedText" boxed:true p:{ xs:6 md:12 }
@@ -311,7 +311,7 @@ page CtasPage
             content:"""
               const actions value:[
                 { id:"start" label:"Get started" variant:"solid" },
-                { id:"sales" label:"Talk to sales" variant:"outlined" },
+                { id:"sales" label:"Talk to sales" variant:"solid" },
               ]
 
               Section id:"inset-panel-cta" bg:"background" color:"backgroundText" boxed:true p:{ xs:5 md:12 }

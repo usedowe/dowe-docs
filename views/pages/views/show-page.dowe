@@ -41,7 +41,7 @@ page ShowPage
         Flex wrap:true gap:3
           Button onClick:{ set:detailsVisible value:!detailsVisible }
             "Toggle details"
-          Button onClick:{ set:itemCount add:1 } variant:"outlined"
+          Button onClick:{ set:itemCount add:1 } variant:"solid"
             "Add item"
         Text show:detailsVisible size:"sm"
           "This message follows a boolean Signal."

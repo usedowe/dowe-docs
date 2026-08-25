@@ -9,7 +9,7 @@ layout AppBarFloatingLayout
           Text size:"sm"
             "Dock on scroll"
         end
-          Button href:"/examples/appbar-one" variant:"ghost" size:"sm"
+          Button href:"/examples/appbar-one" variant:"solid" size:"sm"
             "Standard example"
     main
       children

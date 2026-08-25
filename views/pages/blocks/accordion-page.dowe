@@ -49,7 +49,7 @@ page AccordionsPage
                       "Frequently Asked Questions"
                     Text size:"lg"
                       "A spacious FAQ with bordered disclosure cards and one clear answer at a time."
-                  Accordion variant:"outlined" scheme:"primary" rounded:"lg" w:"full"
+                  Accordion variant:"solid" scheme:"primary" rounded:"lg" w:"full"
                     item id:"reusable" label:"What makes a reusable website block effective?" defaultOpen:true
                       Grid columns:1 gap:2
                         each in:answerLines as:line key:line.id
@@ -242,7 +242,7 @@ page AccordionsPage
                     Text size:"lg"
                       "Two responsive columns organize a larger question set without losing a clear reading order."
                   Grid columns:{ xs:1 md:2 } gap:5 align:"start"
-                    Accordion variant:"outlined" scheme:"primary" rounded:"lg" w:"full"
+                    Accordion variant:"solid" scheme:"primary" rounded:"lg" w:"full"
                       item id:"portable" label:"Why start with a portable component?" defaultOpen:true
                         Grid columns:1 gap:2
                           each in:answerLines as:line key:line.id
@@ -258,7 +258,7 @@ page AccordionsPage
                           each in:answerLines as:line key:line.id
                             Text
                               "{line.text}"
-                    Accordion variant:"outlined" scheme:"primary" rounded:"lg" w:"full"
+                    Accordion variant:"solid" scheme:"primary" rounded:"lg" w:"full"
                       item id:"hierarchy" label:"How is visual hierarchy preserved?"
                         Grid columns:1 gap:2
                           each in:answerLines as:line key:line.id

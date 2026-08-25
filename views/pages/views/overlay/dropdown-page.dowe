@@ -90,7 +90,7 @@ page DropdownPage
           "A contextual workspace menu"
         Text size:"sm"
           "The trigger owns the interaction while scheme styles only the floating option list. Open the menu to inspect its header, entries, divider, and footer."
-      Card variant:"outlined" p:{ xs:6 md:10 } border:1
+      Card variant:"solid" p:{ xs:6 md:10 } border:1
         Flex justify:"center" align:"center"
           Dropdown scheme:"primary"
             trigger
@@ -110,7 +110,7 @@ page DropdownPage
             divider
             item label:"Billing" description:"Available to workspace owners" disabled:true
             footer
-              Button href:"/docs/views" variant:"ghost" size:"sm" w:"full"
+              Button href:"/docs/views" variant:"solid" size:"sm" w:"full"
                 "View all views"
       Code:
         language:"dowe"
@@ -131,7 +131,7 @@ page DropdownPage
             divider
             item label:"Billing" disabled:true
             footer
-              Button href:"/docs/views" variant:"ghost" size:"sm"
+              Button href:"/docs/views" variant:"solid" size:"sm"
                 "View all views"
         """
   Section id:"dropdown-structure" py:{ xs:7 md:10 }
@@ -178,24 +178,24 @@ page DropdownPage
         Text size:"sm"
           "Use href for navigation or onClick for a declared view action. Item descriptions help people distinguish related destinations without making the menu hard to scan."
       Grid columns:{ xs:1 md:2 } gap:5
-        Card variant:"outlined" p:5 border:1
+        Card variant:"solid" p:5 border:1
           Grid columns:1 gap:3
             Text size:"sm" weight:"bold"
               "Document navigation"
             Dropdown scheme:"info"
               trigger
-                Button variant:"outlined" scheme:"info" iconEnd:"alt-arrow-down"
+                Button variant:"solid" scheme:"info" iconEnd:"alt-arrow-down"
                   "Open documentation"
               item label:"View catalog" description:"Start with every available component" href:"/docs/views"
               item label:"Buttons" description:"Explore the action control" href:"/docs/views/control/button"
               item label:"Inputs" description:"Review form input patterns" href:"/docs/views/form/input"
-        Card variant:"outlined" p:5 border:1
+        Card variant:"solid" p:5 border:1
           Grid columns:1 gap:3
             Text size:"sm" weight:"bold"
               "Optional SVG icon"
             Dropdown scheme:"success"
               trigger
-                Button variant:"outlined" scheme:"success" iconEnd:"alt-arrow-down"
+                Button variant:"solid" scheme:"success" iconEnd:"alt-arrow-down"
                   "Explore views"
               item label:"Alerts" description:"Status and feedback surfaces" href:"/docs/views/display/alert"
                 icon
@@ -214,52 +214,52 @@ page DropdownPage
       Flex wrap:true justify:"center" align:"center" gap:3
         Dropdown scheme:"primary"
           trigger
-            Button variant:"outlined" size:"sm" iconEnd:"alt-arrow-down"
+            Button variant:"solid" size:"sm" iconEnd:"alt-arrow-down"
               "Primary"
           item label:"Primary menu" href:"/docs/views"
         Dropdown scheme:"secondary"
           trigger
-            Button variant:"outlined" scheme:"secondary" size:"sm" iconEnd:"alt-arrow-down"
+            Button variant:"solid" scheme:"secondary" size:"sm" iconEnd:"alt-arrow-down"
               "Secondary"
           item label:"Secondary menu" href:"/docs/views"
         Dropdown scheme:"accent"
           trigger
-            Button variant:"outlined" scheme:"accent" size:"sm" iconEnd:"alt-arrow-down"
+            Button variant:"solid" scheme:"accent" size:"sm" iconEnd:"alt-arrow-down"
               "Accent"
           item label:"Accent menu" href:"/docs/views"
         Dropdown scheme:"muted"
           trigger
-            Button variant:"outlined" scheme:"muted" size:"sm" iconEnd:"alt-arrow-down"
+            Button variant:"solid" scheme:"muted" size:"sm" iconEnd:"alt-arrow-down"
               "Muted"
           item label:"Muted menu" href:"/docs/views"
         Dropdown scheme:"success"
           trigger
-            Button variant:"outlined" scheme:"success" size:"sm" iconEnd:"alt-arrow-down"
+            Button variant:"solid" scheme:"success" size:"sm" iconEnd:"alt-arrow-down"
               "Success"
           item label:"Success menu" href:"/docs/views"
         Dropdown scheme:"info"
           trigger
-            Button variant:"outlined" scheme:"info" size:"sm" iconEnd:"alt-arrow-down"
+            Button variant:"solid" scheme:"info" size:"sm" iconEnd:"alt-arrow-down"
               "Info"
           item label:"Info menu" href:"/docs/views"
         Dropdown scheme:"warning"
           trigger
-            Button variant:"outlined" scheme:"warning" size:"sm" iconEnd:"alt-arrow-down"
+            Button variant:"solid" scheme:"warning" size:"sm" iconEnd:"alt-arrow-down"
               "Warning"
           item label:"Warning menu" href:"/docs/views"
         Dropdown scheme:"danger"
           trigger
-            Button variant:"outlined" scheme:"danger" size:"sm" iconEnd:"alt-arrow-down"
+            Button variant:"solid" scheme:"danger" size:"sm" iconEnd:"alt-arrow-down"
               "Danger"
           item label:"Danger menu" href:"/docs/views"
         Dropdown
           trigger
-            Button variant:"outlined" size:"sm" iconEnd:"alt-arrow-down"
+            Button variant:"solid" size:"sm" iconEnd:"alt-arrow-down"
               "Surface"
           item label:"Surface menu" href:"/docs/views"
         Dropdown scheme:"background"
           trigger
-            Button variant:"outlined" size:"sm" iconEnd:"alt-arrow-down"
+            Button variant:"solid" size:"sm" iconEnd:"alt-arrow-down"
               "Background"
           item label:"Background menu" href:"/docs/views"
   Section id:"dropdown-targets" p:{ xs:5 md:7 }

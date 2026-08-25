@@ -39,8 +39,8 @@ page PhonePage
       },
       {
         prop:"variant"
-        type:"solid | soft | outlined | line"
-        defaultValue:"outlined"
+        type:"solid"
+        defaultValue:"solid"
       },
       {
         prop:"scheme"
@@ -81,7 +81,7 @@ page PhonePage
           "Collect an international contact number"
         Text size:"sm"
           "Search the Dowe country popover, keep Colombia and nearby markets at the top, and store the selected dial code separately from the digit-only bound local number."
-      Card variant:"outlined" p:{ xs:5 md:7 } border:1
+      Card variant:"solid" p:{ xs:5 md:7 } border:1
         Grid columns:1 gap:5
           Phone:
             bind:contactPhone
@@ -94,7 +94,7 @@ page PhonePage
             emptyText:"No country matches this search"
             loadingText:"Loading countries"
             helpText:"Choose the country first, then enter digits for the local number."
-            variant:"outlined"
+            variant:"solid"
             scheme:"primary"
             size:"lg"
             name:"mobile-phone"
@@ -114,7 +114,7 @@ page PhonePage
         content:"""
           signal contactPhone value:""
 
-          Phone bind:contactPhone country:"CO" dialCodeName:"contactDialCode" priorityCountries:"CO,US,MX,BR,ES" label:"Mobile phone" placeholder:"300 123 4567" searchPlaceholder:"Search country or dial code" emptyText:"No country matches this search" loadingText:"Loading countries" helpText:"Choose the country first, then enter digits for the local number." variant:"outlined" scheme:"primary" size:"lg" name:"mobile-phone"
+          Phone bind:contactPhone country:"CO" dialCodeName:"contactDialCode" priorityCountries:"CO,US,MX,BR,ES" label:"Mobile phone" placeholder:"300 123 4567" searchPlaceholder:"Search country or dial code" emptyText:"No country matches this search" loadingText:"Loading countries" helpText:"Choose the country first, then enter digits for the local number." variant:"solid" scheme:"primary" size:"lg" name:"mobile-phone"
             validate rule:"required" message:"Enter a mobile phone number."
             validate rule:"phone" message:"Enter a valid phone number."
         """
@@ -178,7 +178,7 @@ page PhonePage
           country:"MX"
           label:"Emergency contact"
           errorText:"Enter a complete local number for Mexico."
-          variant:"outlined"
+          variant:"solid"
           scheme:"danger"
           size:"md"
           name:"emergency-phone"

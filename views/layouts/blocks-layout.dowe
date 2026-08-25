@@ -10,7 +10,7 @@ layout BlocksLayout
           IconButton:
             show:{ xs:true md:false }
             label:"menu"
-            variant:"ghost"
+            variant:"solid"
             onClick:{ set:openDrawer value:!openDrawer }
             icon:"menu-dots"
           Logo

@@ -57,14 +57,14 @@ page AuthPage
                       Password bind:form.password label:"Password" placeholder:"Enter your password" hideStrength:true variant:"solid" w:"full"
                       Flex justify:"between" align:"center" gap:2
                         Checkbox bind:form.remember label:"Remember me"
-                        Button href:"/blocks/auth-preview/forgot-password" variant:"ghost" size:"xs"
+                        Button href:"/blocks/auth-preview/forgot-password" variant:"solid" size:"xs"
                           "Forgot password?"
                       Button w:"full"
                         "Log in"
                       Grid columns:{ xs:1 lg:2 } gap:2
-                        Button variant:"outlined" size:"sm" iconStart:"global" w:"full"
+                        Button variant:"solid" size:"sm" iconStart:"global" w:"full"
                           "Continue with Google"
-                        Button variant:"outlined" size:"sm" iconStart:"smartphone" w:"full"
+                        Button variant:"solid" size:"sm" iconStart:"smartphone" w:"full"
                           "Continue with Apple"
             """
   Section id:"login-reverse" p:{ xs:5 md:7 }
@@ -113,7 +113,7 @@ page AuthPage
                       Password bind:form.password label:"Password" placeholder:"Enter your password" hideStrength:true variant:"solid" scheme:"accent" w:"full"
                       Flex justify:"between" align:"center" gap:2
                         Checkbox bind:form.remember label:"Remember me" scheme:"accent"
-                        Button href:"/blocks/auth-preview/forgot-password" variant:"ghost" scheme:"accent" size:"xs"
+                        Button href:"/blocks/auth-preview/forgot-password" variant:"solid" scheme:"accent" size:"xs"
                           "Forgot password?"
                       Button scheme:"accent" w:"full"
                         "Log in"
@@ -171,11 +171,11 @@ page AuthPage
                       Button w:"full"
                         "Log in"
                       Grid columns:{ xs:1 sm:3 } gap:3
-                        Button variant:"outlined" size:"sm" iconStart:"global" w:"full"
+                        Button variant:"solid" size:"sm" iconStart:"global" w:"full"
                           "Google"
-                        Button variant:"outlined" size:"sm" iconStart:"smartphone" w:"full"
+                        Button variant:"solid" size:"sm" iconStart:"smartphone" w:"full"
                           "Apple"
-                        Button variant:"outlined" size:"sm" iconStart:"chat-round-line" w:"full"
+                        Button variant:"solid" size:"sm" iconStart:"chat-round-line" w:"full"
                           "Twitter"
                   Box show:{ xs:false md:true }
             """
@@ -226,7 +226,7 @@ page AuthPage
                       Input bind:email label:"Email address" placeholder:"you@example.com" variant:"solid" w:"full"
                       Button w:"full"
                         "Send reset link"
-                      Button href:"/blocks/auth-preview/login-card" variant:"ghost" size:"sm" iconStart:"arrow-left"
+                      Button href:"/blocks/auth-preview/login-card" variant:"solid" size:"sm" iconStart:"arrow-left"
                         "Back to log in"
                   Box show:{ xs:false md:true }
             """
@@ -282,9 +282,9 @@ page AuthPage
                       Button scheme:"success" w:"full"
                         "Create account"
                       Grid columns:{ xs:1 lg:2 } gap:2
-                        Button variant:"outlined" scheme:"success" size:"sm" iconStart:"global" w:"full"
+                        Button variant:"solid" scheme:"success" size:"sm" iconStart:"global" w:"full"
                           "Continue with Google"
-                        Button variant:"outlined" scheme:"success" size:"sm" iconStart:"smartphone" w:"full"
+                        Button variant:"solid" scheme:"success" size:"sm" iconStart:"smartphone" w:"full"
                           "Continue with Apple"
             """
   Section id:"signup-reverse" p:{ xs:5 md:7 }
@@ -394,11 +394,11 @@ page AuthPage
                       Button w:"full"
                         "Create free account"
                       Grid columns:{ xs:1 sm:3 } gap:3
-                        Button variant:"outlined" size:"sm" iconStart:"global" w:"full"
+                        Button variant:"solid" size:"sm" iconStart:"global" w:"full"
                           "Google"
-                        Button variant:"outlined" size:"sm" iconStart:"smartphone" w:"full"
+                        Button variant:"solid" size:"sm" iconStart:"smartphone" w:"full"
                           "Apple"
-                        Button variant:"outlined" size:"sm" iconStart:"chat-round-line" w:"full"
+                        Button variant:"solid" size:"sm" iconStart:"chat-round-line" w:"full"
                           "Twitter"
                   Box show:{ xs:false md:true }
             """

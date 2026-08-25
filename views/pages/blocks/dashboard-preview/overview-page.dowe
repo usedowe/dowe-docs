@@ -59,7 +59,7 @@ page DashboardOverviewPage
             "Good morning, Jordan"
           Text size:"sm"
             "Here is the latest view of your workspace activity."
-        Button variant:"outlined" scheme:"muted" size:"sm" iconStart:"download-minimalistic"
+        Button variant:"solid" scheme:"muted" size:"sm" iconStart:"download-minimalistic"
           "Export"
       Grid columns:{ xs:1 sm:2 lg:4 } gap:4
         each in:metrics as:metric key:metric.id
@@ -100,7 +100,7 @@ page DashboardOverviewPage
             Flex justify:"between" align:"center"
               Title size:"lg" weight:"bold"
                 "Top countries"
-              IconButton icon:"menu-dots" label:"Open country actions" variant:"ghost" scheme:"muted" size:"sm"
+              IconButton icon:"menu-dots" label:"Open country actions" variant:"solid" scheme:"muted" size:"sm"
             Grid columns:1 gap:2
               each in:countries as:country key:country.id
                 Flex justify:"between" align:"center" p:2
@@ -115,7 +115,7 @@ page DashboardOverviewPage
             Flex justify:"between" align:"center"
               Title size:"lg" weight:"bold"
                 "Recent activity"
-              Button variant:"ghost" size:"sm"
+              Button variant:"solid" size:"sm"
                 "View all"
             Grid columns:1 gap:3
               each in:activity as:item key:item.id

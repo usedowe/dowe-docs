@@ -61,7 +61,7 @@ page CheckboxPage
           "Bind one boolean value"
         Text size:"sm"
           "bind connects the checkbox to a boolean Signal. Tapping the control updates that value without executing user JavaScript."
-      Card variant:"outlined" p:{ xs:5 md:7 } border:1
+      Card variant:"solid" p:{ xs:5 md:7 } border:1
         Grid columns:1 gap:4
           Checkbox bind:notificationsEnabled label:"Send me release notifications" name:"release-notifications" helpText:"Required for release owners."
             validate rule:"required" message:"Enable release notifications."

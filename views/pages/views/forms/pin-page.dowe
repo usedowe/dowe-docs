@@ -24,8 +24,8 @@ page PinPage
       },
       {
         prop:"variant"
-        type:"solid | soft | outlined | line"
-        defaultValue:"outlined"
+        type:"solid"
+        defaultValue:"solid"
       },
       {
         prop:"scheme"
@@ -71,7 +71,7 @@ page PinPage
           "Verify a high-value action"
         Text size:"sm"
           "Enter or paste a six-digit code. Focus advances per character, Backspace returns to the previous empty field, and Android keeps every cell inside narrow containers."
-      Card variant:"outlined" p:{ xs:5 md:7 } border:1
+      Card variant:"solid" p:{ xs:5 md:7 } border:1
         Grid columns:1 gap:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
@@ -93,7 +93,7 @@ page PinPage
             validate rule:"max:6" message:"Enter only six digits."
             validate rule:"numeric" message:"Use digits only."
           Flex wrap:true justify:"end" align:"center" gap:3
-            Button variant:"ghost" scheme:"muted" size:"sm"
+            Button variant:"solid" scheme:"muted" size:"sm"
               "Send another code"
             Button size:"sm" iconEnd:"alt-arrow-right"
               "Verify transfer"

@@ -9,7 +9,7 @@ layout AppBarCreativeLayout
               Text size:"xl" weight:"black"
                 "PEKOO."
         center
-          NavMenu variant:"ghost" scheme:"danger" size:"sm" show:{ xs:false md:true }
+          NavMenu variant:"solid" scheme:"danger" size:"sm" show:{ xs:false md:true }
             item label:"Home" href:"/blocks/appbar-preview/creative"
             item label:"About Us" href:"/blocks/appbar-preview/social-pill"
             item label:"Services" href:"/blocks/appbar-preview/floating-card"
@@ -25,7 +25,7 @@ layout AppBarCreativeLayout
             IconButton:
               icon:"hamburger-menu"
               label:"Open navigation"
-              variant:"outlined"
+              variant:"solid"
               scheme:"muted"
     main
       children

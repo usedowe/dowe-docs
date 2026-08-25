@@ -18,7 +18,7 @@ page LoginCardAuthPage
             Password bind:form.password label:"Password" placeholder:"Enter your password" hideStrength:true variant:"solid" w:"full"
             Flex justify:"between" align:"center" gap:2
               Checkbox bind:form.remember label:"Remember me"
-              Button href:"/blocks/auth-preview/forgot-password" variant:"ghost" size:"xs"
+              Button href:"/blocks/auth-preview/forgot-password" variant:"solid" size:"xs"
                 "Forgot password?"
             Button w:"full"
               "Log in"
@@ -28,13 +28,13 @@ page LoginCardAuthPage
               "OR"
             Divider
           Grid columns:{ xs:1 sm:3 } gap:3
-            Button variant:"outlined" size:"sm" iconStart:"global" w:"full"
+            Button variant:"solid" size:"sm" iconStart:"global" w:"full"
               "Google"
-            Button variant:"outlined" size:"sm" iconStart:"smartphone" w:"full"
+            Button variant:"solid" size:"sm" iconStart:"smartphone" w:"full"
               "Apple"
-            Button variant:"outlined" size:"sm" iconStart:"chat-round-line" w:"full"
+            Button variant:"solid" size:"sm" iconStart:"chat-round-line" w:"full"
               "Twitter"
           Divider
-          Button href:"/blocks/auth-preview/signup-card" variant:"ghost" size:"sm"
+          Button href:"/blocks/auth-preview/signup-card" variant:"solid" size:"sm"
             "No account yet? Sign up"
       Box show:{ xs:false md:true }

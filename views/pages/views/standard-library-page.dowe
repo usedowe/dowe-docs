@@ -100,7 +100,7 @@ page StandardLibraryPage
           "Run one portable workflow"
         Text size:"sm"
           "This page exercises text normalization, safe parsing, CSV rows, stable sorting, list filtering, URL query construction, aggregation, JSON serialization, and ISO date formatting from one view action."
-      Card variant:"outlined" p:{ xs:5 md:7 } border:1
+      Card variant:"solid" p:{ xs:5 md:7 } border:1
         Grid columns:1 gap:4
           Input bind:playground.input label:"Text to trim" placeholder:"Enter text"
           Input bind:playground.page label:"Page number" placeholder:"12"

@@ -10,7 +10,7 @@ layout ServerLayout
           IconButton:
             show:{ xs:true md:false }
             label:"menu"
-            variant:"ghost"
+            variant:"solid"
             onClick:{ set:openDrawer value:!openDrawer }
             icon:"menu-dots"
           Logo
@@ -23,7 +23,7 @@ layout ServerLayout
         end
           Github
     start
-      Sidebar show:{ xs:false md:true } variant:"ghost" scheme:"muted" w:72
+      Sidebar show:{ xs:false md:true } variant:"solid" scheme:"muted" w:72
         body
           ServerNavigation
     main

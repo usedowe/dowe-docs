@@ -3,7 +3,7 @@ page RecordPage
     value:[
       { prop:"name" type:"non-empty string" defaultValue:"required" },
       { prop:"url" type:"https URL | absolute path" defaultValue:"—" },
-      { prop:"variant" type:"solid | soft" defaultValue:"solid" },
+      { prop:"variant" type:"solid" defaultValue:"solid" },
       { prop:"scheme" type:"primary | secondary | muted | success | info | warning | danger" defaultValue:"primary" },
       { prop:"disabled" type:"boolean" defaultValue:"false" },
       { prop:"maxDuration" type:"positive seconds" defaultValue:"—" },
@@ -36,12 +36,12 @@ page RecordPage
         Text size:"sm"
           "The browser preview exposes the same start, pause, resume, stop, discard, and confirm state model that native targets render with their own controls."
       Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"outlined" border:1 p:{ xs:5 md:7 }
+        Card variant:"solid" border:1 p:{ xs:5 md:7 }
           Grid columns:1 gap:4
             Record name:"voice-briefing" variant:"solid" scheme:"primary" maxDuration:90
             Text size:"xs"
               "Soft capture surface with a 90-second limit."
-        Card variant:"outlined" border:1 p:{ xs:5 md:7 }
+        Card variant:"solid" border:1 p:{ xs:5 md:7 }
           Grid columns:1 gap:4
             Record name:"reviewed-note" url:"https://cdn.pixabay.com/audio/2022/04/25/audio_5d61b5204f.mp3" variant:"solid" scheme:"success" maxDuration:45
             Text size:"xs"
@@ -134,7 +134,7 @@ page RecordPage
         column field:"defaultValue" label:"Default" width:"1fr"
   Section id:"record-next" p:{ xs:5 md:7 }
     Flex wrap:true justify:"between" gap:4
-      Button href:"/docs/views/control/audio" variant:"outlined" rounded:"full"
+      Button href:"/docs/views/control/audio" variant:"solid" rounded:"full"
         "Previous Audio"
       Button href:"/docs/views/control/toggle-group" rounded:"full"
         "Next ToggleGroup"

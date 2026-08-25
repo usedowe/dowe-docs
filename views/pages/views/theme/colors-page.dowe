@@ -104,7 +104,7 @@ page ColorsPage
         SelectTheme:
           label:"Documentation theme"
           placeholder:"Choose a theme"
-          variant:"outlined"
+          variant:"solid"
           scheme:"surface"
         ToggleTheme variant:"solid" scheme:"secondary" size:"md"
   Section id:"colors-palette" p:{ xs:5 md:7 }

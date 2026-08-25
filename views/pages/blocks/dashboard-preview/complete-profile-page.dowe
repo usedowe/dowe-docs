@@ -48,7 +48,7 @@ page DashboardCompleteProfilePage
               Text size:"sm"
                 "Review your details, then enter the workspace."
               Flex direction:{ xs:"column" sm:"row" } justify:"between" gap:3
-                Button variant:"ghost" scheme:"muted"
+                Button variant:"solid" scheme:"muted"
                   "Back"
                 Button
                   "Continue"

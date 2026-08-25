@@ -214,7 +214,7 @@ page CanvasArcadePage
         Text size:"sm"
           "Canvas renders retained commands and normalized input. Physics, collision detection, gamepads, audio, WebGL, shaders, and 3D engines are outside the current contract."
       Flex justify:"space-between" align:"center" wrap:true gap:3
-        Button href:"/docs/views/canvas/overview" variant:"ghost" scheme:"muted" iconStart:"alt-arrow-left"
+        Button href:"/docs/views/canvas/overview" variant:"solid" scheme:"muted" iconStart:"alt-arrow-left"
           "Canvas overview"
         Button href:"/docs/views/canvas/particles" iconEnd:"alt-arrow-right"
           "Explore particles"

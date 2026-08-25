@@ -15,7 +15,7 @@ page MediaGridCardsPage
           "Choose a starting point and shape it around the way your team prefers to work."
       Grid columns:{ xs:1 sm:2 md:4 } gap:5
         each in:products as:product key:product.id
-          Card variant:"outlined" scheme:"muted" rounded:"xl" p:4
+          Card variant:"solid" scheme:"muted" rounded:"xl" p:4
             Grid columns:1 gap:4
               Box bg:"muted" rounded:"lg" minH:44 p:6
                 Flex align:"center" justify:"center" minH:32

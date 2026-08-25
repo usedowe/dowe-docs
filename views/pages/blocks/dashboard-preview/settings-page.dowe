@@ -29,7 +29,7 @@ page DashboardSettingsPage
               "Profile photo"
             Text size:"xs"
               "Placeholder avatar for this copy-ready block."
-            Button variant:"outlined" scheme:"muted" size:"sm"
+            Button variant:"solid" scheme:"muted" size:"sm"
               "Change photo"
         Card variant:"solid" rounded:"lg" p:{ xs:5 md:8 } border:1
           Grid columns:1 gap:5
@@ -50,7 +50,7 @@ page DashboardSettingsPage
                 each in:digests as:digest key:digest.id
                   Option value:digest.value label:digest.label
             Flex direction:{ xs:"column" sm:"row" } justify:"end" gap:3
-              Button variant:"ghost" scheme:"muted"
+              Button variant:"solid" scheme:"muted"
                 "Cancel"
               Button
                 "Save changes"

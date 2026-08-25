@@ -52,21 +52,6 @@ page IconButtonPage
         value:"solid"
         label:"Solid"
       },
-      {
-        id:"soft"
-        value:"soft"
-        label:"Soft"
-      },
-      {
-        id:"outlined"
-        value:"outlined"
-        label:"Outlined"
-      },
-      {
-        id:"ghost"
-        value:"ghost"
-        label:"Ghost"
-      },
     ]
   const sizeOptions:
     value:[
@@ -140,7 +125,7 @@ page IconButtonPage
       },
       {
         prop:"variant"
-        type:"solid | soft | outlined | ghost"
+        type:"solid"
         defaultValue:"solid"
       },
       {
@@ -201,7 +186,7 @@ page IconButtonPage
           placeholder:"Choose a size"
           each in:sizeOptions as:option key:option.id
             Option value:option.value label:option.label
-      Card variant:"outlined" p:{ xs:6 md:10 } border:1
+      Card variant:"solid" p:{ xs:6 md:10 } border:1
         Flex justify:"center" align:"center" gap:3
           IconButton:
             icon:"settings"
@@ -248,7 +233,7 @@ page IconButtonPage
           Text size:"sm"
             "Use a short, non-empty action label, such as Open settings or Delete item."
         Flex direction:"column" gap:2
-          IconButton icon:"alt-arrow-right" label:"Open next page" variant:"outlined"
+          IconButton icon:"alt-arrow-right" label:"Open next page" variant:"solid"
           Title size:"lg" weight:"bold"
             "Actions and navigation"
           Text size:"sm"
@@ -271,7 +256,7 @@ page IconButtonPage
               IconButton icon:"settings" label:"Open settings" scheme:scheme.value
         Grid columns:1 gap:3
           Text size:"sm" weight:"bold"
-            "Soft"
+            "Solid"
           Grid columns:{ xs:4 md:8 } gap:3
             each in:schemeOptions as:scheme key:scheme.id
               IconButton icon:"settings" label:"Open settings" variant:"solid" scheme:scheme.value
@@ -283,14 +268,14 @@ page IconButtonPage
               IconButton:
                 icon:"settings"
                 label:"Open settings"
-                variant:"outlined"
+                variant:"solid"
                 scheme:scheme.value
         Grid columns:1 gap:3
           Text size:"sm" weight:"bold"
             "Ghost"
           Grid columns:{ xs:4 md:8 } gap:3
             each in:schemeOptions as:scheme key:scheme.id
-              IconButton icon:"settings" label:"Open settings" variant:"ghost" scheme:scheme.value
+              IconButton icon:"settings" label:"Open settings" variant:"solid" scheme:scheme.value
   Section id:"icon-button-sizes" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2

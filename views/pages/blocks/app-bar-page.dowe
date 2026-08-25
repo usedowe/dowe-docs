@@ -46,7 +46,7 @@ page AppBarsPage
                       Text size:"xl" weight:"black"
                         "OLMO."
                 center
-                  NavMenu variant:"ghost" scheme:"primary" size:"sm" show:{ xs:false md:true }
+                  NavMenu variant:"solid" scheme:"primary" size:"sm" show:{ xs:false md:true }
                     item label:"Home" href:"/blocks/appbar-preview/classic-saas"
                     submenu label:"About"
                       item label:"Creative" href:"/blocks/appbar-preview/creative"
@@ -60,7 +60,7 @@ page AppBarsPage
                   Flex align:"center" gap:2
                     Button href:"/blocks/appbar-preview/creative" size:"sm" show:{ xs:false sm:true }
                       "Let's Started"
-                    IconButton icon:"hamburger-menu" label:"Open navigation" variant:"ghost" show:{ xs:true md:false }
+                    IconButton icon:"hamburger-menu" label:"Open navigation" variant:"solid" show:{ xs:true md:false }
             """
   Section id:"creative" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
@@ -101,7 +101,7 @@ page AppBarsPage
                       Text size:"xl" weight:"black"
                         "PEKOO."
                 center
-                  NavMenu variant:"ghost" scheme:"danger" size:"sm" show:{ xs:false md:true }
+                  NavMenu variant:"solid" scheme:"danger" size:"sm" show:{ xs:false md:true }
                     item label:"Home" href:"/blocks/appbar-preview/creative"
                     item label:"About Us" href:"/blocks/appbar-preview/social-pill"
                     item label:"Services" href:"/blocks/appbar-preview/floating-card"
@@ -110,7 +110,7 @@ page AppBarsPage
                   Flex align:"center" gap:3
                     Button href:"/blocks/appbar-preview/floating-card" scheme:"danger" size:"sm" show:{ xs:false sm:true }
                       "Get In Touch"
-                    IconButton icon:"hamburger-menu" label:"Open navigation" variant:"outlined" scheme:"muted"
+                    IconButton icon:"hamburger-menu" label:"Open navigation" variant:"solid" scheme:"muted"
             """
   Section id:"social-pill" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
@@ -207,7 +207,7 @@ page AppBarsPage
                       IconButton icon:"global" label:"Community" scheme:"danger" rounded:"full"
                       IconButton icon:"figma" label:"Design profile" scheme:"info" rounded:"full"
                 center
-                  NavMenu variant:"ghost" scheme:"primary" size:"sm" show:{ xs:false md:true }
+                  NavMenu variant:"solid" scheme:"primary" size:"sm" show:{ xs:false md:true }
                     item label:"Home" href:"/blocks/appbar-preview/floating-card"
                     item label:"About Us" href:"/blocks/appbar-preview/creative"
                     item label:"Services" href:"/blocks/appbar-preview/social-pill"
@@ -366,8 +366,8 @@ page AppBarsPage
                     Input label:"Search dashboard" placeholder:"Type to search ..." labelFloating:true scheme:"muted" iconStart:"magnifier" w:72 show:{ xs:false md:true }
                 end
                   Flex align:"center" gap:3
-                    IconButton icon:"letter" label:"Open messages" variant:"ghost" scheme:"muted" size:"sm" show:{ xs:false md:true }
-                    IconButton icon:"bell" label:"Open notifications" variant:"ghost" scheme:"muted" size:"sm"
+                    IconButton icon:"letter" label:"Open messages" variant:"solid" scheme:"muted" size:"sm" show:{ xs:false md:true }
+                    IconButton icon:"bell" label:"Open notifications" variant:"solid" scheme:"muted" size:"sm"
                     Divider orientation:"vertical" h:8 show:{ xs:false md:true }
                     Avatar name:"Jonathan Stone" alt:"Jonathan Stone" scheme:"primary" size:"md" status:"online"
                     Grid columns:1 gap:1 show:{ xs:false md:true }
@@ -375,7 +375,7 @@ page AppBarsPage
                         "Jonathan"
                       Text size:"xs"
                         "Admin"
-                    IconButton icon:"settings" label:"Open settings" variant:"ghost" scheme:"muted" size:"sm" show:{ xs:false md:true }
+                    IconButton icon:"settings" label:"Open settings" variant:"solid" scheme:"muted" size:"sm" show:{ xs:false md:true }
             """
   Section id:"admin" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
@@ -417,15 +417,15 @@ page AppBarsPage
                         "Vuexy"
                 end
                   Flex align:"center" gap:2
-                    IconButton icon:"magnifier" label:"Search" variant:"ghost" scheme:"muted" size:"sm"
-                    IconButton icon:"translation" label:"Change language" variant:"ghost" scheme:"muted" size:"sm" show:{ xs:false md:true }
-                    IconButton icon:"sun" label:"Change theme" variant:"ghost" scheme:"muted" size:"sm" show:{ xs:false md:true }
-                    IconButton icon:"widget-2" label:"Open shortcuts" variant:"ghost" scheme:"muted" size:"sm" show:{ xs:false md:true }
-                    IconButton icon:"bell" label:"Open notifications" variant:"ghost" scheme:"muted" size:"sm"
+                    IconButton icon:"magnifier" label:"Search" variant:"solid" scheme:"muted" size:"sm"
+                    IconButton icon:"translation" label:"Change language" variant:"solid" scheme:"muted" size:"sm" show:{ xs:false md:true }
+                    IconButton icon:"sun" label:"Change theme" variant:"solid" scheme:"muted" size:"sm" show:{ xs:false md:true }
+                    IconButton icon:"widget-2" label:"Open shortcuts" variant:"solid" scheme:"muted" size:"sm" show:{ xs:false md:true }
+                    IconButton icon:"bell" label:"Open notifications" variant:"solid" scheme:"muted" size:"sm"
                     Avatar name:"Jordan Lee" alt:"Jordan Lee" scheme:"primary" size:"md" status:"online"
-                    IconButton icon:"hamburger-menu" label:"Open navigation" variant:"ghost" scheme:"muted" size:"sm" show:{ xs:true md:false }
+                    IconButton icon:"hamburger-menu" label:"Open navigation" variant:"solid" scheme:"muted" size:"sm" show:{ xs:true md:false }
                 bottom
-                  NavMenu variant:"ghost" scheme:"primary" size:"sm" show:{ xs:false md:true }
+                  NavMenu variant:"solid" scheme:"primary" size:"sm" show:{ xs:false md:true }
                     item label:"Dashboards" href:"/blocks/appbar-preview/dashboard"
                     item label:"Apps" href:"/blocks/appbar-preview/admin"
                     item label:"Pages" href:"/blocks/appbar-preview/classic-saas"

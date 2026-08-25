@@ -212,7 +212,7 @@ page CanvasCompositionPage
             Text size:"sm"
               "Arbitrary pixel filters, shaders, and video-frame processing are not supported."
       Flex justify:"space-between" align:"center" wrap:true gap:3
-        Button href:"/docs/views/canvas/infographic" variant:"ghost" scheme:"muted" iconStart:"alt-arrow-left"
+        Button href:"/docs/views/canvas/infographic" variant:"solid" scheme:"muted" iconStart:"alt-arrow-left"
           "Infographic"
         Button href:"/docs/views/canvas/input" iconEnd:"alt-arrow-right"
           "Add input"

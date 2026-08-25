@@ -51,7 +51,7 @@ page SelectPage
       },
       {
         prop:"variant"
-        type:"solid | soft | outlined | ghost"
+        type:"solid"
         defaultValue:"solid"
       },
       {
@@ -103,7 +103,7 @@ page SelectPage
           "Choose a workspace role"
         Text size:"sm"
           "bind keeps the selected string in a Signal while each renders a validated catalog of Option children."
-      Card variant:"outlined" p:{ xs:5 md:7 } border:1
+      Card variant:"solid" p:{ xs:5 md:7 } border:1
         Grid columns:1 gap:4
           Select:
             bind:selectedRole
@@ -208,11 +208,11 @@ page SelectPage
       Grid columns:{ xs:1 md:3 } gap:4
         Select label:"Solid" placeholder:"Choose a role" variant:"solid" w:"full"
           Option value:"admin" label:"Administrator"
-        Select label:"Soft" placeholder:"Choose a role" variant:"solid" w:"full"
+        Select label:"Solid" placeholder:"Choose a role" variant:"solid" w:"full"
           Option value:"editor" label:"Editor"
         Select label:"Outlined" placeholder:"Choose a role" w:"full"
           Option value:"viewer" label:"Viewer"
-        Select label:"Ghost" placeholder:"Choose a role" variant:"ghost" w:"full"
+        Select label:"Ghost" placeholder:"Choose a role" variant:"solid" w:"full"
           Option value:"guest" label:"Guest"
   Section id:"select-schemes" py:{ xs:7 md:10 }
     Grid columns:1 gap:6

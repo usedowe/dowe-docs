@@ -4,7 +4,7 @@ page AudioPage
       { prop:"src" type:"asset path | https URL" defaultValue:"required" },
       { prop:"subtitle" type:"string" defaultValue:"—" },
       { prop:"avatarSrc" type:"asset path | https URL" defaultValue:"—" },
-      { prop:"variant" type:"solid | soft" defaultValue:"solid" },
+      { prop:"variant" type:"solid" defaultValue:"solid" },
       { prop:"scheme" type:"primary | secondary | accent | muted | success | info | warning | danger" defaultValue:"primary" },
       { prop:"rounded" type:"xs | sm | md | lg | xl | full" defaultValue:"radius" },
     ]
@@ -66,7 +66,7 @@ page AudioPage
         Text size:"sm"
           "Keep the source stable while changing the subtitle, avatar, variant, and scheme to match the surrounding product surface."
       Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"outlined" border:1 p:{ xs:5 md:7 }
+        Card variant:"solid" border:1 p:{ xs:5 md:7 }
           Grid columns:1 gap:4
             Audio src:"https://cdn.pixabay.com/audio/2022/04/25/audio_5d61b5204f.mp3" subtitle:"Product walkthrough · 02:18" avatarSrc:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=96&q=80" variant:"solid" scheme:"primary" rounded:"lg"
             Text size:"xs"
@@ -145,7 +145,7 @@ page AudioPage
         column field:"defaultValue" label:"Default" width:"1fr"
   Section id:"audio-next" p:{ xs:5 md:7 }
     Flex wrap:true justify:"between" gap:4
-      Button href:"/docs/views/control/video" variant:"outlined" rounded:"full"
+      Button href:"/docs/views/control/video" variant:"solid" rounded:"full"
         "Previous Video"
       Button href:"/docs/views/control/record" rounded:"full"
         "Next Record"

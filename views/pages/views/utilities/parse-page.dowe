@@ -73,7 +73,7 @@ page ParsePage
           "Convert SVG text"
       Grid columns:1 gap:5
         Grid columns:1 gap:3
-          Textarea bind:svgInput label:"SVG source" rows:10 maxLength:60000 variant:"outlined" scheme:"primary" w:"full"
+          Textarea bind:svgInput label:"SVG source" rows:10 maxLength:60000 variant:"solid" scheme:"primary" w:"full"
           Button onClick:parseSvgInput iconStart:"code"
             "Run parse.svg"
         Code:
@@ -91,7 +91,7 @@ page ParsePage
           "FUNCTIONS"
         Title size:"3xl" weight:"black"
           "Implemented parse catalog"
-      Table data:parseFunctions variant:"outlined" scheme:"surface" size:"sm"
+      Table data:parseFunctions variant:"solid" scheme:"surface" size:"sm"
         column field:"name" label:"Function"
         column field:"input" label:"Input"
         column field:"result" label:"Result"

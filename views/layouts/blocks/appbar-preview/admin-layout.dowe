@@ -10,32 +10,32 @@ layout AppBarAdminLayout
                 "Dowe"
         end
           Flex align:"center" gap:2
-            IconButton icon:"magnifier" label:"Search" variant:"ghost" scheme:"muted" size:"sm"
+            IconButton icon:"magnifier" label:"Search" variant:"solid" scheme:"muted" size:"sm"
             IconButton:
               icon:"translation"
               label:"Change language"
-              variant:"ghost"
+              variant:"solid"
               scheme:"muted"
               size:"sm"
               show:{ xs:false md:true }
             IconButton:
               icon:"sun"
               label:"Change theme"
-              variant:"ghost"
+              variant:"solid"
               scheme:"muted"
               size:"sm"
               show:{ xs:false md:true }
             IconButton:
               icon:"widget-2"
               label:"Open shortcuts"
-              variant:"ghost"
+              variant:"solid"
               scheme:"muted"
               size:"sm"
               show:{ xs:false md:true }
             IconButton:
               icon:"bell"
               label:"Open notifications"
-              variant:"ghost"
+              variant:"solid"
               scheme:"muted"
               size:"sm"
             Avatar:
@@ -48,12 +48,12 @@ layout AppBarAdminLayout
             IconButton:
               icon:"hamburger-menu"
               label:"Open navigation"
-              variant:"ghost"
+              variant:"solid"
               scheme:"muted"
               size:"sm"
               show:{ xs:true md:false }
         bottom
-          NavMenu variant:"ghost" scheme:"primary" size:"sm" show:{ xs:false md:true }
+          NavMenu variant:"solid" scheme:"primary" size:"sm" show:{ xs:false md:true }
             item label:"Dashboards" href:"/blocks/appbar-preview/dashboard"
             item label:"Apps" href:"/blocks/appbar-preview/admin"
             item label:"Pages" href:"/blocks/appbar-preview/classic-saas"

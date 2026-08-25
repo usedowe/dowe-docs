@@ -33,7 +33,7 @@ page ImagePage
       },
       {
         prop:"variant"
-        type:"solid | soft | outlined | ghost"
+        type:"solid"
         defaultValue:"solid"
       },
       {

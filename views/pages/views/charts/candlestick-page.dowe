@@ -21,7 +21,7 @@ page CandlestickPage
     value:[
       { prop:"data" type:"Signal array path" defaultValue:"—" },
       { prop:"stream" type:"SSE path or HTTPS URL" defaultValue:"—" },
-      { prop:"variant" type:"solid | soft | outlined | ghost" defaultValue:"solid" },
+      { prop:"variant" type:"solid" defaultValue:"solid" },
       { prop:"scheme" type:"Dowe color family" defaultValue:"surface" },
       { prop:"upColor" type:"Dowe color token" defaultValue:"success" },
       { prop:"downColor" type:"Dowe color token" defaultValue:"danger" },
@@ -88,7 +88,7 @@ page CandlestickPage
       Grid columns:{ xs:1 md:2 } gap:4
         Candlestick:
           data:candles
-          variant:"outlined"
+          variant:"solid"
           scheme:"primary"
           h:64
           rounded:"md"
@@ -120,11 +120,11 @@ page CandlestickPage
       Grid columns:{ xs:1 md:3 } gap:4
         Candlestick data:candles variant:"solid" scheme:"surface" h:56 rounded:"sm" upColor:"success" downColor:"danger"
         Candlestick data:candles variant:"solid" scheme:"primary" h:56 rounded:"md" upColor:"primary" downColor:"secondary"
-        Candlestick data:emptyCandles variant:"outlined" scheme:"warning" h:56 rounded:"md" emptyLabel:"No session data"
+        Candlestick data:emptyCandles variant:"solid" scheme:"warning" h:56 rounded:"md" emptyLabel:"No session data"
       Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
         Candlestick data:candles variant:"solid" scheme:"surface" h:56 rounded:"sm" upColor:"success" downColor:"danger"
         Candlestick data:candles variant:"solid" scheme:"primary" h:56 rounded:"md" upColor:"primary" downColor:"secondary"
-        Candlestick data:emptyCandles variant:"outlined" scheme:"warning" h:56 rounded:"md" emptyLabel:"No session data"
+        Candlestick data:emptyCandles variant:"solid" scheme:"warning" h:56 rounded:"md" emptyLabel:"No session data"
       """
   Section id:"candlestick-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5

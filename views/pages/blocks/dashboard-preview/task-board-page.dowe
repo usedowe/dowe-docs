@@ -43,7 +43,7 @@ page DashboardTaskBoardPage
                   "Backlog"
                 Chip variant:"solid" scheme:"muted"
                   "3"
-              IconButton icon:"menu-dots" label:"Open backlog actions" variant:"ghost" scheme:"muted" size:"sm"
+              IconButton icon:"menu-dots" label:"Open backlog actions" variant:"solid" scheme:"muted" size:"sm"
             Grid columns:1 gap:3
               each in:backlogTasks as:task key:task.id
                 Card variant:"solid" p:4 border:1
@@ -56,7 +56,7 @@ page DashboardTaskBoardPage
                     Flex justify:"between" align:"start" gap:2
                       Title size:"sm" weight:"bold"
                         "{task.title}"
-                      IconButton icon:"menu-dots" label:"Open task actions" variant:"ghost" scheme:"muted" size:"sm"
+                      IconButton icon:"menu-dots" label:"Open task actions" variant:"solid" scheme:"muted" size:"sm"
                     Text size:"xs"
                       "{task.meta}"
                     Flex justify:"between" align:"center" gap:2
@@ -74,7 +74,7 @@ page DashboardTaskBoardPage
                   "In progress"
                 Chip variant:"solid" scheme:"muted"
                   "2"
-              IconButton icon:"menu-dots" label:"Open progress actions" variant:"ghost" scheme:"muted" size:"sm"
+              IconButton icon:"menu-dots" label:"Open progress actions" variant:"solid" scheme:"muted" size:"sm"
             Grid columns:1 gap:3
               each in:progressTasks as:task key:task.id
                 Card variant:"solid" p:4 border:1
@@ -87,7 +87,7 @@ page DashboardTaskBoardPage
                     Flex justify:"between" align:"start" gap:2
                       Title size:"sm" weight:"bold"
                         "{task.title}"
-                      IconButton icon:"menu-dots" label:"Open task actions" variant:"ghost" scheme:"muted" size:"sm"
+                      IconButton icon:"menu-dots" label:"Open task actions" variant:"solid" scheme:"muted" size:"sm"
                     Text size:"xs"
                       "{task.meta}"
                     Flex justify:"between" align:"center" gap:2
@@ -105,7 +105,7 @@ page DashboardTaskBoardPage
                   "Review"
                 Chip variant:"solid" scheme:"muted"
                   "2"
-              IconButton icon:"menu-dots" label:"Open review actions" variant:"ghost" scheme:"muted" size:"sm"
+              IconButton icon:"menu-dots" label:"Open review actions" variant:"solid" scheme:"muted" size:"sm"
             Grid columns:1 gap:3
               each in:reviewTasks as:task key:task.id
                 Card variant:"solid" p:4 border:1
@@ -118,7 +118,7 @@ page DashboardTaskBoardPage
                     Flex justify:"between" align:"start" gap:2
                       Title size:"sm" weight:"bold"
                         "{task.title}"
-                      IconButton icon:"menu-dots" label:"Open task actions" variant:"ghost" scheme:"muted" size:"sm"
+                      IconButton icon:"menu-dots" label:"Open task actions" variant:"solid" scheme:"muted" size:"sm"
                     Text size:"xs"
                       "{task.meta}"
                     Flex justify:"between" align:"center" gap:2

@@ -48,7 +48,7 @@ page ProjectStatusTablePage
           "Use explicit columns to keep ownership, progress, and risk visible as work changes."
       Table:
         data:projects
-        variant:"outlined"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

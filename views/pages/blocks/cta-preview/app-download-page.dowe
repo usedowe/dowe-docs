@@ -9,7 +9,7 @@ page AppDownloadCtaPage
             "Stay connected to your work from every Apple device, wherever the day takes you."
           Button scheme:"muted" size:"lg" rounded:"full" iconStart:"smartphone"
             "Download for iOS"
-      Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:7 md:10 } minH:{ xs:80 md:96 }
+      Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:7 md:10 } minH:{ xs:80 md:96 }
         Flex direction:"column" align:{ xs:"center" md:"start" } justify:"center" gap:5 minH:{ xs:64 md:80 }
           Title size:{ xs:"3xl" md:"4xl" } weight:"black"
             "Download our app for Android"

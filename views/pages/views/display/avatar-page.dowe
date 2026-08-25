@@ -4,7 +4,7 @@ page AvatarPage
       { prop:"src" type:"asset path | https URL" defaultValue:"—" },
       { prop:"name" type:"string" defaultValue:"—" },
       { prop:"alt" type:"string" defaultValue:"Avatar" },
-      { prop:"variant" type:"solid | soft" defaultValue:"solid" },
+      { prop:"variant" type:"solid" defaultValue:"solid" },
       { prop:"scheme" type:"primary | secondary | accent | muted | background | surface | success | info | warning | danger" defaultValue:"primary" },
       { prop:"size" type:"xs | sm | md | lg | xl" defaultValue:"md" },
       { prop:"status" type:"online | offline | busy | away" defaultValue:"—" },
@@ -31,7 +31,7 @@ page AvatarPage
           "Profiles with clear fallbacks"
         Text size:"sm"
           "Use a packaged asset or an HTTPS image. Android loads both through its cached native image pipeline; when loading fails, Dowe falls back to initials resolved from name and then alt."
-      Card variant:"outlined" p:{ xs:6 md:8 } border:1
+      Card variant:"solid" p:{ xs:6 md:8 } border:1
         Grid columns:{ xs:1 md:3 } gap:6
           Avatar src:"https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=160&q=80" name:"Nora Kim" alt:"Portrait of Nora Kim" size:"xl" status:"online"
           Avatar src:"https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=160&q=80" name:"Leo Martin" alt:"Portrait of Leo Martin" size:"lg" status:"busy" bordered:true

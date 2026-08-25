@@ -31,7 +31,7 @@ page DashboardTeamDirectoryPage
             "People and permissions"
           Text size:"sm"
             "Search, scan status, and move through a real paginated directory."
-        Button variant:"outlined" scheme:"muted" size:"sm" iconStart:"download-minimalistic"
+        Button variant:"solid" scheme:"muted" size:"sm" iconStart:"download-minimalistic"
           "Export"
       Card variant:"solid" rounded:"lg" p:{ xs:4 md:6 } border:1
         Grid columns:1 gap:4
@@ -65,8 +65,8 @@ page DashboardTeamDirectoryPage
                   "{member.location}"
                 Chip variant:"solid" scheme:"success" show:{ xs:false md:true }
                   "{member.status}"
-                IconButton icon:"menu-dots" label:"Open member actions" variant:"ghost" scheme:"muted" size:"sm"
+                IconButton icon:"menu-dots" label:"Open member actions" variant:"solid" scheme:"muted" size:"sm"
           Flex direction:{ xs:"column" sm:"row" } justify:"between" align:{ xs:"start" sm:"center" } gap:3 pt:3
             Text size:"sm"
               "Showing 1–6 of 24 members"
-            Pagination bind:currentPage total:totalMembers pageSize:6 onChange:loadMembers variant:"ghost" scheme:"primary" size:"sm" ariaLabel:"Team directory pages"
+            Pagination bind:currentPage total:totalMembers pageSize:6 onChange:loadMembers variant:"solid" scheme:"primary" size:"sm" ariaLabel:"Team directory pages"

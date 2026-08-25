@@ -83,7 +83,7 @@ page BoxPage
           "Layer real components over a visual stage"
         Text size:"sm"
           "A relative Box stays in normal flow and becomes the reference plane for direct absolute Box children. Android loads /assets cover paths from the packaged native asset bundle."
-      Card variant:"outlined" p:{ xs:5 md:7 } border:1
+      Card variant:"solid" p:{ xs:5 md:7 } border:1
         Box position:"relative" bg:"muted" rounded:"lg" minH:64
           Box position:"absolute" top:{ xs:4 md:6 } right:{ xs:4 md:6 }
             Card p:4 rounded:"lg" shadow:"lg"

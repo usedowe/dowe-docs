@@ -64,7 +64,7 @@ page GridPage
           "Create equal tracks"
         Text size:"sm"
           "A positive integer creates that many equal columns. Gap separates rows and columns."
-      Card variant:"outlined" p:{ xs:5 md:7 } border:1
+      Card variant:"solid" p:{ xs:5 md:7 } border:1
         Grid columns:3 gap:4
           Box bg:"success" color:"successText" p:4 rounded:"sm"
             Text
@@ -102,7 +102,7 @@ page GridPage
           "Adapt the structure by width"
         Text size:"sm"
           "Responsive columns select the highest matching breakpoint while the viewport narrows or widens, without requiring a reload."
-      Card variant:"outlined" p:{ xs:5 md:7 } border:1
+      Card variant:"solid" p:{ xs:5 md:7 } border:1
         Grid columns:{ xs:1 sm:2 md:3 } gap:4
           Box bg:"success" color:"successText" p:4 rounded:"sm"
             Text
@@ -130,13 +130,13 @@ page GridPage
         copiedLabel:"Copied"
         content:"""
           Grid columns:{ xs:1 sm:2 md:3 } gap:4
-            Card variant:"outlined"
+            Card variant:"solid"
               Text
                 "First card"
-            Card variant:"outlined"
+            Card variant:"solid"
               Text
                 "Second card"
-            Card variant:"outlined"
+            Card variant:"solid"
               Text
                 "Third card"
         """
@@ -149,7 +149,7 @@ page GridPage
           "Keep the structure portable"
         Text size:"sm"
           "Grid columns use an integer from 1 to 12. Responsive values change the number of equal columns at each breakpoint, so the same declaration behaves consistently on web, iOS, and Android."
-      Card variant:"outlined" p:{ xs:5 md:7 } border:1
+      Card variant:"solid" p:{ xs:5 md:7 } border:1
         Grid columns:1 gap:4
           Text size:"sm"
             "This responsive example is one column below md and two equal columns from md upward. The gap changes from scale 10 to 16, align:center centers each cell's content, and minH:vh-0 gives the grid a minimum viewport height."
@@ -179,7 +179,7 @@ page GridPage
           "Build weighted layouts"
         Text size:"sm"
           "Use positive fr weights when equal columns are not enough. The same 1:2:1 proportions are generated for web CSS, iOS SwiftUI, Android Compose, and the Android development launcher."
-      Card variant:"outlined" p:{ xs:5 md:7 } border:1
+      Card variant:"solid" p:{ xs:5 md:7 } border:1
         Grid columns:{ xs:"1fr" md:"1fr 2fr 1fr" } gap:4 align:"center"
           Box bg:"success" color:"successText" p:4 rounded:"sm"
             Text
@@ -217,7 +217,7 @@ page GridPage
           "Span multiple tracks"
         Text size:"sm"
           "Direct Box and Card children can span columns or rows while the parent Grid keeps ownership of the structure."
-      Card variant:"outlined" p:{ xs:5 md:7 } border:1
+      Card variant:"solid" p:{ xs:5 md:7 } border:1
         Grid columns:3 gap:4
           Box colSpan:2 bg:"primary" color:"surface" p:4 rounded:"sm"
             Text

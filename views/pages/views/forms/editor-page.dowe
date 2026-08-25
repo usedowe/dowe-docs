@@ -24,8 +24,8 @@ page EditorPage
       },
       {
         prop:"variant"
-        type:"solid | soft | outlined | line"
-        defaultValue:"outlined"
+        type:"solid"
+        defaultValue:"solid"
       },
       {
         prop:"scheme"
@@ -66,7 +66,7 @@ page EditorPage
           "Draft a release article"
         Text size:"sm"
           "The toolbar exposes formatting, headings, alignment, lists, links, history, and clear formatting while bind keeps the authored value in a string Signal."
-      Card variant:"outlined" p:{ xs:5 md:7 } border:1
+      Card variant:"solid" p:{ xs:5 md:7 } border:1
         Grid columns:1 gap:5
           Editor:
             bind:articleContent
@@ -75,12 +75,12 @@ page EditorPage
             minHeight:320
             hideToolbar:false
             helpText:"Use headings for sections and lists for migration steps."
-            variant:"outlined"
+            variant:"solid"
             scheme:"primary"
             size:"lg"
             name:"release-article"
           Flex wrap:true justify:"end" align:"center" gap:3
-            Button variant:"ghost" scheme:"muted" size:"sm"
+            Button variant:"solid" scheme:"muted" size:"sm"
               "Save draft"
             Button size:"sm" iconEnd:"alt-arrow-right"
               "Publish article"
@@ -93,7 +93,7 @@ page EditorPage
         content:"""
           signal articleContent value:""
 
-          Editor bind:articleContent label:"Release article" placeholder:"Explain what changed, why it matters, and how teams can adopt it." minHeight:320 hideToolbar:false helpText:"Use headings for sections and lists for migration steps." variant:"outlined" scheme:"primary" size:"lg" name:"release-article"
+          Editor bind:articleContent label:"Release article" placeholder:"Explain what changed, why it matters, and how teams can adopt it." minHeight:320 hideToolbar:false helpText:"Use headings for sections and lists for migration steps." variant:"solid" scheme:"primary" size:"lg" name:"release-article"
         """
   Section id:"editor-workflows" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
@@ -152,7 +152,7 @@ page EditorPage
           placeholder:"Add the customer-facing update"
           minHeight:160
           errorText:"Add a summary before resolving the incident."
-          variant:"outlined"
+          variant:"solid"
           scheme:"danger"
           size:"md"
           name:"incident-update"

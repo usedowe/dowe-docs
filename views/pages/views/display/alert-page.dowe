@@ -5,7 +5,7 @@ page AlertPage
       { prop:"message" type:"string | Signal string path" defaultValue:"required" },
       { prop:"visible" type:"boolean | Signal boolean path" defaultValue:"true" },
       { prop:"onClose" type:"Action name" defaultValue:"—" },
-      { prop:"variant" type:"solid | soft | outlined | ghost" defaultValue:"soft" },
+      { prop:"variant" type:"solid" defaultValue:"solid" },
       { prop:"scheme" type:"design scheme" defaultValue:"derived from type" },
       { prop:"show" type:"boolean | responsive | Signal" defaultValue:"true" },
     ]
@@ -53,8 +53,8 @@ page AlertPage
       Grid columns:{ xs:2 md:4 } gap:3
         Alert type:"info" message:"Solid feedback for high emphasis." variant:"solid"
         Alert type:"success" message:"Soft feedback for routine confirmation." variant:"solid"
-        Alert type:"warning" message:"Outlined feedback preserves surrounding contrast." variant:"outlined"
-        Alert type:"error" message:"Ghost feedback keeps the lightest visual footprint." variant:"ghost"
+        Alert type:"warning" message:"Outlined feedback preserves surrounding contrast." variant:"solid"
+        Alert type:"error" message:"Ghost feedback keeps the lightest visual footprint." variant:"solid"
   Section id:"alert-reactive" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2

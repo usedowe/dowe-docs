@@ -38,7 +38,7 @@ page MinimalColumnsPricingPage
   Section id:"minimal-columns-pricing" bg:"background" color:"backgroundText" boxed:true minH:"vh-0" py:{ xs:8 md:14 }
     Grid columns:{ xs:1 md:3 } gap:{ xs:5 md:0 } align:"stretch"
       each in:plans as:plan key:plan.id
-        Card variant:"ghost" scheme:"background" rounded:"xl" p:{ xs:6 md:8 } minH:{ xs:96 md:"vh-24" } show:plan.standard
+        Card variant:"solid" scheme:"background" rounded:"xl" p:{ xs:6 md:8 } minH:{ xs:96 md:"vh-24" } show:plan.standard
           Flex direction:"column" justify:"between" gap:8 minH:{ xs:80 md:"vh-40" }
             Grid columns:1 gap:5
               Flex justify:"between" align:"center"
@@ -68,7 +68,7 @@ page MinimalColumnsPricingPage
                 "Get started"
               Text size:"sm"
                 "Includes a free trial with no setup fee."
-        Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:{ xs:96 md:"vh-24" } show:plan.popular
+        Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:{ xs:96 md:"vh-24" } show:plan.popular
           Flex direction:"column" justify:"between" gap:8 minH:{ xs:80 md:"vh-40" }
             Grid columns:1 gap:5
               Text size:"sm"

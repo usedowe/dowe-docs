@@ -30,13 +30,13 @@ page SignupCardAuthPage
               "OR"
             Divider
           Grid columns:{ xs:1 sm:3 } gap:3
-            Button variant:"outlined" size:"sm" iconStart:"global" w:"full"
+            Button variant:"solid" size:"sm" iconStart:"global" w:"full"
               "Google"
-            Button variant:"outlined" size:"sm" iconStart:"smartphone" w:"full"
+            Button variant:"solid" size:"sm" iconStart:"smartphone" w:"full"
               "Apple"
-            Button variant:"outlined" size:"sm" iconStart:"chat-round-line" w:"full"
+            Button variant:"solid" size:"sm" iconStart:"chat-round-line" w:"full"
               "Twitter"
           Divider
-          Button href:"/blocks/auth-preview/login-card" variant:"ghost" size:"sm"
+          Button href:"/blocks/auth-preview/login-card" variant:"solid" size:"sm"
             "Already have an account? Log in"
       Box show:{ xs:false md:true }

@@ -29,8 +29,8 @@ page ComboBoxPage
       },
       {
         prop:"variant"
-        type:"solid | soft | outlined | line"
-        defaultValue:"outlined"
+        type:"solid"
+        defaultValue:"solid"
       },
       {
         prop:"scheme"
@@ -75,7 +75,7 @@ page ComboBoxPage
           searchPlaceholder:"Search roles"
           emptyText:"No matching roles"
           clearable:true
-          variant:"outlined"
+          variant:"solid"
           scheme:"primary"
           size:"lg"
           name:"workspace-role"
@@ -102,7 +102,7 @@ page ComboBoxPage
         content:"""
           signal selectedRole value:"editor"
 
-          ComboBox bind:selectedRole label:"Workspace role" placeholder:"Choose a role" labelFloating:true searchPlaceholder:"Search roles" clearable:true variant:"outlined" scheme:"primary" size:"lg" name:"workspace-role"
+          ComboBox bind:selectedRole label:"Workspace role" placeholder:"Choose a role" labelFloating:true searchPlaceholder:"Search roles" clearable:true variant:"solid" scheme:"primary" size:"lg" name:"workspace-role"
             comboOption value:"admin" label:"Administrator" description:"Manage settings, members, and billing." icon:"settings"
             comboOption value:"editor" label:"Editor" description:"Create, update, and publish workspace content." icon:"edit"
             comboOption value:"viewer" label:"Viewer" description:"Read workspace content without making changes." icon:"search"
@@ -118,13 +118,13 @@ page ComboBoxPage
         Text size:"sm"
           "The searchable behavior stays constant while sm, md, and lg map to 32, 40, and 48 logical units. labelFloating adds 8 on every target."
       Grid columns:{ xs:1 md:3 } gap:4
-        ComboBox value:"design" label:"Soft field" placeholder:"Choose a team" variant:"solid" scheme:"secondary" size:"sm" name:"soft-team"
+        ComboBox value:"design" label:"Solid field" placeholder:"Choose a team" variant:"solid" scheme:"secondary" size:"sm" name:"solid-team"
           comboOption value:"design" label:"Design" description:"Tokens and visual systems." icon:"edit"
           comboOption value:"platform" label:"Platform" description:"Shared runtime foundations." icon:"settings"
         ComboBox value:"growth" label:"Line field" placeholder:"Choose a team" variant:"line" scheme:"success" size:"md" name:"line-team"
           comboOption value:"growth" label:"Growth" description:"Experiments and activation." icon:"plus"
           comboOption value:"support" label:"Support" description:"Customer outcomes and care." icon:"link"
-        ComboBox value:"security" label:"Large outlined field" placeholder:"Choose a domain" variant:"outlined" scheme:"danger" size:"lg" name:"security-domain"
+        ComboBox value:"security" label:"Large outlined field" placeholder:"Choose a domain" variant:"solid" scheme:"danger" size:"lg" name:"security-domain"
           comboOption value:"security" label:"Security" description:"Identity, policy, and audit." icon:"settings"
           comboOption value:"compliance" label:"Compliance" description:"Controls and evidence." icon:"file"
       Code:
@@ -134,7 +134,7 @@ page ComboBoxPage
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          ComboBox value:"design" label:"Soft field" placeholder:"Choose a team" variant:"solid" scheme:"secondary" size:"sm"
+          ComboBox value:"design" label:"Solid field" placeholder:"Choose a team" variant:"solid" scheme:"secondary" size:"sm"
             comboOption value:"design" label:"Design" description:"Tokens and visual systems." icon:"edit"
             comboOption value:"platform" label:"Platform" description:"Shared runtime foundations." icon:"settings"
         """
@@ -148,17 +148,17 @@ page ComboBoxPage
         Text size:"sm"
           "Use feedback text to explain the catalog, disabled to preserve a visible choice, and custom loading copy for remote-looking flows."
       Grid columns:{ xs:1 md:2 } gap:5
-        ComboBox label:"No matching project" placeholder:"Search projects" searchPlaceholder:"Search projects" emptyText:"Nothing matches this query" helpText:"Try a project key or team name." variant:"outlined" scheme:"info" name:"project"
+        ComboBox label:"No matching project" placeholder:"Search projects" searchPlaceholder:"Search projects" emptyText:"Nothing matches this query" helpText:"Try a project key or team name." variant:"solid" scheme:"info" name:"project"
           comboOption value:"dowe" label:"Dowe" description:"Compiler and runtime." icon:"file"
         ComboBox value:"billing" label:"Billing domain" placeholder:"Choose a domain" disabled:true errorText:"This catalog is unavailable for your workspace." variant:"solid" scheme:"muted" name:"billing"
           comboOption value:"billing" label:"Billing" description:"Plans and invoices." icon:"settings"
           comboOption value:"usage" label:"Usage" description:"Consumption and limits." icon:"search"
       Grid columns:{ xs:1 md:3 } gap:3
-        ComboBox value:"small" label:"Small" labelFloating:true variant:"outlined" scheme:"primary" size:"sm" name:"small-catalog"
+        ComboBox value:"small" label:"Small" labelFloating:true variant:"solid" scheme:"primary" size:"sm" name:"small-catalog"
           comboOption value:"small" label:"Small catalog"
-        ComboBox value:"medium" label:"Medium" labelFloating:true variant:"outlined" scheme:"primary" size:"md" name:"medium-catalog"
+        ComboBox value:"medium" label:"Medium" labelFloating:true variant:"solid" scheme:"primary" size:"md" name:"medium-catalog"
           comboOption value:"medium" label:"Medium catalog"
-        ComboBox value:"large" label:"Large" labelFloating:true variant:"outlined" scheme:"primary" size:"lg" name:"large-catalog"
+        ComboBox value:"large" label:"Large" labelFloating:true variant:"solid" scheme:"primary" size:"lg" name:"large-catalog"
           comboOption value:"large" label:"Large catalog"
   Section id:"combo-box-contract" py:{ xs:7 md:10 }
     Grid columns:1 gap:5

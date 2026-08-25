@@ -7,7 +7,7 @@ page CameraPage
       { prop:"onStart" type:"function" defaultValue:"—" },
       { prop:"onCapture" type:"function" defaultValue:"—" },
       { prop:"onError" type:"function" defaultValue:"—" },
-      { prop:"variant" type:"solid | soft | outlined | ghost" defaultValue:"solid" },
+      { prop:"variant" type:"solid" defaultValue:"solid" },
       { prop:"scheme" type:"primary | secondary | accent | muted | success | info | warning | danger" defaultValue:"primary" },
     ]
   signal cameraStatus value:"Ready"
@@ -43,7 +43,7 @@ page CameraPage
           "Start with an explicit user action"
         Text size:"sm"
           "The preview keeps the permission boundary visible. Dowe does not open the camera while the page is loading."
-      Card variant:"outlined" border:1 p:{ xs:5 md:7 }
+      Card variant:"solid" border:1 p:{ xs:5 md:7 }
         Grid columns:1 gap:4
           Camera facing:"user" label:"Take photo" onStart:cameraStart onCapture:cameraCapture onError:cameraError variant:"solid" scheme:"primary" rounded:"lg"
           Text size:"sm"
@@ -97,7 +97,7 @@ page CameraPage
         column field:"defaultValue" label:"Default" width:"1fr"
   Section id:"camera-next" p:{ xs:5 md:7 }
     Flex wrap:true justify:"between" gap:4
-      Button href:"/docs/views/control/audio" variant:"outlined" rounded:"full"
+      Button href:"/docs/views/control/audio" variant:"solid" rounded:"full"
         "Previous Audio"
       Button href:"/docs/views/control/microphone" rounded:"full"
         "Next Microphone"

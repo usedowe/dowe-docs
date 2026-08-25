@@ -75,7 +75,7 @@ page CommandPage
           "Search a real workspace palette"
         Text size:"sm"
           "Open the palette and filter across navigation, workspace actions, and account commands. Every item can navigate or invoke a named view function."
-      Card variant:"outlined" p:{ xs:6 md:10 } border:1
+      Card variant:"solid" p:{ xs:6 md:10 } border:1
         Grid columns:1 gap:4
           Flex wrap:true justify:"center" gap:3
             Button onClick:openCommand iconStart:"command"
@@ -178,7 +178,7 @@ page CommandPage
         Text size:"sm"
           "Command renders the authored labels for closing, navigating, selecting, and toggling. shortcut is a single ASCII key used by the global launcher unless it is disabled."
       Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"outlined" p:5 border:1
+        Card variant:"solid" p:5 border:1
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold"
               "VISIBLE FOOTER"
@@ -188,7 +188,7 @@ page CommandPage
               "showFooter:true keeps the localized command hints visible at the bottom of the palette."
             Button onClick:openCommand variant:"solid" size:"sm"
               "Open with hints"
-        Card variant:"outlined" p:5 border:1
+        Card variant:"solid" p:5 border:1
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold"
               "COMPACT MODE"
@@ -196,9 +196,9 @@ page CommandPage
               "Let the product own the shortcut"
             Text size:"sm"
               "disableGlobalShortcut:true prevents the global key listener when another shell owns keyboard focus."
-            Button onClick:openCompactCommand variant:"outlined" scheme:"muted" size:"sm"
+            Button onClick:openCompactCommand variant:"solid" scheme:"muted" size:"sm"
               "Open compact palette"
-      Command open:compactCommandOpen placeholder:"Jump to..." emptyText:"Nothing matches" closeText:"close" navigateText:"move" selectText:"open" toggleText:"switch" shortcut:"j" disableGlobalShortcut:true showFooter:false variant:"outlined" scheme:"muted"
+      Command open:compactCommandOpen placeholder:"Jump to..." emptyText:"Nothing matches" closeText:"close" navigateText:"move" selectText:"open" toggleText:"switch" shortcut:"j" disableGlobalShortcut:true showFooter:false variant:"solid" scheme:"muted"
         group label:"Quick access"
           item label:"Views overview" href:"/docs/views"
           item label:"Server overview" href:"/docs/server"
@@ -210,7 +210,7 @@ page CommandPage
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Command open:compactOpen placeholder:"Jump to..." shortcut:"j" disableGlobalShortcut:true showFooter:false variant:"outlined" scheme:"muted"
+          Command open:compactOpen placeholder:"Jump to..." shortcut:"j" disableGlobalShortcut:true showFooter:false variant:"solid" scheme:"muted"
             group label:"Quick access"
               item label:"Views overview" href:"/docs/views"
               item label:"Server overview" href:"/docs/server"
@@ -258,7 +258,7 @@ page CommandPage
             group label:"Navigation"
               item label:"Views" href:"/docs/views"
 
-          Command open:paletteOpen variant:"outlined" scheme:"info"
+          Command open:paletteOpen variant:"solid" scheme:"info"
             group label:"Navigation"
               item label:"Views" href:"/docs/views"
         """

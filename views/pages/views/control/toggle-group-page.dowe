@@ -5,7 +5,7 @@ page ToggleGroupPage
       { prop:"value" type:"string Signal path" defaultValue:"—" },
       { prop:"selected" type:"string or comma-separated ids" defaultValue:"first item" },
       { prop:"multiple" type:"boolean" defaultValue:"false" },
-      { prop:"variant" type:"Button variant: solid | soft | outlined | ghost" defaultValue:"solid" },
+      { prop:"variant" type:"Button variant: solid" defaultValue:"solid" },
       { prop:"scheme" type:"Button scheme: primary | secondary | accent | muted | success | info | warning | danger" defaultValue:"primary" },
       { prop:"size" type:"xs | sm | md | lg" defaultValue:"md" },
       { prop:"wide, vertical, disabled" type:"boolean" defaultValue:"false" },
@@ -38,7 +38,7 @@ page ToggleGroupPage
           "Switch a view mode"
         Text size:"sm"
           "The selected value is shared with the page Signal, so the control and its downstream preview stay on one source-of-truth path. ToggleGroup uses the same scheme, variant, size, radius, typography, and press treatment as Button on web, iOS, and Android."
-      Card variant:"outlined" border:1 p:{ xs:5 md:7 }
+      Card variant:"solid" border:1 p:{ xs:5 md:7 }
         Grid columns:1 gap:4
           ToggleGroup value:mode variant:"solid" scheme:"muted" size:"md" wide:true ariaLabel:"View mode"
             item id:"map" label:"Map" icon:"file"
@@ -78,7 +78,7 @@ page ToggleGroupPage
               "FILTERS"
             Title size:"lg" weight:"black"
               "Content density"
-            ToggleGroup selected:"all" variant:"outlined" scheme:"primary" size:"sm" ariaLabel:"Content density"
+            ToggleGroup selected:"all" variant:"solid" scheme:"primary" size:"sm" ariaLabel:"Content density"
               item id:"all" label:"All"
               item id:"unread" label:"Unread"
               item id:"saved" label:"Saved"
@@ -98,7 +98,7 @@ page ToggleGroupPage
               "DISABLED"
             Title size:"lg" weight:"black"
               "Preserve the choice"
-            ToggleGroup selected:"monthly" variant:"ghost" scheme:"muted" size:"sm" disabled:true ariaLabel:"Billing cycle"
+            ToggleGroup selected:"monthly" variant:"solid" scheme:"muted" size:"sm" disabled:true ariaLabel:"Billing cycle"
               item id:"monthly" label:"Monthly"
               item id:"annual" label:"Annual"
         Card variant:"solid" p:5
@@ -120,7 +120,7 @@ page ToggleGroupPage
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          ToggleGroup selected:"all" variant:"outlined" scheme:"primary" size:"sm" ariaLabel:"Content density"
+          ToggleGroup selected:"all" variant:"solid" scheme:"primary" size:"sm" ariaLabel:"Content density"
             item id:"all" label:"All"
             item id:"unread" label:"Unread"
             item id:"saved" label:"Saved"
@@ -173,7 +173,7 @@ page ToggleGroupPage
         column field:"defaultValue" label:"Default" width:"1fr"
   Section id:"toggle-group-next" p:{ xs:5 md:7 }
     Flex wrap:true justify:"between" gap:4
-      Button href:"/docs/views/control/record" variant:"outlined" rounded:"full"
+      Button href:"/docs/views/control/record" variant:"solid" rounded:"full"
         "Previous Record"
       Button href:"/docs/views/display/accordion" rounded:"full"
         "Next Accordion"

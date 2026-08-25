@@ -29,7 +29,7 @@ page SwapPage
       },
       {
         prop:"variant"
-        type:"solid | soft | outlined | ghost"
+        type:"solid"
         defaultValue:"solid"
       },
       {
@@ -54,7 +54,7 @@ page SwapPage
         "One binding, two icons"
       Text size:"sm"
         "The iconOn state is shown when the bound value is true. iconOff is shown when it is false. The transition is shared by web, iOS, and Android."
-      Card variant:"outlined" border:1 p:{ xs:6 md:8 }
+      Card variant:"solid" border:1 p:{ xs:6 md:8 }
         Flex direction:"column" align:"center" gap:3
           Swap bind:menuOpen iconOn:"close-circle" iconOff:"menu-dots" label:"Toggle menu"
           Text size:"sm"

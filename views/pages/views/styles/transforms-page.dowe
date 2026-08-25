@@ -108,7 +108,7 @@ page TransformsPage
           "The table groups the component roots that accept rotate, scale, translateX, and translateY."
       Table:
         data:transformCompatibility
-        variant:"outlined"
+        variant:"solid"
         scheme:"surface"
         size:"sm"
         striped:true

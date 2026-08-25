@@ -70,7 +70,7 @@ page ScaffoldPage
               appBar
                 AppBar variant:"solid" position:"fixed" bordered:true
                   start
-                    IconButton label:"Open navigation" variant:"ghost" show:{ xs:true md:false } onClick:{ set:openDrawer value:!openDrawer } icon:"menu-dots"
+                    IconButton label:"Open navigation" variant:"solid" show:{ xs:true md:false } onClick:{ set:openDrawer value:!openDrawer } icon:"menu-dots"
                     Text weight:"bold"
                       "Dowe"
               start

@@ -4,14 +4,14 @@ layout ScaffoldExampleLayout
     appBar
       AppBar variant:"solid" position:"fixed" bordered:true boxed:true
         start
-          IconButton label:"Open navigation" variant:"ghost" show:{ xs:true md:false } onClick:{ set:openDrawer value:!openDrawer } icon:"menu-dots"
+          IconButton label:"Open navigation" variant:"solid" show:{ xs:true md:false } onClick:{ set:openDrawer value:!openDrawer } icon:"menu-dots"
           Text weight:"bold"
             "Dowe"
         center
           Text size:"sm"
             "Scaffold shell"
         end
-          Button href:"/examples/bottombar" variant:"ghost" size:"sm"
+          Button href:"/examples/bottombar" variant:"solid" size:"sm"
             "Bottom bar"
     start
       Sidebar show:{ xs:false md:true } variant:"solid" scheme:"surface"

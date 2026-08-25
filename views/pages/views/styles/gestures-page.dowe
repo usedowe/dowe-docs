@@ -19,7 +19,7 @@ page GesturesPage
     Flex direction:"column" gap:6
       Title size:"3xl" weight:"black"
         "Lift, press, grow, or tilt"
-      Card variant:"outlined" rounded:"xl" p:{ xs:7 md:10 }
+      Card variant:"solid" rounded:"xl" p:{ xs:7 md:10 }
         Flex wrap:true justify:"center" align:"center" gap:5
           Chip variant:"solid" scheme:"warning" gesture:"lift" transition:"spring" rotate:-5
             "Lift"

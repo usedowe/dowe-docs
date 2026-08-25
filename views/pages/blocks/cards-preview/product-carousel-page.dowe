@@ -14,17 +14,17 @@ page ProductCarouselCardsPage
         Text size:"lg"
           "A compact catalog row for highlighting the products people explore most often."
       Flex align:"center" gap:4
-        IconButton icon:"alt-arrow-left" label:"Previous products" variant:"ghost" show:{ xs:false md:true }
+        IconButton icon:"alt-arrow-left" label:"Previous products" variant:"solid" show:{ xs:false md:true }
         Grid columns:{ xs:1 sm:2 md:4 } gap:5 w:"full"
           each in:products as:product key:product.id
-            Card variant:"outlined" scheme:"muted" rounded:"lg"
+            Card variant:"solid" scheme:"muted" rounded:"lg"
               Box bg:"muted" minH:44 p:6
                 Flex align:"center" justify:"center" minH:32
                   Icon name:"gallery-bold-duotone" fill:"muted" w:14 h:14
               Box p:5
                 Title size:"lg" weight:"black"
                   "{product.title}"
-        IconButton icon:"alt-arrow-right" label:"Next products" variant:"ghost" show:{ xs:false md:true }
+        IconButton icon:"alt-arrow-right" label:"Next products" variant:"solid" show:{ xs:false md:true }
       Flex justify:"center"
         Button rounded:"full" size:"lg"
           "See more"

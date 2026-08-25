@@ -32,7 +32,7 @@ page AlertDialogPage
       },
       {
         prop:"variant"
-        type:"solid | soft | outlined | ghost"
+        type:"solid"
         defaultValue:"solid"
       },
       {
@@ -82,7 +82,7 @@ page AlertDialogPage
           "Confirm a destructive action"
         Text size:"sm"
           "The panel stays neutral while variant follows Card, scheme colors the solid confirm Button, and cancel uses an outlined muted Button on every target."
-      Card variant:"outlined" p:{ xs:6 md:10 } border:1
+      Card variant:"solid" p:{ xs:6 md:10 } border:1
         Grid columns:1 gap:4
           Flex wrap:true justify:"center" gap:3
             Button onClick:openDeleteDialog scheme:"danger" iconStart:"trash-bin-trash"
@@ -135,7 +135,7 @@ page AlertDialogPage
               "Delete"
             Text size:"sm"
               "Name the scope of the deletion and keep the confirm action danger-colored."
-            Button onClick:openDeleteDialog variant:"outlined" scheme:"danger" size:"sm"
+            Button onClick:openDeleteDialog variant:"solid" scheme:"danger" size:"sm"
               "Review deletion"
         Card variant:"solid" p:5
           Grid columns:1 gap:3
@@ -145,7 +145,7 @@ page AlertDialogPage
               "Publish"
             Text size:"sm"
               "A static loading state keeps the confirmation surface visible while work is completing."
-            Button onClick:openPublishDialog variant:"outlined" scheme:"success" size:"sm"
+            Button onClick:openPublishDialog variant:"solid" scheme:"success" size:"sm"
               "Open publish state"
         Card variant:"solid" p:5
           Grid columns:1 gap:3
@@ -155,7 +155,7 @@ page AlertDialogPage
               "Archive"
             Text size:"sm"
               "Use a softer warning scheme when the action removes content from the active view but keeps history."
-            Button onClick:openArchiveDialog variant:"outlined" scheme:"warning" size:"sm"
+            Button onClick:openArchiveDialog variant:"solid" scheme:"warning" size:"sm"
               "Review archive"
       AlertDialog open:publishDialogOpen title:"Publish current workspace?" description:"The generated site will become the active preview for everyone with access to this project." confirmText:"Publishing..." cancelText:"Cancel" onConfirm:closePublishDialog onCancel:closePublishDialog variant:"solid" scheme:"success" loading:true
       Code:
@@ -177,7 +177,7 @@ page AlertDialogPage
         Text size:"sm"
           "AlertDialog requires an open bool Signal. Its generated actions use the declared labels and invoke the corresponding functions after the user makes a choice."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"outlined" p:5 border:1
+        Card variant:"solid" p:5 border:1
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold"
               "1 · OPEN"
@@ -185,7 +185,7 @@ page AlertDialogPage
               "Own visibility"
             Text size:"sm"
               "Bind open to a bool Signal path and set it from a named view function."
-        Card variant:"outlined" p:5 border:1
+        Card variant:"solid" p:5 border:1
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold"
               "2 · DECIDE"
@@ -193,7 +193,7 @@ page AlertDialogPage
               "Describe consequence"
             Text size:"sm"
               "title and description explain the decision before the generated actions appear."
-        Card variant:"outlined" p:5 border:1
+        Card variant:"solid" p:5 border:1
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold"
               "3 · RESOLVE"

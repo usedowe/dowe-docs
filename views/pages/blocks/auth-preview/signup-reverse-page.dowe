@@ -41,12 +41,12 @@ page SignupReverseAuthPage
             Button scheme:"info" w:"full"
               "Create account"
             Grid columns:{ xs:1 lg:2 } gap:2
-              Button variant:"outlined" scheme:"info" size:"sm" iconStart:"global" w:"full"
+              Button variant:"solid" scheme:"info" size:"sm" iconStart:"global" w:"full"
                 "Continue with Google"
-              Button variant:"outlined" scheme:"info" size:"sm" iconStart:"smartphone" w:"full"
+              Button variant:"solid" scheme:"info" size:"sm" iconStart:"smartphone" w:"full"
                 "Continue with Apple"
             Divider
-            Button href:"/blocks/auth-preview/login-reverse" variant:"ghost" scheme:"info" size:"sm"
+            Button href:"/blocks/auth-preview/login-reverse" variant:"solid" scheme:"info" size:"sm"
               "Already have an account? Log in"
       Box:
         show:{ xs:false md:true }

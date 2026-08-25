@@ -15,7 +15,7 @@ page AvatarGroupPage
       { prop:"autoFit" type:"boolean" defaultValue:"false" },
       { prop:"inline" type:"boolean" defaultValue:"false" },
       { prop:"bordered" type:"boolean" defaultValue:"false" },
-      { prop:"variant, scheme" type:"solid | soft; design family" defaultValue:"solid; primary" },
+      { prop:"variant, scheme" type:"solid; design family" defaultValue:"solid; primary" },
     ]
   Section id:"avatar-group-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
@@ -36,7 +36,7 @@ page AvatarGroupPage
           "Show a live project roster"
         Text size:"sm"
           "Use items when the collection already lives in page state. max keeps the header compact without throwing away the complete source array."
-      Card variant:"outlined" border:1 p:{ xs:5 md:7 }
+      Card variant:"solid" border:1 p:{ xs:5 md:7 }
         Grid columns:1 gap:5
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
@@ -155,7 +155,7 @@ page AvatarGroupPage
         column field:"defaultValue" label:"Default" width:"1fr"
   Section id:"avatar-group-next" p:{ xs:5 md:7 }
     Flex wrap:true justify:"between" gap:4
-      Button href:"/docs/views/display/avatar" variant:"outlined" rounded:"full"
+      Button href:"/docs/views/display/avatar" variant:"solid" rounded:"full"
         "Previous Avatar"
       Button href:"/docs/views/display/badge" rounded:"full"
         "Next Badge"

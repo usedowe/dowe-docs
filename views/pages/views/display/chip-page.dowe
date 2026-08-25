@@ -1,7 +1,7 @@
 page ChipPage
   const chipProps:
     value:[
-      { prop:"variant" type:"solid | soft | outlined | ghost" defaultValue:"solid" },
+      { prop:"variant" type:"solid" defaultValue:"solid" },
       { prop:"scheme" type:"primary | secondary | accent | muted | background | surface | success | info | warning | danger" defaultValue:"primary" },
       { prop:"size" type:"xs | sm | md | lg | xl" defaultValue:"md" },
       { prop:"startIcon" type:"quoted Solar icon name" defaultValue:"—" },
@@ -28,15 +28,15 @@ page ChipPage
           "VARIANTS"
         Title size:"3xl" weight:"black"
           "Four levels of emphasis"
-      Card variant:"outlined" p:{ xs:6 md:8 } border:1
+      Card variant:"solid" p:{ xs:6 md:8 } border:1
         Grid columns:{ xs:2 md:4 } gap:3
           Chip variant:"solid" scheme:"primary"
             "Solid"
           Chip variant:"solid" scheme:"success"
-            "Soft"
-          Chip variant:"outlined" scheme:"warning"
+            "Solid"
+          Chip variant:"solid" scheme:"warning"
             "Outlined"
-          Chip variant:"ghost" scheme:"danger"
+          Chip variant:"solid" scheme:"danger"
             "Ghost"
       Code:
         language:"dowe"
@@ -102,14 +102,14 @@ page ChipPage
       Grid columns:{ xs:1 md:2 } gap:3
         Chip variant:"solid" scheme:"info" startIcon:"settings"
           "Settings"
-        Chip variant:"outlined" scheme:"success" endIcon:"magnifier"
+        Chip variant:"solid" scheme:"success" endIcon:"magnifier"
           "Search"
         Chip variant:"solid" scheme:"info"
           start
             Svg viewBox:"0 0 24 24" w:4 h:4
               Path d:"M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm1 15h-2v-6h2v6Zm0-8h-2V7h2v2Z" fill:"currentColor"
           "Information"
-        Chip variant:"outlined" scheme:"success"
+        Chip variant:"solid" scheme:"success"
           "Verified"
           end
             Svg viewBox:"0 0 24 24" w:4 h:4
@@ -123,7 +123,7 @@ page ChipPage
         content:"""
           Chip variant:"solid" scheme:"info" startIcon:"settings"
             "Settings"
-          Chip variant:"outlined" scheme:"success" endIcon:"magnifier"
+          Chip variant:"solid" scheme:"success" endIcon:"magnifier"
             "Search"
 
           Chip variant:"solid" scheme:"info"

@@ -10,7 +10,7 @@ page MediaCardHeroPage
           Flex direction:{ xs:"column" sm:"row" } align:"center" justify:"center" gap:3
             Button size:"lg" rounded:"full" iconEnd:"arrow-right"
               "Get started"
-            Button variant:"outlined" size:"lg" rounded:"full"
+            Button variant:"solid" size:"lg" rounded:"full"
               "Talk to sales"
         Flex direction:"column" align:"center" justify:"center" gap:3 minH:{ xs:44 md:64 }
           Icon name:"gallery-bold-duotone" fill:"muted" w:16 h:16

@@ -31,7 +31,7 @@ page BrandPage
           "Give the identity its own interaction surface"
         Text size:"sm"
           "Set href when the mark should return home. Brand remains intrinsic unless w or h defines its rendered frame; with only one dimension, the other stays automatic and native Svg children preserve their viewBox ratio."
-      Card variant:"outlined" p:{ xs:6 md:9 } border:1
+      Card variant:"solid" p:{ xs:6 md:9 } border:1
         Flex direction:{ xs:"column" md:"row" } justify:"center" align:"center" gap:10
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold"

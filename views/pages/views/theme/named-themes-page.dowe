@@ -158,7 +158,7 @@ page NamedThemesPage
         Text size:"sm"
           "SelectTheme lists every resolved name. ToggleTheme is intentionally limited to light and dark. Both persist one shared theme preference."
       Flex direction:{ xs:"column" md:"row" } gap:3 align:{ xs:"stretch" md:"end" }
-        SelectTheme label:"Documentation theme" placeholder:"Choose a theme" variant:"outlined" scheme:"surface"
+        SelectTheme label:"Documentation theme" placeholder:"Choose a theme" variant:"solid" scheme:"surface"
         ToggleTheme variant:"solid" scheme:"secondary" size:"md"
       Flex gap:3 wrap:true
         Button variant:"solid" href:"/docs/views/multi-theme/select-theme"

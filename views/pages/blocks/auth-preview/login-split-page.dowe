@@ -33,7 +33,7 @@ page LoginSplitAuthPage
               Password bind:form.password label:"Password" placeholder:"Enter your password" hideStrength:true variant:"solid" w:"full"
               Flex justify:"between" align:"center" gap:2
                 Checkbox bind:form.remember label:"Remember me"
-                Button href:"/blocks/auth-preview/forgot-password" variant:"ghost" size:"xs"
+                Button href:"/blocks/auth-preview/forgot-password" variant:"solid" size:"xs"
                   "Forgot password?"
               Button w:"full"
                 "Log in"
@@ -43,10 +43,10 @@ page LoginSplitAuthPage
                 "OR"
               Divider
             Grid columns:{ xs:1 lg:2 } gap:2
-              Button variant:"outlined" size:"sm" iconStart:"global" w:"full"
+              Button variant:"solid" size:"sm" iconStart:"global" w:"full"
                 "Continue with Google"
-              Button variant:"outlined" size:"sm" iconStart:"smartphone" w:"full"
+              Button variant:"solid" size:"sm" iconStart:"smartphone" w:"full"
                 "Continue with Apple"
             Divider
-            Button href:"/blocks/auth-preview/signup-split" variant:"ghost" size:"sm"
+            Button href:"/blocks/auth-preview/signup-split" variant:"solid" size:"sm"
               "No account yet? Sign up"

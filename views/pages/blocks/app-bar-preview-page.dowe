@@ -10,7 +10,7 @@ page AppBarPreviewPage
       Flex wrap:true gap:3
         Button href:"/blocks/appbar" rounded:"full"
           "Browse all AppBars"
-        Button href:"/docs/views/layout/appbar" variant:"outlined" scheme:"muted" rounded:"full"
+        Button href:"/docs/views/layout/appbar" variant:"solid" scheme:"muted" rounded:"full"
           "View component reference"
   Section boxed:true py:{ xs:8 md:12 }
     Grid columns:{ xs:1 md:3 } gap:4

@@ -33,7 +33,7 @@ page FabPage
       },
       {
         prop:"variant"
-        type:"solid | soft"
+        type:"solid"
         defaultValue:"solid"
       },
       {
@@ -108,7 +108,7 @@ page FabPage
           "Open the page actions"
         Text size:"sm"
           "Use the fixed FAB in the lower-right corner. It stays outside the scrolling page flow, and its trigger expands an ordered list of direct fabAction children."
-      Card variant:"outlined" p:{ xs:5 md:7 } border:1
+      Card variant:"solid" p:{ xs:5 md:7 } border:1
         Grid columns:1 gap:3
           Title size:"lg" weight:"bold"
             "One trigger, focused choices"
@@ -166,7 +166,7 @@ page FabPage
         Title size:"3xl" weight:"black"
           "A compact, intentional trigger"
         Text size:"sm"
-          "Fab supports solid and soft variants, every action scheme, and five square control sizes. Expanded actions use fully tappable intrinsic-width capsules, while the complete trigger circle accepts input and rotates its plus into a dismiss mark on web, Android, and iOS."
+          "Fab supports the solid variant, every action scheme, and five square control sizes. Expanded actions use fully tappable intrinsic-width capsules, while the complete trigger circle accepts input and rotates its plus into a dismiss mark on web, Android, and iOS."
         Text size:"sm"
           "The primary Fab trigger scales to 0.94 while pressed on web, iOS, and Android. Use gesture:\"none\" to disable the feedback."
       Grid columns:{ xs:1 md:2 } gap:5
@@ -179,11 +179,11 @@ page FabPage
             "Use solid when the action is the clearest next step in the current screen."
         Flex direction:"column" gap:2
           Text size:"xs" weight:"bold"
-            "SOFT"
+            "SOLID"
           Title size:"lg" weight:"bold"
             "Lower visual emphasis"
           Text size:"sm"
-            "Use soft when the action remains convenient but should defer to page content."
+            "Use solid when the action remains convenient but should defer to page content."
     Code:
       language:"dowe"
       variant:"solid"

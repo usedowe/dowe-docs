@@ -16,7 +16,7 @@ page ModalPage
       },
       {
         prop:"variant"
-        type:"solid | soft | outlined | ghost"
+        type:"solid"
         defaultValue:"solid"
       },
       {
@@ -72,7 +72,7 @@ page ModalPage
           "A focused profile review"
         Text size:"sm"
           "Open the dialog to inspect its optional header and footer, Card-resolved surface, Drawer close control, overlay, and explicit close action."
-      Card variant:"outlined" p:{ xs:6 md:10 } border:1
+      Card variant:"solid" p:{ xs:6 md:10 } border:1
         Flex justify:"center" align:"center"
           Button onClick:openProfileModal iconStart:"user"
             "Review profile"
@@ -91,7 +91,7 @@ page ModalPage
                 "Product designer · maya@acme.test"
         footer
           Flex justify:"end" gap:3
-            Button onClick:closeProfileModal variant:"ghost" scheme:"muted"
+            Button onClick:closeProfileModal variant:"solid" scheme:"muted"
               "Cancel"
             Button onClick:closeProfileModal
               "Confirm"
@@ -167,21 +167,21 @@ page ModalPage
         Text size:"sm"
           "By default, the generated close control and a click on the overlay close the dialog. Keep a visible action in the footer when the task must make its exit explicit."
       Grid columns:{ xs:1 md:2 } gap:5
-        Card variant:"outlined" p:5 border:1
+        Card variant:"solid" p:5 border:1
           Grid columns:1 gap:3
             Text size:"sm" weight:"bold"
               "Standard close behavior"
             Text size:"sm"
               "The overlay and generated Drawer-style SVG control dismiss this dialog, and onClose invokes the declared function after the open Signal changes."
-            Button onClick:openPolicyModal variant:"outlined" scheme:"info"
+            Button onClick:openPolicyModal variant:"solid" scheme:"info"
               "Open policy"
-        Card variant:"outlined" p:5 border:1
+        Card variant:"solid" p:5 border:1
           Grid columns:1 gap:3
             Text size:"sm" weight:"bold"
               "Explicit decision"
             Text size:"sm"
               "Disable overlay close and hide the generated close control when the footer must be the visible route out of the dialog."
-            Button onClick:openProtectedModal variant:"outlined" scheme:"warning"
+            Button onClick:openProtectedModal variant:"solid" scheme:"warning"
               "Open protected action"
       Modal open:policyModalOpen onClose:closePolicyModal variant:"solid" scheme:"info"
         header
@@ -205,7 +205,7 @@ page ModalPage
           "The footer provides the visible actions for this decision."
         footer
           Flex justify:"end" gap:3
-            Button onClick:closeProtectedModal variant:"ghost" scheme:"muted"
+            Button onClick:closeProtectedModal variant:"solid" scheme:"muted"
               "Cancel"
             Button onClick:closeProtectedModal scheme:"warning"
               "Publish"
@@ -223,7 +223,7 @@ page ModalPage
             Text
               "The footer provides the visible actions for this decision."
             footer
-              Button onClick:closePublish variant:"ghost" scheme:"muted"
+              Button onClick:closePublish variant:"solid" scheme:"muted"
                 "Cancel"
               Button onClick:publish scheme:"warning"
                 "Publish"
@@ -236,7 +236,7 @@ page ModalPage
         Title size:"3xl" weight:"black"
           "Keep the dialog aligned with its context"
         Text size:"sm"
-          "Modal resolves solid, soft, outlined, and ghost exactly like Card. Outlined keeps a readable neutral surface with the selected scheme on its border; the default scheme remains surface."
+          "Modal uses the solid treatment exactly like Card; the default scheme remains surface."
       Code:
         language:"dowe"
         variant:"solid"
@@ -252,11 +252,11 @@ page ModalPage
             Text
               "Informational dialog"
 
-          Modal open:reviewOpen variant:"outlined" scheme:"warning"
+          Modal open:reviewOpen variant:"solid" scheme:"warning"
             Text
               "Review before continuing"
 
-          Modal open:removeOpen variant:"ghost" scheme:"danger"
+          Modal open:removeOpen variant:"solid" scheme:"danger"
             Text
               "Destructive context"
         """

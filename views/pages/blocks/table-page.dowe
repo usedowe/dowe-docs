@@ -240,9 +240,9 @@ page TablesPage
                                   Box bg:"muted" rounded:"full" px:3 py:1 show:{ xs:false md:true }
                                     Text size:"xs"
                                       "{member.status}"
-                                  IconButton icon:"menu-dots" label:"Open member actions" variant:"ghost" scheme:"muted" size:"sm"
+                                  IconButton icon:"menu-dots" label:"Open member actions" variant:"solid" scheme:"muted" size:"sm"
                               Flex justify:"center" p:4
-                                Pagination bind:currentPage total:totalMembers pageSize:10 onChange:loadMembers variant:"ghost" scheme:"primary" size:"sm" ariaLabel:"Team directory pages"
+                                Pagination bind:currentPage total:totalMembers pageSize:10 onChange:loadMembers variant:"solid" scheme:"primary" size:"sm" ariaLabel:"Team directory pages"
                       tab id:"overview" label:"Overview"
                         Text p:5
                           "Overview content"
@@ -403,7 +403,7 @@ page TablesPage
                     "Project status"
                   Table:
                     data:projects
-                    variant:"outlined"
+                    variant:"solid"
                     scheme:"surface"
                     size:"sm"
                     striped:true

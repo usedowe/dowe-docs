@@ -43,7 +43,7 @@ page FeatureCardsPricingPage
           "Choose a clear starting point, then scale the plan as your team and traffic grow."
       Grid columns:{ xs:1 md:3 } gap:5 align:"stretch"
         each in:plans as:plan key:plan.id
-          Card variant:"outlined" scheme:"muted" rounded:"xl" p:0
+          Card variant:"solid" scheme:"muted" rounded:"xl" p:0
             Grid columns:1 gap:0
               Box bg:"muted" p:{ xs:6 md:7 }
                 Flex direction:"column" align:"center" gap:2

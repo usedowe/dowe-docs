@@ -215,7 +215,7 @@ page CanvasParticlesPage
         rounded:"lg"
         border:1
       Flex justify:"space-between" align:"center" wrap:true gap:3
-        Button href:"/docs/views/canvas/arcade" variant:"ghost" scheme:"muted" iconStart:"alt-arrow-left"
+        Button href:"/docs/views/canvas/arcade" variant:"solid" scheme:"muted" iconStart:"alt-arrow-left"
           "Arcade"
         Button href:"/docs/views/canvas/infographic" iconEnd:"alt-arrow-right"
           "Build an infographic"

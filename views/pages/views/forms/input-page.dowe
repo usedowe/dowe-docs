@@ -50,7 +50,7 @@ page InputPage
       },
       {
         prop:"variant"
-        type:"solid | soft | outlined | ghost"
+        type:"solid"
         defaultValue:"solid"
       },
       {
@@ -161,9 +161,9 @@ page InputPage
           "Variant changes the container treatment while keeping the same normalized field geometry."
       Grid columns:{ xs:1 md:3 } gap:4
         Input variant:"solid" label:"Solid" placeholder:"Solid input" w:"full"
-        Input variant:"solid" label:"Soft" placeholder:"Soft input" w:"full"
+        Input variant:"solid" label:"Solid" placeholder:"Soft input" w:"full"
         Input label:"Outlined" placeholder:"Outlined input" w:"full"
-        Input variant:"ghost" label:"Ghost" placeholder:"Ghost input" w:"full"
+        Input variant:"solid" label:"Ghost" placeholder:"Ghost input" w:"full"
   Section id:"input-schemes" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2

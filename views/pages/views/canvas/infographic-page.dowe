@@ -254,7 +254,7 @@ page CanvasInfographicPage
             Text size:"sm"
               "Repeat essential values as Text, Table, or controls outside the pixel surface."
       Flex justify:"space-between" align:"center" wrap:true gap:3
-        Button href:"/docs/views/canvas/particles" variant:"ghost" scheme:"muted" iconStart:"alt-arrow-left"
+        Button href:"/docs/views/canvas/particles" variant:"solid" scheme:"muted" iconStart:"alt-arrow-left"
           "Particles"
         Button href:"/docs/views/canvas/composition" iconEnd:"alt-arrow-right"
           "Compose images"

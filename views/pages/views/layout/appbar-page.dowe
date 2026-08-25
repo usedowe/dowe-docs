@@ -3,7 +3,7 @@ page AppBarPage
     value:[
       {
         prop:"variant"
-        type:"solid | soft | outlined | ghost"
+        type:"solid"
         defaultValue:"solid"
       },
       {
@@ -120,7 +120,7 @@ page AppBarPage
                     Text size:"sm"
                       "Documentation"
                   end
-                    Button href:"/" variant:"ghost" size:"sm"
+                    Button href:"/" variant:"solid" size:"sm"
                       "Home"
                   bottom
                     Text size:"xs"
@@ -151,22 +151,22 @@ page AppBarPage
               appBar
                 AppBar position:"fixed" boxed:true bordered:true
                   start
-                    Button onClick:{ set:mobileMenuOpen value:!mobileMenuOpen } variant:"ghost"
+                    Button onClick:{ set:mobileMenuOpen value:!mobileMenuOpen } variant:"solid"
                       "Menu"
                   center
                     Text weight:"bold"
                       "Dowe"
                   end
-                    Button href:"/docs" variant:"ghost"
+                    Button href:"/docs" variant:"solid"
                       "Docs"
                   mobileMenu mobileMenuOpen:mobileMenuOpen
                     header
                       Text weight:"bold"
                         "Navigation"
                     body
-                      Button href:"/docs/views" variant:"ghost"
+                      Button href:"/docs/views" variant:"solid"
                         "Views"
-                      Button href:"/docs/server" variant:"ghost"
+                      Button href:"/docs/server" variant:"solid"
                         "Server"
                     footer
                       Text size:"xs"

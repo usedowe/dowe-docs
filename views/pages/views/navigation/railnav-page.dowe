@@ -3,8 +3,8 @@ page RailNavPage
     value:[
       {
         prop:"variant"
-        type:"solid | soft | outlined | ghost"
-        defaultValue:"ghost"
+        type:"solid"
+        defaultValue:"solid"
       },
       {
         prop:"scheme"
@@ -86,7 +86,7 @@ page RailNavPage
         Text size:"sm"
           "Use a fragment such as href:\"#railnav-labels\" to navigate to a Section id on the same page. The transition scrolls smoothly and aligns below a fixed or sticky AppBar on web."
       Grid columns:{ xs:1 md:2 } gap:6 align:"start"
-        Card variant:"outlined" p:{ xs:6 md:10 } border:1
+        Card variant:"solid" p:{ xs:6 md:10 } border:1
           Flex justify:"center"
             RailNav scheme:"primary"
               item label:"RailNav" href:"#railnav-introduction" icon:"route"
@@ -154,7 +154,7 @@ page RailNavPage
           RailNav variant:"solid" scheme:"primary" size:"sm"
             item label:"Soft" href:"/docs/views/navigation/railnav" icon:"home"
             item label:"Settings" href:"/docs/views" icon:"settings"
-          RailNav variant:"outlined" scheme:"primary" size:"sm"
+          RailNav variant:"solid" scheme:"primary" size:"sm"
             item label:"Outlined" href:"/docs/views/navigation/railnav" icon:"home"
             item label:"Settings" href:"/docs/views" icon:"settings"
           RailNav scheme:"primary" size:"sm"
@@ -178,11 +178,11 @@ page RailNavPage
         Title size:"xl" weight:"bold"
           "Sizes"
         Flex wrap:true align:"start" gap:5
-          RailNav variant:"outlined" size:"sm"
+          RailNav variant:"solid" size:"sm"
             item label:"Small" href:"/docs/views/navigation/railnav" icon:"route"
-          RailNav variant:"outlined"
+          RailNav variant:"solid"
             item label:"Medium" href:"/docs/views/navigation/railnav" icon:"route"
-          RailNav variant:"outlined" size:"lg"
+          RailNav variant:"solid" size:"lg"
             item label:"Large" href:"/docs/views/navigation/railnav" icon:"route"
   Section id:"railnav-contract" p:{ xs:5 md:7 }
     Grid columns:1 gap:6

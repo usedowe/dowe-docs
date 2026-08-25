@@ -25,7 +25,7 @@ page LineChartPage
   const lineProps:
     value:[
       { prop:"data, series" type:"Signal array paths" defaultValue:"data required unless series is set" }
-      { prop:"variant, scheme" type:"solid | soft | outlined | ghost, Dowe family" defaultValue:"solid, surface" }
+      { prop:"variant, scheme" type:"solid, Dowe family" defaultValue:"solid, surface" }
       { prop:"size, palette" type:"chart size, chart palette" defaultValue:"md, default" }
       { prop:"curve" type:"linear | smooth" defaultValue:"linear" }
       { prop:"strokeWidth, pointRadius" type:"positive numbers" defaultValue:"2, 3" }
@@ -93,7 +93,7 @@ page LineChartPage
           "Use series when the legend is part of the story. hidePoints and hideGrid create a quieter executive view while keeping the trend itself prominent."
       LineChart:
         series:products
-        variant:"outlined"
+        variant:"solid"
         scheme:"primary"
         size:"lg"
         palette:"forest"
@@ -108,7 +108,7 @@ page LineChartPage
           data:ChartPoint[]
         signal products type:ChartSeries[] value:[{ name:"Core" data:[{ x:1 y:32 } { x:2 y:38 }] }]
 
-        LineChart series:products variant:"outlined" scheme:"primary" palette:"forest" curve:"linear" strokeWidth:2 hidePoints:true hideGrid:true legendPosition:"top"
+        LineChart series:products variant:"solid" scheme:"primary" palette:"forest" curve:"linear" strokeWidth:2 hidePoints:true hideGrid:true legendPosition:"top"
       """
   Section id:"line-chart-states" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
@@ -122,10 +122,10 @@ page LineChartPage
       Grid columns:{ xs:1 md:3 } gap:4
         LineChart data:revenue variant:"solid" scheme:"surface" size:"md" hidePoints:true hideGrid:true showGradientFill:true
         LineChart data:revenue variant:"solid" scheme:"success" size:"md" curve:"linear" pointRadius:5
-        LineChart data:emptyRevenue variant:"outlined" scheme:"warning" size:"md" emptyLabel:"No revenue yet"
+        LineChart data:emptyRevenue variant:"solid" scheme:"warning" size:"md" emptyLabel:"No revenue yet"
       Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
         LineChart data:revenue variant:"solid" scheme:"surface" hidePoints:true hideGrid:true showGradientFill:true
-        LineChart data:emptyRevenue variant:"outlined" scheme:"warning" emptyLabel:"No revenue yet"
+        LineChart data:emptyRevenue variant:"solid" scheme:"warning" emptyLabel:"No revenue yet"
       """
   Section id:"line-chart-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5

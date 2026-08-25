@@ -9,7 +9,7 @@ page VideoSplitHeroPage
         Flex direction:{ xs:"column" sm:"row" } align:"center" gap:3
           Button size:"lg" rounded:"full" iconEnd:"arrow-right"
             "Get started"
-          Button variant:"outlined" size:"lg" rounded:"full"
+          Button variant:"solid" size:"lg" rounded:"full"
             "Talk to sales"
       Video:
         src:"https://example.com/video.mp4"

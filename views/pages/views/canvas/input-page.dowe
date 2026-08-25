@@ -265,7 +265,7 @@ page CanvasInputPage
             Text size:"sm"
               "Sensors start only when onMotion exists. Missing or denied sensor access produces no callback."
       Flex justify:"space-between" align:"center" wrap:true gap:3
-        Button href:"/docs/views/canvas/composition" variant:"ghost" scheme:"muted" iconStart:"alt-arrow-left"
+        Button href:"/docs/views/canvas/composition" variant:"solid" scheme:"muted" iconStart:"alt-arrow-left"
           "Composition"
         Button href:"/docs/views/canvas/overview" iconEnd:"home"
           "Back to overview"

@@ -27,7 +27,7 @@ page VectorPage
         "Find related records"
       Text size:"lg"
         "Store embeddings, attach JSON metadata, and find related records with the same server-only contract in local and remote environments."
-      Button href:"/docs/server/kv" variant:"ghost" scheme:"muted" size:"sm"
+      Button href:"/docs/server/kv" variant:"solid" scheme:"muted" size:"sm"
         "Cache documentation"
   Section id:"vector-connection" p:{ xs:5 md:7 }
     Grid columns:1 gap:5

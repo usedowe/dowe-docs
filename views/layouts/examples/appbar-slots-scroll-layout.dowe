@@ -13,7 +13,7 @@ layout AppBarSlotsScrollLayout
           Text size:"sm"
             "Scroll-aware AppBar"
         end
-          Button href:"/examples/appbar-one" variant:"ghost" size:"sm"
+          Button href:"/examples/appbar-one" variant:"solid" size:"sm"
             "Fixed"
         bottom
           Box bg:"background" px:3 py:2

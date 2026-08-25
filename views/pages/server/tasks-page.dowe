@@ -24,7 +24,7 @@ page TasksPage
         "Start isolated work now"
       Text size:"lg"
         "Tasks start detached server work immediately. The caller continues without a result while Dowe runs the work in an isolated worker."
-      Button href:"/docs/server/background-jobs" variant:"ghost" scheme:"muted" size:"sm" iconStart:"chart-2"
+      Button href:"/docs/server/background-jobs" variant:"solid" scheme:"muted" size:"sm" iconStart:"chart-2"
         "Scheduled cron jobs"
   Section id:"tasks-named" p:{ xs:5 md:7 }
     Grid columns:1 gap:5

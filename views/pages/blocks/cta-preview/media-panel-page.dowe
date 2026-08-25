@@ -1,7 +1,7 @@
 page MediaPanelCtaPage
   const actions value:[
     { id:"start" label:"Get started" variant:"solid" },
-    { id:"sales" label:"Talk to sales" variant:"outlined" },
+    { id:"sales" label:"Talk to sales" variant:"solid" },
   ]
   Section id:"media-panel-cta" bg:"muted" color:"mutedText" boxed:true p:{ xs:6 md:12 }
     Grid columns:{ xs:1 md:2 } gap:{ xs:8 md:14 } align:"center" minH:"vh-0"

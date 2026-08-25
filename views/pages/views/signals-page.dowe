@@ -25,14 +25,14 @@ page SignalsPage
           "Local counter and visibility"
         Text size:"sm"
           "This counter and its details panel reset when this page instance is recreated."
-      Card variant:"outlined" p:{ xs:5 md:7 } border:1
+      Card variant:"solid" p:{ xs:5 md:7 } border:1
         Grid columns:1 gap:4
           Title size:"2xl" weight:"black"
             "Local reactive counter"
           Flex wrap:true gap:3
             Button onClick:{ set:count add:1 }
               "Add one"
-            Button onClick:{ set:detailsVisible value:!detailsVisible } variant:"outlined"
+            Button onClick:{ set:detailsVisible value:!detailsVisible } variant:"solid"
               "Toggle details"
           Text show:detailsVisible size:"sm"
             "The show prop reads the same boolean Signal and removes this text from layout while false."

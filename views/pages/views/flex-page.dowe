@@ -49,7 +49,7 @@ page FlexPage
           "Place items side by side"
         Text size:"sm"
           "Row is the default direction. Gap separates each child along the horizontal axis."
-      Card variant:"outlined" p:{ xs:5 md:7 } border:1
+      Card variant:"solid" p:{ xs:5 md:7 } border:1
         Flex direction:"row" justify:"center" align:"center" gap:4
           Box bg:"success" color:"surface" p:4 rounded:"sm"
             Text
@@ -87,7 +87,7 @@ page FlexPage
           "Stack items vertically"
         Text size:"sm"
           "Column changes the main axis while justify, align, and gap keep the same target-neutral meaning."
-      Card variant:"outlined" p:{ xs:5 md:7 } border:1
+      Card variant:"solid" p:{ xs:5 md:7 } border:1
         Flex direction:"column" align:"center" gap:4
           Box bg:"success" color:"surface" p:4 rounded:"sm"
             Text

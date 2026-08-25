@@ -3,7 +3,7 @@ page AccordionPage
     value:[
       { prop:"item" type:"id, label, optional disabled/defaultOpen" defaultValue:"required" },
       { prop:"multiple" type:"boolean" defaultValue:"false" },
-      { prop:"variant" type:"solid | soft | outlined | ghost" defaultValue:"ghost" },
+      { prop:"variant" type:"solid" defaultValue:"solid" },
       { prop:"scheme" type:"primary | secondary | accent | muted | background | surface | success | info | warning | danger" defaultValue:"design/theme" },
       { prop:"item children" type:"normal view tree" defaultValue:"required" },
     ]
@@ -15,7 +15,7 @@ page AccordionPage
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Accordion"
         Text size:"lg"
-          "Accordion keeps the same normalized state, disclosure geometry, and border treatment across web, Android Compose, the Android development launcher, and iOS. Ghost stays editorial and quiet by default; soft, outlined, and solid treatments make the variant-versus-scheme balance explicit when a surface needs more emphasis."
+          "Accordion keeps the same normalized state, disclosure geometry, and border treatment across web, Android Compose, the Android development launcher, and iOS. Solid keeps the treatment consistent while scheme controls the semantic color family."
       Card variant:"solid" scheme:"primary" p:5 rounded:"lg" minW:56
         Grid columns:1 gap:1
           Text size:"xs" weight:"bold" spacing:"widest"
@@ -34,7 +34,7 @@ page AccordionPage
         Text size:"sm"
           "multiple:true lets readers compare answers without closing the panel they are already reading; multiple:false always keeps at most one item open."
       Card variant:"solid" scheme:"surface" p:{ xs:5 md:7 }
-        Accordion multiple:true variant:"outlined" scheme:"surface" rounded:"md"
+        Accordion multiple:true variant:"solid" scheme:"surface" rounded:"md"
           item id:"source" label:"Where does the source run?" defaultOpen:true
             Grid columns:1 gap:2 p:2
               Text size:"sm"
@@ -54,7 +54,7 @@ page AccordionPage
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Accordion multiple:true variant:"outlined" scheme:"surface" rounded:"md"
+          Accordion multiple:true variant:"solid" scheme:"surface" rounded:"md"
             item id:"source" label:"Where does the source run?" defaultOpen:true
               Text size:"sm"
                 "Dowe lowers the page to a shared view model."
@@ -100,7 +100,7 @@ page AccordionPage
                   "background and surface are structural families intended for documentation panels."
               item id:"variant" label:"Keep variant orthogonal"
                 Text size:"sm"
-                  "solid, soft, outlined, and ghost describe treatment; scheme supplies the matching container, content, border, and Icon colors."
+                  "solid describes treatment; scheme supplies the matching container, content, border, and Icon colors."
         Card variant:"solid" p:5
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold"
@@ -122,7 +122,7 @@ page AccordionPage
         Title size:"3xl" weight:"black"
           "Props"
         Text size:"sm"
-          "Accordion also accepts the applicable common spacing, sizing, border, visibility, and accessibility props. Ghost uses separators, soft uses a subtle item border, and solid or outlined use full item borders consistently on every target."
+          "Accordion also accepts the applicable common spacing, sizing, border, visibility, and accessibility props. Solid uses full item borders consistently on every target."
       Table:
         data:accordionProps
         variant:"solid"
@@ -136,7 +136,7 @@ page AccordionPage
         column field:"defaultValue" label:"Default" width:"1fr"
   Section id:"accordion-next" p:{ xs:5 md:7 }
     Flex wrap:true justify:"between" gap:4
-      Button href:"/docs/views/control/toggle-group" variant:"outlined" rounded:"full"
+      Button href:"/docs/views/control/toggle-group" variant:"solid" rounded:"full"
         "Previous ToggleGroup"
       Button href:"/docs/views/display/avatar" rounded:"full"
         "Next Avatar"

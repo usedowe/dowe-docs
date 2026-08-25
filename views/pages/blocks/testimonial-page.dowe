@@ -52,7 +52,7 @@ page TestimonialsPage
                       "Real feedback from people who trusted our team with important work."
                   Grid columns:{ xs:1 md:3 } gap:5
                     each in:testimonials as:testimonial key:testimonial.id
-                      Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:72
+                      Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:72
                         Flex direction:"column" align:"start" justify:"between" gap:6 minH:56
                           Grid columns:1 gap:4
                             Box bg:"muted" rounded:"full" w:14 h:14 p:3
@@ -120,11 +120,11 @@ page TestimonialsPage
                     Flex direction:{ xs:"column" sm:"row" } gap:3
                       Button size:"lg" rounded:"full" iconEnd:"arrow-right"
                         "Get started"
-                      Button variant:"outlined" size:"lg" rounded:"full"
+                      Button variant:"solid" size:"lg" rounded:"full"
                         "Talk to sales"
                   Carousel variant:"controls" scheme:"primary" slideWidth:360 gap:20 hideIndicators:true
                     slide id:"john"
-                      Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:64
+                      Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:64
                         Flex direction:"column" justify:"between" gap:6 minH:48
                           Flex gap:1
                             each in:stars as:star key:star.id
@@ -137,7 +137,7 @@ page TestimonialsPage
                             Text
                               "{reviews.john.role}"
                     slide id:"sophie"
-                      Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:64
+                      Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:64
                         Flex direction:"column" justify:"between" gap:6 minH:48
                           Flex gap:1
                             each in:stars as:star key:star.id
@@ -150,7 +150,7 @@ page TestimonialsPage
                             Text
                               "{reviews.sophie.role}"
                     slide id:"matt"
-                      Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:64
+                      Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:64
                         Flex direction:"column" justify:"between" gap:6 minH:48
                           Flex gap:1
                             each in:stars as:star key:star.id

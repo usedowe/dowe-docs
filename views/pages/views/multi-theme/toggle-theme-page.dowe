@@ -3,7 +3,7 @@ page ToggleThemePage
     value:[
       {
         prop:"variant"
-        type:"solid | soft | outlined | ghost"
+        type:"solid"
         defaultValue:"solid"
       },
       {
@@ -45,7 +45,7 @@ page ToggleThemePage
           "Switch the current appearance"
         Text size:"sm"
           "The sun and moon icon describe the next action. Every ToggleTheme control reflects the same persisted preference."
-      Card variant:"outlined" p:{ xs:5 md:7 } border:1
+      Card variant:"solid" p:{ xs:5 md:7 } border:1
         Flex gap:4 align:"center" justify:"between"
           Grid columns:1 gap:1
             Title size:"lg" weight:"bold"
@@ -83,15 +83,15 @@ page ToggleThemePage
           Grid columns:1 gap:3 align:"center"
             ToggleTheme variant:"solid" scheme:"secondary" size:"md"
             Text size:"sm"
-              "Soft"
+              "Solid"
         Card variant:"solid" p:5
           Grid columns:1 gap:3 align:"center"
-            ToggleTheme variant:"outlined" scheme:"accent" size:"md"
+            ToggleTheme variant:"solid" scheme:"accent" size:"md"
             Text size:"sm"
               "Outlined"
         Card variant:"solid" p:5
           Grid columns:1 gap:3 align:"center"
-            ToggleTheme variant:"ghost" scheme:"muted" size:"md"
+            ToggleTheme variant:"solid" scheme:"muted" size:"md"
             Text size:"sm"
               "Ghost"
   Section id:"toggle-theme-behavior" p:{ xs:5 md:7 }

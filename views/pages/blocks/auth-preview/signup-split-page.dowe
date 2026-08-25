@@ -40,10 +40,10 @@ page SignupSplitAuthPage
             Button scheme:"success" w:"full"
               "Create account"
             Grid columns:{ xs:1 lg:2 } gap:2
-              Button variant:"outlined" scheme:"success" size:"sm" iconStart:"global" w:"full"
+              Button variant:"solid" scheme:"success" size:"sm" iconStart:"global" w:"full"
                 "Continue with Google"
-              Button variant:"outlined" scheme:"success" size:"sm" iconStart:"smartphone" w:"full"
+              Button variant:"solid" scheme:"success" size:"sm" iconStart:"smartphone" w:"full"
                 "Continue with Apple"
             Divider
-            Button href:"/blocks/auth-preview/login-split" variant:"ghost" scheme:"success" size:"sm"
+            Button href:"/blocks/auth-preview/login-split" variant:"solid" scheme:"success" size:"sm"
               "Already have an account? Log in"

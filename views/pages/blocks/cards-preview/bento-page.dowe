@@ -27,7 +27,7 @@ page BentoCardsPage
               "Mobile app"
             Text
               "A focused mobile experience for customers and teams wherever their work happens."
-            Button variant:"ghost" size:"sm" iconEnd:"arrow-right"
+            Button variant:"solid" size:"sm" iconEnd:"arrow-right"
               "Learn more"
         Grid columns:1 gap:5
           each in:supportingFeatures as:feature key:feature.id
@@ -38,7 +38,7 @@ page BentoCardsPage
                     "{feature.title}"
                   Text
                     "{feature.description}"
-                  Button variant:"ghost" size:"sm" iconEnd:"arrow-right"
+                  Button variant:"solid" size:"sm" iconEnd:"arrow-right"
                     "Learn more"
                 Flex align:"center" justify:"center"
                   Icon name:"gallery-bold-duotone" fill:"muted" w:14 h:14

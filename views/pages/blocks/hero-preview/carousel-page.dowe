@@ -17,7 +17,7 @@ page CarouselHeroPage
           Flex direction:{ xs:"column" sm:"row" } align:"center" justify:"center" gap:3
             Button size:"lg" rounded:"full" iconEnd:"arrow-right"
               "Get started"
-            Button variant:"outlined" size:"lg" rounded:"full"
+            Button variant:"solid" size:"lg" rounded:"full"
               "Talk to sales"
       slide id:"delivery"
         Flex direction:"column" align:"center" justify:"center" gap:5 minH:"vh-32"
@@ -30,7 +30,7 @@ page CarouselHeroPage
           Flex direction:{ xs:"column" sm:"row" } align:"center" justify:"center" gap:3
             Button size:"lg" rounded:"full" iconEnd:"arrow-right"
               "Get started"
-            Button variant:"outlined" size:"lg" rounded:"full"
+            Button variant:"solid" size:"lg" rounded:"full"
               "Talk to sales"
       slide id:"support"
         Flex direction:"column" align:"center" justify:"center" gap:5 minH:"vh-32"
@@ -43,5 +43,5 @@ page CarouselHeroPage
           Flex direction:{ xs:"column" sm:"row" } align:"center" justify:"center" gap:3
             Button size:"lg" rounded:"full" iconEnd:"arrow-right"
               "Get started"
-            Button variant:"outlined" size:"lg" rounded:"full"
+            Button variant:"solid" size:"lg" rounded:"full"
               "Talk to sales"

@@ -3,7 +3,7 @@ page NavMenuPage
     value:[
       {
         prop:"variant"
-        type:"solid | soft | outlined | ghost"
+        type:"solid"
         defaultValue:"solid"
       },
       {
@@ -100,9 +100,9 @@ page NavMenuPage
           "On iOS, NavMenu uses the same Dowe-owned anchored overlay as Dropdown instead of the system popover. Android lets the selected child run before popup dismissal, then animates to the laid-out Section below the AppBar."
         Text size:"sm"
           "An item can use href:\"#navmenu-structure\" to target a Section id on the current page. Dowe validates the fragment, scrolls smoothly, respects reduced motion, and keeps the destination below a fixed or sticky AppBar."
-      Card variant:"outlined" p:{ xs:5 md:8 } border:1
+      Card variant:"solid" p:{ xs:5 md:8 } border:1
         Flex justify:"center"
-          NavMenu variant:"ghost" scheme:"primary" size:"md"
+          NavMenu variant:"solid" scheme:"primary" size:"md"
             item label:"Overview" href:"#navmenu-introduction"
             submenu label:"On this page"
               item label:"Structure" description:"Submenus and megamenus" href:"#navmenu-structure"
@@ -115,7 +115,7 @@ page NavMenuPage
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          NavMenu variant:"ghost" scheme:"primary" size:"md"
+          NavMenu variant:"solid" scheme:"primary" size:"md"
             item label:"Overview" href:"#navmenu-introduction"
             submenu label:"On this page"
               item label:"Structure" description:"Submenus and megamenus" href:"#navmenu-structure"
@@ -139,9 +139,9 @@ page NavMenuPage
             item label:"Solid" href:"/docs/views/navigation/navmenu"
           NavMenu variant:"solid" scheme:"primary" size:"sm"
             item label:"Soft" href:"/docs/views/navigation/navmenu"
-          NavMenu variant:"outlined" scheme:"primary" size:"sm"
+          NavMenu variant:"solid" scheme:"primary" size:"sm"
             item label:"Outlined" href:"/docs/views/navigation/navmenu"
-          NavMenu variant:"ghost" scheme:"primary" size:"sm"
+          NavMenu variant:"solid" scheme:"primary" size:"sm"
             item label:"Ghost" href:"/docs/views/navigation/navmenu"
       Grid columns:1 gap:4
         Title size:"xl" weight:"bold"
@@ -165,11 +165,11 @@ page NavMenuPage
         Title size:"xl" weight:"bold"
           "Sizes"
         Flex wrap:true align:"start" gap:5
-          NavMenu variant:"outlined" scheme:"primary" size:"sm"
+          NavMenu variant:"solid" scheme:"primary" size:"sm"
             item label:"Small" href:"/docs/views/navigation/navmenu"
-          NavMenu variant:"outlined" scheme:"primary" size:"md"
+          NavMenu variant:"solid" scheme:"primary" size:"md"
             item label:"Medium" href:"/docs/views/navigation/navmenu"
-          NavMenu variant:"outlined" scheme:"primary" size:"lg"
+          NavMenu variant:"solid" scheme:"primary" size:"lg"
             item label:"Large" href:"/docs/views/navigation/navmenu"
   Section id:"navmenu-structure" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
@@ -191,7 +191,7 @@ page NavMenuPage
               "Submenu triggers cannot navigate or call an action. Their arrow toggles the local menu and rotates while the menu is visible."
             Code:
               language:"dowe"
-              variant:"ghost"
+              variant:"solid"
               scheme:"surface"
               content:"""
                 NavMenu
@@ -207,7 +207,7 @@ page NavMenuPage
               "Use the required content region to group normal view nodes. The floating surface closes after content activation, trigger reactivation, or outside interaction; web also supports Escape."
             Code:
               language:"dowe"
-              variant:"ghost"
+              variant:"solid"
               scheme:"surface"
               content:"""
                 NavMenu
@@ -220,7 +220,7 @@ page NavMenuPage
                           Text size:"sm"
                             "Guides and examples."
               """
-      Card variant:"outlined" p:{ xs:5 md:8 } border:1
+      Card variant:"solid" p:{ xs:5 md:8 } border:1
         Flex justify:"center"
           NavMenu variant:"solid" scheme:"primary" size:"md"
             item label:"Home" href:"/docs/views"

@@ -39,7 +39,7 @@ page ImageCropperPage
       },
       {
         prop:"variant"
-        type:"solid | soft | outlined | ghost"
+        type:"solid"
         defaultValue:"solid"
       },
       {
@@ -76,7 +76,7 @@ page ImageCropperPage
           "Prepare a profile portrait"
         Text size:"sm"
           "Select a JPEG or PNG, refine the crop inside a circular frame, and bind the applied data URL to the profile form."
-      Card variant:"outlined" p:{ xs:5 md:7 } border:1
+      Card variant:"solid" p:{ xs:5 md:7 } border:1
         Grid columns:1 gap:6 align:"center"
           ImageCropper:
             bind:profileImage
@@ -91,7 +91,7 @@ page ImageCropperPage
             maxHeight:2048
             shape:"circle"
             helpText:"Use a centered image at least 256 × 256 pixels."
-            variant:"outlined"
+            variant:"solid"
             scheme:"primary"
             size:"xl"
             name:"profile-image"
@@ -111,7 +111,7 @@ page ImageCropperPage
         content:"""
           signal profileImage value:""
 
-          ImageCropper bind:profileImage label:"Profile portrait" placeholder:"Add portrait" alt:"Profile portrait preview" accept:"image/jpeg,image/png" aspectRatio:1 minWidth:256 minHeight:256 maxWidth:2048 maxHeight:2048 shape:"circle" helpText:"Use a centered image at least 256 × 256 pixels." variant:"outlined" scheme:"primary" size:"xl" name:"profile-image"
+          ImageCropper bind:profileImage label:"Profile portrait" placeholder:"Add portrait" alt:"Profile portrait preview" accept:"image/jpeg,image/png" aspectRatio:1 minWidth:256 minHeight:256 maxWidth:2048 maxHeight:2048 shape:"circle" helpText:"Use a centered image at least 256 × 256 pixels." variant:"solid" scheme:"primary" size:"xl" name:"profile-image"
         """
   Section id:"image-cropper-formats" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
@@ -153,7 +153,7 @@ page ImageCropperPage
               maxWidth:3000
               maxHeight:3000
               shape:"square"
-              variant:"ghost"
+              variant:"solid"
               scheme:"accent"
               size:"lg"
               name:"product-thumbnail"
@@ -166,7 +166,7 @@ page ImageCropperPage
         content:"""
           ImageCropper label:"Avatar" accept:"image/jpeg,image/png,image/webp" aspectRatio:1 minWidth:160 minHeight:160 shape:"circle" variant:"solid" scheme:"secondary" size:"lg"
 
-          ImageCropper label:"Catalog image" accept:"image/jpeg,image/png" aspectRatio:1 minWidth:600 minHeight:600 maxWidth:3000 maxHeight:3000 shape:"square" variant:"ghost" scheme:"accent" size:"lg"
+          ImageCropper label:"Catalog image" accept:"image/jpeg,image/png" aspectRatio:1 minWidth:600 minHeight:600 maxWidth:3000 maxHeight:3000 shape:"square" variant:"solid" scheme:"accent" size:"lg"
         """
   Section id:"image-cropper-states" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
@@ -185,7 +185,7 @@ page ImageCropperPage
           errorText:"The selected image is smaller than 512 × 512 pixels."
           minWidth:512
           minHeight:512
-          variant:"outlined"
+          variant:"solid"
           scheme:"danger"
           size:"md"
           name:"organization-logo"

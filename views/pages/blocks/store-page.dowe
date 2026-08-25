@@ -50,7 +50,7 @@ page StorePage
                 Grid columns:1 gap:{ xs:6 md:8 }
                   Flex wrap:true gap:2
                     each in:filters as:filter key:filter.id
-                      Button variant:"outlined" scheme:"muted" size:"sm" iconEnd:"alt-arrow-down"
+                      Button variant:"solid" scheme:"muted" size:"sm" iconEnd:"alt-arrow-down"
                         "{filter.label}"
                   Title size:{ xs:"2xl" md:"4xl" } weight:"black"
                     "Products you may like"
@@ -79,7 +79,7 @@ page StorePage
                             Icon name:"star-bold" fill:"backgroundText" w:4 h:4
                             Text size:"xs"
                               "(261)"
-                          Button variant:"outlined" size:"sm" rounded:"full"
+                          Button variant:"solid" size:"sm" rounded:"full"
                             "Add to basket"
           """
   Section id:"product-detail" p:{ xs:5 md:7 }
@@ -141,13 +141,13 @@ page StorePage
                     Flex wrap:true align:"center" gap:3
                       Box bg:"muted" rounded:"full" p:1
                         Flex align:"center" gap:2
-                          Button variant:"ghost" scheme:"muted" size:"sm" rounded:"full"
+                          Button variant:"solid" scheme:"muted" size:"sm" rounded:"full"
                             "−"
                           Text weight:"bold"
                             "1"
-                          Button variant:"ghost" scheme:"muted" size:"sm" rounded:"full"
+                          Button variant:"solid" scheme:"muted" size:"sm" rounded:"full"
                             "+"
-                      Button variant:"outlined" scheme:"muted" size:"sm"
+                      Button variant:"solid" scheme:"muted" size:"sm"
                         "IN STOCK"
                     Divider
                     Text
@@ -184,7 +184,7 @@ page StorePage
                 ]
               Section id:"store-shopping-cart" bg:"background" color:"backgroundText" boxed:true py:{ xs:6 md:10 } minH:"vh-0"
                 Grid columns:{ xs:1 md:2 } gap:{ xs:6 md:10 } align:"start"
-                  Card show:{ xs:true md:false } variant:"ghost" p:0
+                  Card show:{ xs:true md:false } variant:"solid" p:0
                     Grid columns:1 gap:4
                       Title size:"2xl" weight:"black"
                         "Subtotal (2 items): $239.89"
@@ -205,19 +205,19 @@ page StorePage
                             Text size:{ xs:"sm" md:"lg" }
                               "{item.option}"
                           Flex align:"center" gap:2
-                            IconButton icon:"heart" label:"Save item" variant:"ghost" scheme:"muted" rounded:"full"
+                            IconButton icon:"heart" label:"Save item" variant:"solid" scheme:"muted" rounded:"full"
                             Box bg:"muted" rounded:"full" p:1
                               Flex align:"center" gap:2
-                                Button variant:"ghost" scheme:"muted" size:"sm" rounded:"full"
+                                Button variant:"solid" scheme:"muted" size:"sm" rounded:"full"
                                   "−"
                                 Text weight:"bold"
                                   "{item.quantity}"
-                                Button variant:"ghost" scheme:"muted" size:"sm" rounded:"full"
+                                Button variant:"solid" scheme:"muted" size:"sm" rounded:"full"
                                   "+"
                           Flex align:"center" gap:2
                             Title size:"xl" weight:"black"
                               "{item.price}"
-                            IconButton icon:"trash-bin-minimalistic" label:"Remove item" variant:"ghost" scheme:"muted"
+                            IconButton icon:"trash-bin-minimalistic" label:"Remove item" variant:"solid" scheme:"muted"
                         Divider
                     Grid show:{ xs:false md:true } columns:1 gap:4
                       Flex justify:"between"
@@ -236,7 +236,7 @@ page StorePage
                           "Subtotal"
                         Title size:"2xl" weight:"black"
                           "$239.87"
-                  Card show:{ xs:false md:true } variant:"outlined" scheme:"muted" p:6 w:80
+                  Card show:{ xs:false md:true } variant:"solid" scheme:"muted" p:6 w:80
                     Grid columns:1 gap:4
                       Title size:"lg" weight:"black"
                         "Subtotal (2 items): $239.89"

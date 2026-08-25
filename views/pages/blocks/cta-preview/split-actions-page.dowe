@@ -1,7 +1,7 @@
 page SplitActionsCtaPage
   const actions value:[
     { id:"start" label:"Get started" variant:"solid" },
-    { id:"sales" label:"Talk to sales" variant:"outlined" },
+    { id:"sales" label:"Talk to sales" variant:"solid" },
   ]
   Section id:"split-actions-cta" bg:"background" color:"backgroundText" boxed:true p:{ xs:6 md:10 }
     Grid columns:{ xs:1 md:2 } gap:{ xs:6 md:12 } align:"center" minH:{ xs:72 md:56 }

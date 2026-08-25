@@ -56,7 +56,7 @@ page ComponentDefaultsPage
     value:[
       {
         prop:"variant"
-        values:"solid | soft | outline | outlined | line | ghost"
+        values:"solid | outline | outlined | line | ghost"
         note:"outline normalizes to outlined"
       },
       {
@@ -136,12 +136,12 @@ page ComponentDefaultsPage
           theme
             fonts default:"manrope" install:["manrope" "syne"]
             design defaultTheme:"light"
-              Button variant:"outlined"
+              Button variant:"solid"
               Input
               Card rounded:"lg"
               Avatar variant:"solid" scheme:"secondary" rounded:"full" size:"md"
               Chip variant:"solid" scheme:"secondary" rounded:"full" size:"sm"
-              Ui variant:"outlined" scheme:"surface" rounded:"md" size:"md"
+              Ui variant:"solid" scheme:"surface" rounded:"md" size:"md"
               Text font:"manrope"
               Title font:"syne"
               theme name:"light"
@@ -254,7 +254,7 @@ page ComponentDefaultsPage
         content:"""
           theme
             design defaultTheme:"light"
-              Card variant:"outlined" shadow:"xs"
+              Card variant:"solid" shadow:"xs"
               theme name:"light"
 
           Card scheme:"success"
@@ -269,19 +269,19 @@ page ComponentDefaultsPage
         Title size:"3xl" weight:"black"
           "Keep themes semantic and views structural"
       Grid columns:1 gap:4
-        Card variant:"outlined" p:5 border:1
+        Card variant:"solid" p:5 border:1
           Grid columns:1 gap:2
             Title size:"lg" weight:"bold"
               "Named themes own colors"
             Text size:"sm"
               "A named theme changes semantic color values. It does not declare radius, size, shadow, border, or component variant."
-        Card variant:"outlined" p:5 border:1
+        Card variant:"solid" p:5 border:1
           Grid columns:1 gap:2
             Title size:"lg" weight:"bold"
               "Defaults do not add props"
             Text size:"sm"
               "theme.dowe cannot create components or expand their catalogs. Unsupported slot and prop combinations fail validation."
-        Card variant:"outlined" p:5 border:1
+        Card variant:"solid" p:5 border:1
           Grid columns:1 gap:2
             Title size:"lg" weight:"bold"
               "Local differences stay local"

@@ -106,7 +106,7 @@ page SectionPage
         Section background:"slate" rounded:"md" minH:32
           Grid columns:1 gap:2
             Title size:"xl"
-              "Soft"
+              "Solid"
             Text size:"sm"
               "Neutral documentation and content."
         Section background:"aurora" rounded:"md" minH:32

@@ -4,7 +4,7 @@ page CollapsiblePage
       { prop:"label" type:"non-empty string" defaultValue:"required" },
       { prop:"defaultOpen" type:"boolean" defaultValue:"false" },
       { prop:"disabled" type:"boolean" defaultValue:"false" },
-      { prop:"variant" type:"solid | soft | outlined | ghost" defaultValue:"solid" },
+      { prop:"variant" type:"solid" defaultValue:"solid" },
       { prop:"scheme" type:"primary | secondary | muted | surface | background | success | info | warning | danger" defaultValue:"background" },
       { prop:"children" type:"normal view tree" defaultValue:"required" },
     ]
@@ -34,7 +34,7 @@ page CollapsiblePage
           "Reveal implementation notes"
         Text size:"sm"
           "The header, Icon arrow, content region, open state, and scheme-derived colors are generated from one target-neutral component contract."
-      Card variant:"outlined" border:1 p:{ xs:5 md:7 }
+      Card variant:"solid" border:1 p:{ xs:5 md:7 }
         Grid columns:1 gap:4
           Collapsible label:"Route details" defaultOpen:true variant:"solid" scheme:"surface" rounded:"md"
             Grid columns:1 gap:3 p:2
@@ -42,9 +42,9 @@ page CollapsiblePage
                 "The generated header, arrow, and content region stay aligned across web, Android, and iOS."
               Flex wrap:true gap:2
                 Badge text:"portable" variant:"solid" scheme:"success" position:"top-right"
-                  Button variant:"ghost" scheme:"muted" size:"sm"
+                  Button variant:"solid" scheme:"muted" size:"sm"
                     "View contract"
-          Collapsible label:"Deferred details" variant:"outlined" scheme:"primary" rounded:"md"
+          Collapsible label:"Deferred details" variant:"solid" scheme:"primary" rounded:"md"
             Text size:"sm"
               "Leave secondary guidance closed by default when it would interrupt the main task."
       Code:
@@ -58,7 +58,7 @@ page CollapsiblePage
             Text size:"sm"
               "The generated header, arrow, and content region stay aligned across targets."
 
-          Collapsible label:"Deferred details" variant:"outlined" scheme:"primary" rounded:"md"
+          Collapsible label:"Deferred details" variant:"solid" scheme:"primary" rounded:"md"
             Text size:"sm"
               "Keep secondary guidance closed by default."
         """
@@ -87,7 +87,7 @@ page CollapsiblePage
               "QUIET DETAIL"
             Title size:"lg" weight:"black"
               "Supporting context"
-            Collapsible label:"Implementation note" variant:"ghost" scheme:"muted" rounded:"md"
+            Collapsible label:"Implementation note" variant:"solid" scheme:"muted" rounded:"md"
               Text size:"sm"
                 "Ghost treatment keeps a low-priority note available without competing with the main content."
         Card variant:"solid" p:5
@@ -110,7 +110,7 @@ page CollapsiblePage
             Text size:"sm" color:"primaryText"
               "Lead with the explanation that helps the next decision."
 
-          Collapsible label:"Implementation note" variant:"ghost" scheme:"muted"
+          Collapsible label:"Implementation note" variant:"solid" scheme:"muted"
             Text size:"sm"
               "Keep low-priority context available without competing."
 
@@ -156,7 +156,7 @@ page CollapsiblePage
         column field:"defaultValue" label:"Default" width:"1fr"
   Section id:"collapsible-next" p:{ xs:5 md:7 }
     Flex wrap:true justify:"between" gap:4
-      Button href:"/docs/views/display/badge" variant:"outlined" rounded:"full"
+      Button href:"/docs/views/display/badge" variant:"solid" rounded:"full"
         "Previous Badge"
       Button href:"/docs/views/display/countdown" rounded:"full"
         "Next Countdown"

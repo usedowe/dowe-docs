@@ -208,19 +208,19 @@ page FontsPage
         Text size:"sm"
           "The effective set combines fonts.default, fonts.install, Text and Title design defaults, and font tokens used by reachable views."
       Grid columns:1 gap:4
-        Card variant:"outlined" p:5 border:1
+        Card variant:"solid" p:5 border:1
           Grid columns:1 gap:2
             Title size:"lg" weight:"bold"
               "Web and desktop"
             Text size:"sm"
               "Web font assets and deterministic family stacks ship with generated output. Desktop reuses that output."
-        Card variant:"outlined" p:5 border:1
+        Card variant:"solid" p:5 border:1
           Grid columns:1 gap:2
             Title size:"lg" weight:"bold"
               "Android"
             Text size:"sm"
               "Jetpack Compose receives packaged font resources from the same normalized catalog."
-        Card variant:"outlined" p:5 border:1
+        Card variant:"solid" p:5 border:1
           Grid columns:1 gap:2
             Title size:"lg" weight:"bold"
               "iOS"

@@ -63,7 +63,7 @@ page MarqueePage
           "Move a release rail"
         Text size:"sm"
           "Use a slow strip for editorial content and pauseOnHover when people may need to inspect a moving item."
-      Card variant:"outlined" p:{ xs:5 md:8 } border:1
+      Card variant:"solid" p:{ xs:5 md:8 } border:1
         Grid columns:1 gap:5
           Text size:"xs" weight:"bold" spacing:"widest"
             "HORIZONTAL"
@@ -75,7 +75,7 @@ page MarqueePage
                 "Portable motion"
               Text
                 "Dowe-owned generation"
-              Chip variant:"outlined" scheme:"primary" size:"sm"
+              Chip variant:"solid" scheme:"primary" size:"sm"
                 "v1.0"
       Code:
         language:"dowe"

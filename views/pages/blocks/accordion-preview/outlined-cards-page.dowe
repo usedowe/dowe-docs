@@ -10,7 +10,7 @@ page OutlinedAccordionPage
           "Frequently Asked Questions"
         Text size:"lg"
           "A spacious FAQ with bordered disclosure cards and one clear answer at a time."
-      Accordion variant:"outlined" scheme:"primary" rounded:"lg" w:"full"
+      Accordion variant:"solid" scheme:"primary" rounded:"lg" w:"full"
         item id:"reusable" label:"What makes a reusable website block effective?" defaultOpen:true
           Grid columns:1 gap:2
             each in:answerLines as:line key:line.id

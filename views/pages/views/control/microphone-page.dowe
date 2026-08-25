@@ -7,7 +7,7 @@ page MicrophonePage
       { prop:"onStart" type:"function" defaultValue:"—" },
       { prop:"onStop" type:"function" defaultValue:"—" },
       { prop:"onError" type:"function" defaultValue:"—" },
-      { prop:"variant" type:"solid | soft | outlined | ghost" defaultValue:"solid" },
+      { prop:"variant" type:"solid" defaultValue:"solid" },
       { prop:"scheme" type:"primary | secondary | accent | muted | success | info | warning | danger" defaultValue:"primary" },
     ]
   signal microphoneStatus value:"Ready"
@@ -43,7 +43,7 @@ page MicrophonePage
           "Record and stop"
         Text size:"sm"
           "The control owns the target recording session and exposes only the lifecycle events your page needs."
-      Card variant:"outlined" border:1 p:{ xs:5 md:7 }
+      Card variant:"solid" border:1 p:{ xs:5 md:7 }
         Grid columns:1 gap:4
           Microphone label:"Record audio" maxDuration:30 onStart:microphoneStart onStop:microphoneStop onError:microphoneError variant:"solid" scheme:"secondary" rounded:"lg"
           Text size:"sm"
@@ -95,7 +95,7 @@ page MicrophonePage
         column field:"defaultValue" label:"Default" width:"1fr"
   Section id:"microphone-next" p:{ xs:5 md:7 }
     Flex wrap:true justify:"between" gap:4
-      Button href:"/docs/views/control/camera" variant:"outlined" rounded:"full"
+      Button href:"/docs/views/control/camera" variant:"solid" rounded:"full"
         "Previous Camera"
       Button href:"/docs/views/control/record" rounded:"full"
         "Next Record"

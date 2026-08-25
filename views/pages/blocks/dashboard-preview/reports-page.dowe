@@ -46,7 +46,7 @@ page DashboardReportsPage
             "Signals worth sharing"
           Text size:"sm"
             "Four real chart cards keep trends and comparisons readable at every width."
-        Button variant:"outlined" scheme:"muted" size:"sm" iconStart:"download-minimalistic"
+        Button variant:"solid" scheme:"muted" size:"sm" iconStart:"download-minimalistic"
           "Download report"
       Grid columns:{ xs:1 md:2 } gap:4
         Card variant:"solid" rounded:"lg" p:{ xs:4 md:6 } border:1
@@ -81,7 +81,7 @@ page DashboardReportsPage
                   "Active accounts after onboarding"
               Chip variant:"solid" scheme:"warning"
                 "-4.2%"
-            LineChart data:retention variant:"outlined" scheme:"warning" size:"md" palette:"sunset" curve:"linear" hideGrid:true rounded:"md"
+            LineChart data:retention variant:"solid" scheme:"warning" size:"md" palette:"sunset" curve:"linear" hideGrid:true rounded:"md"
         Card variant:"solid" rounded:"lg" p:{ xs:4 md:6 } border:1
           Grid columns:1 gap:4
             Flex justify:"between" align:"center"

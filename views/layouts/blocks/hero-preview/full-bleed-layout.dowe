@@ -18,13 +18,13 @@ layout FullBleedHeroLayout
         center
           Flex align:"center" gap:1 show:{ xs:false md:true }
             each in:navigationItems as:item key:item.id
-              Button variant:"ghost" size:"sm"
+              Button variant:"solid" size:"sm"
                 "{item.label}"
         end
           Flex align:"center" gap:2
             Button href:"/blocks/hero-preview/lead-form" size:"sm" rounded:"full" show:{ xs:false md:true }
               "Get started"
-            IconButton icon:"hamburger-menu" label:"Open navigation" variant:"ghost" show:{ xs:true md:false } onClick:{ set:openNavigation value:!openNavigation }
+            IconButton icon:"hamburger-menu" label:"Open navigation" variant:"solid" show:{ xs:true md:false } onClick:{ set:openNavigation value:!openNavigation }
     main
       children
     overlays
@@ -32,5 +32,5 @@ layout FullBleedHeroLayout
         body
           Flex direction:"column" align:"stretch" gap:2 p:4
             each in:navigationItems as:item key:item.id
-              Button variant:"ghost" w:"full"
+              Button variant:"solid" w:"full"
                 "{item.label}"

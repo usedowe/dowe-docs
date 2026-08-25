@@ -9,7 +9,7 @@ layout BottomBarLayout
           Text size:"sm"
             "BottomBar shell"
         end
-          Button href:"/examples/scaffold" variant:"ghost" size:"sm"
+          Button href:"/examples/scaffold" variant:"solid" size:"sm"
             "Shell"
     main
       children

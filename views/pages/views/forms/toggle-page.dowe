@@ -61,7 +61,7 @@ page TogglePage
           "Bind one boolean setting"
         Text size:"sm"
           "bind connects Toggle to a boolean Signal. Changing the switch writes the new value without executing user JavaScript."
-      Card variant:"outlined" p:{ xs:5 md:7 } border:1
+      Card variant:"solid" p:{ xs:5 md:7 } border:1
         Grid columns:1 gap:4
           Toggle:
             bind:notificationsEnabled

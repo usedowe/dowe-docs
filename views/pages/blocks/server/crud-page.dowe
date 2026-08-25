@@ -79,7 +79,7 @@ page ServerCrudBlockPage
           Text show:exampleSession.authenticated size:"sm" color:"info"
             "{message}"
           Grid columns:{ xs:1 md:2 } gap:4
-            Card variant:"outlined" p:4
+            Card variant:"solid" p:4
               Grid columns:1 gap:3
                 Text size:"xs" weight:"bold"
                   "CREATE"
@@ -89,23 +89,23 @@ page ServerCrudBlockPage
                   "Create blog"
                 Text show:exampleSession.guest size:"sm" color:"warning"
                   "Authenticate to enable writes."
-            Card variant:"outlined" p:4
+            Card variant:"solid" p:4
               Grid columns:1 gap:3
                 Text size:"xs" weight:"bold"
                   "UPDATE"
                 Input bind:editForm.id label:"Blog id" placeholder:"Paste an id from the table" labelFloating:true w:"full"
                 Input bind:editForm.title label:"New title" placeholder:"Updated title" labelFloating:true w:"full"
                 Textarea bind:editForm.content label:"New content" placeholder:"Updated content" rows:3 labelFloating:true w:"full"
-                Button onClick:updateBlog show:exampleSession.authenticated variant:"outlined" iconStart:"pen"
+                Button onClick:updateBlog show:exampleSession.authenticated variant:"solid" iconStart:"pen"
                   "Update blog"
-          Card variant:"outlined" p:4
+          Card variant:"solid" p:4
             Grid columns:1 gap:3
               Flex justify:"between" align:"center" gap:3 wrap:true
                 Title size:"xl" weight:"black"
                   "Records"
                 Button onClick:loadBlogs variant:"solid" size:"sm" iconStart:"restart"
                   "Refresh"
-              Table data:blogs variant:"ghost" scheme:"surface" size:"sm" dividers:true emptyTitle:"No blogs yet" emptyDescription:"Create the first record from the form above."
+              Table data:blogs variant:"solid" scheme:"surface" size:"sm" dividers:true emptyTitle:"No blogs yet" emptyDescription:"Create the first record from the form above."
                 column field:"id" label:"Id" width:"2fr"
                 column field:"title" label:"Title" width:"2fr"
                 column field:"ownerId" label:"Owner" width:"2fr"
@@ -113,7 +113,7 @@ page ServerCrudBlockPage
                 "Delete uses the same authenticated session and the id from the table."
               Flex gap:3 wrap:true
                 Input bind:editForm.id placeholder:"Blog id to delete" label:"Delete by id" labelFloating:true w:"full"
-                Button onClick:deleteBlog show:exampleSession.authenticated variant:"outlined" scheme:"danger" iconStart:"trash-bin-trash"
+                Button onClick:deleteBlog show:exampleSession.authenticated variant:"solid" scheme:"danger" iconStart:"trash-bin-trash"
                   "Delete"
   Section id:"server-crud-files" py:{ xs:7 md:10 }
     Grid columns:1 gap:4

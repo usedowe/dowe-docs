@@ -23,14 +23,14 @@ layout AppBarDashboardLayout
             IconButton:
               icon:"letter"
               label:"Open messages"
-              variant:"ghost"
+              variant:"solid"
               scheme:"muted"
               size:"sm"
               show:{ xs:false md:true }
             IconButton:
               icon:"bell"
               label:"Open notifications"
-              variant:"ghost"
+              variant:"solid"
               scheme:"muted"
               size:"sm"
             Divider orientation:"vertical" h:8 show:{ xs:false md:true }
@@ -49,7 +49,7 @@ layout AppBarDashboardLayout
             IconButton:
               icon:"settings"
               label:"Open settings"
-              variant:"ghost"
+              variant:"solid"
               scheme:"muted"
               size:"sm"
               show:{ xs:false md:true }

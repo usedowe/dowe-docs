@@ -1,7 +1,7 @@
 page InsetPanelCtaPage
   const actions value:[
     { id:"start" label:"Get started" variant:"solid" },
-    { id:"sales" label:"Talk to sales" variant:"outlined" },
+    { id:"sales" label:"Talk to sales" variant:"solid" },
   ]
   Section id:"inset-panel-cta" bg:"background" color:"backgroundText" boxed:true p:{ xs:5 md:12 }
     Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:7 md:14 } minH:{ xs:80 md:96 }

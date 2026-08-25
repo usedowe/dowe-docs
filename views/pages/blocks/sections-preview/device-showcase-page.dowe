@@ -18,7 +18,7 @@ page DeviceShowcaseSectionPage
           each in:paragraphs as:paragraph key:paragraph.id
             Text size:"lg"
               "{paragraph.content}"
-        Button variant:"ghost" iconEnd:"arrow-right"
+        Button variant:"solid" iconEnd:"arrow-right"
           "Learn more"
       Box bg:"muted" rounded:"xl" p:{ xs:4 md:6 } w:"full"
         Box bg:"surface" border:1 borderColor:"muted" rounded:"lg" minH:{ xs:56 md:96 } p:6

@@ -30,8 +30,8 @@ page DateRangePage
       },
       {
         prop:"variant"
-        type:"solid | soft | outlined | line"
-        defaultValue:"outlined"
+        type:"solid"
+        defaultValue:"solid"
       },
       {
         prop:"scheme"
@@ -78,7 +78,7 @@ page DateRangePage
           min:"2026-07-01"
           max:"2026-12-31"
           helpText:"Choose the interval used by the release calendar."
-          variant:"outlined"
+          variant:"solid"
           scheme:"primary"
           size:"lg"
           name:"release-window"
@@ -102,7 +102,7 @@ page DateRangePage
           signal startDate value:"2026-08-01"
           signal endDate value:"2026-08-31"
 
-          DateRange start:startDate end:endDate label:"Release window" labelFloating:true startValue:"2026-08-01" endValue:"2026-08-31" min:"2026-07-01" max:"2026-12-31" helpText:"Choose the interval used by the release calendar." variant:"outlined" scheme:"primary" size:"lg" name:"release-window"
+          DateRange start:startDate end:endDate label:"Release window" labelFloating:true startValue:"2026-08-01" endValue:"2026-08-31" min:"2026-07-01" max:"2026-12-31" helpText:"Choose the interval used by the release calendar." variant:"solid" scheme:"primary" size:"lg" name:"release-window"
         """
   Section id:"date-range-scenarios" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
@@ -117,7 +117,7 @@ page DateRangePage
         DateRange startValue:"2026-09-10" endValue:"2026-09-17" label:"Trip dates" placeholder:"Select a trip" helpText:"Seven nights, including the departure day." variant:"solid" scheme:"info" size:"md" name:"trip-dates"
         DateRange startValue:"2026-10-01" endValue:"2026-10-31" label:"Report period" placeholder:"Select a month" variant:"line" scheme:"secondary" size:"sm" name:"report-period"
         DateRange startValue:"2026-11-05" endValue:"2026-11-08" label:"Availability" placeholder:"Select open dates" min:"2026-11-01" max:"2026-12-31" variant:"solid" scheme:"success" size:"md" name:"availability"
-        DateRange startValue:"2026-12-01" endValue:"2026-12-20" label:"Needs review" errorText:"The end date must leave time for the handoff." variant:"outlined" scheme:"danger" size:"lg" name:"handoff-window"
+        DateRange startValue:"2026-12-01" endValue:"2026-12-20" label:"Needs review" errorText:"The end date must leave time for the handoff." variant:"solid" scheme:"danger" size:"lg" name:"handoff-window"
       Code:
         language:"dowe"
         variant:"solid"
@@ -139,8 +139,8 @@ page DateRangePage
         Text size:"sm"
           "helpText and errorText apply to the interval. Sizes map to 32, 40, and 48 logical units; labelFloating adds 8 while the range stays one field."
       Grid columns:{ xs:1 md:2 } gap:5
-        DateRange startValue:"2026-08-05" endValue:"2026-08-12" label:"Small range" labelFloating:true helpText:"Compact range for a filter bar." variant:"outlined" scheme:"primary" size:"sm" name:"small-range"
-        DateRange startValue:"2026-08-05" endValue:"2026-08-12" label:"Large range" labelFloating:true errorText:"Choose an end date after the start date." variant:"outlined" scheme:"danger" size:"lg" name:"large-range"
+        DateRange startValue:"2026-08-05" endValue:"2026-08-12" label:"Small range" labelFloating:true helpText:"Compact range for a filter bar." variant:"solid" scheme:"primary" size:"sm" name:"small-range"
+        DateRange startValue:"2026-08-05" endValue:"2026-08-12" label:"Large range" labelFloating:true errorText:"Choose an end date after the start date." variant:"solid" scheme:"danger" size:"lg" name:"large-range"
   Section id:"date-range-contract" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2

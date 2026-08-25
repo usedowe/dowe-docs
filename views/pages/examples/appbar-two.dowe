@@ -7,7 +7,7 @@ page AppBarTwo
         "An inset, sticky application bar"
       Text size:"lg"
         "Floating adds inset spacing, radius, and a visible border. Blurred requests platform material where available."
-      Card variant:"outlined" p:{ xs:5 md:7 } rounded:"lg" border:1
+      Card variant:"solid" p:{ xs:5 md:7 } rounded:"lg" border:1
         Grid columns:1 gap:3
           Text weight:"bold"
             "AppBar remains structural"

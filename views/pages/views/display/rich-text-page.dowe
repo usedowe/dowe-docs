@@ -37,7 +37,7 @@ page RichTextPage
           "Build a release message"
         Text size:"sm"
           "Use marks to give hierarchy to a single sentence without splitting it into unrelated Text nodes."
-      Card variant:"outlined" p:{ xs:6 md:9 } border:1
+      Card variant:"solid" p:{ xs:6 md:9 } border:1
         RichText size:"xl" weight:"bold"
           mark text:"Dowe" style:"grad" scheme:"primary"
           mark text:"generates" style:"under" scheme:"info"

@@ -53,13 +53,13 @@ page ProductDetailStorePage
         Flex wrap:true align:"center" gap:3
           Box bg:"muted" rounded:"full" p:1
             Flex align:"center" gap:2
-              Button variant:"ghost" scheme:"muted" size:"sm" rounded:"full"
+              Button variant:"solid" scheme:"muted" size:"sm" rounded:"full"
                 "−"
               Text weight:"bold"
                 "1"
-              Button variant:"ghost" scheme:"muted" size:"sm" rounded:"full"
+              Button variant:"solid" scheme:"muted" size:"sm" rounded:"full"
                 "+"
-          Button variant:"outlined" scheme:"muted" size:"sm"
+          Button variant:"solid" scheme:"muted" size:"sm"
             "IN STOCK"
         Divider
         Text

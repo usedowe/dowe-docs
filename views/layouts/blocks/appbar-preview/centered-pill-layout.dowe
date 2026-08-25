@@ -28,7 +28,7 @@ layout AppBarCenteredPillLayout
             IconButton:
               icon:"hamburger-menu"
               label:"Open navigation"
-              variant:"ghost"
+              variant:"solid"
               show:{ xs:true md:false }
     main
       children

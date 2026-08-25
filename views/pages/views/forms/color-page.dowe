@@ -35,8 +35,8 @@ page ColorPage
       },
       {
         prop:"variant"
-        type:"solid | soft | outlined | line"
-        defaultValue:"outlined"
+        type:"solid"
+        defaultValue:"solid"
       },
       {
         prop:"scheme"
@@ -80,7 +80,7 @@ page ColorPage
           showHex:true
           showRgb:true
           showOklch:true
-          variant:"outlined"
+          variant:"solid"
           scheme:"primary"
           size:"lg"
           name:"brand-color"
@@ -103,7 +103,7 @@ page ColorPage
         content:"""
           signal brandColor value:"#3b82f6"
 
-          Color bind:brandColor label:"Brand color" labelFloating:true showHex:true showRgb:true showOklch:true variant:"outlined" scheme:"primary" size:"lg" name:"brand-color"
+          Color bind:brandColor label:"Brand color" labelFloating:true showHex:true showRgb:true showOklch:true variant:"solid" scheme:"primary" size:"lg" name:"brand-color"
         """
   Section id:"color-formats" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
@@ -151,16 +151,16 @@ page ColorPage
           label:"Needs review"
           errorText:"Choose a color with enough contrast for body text."
           showHex:true
-          variant:"outlined"
+          variant:"solid"
           scheme:"danger"
           size:"md"
           name:"review-color"
       Text size:"sm"
         "The base heights are 32, 40, and 48; labelFloating adds 8 logical units on every target."
       Grid columns:{ xs:1 md:3 } gap:3
-        Color value:"#0ea5e9" label:"Small" labelFloating:true variant:"outlined" scheme:"info" size:"sm"
-        Color value:"#f59e0b" label:"Medium" labelFloating:true variant:"outlined" scheme:"warning" size:"md"
-        Color value:"#22c55e" label:"Large" labelFloating:true variant:"outlined" scheme:"success" size:"lg"
+        Color value:"#0ea5e9" label:"Small" labelFloating:true variant:"solid" scheme:"info" size:"sm"
+        Color value:"#f59e0b" label:"Medium" labelFloating:true variant:"solid" scheme:"warning" size:"md"
+        Color value:"#22c55e" label:"Large" labelFloating:true variant:"solid" scheme:"success" size:"lg"
   Section id:"color-contract" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2

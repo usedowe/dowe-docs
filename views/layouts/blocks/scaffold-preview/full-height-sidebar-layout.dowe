@@ -20,7 +20,7 @@ layout ScaffoldFullHeightSidebarLayout
             IconButton:
               show:{ xs:true md:false }
               label:"Open navigation"
-              variant:"ghost"
+              variant:"solid"
               onClick:{ set:openDrawer value:!openDrawer }
               icon:"hamburger-menu"
           center

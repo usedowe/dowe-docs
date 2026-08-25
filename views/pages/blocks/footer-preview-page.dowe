@@ -10,5 +10,5 @@ page FooterPreviewPage
       Flex wrap:true gap:3
         Button href:"/blocks/footer" rounded:"full"
           "Browse all Footers"
-        Button href:"/docs/views/layout/footer" variant:"outlined" scheme:"muted" rounded:"full"
+        Button href:"/docs/views/layout/footer" variant:"solid" scheme:"muted" rounded:"full"
           "View component reference"

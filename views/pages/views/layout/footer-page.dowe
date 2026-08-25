@@ -3,7 +3,7 @@ page FooterPage
     value:[
       {
         prop:"variant"
-        type:"solid | soft | outlined | ghost"
+        type:"solid"
         defaultValue:"solid"
       },
       {
@@ -65,7 +65,7 @@ page FooterPage
           "A complete product footer"
         Text size:"sm"
           "Use top and bottom for responsive bands, then keep identity, navigation, and actions in the start, center, and end row. Footer includes horizontal spacing 4 on small viewports and 6 from md, a more pronounced top spacing of 10 and 16, and bottom spacing of 4 and 6. boxed:true constrains top, the central row, and bottom together while keeping the outer surface full width. Override spacing with p, px, py, pl, pr, pt, or pb when the composition needs a different rhythm."
-      Card variant:"outlined" p:{ xs:4 md:6 } border:1
+      Card variant:"solid" p:{ xs:4 md:6 } border:1
         Footer variant:"solid" bordered:true boxed:true
           top
             Text size:"xs" show:{ xs:true md:false }
@@ -77,11 +77,11 @@ page FooterPage
                 "Dowe Studio"
           center
             Flex wrap:true justify:"center" gap:4
-              Button href:"/docs/views" variant:"ghost" scheme:"muted" size:"sm"
+              Button href:"/docs/views" variant:"solid" scheme:"muted" size:"sm"
                 "Views"
-              Button href:"/docs/server" variant:"ghost" scheme:"muted" size:"sm"
+              Button href:"/docs/server" variant:"solid" scheme:"muted" size:"sm"
                 "Server"
-              Button href:"/docs/dev/agent" variant:"ghost" scheme:"muted" size:"sm"
+              Button href:"/docs/dev/agent" variant:"solid" scheme:"muted" size:"sm"
                 "Agents"
           end
             Button href:"/docs/views/control/button" variant:"solid" size:"sm"
@@ -104,9 +104,9 @@ page FooterPage
               Text weight:"bold"
                 "Dowe Studio"
             center
-              Button href:"/docs/views" variant:"ghost" scheme:"muted" size:"sm"
+              Button href:"/docs/views" variant:"solid" scheme:"muted" size:"sm"
                 "Views"
-              Button href:"/docs/server" variant:"ghost" scheme:"muted" size:"sm"
+              Button href:"/docs/server" variant:"solid" scheme:"muted" size:"sm"
                 "Server"
             end
               Button href:"/docs/views/control/button" variant:"solid" size:"sm"
@@ -165,7 +165,7 @@ page FooterPage
               "Closing band"
             Text size:"sm"
               "Place legal copy, social links, or mobile-only actions below the row."
-      Footer variant:"outlined" scheme:"primary" bordered:true
+      Footer variant:"solid" scheme:"primary" bordered:true
         top
           Text size:"sm" show:{ xs:true md:false }
             "Top region"
@@ -205,14 +205,14 @@ page FooterPage
           end
             Text size:"sm"
               "Lightweight context"
-        Footer variant:"outlined" scheme:"success" bordered:true boxed:true
+        Footer variant:"solid" scheme:"success" bordered:true boxed:true
           start
             Text size:"sm" weight:"bold"
               "Outlined boxed"
           end
             Text size:"sm"
               "Contained footer"
-        Footer variant:"ghost" scheme:"muted"
+        Footer variant:"solid" scheme:"muted"
           start
             Text size:"sm" weight:"bold"
               "Ghost utility"
@@ -236,7 +236,7 @@ page FooterPage
               Text
                 "Soft blurred"
 
-          Footer variant:"outlined" scheme:"success" bordered:true boxed:true
+          Footer variant:"solid" scheme:"success" bordered:true boxed:true
             start
               Text
                 "Outlined boxed"
@@ -262,11 +262,11 @@ page FooterPage
               "Systems for teams that ship."
         center
           Flex wrap:true gap:5
-            Button href:"/docs/views/layout/appbar" variant:"ghost" scheme:"muted" size:"sm"
+            Button href:"/docs/views/layout/appbar" variant:"solid" scheme:"muted" size:"sm"
               "Platform"
-            Button href:"/docs/views/overlay/command" variant:"ghost" scheme:"muted" size:"sm"
+            Button href:"/docs/views/overlay/command" variant:"solid" scheme:"muted" size:"sm"
               "Shortcuts"
-            Button href:"/docs/views/overlay/alert-dialog" variant:"ghost" scheme:"muted" size:"sm"
+            Button href:"/docs/views/overlay/alert-dialog" variant:"solid" scheme:"muted" size:"sm"
               "Safety"
         end
           Grid columns:1 gap:2
@@ -296,9 +296,9 @@ page FooterPage
                   "Systems for teams that ship."
             center
               Flex wrap:true gap:5
-                Button href:"/docs/views/layout/appbar" variant:"ghost" scheme:"muted" size:"sm"
+                Button href:"/docs/views/layout/appbar" variant:"solid" scheme:"muted" size:"sm"
                   "Platform"
-                Button href:"/docs/views/overlay/command" variant:"ghost" scheme:"muted" size:"sm"
+                Button href:"/docs/views/overlay/command" variant:"solid" scheme:"muted" size:"sm"
                   "Shortcuts"
             end
               Button href:"/docs/views" size:"sm"

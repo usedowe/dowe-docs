@@ -24,8 +24,8 @@ page DatePage
       },
       {
         prop:"variant"
-        type:"solid | soft | outlined | line"
-        defaultValue:"outlined"
+        type:"solid"
+        defaultValue:"solid"
       },
       {
         prop:"scheme"
@@ -112,7 +112,7 @@ page DatePage
           "min and max define an inclusive calendar window. The visual surface can change without changing the value contract."
       Grid columns:{ xs:1 md:2 } gap:5
         Date value:"2026-09-01" label:"Outlined" min:"2026-01-01" max:"2026-12-31" scheme:"info" name:"outlined-date"
-        Date value:"2026-09-01" label:"Soft" min:"2026-01-01" max:"2026-12-31" variant:"solid" scheme:"success" name:"soft-date"
+        Date value:"2026-09-01" label:"Solid" min:"2026-01-01" max:"2026-12-31" variant:"solid" scheme:"success" name:"solid-date"
         Date value:"2026-10-15" label:"Solid" min:"2026-09-01" max:"2026-12-31" variant:"solid" scheme:"warning" name:"solid-date"
         Date value:"2026-11-20" label:"Line" min:"2026-01-01" max:"2026-12-31" variant:"line" scheme:"secondary" name:"line-date"
       Code:
@@ -123,7 +123,7 @@ page DatePage
         copiedLabel:"Copied"
         content:"""
           Date value:"2026-09-01" label:"Outlined" min:"2026-01-01" max:"2026-12-31" scheme:"info"
-          Date value:"2026-09-01" label:"Soft" min:"2026-01-01" max:"2026-12-31" variant:"solid" scheme:"success"
+          Date value:"2026-09-01" label:"Solid" min:"2026-01-01" max:"2026-12-31" variant:"solid" scheme:"success"
           Date value:"2026-10-15" label:"Solid" min:"2026-09-01" max:"2026-12-31" variant:"solid" scheme:"warning"
           Date value:"2026-11-20" label:"Line" min:"2026-01-01" max:"2026-12-31" variant:"line" scheme:"secondary"
         """

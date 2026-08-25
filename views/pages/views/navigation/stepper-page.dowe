@@ -52,7 +52,7 @@ page StepperPage
         Text size:"sm"
           "Stepper accepts only direct step entries. Each step owns a unique id, a visible label, and one or more view nodes for its panel. The first step starts active."
       Grid columns:{ xs:1 md:2 } gap:6 align:"start"
-        Card variant:"outlined" p:{ xs:5 md:8 } border:1
+        Card variant:"solid" p:{ xs:5 md:8 } border:1
           Stepper scheme:"primary" orientation:"horizontal"
             step id:"account" label:"Account"
               Grid columns:1 gap:2 p:4
@@ -128,7 +128,7 @@ page StepperPage
         Text size:"sm"
           "Use horizontal for compact progress across a page. Use vertical when labels need more room or the workflow belongs beside its content."
       Grid columns:{ xs:1 md:2 } gap:5 align:"start"
-        Card variant:"outlined" p:5 border:1
+        Card variant:"solid" p:5 border:1
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Horizontal"
@@ -142,7 +142,7 @@ page StepperPage
               step id:"publish" label:"Publish"
                 Text size:"sm" p:3
                   "Release the approved version."
-        Card variant:"outlined" p:5 border:1
+        Card variant:"solid" p:5 border:1
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Vertical"

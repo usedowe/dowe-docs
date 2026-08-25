@@ -98,7 +98,7 @@ page DrawerPage
           "A navigation surface"
         Text size:"sm"
           "Open the Drawer to inspect its header, body, footer, generated close control, overlay, and explicit navigation actions."
-      Card variant:"outlined" p:{ xs:6 md:10 } border:1
+      Card variant:"solid" p:{ xs:6 md:10 } border:1
         Flex justify:"center" align:"center"
           Button onClick:openNavigationDrawer iconStart:"menu-dots"
             "Open navigation"
@@ -107,11 +107,11 @@ page DrawerPage
           Title size:"xl" weight:"black"
             "Workspace"
         body p:4
-          Button onClick:closeNavigationDrawer variant:"ghost"
+          Button onClick:closeNavigationDrawer variant:"solid"
             "Overview"
-          Button onClick:closeNavigationDrawer variant:"ghost"
+          Button onClick:closeNavigationDrawer variant:"solid"
             "Projects"
-          Button onClick:closeNavigationDrawer variant:"ghost"
+          Button onClick:closeNavigationDrawer variant:"solid"
             "Team"
         footer px:4 py:2
           Button onClick:closeNavigationDrawer w:"full"
@@ -174,21 +174,21 @@ page DrawerPage
         Text size:"sm"
           "position accepts start, end, top, or bottom. The default is start; choose another edge when the page hierarchy or action flow calls for it."
       Grid columns:{ xs:1 md:2 } gap:5
-        Card variant:"outlined" p:5 border:1
+        Card variant:"solid" p:5 border:1
           Grid columns:1 gap:3
             Text size:"sm" weight:"bold"
               "End drawer"
             Text size:"sm"
               "A details panel can enter from the end without replacing the current reading position."
-            Button onClick:openDetailsDrawer variant:"outlined" scheme:"info"
+            Button onClick:openDetailsDrawer variant:"solid" scheme:"info"
               "Open details"
-        Card variant:"outlined" p:5 border:1
+        Card variant:"solid" p:5 border:1
           Grid columns:1 gap:3
             Text size:"sm" weight:"bold"
               "Bottom drawer"
             Text size:"sm"
               "A compact action surface can enter from the bottom for short mobile workflows."
-            Button onClick:openActionDrawer variant:"outlined" scheme:"accent"
+            Button onClick:openActionDrawer variant:"solid" scheme:"accent"
               "Open actions"
       Drawer open:detailsDrawerOpen position:"end" variant:"solid" scheme:"info"
         header px:4 py:2
@@ -230,7 +230,7 @@ page DrawerPage
               Button onClick:closeDetails
                 "Done"
 
-          Drawer open:actionsOpen position:"bottom" variant:"soft" scheme:"accent"
+          Drawer open:actionsOpen position:"bottom" variant:"solid" scheme:"accent"
             body p:4
               Text
                 "Quick actions"
@@ -244,7 +244,7 @@ page DrawerPage
           "Make the exit path explicit when needed"
         Text size:"sm"
           "By default, the overlay and generated close control dismiss the Drawer. Disable overlay close or hide the generated control when the footer must own the visible exit action."
-      Card variant:"outlined" p:5 border:1
+      Card variant:"solid" p:5 border:1
         Grid columns:1 gap:3
           Text size:"sm" weight:"bold"
             "Protected workflow"
@@ -267,7 +267,7 @@ page DrawerPage
                   Text
                     "The footer owns the available actions."
                 footer px:4 py:2
-                  Button onClick:closePublish variant:"ghost" scheme:"muted"
+                  Button onClick:closePublish variant:"solid" scheme:"muted"
                     "Cancel"
                   Button onClick:publish
                     "Save"
@@ -280,7 +280,7 @@ page DrawerPage
         Title size:"3xl" weight:"black"
           "Match the surface to its context"
         Text size:"sm"
-          "Drawer uses Card surface rules. Compare solid, soft, outlined, and ghost with a scheme such as surface, info, accent, or danger; use scheme rather than color."
+          "Drawer uses Card surface rules. Use solid with a scheme such as surface, info, accent, or danger; use scheme rather than color."
       Code:
         language:"dowe"
         variant:"solid"
@@ -293,17 +293,17 @@ page DrawerPage
               Text
                 "Default surface"
 
-          Drawer open:noticeOpen variant:"soft" scheme:"info"
+          Drawer open:noticeOpen variant:"solid" scheme:"info"
             body p:4
               Text
                 "Informational surface"
 
-          Drawer open:reviewOpen variant:"outlined" scheme:"warning"
+          Drawer open:reviewOpen variant:"solid" scheme:"warning"
             body p:4
               Text
                 "Review surface"
 
-          Drawer open:removeOpen variant:"ghost" scheme:"danger"
+          Drawer open:removeOpen variant:"solid" scheme:"danger"
             body p:4
               Text
                 "Destructive surface"

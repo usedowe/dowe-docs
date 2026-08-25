@@ -56,21 +56,6 @@ page ButtonPage
         value:"solid"
         label:"Solid"
       },
-      {
-        id:"soft"
-        value:"soft"
-        label:"Soft"
-      },
-      {
-        id:"outlined"
-        value:"outlined"
-        label:"Outlined"
-      },
-      {
-        id:"ghost"
-        value:"ghost"
-        label:"Ghost"
-      },
     ]
   const sizeOptions:
     value:[
@@ -151,159 +136,6 @@ page ButtonPage
         label:"Solid Accent"
       },
     ]
-  const softButtons:
-    value:[
-      {
-        id:"soft-primary"
-        variant:"solid"
-        scheme:"primary"
-        label:"Soft Primary"
-      },
-      {
-        id:"soft-secondary"
-        variant:"solid"
-        scheme:"secondary"
-        label:"Soft Secondary"
-      },
-      {
-        id:"soft-muted"
-        variant:"solid"
-        scheme:"muted"
-        label:"Soft Muted"
-      },
-      {
-        id:"soft-success"
-        variant:"solid"
-        scheme:"success"
-        label:"Soft Success"
-      },
-      {
-        id:"soft-info"
-        variant:"solid"
-        scheme:"info"
-        label:"Soft Info"
-      },
-      {
-        id:"soft-danger"
-        variant:"solid"
-        scheme:"danger"
-        label:"Soft Danger"
-      },
-      {
-        id:"soft-warning"
-        variant:"solid"
-        scheme:"warning"
-        label:"Soft Warning"
-      },
-      {
-        id:"soft-accent"
-        variant:"solid"
-        scheme:"accent"
-        label:"Soft Accent"
-      },
-    ]
-  const outlinedButtons:
-    value:[
-      {
-        id:"outlined-primary"
-        variant:"outlined"
-        scheme:"primary"
-        label:"Outlined Primary"
-      },
-      {
-        id:"outlined-secondary"
-        variant:"outlined"
-        scheme:"secondary"
-        label:"Outlined Secondary"
-      },
-      {
-        id:"outlined-muted"
-        variant:"outlined"
-        scheme:"muted"
-        label:"Outlined Muted"
-      },
-      {
-        id:"outlined-success"
-        variant:"outlined"
-        scheme:"success"
-        label:"Outlined Success"
-      },
-      {
-        id:"outlined-info"
-        variant:"outlined"
-        scheme:"info"
-        label:"Outlined Info"
-      },
-      {
-        id:"outlined-danger"
-        variant:"outlined"
-        scheme:"danger"
-        label:"Outlined Danger"
-      },
-      {
-        id:"outlined-warning"
-        variant:"outlined"
-        scheme:"warning"
-        label:"Outlined Warning"
-      },
-      {
-        id:"outlined-accent"
-        variant:"outlined"
-        scheme:"accent"
-        label:"Outlined Accent"
-      },
-    ]
-  const ghostButtons:
-    value:[
-      {
-        id:"ghost-primary"
-        variant:"ghost"
-        scheme:"primary"
-        label:"Ghost Primary"
-      },
-      {
-        id:"ghost-secondary"
-        variant:"ghost"
-        scheme:"secondary"
-        label:"Ghost Secondary"
-      },
-      {
-        id:"ghost-muted"
-        variant:"ghost"
-        scheme:"muted"
-        label:"Ghost Muted"
-      },
-      {
-        id:"ghost-success"
-        variant:"ghost"
-        scheme:"success"
-        label:"Ghost Success"
-      },
-      {
-        id:"ghost-info"
-        variant:"ghost"
-        scheme:"info"
-        label:"Ghost Info"
-      },
-      {
-        id:"ghost-danger"
-        variant:"ghost"
-        scheme:"danger"
-        label:"Ghost Danger"
-      },
-      {
-        id:"ghost-warning"
-        variant:"ghost"
-        scheme:"warning"
-        label:"Ghost Warning"
-      },
-      {
-        id:"ghost-accent"
-        variant:"ghost"
-        scheme:"accent"
-        label:"Ghost Accent"
-      },
-    ]
   const sizeButtons:
     value:[
       {
@@ -371,7 +203,7 @@ page ButtonPage
       },
       {
         prop:"variant"
-        type:"solid | soft | outlined | ghost"
+        type:"solid"
         defaultValue:"solid"
       },
       {
@@ -456,7 +288,7 @@ page ButtonPage
         Checkbox bind:endIconEnabled label:"End icon"
         Checkbox bind:loadingChoice label:"Loading"
         Checkbox bind:disabledChoice label:"Disabled"
-      Card variant:"outlined" p:{ xs:6 md:10 } border:1
+      Card variant:"solid" p:{ xs:6 md:10 } border:1
         Flex justify:"center" align:"center" gap:3
           Button:
             variant:variantChoice
@@ -500,18 +332,6 @@ page ButtonPage
       Flex direction:"column" gap:3
         Grid columns:{ xs:2 md:4 } gap:3
           each in:solidButtons as:button key:button.id
-            Button variant:button.variant scheme:button.scheme
-              "{button.label}"
-        Grid columns:{ xs:2 md:4 } gap:3
-          each in:softButtons as:button key:button.id
-            Button variant:button.variant scheme:button.scheme
-              "{button.label}"
-        Grid columns:{ xs:2 md:4 } gap:3
-          each in:outlinedButtons as:button key:button.id
-            Button variant:button.variant scheme:button.scheme
-              "{button.label}"
-        Grid columns:{ xs:2 md:4 } gap:3
-          each in:ghostButtons as:button key:button.id
             Button variant:button.variant scheme:button.scheme
               "{button.label}"
   Section id:"button-sizes" p:{ xs:5 md:7 }

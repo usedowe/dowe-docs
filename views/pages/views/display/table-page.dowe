@@ -34,7 +34,7 @@ page TablePage
     },
     {
       prop:"variant"
-      type:"solid | soft | outlined | ghost"
+      type:"solid"
       defaultValue:"solid"
     },
     {
@@ -157,7 +157,7 @@ page TablePage
           "Use width only when a column needs a stable proportion or minimum. Column padding is included in that width on every target, and narrow viewports scroll horizontally instead of clipping rows."
       Table:
         data:teamMembers
-        variant:"outlined"
+        variant:"solid"
         scheme:"primary"
         size:"sm"
         bordered:true
@@ -174,7 +174,7 @@ page TablePage
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Table data:teamMembers variant:"outlined" scheme:"primary" bordered:true
+          Table data:teamMembers variant:"solid" scheme:"primary" bordered:true
             column field:"name" label:"Member" width:"12rem"
             column field:"role" label:"Discipline" width:"2fr"
             column field:"location" label:"Location" align:"center" width:"10rem"
@@ -212,7 +212,7 @@ page TablePage
           column field:"status" label:"Status" align:"end"
         Table:
           data:teamMembers
-          variant:"outlined"
+          variant:"solid"
           scheme:"success"
           size:"lg"
           bordered:true

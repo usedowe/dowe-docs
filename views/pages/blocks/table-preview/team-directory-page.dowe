@@ -202,7 +202,7 @@ page DashboardTablePage
                     IconButton:
                       icon:"menu-dots"
                       label:"Open member actions"
-                      variant:"ghost"
+                      variant:"solid"
                       scheme:"muted"
                       size:"sm"
                 Flex justify:"center" p:4
@@ -211,7 +211,7 @@ page DashboardTablePage
                     total:totalMembers
                     pageSize:10
                     onChange:loadMembers
-                    variant:"ghost"
+                    variant:"solid"
                     scheme:"primary"
                     size:"sm"
                     ariaLabel:"Team directory pages"

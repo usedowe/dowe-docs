@@ -46,7 +46,7 @@ page ScaffoldsPage
                       start
                         IconButton:
                           label:"Open navigation"
-                          variant:"ghost"
+                          variant:"solid"
                           show:{ xs:true md:false }
                           onClick:{ set:openDrawer value:!openDrawer }
                           icon:"hamburger-menu"
@@ -110,7 +110,7 @@ page ScaffoldsPage
                       start
                         IconButton:
                           label:"Open navigation"
-                          variant:"ghost"
+                          variant:"solid"
                           show:{ xs:true md:false }
                           onClick:{ set:openDrawer value:!openDrawer }
                           icon:"hamburger-menu"
@@ -195,7 +195,7 @@ page ScaffoldsPage
                         start
                           IconButton:
                             label:"Open navigation"
-                            variant:"ghost"
+                            variant:"solid"
                             show:{ xs:true md:false }
                             onClick:{ set:openDrawer value:!openDrawer }
                             icon:"hamburger-menu"
@@ -262,7 +262,7 @@ page ScaffoldsPage
                         start
                           IconButton:
                             label:"Open navigation"
-                            variant:"ghost"
+                            variant:"solid"
                             show:{ xs:true md:false }
                             icon:"hamburger-menu"
                         center

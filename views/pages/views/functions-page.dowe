@@ -28,7 +28,7 @@ page FunctionsPage
           "Name a state transition"
         Text size:"sm"
           "A function contains ordered request, branch, state, feedback, and internal redirect statements."
-      Card variant:"outlined" p:{ xs:5 md:7 } border:1
+      Card variant:"solid" p:{ xs:5 md:7 } border:1
         Grid columns:1 gap:4
           Button onClick:togglePanel
             "Toggle panel"

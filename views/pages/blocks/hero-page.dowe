@@ -44,7 +44,7 @@ page HerosPage
                     Flex direction:{ xs:"column" sm:"row" } align:"center" justify:"center" gap:3
                       Button size:"lg" rounded:"full" iconEnd:"arrow-right"
                         "Get started"
-                      Button variant:"outlined" size:"lg" rounded:"full"
+                      Button variant:"solid" size:"lg" rounded:"full"
                         "Talk to sales"
                   Grid columns:{ xs:1 md:2 } gap:{ xs:4 md:0 } align:"center"
                     each in:mediaFrames as:frame key:frame.id
@@ -82,13 +82,13 @@ page HerosPage
                       center
                         Flex align:"center" gap:1 show:{ xs:false md:true }
                           each in:navigationItems as:item key:item.id
-                            Button variant:"ghost" size:"sm"
+                            Button variant:"solid" size:"sm"
                               "{item.label}"
                       end
                         Flex align:"center" gap:2
                           Button href:"/blocks/hero-preview/lead-form" size:"sm" rounded:"full" show:{ xs:false md:true }
                             "Get started"
-                          IconButton icon:"hamburger-menu" label:"Open navigation" variant:"ghost" show:{ xs:true md:false } onClick:{ set:openNavigation value:!openNavigation }
+                          IconButton icon:"hamburger-menu" label:"Open navigation" variant:"solid" show:{ xs:true md:false } onClick:{ set:openNavigation value:!openNavigation }
                   main
                     children
                   overlays
@@ -96,7 +96,7 @@ page HerosPage
                       body
                         Flex direction:"column" align:"stretch" gap:2 p:4
                           each in:navigationItems as:item key:item.id
-                            Button variant:"ghost" w:"full"
+                            Button variant:"solid" w:"full"
                               "{item.label}"
             """
   Section id:"video-split" p:{ xs:5 md:7 }
@@ -131,7 +131,7 @@ page HerosPage
                     Flex direction:{ xs:"column" sm:"row" } align:"center" gap:3
                       Button size:"lg" rounded:"full" iconEnd:"arrow-right"
                         "Get started"
-                      Button variant:"outlined" size:"lg" rounded:"full"
+                      Button variant:"solid" size:"lg" rounded:"full"
                         "Talk to sales"
                   Video:
                     src:"https://example.com/video.mp4"
@@ -169,13 +169,13 @@ page HerosPage
                       center
                         Flex align:"center" gap:1 show:{ xs:false md:true }
                           each in:navigationItems as:item key:item.id
-                            Button variant:"ghost" size:"sm"
+                            Button variant:"solid" size:"sm"
                               "{item.label}"
                       end
                         Flex align:"center" gap:2
                           Button href:"/blocks/hero-preview/lead-form" size:"sm" rounded:"full" show:{ xs:false md:true }
                             "Get started"
-                          IconButton icon:"hamburger-menu" label:"Open navigation" variant:"ghost" show:{ xs:true md:false } onClick:{ set:openNavigation value:!openNavigation }
+                          IconButton icon:"hamburger-menu" label:"Open navigation" variant:"solid" show:{ xs:true md:false } onClick:{ set:openNavigation value:!openNavigation }
                   main
                     children
                   overlays
@@ -183,7 +183,7 @@ page HerosPage
                       body
                         Flex direction:"column" align:"stretch" gap:2 p:4
                           each in:navigationItems as:item key:item.id
-                            Button variant:"ghost" w:"full"
+                            Button variant:"solid" w:"full"
                               "{item.label}"
             """
   Section id:"lead-form" p:{ xs:5 md:7 }
@@ -273,13 +273,13 @@ page HerosPage
                       center
                         Flex align:"center" gap:1 show:{ xs:false md:true }
                           each in:navigationItems as:item key:item.id
-                            Button variant:"ghost" size:"sm"
+                            Button variant:"solid" size:"sm"
                               "{item.label}"
                       end
                         Flex align:"center" gap:2
                           Button href:"/blocks/hero-preview/lead-form" size:"sm" rounded:"full" show:{ xs:false md:true }
                             "Get started"
-                          IconButton icon:"hamburger-menu" label:"Open navigation" variant:"ghost" show:{ xs:true md:false } onClick:{ set:openNavigation value:!openNavigation }
+                          IconButton icon:"hamburger-menu" label:"Open navigation" variant:"solid" show:{ xs:true md:false } onClick:{ set:openNavigation value:!openNavigation }
                   main
                     children
                   overlays
@@ -287,7 +287,7 @@ page HerosPage
                       body
                         Flex direction:"column" align:"stretch" gap:2 p:4
                           each in:navigationItems as:item key:item.id
-                            Button variant:"ghost" w:"full"
+                            Button variant:"solid" w:"full"
                               "{item.label}"
             """
   Section id:"media-card" p:{ xs:5 md:7 }
@@ -323,7 +323,7 @@ page HerosPage
                       Flex direction:{ xs:"column" sm:"row" } align:"center" justify:"center" gap:3
                         Button size:"lg" rounded:"full" iconEnd:"arrow-right"
                           "Get started"
-                        Button variant:"outlined" size:"lg" rounded:"full"
+                        Button variant:"solid" size:"lg" rounded:"full"
                           "Talk to sales"
                     Flex direction:"column" align:"center" justify:"center" gap:3 minH:{ xs:44 md:64 }
                       Icon name:"gallery-bold-duotone" fill:"muted" w:16 h:16
@@ -358,13 +358,13 @@ page HerosPage
                       center
                         Flex align:"center" gap:1 show:{ xs:false md:true }
                           each in:navigationItems as:item key:item.id
-                            Button variant:"ghost" size:"sm"
+                            Button variant:"solid" size:"sm"
                               "{item.label}"
                       end
                         Flex align:"center" gap:2
                           Button href:"/blocks/hero-preview/lead-form" size:"sm" rounded:"full" show:{ xs:false md:true }
                             "Get started"
-                          IconButton icon:"hamburger-menu" label:"Open navigation" variant:"ghost" show:{ xs:true md:false } onClick:{ set:openNavigation value:!openNavigation }
+                          IconButton icon:"hamburger-menu" label:"Open navigation" variant:"solid" show:{ xs:true md:false } onClick:{ set:openNavigation value:!openNavigation }
                   main
                     children
                   overlays
@@ -372,7 +372,7 @@ page HerosPage
                       body
                         Flex direction:"column" align:"stretch" gap:2 p:4
                           each in:navigationItems as:item key:item.id
-                            Button variant:"ghost" w:"full"
+                            Button variant:"solid" w:"full"
                               "{item.label}"
             """
   Section id:"search" p:{ xs:5 md:7 }
@@ -447,13 +447,13 @@ page HerosPage
                       center
                         Flex align:"center" gap:1 show:{ xs:false md:true }
                           each in:navigationItems as:item key:item.id
-                            Button variant:"ghost" size:"sm"
+                            Button variant:"solid" size:"sm"
                               "{item.label}"
                       end
                         Flex align:"center" gap:2
                           Button href:"/blocks/hero-preview/lead-form" size:"sm" rounded:"full" show:{ xs:false md:true }
                             "Get started"
-                          IconButton icon:"hamburger-menu" label:"Open navigation" variant:"ghost" show:{ xs:true md:false } onClick:{ set:openNavigation value:!openNavigation }
+                          IconButton icon:"hamburger-menu" label:"Open navigation" variant:"solid" show:{ xs:true md:false } onClick:{ set:openNavigation value:!openNavigation }
                   main
                     children
                   overlays
@@ -461,7 +461,7 @@ page HerosPage
                       body
                         Flex direction:"column" align:"stretch" gap:2 p:4
                           each in:navigationItems as:item key:item.id
-                            Button variant:"ghost" w:"full"
+                            Button variant:"solid" w:"full"
                               "{item.label}"
             """
   Section id:"full-bleed" p:{ xs:5 md:7 }
@@ -496,7 +496,7 @@ page HerosPage
                     Flex direction:{ xs:"column" sm:"row" } align:"center" gap:3
                       Button size:"lg" rounded:"full" iconEnd:"arrow-right"
                         "Get started"
-                      Button variant:"outlined" scheme:"muted" size:"lg" rounded:"full"
+                      Button variant:"solid" scheme:"muted" size:"lg" rounded:"full"
                         "Talk to sales"
                   Flex direction:"column" align:"center" justify:"center" gap:3 minH:{ xs:48 md:72 }
                     Icon name:"gallery-bold-duotone" fill:"mutedText" w:16 h:16
@@ -531,13 +531,13 @@ page HerosPage
                       center
                         Flex align:"center" gap:1 show:{ xs:false md:true }
                           each in:navigationItems as:item key:item.id
-                            Button variant:"ghost" size:"sm"
+                            Button variant:"solid" size:"sm"
                               "{item.label}"
                       end
                         Flex align:"center" gap:2
                           Button href:"/blocks/hero-preview/lead-form" size:"sm" rounded:"full" show:{ xs:false md:true }
                             "Get started"
-                          IconButton icon:"hamburger-menu" label:"Open navigation" variant:"ghost" show:{ xs:true md:false } onClick:{ set:openNavigation value:!openNavigation }
+                          IconButton icon:"hamburger-menu" label:"Open navigation" variant:"solid" show:{ xs:true md:false } onClick:{ set:openNavigation value:!openNavigation }
                   main
                     children
                   overlays
@@ -545,7 +545,7 @@ page HerosPage
                       body
                         Flex direction:"column" align:"stretch" gap:2 p:4
                           each in:navigationItems as:item key:item.id
-                            Button variant:"ghost" w:"full"
+                            Button variant:"solid" w:"full"
                               "{item.label}"
             """
   Section id:"carousel" p:{ xs:5 md:7 }
@@ -589,7 +589,7 @@ page HerosPage
                       Flex direction:{ xs:"column" sm:"row" } align:"center" justify:"center" gap:3
                         Button size:"lg" rounded:"full" iconEnd:"arrow-right"
                           "Get started"
-                        Button variant:"outlined" size:"lg" rounded:"full"
+                        Button variant:"solid" size:"lg" rounded:"full"
                           "Talk to sales"
                   slide id:"delivery"
                     Flex direction:"column" align:"center" justify:"center" gap:5 minH:"vh-32"
@@ -602,7 +602,7 @@ page HerosPage
                       Flex direction:{ xs:"column" sm:"row" } align:"center" justify:"center" gap:3
                         Button size:"lg" rounded:"full" iconEnd:"arrow-right"
                           "Get started"
-                        Button variant:"outlined" size:"lg" rounded:"full"
+                        Button variant:"solid" size:"lg" rounded:"full"
                           "Talk to sales"
                   slide id:"support"
                     Flex direction:"column" align:"center" justify:"center" gap:5 minH:"vh-32"
@@ -615,7 +615,7 @@ page HerosPage
                       Flex direction:{ xs:"column" sm:"row" } align:"center" justify:"center" gap:3
                         Button size:"lg" rounded:"full" iconEnd:"arrow-right"
                           "Get started"
-                        Button variant:"outlined" size:"lg" rounded:"full"
+                        Button variant:"solid" size:"lg" rounded:"full"
                           "Talk to sales"
             """
         tab id:"layout-code" label:"Layout Code"
@@ -646,13 +646,13 @@ page HerosPage
                       center
                         Flex align:"center" gap:1 show:{ xs:false md:true }
                           each in:navigationItems as:item key:item.id
-                            Button variant:"ghost" size:"sm"
+                            Button variant:"solid" size:"sm"
                               "{item.label}"
                       end
                         Flex align:"center" gap:2
                           Button href:"/blocks/hero-preview/lead-form" size:"sm" rounded:"full" show:{ xs:false md:true }
                             "Get started"
-                          IconButton icon:"hamburger-menu" label:"Open navigation" variant:"ghost" show:{ xs:true md:false } onClick:{ set:openNavigation value:!openNavigation }
+                          IconButton icon:"hamburger-menu" label:"Open navigation" variant:"solid" show:{ xs:true md:false } onClick:{ set:openNavigation value:!openNavigation }
                   main
                     children
                   overlays
@@ -660,6 +660,6 @@ page HerosPage
                       body
                         Flex direction:"column" align:"stretch" gap:2 p:4
                           each in:navigationItems as:item key:item.id
-                            Button variant:"ghost" w:"full"
+                            Button variant:"solid" w:"full"
                               "{item.label}"
             """

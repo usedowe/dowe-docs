@@ -5,7 +5,7 @@ page CardsPage
     { id:"three" },
   ]
   const dualActions value:[
-    { id:"secondary" label:"Button 2" variant:"outlined" },
+    { id:"secondary" label:"Button 2" variant:"solid" },
     { id:"primary" label:"Button 1" variant:"solid" },
   ]
   const cardTags value:[
@@ -297,7 +297,7 @@ page CardsPage
             copiedLabel:"Copied"
             content:"""
               const actions value:[
-                { id:"secondary" label:"Button 2" variant:"outlined" },
+                { id:"secondary" label:"Button 2" variant:"solid" },
                 { id:"primary" label:"Button 1" variant:"solid" },
               ]
               Card variant:"solid" scheme:"background" rounded:"lg" w:{ xs:72 md:80 } minH:72 p:{ xs:6 md:10 }
@@ -455,7 +455,7 @@ page CardsPage
             copiedLabel:"Copied"
             content:"""
               const actions value:[
-                { id:"secondary" label:"Button 2" variant:"outlined" },
+                { id:"secondary" label:"Button 2" variant:"solid" },
                 { id:"primary" label:"Button 1" variant:"solid" },
               ]
               Card variant:"solid" scheme:"background" rounded:"lg" w:{ xs:72 md:80 } p:0

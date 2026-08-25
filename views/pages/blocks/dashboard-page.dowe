@@ -84,7 +84,7 @@ page DashboardPage
                         "Good morning, Jordan"
                       Text size:"sm"
                         "Here is the latest view of your workspace activity."
-                    Button variant:"outlined" scheme:"muted" size:"sm" iconStart:"download-minimalistic"
+                    Button variant:"solid" scheme:"muted" size:"sm" iconStart:"download-minimalistic"
                       "Export"
                   Grid columns:{ xs:1 sm:2 lg:4 } gap:4
                     each in:metrics as:metric key:metric.id
@@ -125,7 +125,7 @@ page DashboardPage
                         Flex justify:"between" align:"center"
                           Title size:"lg" weight:"bold"
                             "Top countries"
-                          IconButton icon:"menu-dots" label:"Open country actions" variant:"ghost" scheme:"muted" size:"sm"
+                          IconButton icon:"menu-dots" label:"Open country actions" variant:"solid" scheme:"muted" size:"sm"
                         Grid columns:1 gap:2
                           each in:countries as:country key:country.id
                             Flex justify:"between" align:"center" p:2
@@ -140,7 +140,7 @@ page DashboardPage
                         Flex justify:"between" align:"center"
                           Title size:"lg" weight:"bold"
                             "Recent activity"
-                          Button variant:"ghost" size:"sm"
+                          Button variant:"solid" size:"sm"
                             "View all"
                         Grid columns:1 gap:3
                           each in:activity as:item key:item.id
@@ -168,8 +168,8 @@ page DashboardPage
                           "Dashboard"
                     end
                       Flex align:"center" gap:3
-                        IconButton icon:"magnifier" label:"Search dashboard" variant:"ghost" scheme:"muted" size:"sm" show:{ xs:false md:true }
-                        IconButton icon:"bell" label:"Open notifications" variant:"ghost" scheme:"muted" size:"sm"
+                        IconButton icon:"magnifier" label:"Search dashboard" variant:"solid" scheme:"muted" size:"sm" show:{ xs:false md:true }
+                        IconButton icon:"bell" label:"Open notifications" variant:"solid" scheme:"muted" size:"sm"
                         Avatar name:"Jordan Lee" alt:"Jordan Lee" size:"sm" variant:"solid" scheme:"primary" status:"online"
                 start
                   Sidebar show:{ xs:false md:true } variant:"solid" scheme:"muted" w:64 h:"vh-0" border:1
@@ -257,7 +257,7 @@ page DashboardPage
                               "Backlog"
                             Chip variant:"solid" scheme:"muted"
                               "3"
-                          IconButton icon:"menu-dots" label:"Open backlog actions" variant:"ghost" scheme:"muted" size:"sm"
+                          IconButton icon:"menu-dots" label:"Open backlog actions" variant:"solid" scheme:"muted" size:"sm"
                         Grid columns:1 gap:3
                           each in:backlogTasks as:task key:task.id
                             Card variant:"solid" p:4 border:1
@@ -270,7 +270,7 @@ page DashboardPage
                                 Flex justify:"between" align:"start" gap:2
                                   Title size:"sm" weight:"bold"
                                     "{task.title}"
-                                  IconButton icon:"menu-dots" label:"Open task actions" variant:"ghost" scheme:"muted" size:"sm"
+                                  IconButton icon:"menu-dots" label:"Open task actions" variant:"solid" scheme:"muted" size:"sm"
                                 Text size:"xs"
                                   "{task.meta}"
                                 Flex justify:"between" align:"center" gap:2
@@ -288,7 +288,7 @@ page DashboardPage
                               "In progress"
                             Chip variant:"solid" scheme:"muted"
                               "2"
-                          IconButton icon:"menu-dots" label:"Open progress actions" variant:"ghost" scheme:"muted" size:"sm"
+                          IconButton icon:"menu-dots" label:"Open progress actions" variant:"solid" scheme:"muted" size:"sm"
                         Grid columns:1 gap:3
                           each in:progressTasks as:task key:task.id
                             Card variant:"solid" p:4 border:1
@@ -301,7 +301,7 @@ page DashboardPage
                                 Flex justify:"between" align:"start" gap:2
                                   Title size:"sm" weight:"bold"
                                     "{task.title}"
-                                  IconButton icon:"menu-dots" label:"Open task actions" variant:"ghost" scheme:"muted" size:"sm"
+                                  IconButton icon:"menu-dots" label:"Open task actions" variant:"solid" scheme:"muted" size:"sm"
                                 Text size:"xs"
                                   "{task.meta}"
                                 Flex justify:"between" align:"center" gap:2
@@ -319,7 +319,7 @@ page DashboardPage
                               "Review"
                             Chip variant:"solid" scheme:"muted"
                               "2"
-                          IconButton icon:"menu-dots" label:"Open review actions" variant:"ghost" scheme:"muted" size:"sm"
+                          IconButton icon:"menu-dots" label:"Open review actions" variant:"solid" scheme:"muted" size:"sm"
                         Grid columns:1 gap:3
                           each in:reviewTasks as:task key:task.id
                             Card variant:"solid" p:4 border:1
@@ -332,7 +332,7 @@ page DashboardPage
                                 Flex justify:"between" align:"start" gap:2
                                   Title size:"sm" weight:"bold"
                                     "{task.title}"
-                                  IconButton icon:"menu-dots" label:"Open task actions" variant:"ghost" scheme:"muted" size:"sm"
+                                  IconButton icon:"menu-dots" label:"Open task actions" variant:"solid" scheme:"muted" size:"sm"
                                 Text size:"xs"
                                   "{task.meta}"
                                 Flex justify:"between" align:"center" gap:2
@@ -357,8 +357,8 @@ page DashboardPage
                           "Dashboard"
                     end
                       Flex align:"center" gap:3
-                        IconButton icon:"magnifier" label:"Search dashboard" variant:"ghost" scheme:"muted" size:"sm" show:{ xs:false md:true }
-                        IconButton icon:"bell" label:"Open notifications" variant:"ghost" scheme:"muted" size:"sm"
+                        IconButton icon:"magnifier" label:"Search dashboard" variant:"solid" scheme:"muted" size:"sm" show:{ xs:false md:true }
+                        IconButton icon:"bell" label:"Open notifications" variant:"solid" scheme:"muted" size:"sm"
                         Avatar name:"Jordan Lee" alt:"Jordan Lee" size:"sm" variant:"solid" scheme:"primary" status:"online"
                 start
                   Sidebar show:{ xs:false md:true } variant:"solid" scheme:"muted" w:64 h:"vh-0" border:1
@@ -434,7 +434,7 @@ page DashboardPage
                         "People and permissions"
                       Text size:"sm"
                         "Search, scan status, and move through a real paginated directory."
-                    Button variant:"outlined" scheme:"muted" size:"sm" iconStart:"download-minimalistic"
+                    Button variant:"solid" scheme:"muted" size:"sm" iconStart:"download-minimalistic"
                       "Export"
                   Card variant:"solid" rounded:"lg" p:{ xs:4 md:6 } border:1
                     Grid columns:1 gap:4
@@ -468,11 +468,11 @@ page DashboardPage
                               "{member.location}"
                             Chip variant:"solid" scheme:"success" show:{ xs:false md:true }
                               "{member.status}"
-                            IconButton icon:"menu-dots" label:"Open member actions" variant:"ghost" scheme:"muted" size:"sm"
+                            IconButton icon:"menu-dots" label:"Open member actions" variant:"solid" scheme:"muted" size:"sm"
                       Flex direction:{ xs:"column" sm:"row" } justify:"between" align:{ xs:"start" sm:"center" } gap:3 pt:3
                         Text size:"sm"
                           "Showing 1–6 of 24 members"
-                        Pagination bind:currentPage total:totalMembers pageSize:6 onChange:loadMembers variant:"ghost" scheme:"primary" size:"sm" ariaLabel:"Team directory pages"
+                        Pagination bind:currentPage total:totalMembers pageSize:6 onChange:loadMembers variant:"solid" scheme:"primary" size:"sm" ariaLabel:"Team directory pages"
 
           """
         tab id:"team-directory-layout-code" label:"Layout Code"
@@ -488,8 +488,8 @@ page DashboardPage
                           "Dashboard"
                     end
                       Flex align:"center" gap:3
-                        IconButton icon:"magnifier" label:"Search dashboard" variant:"ghost" scheme:"muted" size:"sm" show:{ xs:false md:true }
-                        IconButton icon:"bell" label:"Open notifications" variant:"ghost" scheme:"muted" size:"sm"
+                        IconButton icon:"magnifier" label:"Search dashboard" variant:"solid" scheme:"muted" size:"sm" show:{ xs:false md:true }
+                        IconButton icon:"bell" label:"Open notifications" variant:"solid" scheme:"muted" size:"sm"
                         Avatar name:"Jordan Lee" alt:"Jordan Lee" size:"sm" variant:"solid" scheme:"primary" status:"online"
                 start
                   Sidebar show:{ xs:false md:true } variant:"solid" scheme:"muted" w:64 h:"vh-0" border:1
@@ -580,7 +580,7 @@ page DashboardPage
                         "Signals worth sharing"
                       Text size:"sm"
                         "Four real chart cards keep trends and comparisons readable at every width."
-                    Button variant:"outlined" scheme:"muted" size:"sm" iconStart:"download-minimalistic"
+                    Button variant:"solid" scheme:"muted" size:"sm" iconStart:"download-minimalistic"
                       "Download report"
                   Grid columns:{ xs:1 md:2 } gap:4
                     Card variant:"solid" rounded:"lg" p:{ xs:4 md:6 } border:1
@@ -615,7 +615,7 @@ page DashboardPage
                               "Active accounts after onboarding"
                           Chip variant:"solid" scheme:"warning"
                             "-4.2%"
-                        LineChart data:retention variant:"outlined" scheme:"warning" size:"md" palette:"sunset" curve:"linear" hideGrid:true rounded:"md"
+                        LineChart data:retention variant:"solid" scheme:"warning" size:"md" palette:"sunset" curve:"linear" hideGrid:true rounded:"md"
                     Card variant:"solid" rounded:"lg" p:{ xs:4 md:6 } border:1
                       Grid columns:1 gap:4
                         Flex justify:"between" align:"center"
@@ -642,8 +642,8 @@ page DashboardPage
                           "Dashboard"
                     end
                       Flex align:"center" gap:3
-                        IconButton icon:"magnifier" label:"Search dashboard" variant:"ghost" scheme:"muted" size:"sm" show:{ xs:false md:true }
-                        IconButton icon:"bell" label:"Open notifications" variant:"ghost" scheme:"muted" size:"sm"
+                        IconButton icon:"magnifier" label:"Search dashboard" variant:"solid" scheme:"muted" size:"sm" show:{ xs:false md:true }
+                        IconButton icon:"bell" label:"Open notifications" variant:"solid" scheme:"muted" size:"sm"
                         Avatar name:"Jordan Lee" alt:"Jordan Lee" size:"sm" variant:"solid" scheme:"primary" status:"online"
                 start
                   Sidebar show:{ xs:false md:true } variant:"solid" scheme:"muted" w:64 h:"vh-0" border:1
@@ -717,7 +717,7 @@ page DashboardPage
                           "Profile photo"
                         Text size:"xs"
                           "Placeholder avatar for this copy-ready block."
-                        Button variant:"outlined" scheme:"muted" size:"sm"
+                        Button variant:"solid" scheme:"muted" size:"sm"
                           "Change photo"
                     Card variant:"solid" rounded:"lg" p:{ xs:5 md:8 } border:1
                       Grid columns:1 gap:5
@@ -738,7 +738,7 @@ page DashboardPage
                             each in:digests as:digest key:digest.id
                               Option value:digest.value label:digest.label
                         Flex direction:{ xs:"column" sm:"row" } justify:"end" gap:3
-                          Button variant:"ghost" scheme:"muted"
+                          Button variant:"solid" scheme:"muted"
                             "Cancel"
                           Button
                             "Save changes"
@@ -757,8 +757,8 @@ page DashboardPage
                           "Dashboard"
                     end
                       Flex align:"center" gap:3
-                        IconButton icon:"magnifier" label:"Search dashboard" variant:"ghost" scheme:"muted" size:"sm" show:{ xs:false md:true }
-                        IconButton icon:"bell" label:"Open notifications" variant:"ghost" scheme:"muted" size:"sm"
+                        IconButton icon:"magnifier" label:"Search dashboard" variant:"solid" scheme:"muted" size:"sm" show:{ xs:false md:true }
+                        IconButton icon:"bell" label:"Open notifications" variant:"solid" scheme:"muted" size:"sm"
                         Avatar name:"Jordan Lee" alt:"Jordan Lee" size:"sm" variant:"solid" scheme:"primary" status:"online"
                 start
                   Sidebar show:{ xs:false md:true } variant:"solid" scheme:"muted" w:64 h:"vh-0" border:1
@@ -851,7 +851,7 @@ page DashboardPage
                           Text size:"sm"
                             "Review your details, then enter the workspace."
                           Flex direction:{ xs:"column" sm:"row" } justify:"between" gap:3
-                            Button variant:"ghost" scheme:"muted"
+                            Button variant:"solid" scheme:"muted"
                               "Back"
                             Button
                               "Continue"
@@ -870,8 +870,8 @@ page DashboardPage
                           "Dashboard"
                     end
                       Flex align:"center" gap:3
-                        IconButton icon:"magnifier" label:"Search dashboard" variant:"ghost" scheme:"muted" size:"sm" show:{ xs:false md:true }
-                        IconButton icon:"bell" label:"Open notifications" variant:"ghost" scheme:"muted" size:"sm"
+                        IconButton icon:"magnifier" label:"Search dashboard" variant:"solid" scheme:"muted" size:"sm" show:{ xs:false md:true }
+                        IconButton icon:"bell" label:"Open notifications" variant:"solid" scheme:"muted" size:"sm"
                         Avatar name:"Jordan Lee" alt:"Jordan Lee" size:"sm" variant:"solid" scheme:"primary" status:"online"
                 start
                   Sidebar show:{ xs:false md:true } variant:"solid" scheme:"muted" w:64 h:"vh-0" border:1

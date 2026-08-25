@@ -4,7 +4,7 @@ page CountdownPage
       { prop:"target" type:"ISO-like date/time string" defaultValue:"required" },
       { prop:"showDays, showHours, showMinutes, showSeconds" type:"boolean" defaultValue:"true" },
       { prop:"size" type:"sm | md | lg | xl" defaultValue:"md" },
-      { prop:"variant" type:"solid | soft | outlined | ghost" defaultValue:"solid" },
+      { prop:"variant" type:"solid" defaultValue:"solid" },
       { prop:"scheme" type:"primary | secondary | muted | surface | success | info | warning | danger" defaultValue:"primary" },
       { prop:"daysLabel ... secondsLabel" type:"string" defaultValue:"Days ... Seconds" },
       { prop:"onComplete" type:"Action name" defaultValue:"—" },
@@ -36,11 +36,11 @@ page CountdownPage
         Text size:"sm"
           "The same target instant can be presented with different density and emphasis depending on where it appears in the product."
       Grid columns:{ xs:1 md:2 } gap:4
-        Card variant:"outlined" border:1 p:{ xs:5 md:7 }
+        Card variant:"solid" border:1 p:{ xs:5 md:7 }
           Grid columns:1 gap:4
             Text size:"xs" weight:"bold" spacing:"widest"
               "FULL TIMELINE"
-            Countdown target:"2030-01-01T00:00:00Z" size:"lg" variant:"outlined" scheme:"primary" daysLabel:"Days" hoursLabel:"Hours" minutesLabel:"Minutes" secondsLabel:"Seconds"
+            Countdown target:"2030-01-01T00:00:00Z" size:"lg" variant:"solid" scheme:"primary" daysLabel:"Days" hoursLabel:"Hours" minutesLabel:"Minutes" secondsLabel:"Seconds"
             Text size:"sm"
               "Calendar-scale day values expand their unit. Narrow containers compact lg and xl timelines, keep fitting timelines centered, and use bounded horizontal scroll only as a final fallback."
         Card scheme:"muted" p:{ xs:5 md:7 }
@@ -57,7 +57,7 @@ page CountdownPage
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Countdown target:"2030-01-01T00:00:00Z" size:"lg" variant:"outlined" scheme:"primary" daysLabel:"Days" hoursLabel:"Hours" minutesLabel:"Minutes" secondsLabel:"Seconds"
+          Countdown target:"2030-01-01T00:00:00Z" size:"lg" variant:"solid" scheme:"primary" daysLabel:"Days" hoursLabel:"Hours" minutesLabel:"Minutes" secondsLabel:"Seconds"
           Countdown target:"2030-01-01T00:00:00Z" showDays:false showHours:true showMinutes:true showSeconds:true size:"xl" variant:"solid" scheme:"danger" hoursLabel:"hrs" minutesLabel:"min" secondsLabel:"sec"
         """
   Section id:"countdown-patterns" py:{ xs:7 md:10 }
@@ -83,14 +83,14 @@ page CountdownPage
               "HANDOFF"
             Title size:"lg" weight:"black"
               "Review window"
-            Countdown target:"2030-01-01T00:00:00Z" size:"md" variant:"outlined" scheme:"info" showDays:false showHours:true showMinutes:true showSeconds:false hoursLabel:"Hours left" minutesLabel:"Minutes left"
+            Countdown target:"2030-01-01T00:00:00Z" size:"md" variant:"solid" scheme:"info" showDays:false showHours:true showMinutes:true showSeconds:false hoursLabel:"Hours left" minutesLabel:"Minutes left"
         Card variant:"solid" p:5
           Grid columns:1 gap:3
             Text size:"xs" weight:"bold"
               "MICRO"
             Title size:"lg" weight:"black"
               "Final seconds"
-            Countdown target:"2030-01-01T00:00:00Z" size:"sm" variant:"ghost" scheme:"warning" showDays:false showHours:false showMinutes:false showSeconds:true secondsLabel:"Seconds remaining"
+            Countdown target:"2030-01-01T00:00:00Z" size:"sm" variant:"solid" scheme:"warning" showDays:false showHours:false showMinutes:false showSeconds:true secondsLabel:"Seconds remaining"
       Code:
         language:"dowe"
         variant:"solid"
@@ -99,8 +99,8 @@ page CountdownPage
         copiedLabel:"Copied"
         content:"""
           Countdown target:"2030-01-01T00:00:00Z" size:"md" variant:"solid" scheme:"success" showDays:true showHours:false showMinutes:false showSeconds:false daysLabel:"Days to launch"
-          Countdown target:"2030-01-01T00:00:00Z" size:"md" variant:"outlined" scheme:"info" showDays:false showHours:true showMinutes:true showSeconds:false hoursLabel:"Hours left" minutesLabel:"Minutes left"
-          Countdown target:"2030-01-01T00:00:00Z" size:"sm" variant:"ghost" scheme:"warning" showDays:false showHours:false showMinutes:false showSeconds:true secondsLabel:"Seconds remaining"
+          Countdown target:"2030-01-01T00:00:00Z" size:"md" variant:"solid" scheme:"info" showDays:false showHours:true showMinutes:true showSeconds:false hoursLabel:"Hours left" minutesLabel:"Minutes left"
+          Countdown target:"2030-01-01T00:00:00Z" size:"sm" variant:"solid" scheme:"warning" showDays:false showHours:false showMinutes:false showSeconds:true secondsLabel:"Seconds remaining"
         """
   Section id:"countdown-contract" p:{ xs:5 md:7 }
     Grid columns:{ xs:1 md:2 } gap:4
@@ -140,7 +140,7 @@ page CountdownPage
         column field:"defaultValue" label:"Default" width:"1fr"
   Section id:"countdown-next" p:{ xs:5 md:7 }
     Flex wrap:true justify:"between" gap:4
-      Button href:"/docs/views/display/collapsible" variant:"outlined" rounded:"full"
+      Button href:"/docs/views/display/collapsible" variant:"solid" rounded:"full"
         "Previous Collapsible"
       Button href:"/docs/views/display/carousel" rounded:"full"
         "Next Carousel"

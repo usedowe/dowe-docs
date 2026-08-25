@@ -73,7 +73,7 @@ page PricesPage
                       "Choose a clear starting point, then scale the plan as your team and traffic grow."
                   Grid columns:{ xs:1 md:3 } gap:5 align:"stretch"
                     each in:plans as:plan key:plan.id
-                      Card variant:"outlined" scheme:"muted" rounded:"xl" p:0
+                      Card variant:"solid" scheme:"muted" rounded:"xl" p:0
                         Grid columns:1 gap:0
                           Box bg:"muted" p:{ xs:6 md:7 }
                             Flex direction:"column" align:"center" gap:2
@@ -161,7 +161,7 @@ page PricesPage
                       "Pick the level of support and capacity that best matches your next stage of growth."
                   Grid columns:{ xs:1 md:3 } gap:5 align:"stretch"
                     each in:plans as:plan key:plan.id
-                      Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 }
+                      Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 }
                         Flex direction:"column" align:"center" justify:"between" gap:5 minH:{ xs:80 md:96 }
                           Flex direction:"column" align:"center" gap:4
                             Box bg:"muted" rounded:"full" w:24 h:24
@@ -217,7 +217,7 @@ page PricesPage
 
               Section id:"split-plans-pricing" bg:"background" color:"backgroundText" boxed:true py:{ xs:8 md:12 }
                 Grid columns:{ xs:1 md:2 } gap:6 align:"stretch"
-                  Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 }
+                  Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 }
                     Grid columns:1 gap:5
                       Flex justify:"between" align:"center"
                         Icon name:"gallery-bold-duotone" fill:"muted" w:12 h:12
@@ -313,7 +313,7 @@ page PricesPage
               Section id:"minimal-columns-pricing" bg:"background" color:"backgroundText" boxed:true py:{ xs:8 md:14 }
                 Grid columns:{ xs:1 md:3 } gap:{ xs:5 md:0 } align:"stretch"
                   each in:plans as:plan key:plan.id
-                    Card variant:"ghost" scheme:"background" rounded:"xl" p:{ xs:6 md:8 } minH:96 show:plan.standard
+                    Card variant:"solid" scheme:"background" rounded:"xl" p:{ xs:6 md:8 } minH:96 show:plan.standard
                       Flex direction:"column" justify:"between" gap:8 minH:80
                         Grid columns:1 gap:5
                           Flex justify:"between" align:"center"
@@ -340,7 +340,7 @@ page PricesPage
                                 "{plan.featureFour}"
                         Button size:"lg" rounded:"full"
                           "Get started"
-                    Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:96 show:plan.popular
+                    Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:6 md:8 } minH:96 show:plan.popular
                       Flex direction:"column" justify:"between" gap:8 minH:80
                         Text size:"sm"
                           "Popular"
@@ -442,15 +442,15 @@ page PricesPage
                   Flex align:"center" justify:"center" gap:2
                     Button rounded:"full" show:monthly onClick:showMonthly
                       "Monthly plan"
-                    Button variant:"outlined" rounded:"full" show:annual onClick:showMonthly
+                    Button variant:"solid" rounded:"full" show:annual onClick:showMonthly
                       "Monthly plan"
-                    Button variant:"outlined" rounded:"full" show:monthly onClick:showAnnual
+                    Button variant:"solid" rounded:"full" show:monthly onClick:showAnnual
                       "Annual plan"
                     Button rounded:"full" show:annual onClick:showAnnual
                       "Annual plan"
                   Grid columns:{ xs:1 md:3 } gap:5 align:"stretch"
                     each in:plans as:plan key:plan.id
-                      Card variant:"outlined" scheme:"muted" rounded:"xl" p:{ xs:6 md:7 } show:plan.standard
+                      Card variant:"solid" scheme:"muted" rounded:"xl" p:{ xs:6 md:7 } show:plan.standard
                         Grid columns:1 gap:5
                           Title size:"xl" weight:"black"
                             "{plan.name}"

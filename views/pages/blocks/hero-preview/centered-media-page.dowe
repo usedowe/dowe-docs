@@ -13,7 +13,7 @@ page CenteredMediaHeroPage
         Flex direction:{ xs:"column" sm:"row" } align:"center" justify:"center" gap:3
           Button size:"lg" rounded:"full" iconEnd:"arrow-right"
             "Get started"
-          Button variant:"outlined" size:"lg" rounded:"full"
+          Button variant:"solid" size:"lg" rounded:"full"
             "Talk to sales"
       Grid columns:{ xs:1 md:2 } gap:{ xs:4 md:0 } align:"center"
         each in:mediaFrames as:frame key:frame.id

@@ -13,7 +13,7 @@ page TooltipPage
       },
       {
         prop:"variant"
-        type:"solid | soft"
+        type:"solid"
         defaultValue:"solid"
       },
       {
@@ -40,7 +40,7 @@ page TooltipPage
           "A label for a compact action"
         Text size:"sm"
           "Hover the action or move focus to it with the keyboard. The label stays out of the normal layout until it is needed."
-      Card variant:"outlined" p:{ xs:6 md:10 } border:1
+      Card variant:"solid" p:{ xs:6 md:10 } border:1
         Flex justify:"center" align:"center"
           Tooltip label:"Create a new project" position:"top" scheme:"muted"
             Button iconStart:"add-circle"
@@ -66,25 +66,25 @@ page TooltipPage
         Text size:"sm"
           "position selects the side of the child where the floating label appears. Use the side with the clearest available space."
       Grid columns:{ xs:2 md:4 } gap:5
-        Card variant:"outlined" p:6 border:1
+        Card variant:"solid" p:6 border:1
           Flex justify:"center"
             Tooltip label:"Top tooltip" position:"top"
-              Button variant:"outlined" size:"sm"
+              Button variant:"solid" size:"sm"
                 "Top"
-        Card variant:"outlined" p:6 border:1
+        Card variant:"solid" p:6 border:1
           Flex justify:"center"
             Tooltip label:"Bottom tooltip" position:"bottom"
-              Button variant:"outlined" size:"sm"
+              Button variant:"solid" size:"sm"
                 "Bottom"
-        Card variant:"outlined" p:6 border:1
+        Card variant:"solid" p:6 border:1
           Flex justify:"center"
             Tooltip label:"Start tooltip" position:"start"
-              Button variant:"outlined" size:"sm"
+              Button variant:"solid" size:"sm"
                 "Start"
-        Card variant:"outlined" p:6 border:1
+        Card variant:"solid" p:6 border:1
           Flex justify:"center"
             Tooltip label:"End tooltip" position:"end"
-              Button variant:"outlined" size:"sm"
+              Button variant:"solid" size:"sm"
                 "End"
       Code:
         language:"dowe"
@@ -129,13 +129,13 @@ page TooltipPage
                   "Delete"
       Flex wrap:true justify:"center" align:"center" gap:3
         Tooltip label:"Primary context" scheme:"primary"
-          Button variant:"outlined" size:"sm"
+          Button variant:"solid" size:"sm"
             "Primary"
         Tooltip label:"Info context" variant:"solid" scheme:"info"
-          Button variant:"outlined" scheme:"info" size:"sm"
+          Button variant:"solid" scheme:"info" size:"sm"
             "Info"
         Tooltip label:"Warning context" variant:"solid" scheme:"warning"
-          Button variant:"outlined" scheme:"warning" size:"sm"
+          Button variant:"solid" scheme:"warning" size:"sm"
             "Warning"
   Section id:"tooltip-targets" py:{ xs:7 md:10 }
     Grid columns:1 gap:6

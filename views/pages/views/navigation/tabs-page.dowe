@@ -56,7 +56,7 @@ page TabsPage
         Text size:"sm"
           "The tab list wraps its controls instead of stretching across the panel. If a horizontal list becomes wider than its container, it stays bounded and scrolls."
       Grid columns:{ xs:1 md:2 } gap:6 align:"start"
-        Card variant:"outlined" p:{ xs:5 md:8 } border:1
+        Card variant:"solid" p:{ xs:5 md:8 } border:1
           Tabs position:"top"
             tab id:"overview" label:"Overview"
               Grid columns:1 gap:2 p:4
@@ -119,7 +119,7 @@ page TabsPage
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Outlined"
-            Tabs variant:"outlined"
+            Tabs variant:"solid"
               tab id:"outlined-first" label:"First"
                 Text size:"sm" p:3
                   "A border keeps the tab list distinct."
@@ -141,7 +141,7 @@ page TabsPage
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Ghost"
-            Tabs variant:"ghost"
+            Tabs variant:"solid"
               tab id:"ghost-first" label:"First"
                 Text size:"sm" p:3
                   "A quiet option for low-emphasis navigation."
@@ -169,7 +169,7 @@ page TabsPage
         Text size:"sm"
           "top and bottom use a horizontal tab list. start and end place a vertical list beside the panel on every generated target."
       Grid columns:{ xs:1 md:3 } gap:5
-        Card variant:"outlined" p:5 border:1
+        Card variant:"solid" p:5 border:1
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Bottom"
@@ -180,22 +180,22 @@ page TabsPage
               tab id:"bottom-details" label:"Details"
                 Text size:"sm" p:3
                   "Use this when the panel should lead visually."
-        Card variant:"outlined" p:5 border:1
+        Card variant:"solid" p:5 border:1
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "Start"
-            Tabs variant:"outlined" scheme:"muted" position:"start"
+            Tabs variant:"solid" scheme:"muted" position:"start"
               tab id:"start-profile" label:"Profile"
                 Text size:"sm" p:3
                   "A vertical list appears before the panel."
               tab id:"start-security" label:"Security"
                 Text size:"sm" p:3
                   "Keep related settings together."
-        Card variant:"outlined" p:5 border:1
+        Card variant:"solid" p:5 border:1
           Grid columns:1 gap:3
             Title size:"lg" weight:"bold"
               "End"
-            Tabs variant:"outlined" scheme:"muted" position:"end"
+            Tabs variant:"solid" scheme:"muted" position:"end"
               tab id:"end-notes" label:"Notes"
                 Text size:"sm" p:3
                   "A vertical list appears after the panel."
@@ -207,7 +207,7 @@ page TabsPage
         variant:"solid"
         scheme:"surface"
         content:"""
-          Tabs variant:"outlined" scheme:"muted" position:"start"
+          Tabs variant:"solid" scheme:"muted" position:"start"
             tab id:"profile" label:"Profile"
               Text size:"sm"
                 "Personal information"

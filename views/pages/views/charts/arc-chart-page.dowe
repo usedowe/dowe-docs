@@ -17,7 +17,7 @@ page ArcChartPage
   const arcProps:
     value:[
       { prop:"data" type:"Signal array path" defaultValue:"—" },
-      { prop:"variant" type:"solid | soft | outlined | ghost" defaultValue:"solid" },
+      { prop:"variant" type:"solid" defaultValue:"solid" },
       { prop:"scheme" type:"Dowe color family" defaultValue:"surface" },
       { prop:"size" type:"sm | md | lg | xl" defaultValue:"md" },
       { prop:"palette" type:"default | rainbow | ocean | sunset | forest | neon" defaultValue:"default" },
@@ -88,7 +88,7 @@ page ArcChartPage
       Grid columns:{ xs:1 md:2 } gap:4 align:"center"
         ArcChart:
           data:progress
-          variant:"outlined"
+          variant:"solid"
           scheme:"success"
           size:"lg"
           palette:"forest"
@@ -117,7 +117,7 @@ page ArcChartPage
           showInlineLabels:true
           hideLegend:true
       Code language:"dowe" variant:"solid" scheme:"surface" copyLabel:"Copy Dowe" copiedLabel:"Copied" content:"""
-        ArcChart data:progress variant:"outlined" scheme:"success" size:"lg" palette:"forest" centerText:"Release" centerValue:"68%" thickness:26 startAngle:-90 endAngle:270 hideValues:true showGlow:true
+        ArcChart data:progress variant:"solid" scheme:"success" size:"lg" palette:"forest" centerText:"Release" centerValue:"68%" thickness:26 startAngle:-90 endAngle:270 hideValues:true showGlow:true
         ArcChart data:allocation variant:"solid" scheme:"surface" size:"lg" palette:"sunset" legendPosition:"none" centerText:"Focus" centerValue:"4 teams" thickness:16 gap:2 startAngle:180 endAngle:540 showInlineLabels:true hideLegend:true
       """
   Section id:"arc-chart-states" p:{ xs:5 md:7 }
@@ -131,7 +131,7 @@ page ArcChartPage
           "Use loading for an in-flight data request and emptyLabel for a valid empty Signal. Both states preserve the chart surface and accessibility context."
       Grid columns:{ xs:1 md:2 } gap:4
         ArcChart data:allocation variant:"solid" scheme:"info" size:"md" loading:true centerText:"Syncing" centerValue:"—"
-        ArcChart data:emptySlices variant:"outlined" scheme:"warning" size:"md" emptyLabel:"No allocation yet" centerText:"Empty" centerValue:"0"
+        ArcChart data:emptySlices variant:"solid" scheme:"warning" size:"md" emptyLabel:"No allocation yet" centerText:"Empty" centerValue:"0"
   Section id:"arc-chart-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2

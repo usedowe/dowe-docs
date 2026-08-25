@@ -28,7 +28,7 @@ page DragDropPage
       },
       {
         prop:"variant"
-        type:"solid | soft | outlined | ghost"
+        type:"solid"
         defaultValue:"solid"
       },
       {
@@ -64,7 +64,7 @@ page DragDropPage
         emptyText:"Drop a task into this lane"
         direction:"horizontal"
         allowGroupTransfer:true
-        variant:"outlined"
+        variant:"solid"
         scheme:"primary"
         size:"lg"
         dragGroup id:"backlog" title:"Backlog"
@@ -82,7 +82,7 @@ page DragDropPage
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          DragDrop emptyText:"Drop a task into this lane" direction:"horizontal" allowGroupTransfer:true variant:"outlined" scheme:"primary" size:"lg"
+          DragDrop emptyText:"Drop a task into this lane" direction:"horizontal" allowGroupTransfer:true variant:"solid" scheme:"primary" size:"lg"
             dragGroup id:"backlog" title:"Backlog"
               dragItem id:"research" label:"Research API" description:"Confirm the response contract."
               dragItem id:"wireframe" label:"Review wireframes" description:"Resolve the empty states."
@@ -105,7 +105,7 @@ page DragDropPage
           dragItem id:"draft" label:"Draft brief" description:"Needs a first review."
           dragItem id:"feedback" label:"Collect feedback" description:"Waiting on product input."
           dragItem id:"qa" label:"Run QA" description:"Ready for a final pass."
-        DragDrop emptyText:"This board is read-only" direction:"vertical" disabled:true variant:"ghost" scheme:"muted" size:"sm"
+        DragDrop emptyText:"This board is read-only" direction:"vertical" disabled:true variant:"solid" scheme:"muted" size:"sm"
           dragGroup id:"ready" title:"Ready"
             dragItem id:"approved" label:"Approved request" description:"No further changes."
           dragGroup id:"blocked" title:"Blocked"
@@ -121,7 +121,7 @@ page DragDropPage
             dragItem id:"draft" label:"Draft brief" description:"Needs a first review."
             dragItem id:"feedback" label:"Collect feedback" description:"Waiting on product input."
 
-          DragDrop emptyText:"This board is read-only" direction:"vertical" disabled:true variant:"ghost" scheme:"muted" size:"sm"
+          DragDrop emptyText:"This board is read-only" direction:"vertical" disabled:true variant:"solid" scheme:"muted" size:"sm"
             dragGroup id:"ready" title:"Ready"
               dragItem id:"approved" label:"Approved request" description:"No further changes."
             dragGroup id:"blocked" title:"Blocked"
@@ -137,7 +137,7 @@ page DragDropPage
         Text size:"sm"
           "Empty text, disabled items, and size communicate whether a board is ready for movement or only showing a static plan."
       Grid columns:{ xs:1 md:2 } gap:5
-        DragDrop emptyText:"Nothing is queued yet" direction:"vertical" variant:"outlined" scheme:"info" size:"sm"
+        DragDrop emptyText:"Nothing is queued yet" direction:"vertical" variant:"solid" scheme:"info" size:"sm"
         DragDrop emptyText:"No transfers allowed" direction:"horizontal" allowGroupTransfer:false variant:"solid" scheme:"warning" size:"lg"
           dragGroup id:"today" title:"Today"
             dragItem id:"sync" label:"Sync records"

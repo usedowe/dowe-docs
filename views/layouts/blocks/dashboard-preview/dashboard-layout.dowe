@@ -9,8 +9,8 @@ layout DashboardPreviewLayout
               "Dashboard"
         end
           Flex align:"center" gap:3
-            IconButton icon:"magnifier" label:"Search dashboard" variant:"ghost" scheme:"muted" size:"sm" show:{ xs:false md:true }
-            IconButton icon:"bell" label:"Open notifications" variant:"ghost" scheme:"muted" size:"sm"
+            IconButton icon:"magnifier" label:"Search dashboard" variant:"solid" scheme:"muted" size:"sm" show:{ xs:false md:true }
+            IconButton icon:"bell" label:"Open notifications" variant:"solid" scheme:"muted" size:"sm"
             Avatar name:"Jordan Lee" alt:"Jordan Lee" size:"sm" variant:"solid" scheme:"primary" status:"online"
     start
       Sidebar show:{ xs:false md:true } variant:"solid" scheme:"muted" w:64 h:"vh-0" border:1

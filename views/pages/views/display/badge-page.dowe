@@ -3,7 +3,7 @@ page BadgePage
     value:[
       { prop:"text" type:"static string" defaultValue:"required" },
       { prop:"position" type:"top-left | top-right | bottom-left | bottom-right" defaultValue:"top-right" },
-      { prop:"variant" type:"solid | soft" defaultValue:"solid" },
+      { prop:"variant" type:"solid" defaultValue:"solid" },
       { prop:"scheme" type:"primary | secondary | accent | muted | background | surface | success | info | warning | danger" defaultValue:"primary" },
       { prop:"children" type:"one or more view children" defaultValue:"required" },
     ]
@@ -29,7 +29,7 @@ page BadgePage
         Text size:"sm"
           "Each example gets enough breathing room for the label to sit across the child’s corner on web, Android, and iOS."
       Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"outlined" rounded:"lg" border:1 p:7 minH:36
+        Card variant:"solid" rounded:"lg" border:1 p:7 minH:36
           Flex direction:"column" align:"center" justify:"between" gap:6 minH:24
             Badge text:"3" scheme:"danger" position:"top-right"
               Avatar name:"Ada" size:"xl" scheme:"secondary" bordered:true
@@ -38,7 +38,7 @@ page BadgePage
                 "COUNT"
               Text size:"sm"
                 "Keep numeric alerts short."
-        Card variant:"outlined" rounded:"lg" border:1 p:7 minH:36
+        Card variant:"solid" rounded:"lg" border:1 p:7 minH:36
           Flex direction:"column" align:"center" justify:"between" gap:6 minH:24
             Badge text:"New" scheme:"success" variant:"solid" position:"bottom-right"
               Button variant:"solid" iconStart:"inbox"
@@ -47,8 +47,8 @@ page BadgePage
               Text size:"xs" weight:"bold" spacing:"widest"
                 "STATUS"
               Text size:"sm"
-                "Use soft for quiet metadata."
-        Card variant:"outlined" rounded:"lg" border:1 p:7 minH:36
+                "Use solid for metadata."
+        Card variant:"solid" rounded:"lg" border:1 p:7 minH:36
           Flex direction:"column" align:"center" justify:"between" gap:6 minH:24
             Badge text:"Beta" scheme:"info" variant:"solid" position:"top-left"
               Button scheme:"muted" size:"lg"
@@ -198,7 +198,7 @@ page BadgePage
         column field:"defaultValue" label:"Default" width:"1fr"
   Section id:"badge-next" p:{ xs:5 md:7 }
     Flex wrap:true justify:"between" gap:4
-      Button href:"/docs/views/display/avatar-group" variant:"outlined" rounded:"full"
+      Button href:"/docs/views/display/avatar-group" variant:"solid" rounded:"full"
         "Previous AvatarGroup"
       Button href:"/docs/views/display/collapsible" rounded:"full"
         "Next Collapsible"
