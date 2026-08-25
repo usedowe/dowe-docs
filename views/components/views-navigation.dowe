@@ -28,6 +28,7 @@ component ViewsNavigation
       item label:"Microphone" href:"/docs/views/control/microphone" icon:"record-audio-circle"
       item label:"Svg" href:"/docs/views/control/svg" icon:"pen-new-square"
       item label:"SelectTheme" href:"/docs/views/multi-theme/select-theme" icon:"palette"
+      item label:"Swap" href:"/docs/views/control/swap" icon:"refresh"
       item label:"ToggleGroup" href:"/docs/views/control/toggle-group" icon:"check-square"
       item label:"ToggleTheme" href:"/docs/views/multi-theme/toggle-theme" icon:"moon"
       item label:"Video" href:"/docs/views/control/video" icon:"video-frame-play-horizontal"

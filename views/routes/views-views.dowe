@@ -97,6 +97,7 @@ import ToggleGroupPage from "@/views/pages/views/control/toggle-group-page"
 import CheckboxPage from "@/views/pages/views/forms/checkbox-page"
 import TogglePage from "@/views/pages/views/forms/toggle-page"
 import IconButtonPage from "@/views/pages/views/control/icon-button-page"
+import SwapPage from "@/views/pages/views/control/swap-page"
 import ToggleThemePage from "@/views/pages/views/multi-theme/toggle-theme-page"
 import SelectThemePage from "@/views/pages/views/multi-theme/select-theme-page"
 import FontsPage from "@/views/pages/views/theme/fonts-page"
@@ -158,6 +159,7 @@ views ViewsViews
     route path:"control/svg" page:SvgPage
     route path:"control/fab" page:FabPage
     route path:"control/icon-button" page:IconButtonPage
+    route path:"control/swap" page:SwapPage
     route path:"control/image" page:ImagePage
     route path:"control/video" page:VideoPage
     route path:"control/record" page:RecordPage
