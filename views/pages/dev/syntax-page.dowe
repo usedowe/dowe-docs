@@ -68,11 +68,36 @@ page SyntaxPage
             ]
         """
       Alert type:"info" message:"Existing comma-separated arrays remain accepted for migration. The formatter rewrites them to the whitespace form, so you can migrate files incrementally."
+  Section id:"syntax-comments" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:3
+        Text size:"xs" weight:"bold" spacing:"widest"
+          "3 / LINE COMMENTS"
+        Title size:"3xl" weight:"black"
+          "Comment source without removing it"
+        Text size:"sm"
+          "Use // for a complete line or after a declaration. The compiler ignores commented nodes in both Views and Server modules, while keeping // inside quoted and multiline strings as text."
+      Code:
+        language:"dowe"
+        variant:"solid"
+        scheme:"surface"
+        copyLabel:"Copy comment examples"
+        copiedLabel:"Copied"
+        content:"""
+          // Disabled route
+          server
+            // get path:"/health"
+            get path:"/status" response:{ status:200 body:"ok" } // trailing note
+
+          page home
+            Text content:"https://example.test//path"
+        """
+      Alert type:"info" message:"Select one or more lines and use the normal toggle-line-comment shortcut in Zed or Visual Studio Code to add or remove //."
   Section id:"syntax-objects" p:{ xs:5 md:7 }
     Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest"
-          "3 / OBJECTS AND PROPS"
+          "4 / OBJECTS AND PROPS"
         Title size:"3xl" weight:"black"
           "Use key:value pairs inside braces"
         Text size:"sm"
@@ -98,7 +123,7 @@ page SyntaxPage
     Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest"
-          "4 / FIRST-PROJECT CHECKLIST"
+          "5 / FIRST-PROJECT CHECKLIST"
         Title size:"3xl" weight:"black"
           "Avoid the mistakes that slow down a first project"
         Text size:"sm"
@@ -116,7 +141,7 @@ page SyntaxPage
   Section id:"syntax-next" p:{ xs:5 md:7 }
     Grid columns:1 gap:4
       Text size:"xs" weight:"bold" spacing:"widest"
-        "5 / NEXT STEP"
+        "6 / NEXT STEP"
       Title size:"3xl" weight:"black"
         "Start with the generated project"
       Text size:"sm"
