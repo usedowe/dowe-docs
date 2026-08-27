@@ -56,6 +56,16 @@ page ButtonPage
         value:"solid"
         label:"Solid"
       },
+      {
+        id:"outlined"
+        value:"outlined"
+        label:"Outlined"
+      },
+      {
+        id:"ghost"
+        value:"ghost"
+        label:"Ghost"
+      },
     ]
   const sizeOptions:
     value:[
@@ -85,7 +95,7 @@ page ButtonPage
         label:"xl"
       },
     ]
-  const solidButtons:
+  const schemeButtons:
     value:[
       {
         id:"solid-primary"
@@ -203,7 +213,7 @@ page ButtonPage
       },
       {
         prop:"variant"
-        type:"solid"
+        type:"solid | outlined | ghost"
         defaultValue:"solid"
       },
       {
@@ -248,14 +258,15 @@ page ButtonPage
       },
     ]
   Section id:"button-introduction" py:{ xs:6 md:10 }
-    Grid columns:1 gap:5
-      Grid columns:1 gap:3
-        Text size:"xs" weight:"bold" spacing:"widest"
-          "CONTROL"
-        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
-          "Button"
-        Text size:"lg"
-          "Buttons let users trigger actions and navigation with one clear tap."
+    Grid columns:1 gap:3
+      Text size:"xs" weight:"bold" spacing:"widest"
+        "CONTROL / ACTIONS"
+      Title size:{ xs:"4xl" md:"6xl" } weight:"black"
+        "Button"
+      Text size:"lg"
+        "A clear, portable action surface for commands, navigation, and focused flows."
+      Text size:"sm"
+        "Start with the default Button, then add only the props that express a real interaction or visual decision. Explore the variants, states, and sizes below in one shared playground."
   Section id:"button-playground" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
@@ -265,6 +276,8 @@ page ButtonPage
           "Configure a button"
         Text size:"sm"
           "The controls bind directly to the preview. Conditional icon values resolve to a validated Solar name or an empty string without reserving icon space."
+        Text size:"sm"
+          "Try outlined and ghost to compare hierarchy: solid is for the primary action, while quieter variants support secondary actions."
         Text size:"sm"
           "On web, desktop, Android, and iOS, Button labels stay on one line and keep their control height in narrow layouts. Let the surrounding Flex wrap or change direction when the row no longer fits."
         Text size:"sm"
@@ -326,25 +339,75 @@ page ButtonPage
         Title size:"3xl" weight:"black"
           "Every semantic color"
         Text size:"sm"
-          "Each row keeps one variant fixed so color families are easy to compare."
+          "Each row keeps the solid variant fixed so the eight semantic families are easy to compare."
+        Text size:"sm"
+          "Use a scheme for meaning—success, warning, or danger—not just decoration."
         Text size:"sm"
           "Each generated label uses the explicit braced text-binding form for its current item."
       Flex direction:"column" gap:3
+        Text size:"sm" weight:"bold"
+          "Semantic schemes"
         Grid columns:{ xs:2 md:4 } gap:3
-          each in:solidButtons as:button key:button.id
+          each in:schemeButtons as:button key:button.id
             Button variant:button.variant scheme:button.scheme
               "{button.label}"
+      Flex direction:"column" gap:3
+        Text size:"sm" weight:"bold"
+          "Variants in context"
+        Grid columns:{ xs:1 md:3 } gap:3
+          Button
+            "Primary action"
+          Button variant:"outlined" scheme:"primary"
+            "Secondary action"
+          Button variant:"ghost" scheme:"primary"
+            "Quiet action"
   Section id:"button-sizes" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
         Text size:"xs" weight:"bold" spacing:"widest"
-          "VARIANTS AND SIZES"
+          "SIZES AND CONTENT"
         Title size:"3xl" weight:"black"
           "Five control densities"
+        Text size:"sm"
+          "Choose the smallest size that preserves a comfortable target. Icons remain aligned with the label at every size."
       Grid columns:{ xs:2 md:4 } gap:3
         each in:sizeButtons as:button key:button.id
           Button variant:button.variant size:button.size
             "{button.label}"
+  Section id:"button-guidance" py:{ xs:7 md:10 }
+    Grid columns:1 gap:5
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest"
+          "COMPOSITION"
+        Title size:"3xl" weight:"black"
+          "Choose the right button"
+        Text size:"sm"
+          "Use one primary action per surface, reserve semantic schemes for meaning, and keep labels short enough to scan."
+      Grid columns:{ xs:1 md:3 } gap:4
+        Card variant:"outlined" scheme:"primary"
+          Grid columns:1 gap:2
+            Button
+              "Save changes"
+            Title size:"lg" weight:"bold"
+              "Primary"
+            Text size:"sm"
+              "The default solid Button carries the main task forward."
+        Card variant:"outlined" scheme:"muted"
+          Grid columns:1 gap:2
+            Button variant:"outlined" scheme:"primary"
+              "Preview"
+            Title size:"lg" weight:"bold"
+              "Secondary"
+            Text size:"sm"
+              "Outlined keeps the action visible without competing with the primary choice."
+        Card variant:"outlined" scheme:"muted"
+          Grid columns:1 gap:2
+            Button variant:"ghost" scheme:"primary"
+              "Learn more"
+            Title size:"lg" weight:"bold"
+              "Quiet"
+            Text size:"sm"
+              "Ghost is useful for low-emphasis actions and supporting navigation."
   Section id:"button-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2

@@ -1,116 +1,47 @@
 page CardPage
-  const cardProps:
-    value:[
-      {
-        prop:"variant"
-        type:"solid"
-        defaultValue:"solid"
-      },
-      {
-        prop:"scheme"
-        type:"primary | secondary | accent | muted | background | surface | success | info | warning | danger"
-        defaultValue:"primary"
-      },
-      {
-        prop:"cover"
-        type:"asset path | https URL | responsive source"
-        defaultValue:"—"
-      },
-      {
-        prop:"overlay"
-        type:"boolean | opacity | color | linear gradient"
-        defaultValue:"—"
-      },
-      {
-        prop:"animation"
-        type:"none | fadeIn | slideUp | slideDown | slideLeft | slideRight | scaleIn"
-        defaultValue:"—"
-      },
-      {
-        prop:"flex"
-        type:"initial | auto | none | 1 | responsive object"
-        defaultValue:"initial"
-      },
-      {
-        prop:"p, px, py, pl, pr, pt, pb"
-        type:"spacing scale | responsive scale"
-        defaultValue:"p:{ xs:4 lg:5 }"
-      },
-      {
-        prop:"rounded"
-        type:"xs | sm | md | lg | xl | full"
-        defaultValue:"radius"
-      },
-      {
-        prop:"colSpan, rowSpan"
-        type:"grid span | responsive span"
-        defaultValue:"1"
-      },
-      {
-        prop:"show"
-        type:"boolean | responsive | Signal"
-        defaultValue:"true"
-      },
-    ]
-  Section id:"card-introduction" py:{ xs:6 md:10 }
+  Section id:"card-introduction"
     Grid columns:1 gap:5
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest"
           "DISPLAY"
-        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+        Title as:"h1" size:"5xl"
           "Card"
         Text size:"lg"
           "Cards group related information into one portable visual unit with a clear semantic boundary."
-      Card variant:"solid" scheme:"success" p:5 rounded:"lg" minW:56
+      Card variant:"solid" scheme:"success" p:5 rounded:"lg"
         Grid columns:1 gap:1
           Text size:"xs" weight:"bold" spacing:"widest"
             "PORTABLE SURFACE"
-          Title size:"xl" weight:"black"
+          Title size:"xl"
             "One authored card"
           Text size:"sm"
             "Web, Android, and iOS resolve the same variant and token contract."
-  Section id:"card-variants" p:{ xs:5 md:7 }
+  Section id:"card-variants"
     Grid columns:1 gap:6
       Grid columns:1 gap:2
         Text size:"xs" weight:"bold" spacing:"widest"
           "VARIANTS AND SCHEMES"
-        Title size:"3xl" weight:"black"
+        Title size:"3xl"
           "Four levels of emphasis"
         Text size:"sm"
           "Use scheme for semantic color and variant for visual weight. Cards also accept structural background and surface schemes."
-      Grid columns:{ xs:2 md:4 } gap:4
-        Card scheme:"primary" minH:32
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" spacing:"widest"
-              "SOLID"
-            Title size:"xl" weight:"black"
-              "Primary decision"
-            Text size:"sm"
-              "Use the strongest emphasis for a featured summary or decisive callout."
-        Card variant:"solid" scheme:"success" minH:32
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" spacing:"widest"
-              "SOLID"
-            Title size:"xl" weight:"black"
-              "Routine confirmation"
-            Text size:"sm"
-              "Solid color keeps related details visible without competing with the page."
-        Card variant:"solid" scheme:"warning" minH:32
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" spacing:"widest"
-              "OUTLINED"
-            Title size:"xl" weight:"black"
-              "Contextual boundary"
-            Text size:"sm"
-              "A border separates related information while preserving the surrounding surface."
-        Card variant:"solid" scheme:"danger" minH:32
-          Grid columns:1 gap:2
-            Text size:"xs" weight:"bold" spacing:"widest"
-              "GHOST"
-            Title size:"xl" weight:"black"
-              "Lowest visual weight"
-            Text size:"sm"
-              "Use a transparent card when hierarchy comes from placement rather than fill."
+      Grid columns:{ xs:1 md:2 } gap:2
+        const cardVariants:
+          value:[
+            { id:"solid-primary" variant:"solid" scheme:"primary" label:"SOLID" title:"Primary decision" description:"Use the strongest emphasis for a featured summary or decisive callout." }
+            { id:"outlined-success" variant:"outlined" scheme:"success" label:"OUTLINED" title:"Routine confirmation" description:"A border separates related information while preserving the surrounding surface." }
+            { id:"outlined-warning" variant:"outlined" scheme:"warning" label:"OUTLINED" title:"Contextual boundary" description:"Choose an outlined card when structure matters more than visual weight." }
+            { id:"ghost-danger" variant:"ghost" scheme:"danger" label:"GHOST" title:"Lowest visual weight" description:"Use a transparent card when hierarchy comes from placement rather than fill." }
+          ]
+        each in:cardVariants as:card key:card.id
+          Card variant:card.variant scheme:card.scheme minH:32
+            Grid columns:1 gap:2
+              Text size:"xs" weight:"bold" spacing:"widest"
+                "{card.label}"
+              Title size:"xl"
+                "{card.title}"
+              Text size:"sm"
+                "{card.description}"
       Code:
         language:"dowe"
         variant:"solid"
@@ -125,15 +56,15 @@ page CardPage
               Text size:"sm"
                 "The card preserves the surface while adding a semantic boundary."
         """
-  Section id:"card-foreground" py:{ xs:7 md:10 }
+  Section id:"card-foreground"
     Grid columns:1 gap:5 align:"center"
       Grid columns:1 gap:3
         Text size:"xs" weight:"bold" spacing:"widest"
           "CONTENT COLOR"
-        Title size:"3xl" weight:"black"
+        Title size:"3xl"
           "Scheme flows through the card"
         Text size:"sm"
-          "Card resolves one foreground from variant and scheme. Descendant text inherits it unless that child declares color explicitly."
+          "Card resolves one foreground from variant and scheme. Descendant text inherits the surface roles, so local color overrides are rarely needed."
         Code:
           language:"dowe"
           variant:"solid"
@@ -146,32 +77,32 @@ page CardPage
                 "Uses softMutedText"
               Text size:"sm"
                 "No repeated color prop is required."
-              Text size:"sm" color:"warning"
-                "This child is intentionally different."
+              Text size:"sm"
+                "Change the owning Card scheme when the whole content group needs a different emphasis."
           """
       Card variant:"solid" scheme:"muted" rounded:"lg"
         Grid columns:1 gap:2
-          Title size:"xl" weight:"black"
+          Title size:"xl"
             "Uses softMutedText"
           Text size:"sm"
             "No repeated color prop is required."
-          Text size:"sm" color:"warning"
-            "This child is intentionally different."
-  Section id:"card-cover" py:{ xs:7 md:10 }
+          Text size:"sm"
+            "Change the owning Card scheme when the whole content group needs a different emphasis."
+  Section id:"card-cover"
     Grid columns:1 gap:6
       Grid columns:1 gap:2
         Text size:"xs" weight:"bold" spacing:"widest"
           "COVER AND OVERLAY"
-        Title size:"3xl" weight:"black"
+        Title size:"3xl"
           "Keep content readable over imagery"
         Text size:"sm"
           "cover supplies the base image, overlay adds contrast, and children remain above both layers in every target."
       Grid columns:{ xs:1 md:2 } gap:4
-        Card cover:"https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" overlay:0.62 rounded:"lg" minH:72
+        Card cover:"https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" overlay:0.62 rounded:"lg" minH:72 color:"white"
           Flex direction:"column" justify:"end" gap:2 minH:60
             Text size:"xs" weight:"bold" spacing:"widest"
               "COVER CARD"
-            Title size:{ xs:"2xl" md:"3xl" } weight:"black"
+            Title size:"3xl"
               "Foreground stays legible"
             Text size:"sm"
               "The image is centered and covers the card without changing child order."
@@ -180,7 +111,7 @@ page CardPage
             Grid columns:1 gap:2
               Text size:"xs" weight:"bold" spacing:"widest"
                 "THREE LAYERS"
-              Title size:"2xl" weight:"black"
+              Title size:"2xl"
                 "Image, overlay, content"
               Text size:"sm"
                 "The component owns the layered surface so page layout stays simple."
@@ -200,12 +131,12 @@ page CardPage
               Text size:"sm"
                 "Content renders above the image and overlay."
         """
-  Section id:"card-layout" p:{ xs:5 md:7 }
+  Section id:"card-layout"
     Grid columns:1 gap:6
       Grid columns:1 gap:2
         Text size:"xs" weight:"bold" spacing:"widest"
           "SPACING AND PLACEMENT"
-        Title size:"3xl" weight:"black"
+        Title size:"3xl"
           "Defaults that adapt, structure that stays explicit"
         Text size:"sm"
           "Cards default to p:{ xs:4 lg:5 } and add no gap between children. Their direct children use a vertical flex parent, so a child layout can use flex:1 when the Card has a bounded height. Use Grid or Flex inside the card, and use spans only as a direct Grid child."
@@ -214,7 +145,7 @@ page CardPage
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
               "DEFAULT PADDING"
-            Title size:"xl" weight:"black"
+            Title size:"xl"
               "Responsive by default"
             Text size:"sm"
               "The compact and large-screen padding values are supplied automatically."
@@ -222,7 +153,7 @@ page CardPage
           Grid columns:1 gap:2
             Text size:"xs" weight:"bold" spacing:"widest"
               "EXPLICIT PADDING AND SPAN"
-            Title size:"xl" weight:"black"
+            Title size:"xl"
               "The direct Grid child can grow"
             Text size:"sm"
               "p replaces the default padding and colSpan expands this card across two desktop tracks."
@@ -241,34 +172,28 @@ page CardPage
               Text
                 "Overrides padding and spans two desktop columns."
         """
-  Section id:"card-animation" py:{ xs:7 md:10 }
+  Section id:"card-animation"
     Grid columns:1 gap:6
       Grid columns:1 gap:2
         Text size:"xs" weight:"bold" spacing:"widest"
           "MOTION"
-        Title size:"3xl" weight:"black"
+        Title size:"3xl"
           "Reveal a card with a portable preset"
         Text size:"sm"
           "animation is resolved by Dowe rather than a target-specific runtime. Choose a preset that supports the surrounding content hierarchy."
-      Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"solid" scheme:"primary" animation:"fadeIn"
+      const cardAnimations:
+        value:[
+          { id:"fade-in" animation:"fadeIn" scheme:"primary" label:"FADE IN" description:"A quiet appearance for supporting content." }
+          { id:"slide-up" animation:"slideUp" scheme:"secondary" label:"SLIDE UP" description:"A directional entrance for sequential content." }
+          { id:"scale-in" animation:"scaleIn" scheme:"accent" label:"SCALE IN" description:"A focused reveal for a featured visual unit." }
+        ]
+      each in:cardAnimations as:card key:card.id
+        Card variant:"solid" scheme:card.scheme animation:card.animation
           Grid columns:1 gap:1
             Text size:"xs" weight:"bold" spacing:"widest"
-              "FADE IN"
+              "{card.label}"
             Text size:"sm"
-              "A quiet appearance for supporting content."
-        Card variant:"solid" scheme:"secondary" animation:"slideUp"
-          Grid columns:1 gap:1
-            Text size:"xs" weight:"bold" spacing:"widest"
-              "SLIDE UP"
-            Text size:"sm"
-              "A directional entrance for sequential content."
-        Card variant:"solid" scheme:"accent" animation:"scaleIn"
-          Grid columns:1 gap:1
-            Text size:"xs" weight:"bold" spacing:"widest"
-              "SCALE IN"
-            Text size:"sm"
-              "A focused reveal for a featured visual unit."
+              "{card.description}"
       Code:
         language:"dowe"
         variant:"solid"
@@ -280,15 +205,28 @@ page CardPage
             Text
               "This card enters with the portable slideUp preset."
         """
-  Section id:"card-props" p:{ xs:5 md:7 }
+  Section id:"card-props"
     Grid columns:1 gap:5
       Grid columns:1 gap:2
         Text size:"xs" weight:"bold" spacing:"widest"
           "API"
-        Title size:"3xl" weight:"black"
+        Title size:"3xl"
           "Props"
         Text size:"sm"
           "Card also accepts applicable common sizing, border, shadow, font, visibility, and container style props."
+      const cardProps:
+        value:[
+          { prop:"variant" type:"solid | outlined | ghost" defaultValue:"solid" }
+          { prop:"scheme" type:"primary | secondary | accent | muted | background | surface | success | info | warning | danger" defaultValue:"primary" }
+          { prop:"cover" type:"asset path | https URL | responsive source" defaultValue:"—" }
+          { prop:"overlay" type:"boolean | opacity | color | linear gradient" defaultValue:"—" }
+          { prop:"animation" type:"none | fadeIn | slideUp | slideDown | slideLeft | slideRight | scaleIn" defaultValue:"—" }
+          { prop:"flex" type:"initial | auto | none | 1 | responsive object" defaultValue:"initial" }
+          { prop:"p, px, py, pl, pr, pt, pb" type:"spacing scale | responsive scale" defaultValue:"p:{ xs:4 lg:5 }" }
+          { prop:"rounded" type:"xs | sm | md | lg | xl | full" defaultValue:"radius" }
+          { prop:"colSpan, rowSpan" type:"grid span | responsive span" defaultValue:"1" }
+          { prop:"show" type:"boolean | responsive | Signal" defaultValue:"true" }
+        ]
       Table:
         data:cardProps
         variant:"solid"

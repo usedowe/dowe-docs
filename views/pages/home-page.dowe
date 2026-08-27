@@ -31,46 +31,98 @@ page HomePage
             copyLabel:"Copy PowerShell command"
             copiedLabel:"Copied"
             content:"powershell -c \"irm https://get.dowe.dev/install.ps1 | iex\""
-  Section id:"platforms-support" scheme:"muted" boxed:true centerX:true gap:10
-    Title align:"center" size:"lg"
-      "COMPILE TO YOUR ENTIRE PRODUCT SURFACE"
+  Section id:"platforms-support" scheme:"muted" boxed:true centerX:true gap:8
+    Grid columns:{ xs:1 md:2 } gap:{ xs:3 md:5 } align:"center"
+      Flex direction:"column" gap:2
+        Chip scheme:"primary"
+          "ONE SOURCE GRAPH"
+        Title size:{ xs:"3xl" md:"4xl" } weight:"black"
+          "One source. Native everywhere."
+        Text size:"sm" maxW:"xl"
+          "Dowe does not wrap your product in a web view. The compiler carries the same source graph into purpose-built output for every surface."
+      Card variant:"outlined" scheme:"surface" rounded:"xl" shadow:"sm"
+        Flex align:"center" justify:"between" gap:3
+          Text size:"xs" weight:"bold" spacing:"widest" color:"primary"
+            "COMPILE PIPELINE"
+          Chip scheme:"secondary"
+            "5 NATIVE TARGETS"
+        Text size:"sm"
+          "One contract, resolved into platform-native UI, routing, and runtime capabilities."
+        Code:
+          language:"dowe"
+          copyLabel:"Copy source graph"
+          copiedLabel:"Copied"
+          content:"source graph -> server | web | desktop | android | ios"
     Grid columns:{ xs:1 md:3 } gap:4
       const platforms:
         value:[
           {
-            icon:"route-bold-duotone"
-            title:"server"
-            text:"Routing and host capabilities"
+            id:"server"
+            number:"01"
+            icon:"server-minimalistic-bold-duotone"
+            title:"Server"
+            text:"Routing, host capabilities, and secure runtime"
+            output:"Rust runtime"
+            detail:"One source of truth for routes, auth, and execution."
           }
           {
-            icon:"global-bold-duotone"
-            title:"web"
-            text:"SSR plus route assets"
+            id:"web"
+            number:"02"
+            icon:"window-frame-bold-duotone"
+            title:"Web"
+            text:"SSR, route assets, and fast delivery"
+            output:"HTML + CSS"
+            detail:"Ships a responsive experience from the same view tree."
           }
           {
-            icon:"laptop-bold-duotone"
-            title:"desktop"
-            text:"Native Windows/Macos/Linux apps"
+            id:"desktop"
+            number:"03"
+            icon:"monitor-bold-duotone"
+            title:"Desktop"
+            text:"Native apps for Windows, macOS, and Linux"
+            output:"Native desktop"
+            detail:"A full desktop runtime without rebuilding the product."
           }
           {
+            id:"android"
+            number:"04"
             icon:"svg-logos:android-icon"
             title:"Android"
-            text:"Native Jetpack Compose"
+            text:"Native screens with Jetpack Compose"
+            output:"Jetpack Compose"
+            detail:"Native Android UI with shared behavior and parity."
           }
           {
+            id:"ios"
+            number:"05"
             icon:"svg-logos:apple"
-            title:"Ios"
-            text:"Native SwiftUI"
+            title:"iOS"
+            text:"Native screens with SwiftUI"
+            output:"SwiftUI"
+            detail:"Native iOS surfaces powered by the same source graph."
           }
         ]
-      each in:platforms as:platform key:platform.title
-        Card rounded:"lg" shadow:"sm" maxW:"sm"
-          Icon name:platform.icon fill:"primary" w:12 h:12
-          Flex direction:"column" gap:1
-            Text size:"lg" weight:"black"
-              "{platform.title}"
-            Text size:"xs"
+      each in:platforms as:platform key:platform.id
+        Card variant:"outlined" scheme:"surface" rounded:"xl" shadow:"md"
+          Flex direction:"column" align:"center" gap:3
+            Avatar:
+              name:"Dowe Agent"
+              alt:"Dowe Agent"
+              variant:"solid"
+              scheme:"info"
+              size:"xl"
+              icon:platform.icon
+            Flex direction:"column" align:"center" gap:1
+              Text size:"xs" weight:"black" spacing:"widest" color:"mutedText"
+                "{platform.number} · NATIVE TARGET"
+              Title size:"xl" weight:"black" align:"center"
+                "{platform.title}"
+              Text size:"xs" weight:"bold" align:"center"
+                "{platform.output}"
+            Text size:"sm" align:"center" maxW:"sm"
               "{platform.text}"
+            Text size:"xs" align:"center" maxW:"sm"
+              "{platform.detail}"
   Section boxed:true py:0
     Divider scheme:"muted"
   Section boxed:true px:{ xs:5 md:12 } py:{ xs:10 md:14 }

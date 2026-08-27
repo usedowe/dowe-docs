@@ -45,6 +45,13 @@ Before authoring the repeated view:
 
 - Declare immutable reference content in a page or layout `const`, or use a typed `signal`/Store when
   the collection is reactive. Give every record a stable string `id`.
+- Apply the local-constant visual strategy: when an immutable `const` is used only once, place it
+  immediately above the visual subtree that consumes it, inside the nearest owning visual block.
+  This keeps the data and its rendered values together so authors do not need to scroll to the top
+  of the page. Dowe hoists the declaration into the page or layout scope without rendering a
+  wrapper. Keep a `const` at the page or layout level only when it is used by multiple visual
+  subtrees or is shared by page logic. For a one-use collection, place the `const` directly above
+  its `each`; for a one-use table catalog, place it directly above the `Table` that binds it.
 - Render one complete repeated unit with exactly one `each in:<collection> as:<item> key:<item.id>`.
   The `each` must wrap the whole unit, including its icon, copy, actions, and state—not just one text
   node inside a set of copied siblings.
@@ -134,7 +141,10 @@ theme or color changes.
    adapter. For mobile navigation, put the Drawer trigger before the `Brand`/logo when both are in
    `start`, or put it directly in `end`; do not place it after the brand inside a wrapper `Flex` as
    the default. Do not rebuild the same AppBar with `Box` nodes in `overlays`; use `Drawer` there
-   only for the mobile navigation surface, and put a vertical `SideNav` in its `body`. Reusable
+   only for the mobile navigation surface, and put a vertical `SideNav` in its `body`. Drawer
+   regions do not provide content padding: use `header px:4 py:2`, `body p:4` (or a deliberate
+   responsive equivalent), and `footer px:4 py:2` when those regions contain authored content.
+   Keep spacing on the region owner and do not add a wrapper only to carry padding. Reusable
    components accept no props, so keep the static `SideNav` navigation component reusable in both
    the desktop `Sidebar` and mobile `Drawer`, while the AppBar owns its direct `NavMenu` instance.
 9. Put exactly one normal `Scaffold` root in every layout; add one direct `Splash` sibling only when
@@ -181,9 +191,17 @@ theme or color changes.
 14. Apply the non-duplication gate to every repeated same-shape unit: use a `const` for immutable
     reference-defined content, a typed `signal` for a page collection refreshed or replaced by
     requests or local workflows, and an imported View Store only for state shared across routes.
-    Render the complete unit with one `each in:<collection> as:<item> key:<item-path>`; never copy
-    sibling Cards, feature rows, icon/text groups, or list units. A result with repeated siblings is
-    incomplete even when it looks visually correct.
+    Use the local-constant visual strategy for immutable data used once: put the `const` immediately
+    above the `each` or component subtree that consumes it, inside the nearest visual owner. The
+    compiler hoists it without adding a rendered node. Keep shared or multi-use constants at the
+    page/layout scope. Render the complete unit with one
+    `each in:<collection> as:<item> key:<item-path>`; never copy sibling Cards, feature rows, icon/text groups, or list units. A result with repeated siblings is incomplete even when it
+    looks visually correct. For server-backed catalogs, load metadata and
+    records through requests, keep metadata in a Signal, and render one keyed `each` block. Never
+    hardcode labels, counts, slugs, or create one selection function per record. If a compound
+    navigation component cannot consume a dynamic collection, use the closest supported data-bound
+    control (such as `Select`) and one shared loading function rather than inventing dynamic entry
+    syntax.
 15. Extract a static fragment reused in two or more places, such as a logo or a vertical `SideNav`
     tree mounted in both Sidebar and Drawer, into a `component` under `views/components`; keep signals,
     functions, caller bindings, and data-bound `each` templates in the owning layout or page because
@@ -208,13 +226,29 @@ theme or color changes.
     generated source, documentation examples, and reusable view fragments; use `theme.dowe` for
     repeated visual policy rather than copying the same values into every instance. See
     `references/styles.md` for the current default matrix and minimal-prop examples.
-    For `Text` and `Title`, use `align:"start"`, `align:"center"`, `align:"end"`, or
+    Never write a `color` prop on `Text` or `Title`—not even `color:"muted"` or
+    `color:"primary"`. Their foreground must come from the nearest parent `scheme`, which
+    already resolves the appropriate `Text` and `Title` roles. If contrast or hierarchy is wrong,
+    fix the parent scheme or use typography props such as `size` and `weight`; do not override the
+    text color locally. This is a hard authoring rule for generated source, examples, and reusable
+    fragments. For `Text` and `Title`, use `align:"start"`, `align:"center"`, `align:"end"`, or
     `align:"justify"` for logical text alignment. A scalar typography size such as `size:"lg"`
-    is already fluid/responsive; write a responsive size object only when the design intentionally
-    changes at named breakpoints, not merely to make the size responsive.
-    Keep one semantic text node for intentional line boundaries by using a multiline string child;
-    use `maxW` when natural wrapping is acceptable. Do not duplicate `Text` or `Title` nodes or add
-    a `Flex` only to force a heading onto multiple lines.
+    is already fluid/responsive; never write a responsive size object merely to make the size
+    responsive. Use a responsive size object only when the design explicitly changes typography at
+    named breakpoints after the scalar fluid size has been rejected by visual comparison.
+    `Title` renders as `h2` by default. A page may have exactly one prominent document title rendered
+    as `Title as:"h1"`, normally the first hero title; do not add `as:"h1"` to section headings or
+    use it more than once. An `as:"h1"` Title must always use one fixed scalar `size:"..."` value;
+    never combine `as:"h1"` with a responsive size object. `as` is an SEO/HTML heading-semantic
+    exception, not a visual styling prop: the title's size and weight remain controlled by the
+    normal Title defaults. Do not
+    author `weight` on `Title` for ordinary headings; use `Text` when a custom text weight is needed.
+    Keep one semantic text node for intentional line boundaries by using a multiline string child.
+    When several adjacent `Text` nodes are prose explaining the same control, API, or behavior,
+    merge them into one `Text` with a triple-quoted multiline child and blank lines between
+    paragraphs. Do not emit one `Text` per sentence or paragraph merely to create vertical spacing;
+    use the owning Grid/Flex `gap` for genuinely separate semantic blocks. Do not duplicate `Text`
+    or `Title` nodes or add a `Flex` only to force a heading onto multiple lines.
     Apply a strict prop-admission gate before writing any local prop. Keep it only when it is
     required by the component contract or accessibility, owns data or behavior, defines essential
     structure that no default can infer, expresses an explicit non-default choice, or fixes a
@@ -227,11 +261,13 @@ theme or color changes.
     `Card` already provides responsive inner padding. `Grid` and `Flex` default to zero gap, so add
     one `gap` only when their siblings need an explicit nonzero rhythm after the default-first tree
     is rendered; do not pre-encode every measured whitespace value. Never use padding on a Grid or
-    Flex merely to separate its children. Add `p`, `px`, `py`, `pt`, or `pb` only when a specific
-    user requirement or rendered comparison proves that the default is insufficient, and put the
-    smallest override on one real owner instead of stacking equivalent padding on `Section`,
-    `Grid`, and `Card`. Treat `Card variant:"ghost" p:0` as invalid wrapper noise when it only
-    groups a layout tree; remove it unless the reference shows a real independent surface.
+    Flex merely to separate its children. `Section` owns responsive page insets: never author
+    `p`, `px`, `py`, `pt`, `pb`, `pl`, or `pr` on a page Section, in any breakpoint or dimension.
+    This is a hard rule, including `Section p:0`; use the default Section padding and solve inner
+    rhythm with the child Grid/Flex gap. Put a padding exception on a different real owner only
+    when its own contract requires it. Treat `Card variant:"ghost" p:0` as invalid wrapper noise
+    when it only groups a layout tree; remove it unless the reference shows a real independent
+    surface.
 20. Use Signals and View Stores for state, `fn` for event workflows, and one `init` for ordered
     mount-time work.
 21. Write static visible text as `"Blog title"` and dynamic visible text as one complete braced
@@ -242,7 +278,11 @@ theme or color changes.
 24. Validate bindings, component props, text children, routes, and target support with Dowe
    diagnostics. For internal requests, also verify the request-to-route matrix against the actual
    Server source and validate the complete View and Server import graph; do not assume the compiler
-   proves a response shape that the source does not declare.
+   proves a response shape that the source does not declare. For catalog requests, verify that the
+   Server returns the display label, stable key, and authoritative count; the View must not duplicate
+   those values in static navigation entries. Before binding a value in visible text, verify that
+   its resolved type is `string`; convert numeric or boolean values with `parse.string` into a
+   dedicated string Signal first.
 25. Before visual QA, audit every repeated region: name its collection and owner, verify stable ids,
    confirm one `each` wraps the complete repeated subtree, and check that no copied sibling has
    survived. Verify static-only props such as `Icon.name` remain compiler-valid. Audit every local
@@ -283,7 +323,7 @@ it. Do not invent sorting, pagination, selection, search, toolbar, or custom-cel
 - Always handle loading, loaded rows, errors, and a genuinely empty result as separate visual
   states. Do not let a temporary empty array flash the empty copy while the first request is in
   flight, and keep the next action visible when no records exist.
-- Prefer the documented neutral `soft`/`surface` recipe for dashboards, `outlined` for dense
+- Prefer the documented neutral `muted`/`surface` recipe for dashboards, `outlined` for dense
   ledgers, `sm` for many columns, and `md` for normal reading density. Add `striped`, `dividers`,
   `bordered`, and `rounded` only when they improve scanning or boundary clarity; use `scheme`, not
   `color`, for the Table family.

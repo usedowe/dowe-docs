@@ -65,7 +65,7 @@ meaningful Card; remove the wrapper and let the owning layout component carry th
 | `Flex` | One-axis flex parent using `direction`, `gap`, `align`, `justify`, and optional wrapping. |
 | `Grid` | Equal-width numeric column counts (1–12), optional numeric or `auto` rows, `gap`, and alignment. Grid itself may use `flex` as a flex child, but it does not establish a flex parent for its own children. |
 | `Card` | One visibly independent surface with a contained background, border, radius, elevation, or inset treatment, such as a pricing offer or raised form. It establishes a vertical flex parent for direct children. A semantic grouping that remains visually flat uses Grid or Flex instead. Avoid nesting Card inside Card. |
-| `Title` | One direct quoted or multiline visible-text child or one complete braced string binding; accepts logical `align` (`start`, `center`, `end`, or `justify`) and fluid `size`. |
+| `Title` | One direct quoted or multiline visible-text child or one complete braced string binding; defaults to HTML `h2`, accepts one page-level SEO exception `as:"h1"`, logical `align` (`start`, `center`, `end`, or `justify`), and fluid `size`. |
 | `Text` | One direct quoted or multiline visible-text child or one complete braced string binding; accepts logical `align` (`start`, `center`, `end`, or `justify`) and fluid `size`. |
 | `Divider` | Horizontal or vertical separator; choose `orientation` instead of drawing a border-only Box. |
 
@@ -75,7 +75,12 @@ meaningful Card; remove the wrapper and let the owning layout component carry th
 
 `Section gap:3` adds vertical spacing between direct children. It defaults to `0`, accepts a Dowe scale or pixel value such as `gap:"8px"`, and supports responsive values such as `gap:{ xs:2 md:4 }`; the same value lowers to web, Android, and iOS spacing behavior.
 
-`Section`, `Box`, `Flex`, `Grid`, and `Card` accept `flex:"initial"`, `flex:"auto"`,
+A page `Section` already owns responsive horizontal and vertical padding. Never author `p`, `px`,
+`py`, `pt`, `pb`, `pl`, or `pr` on a page Section, including responsive objects and `p:0`; keep
+page bands on the built-in rhythm. Put any exceptional inset on the inner semantic owner only when
+that owner's contract requires it.
+
+`Section`, `Box`, `Flex`, `Grid`, and `Card` accept `flex:"initial"`, `flex:"auto",
 `flex:"none"`, or `flex:1`, including responsive values such as `flex:{ xs:1 md:"none" }`.
 The prop is effective only for a direct child of `Section`, `Box`, `Flex`, or `Card`. A direct Grid
 child can therefore fill a height-bounded Section with `flex:1`; a Grid child never receives flex
@@ -89,7 +94,12 @@ body.
 
 `Text` and `Title` alignment is a text-node concern, not a container concern. Use `align:"start"`, `align:"center"`, `align:"end"`, or `align:"justify"`; the same logical value lowers to web, iOS, and Android. `RichText` remains a separate marked-text contract and does not accept `align`.
 
-Use one multiline string child for an intentional hard line break:
+`Title` renders as `h2` by default. Use `as:"h1"` exactly once for the page's primary document
+title, normally in the hero. It changes only web heading semantics for SEO. An `as:"h1"` Title
+must use one fixed scalar `size:"..."`; never combine `as:"h1"` with a responsive size object or
+custom weight. Every other `Title` must omit `as`.
+
+Use one multiline string child for an intentional hard line break or a compact prose block:
 
 ```text
 Title size:"7xl" align:"center" maxW:"6xl"
@@ -99,8 +109,21 @@ Title size:"7xl" align:"center" maxW:"6xl"
   """
 ```
 
-Use `maxW` for natural wrapping. Do not duplicate `Text` or `Title` nodes or add `Flex` only to
-force a line boundary.
+Use `maxW` for natural wrapping. When adjacent `Text` nodes are consecutive explanatory prose,
+merge them into one `Text` with a triple-quoted child and blank lines between paragraphs:
+
+```text
+Text
+  """
+  First explanatory paragraph.
+
+  Second explanatory paragraph.
+  """
+```
+
+Do not create one `Text` per sentence just to obtain vertical spacing; use the parent Grid/Flex
+`gap` for separate semantic blocks. Do not duplicate `Text` or `Title` nodes or add a `Flex` only
+to force a line boundary.
 
 ## Application shells and navigation
 
@@ -120,6 +143,10 @@ force a line boundary.
 | `tab` | Context-only child of Tabs or BottomBar. A Tabs entry owns panel children; a BottomBar entry owns navigation metadata and one Icon. |
 | `Stepper` | Ordered numbered workflow selected through direct `step` entries; use `scheme` and `horizontal` or `vertical` orientation. |
 | `step` | Context-only child of Stepper with unique quoted `id`, quoted `label`, and panel children. |
+
+Drawer regions do not add authored content spacing. Give `header` and `footer` their own compact
+padding, normally `px:4 py:2`, and give `body` content padding such as `p:4` or `px:4 py:5`.
+For navigation, mount `SideNav` directly in `body` and apply the spacing to that region.
 
 `Scaffold boxed:true` centers and limits only the `start`, `main`, and `end` body while leaving the outer shell, bars, and overlays full width.
 
@@ -183,7 +210,7 @@ the `Sidebar body` and `Drawer body`.
 | `Fab` | Primary floating action with optional direct `fabAction` secondary actions. Place shell-level floating behavior in Scaffold overlays. Its primary trigger defaults to press feedback at scale `0.94`; `gesture:"none"` opts out. |
 | `fabAction` | Context-only secondary action inside Fab with an icon, label, and function or navigation target. |
 | `Record` | Recording control driven by named start, pause, resume, cancel, and confirm functions where supported. |
-| `ToggleGroup` | One-of-many or multi-choice control with direct `item` entries, a state value, and a named change function. |
+| `ToggleGroup` | One-of-many or multi-choice control with direct `item` entries, a bound state Signal, and a named change function. |
 | `Pagination` | Binds the current page with `bind`, accepts a static count or numeric Signal in `total`, and uses `pageSize` plus optional `onChange`; the portable subset supports at most 25 pages. |
 
 ## Forms
@@ -319,6 +346,7 @@ platform security policy. They never authorize user-authored JavaScript or nativ
 | `BarChart` | Categorical values rendered as bars from compatible `data` and optional series metadata. |
 | `LineChart` | Series data rendered as lines from compatible `data` and series metadata. |
 | `PieChart` | Non-negative categorical values rendered as slices from compatible `data`. |
+| `Diagram` | Interactive node editor over `nodes` and `edges` Signals with portable pan, zoom, selection, drag, and connection behavior. |
 | `Table` | Semantic portable table for a Signal or compatible immutable array of scalar rows. Use one or more direct `column` definitions with quoted field and label metadata; use `references/table.md` for advanced table composition. |
 
 Charts consume portable Signal data rather than a target-specific chart library. Category charts
@@ -345,6 +373,17 @@ together. Its portable options include `donut`, `donutWidth`, `centerLabel`, `ce
 Each `Candlestick` item provides `time` plus numeric `open`, `high`, `low`, and `close`. Optional
 props include `stream` for an SSE feed upserted by `time`, `upColor` and `downColor` tokens, and
 `maxPoints`. Validation rejects OHLC values where `high` or `low` contradicts the body.
+
+`Diagram nodes:<signal> edges:<signal>` renders an interactive node editor from typed node and
+edge collections. Node items require a unique `id` and numeric `x` and `y`, and accept optional
+numeric `width` (default `160`) and `height` (default `56`), `label`, and `type` styling hint. Edge
+items require a unique `id` with `source` and `target` node ids, and accept optional `label` and a
+`type` of `default` bezier, `straight`, or `step`; edges referencing unknown nodes are ignored.
+Optional props are `fitView`, `panOnDrag`, `zoomOnScroll`, `controls`, `minimap`, `showGrid`, and
+`emptyLabel`, plus `onNodeClick`, `onNodeDrag`, and `onConnect` action names. Pan, pinch and wheel
+zoom, node drag with position persistence into the bound signals, node and edge selection,
+port-based connections with a live preview, a minimap with the current viewport, and zoom controls
+behave the same across web, Android Compose, the Android development launcher, and iOS.
 
 `Table data:<array-path>` requires at least one direct `column` with quoted `field` and `label`;
 `field` is a relative row path such as `profile.email`, optional `align` accepts `start`,
@@ -380,7 +419,7 @@ component or use the responsive Grid pattern in `references/table.md` when cells
 | `Map` | Portable map with direct `marker` and optional route `waypoint` entries plus named location or route functions. |
 | `marker` | Context-only Map marker with stable id, latitude, longitude, and optional named click function. |
 | `waypoint` | Context-only Map route point with latitude and longitude. |
-| `Accordion` | Expandable collection composed from one or more direct `item` entries. Each item requires a quoted `id` and `label`, accepts optional `disabled` and `defaultOpen`, and owns normal view children as its body. `multiple:false` keeps at most one item open; `multiple:true` permits independent items. It accepts `variant` (`solid`, `soft`, `outlined`, `ghost`), `scheme` (action or structural family), and common style props. The built-in treatment is `ghost`; `variant` controls surface geometry while `scheme` supplies the semantic color roles. Web, Android Compose, the Android development launcher, and iOS share the same state, SideNav disclosure arrow, metrics, and motion contract. |
+| `Accordion` | Expandable collection composed from one or more direct `item` entries. Each item requires a quoted `id` and `label`, accepts optional `disabled` and `defaultOpen`, and owns normal view children as its body. `multiple:false` keeps at most one item open; `multiple:true` permits independent items. It accepts `variant` (`solid`, `outlined`, `ghost`), `scheme` (action or structural family), and common style props. The built-in treatment is `ghost`; `variant` controls surface geometry while `scheme` supplies the semantic color roles. Web, Android Compose, the Android development launcher, and iOS share the same state, SideNav disclosure arrow, metrics, and motion contract. |
 | `Carousel` | Slide collection composed from one or more direct `slide` entries. `variant` selects the scroll/effect preset; effect variants derive their transform from the current slide distance on web, Android, and iOS. `showNavigation`, `hideControls`, `hideIndicators`, `showCounter`, `indicatorType`, `disableLoop`, `slideWidth`, `slideHeight`, `slidesPerView`, and `gap` share one active-index and native-scroll contract across targets. Hide flags control generic rows while `controls`, `dots`, and `thumbnails` retain their required affordance. Use several slides when validating responsive behavior; omit `slideWidth` for a viewport-filling track. |
 
 ## Overlays and transient surfaces
@@ -390,7 +429,7 @@ component or use the responsive Grid pattern in `references/table.md` when cells
 | `Modal` | Open state, named close function, optional `header` and `footer`, required body content, Card-equivalent `variant` and `scheme`, and a generated Drawer-style close control unless hidden. |
 | `AlertDialog` | Open confirmation surface with named confirm and cancel functions; `variant` styles the neutral Card-equivalent panel, while `scheme` styles the generated solid confirm Button and cancel remains outlined muted. |
 | `Tooltip` | Accessible contextual label around one or more trigger view children. |
-| `Toast` | Renders static or Signal-backed feedback with Card-equivalent `solid`, `soft`, `outlined`, and `ghost` variants, a design `scheme`, one of four corner positions, and the generated Drawer-style close control. It is distinct from the recommended lowercase `toast` statement that updates the global feedback presenter inside a view function. |
+| `Toast` | Renders static or Signal-backed feedback with Card-equivalent `solid`, `outlined`, and `ghost` variants, a design `scheme`, one of four corner positions, and the generated Drawer-style close control. It is distinct from the recommended lowercase `toast` statement that updates the global feedback presenter inside a view function. |
 | `Dropdown` | Anchored surface with required `trigger`, optional `header` and `footer`, and direct `item` or `divider` entries. |
 | `Command` | Searchable command surface with direct `item` entries or `group` collections and named item functions. |
 

@@ -8,17 +8,19 @@ keep project or built-in defaults.
 
 ## Semantic color tokens
 
-| Family                                                                                              | Base tokens                                       | Soft tokens                                             |
+| Family                                                                                              | Base tokens                                       | Additional tonal tokens                                      |
 | --------------------------------------------------------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------------- |
-| Action families `primary`, `secondary`, `accent`, `muted`, `success`, `info`, `warning`, `danger` | `<family>`, `<family>Text`, `<family>Title`       | `soft<Family>`, `soft<Family>Text`, `soft<Family>Title` |
+| Action families `primary`, `secondary`, `accent`, `muted`, `success`, `info`, `warning`, `danger` | `<family>`, `<family>Text`, `<family>Title`       | `<Family>`, `<Family>Text`, `<Family>Title` |
 | Structural `background`                                                                             | `background`, `backgroundText`, `backgroundTitle` | none                                                    |
 | Structural `surface`                                                                                | `surface`, `surfaceText`, `surfaceTitle`          | none                                                    |
 
 `bg` and `color` accept color tokens. On a child-bearing container, `color:<token>` sets the
 inherited foreground for descendant text and current-color paint until a descendant declares its
 own `color`. This includes `Box`, `Section`, `Flex`, `Grid`, `Brand`, `Banner`, `Marquee`, and
-`Scaffold`. `Box bg:<token>` paints the container after padding and size and before radius and
-border. On `Text` and `Title`, `bg:<token>` paints the content-sized text surface; combine it with
+`Scaffold`. Although the compiler accepts `color` on `Text` and `Title`, never author it there:
+let their parent `scheme` provide the `Text` and `Title` roles. `Box bg:<token>` paints the
+container after padding and size and before radius and border. On `Text` and `Title`, `bg:<token>`
+paints the content-sized text surface; combine it with
 `rounded` and padding when the text should read as a pill or badge.
 
 `scheme` on `Button`, `ToggleTheme`, `Fab`, `fabAction`, `Slider`, `Input`, `Select`, `SideNav`,
@@ -26,7 +28,7 @@ and `RailNav` accepts action families only. `scheme` on `Accordion` accepts acti
 `background` and `surface`. `scheme` on `SelectTheme`, `Card`, `Video`, the chart
 components, `Table`, `Dropzone`, `NavMenu`, `Sidebar`, `Tabs`, `Drawer`, `AppBar`, `Footer`,
 `Modal`, `Dropdown`, and `Tooltip` also accepts
-`background` and `surface`. Structural schemes have no soft pair; soft variants degrade to the
+`background` and `surface`. Structural schemes have no base pair; solid variants degrade to the
 structural tokens.
 
 ## Variants
@@ -35,21 +37,22 @@ structural tokens.
 `Table`, `Button`, `ToggleTheme`, `SelectTheme`, `Dropzone`, `Input`, `Select`, `NavMenu`,
 `SideNav`, `RailNav`, `Sidebar`, `Drawer`, `Toast`, `Modal`, `Dropdown`, `Tooltip`, and
 `Accordion` support
-`solid`, `soft`, `outlined`, and `ghost`.
-`Fab` supports `solid` and `soft`. `Tabs` supports `solid`, `outlined`, `line`, `ghost`, and
+`solid`, `outlined`, and `ghost`.
+`Fab` supports `solid`. `Tabs` supports `solid`, `outlined`, `line`, `ghost`, and
 `pills`. Defaults are `variant:"solid"` and `scheme:"primary"` unless a component declares
 otherwise: `SelectTheme` defaults to `outlined` plus `surface`, and `RailNav` defaults to `ghost`
 plus `muted`. The normalized variant name is `outlined`.
 
-`solid` maps the scheme family to its base, text, and title roles; `soft` maps to the matching
-`soft*`, `soft*Text`, and `soft*Title` roles. Author `muted` as a lighter tonal counterpart of
+`solid` maps the scheme family to its base, text, and title roles; `outlined` uses structural
+`*`, `*Text`, and `*Title` roles. Author `muted` as a lighter tonal counterpart of
 `primary`, with `mutedText` and `mutedTitle` chosen for clear contrast against that lighter fill.
 Use `muted` for lower-emphasis solid controls such as `Input` when a solid primary surface feels
 too heavy, rather than treating muted as an unrelated neutral.
 `outlined` uses a structural surface with a family-colored border, and `ghost` is transparent with
 family-colored content. Child-bearing variant surfaces pass their resolved foreground token to all
-of their content regions unless the descendant declares `color`; for example, a soft muted Card
-supplies `softMutedText` to ordinary content and `softMutedTitle` to `Title`. AppBar or Footer
+of their content regions. A muted Card supplies `MutedText` to ordinary content and `MutedTitle` to
+`Title`; `Text` and `Title` must not locally override that inherited foreground with a `color` prop.
+If a text contrast issue appears, change the owning surface's `scheme` instead. AppBar or Footer
 supplies its content roles to `top`, `start`, `center`, `end`, and `bottom`. Button labels use the
 text role. Transparent `SideNav` headers use the visible base color of their `scheme`; an explicit
 icon color remains a local override.
@@ -57,10 +60,10 @@ Native iOS rows explicitly restore the background foreground for inactive labels
 so a muted scheme cannot make them disappear against the page background.
 
 `Accordion` keeps `variant` and `scheme` orthogonal across targets: `ghost` is a flat row treatment
-with a 22% bottom separator, `soft` uses a quiet family surface with neutral item panels and a 16%
+with a 22% bottom separator, `outlined` uses a quiet family surface with neutral item panels and a 16%
 item border, `outlined` uses a structural panel with a family-colored outer and item border, and
 `solid` uses the family base with a 24% paired-text item border. Structural schemes remain readable
-in every treatment; `soft` falls back to structural roles when no soft token exists. The default
+in every treatment; structural treatments use structural roles. The default
 `Accordion` variant is `ghost`, and its item state plus bundled `SideNav` disclosure arrow are
 generated from the same normalized model for web, Android Compose, the Android development launcher,
 and iOS.
@@ -82,6 +85,11 @@ Android, or iOS generation:
 | `Input`, `Date`, `Password`, `Select`, `Pin`       | `variant:"outlined" scheme:"primary"`           |
 | `AppBar`, `Footer`, `Modal`, `Dropdown`, `Tooltip` | `scheme:"surface" variant:"solid"`              |
 | `Tabs`                                             | `variant:"pills" scheme:"primary"`              |
+
+Drawer `header`, `body`, and `footer` regions are layout boundaries, not padded content surfaces.
+When authored content reaches an edge, add spacing directly to the region: use `header px:4 py:2`,
+`body p:4` (or an intentional responsive equivalent), and `footer px:4 py:2`. Do not expect the
+Drawer or nested `Flex`/`Grid` to create an inner gutter automatically.
 
 These built-ins set no `border` or `shadow`. Resolution is per prop: an explicit component prop
 wins, then the matching `design` slot, then this built-in value. A partial override such as
@@ -122,6 +130,8 @@ Resolve container spacing in this order:
 
 1. Keep the component and theme defaults. An ordinary `Section` already provides
    `px:{ xs:4 md:6 }` and `py:{ xs:10 md:16 }`; a `Card` already provides `p:{ xs:4 lg:5 }`.
+   Never author `p`, `px`, `py`, `pt`, `pb`, `pl`, or `pr` on a page `Section`, including a
+   responsive object or `p:0`. This is strict in every breakpoint and dimension.
 2. Render the minimal tree. `Grid` and `Flex` default to zero gap; add one `gap` on the owning
    container only when the child group needs explicit nonzero rhythm. Do not add a gap automatically
    with every Grid or Flex, and do not add padding merely to separate its children.
@@ -130,8 +140,10 @@ Resolve container spacing in this order:
    do not repeat the same inset on `Section`, `Grid`, and `Card`.
 4. Use `Box` only for its documented layer responsibility, never as a padding or margin workaround.
 
-An explicit responsive padding object is an exception, not the normal way to author every band. A
-transparent `Card variant:"ghost" p:0` used only as a layout wrapper is also unnecessary; remove it
+Padding on a page Section is not an exception. Keep Section padding omitted even for compact bands,
+heroes, full-viewport compositions, and responsive overrides; move required inner spacing to the
+actual Grid, Flex, Card, or control owner. A transparent `Card variant:"ghost" p:0` used only as a
+layout wrapper is also unnecessary; remove it
 unless the Card owns a meaningful semantic or behavioral boundary.
 
 ## Surface hierarchy and modern depth
@@ -141,14 +153,14 @@ apply them consistently:
 
 | Role       | Purpose                                                              | Typical treatment                                                                          |
 | ---------- | -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Focal      | Primary offer, product stage, important metric, or conversion action | High-contrast `solid` or `soft`, largest radius, one strong shadow or glow, optional cover |
-| Supporting | Feature, proof, process step, or secondary panel                     | Quiet `soft` or selective `outlined`, medium radius, restrained border or shadow           |
+| Focal      | Primary offer, product stage, important metric, or conversion action | High-contrast `solid`, largest radius, one strong shadow or glow, optional cover |
+| Supporting | Feature, proof, process step, or secondary panel                     | Quiet `outlined` or selective `solid`, medium radius, restrained border or shadow           |
 | Ambient    | Shell, background field, logo rail, technical texture, or separator  | Structural token, `ghost`, Section preset, cover plus overlay, Divider, or no Card at all  |
 
 Use borders to describe structure and shadows to establish elevation. Applying both at maximum
 strength to every surface destroys hierarchy. Reserve colored `shadowColor` for one or two focal
 objects per viewport; use quiet structural contrast elsewhere. In dark themes, distinguish
-`background`, `surface`, and at least one soft family so Cards do not disappear into the canvas or
+`background`, `surface`, and at least one base family so Cards do not disappear into the canvas or
 form a wall of identical navy rectangles.
 
 Create depth with supported relationships, not random effects:
@@ -156,7 +168,7 @@ Create depth with supported relationships, not random effects:
 - Put a full-bleed `Section cover` or background preset behind a boxed content rail.
 - Place a focal Card, Image, chart, or product visual inside a relative Box and add one to three
   absolute proof or status wrappers.
-- Use a nearby soft token for broad surfaces and a saturated family for small accents, values,
+- Use a nearby muted token for broad surfaces and a saturated family for small accents, values,
   active controls, and visual anchors.
 - Combine one strong foreground silhouette with quiet background ornament; do not make every layer
   equally bright.
@@ -219,7 +231,7 @@ exceptional layer plane that normal flow cannot express.
 | Grid item          | `colSpan`, `rowSpan`                                | Positive integers on direct `Box`, `Section`, or `Card` children of `Grid`                                                                                                           |
 | Box position       | `position`, `top`, `right`, `bottom`, `left`        | Static position mode; responsive Dowe-scale offsets on absolute or fixed Box                                                                                                         |
 | Media background   | `cover`, `overlay`                                  | Static asset path or `https://` URL; boolean, opacity number, RGBA, or linear gradient                                                                                               |
-| Section background | `background`                                        | `soft`, `aurora`, `sunrise`, `ocean`, `meadow`, `slate` on `Section`                                                                                                                 |
+| Section background | `background`                                        | `aurora`, `sunrise`, `ocean`, `meadow`, `slate` on `Section`                                                                                                                 |
 | Boxed width        | `boxed`                                             | Static boolean on `Section`, `Scaffold`, `AppBar`, `Footer`, `BottomBar`                                                                                                             |
 | Elevation          | `shadow`, `shadowColor`                             | `xs` to `xl`; semantic color family                                                                                                                                                  |
 | Text               | `size`, `align`, `color`, `bg`, `weight`, `spacing` | `xs` to `9xl`; `start`, `center`, `end`, or `justify`; color tokens; typography overrides                                                                                            |
@@ -286,24 +298,41 @@ entries, `Splash`, and `Path` do not accept these shared style props.
 ## Typography
 
 `Text` and `Title` use fluid typography driven by `size`, defaulting to `md`. `Title` defaults to
-weight `600` with tight tracking; `Text` defaults to weight `400`. Both accept:
+weight `600` with tight tracking; `Text` defaults to weight `400`. Omit `weight` on `Title`:
+the Title component already supplies the appropriate heading weight, so `weight:"black"` is
+authoring noise unless a spec explicitly requires a different title weight. `Title` renders as HTML
+`h2` by default. Use `as:"h1"` exactly once for the page's primary document title, normally the hero;
+this is an SEO heading-semantic choice only and does not change visual styling. An `as:"h1"` Title
+must use one fixed scalar `size:"..."` value and must not use a responsive size object or custom
+weight. Omit `as` from every other Title. Both accept:
 
 | Prop               | Values                                                                                       |
 | ------------------ | -------------------------------------------------------------------------------------------- |
 | `align`            | `start`, `center`, `end`, `justify`, or responsive object                                    |
 | `size`             | `xs` through `9xl`                                                                           |
-| `color`, `bg`      | Design color tokens                                                                          |
+| `bg`              | Design color tokens                                                                          |
 | `weight`           | `thin`, `extralight`, `light`, `regular`, `medium`, `semibold`, `bold`, `extrabold`, `black` |
 | `spacing`          | `tightest`, `tighter`, `tight`, `normal`, `wide`, `wider`, `widest`                          |
 | `font`             | Dowe font token, overriding the `theme.dowe` `Text` or `Title` default                       |
 | Common style props | `p*`, `w`, `h`, `minW`, `minH`, `maxW`, `maxH`, `rounded`, `border`                          |
 
-`size` is fluid/responsive when written as a scalar, so `size:"lg"` is the preferred form and
-does not need a breakpoint object. Use `size:{ xs:"md" lg:"xl" }` only for an intentional
-breakpoint override. `align` is independent from `Flex.align` and `Grid.align`; it controls the
+Do not author `color` on `Text` or `Title`, including `color:"muted"` and `color:"primary"`.
+Their color is inherited from the nearest parent `scheme`, which resolves the corresponding
+`Text` and `Title` roles. Use the parent's scheme to fix contrast; use `size`, `weight`, or
+`spacing` for hierarchy. This prohibition applies even when the compiler accepts the prop and
+is mandatory in generated views, documentation examples, and reusable fragments.
+
+`size` is fluid/responsive when written as a scalar, so `size:"lg"` is the required preferred
+form and does not need a breakpoint object. Do not write a responsive size object merely to make a
+Title or Text responsive. Use one only for an explicit breakpoint typography change proven after
+rendering the scalar size; this exception never applies to `Title as:"h1"`, which must remain scalar.
+`align` is independent from `Flex.align` and `Grid.align`; it controls the
 text lines themselves and uses logical edges so `start` and `end` remain portable in RTL layouts.
-Use a multiline string child when a line boundary must be deterministic; use `maxW` when natural
-wrapping is acceptable. Both forms remain one semantic `Text` or `Title` node across targets.
+Use a multiline string child when a line boundary must be deterministic or when adjacent prose
+belongs to one explanatory block; use `maxW` when natural wrapping is acceptable. Merge consecutive
+explanatory `Text` nodes into one triple-quoted `Text`, using blank lines between paragraphs. Do not
+create separate Text nodes just to obtain vertical spacing; use the parent Grid/Flex `gap`. Both
+forms remain one semantic `Text` or `Title` node across targets.
 
 ## Button metrics and navigation
 
@@ -512,7 +541,7 @@ page chipMotionPage
   Flex direction:"column" align:"center" gap:3 animation:"fadeIn"
     Chip variant:"solid" scheme:"warning" size:"sm" rotate:-7 transition:"spring" gesture:"lift" onClick:selectMobile
       "Mobile Apps"
-    Chip variant:"soft" scheme:"muted" size:"sm" rotate:4 transition:"smooth" gesture:"press"
+    Chip variant:"solid" scheme:"muted" size:"sm" rotate:4 transition:"smooth" gesture:"press"
       "Web Sites"
     Chip variant:"solid" scheme:"success" size:"sm" rotate:-4 transition:"quick" gesture:"grow"
       "Software"

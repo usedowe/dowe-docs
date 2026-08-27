@@ -3,50 +3,72 @@ page AccordionPage
     value:[
       { prop:"item" type:"id, label, optional disabled/defaultOpen" defaultValue:"required" },
       { prop:"multiple" type:"boolean" defaultValue:"false" },
-      { prop:"variant" type:"solid" defaultValue:"solid" },
+      { prop:"variant" type:"solid | outlined | ghost" defaultValue:"ghost" },
       { prop:"scheme" type:"primary | secondary | accent | muted | background | surface | success | info | warning | danger" defaultValue:"design/theme" },
       { prop:"item children" type:"normal view tree" defaultValue:"required" },
     ]
-  Section id:"accordion-introduction" py:{ xs:6 md:10 }
-    Grid columns:1 gap:5
-      Grid columns:1 gap:3
+  Section id:"accordion-introduction" boxed:true py:{ xs:6 md:10 }
+    Grid columns:{ xs:1 md:2 } gap:8
+      Flex direction:"column" justify:"center" gap:3
         Text size:"xs" weight:"bold" spacing:"widest"
-          "DISPLAY"
-        Title size:{ xs:"3xl" md:"6xl" } weight:"black"
+          "DISPLAY / DISCLOSURE"
+        Title size:{ xs:"4xl" md:"6xl" } weight:"black"
           "Accordion"
-        Text size:"lg"
-          "Accordion keeps the same normalized state, disclosure geometry, and border treatment across web, Android Compose, the Android development launcher, and iOS. Solid keeps the treatment consistent while scheme controls the semantic color family."
-      Card variant:"solid" scheme:"primary" p:5 rounded:"lg" minW:56
-        Grid columns:1 gap:1
-          Text size:"xs" weight:"bold" spacing:"widest"
-            "STRUCTURAL CONTENT"
-          Title size:"xl" weight:"black"
-            "Items stay inspectable"
+        Text size:"lg" maxW:"2xl"
+          "Progressive disclosure for answers, implementation notes, and any content that should stay available without taking over the page."
+        Text size:"sm" maxW:"xl"
+          "The same normalized state, disclosure geometry, and border treatment travels across web, Android Compose, the Android development launcher, and iOS."
+      Card variant:"solid" scheme:"primary" p:{ xs:5 md:7 } rounded:"lg"
+        Grid columns:1 gap:5
+          Flex align:"center" justify:"between" gap:3
+            Text size:"xs" weight:"bold" spacing:"widest"
+              "AT A GLANCE"
+            Chip variant:"solid" scheme:"secondary" size:"sm"
+              "PORTABLE"
+          Grid columns:{ xs:1 md:2 } gap:4
+            Flex direction:"column" gap:1
+              Title size:"3xl" weight:"black"
+                "01"
+              Text size:"sm"
+                "stable item id"
+            Flex direction:"column" gap:1
+              Title size:"3xl" weight:"black"
+                "02"
+              Text size:"sm"
+                "normal view tree"
+          Divider
           Text size:"sm"
-            "Each panel has a stable id, a label, and a normal Dowe view tree as its body."
-  Section id:"accordion-playground" p:{ xs:5 md:7 }
-    Grid columns:1 gap:6
-      Grid columns:1 gap:2
+            "Keep the body meaningful: a panel can contain Grid, Flex, Text, Title, actions, and other supported views."
+  Section id:"accordion-playground" boxed:true p:{ xs:5 md:7 }
+    Grid columns:{ xs:1 lg:2 } gap:8
+      Flex direction:"column" gap:3
         Text size:"xs" weight:"bold" spacing:"widest"
-          "PLAYGROUND"
+          "1 / LIVE PLAYGROUND"
         Title size:"3xl" weight:"black"
           "Build a release FAQ"
-        Text size:"sm"
-          "multiple:true lets readers compare answers without closing the panel they are already reading; multiple:false always keeps at most one item open."
-      Card variant:"solid" scheme:"surface" p:{ xs:5 md:7 }
-        Accordion multiple:true variant:"solid" scheme:"surface" rounded:"md"
-          item id:"source" label:"Where does the source run?" defaultOpen:true
-            Grid columns:1 gap:2 p:2
-              Text size:"sm"
-                "Dowe lowers the page to a shared view model and lets each target render its own native disclosure behavior."
-              Text size:"sm" weight:"bold"
-                "The source remains target-neutral."
-          item id:"runtime" label:"Does it require a JavaScript package?"
-            Text size:"sm"
-              "No. Web runtime behavior is Dowe-owned, while Android and iOS use their native state primitives."
-          item id:"migration" label:"Can this item be disabled?" disabled:true
-            Text size:"sm"
-              "Disabled entries remain visible and explain why a section is not currently available."
+        Text size:"sm" maxW:"2xl"
+          "Use multiple:true when readers may compare answers. Set it to false when one decision should replace the previous panel."
+        Alert type:"info" message:"The disabled item remains visible while its body stays unavailable."
+        Text size:"xs"
+          "Try opening two answers, then compare the source with the generated example."
+      const accordionVariants:
+        value:[
+          { id:"solid" variant:"solid" label:"SOLID" }
+          { id:"outlined" variant:"outlined" label:"OUTLINED" }
+          { id:"ghost" variant:"ghost" label:"GHOST" }
+        ]
+      Grid columns:{ xs:1 md:3 } gap:4
+        each in:accordionVariants as:example key:example.id
+          Flex direction:"column" gap:2
+            Text size:"xs" weight:"bold" spacing:"widest"
+              "{example.label}"
+            Accordion multiple:true variant:example.variant scheme:"surface" rounded:"md"
+              item id:"source" label:"Where does the source run?" defaultOpen:true
+                Text size:"sm"
+                  "Dowe lowers the page to a shared view model and lets each target render its own native disclosure behavior."
+              item id:"runtime" label:"Does it require a JavaScript package?"
+                Text size:"sm"
+                  "No. Web runtime behavior is Dowe-owned, while Android and iOS use their native state primitives."
       Code:
         language:"dowe"
         variant:"solid"
@@ -61,68 +83,87 @@ page AccordionPage
             item id:"runtime" label:"Does it require a JavaScript package?"
               Text size:"sm"
                 "No. Web, Android, and iOS use Dowe-owned output."
-            item id:"migration" label:"Can this item be disabled?" disabled:true
+
+          Accordion multiple:true variant:"outlined" scheme:"surface" rounded:"md"
+            item id:"source" label:"Where does the source run?" defaultOpen:true
               Text size:"sm"
-                "Disabled entries remain visible."
+                "Dowe lowers the page to a shared view model."
+            item id:"runtime" label:"Does it require a JavaScript package?"
+              Text size:"sm"
+                "No. Web, Android, and iOS use Dowe-owned output."
+
+          Accordion multiple:true variant:"ghost" scheme:"surface" rounded:"md"
+            item id:"source" label:"Where does the source run?" defaultOpen:true
+              Text size:"sm"
+                "Dowe lowers the page to a shared view model."
+            item id:"runtime" label:"Does it require a JavaScript package?"
+              Text size:"sm"
+                "No. Web, Android, and iOS use Dowe-owned output."
         """
-  Section id:"accordion-patterns" py:{ xs:7 md:10 }
+  Section id:"accordion-patterns" boxed:true py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
         Text size:"xs" weight:"bold" spacing:"widest"
-          "ADVANCED PATTERNS"
+          "2 / COMPOSITION PATTERNS"
         Title size:"3xl" weight:"black"
-          "Use the body as a real view tree"
+          "Choose the right disclosure rhythm"
         Text size:"sm"
-          "Accordion items are not string-only slots. Use Grid, Flex, Text, Title, and actions to make each answer useful on its own."
-      Grid columns:{ xs:1 md:3 } gap:4
-        Card variant:"solid" p:5
-          Grid columns:1 gap:3
-            Text size:"xs" weight:"bold"
-              "OPERATIONS"
-            Title size:"lg" weight:"black"
-              "Deployment checks"
-            Accordion variant:"solid" scheme:"primary" rounded:"md"
-              item id:"build" label:"Build artifact" defaultOpen:true
-                Text size:"sm"
-                  "Compile once, inspect the generated artifact, and ship the selected target."
-              item id:"verify" label:"Validation"
-                Text size:"sm"
-                  "Keep compiler diagnostics and target checks in the same workflow."
-        Card variant:"solid" p:5
-          Grid columns:1 gap:3
-            Text size:"xs" weight:"bold"
-              "SCHEME"
-            Title size:"lg" weight:"black"
-              "Surface documentation"
-            Accordion variant:"solid" scheme:"background" rounded:"md"
-              item id:"contract" label:"Use scheme for families" defaultOpen:true
-                Text size:"sm"
-                  "background and surface are structural families intended for documentation panels."
-              item id:"variant" label:"Keep variant orthogonal"
-                Text size:"sm"
-                  "solid describes treatment; scheme supplies the matching container, content, border, and Icon colors."
-        Card variant:"solid" p:5
-          Grid columns:1 gap:3
-            Text size:"xs" weight:"bold"
-              "SINGLE OPEN"
-            Title size:"lg" weight:"black"
-              "Progressive disclosure"
-            Accordion multiple:false scheme:"muted" rounded:"md"
-              item id:"one" label:"First decision" defaultOpen:true
-                Text size:"sm"
-                  "Use the default-open item to establish the first step."
-              item id:"two" label:"Second decision"
-                Text size:"sm"
-                  "The next choice replaces the previous panel when multiple is false."
-  Section id:"accordion-props" py:{ xs:7 md:10 }
+          "Accordion is the collection-level pattern. Its items can stay independent, share one open state, or communicate an unavailable branch."
+      Card variant:"solid" scheme:"background" p:{ xs:5 md:7 }
+        Grid columns:{ xs:1 md:3 } gap:6
+          const patternNotes value:[
+            { id:"independent" label:"INDEPENDENT" title:"Compare answers" description:"multiple:true lets more than one panel stay open while a reader cross-checks details." }
+            { id:"focused" label:"FOCUSED" title:"Guide one choice" description:"multiple:false keeps the reading path focused and closes the previous answer." }
+            { id:"unavailable" label:"UNAVAILABLE" title:"Explain the boundary" description:"disabled preserves the item label and signals that the body is not actionable yet." }
+          ]
+          each in:patternNotes as:pattern key:pattern.id
+            Flex direction:"column" gap:2
+              Text size:"xs" weight:"bold" spacing:"widest" color:"primary"
+                "{pattern.label}"
+              Title size:"xl" weight:"black"
+                "{pattern.title}"
+              Text size:"sm"
+                "{pattern.description}"
+      Code:
+        language:"dowe"
+        variant:"solid"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Accordion multiple:false scheme:"muted"
+            item id:"one" label:"First decision" defaultOpen:true
+              Text size:"sm"
+                "Use the default-open item to establish the first step."
+            item id:"two" label:"Second decision"
+              Text size:"sm"
+                "The next choice replaces the previous panel."
+        """
+  Section id:"accordion-contract" boxed:true p:{ xs:5 md:7 }
+    Grid columns:{ xs:1 md:2 } gap:6
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest"
+          "CHILDREN"
+        Title size:"xl" weight:"black"
+          "A body, not a string slot"
+        Text size:"sm"
+          "The body accepts a normal Dowe view tree. Use layout to create hierarchy, Text for readable copy, and actions when the answer needs a next step."
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest"
+          "STATE"
+        Title size:"xl" weight:"black"
+          "Target-owned behavior"
+        Text size:"sm"
+          "defaultOpen and disabled are declarative inputs. Each generated target handles disclosure state, the shared arrow, metrics, and motion without a page-specific workflow."
+  Section id:"accordion-props" boxed:true py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
         Text size:"xs" weight:"bold" spacing:"widest"
-          "API"
+          "3 / API"
         Title size:"3xl" weight:"black"
           "Props"
         Text size:"sm"
-          "Accordion also accepts the applicable common spacing, sizing, border, visibility, and accessibility props. Solid uses full item borders consistently on every target."
+          "Accordion also accepts applicable common spacing, sizing, border, visibility, and accessibility props. Solid uses full item borders consistently on every target."
       Table:
         data:accordionProps
         variant:"solid"
@@ -134,7 +175,7 @@ page AccordionPage
         column field:"prop" label:"Prop" width:"1fr"
         column field:"type" label:"Type" width:"3fr"
         column field:"defaultValue" label:"Default" width:"1fr"
-  Section id:"accordion-next" p:{ xs:5 md:7 }
+  Section id:"accordion-next" boxed:true p:{ xs:5 md:7 }
     Flex wrap:true justify:"between" gap:4
       Button href:"/docs/views/control/toggle-group" variant:"solid" rounded:"full"
         "Previous ToggleGroup"

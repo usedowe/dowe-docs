@@ -1,16 +1,38 @@
 page AvatarPage
+  const avatarSizes:
+    value:[
+      { id:"xs" size:"xs" label:"XS" pixels:"24 px" }
+      { id:"sm" size:"sm" label:"SM" pixels:"32 px" }
+      { id:"md" size:"md" label:"MD" pixels:"40 px" }
+      { id:"lg" size:"lg" label:"LG" pixels:"48 px" }
+      { id:"xl" size:"xl" label:"XL" pixels:"64 px" }
+      { id:"2xl" size:"2xl" label:"2XL" pixels:"80 px" }
+      { id:"3xl" size:"3xl" label:"3XL" pixels:"96 px" }
+      { id:"4xl" size:"4xl" label:"4XL" pixels:"112 px" }
+      { id:"5xl" size:"5xl" label:"5XL" pixels:"128 px" }
+      { id:"6xl" size:"6xl" label:"6XL" pixels:"144 px" }
+      { id:"7xl" size:"7xl" label:"7XL" pixels:"160 px" }
+    ]
+  const avatarFallbacks:
+    value:[
+      { id:"ada" name:"Ada Lovelace" scheme:"primary" size:"xl" }
+      { id:"grace" name:"Grace Hopper" scheme:"secondary" size:"lg" }
+      { id:"linus" name:"Linus Torvalds" scheme:"success" size:"md" }
+      { id:"margaret" name:"Margaret Hamilton" scheme:"accent" size:"sm" }
+      { id:"alan" name:"Alan Turing" scheme:"muted" size:"xs" }
+    ]
   const avatarProps:
     value:[
-      { prop:"src" type:"asset path | https URL" defaultValue:"—" },
-      { prop:"name" type:"string" defaultValue:"—" },
-      { prop:"alt" type:"string" defaultValue:"Avatar" },
-      { prop:"variant" type:"solid" defaultValue:"solid" },
-      { prop:"scheme" type:"primary | secondary | accent | muted | background | surface | success | info | warning | danger" defaultValue:"primary" },
-      { prop:"size" type:"xs | sm | md | lg | xl" defaultValue:"md" },
-      { prop:"status" type:"online | offline | busy | away" defaultValue:"—" },
-      { prop:"bordered" type:"boolean" defaultValue:"false" },
-      { prop:"href" type:"string" defaultValue:"—" },
-      { prop:"onClick" type:"Action name" defaultValue:"—" },
+      { prop:"src" type:"asset path | https URL" defaultValue:"—" }
+      { prop:"name" type:"string" defaultValue:"—" }
+      { prop:"alt" type:"string" defaultValue:"Avatar" }
+      { prop:"variant" type:"solid" defaultValue:"solid" }
+      { prop:"scheme" type:"primary | secondary | accent | muted | background | surface | success | info | warning | danger" defaultValue:"primary" }
+      { prop:"size" type:"xs | sm | md | lg | xl | 2xl | 3xl | 4xl | 5xl | 6xl | 7xl" defaultValue:"md" }
+      { prop:"status" type:"online | offline | busy | away" defaultValue:"—" }
+      { prop:"bordered" type:"boolean" defaultValue:"false" }
+      { prop:"href" type:"string" defaultValue:"—" }
+      { prop:"onClick" type:"Action name" defaultValue:"—" }
     ]
   Section id:"avatar-introduction" py:{ xs:6 md:10 }
     Grid columns:1 gap:5
@@ -20,9 +42,47 @@ page AvatarPage
         Title size:{ xs:"3xl" md:"6xl" } weight:"black"
           "Avatar"
         Text size:"lg"
-          "Avatars identify people and entities with an image, initials, or a portable icon."
+          "Avatars identify people and entities with an image, initials, or a portable icon. Choose a size that matches the hierarchy of the surrounding content."
       Avatar src:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=160&q=80" name:"Maya Chen" alt:"Portrait of Maya Chen" size:"xl" status:"online" bordered:true
-  Section id:"avatar-images" p:{ xs:5 md:7 }
+  Section id:"avatar-sizes" p:{ xs:5 md:7 }
+    Grid columns:1 gap:6
+      Grid columns:1 gap:2
+        Text size:"xs" weight:"bold" spacing:"widest"
+          "SIZES"
+        Title size:"3xl" weight:"black"
+          "From compact to display"
+        Text size:"sm"
+          "Use xs through lg for dense metadata, xl for profile surfaces, and the new 2xl through 7xl sizes when the avatar is the focal identity. The pixel values are consistent across web, Android, and iOS."
+      Card variant:"solid" border:1 p:{ xs:5 md:7 }
+        Grid columns:{ xs:2 md:4 lg:6 } gap:5
+          each in:avatarSizes as:avatar key:avatar.id
+            Flex direction:"column" align:"center" gap:2
+              Avatar name:avatar.label alt:avatar.label size:avatar.size scheme:"primary" bordered:true
+              Text size:"xs" weight:"bold" align:"center"
+                "{avatar.label}"
+              Text size:"xs" align:"center"
+                "{avatar.pixels}"
+      Table:
+        data:avatarSizes
+        variant:"solid"
+        scheme:"surface"
+        size:"sm"
+        striped:true
+        dividers:true
+        rounded:"md"
+        column field:"size" label:"Size" width:"1fr"
+        column field:"pixels" label:"Pixels" width:"1fr"
+      Code:
+        language:"dowe"
+        variant:"solid"
+        scheme:"surface"
+        copyLabel:"Copy Dowe"
+        copiedLabel:"Copied"
+        content:"""
+          Avatar name:"Maya Chen" alt:"Portrait of Maya Chen" size:"2xl" status:"online" bordered:true
+          Avatar name:"Dowe" alt:"Dowe Agent" size:"7xl" scheme:"info"
+        """
+  Section id:"avatar-images" py:{ xs:7 md:10 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
         Text size:"xs" weight:"bold" spacing:"widest"
@@ -30,7 +90,7 @@ page AvatarPage
         Title size:"3xl" weight:"black"
           "Profiles with clear fallbacks"
         Text size:"sm"
-          "Use a packaged asset or an HTTPS image. Android loads both through its cached native image pipeline; when loading fails, Dowe falls back to initials resolved from name and then alt."
+          "Use a packaged asset or an HTTPS image. When loading fails, Dowe falls back to initials resolved from name and then alt. Keep alt descriptive when the image carries meaning."
       Card variant:"solid" p:{ xs:6 md:8 } border:1
         Grid columns:{ xs:1 md:3 } gap:6
           Avatar src:"https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=160&q=80" name:"Nora Kim" alt:"Portrait of Nora Kim" size:"xl" status:"online"
@@ -45,7 +105,7 @@ page AvatarPage
         content:"""
           Avatar src:"assets/people/maya.webp" name:"Maya Chen" alt:"Portrait of Maya Chen" size:"xl" status:"online" bordered:true
         """
-  Section id:"avatar-fallbacks" py:{ xs:7 md:10 }
+  Section id:"avatar-fallbacks" p:{ xs:5 md:7 }
     Grid columns:1 gap:6
       Grid columns:1 gap:2
         Text size:"xs" weight:"bold" spacing:"widest"
@@ -53,22 +113,23 @@ page AvatarPage
         Title size:"3xl" weight:"black"
           "Initials stay recognizable"
         Text size:"sm"
-          "Without src, Avatar renders initials from name. Variant and scheme keep the fallback aligned with the design system."
-      Grid columns:{ xs:2 md:5 } gap:4
-        Avatar name:"Ada Lovelace" alt:"Ada Lovelace" variant:"solid" scheme:"primary" size:"xl"
-        Avatar name:"Grace Hopper" alt:"Grace Hopper" variant:"solid" scheme:"secondary" size:"lg"
-        Avatar name:"Linus Torvalds" alt:"Linus Torvalds" variant:"solid" scheme:"success" size:"md"
-        Avatar name:"Margaret Hamilton" alt:"Margaret Hamilton" variant:"solid" scheme:"accent" size:"sm"
-        Avatar name:"Alan Turing" alt:"Alan Turing" variant:"solid" scheme:"muted" size:"xs"
-  Section id:"avatar-priority" p:{ xs:5 md:7 }
-    Grid columns:1 gap:5
-      Grid columns:1 gap:2
+          "Without src, Avatar renders initials from name. Variant and scheme keep the fallback aligned with the design system, while alt remains the accessible description."
+      Card variant:"solid" border:1 p:{ xs:5 md:7 }
+        Grid columns:{ xs:2 md:5 } gap:4
+          each in:avatarFallbacks as:avatar key:avatar.id
+            Flex direction:"column" align:"center" gap:2
+              Avatar name:avatar.name alt:avatar.name variant:"solid" scheme:avatar.scheme size:avatar.size
+              Text size:"xs" align:"center"
+                "{avatar.name}"
+  Section id:"avatar-priority" py:{ xs:7 md:10 }
+    Grid columns:{ xs:1 md:2 } gap:6
+      Flex direction:"column" gap:2
         Text size:"xs" weight:"bold" spacing:"widest"
           "CONTENT PRIORITY"
         Title size:"3xl" weight:"black"
           "Image, icon, then initials"
         Text size:"sm"
-          "A valid src has priority over the icon region. Without either, Dowe derives initials from name and alt."
+          "A valid src has priority over the icon region. Without either, Dowe derives initials from name and alt. This keeps an identity useful even before an image is available."
       Code:
         language:"dowe"
         variant:"solid"
@@ -76,11 +137,34 @@ page AvatarPage
         copyLabel:"Copy Dowe"
         copiedLabel:"Copied"
         content:"""
-          Avatar name:"Dowe Agent" alt:"Dowe Agent" variant:"solid" scheme:"info" size:"lg"
+          Avatar name:"Dowe Agent" alt:"Dowe Agent" variant:"solid" scheme:"info" size:"2xl"
             icon
               Svg viewBox:"0 0 24 24" w:6 h:6
                 Path d:"M12 2a5 5 0 0 0-5 5v3H5v12h14V10h-2V7a5 5 0 0 0-5-5Z" fill:"currentColor"
         """
+  Section id:"avatar-guidance" p:{ xs:5 md:7 }
+    Grid columns:{ xs:1 md:3 } gap:5
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest"
+          "DENSITY"
+        Title size:"xl" weight:"black"
+          "Match the context"
+        Text size:"sm"
+          "Use smaller sizes in lists and navigation. Reserve 3xl and above for profile headers, empty states, or identity-led hero content."
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest"
+          "STATUS"
+        Title size:"xl" weight:"black"
+          "Make presence intentional"
+        Text size:"sm"
+          "online, offline, busy, and away add a compact presence signal. Use status with a meaningful identity, not as the only label."
+      Flex direction:"column" gap:2
+        Text size:"xs" weight:"bold" spacing:"widest"
+          "ACCESSIBILITY"
+        Title size:"xl" weight:"black"
+          "Describe the person"
+        Text size:"sm"
+          "Provide alt for informative images. For initials or icon fallbacks, name supplies the identity and alt supplies the accessible description."
   Section id:"avatar-props" py:{ xs:7 md:10 }
     Grid columns:1 gap:5
       Grid columns:1 gap:2
@@ -101,3 +185,9 @@ page AvatarPage
         column field:"prop" label:"Prop" width:"1fr"
         column field:"type" label:"Type" width:"3fr"
         column field:"defaultValue" label:"Default" width:"1fr"
+  Section id:"avatar-next" p:{ xs:5 md:7 }
+    Flex wrap:true justify:"between" gap:4
+      Button href:"/docs/views/display/accordion" variant:"solid" rounded:"full"
+        "Previous Accordion"
+      Button href:"/docs/views/display/avatar-group" rounded:"full"
+        "Next AvatarGroup"

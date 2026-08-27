@@ -1,0 +1,265 @@
+{
+  "version": 1,
+  "databases": [
+    {
+      "binding": "ExamplesDb",
+      "provider": "dowe",
+      "database": "dowe-docs-examples",
+      "head": "7d867dd44071e8cb6082801bd888373f69a29241b26510f220aac5207c541247",
+      "nodes": [
+        {
+          "sequence": 1,
+          "fingerprint": "7d867dd44071e8cb6082801bd888373f69a29241b26510f220aac5207c541247",
+          "parent": null,
+          "file": null,
+          "sql_fingerprint": null,
+          "snapshot": {
+            "entities": [
+              {
+                "binding": "ExampleBlogs",
+                "table": "example_blogs",
+                "fields": [
+                  {
+                    "name": "content",
+                    "field_type": "string",
+                    "primary": false,
+                    "required": true,
+                    "unique": false,
+                    "index": false
+                  },
+                  {
+                    "name": "createdAt",
+                    "field_type": "timestamp",
+                    "primary": false,
+                    "required": true,
+                    "unique": false,
+                    "index": false
+                  },
+                  {
+                    "name": "id",
+                    "field_type": "string",
+                    "primary": true,
+                    "required": false,
+                    "unique": false,
+                    "index": false
+                  },
+                  {
+                    "name": "ownerId",
+                    "field_type": "string",
+                    "primary": false,
+                    "required": true,
+                    "unique": false,
+                    "index": true
+                  },
+                  {
+                    "name": "title",
+                    "field_type": "string",
+                    "primary": false,
+                    "required": true,
+                    "unique": false,
+                    "index": false
+                  },
+                  {
+                    "name": "updatedAt",
+                    "field_type": "timestamp",
+                    "primary": false,
+                    "required": true,
+                    "unique": false,
+                    "index": false
+                  }
+                ]
+              },
+              {
+                "binding": "ExampleUsers",
+                "table": "example_users",
+                "fields": [
+                  {
+                    "name": "createdAt",
+                    "field_type": "timestamp",
+                    "primary": false,
+                    "required": true,
+                    "unique": false,
+                    "index": false
+                  },
+                  {
+                    "name": "email",
+                    "field_type": "string",
+                    "primary": false,
+                    "required": true,
+                    "unique": true,
+                    "index": false
+                  },
+                  {
+                    "name": "id",
+                    "field_type": "string",
+                    "primary": true,
+                    "required": false,
+                    "unique": false,
+                    "index": false
+                  },
+                  {
+                    "name": "name",
+                    "field_type": "string",
+                    "primary": false,
+                    "required": true,
+                    "unique": false,
+                    "index": false
+                  },
+                  {
+                    "name": "passwordHash",
+                    "field_type": "string",
+                    "primary": false,
+                    "required": true,
+                    "unique": false,
+                    "index": false
+                  }
+                ]
+              },
+              {
+                "binding": "Sessions",
+                "table": "sessions",
+                "fields": [
+                  {
+                    "name": "createdAt",
+                    "field_type": "timestamp",
+                    "primary": false,
+                    "required": true,
+                    "unique": false,
+                    "index": false
+                  },
+                  {
+                    "name": "id",
+                    "field_type": "string",
+                    "primary": true,
+                    "required": false,
+                    "unique": false,
+                    "index": false
+                  },
+                  {
+                    "name": "userId",
+                    "field_type": "string",
+                    "primary": false,
+                    "required": true,
+                    "unique": false,
+                    "index": true
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "binding": "IconDb",
+      "provider": "dowe",
+      "database": "dowe-docs-icons",
+      "head": "cf9fca260acc9d9bd787af90ef3261ed5731a91070ad94ce5ef36ea7988c380e",
+      "nodes": [
+        {
+          "sequence": 1,
+          "fingerprint": "cf9fca260acc9d9bd787af90ef3261ed5731a91070ad94ce5ef36ea7988c380e",
+          "parent": null,
+          "file": null,
+          "sql_fingerprint": null,
+          "snapshot": {
+            "entities": [
+              {
+                "binding": "IconCategories",
+                "table": "icon_categories",
+                "fields": [
+                  {
+                    "name": "count",
+                    "field_type": "int",
+                    "primary": false,
+                    "required": true,
+                    "unique": false,
+                    "index": false
+                  },
+                  {
+                    "name": "label",
+                    "field_type": "string",
+                    "primary": false,
+                    "required": true,
+                    "unique": false,
+                    "index": false
+                  },
+                  {
+                    "name": "position",
+                    "field_type": "int",
+                    "primary": false,
+                    "required": true,
+                    "unique": false,
+                    "index": true
+                  },
+                  {
+                    "name": "positionKey",
+                    "field_type": "string",
+                    "primary": false,
+                    "required": true,
+                    "unique": false,
+                    "index": true
+                  },
+                  {
+                    "name": "slug",
+                    "field_type": "string",
+                    "primary": false,
+                    "required": true,
+                    "unique": true,
+                    "index": true
+                  }
+                ]
+              },
+              {
+                "binding": "Icons",
+                "table": "icons",
+                "fields": [
+                  {
+                    "name": "category",
+                    "field_type": "string",
+                    "primary": false,
+                    "required": true,
+                    "unique": false,
+                    "index": true
+                  },
+                  {
+                    "name": "key",
+                    "field_type": "string",
+                    "primary": false,
+                    "required": true,
+                    "unique": true,
+                    "index": true
+                  },
+                  {
+                    "name": "name",
+                    "field_type": "string",
+                    "primary": false,
+                    "required": true,
+                    "unique": false,
+                    "index": true
+                  },
+                  {
+                    "name": "style",
+                    "field_type": "string",
+                    "primary": false,
+                    "required": true,
+                    "unique": false,
+                    "index": true
+                  },
+                  {
+                    "name": "svg",
+                    "field_type": "json",
+                    "primary": false,
+                    "required": true,
+                    "unique": false,
+                    "index": false
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
