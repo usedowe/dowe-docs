@@ -103,7 +103,7 @@ page HomePage
           }
         ]
       each in:platforms as:platform key:platform.id
-        Card variant:"outlined" scheme:"surface" rounded:"xl" shadow:"md"
+        Card variant:"solid" scheme:"surface" rounded:"xl" shadow:"md"
           Flex direction:"column" align:"center" gap:3
             Avatar:
               name:"Dowe Agent"
